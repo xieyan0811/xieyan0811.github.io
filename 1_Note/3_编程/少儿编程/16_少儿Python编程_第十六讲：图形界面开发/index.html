@@ -1,0 +1,515 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>少儿Python编程_第十六讲：图形界面开发 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#少儿编程 #Python #gui 少儿Python编程_第十六讲：图形界面开发 运行在计算机上的程序一般分为命令行程序和图形界面程序，例如：安装Python三方模块的pip命令，软件版本管理的git命令等都属于命令行程序；而大多数软件使用图形界面，例如Windows的Word，Excel，画图等等软件都是图形化用户界面，简称GUI。 在图形化用户界面中，用户可以用鼠标操作菜单、按钮等图形化组件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="少儿Python编程_第十六讲：图形界面开发">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/16_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2%EF%BC%9A%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="#少儿编程 #Python #gui 少儿Python编程_第十六讲：图形界面开发 运行在计算机上的程序一般分为命令行程序和图形界面程序，例如：安装Python三方模块的pip命令，软件版本管理的git命令等都属于命令行程序；而大多数软件使用图形界面，例如Windows的Word，Excel，画图等等软件都是图形化用户界面，简称GUI。 在图形化用户界面中，用户可以用鼠标操作菜单、按钮等图形化组件">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-02-18T14:38:15.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.468Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="少儿编程">
+<meta property="article:tag" content="gui">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/16_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2%EF%BC%9A%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '少儿Python编程_第十六讲：图形界面开发',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">少儿Python编程_第十六讲：图形界面开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-02-18T14:38:15.000Z" title="Created 2020-02-18 14:38:15">2020-02-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.468Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="少儿Python编程_第十六讲：图形界面开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#少儿编程 #Python #gui</p>
+<h1
+id="少儿python编程_第十六讲图形界面开发">少儿Python编程_第十六讲：图形界面开发</h1>
+<p>运行在计算机上的程序一般分为命令行程序和图形界面程序，例如：安装Python三方模块的pip命令，软件版本管理的git命令等都属于命令行程序；而大多数软件使用图形界面，例如Windows的Word，Excel，画图等等软件都是图形化用户界面，简称GUI。</p>
+<p>在图形化用户界面中，用户可以用鼠标操作菜单、按钮等图形化组件，并从对话框等图型化组件中获取信息。实现图形化界面的方法与制作游戏界面的流程相似：在初始化工具之后，进入主循环接收用户事件，并且进行显示、反馈等处理，直到程序退出，才结束主循环。与绘制游戏界面不同的是，游戏界面中的绘图、处理鼠标事件都需要开发者写程序自行处理，而图形用户界面内部已经实现了按钮、文本框的绘制和响应事件，使用时调用这些控件即可，减少了编写程序的工作量。</p>
+<p>图形界面在任何编程语言中原理都一样，本讲通过Python图形界面编程，介绍图形界面中的基本概念和简单用法：常用控件、布局方法、事件处理。</p>
+<h2 id="图形界面入门">16.1 图形界面入门</h2>
+<p>Python的图形用户界面常使用Tkinter开发，Tcl
+是“工具控制语言”的缩写。Tk是Tcl“图形工具箱”的扩展，而Tkinter是Tk
+interface的缩写，意思是TK界面。</p>
+<p>在Windows系统中Tkinter已由Anaconda安装，可以直接使用，在Linux下则需要使用apt安装python3-tk软件包。</p>
+<h3 id="基本概念">16.1.1 基本概念</h3>
+<p>在学习具体编程之前，先了解一些基本概念。</p>
+<p><strong>1．控件</strong></p>
+<p>控件也叫组件，是图形用户界面中最基本的组成部分，常用的控件有：按钮、文本框、标签、表格等等。</p>
+<p><strong>2．容器</strong></p>
+<p>容器是一种特殊的控件，它能容纳其它控件，如窗口、对话框都属于容器。</p>
+<p><strong>3．布局</strong></p>
+<p>布局是控制控件在容器中的大小和位置的方法。</p>
+<p><strong>4．事件处理</strong></p>
+<p>事件是可以被程序识别的操作，如：按下按钮，选择某个单选按钮或者复选框，关闭程序等等，开发者往往需要对事件做出处理，响应某个事件的函数就是事件处理程序，也被称为回调函数。</p>
+<h3 id="程序示例">16.1.2程序示例</h3>
+<p>下例是一个简单的图形界面程序，它创建窗口。并在窗口中显示两行文字“test1”和“test2”。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> <span class="im">import</span> tkinter  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>    </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span> win <span class="op">=</span> tkinter.Tk()  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span> win.geometry(<span class="st">&quot;320x240+200+50&quot;</span>)  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span> tx1 <span class="op">=</span> tkinter.Label(win, text<span class="op">=</span><span class="st">&quot;test1&quot;</span>)  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">6</span> tx1.pack()  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">7</span> tx2 <span class="op">=</span> tkinter.Label(win, text<span class="op">=</span><span class="st">&quot;test2&quot;</span>)  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">8</span> tx2.pack()  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">9</span> win.mainloop()  </span></code></pre></div>
+<p>第01行引入tkinter模块。<br />
+第03行创建一个实例，用于显示窗口。<br />
+第04行设置窗口大小为：宽度320，高度240，位置在屏幕横坐标200，纵坐标50。<br />
+第05行创建标签控件tx1用于显示文字，Label函数有两个参数，第一个参数指定控件所在的容器，第二个参数text指定标签上显示的文字。<br />
+第06行将控件放置在容器之中，pack是布局的一种方法，将在之后的“布局”部分详细介绍。<br />
+第07-08行创建和放置了第二个标签tx2。<br />
+第09行开启主循环，在窗口关闭时主循环退出，程序结束。</p>
+<p>程序运行结果如图16.1所示：</p>
+<p><img
+src="https://pic2.zhimg.com/80/v2-615ed3d48cd01a0e34497a087da1172d_1440w.jpg" /></p>
+<p>16.1 简单的图形用户界面</p>
+<h2 id="布局">16.2 布局</h2>
+<p>布局是把控件放置到容器之中，并且指定放在哪里，以及如何放置。Tkinter有3种基本布局管理器：pack、grid和place，还提供容器Frame支持复杂的嵌套布局。</p>
+<h3 id="常用布局方法">16.2.1 常用布局方法</h3>
+<p><strong>1. pack布局</strong></p>
+<p>pack是最常用的布局方法——顺序布局，用于按顺序添加各个控件，上例中使用pack分别添加了两个文字标签，可以看到控件按添加的顺序依次显示在窗口中。图16.2分别展示了横向和纵向顺序布局的方法。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-d01b095c18743e8aa315c3e1dc360a17_1440w.jpg" /></p>
+<p>图16.2 pack布局示意图</p>
+<p>其基本语法如下：</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> 控件名.pack(可选参数)  </span></code></pre></div>
+<p>布局的可选参数如表16.1所示：</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-8b98fbd0ba83e8163b869e961eb4b4d7_1440w.jpg" /></p>
+<p>表16.1 布局参数表</p>
+<p><strong>2．grid布局</strong></p>
+<p>grid按网格摆放控件，如图16.3所示，其中每个控件的位置都由行索引row和列索引colomn两个值确定，索引号从0开始（不是1），如左上角的控件1行列为0,0；控件2行列为0,1，以此类推。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-2addeffab7c970578b8d2d4d12edd993_1440w.jpg" /></p>
+<p>图16.3 grid布局示意图</p>
+<p>其基本语法如下，该函数也支持表16.1中的参数。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> 控件名.grid(row<span class="op">=</span>行索引, column<span class="op">=</span>列索引,可选参数)  </span></code></pre></div>
+<p><strong>3．place布局</strong></p>
+<p>place按具体坐标摆放控件。如图16.4所示，用x1,y1设置控件1左上角的位置。</p>
+<p><img
+src="https://pic1.zhimg.com/80/v2-993da8a240e09f71ac1d09c72978db44_1440w.jpg" /></p>
+<p>图16.4 place布局示意图</p>
+<p>其基本用法如下，该函数也支持表16.1中的参数。</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> 控件名.place(x<span class="op">=</span>横坐标, y<span class="op">=</span>纵坐标,可选参数)  </span></code></pre></div>
+<h3 id="容器布局">16.2.2 容器布局</h3>
+<p>当界面设计比较复杂时，一般使用Frame容器实现布局。Frame译为框架，它是一种容器，容器是可以包含其它控件的特殊控件。图16.5在同一窗口中加入了11个控件，包含顺序和网格两种布局方法，实现此界面，需要建立两个frame容器，一个容器为深色背景，用于存放控件1和控件2，另一个容器为浅灰色背景，用于存放其它网络布局的控件。Frame本身也是控件，两个frame控件也使用了顺序布局。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-6c39d832c6d687a504c105d0843eb457_1440w.jpg" /></p>
+<p>图16.5 frame容器示意图</p>
+<p>其基本语法如下。</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> f<span class="op">=</span> Frame(父容器,可选参数)  </span></code></pre></div>
+<p>以上程序创建了容器f，之后可以将其它控件加入该容器。“父/子”用于描述容器和控件之间的关系，通常将包含其它控件的容器称为“父”，而被包含的控件被称为“子”。</p>
+<h3 id="综合实例">16.2.3 综合实例</h3>
+<p>本例中使用了pack、grid、place、frame多种方法布局界面。</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> <span class="im">import</span> tkinter  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>    </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span> win <span class="op">=</span> tkinter.Tk()  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span> win.geometry(<span class="st">&quot;320x240+200+50&quot;</span>)  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span>    </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">6</span> f1 <span class="op">=</span> tkinter.Frame(win)  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">7</span> f1.pack()  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">8</span> f2 <span class="op">=</span> tkinter.Frame(win)  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">9</span> f2.pack()  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> tx1 <span class="op">=</span> tkinter.Label(f1, text<span class="op">=</span><span class="st">&quot;test1&quot;</span>)  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span> tx1.grid(row<span class="op">=</span><span class="dv">0</span>,column<span class="op">=</span><span class="dv">0</span>)  </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span> tx2 <span class="op">=</span> tkinter.Label(f1, text<span class="op">=</span><span class="st">&quot;test2&quot;</span>)  </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span> tx2.grid(row<span class="op">=</span><span class="dv">1</span>,column<span class="op">=</span><span class="dv">1</span>)  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span> tx3 <span class="op">=</span> tkinter.Label(f2, text<span class="op">=</span><span class="st">&quot;test3&quot;</span>)  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> tx3.pack()  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="dv">17</span> tx4 <span class="op">=</span> tkinter.Label(win, text<span class="op">=</span><span class="st">&quot;test4&quot;</span>)  </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span> tx4.place(x<span class="op">=</span><span class="dv">10</span>,y<span class="op">=</span><span class="dv">10</span>)  </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="dv">19</span>    </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> win.mainloop()  </span></code></pre></div>
+<p>第01-04行用于引入模块和创建窗口。<br />
+第06行创建容器f1，并指定其父容器为窗口。<br />
+第07行用pack方法将容器以顺序方式布局。<br />
+第08-09行建立并加入了第二个容器f2。<br />
+第11行创建标签控件tx1，设置其父容器为f1。<br />
+第12行用网格方式布局tx1显示在网格的第0行0列。<br />
+第13-14行创建标签控件tx2，并以网格方式布局tx2显示在网格的第1行1列。<br />
+第15行创建标签tx3，设置其父容器为f2。<br />
+第16行用顺序方式将控件tx3布局到其父容器中。<br />
+第17行创建标签tx4，设置其父容器为窗口win。<br />
+第18行用指定具体位置的方式将控件布局到窗口的坐标为(10,10)位置上。<br />
+第20行开启主循环，在窗口关闭时主循环退出，程序结束。</p>
+<p>程序运行结果如图16.7所示，其中深灰色部分为容器f2，浅灰色部分为容器f1，它们大小不同是由于容器大小等于其子控件大小。f1中子控件更多，因此区域更大。</p>
+<p><img
+src="https://pic1.zhimg.com/80/v2-00717956490f98a0fe98c0056fab5164_1440w.jpg" /></p>
+<p>图16.6 布局综合实例运行结果</p>
+<h2 id="控件">16.3 控件</h2>
+<p>Tkinter除了标签控件Label，还支持很多其它控件，本节将介绍最为常用的：按钮、输入框、选择框、以及显示图片的控件。</p>
+<h3 id="常用控件">16.3.1 常用控件</h3>
+<p><strong>1．标签</strong></p>
+<p>标签控件用于显示文字或者图片，定义方法如下：</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> tkinter.Label(父容器, [可选参数])  </span></code></pre></div>
+<p>控件常用的可选参数如表16.2所示：</p>
+<p><img
+src="https://pic2.zhimg.com/80/v2-9b2846796468fac1e5b8862ac91a68e1_1440w.jpg" /></p>
+<p>表16.2 控件常用参数</p>
+<p><strong>2．按钮</strong></p>
+<p>按钮控件是最常用的控件，例如对话框中的“确定”、“取消”都用按钮控件实现。定义方法如下：</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> tkinter.Button(父容器, [可选参数])  </span></code></pre></div>
+<p><strong>3．输入框</strong></p>
+<p>输入框显示为矩形框，供用户输入信息使用。定义方法如下：</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> tkinter.Entry(父容器, [可选参数])  </span></code></pre></div>
+<p><strong>4．选择框</strong></p>
+<p>一般情况下，选择框前面是一个矩形方框，后面跟随说明文字，例如：让用户选择“婚否”，结婚则在矩形方框中打钩，否则留空。定义方法如下：</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> tkinter.Checkbutton(父容器, [可选参数])  </span></code></pre></div>
+<p><strong>5．图片</strong></p>
+<p>图片不直接作为控件使用，而是作为标签或者其它控件的背景，如果不设置标签文字，只设置其背景图片，则该标签是一个图片标签。图片的加载方法如下：</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> tkinter.PhotoImage(<span class="bu">file</span><span class="op">=</span>图片路径)  </span></code></pre></div>
+<p>图片加载后，可放在控件的可选参数image中使用。</p>
+<h3 id="获取和设置控件的属性">16.3.2 获取和设置控件的属性</h3>
+<p>属性指的是控件的性质，一般在创建控件时指定，如：控件的宽度width，高度height等，查看控件的属性方法类似于访问字典，具体方法如下：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> 控件变量名[属性名]  </span></code></pre></div>
+<p>使用configure方法可以重新设置控件属性值，使用方法如下：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> 控件变量名.configure(属性名<span class="op">=</span>属性值)  </span></code></pre></div>
+<p>下例是操作属性的实际应用：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> x <span class="op">=</span> tkinter.Label(win, text<span class="op">=</span>”abcd”)  </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span> <span class="bu">print</span>(x[‘text’])  </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span> x.configure(text<span class="op">=</span>’efg’)  </span></code></pre></div>
+<p>第01行建立了标签控件，并设置标签显示的文字：text属性为“abcd”。<br />
+第02行显示出控件变量x的text属性。<br />
+第03行修改控件变量x的text属性为“efg”。</p>
+<h3 id="综合实例-1">16.3.3 综合实例</h3>
+<p>下面通过综合实例，进一步巩固本节中介绍的各个控件的用法。</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> <span class="im">import</span> tkinter  </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>    </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span> win <span class="op">=</span> tkinter.Tk()  </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span> label <span class="op">=</span> tkinter.Label(win,text<span class="op">=</span><span class="st">&quot;请填表&quot;</span>) <span class="co"># 创建文字标签控件  </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span> label.pack()  </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">6</span> img <span class="op">=</span> tkinter.PhotoImage(<span class="op">/</span><span class="bu">file</span><span class="op">=</span><span class="st">&#39;bird.png&#39;</span>) <span class="co"># 加载图片  </span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">7</span> label_img <span class="op">=</span> tkinter.Label(win,image<span class="op">=</span>img) <span class="co"># 创建图片标签控件  </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">8</span> label_img.pack()  </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">9</span> entry <span class="op">=</span> tkinter.Entry(win) <span class="co"># 创建输入框控件  </span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> entry.pack()  </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> check <span class="op">=</span> tkinter.Checkbutton(win,text<span class="op">=</span><span class="st">&quot;婚否&quot;</span>) <span class="co"># 创建选择框控件  </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span> check.pack(anchor<span class="op">=</span><span class="st">&#39;w&#39;</span>)  </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span> button <span class="op">=</span> tkinter.Button(win, text<span class="op">=</span><span class="st">&quot;退出&quot;</span>) <span class="co"># 创建按钮控件  </span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span> button.pack()  </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span> win.mainloop()  </span></code></pre></div>
+<p>程序运行结果如图16.7所示：</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-8e17dc674442b4e0cbcc49e9e03fae3b_1440w.png" /></p>
+<p>16.7 控件综合实例运行结果</p>
+<p><strong>课后练习：</strong>（练习答案见本讲最后的小结部分）</p>
+<p>练习一：绘制如图16.8所示的计算器界面，其中上方用Label显示输入数值和计算结果，下方提供12个按钮用于输入数字和符号。</p>
+<p><img
+src="https://pic1.zhimg.com/80/v2-6ddccd7c82183a535ccb4416eb052404_1440w.png" /></p>
+<p>图16.8 计算器效果图</p>
+<h2 id="事件处理">16.4 事件处理</h2>
+<p>程序需要接收用户操作，并进行反馈。用户操作和系统发来的信息统称事件，事件又分为两种，一种是与整个窗口相关的事件，比如关闭窗口，另一种是与单个控件相关的事件，比如按下按钮Button产生的事件。</p>
+<h3 id="控件事件处理">16.4.1 控件事件处理</h3>
+<p>在创建按钮时，可通过command参数设置当按钮按下时调用的函数，即事件响应函数，用法如下例所示：</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> <span class="kw">def</span> do_1():  </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>     <span class="bu">print</span>(<span class="st">&quot;按下1&quot;</span>)  </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span>    </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span> bt<span class="op">=</span>tkinter.Button(win, text<span class="op">=</span><span class="st">&#39;1&#39;</span>,command<span class="op">=</span>do_1)  </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span> bt.pack()  </span></code></pre></div>
+<p>第01-02行定义了事件的响应函数do_1，并在函数中显示字符串“按下1”。<br />
+第04行创建按钮控件，并指定按下按钮时调用函数do_1（注意：本行do_1函数并未被调用）。</p>
+<h3 id="窗口事件处理">16.4.2 窗口事件处理</h3>
+<p>在创建按钮时，可通过protocol设置窗口相关事件的响应函数。下例为设置窗口关闭事件，在窗口关闭时自动调用fun1函数。</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span> <span class="im">import</span> tkinter  </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>    </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span> <span class="kw">def</span> func1():  </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span>     <span class="bu">print</span>(<span class="st">&quot;关闭窗口&quot;</span>)  </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span>     win.destroy()  </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">6</span>       </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">7</span> win <span class="op">=</span> tkinter.Tk()  </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">8</span> win.geometry(<span class="st">&quot;400x400+200+50&quot;</span>)  </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">9</span> win.protocol(<span class="st">&quot;WM_DELETE_WINDOW&quot;</span>,func1)  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>    </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> win.mainloop()  </span></code></pre></div>
+<p>第03行定义事件响应函数fun1。<br />
+第04行显示字符串＂关闭窗口＂。<br />
+第05行调用窗口的destroy方法销毁窗口。<br />
+第09行设置在窗口关闭时调用自定义函数fun1，即关联事件和响应函数。</p>
+<p><strong>课后练习：</strong></p>
+<p>练习二：继续完成上题中计算器程序，响应用户按下各个按钮的事件，更新Label显示算式，在用户按下”=”按钮时，计算算式结果。</p>
+<p>（提示：Python的eval函数用于执行字符串表达式，例如eval(“1+2”)的结果为3；十二个按钮功能类似，建议先将其中一两个按钮调试正常后，用复制粘贴的方法实现其它按钮，以免在调试过程中反复修改）。</p>
+<h2 id="思维训练">16.5 思维训练</h2>
+<h3 id="眼中的世界">16.5.1 眼中的世界</h3>
+<p>人们对客观事物比如什么是一、二、三、花、草、树木有着类似的理解，有了这些共识，可以通过语言来沟通；这也让我们误认为，每个人眼中的世界都是相同的。</p>
+<p>然而，“一千个读者眼里有一千个哈姆雷特”，不仅是故事，人们对单个文字的理解也不尽相同。对于什么是“爱”，什么是“道德”，这些并非具体可见的事物，由于文化和经历不同，大家的理解也不尽相同，越是不能用语言描述的感觉，差异可能越大。</p>
+<p>为什么有些笑话，只有大人才觉得有趣，因为孩子并不知道很多语言的二义性以及背后的引申含义，艺术家激活了大家拥有的共同体验，它们又往往是不可言喻的。引领着读者的思维在具体文字图像和感觉之间跳跃。</p>
+<p>语言是一种抽象的符号，是人们交流的工具，却不是现实或思维本身。任何事物或者词汇的意义都取决于它与其它事物的关系，从而形成了脑中复杂的关系网络，而不是简单的字典上的定义。</p>
+<h3 id="用语言思考">16.5.2 用语言思考</h3>
+<p>在表达的过程中，思维本身也在变化，表达过程中可能创造出一些新的想法，这就是“用语言思考”。对于复杂的内容，无法用语言描述它的所有细节，在表达的过程中，必然经过提炼和简化，这也重构了思维状态。因此，有时候向别人提问的过程中，自己就找到了答案。</p>
+<p>语言的结构以链式为主，而思维内部一般是网状连接，描述过程是将一团相互纠缠的细网拆解成为一条主链。当一个人用语言的标号代替一套复杂的结构，就可能建立和处理更加复杂的内容。想要利用语言在他人脑中重建自己脑中的思维结构，必须掌握网状和链状结构相互转换的能力，同时还要了解大家头脑中的“共识”。</p>
+<p>比如写一部小说或者电影的观后感就是一种总结和梳理，从文章的内容和结构上也能看到写作者的思路和关注点。练习作文或者写程序，不只是掌握语言本身，也是锻炼总结、抽象的能力。这种能力必须通过不断地书写、修改、总结来增强。</p>
+<p>虽然很多思维与语言无关，比如触觉、味觉、情绪，不一定能用语言精确地表达出来，但我们仍然常用语言来思考问题，比如常常听到小孩自言自语，成人思考问题，有时也像在脑中独白或者与人对话，这都是语言赋予我们的思考方式。</p>
+<h3 id="语言以外的表达方式">16.5.3 语言以外的表达方式</h3>
+<p>语言是一种链式的表达方式，除了简单，它还有利于推导，归因……但是，脑中的结构往往更加复杂，比如下图中的关系，虽然可以用语言描述，但是非常麻烦。除了各个部件之间的关系，描述时还需要考虑如何遣词造句，这就把问题变得更加复杂。</p>
+<p><img
+src="https://pic4.zhimg.com/80/v2-41cfffd9fc715b2d0b5f57b6296e664b_1440w.jpg" /></p>
+<p>图16.9 关系图</p>
+<p>流程图，思维导图，公式，程序，它们不仅与自然语言的语法不同，结构也不同。在不同情况下，可采用不同的表达方式，如果做数学应用题的时候也用画图的方法，换一种角度表达，可能描述本身就是问题的答案。</p>
+<h3 id="学习语言">16.5.4 学习语言</h3>
+<p>霍金曾说：多写一个公式就会吓跑一半读者，英国一项研究证明：数学公式不但会吓跑普通读者，科学家也会被公式吓跑。这主要由于日常生活中并不经常使用公式。学习语言需要大量时间。自然语言是这样，公式和程序语言也一样，需要反复学习和使用才能记忆。</p>
+<p>脑中没有大量的存储空间用于记忆，即使空间足够，从海量信息之中查找也需要大量时间。因此，只有反复使用的内容才能被记住。也只有掌握了语言，才可能利用它思考和解决问题。学任何一门非母语的语言都有很大难度，甚至大多数人对母语掌握得也没有想象中那么好，比如很少有人能驾驭小说、新闻等不同风格的文章写作。</p>
+<p>写作的人将脑中的思维框架转换成文字，并试图在读者脑中构建起类似的结构，其中包括着大量的常识和背景知识，比如通过故事发生的时间、地点、氛围、故事风格，激活读者脑中的某种场景，这些都是文字之外的信息。思维中故事的框架是多层次的网络，而机器所识别的文字只是相对扁平的结构。</p>
+<p>通过前几讲的学习可以看到，目前机器学习模仿写武侠小说的能力已经非常强大，而小说的风格明显不适合写新闻。如果想训练机器写所有类型文章，则需要使用非常大量的数据训练模型，让它拥有基本写作能力。然后再根据要生成的不同文章类型，定向训练。机器有海量的存储和算力，但不是每个人都有时间和条件作大规模的训练。</p>
+<p>学习自然语言也一样，如果希望读懂新闻，对话，科技论文，就需要非常大量的训练，不如想看论文，就主要读论文，当然，练习“阅读论文”对“对话水平”提高有限。</p>
+<h2 id="小结">16.6 小结</h2>
+<h3 id="单词">16.6.1单词</h3>
+<p>本讲需要掌握的英文单词如表16.3所示。</p>
+<p><img
+src="https://pic1.zhimg.com/80/v2-e2c9e19b0038ae7a4eed54b034c17980_1440w.jpg" /></p>
+<p>表16.3本讲需要掌握的英文单词</p>
+<h3 id="习题答案">16.6.2习题答案</h3>
+<p>1．练习一：绘制如图16.8所示的计算器界面，其中上方用Label显示输入数值和计算结果，下方提供12个按钮用于输入数字和符号。</p>
+<p>2．练习二：继续完成上题中计算器程序，响应用户按下各个按钮的事件，更新Label显示算式，在用户按下”=”按钮时，计算算式结果。</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">1</span>   <span class="im">import</span> tkinter  </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">2</span>     </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">3</span>   win<span class="op">=</span>tkinter.Tk()  </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">4</span>     </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">5</span>   f1<span class="op">=</span>tkinter.Frame(win)  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">6</span>   f1.pack()  </span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">7</span>   f2<span class="op">=</span>tkinter.Frame(win)  </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">8</span>   f2.pack()  </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="er">9</span>     </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span>   label<span class="op">=</span>tkinter.Label(f1,text<span class="op">=</span><span class="st">&quot;&quot;</span>)  </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span>   label.grid(row<span class="op">=</span><span class="dv">0</span>,column<span class="op">=</span><span class="dv">0</span>)  </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span>   <span class="kw">def</span> do_1():  </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span>       y<span class="op">=</span>label[<span class="st">&#39;text&#39;</span>]  </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span>       x<span class="op">=</span><span class="bu">str</span>(<span class="dv">1</span>)  </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span>       s<span class="op">=</span>y<span class="op">+</span>x  </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>       label.configure(text<span class="op">=</span>s)  </span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="dv">17</span>         </span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span>   bt1<span class="op">=</span>tkinter.Button(f2,text<span class="op">=</span><span class="st">&#39;1&#39;</span>,command<span class="op">=</span>do_1)  </span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="dv">19</span>   bt1.grid(row<span class="op">=</span><span class="dv">1</span>,column<span class="op">=</span><span class="dv">0</span>)  </span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span>   <span class="kw">def</span> do_2():  </span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="dv">21</span>       y<span class="op">=</span>label[<span class="st">&#39;text&#39;</span>]  </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="dv">22</span>       x<span class="op">=</span><span class="bu">str</span>(<span class="dv">2</span>)  </span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="dv">23</span>       s<span class="op">=</span>y<span class="op">+</span>x  </span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span>       label.configure(text<span class="op">=</span>s)  </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span>     </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a><span class="dv">26</span>   bt1<span class="op">=</span>tkinter.Button(f2,text<span class="op">=</span><span class="st">&#39;2&#39;</span>,command<span class="op">=</span>do_2)  </span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="dv">27</span>   bt1.grid(row<span class="op">=</span><span class="dv">1</span>,column<span class="op">=</span><span class="dv">1</span>)  </span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a><span class="dv">28</span>   <span class="kw">def</span> do_3():  </span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="dv">29</span>       y<span class="op">=</span>label[<span class="st">&#39;text&#39;</span>]  </span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="dv">30</span>       x<span class="op">=</span><span class="bu">str</span>(<span class="dv">3</span>)  </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="dv">31</span>       s<span class="op">=</span>y<span class="op">+</span>x  </span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="dv">32</span>       label.configure(text<span class="op">=</span>s)  </span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>…   <span class="co"># 此处省略其它数字  </span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a><span class="dv">90</span>   btjia<span class="op">=</span>tkinter.Button(f2,text<span class="op">=</span><span class="st">&#39;+&#39;</span>,command<span class="op">=</span>do_jiahao)  </span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="dv">92</span>   btjia.grid(row<span class="op">=</span><span class="dv">4</span>,column<span class="op">=</span><span class="dv">1</span>)  </span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a><span class="dv">93</span>   <span class="kw">def</span> do_dengyu():  </span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="dv">94</span>       y<span class="op">=</span>label[<span class="st">&#39;text&#39;</span>]  </span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="dv">95</span>       t<span class="op">=</span><span class="bu">str</span>(<span class="bu">eval</span>(y))  </span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="dv">96</span>       label.configure(text<span class="op">=</span>t)  </span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="dv">97</span>         </span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="dv">98</span>   btd<span class="op">=</span>tkinter.Button(f2,text<span class="op">=</span><span class="st">&#39;=&#39;</span>,command<span class="op">=</span>do_dengyu)  </span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a><span class="dv">99</span>   btd.grid(row<span class="op">=</span><span class="dv">4</span>,column<span class="op">=</span><span class="dv">2</span>)  </span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span>  <span class="kw">def</span> do_jianhao():  </span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="dv">101</span>      y<span class="op">=</span>label[<span class="st">&#39;text&#39;</span>]  </span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a><span class="dv">102</span>      x<span class="op">=</span><span class="bu">str</span>(<span class="st">&#39;-&#39;</span>)  </span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a><span class="dv">103</span>      s<span class="op">=</span>y<span class="op">+</span>x  </span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="dv">104</span>      label.configure(text<span class="op">=</span>s)  </span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>…    <span class="co"># 此处省略乘除运算  </span></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="dv">132</span>  win.mainloop()  </span></code></pre></div>
+<p>3．练习三：总结常见错误信息及其原因。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/16_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2%EF%BC%9A%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/16_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2%EF%BC%9A%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">少儿编程</a><a class="post-meta__tags" href="/tags/gui/">gui</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E2%80%94%E2%80%94%E4%BD%BF%E7%94%A8%E8%AF%8D%E5%90%91%E9%87%8F%EF%BC%88%E8%85%BE%E8%AE%AF%E8%AF%8D%E5%90%91%E9%87%8F%EF%BC%89/" title="自然语言处理——使用词向量（腾讯词向量）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">自然语言处理——使用词向量（腾讯词向量）</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9CGAN/" title="生成对抗网络GAN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">生成对抗网络GAN</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/02_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E4%BA%8C%E8%AE%B2%EF%BC%9A%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="少儿Python编程_第二讲：开发环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-18</div><div class="title">少儿Python编程_第二讲：开发环境</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/18_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AB%E8%AE%B2%EF%BC%9A%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/" title="少儿Python编程_第十八：讲搭建网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-20</div><div class="title">少儿Python编程_第十八：讲搭建网站</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/19_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E4%B9%9D%E8%AE%B2%EF%BC%9A%20%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%BD%91%E7%AB%99/" title="少儿Python编程_第十九讲 数据分析网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-24</div><div class="title">少儿Python编程_第十九讲 数据分析网站</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/20_%E5%B0%91%E5%84%BFPython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E4%BA%8C%E5%8D%81%E8%AE%B2%20%EF%BC%9A%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" title="少儿Python编程_第二十讲：编程技巧"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-31</div><div class="title">少儿Python编程_第二十讲：编程技巧</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-20</div><div class="title">SHAP解释模型</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B%E4%BA%8C/" title="SHAP解释模型二"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-21</div><div class="title">SHAP解释模型二</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%91%E5%84%BFpython%E7%BC%96%E7%A8%8B_%E7%AC%AC%E5%8D%81%E5%85%AD%E8%AE%B2%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">少儿Python编程_第十六讲：图形界面开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E5%85%A5%E9%97%A8"><span class="toc-number">1.1.</span> <span class="toc-text">16.1 图形界面入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">16.1.1 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">16.1.2程序示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-number">1.2.</span> <span class="toc-text">16.2 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.1.</span> <span class="toc-text">16.2.1 常用布局方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%B8%83%E5%B1%80"><span class="toc-number">1.2.2.</span> <span class="toc-text">16.2.2 容器布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">16.2.3 综合实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">16.3 控件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6"><span class="toc-number">1.3.1.</span> <span class="toc-text">16.3.1 常用控件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%92%8C%E8%AE%BE%E7%BD%AE%E6%8E%A7%E4%BB%B6%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">16.3.2 获取和设置控件的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E5%AE%9E%E4%BE%8B-1"><span class="toc-number">1.3.3.</span> <span class="toc-text">16.3.3 综合实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.4.</span> <span class="toc-text">16.4 事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.4.1.</span> <span class="toc-text">16.4.1 控件事件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">1.4.2.</span> <span class="toc-text">16.4.2 窗口事件处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E8%AE%AD%E7%BB%83"><span class="toc-number">1.5.</span> <span class="toc-text">16.5 思维训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%BC%E4%B8%AD%E7%9A%84%E4%B8%96%E7%95%8C"><span class="toc-number">1.5.1.</span> <span class="toc-text">16.5.1 眼中的世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E8%AF%AD%E8%A8%80%E6%80%9D%E8%80%83"><span class="toc-number">1.5.2.</span> <span class="toc-text">16.5.2 用语言思考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E4%BB%A5%E5%A4%96%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.3.</span> <span class="toc-text">16.5.3 语言以外的表达方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%AF%AD%E8%A8%80"><span class="toc-number">1.5.4.</span> <span class="toc-text">16.5.4 学习语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">16.6 小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%AF%8D"><span class="toc-number">1.6.1.</span> <span class="toc-text">16.6.1单词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-number">1.6.2.</span> <span class="toc-text">16.6.2习题答案</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

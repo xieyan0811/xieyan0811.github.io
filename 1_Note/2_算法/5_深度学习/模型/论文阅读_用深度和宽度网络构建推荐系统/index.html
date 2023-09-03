@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_用深度和宽度网络构建推荐系统 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文阅读_用深度和宽度网络构建推荐系统 #论文阅读 #推荐系统 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1606.07792.pdf 相关代码：https:&#x2F;&#x2F;github.com&#x2F;jrzaurin&#x2F;pytorch-widedeep 《Wide &amp; Deep Learning for Recommender Systems》是2016年Google发表的一篇使用深线层网络相结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_用深度和宽度网络构建推荐系统">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="论文阅读_用深度和宽度网络构建推荐系统 #论文阅读 #推荐系统 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1606.07792.pdf 相关代码：https:&#x2F;&#x2F;github.com&#x2F;jrzaurin&#x2F;pytorch-widedeep 《Wide &amp; Deep Learning for Recommender Systems》是2016年Google发表的一篇使用深线层网络相结">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2021-05-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.460Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="推荐系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_用深度和宽度网络构建推荐系统',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_用深度和宽度网络构建推荐系统</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-05-30T00:00:00.000Z" title="Created 2021-05-30 00:00:00">2021-05-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.460Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_用深度和宽度网络构建推荐系统"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+id="论文阅读_用深度和宽度网络构建推荐系统">论文阅读_用深度和宽度网络构建推荐系统</h1>
+<p>#论文阅读 #推荐系统</p>
+<p>论文地址：<a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/1606.07792.pdf">https://arxiv.org/pdf/1606.07792.pdf</a><br />
+相关代码：<a
+target="_blank" rel="noopener" href="https://github.com/jrzaurin/pytorch-widedeep">https://github.com/jrzaurin/pytorch-widedeep</a></p>
+<p>《Wide &amp; Deep Learning for Recommender
+Systems》是2016年Google发表的一篇使用深线层网络相结合构建推荐系统的论文。</p>
+<p>个人认为结合浅度学习和深度学习，是为一种处理表格数据，以及综合数据的好方法。这篇论文涉及：两种网络各自的优势；稀疏特征的组合；以及融合两种网络的具体方法。</p>
+<p>使用非线性特征组合（具体方法见后）构造的线性网络（浅层网络）常被用于解决输入是稀疏特征的分类和回归问题，它的优点是高效且具有可解释性，缺点是需要大量特征工程。相对来说深层网络不需要太多特征工程，使用Embedding方法可将稀疏特征降维成稠密特征，它能构造在训练集中没见过的特征组合，而其问题在于过于泛化，当数据过于稀疏和高秩（具体见下文）时，它会推荐出一些无关的选项。文中方法结合了浅层网络的记忆力和深度网络的泛化力，使用TensorFlow实现，并将其应用在Google
+Play的应用推荐系统中，取得了明显的提升。该方法也可应用于其它场景。</p>
+<h2 id="介绍">介绍</h2>
+<p>推荐系统的输入一般是用户相关数据及其上下文信息，系统在数据库中找到与之最匹配的商品项，排序后输出。这里涉及到记忆力和泛化力。记忆力可以看作寻找训练集中频繁出现的项目或特征组合，在历史数据中挖掘相关性；而泛化性则基于传递性，探索新的特征组合。</p>
+<p>在浅层网络中常使用特征组合的方法，如将类别特征经过Onehot转换成二值特征，再将其进行组合，例如：AND(user_installed_app=netflix,impression_app=pandora)，即用户安装过netflix为其推荐的应用是pandora，当二者都为真时结果为真，其余情况下结果为假，从而确定了一些同时出现的组合对最终结果的影响。浅层网络通常会用到一些手动的特征工程，且无法找到在训练集中没出现过的组合。</p>
+<p>深度网络可以找到一些训练集中未出现过的组合，且不需要手动做特征工程。当数据过于稀疏和高秩时，比如用户的特殊偏好或者比较小众的产品，并不在组合中大量出现，而稠密的嵌入层将会产出大量的非零组合，从而导致了无关的推荐。而浅层网络的“例外规则”用少量参数即可解决该问题。（深度网络更加宏观，浅度网络保存更多细节，不只是浅度线性模型，其它机器学习模型也类似）。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-0157d3d72145856b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="（下方是输入，上方是输出）" />
+<figcaption aria-hidden="true">（下方是输入，上方是输出）</figcaption>
+</figure>
+<h2 id="推荐系统">推荐系统</h2>
+<p>推荐系统工作流程如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-558abc67e58b0856.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>Query表示用户在访问应用商店时产生的相关上下文信息，推荐系统返回App列表Ranked
+items（也称impressions）。而用户的信息及与系统的交互过程都被记录到Logs中，以备训练模型使用Learner。</p>
+<p>数据库（Database）中存储着数百万应用程序，用户查询又需要即时返回，因此第一步是检索（Retrieval），系统通过机器学习模型和人工定义的规则检索出少量可选项（比如100项）。最终通过模型输出排序（Ranking），排序根据概率P(y|X)，即：给定X的情况下（X包含用户信息和应用程序信息），用户动作为y（如安装app）的概率。</p>
+<h2 id="算法原理">算法原理</h2>
+<h4 id="wide组件">Wide组件</h4>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-dafe2aeb4db23c63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>使用了简单的线性模型，其中w和b为模型参数，x由两部分组成，一部分为模型的输入x，另一部分为组合参数：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-39ed3b4da97e5e1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中Cki为布尔类型，定义了第i维参数是否被使用在第k种组合中时，使用时值为1，否则为0。简单地说，就是使用某些方法（算法或者手动特征工程）新建了k个组合参数，每个参数涉及一个以上的x特征。</p>
+<h4 id="deep组件">Deep组件</h4>
+<p>深度组件一般是一个包含嵌入层的深度神经网络。如网络结构图所示，特征传入网络后被转换成低维高密度的实值（real-value）特征，即嵌入向量（Embedding），维度一般为10-100维，之后再逐层传入隐藏层，隐藏层计算方法如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-4328de0c0e0d9d53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中l为层号，f为激活函数，W,b为网络参数，a为各层的入和输出（和一般神经网络无差别）。</p>
+<h4 id="结合两种组件">结合两种组件</h4>
+<p>文中以宽度组件和深度组件输出对数概率的加权和再传入公共的logstic函数联合训练模型。</p>
+<p>需要注意的是，结合组件有两种方式联合训练（joint
+train）和集成训练（ensemble）。集成训练是在训练过程中两组件相互无关，只在预测时将二者结合；而联合训练在训练时，优化误差函数，反向传播同时优化两个组件的参数。两种方法的模型大小也有区别，集成训练时，为了保证单个组件的精度，每个模型都比较大，而联合训练时宽度模型只需要弥补深度模型的弱点，构件少量的组合特征即可。</p>
+<p>文中使用FTRL（Follow the regularized
+leader）算法和L1正则化优化宽度模型，使用AdaGrad优化深度模型。最终组合的算法是：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-d9d7b61717dc4185.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中Y是二分类的标签，σ为sigmoid函数，φ(x)用于产生组合特征，w和b为网络参数。</p>
+<h2 id="系统实现">系统实现</h2>
+<p>具体实现分成：数据产生、模型训练、模型服务三部分。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-270bb439566c9265.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>数据包含用户数据和推荐数据，而标签为二值型，如用户是否安装了app。在数据产生阶段生成了词表，当字符特征出现次数足够多后，将词表可将字串映射成到整数ID。</p>
+<p>模型结构如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-9ef67ff9a78938ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>数据输入包含数据和词表产生的稀疏和稠密的特征以及标签。深度网络包含用户安装和推荐的app组合出的特征；深度模型将每一个类别型数据转换成32维的嵌入特征。然后将这些稠密特征连接在一起，最终组合出1200维特征。模型使用500
+billion样本训练，更新模型时为缩减训练使用的时间，使用之前的模型参数初始化模型参数。最终提供的服务对每个请求能在10ms以内做出应答。</p>
+<h2 id="实验结果">实验结果</h2>
+<p>线上和离线的评测结果如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-95def2f242698ad2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h2 id="相关代码">相关代码：</h2>
+<p>相关代码：<a
+target="_blank" rel="noopener" href="https://github.com/jrzaurin/pytorch-widedeep">https://github.com/jrzaurin/pytorch-widedeep</a></p>
+<p>这是在github中找到的一个相对高星的项目，其实现方法也基于本篇介绍的论文。它可使用widedeep处理表格、文本数据、图像数据，基于pytorch框架实现。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-b32a17155261a822.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/">推荐系统</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">SHAP解释模型</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%B7%B1%E5%BA%A6%E6%A3%AE%E6%9E%97/" title="论文阅读：深度森林"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读：深度森林</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E8%AE%BA%E6%96%87/0_%E6%96%B9%E6%B3%95/%E6%9F%A5%E6%89%BE%E8%AE%BA%E6%96%87/" title="查找论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-01</div><div class="title">查找论文</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GBDT%E8%83%BD%E5%90%A6%E8%A2%AB%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%96%E4%BB%A3TabNet/" title="论文阅读：GBDT能否被深度学习取代——TabNet"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-17</div><div class="title">论文阅读：GBDT能否被深度学习取代——TabNet</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%92%8C%E5%AE%BD%E5%BA%A6%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.</span> <span class="toc-text">论文阅读_用深度和宽度网络构建推荐系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.</span> <span class="toc-text">推荐系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">算法原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#wide%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">Wide组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#deep%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">Deep组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E4%B8%A4%E7%A7%8D%E7%BB%84%E4%BB%B6"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">结合两种组件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.</span> <span class="toc-text">系统实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.</span> <span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E4%BB%A3%E7%A0%81"><span class="toc-number">1.6.</span> <span class="toc-text">相关代码：</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Pytorch_LSTM与GRU | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Pytorch_LSTM与GRU #Pytorch #时序 RNN循环网络在序列问题处理中得到了广泛的应用。但使用标准版本的RNN模型时，常遇到梯度消失gradient vanishing和梯度爆炸gradient explosion问题。 RNN的缺点 RNN的梯度消失和梯度爆炸不同于其它网络，全连接网络和卷积网络每一层有不同参数，而RNN 的每个处理单元Cell（处理单个序列元素的操作称为处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch_LSTM与GRU">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Pytorch_LSTM与GRU #Pytorch #时序 RNN循环网络在序列问题处理中得到了广泛的应用。但使用标准版本的RNN模型时，常遇到梯度消失gradient vanishing和梯度爆炸gradient explosion问题。 RNN的缺点 RNN的梯度消失和梯度爆炸不同于其它网络，全连接网络和卷积网络每一层有不同参数，而RNN 的每个处理单元Cell（处理单个序列元素的操作称为处理">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2019-12-11T14:18:53.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.604Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Pytorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pytorch_LSTM与GRU',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch_LSTM与GRU</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-11T14:18:53.000Z" title="Created 2019-12-11 14:18:53">2019-12-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.604Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch_LSTM与GRU"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch_lstm与gru">Pytorch_LSTM与GRU</h1>
+<p>#Pytorch #时序</p>
+<p>RNN循环网络在序列问题处理中得到了广泛的应用。但使用标准版本的RNN模型时，常遇到梯度消失gradient
+vanishing和梯度爆炸gradient explosion问题。</p>
+<h3 id="rnn的缺点">RNN的缺点</h3>
+<p>RNN的梯度消失和梯度爆炸不同于其它网络，全连接网络和卷积网络每一层有不同参数，而RNN
+的每个处理单元Cell（处理单个序列元素的操作称为处理单元Cell）共用同一组权重矩阵W。在上一篇介绍RNN网络算法时可以看到，处理单元之间是全连接关系，序列向前传播的过程中将不断乘以权重矩阵W，从而构成了连乘W<sup>n</sup>，当W&lt;1时，如果序列很长，则结果趋近0；当w&gt;1时，经过多次迭代，数值将迅速增长。反向传播也有同样问题。</p>
+<p>梯度爆炸问题一般通过“梯度裁剪”方法改善，而梯度消失则使得序列前面的数据无法起到应有的作用，造成“长距离依赖”（Long-Term
+Dependencies）问题，也就是说RNN只能处理短距离的依赖关系。</p>
+<p>这类似于卷积神经网络在处理图像问题时加深网络层数，无法改进效果。尽管理论上可以通过调参改进，但难度很大，最后图像处理通过修改网络结构使用残差网络解决了这一问题。同样，RNN也改进了结构，使用LSTM和GRU网络。作为RNN的变种，它们使用率更高。</p>
+<h3 id="lstm长短时记忆网络">LSTM长短时记忆网络</h3>
+<p>LSTM是Long Short Term Memory
+Networks的缩写，即长短时记忆网络，该方法在1997年被提出，主要用于解决“长距离依赖”问题。不同于RNN用单一的隐藏层描述规律，LSTM新增加了细胞状态Cell
+state，简称c，并用多个门控参数分别控制读、写、遗忘操作。</p>
+<h4 id="门控gate">门控gate</h4>
+<p>门控理论源于生物学，指脊髓中的一些细胞像门一样（门开了才能通过），切断和阻止一些痛觉信号进入大脑。在神经网络中通常是使用激活函数控制数据的传输，如激活函数sigmoid常被用于控制信号是否通过，它的取值范围从0-1，0表示阻断，1表示完全通过，0-1之间数据部分通过，从而实现有选择的输入、有选择的输出、有选择的记忆。</p>
+<h4 id="算法">算法</h4>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-cfcd9b1fc57540a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>上图描述了LSTM网络对输入X<sub>t</sub>（序列中每个元素）处理生成输出h<sub>t</sub>的前向传播过程。笔者将其分为六步，在图中用圆圈加数字表示。</p>
+<p>第一步：计算遗忘门，遗忘门forget
+gate简称f，用于控制是否<strong>遗忘上一层</strong>的状态Cell
+state。该门的输入是前一个隐藏层的状态h<sub>(t-1)</sub>以及当前的x<sub>t</sub>，通过一个sigmoid（用σ表示）激活函数，得到当前时间t的遗忘门的值f<sub>t</sub>
+，W和b是该门的参数和偏置。比如：当输入词为“但是”时，认为前面的记忆不再重要，f<sub>t</sub>值为0，清空之前的记忆（只是举例，不要较真儿）。其公式为：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-40717cade337c040.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第二步：计算输入门，输入门input gate简称i，它用于向Cell
+state中<strong>增加新的内容</strong>，该门的输入也是前一个隐藏层的状态h<sub>(t-1)</sub>以及当前的x<sub>t</sub>计算i<sub>t</sub>。例如：当输入是“，”时，认为该输入没有携带有贡献的信息，i<sub>t</sub>值为0，忽略该输入。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-d37339bad71a243d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第三步：计算输入值，这一步类似于RNN中计算隐藏层参数的算法，输入也是前一个隐藏层的状态h<sub>(t-1)</sub>以及当前的x<sub>t</sub>计算g<sub>t</sub>，它是这一步输入产生的具体影响，此处的激活函数使用tanh。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-b62e6a79fc1f7b42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第四步：计算输出门，输出门output gate，简称o，在用Cell
+state值计算输出值h<sub>t</sub>的过程中用o<sub>t</sub><strong>控制输出</strong>，该门的输入也是前一个隐藏层的状态h<sub>(t-1)</sub>以及当前的x<sub>t</sub>。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-dc31368e12871a5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第五步：计算当前的细胞状态Cell
+state，用遗忘门f控制上一步的状态c<sub>(t-1)</sub>，用输入门i控制当前输入g，从而计算当前状态c<sub>t</sub>（遗忘了部分以往信息，加入了部分新信息）。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-11416b02562f99f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第六步：通过当前细胞状态c和输出门o计算隐藏层h，最后两步将通过各个门的数据组织起来。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-671407e0c7dcaad5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>标准的RNN模型比较粗糙，只调节一组参数，而LSTM把问题细化成几个子问题，需要反复迭代计算多组W参数，运算量比普通的RNN大很多。LSTM的核心原理是保持信息的完整性，它假设每一个状态都是由上一状态叠加一个变化得来的（类似于残差网络），即两组信息做加法，它不同于RNN的逐层做乘法，由此改进了梯度爆炸/梯度消失的问题。它对于较长的序列效果更好。</p>
+<p><strong>用法</strong></p>
+<p>Pytorch提供的LSTM调用方法与RNN类似，只要把上篇例程中的“RNN”改成“LSTM”即可，不需要其它调整。</p>
+<p>与RNN不同的是，在调用前向传递函数forward时，传入和传出的参数都可包含h和c两组值，其格式为：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-a713959ec8e40844.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中input是输入，output是输出，第二个参数(h<sub>0</sub>,c<sub>0</sub>)为Tuple类型，h<sub>0</sub>和c<sub>0</sub>分别是两个隐藏层的初始值；同样LSTM也将计算后隐藏层的值(h<sub>n</sub>,c<sub>n</sub>)作为返回值。h<sub><em></sub>和c<sub></em></sub>的维度是(num_layers,
+batch_size, hidden_size)。</p>
+<h3 id="gru门控循环单元">GRU门控循环单元</h3>
+<p>GRU是门控循环单元Gated Recurrent
+Unit的缩写，该方法在2014年被提出，是LSTM网络的变体，它比LSTM网络结构更简单，逻辑更加清晰，速度更快，且效果也很好。GRU模型只有两个门：更新门和重置门。它的网络结构与RNN更为相似，在每一步接收序列中的数据输入，上一个隐藏层的输出，并输出隐藏层。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-d4110e79ebcc661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>上图描述了对GRU处理输入X<sub>t</sub>生成输出h<sub>t</sub>的前向传播过程。笔者将其分为四步，在图中用圆圈加数字表示。</p>
+<p>第一步：计算更新门，更新门update
+gate简称为z，它的功能类似于LSTM中的遗忘门，用于控制以往信息和新输入数据的在当前状态中的比例，该门的输入也是前一个隐藏层的状态h<sub>t-1</sub>以及当前的输入x<sub>t</sub>，省略了偏置参数b。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-fbcd61b4da3d6bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第二步：计算重置门，重置门reset
+gate常简称为r，它的功能类似于LSTM中的输入门，该门的输入也是前一个隐藏层的状态h<sub>t-1</sub>以及当前的输入x<sub>t</sub>。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-ab2e2207cb0ac2e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第三步：计算输入值，输入值由前一个隐藏层的状态h<sub>t-1</sub>，当前的x<sub>t</sub>以及重置门r<sub>t</sub>计算得来。可视为当前输入对状态的影响。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-d292b45d6e38dba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第四步：计算当前状态，当前状态由两部分组成，前一部分是以往信息的影响，后一部分是当前输入的影响，参数z<sub>t</sub>是更新门的值，它经过激活函数sigmoid，取值在0-1之间，也就是说，前后两部分的权重之和为1，通过更新门均衡二者的占比。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-34ebfdd02ed7e8d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>与LSTM相比，状态层State
+cell被省略，由隐藏层h实现它的功能，并省略了输出门o，去掉了各层的偏置参数b，在多个步骤进行了简化，占用资源更少。</p>
+<p>Pytorch的具体调用方法和RNN类似，此处不再赘述。</p>
+<h3 id="优化rnn网络">优化RNN网络</h3>
+<p>深度学习工具一般都提供API直接调用RNN模型，像Keras工具只使用一条语句即建立一个LSTM模型，在建模过程中除了调用API程序员需要做哪些工作呢？</p>
+<p>循环神经的网络每一个处理单元都通过一个或者多个全连接网络与下一个单元相连，类似于CNN的多层网络，因此序列越长，计算越复杂，设计网络时需要考虑模型复杂度，估计训练时间，涉及：迭代次数、序列长度，如何切分序列，隐藏层数，隐藏层元素个数，学习率，是否将隐藏层状态传入下一次迭代，超参数、以及参数初值等因素。</p>
+<p>比如：RNN的误差往往不是平滑收敛的，尤其是序列较长时，学习率很难固定下来，建议使用Adam优化器自动调节学习参数。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Pytorch/">Pytorch</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/" title="Seq2Seq与Attention"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Seq2Seq与Attention</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/" title="Pytorch_循环神经网络RNN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Pytorch_循环神经网络RNN</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/TorchVision/" title="TorchVision"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-04</div><div class="title">TorchVision</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%9F%BA%E4%BA%8E%E9%A2%84%E8%AE%AD%E7%BB%83%E7%9A%84ResNet%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E8%87%AA%E5%B7%B1%E7%9A%84%E5%88%86%E7%B1%BB%E5%99%A8/" title="Pytorch_基于预训练的ResNet模型训练自己的分类器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-11</div><div class="title">Pytorch_基于预训练的ResNet模型训练自己的分类器</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/" title="Pytorch_循环神经网络RNN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-06</div><div class="title">Pytorch_循环神经网络RNN</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/" title="Pytorch_数据基础"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-28</div><div class="title">Pytorch_数据基础</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C/" title="Pytorch全连接网络"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-29</div><div class="title">Pytorch全连接网络</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch%E5%88%9D%E6%8E%A2/" title="Pytorch初探"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">Pytorch初探</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch_lstm%E4%B8%8Egru"><span class="toc-number">1.</span> <span class="toc-text">Pytorch_LSTM与GRU</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rnn%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text">RNN的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lstm%E9%95%BF%E7%9F%AD%E6%97%B6%E8%AE%B0%E5%BF%86%E7%BD%91%E7%BB%9C"><span class="toc-number">1.0.2.</span> <span class="toc-text">LSTM长短时记忆网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%A8%E6%8E%A7gate"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">门控gate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gru%E9%97%A8%E6%8E%A7%E5%BE%AA%E7%8E%AF%E5%8D%95%E5%85%83"><span class="toc-number">1.0.3.</span> <span class="toc-text">GRU门控循环单元</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96rnn%E7%BD%91%E7%BB%9C"><span class="toc-number">1.0.4.</span> <span class="toc-text">优化RNN网络</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_解释黑盒模型方法综述 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文阅读_解释黑盒模型方法综述 #机器学习 #论文阅读 论文：《A Survey of Methods for Explaining Black Box Models》 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1802.01933v3 (本文为论文核心内容提炼，并非逐段翻译) 《A Survey of Methods for Explaining Black Box Models》是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_解释黑盒模型方法综述">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="论文阅读_解释黑盒模型方法综述 #机器学习 #论文阅读 论文：《A Survey of Methods for Explaining Black Box Models》 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1802.01933v3 (本文为论文核心内容提炼，并非逐段翻译) 《A Survey of Methods for Explaining Black Box Models》是">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-08-16T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.108Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_解释黑盒模型方法综述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_解释黑盒模型方法综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-08-16T00:00:00.000Z" title="Created 2020-08-16 00:00:00">2020-08-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.108Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_解释黑盒模型方法综述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+id="论文阅读_解释黑盒模型方法综述">论文阅读_解释黑盒模型方法综述</h1>
+<p>#机器学习 #论文阅读</p>
+<p>论文：《A Survey of Methods for Explaining Black Box Models》<br />
+论文地址：https://arxiv.org/abs/1802.01933v3<br />
+(本文为论文核心内容提炼，并非逐段翻译)</p>
+<p>《A Survey of Methods for Explaining Black Box
+Models》是2018年发表在ACM Computing
+Surveys上的一篇综述性论文，正文37页，介绍了七十多种模型解释相关论文，参数文献144篇。它列出了每种方法的相关论文，作者，发表时间，解释模型，被解释模型，解释何种类型数据，是否提供代码，数据等信息，如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-816b54b29e711a73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>论文的前五章介绍了为什么需要使用可解释模型，第六到九章分类别介绍了各种解释方法及相关论文，并对每一种方法进行了简要介绍。</p>
+<h2 id="如何评价模型">如何评价模型</h2>
+<p>无论是写论文，还是和客户沟通，描述下列几点都是必不可少的。</p>
+<p>• 模型评价指标<br />
+一般数据分析时都会使用：敏感性、特异性、F1 score、AUC曲线等方法。</p>
+<p>• 被多少数据支持<br />
+训练数据和测试数据的数据量也是重要量度，10000个实例训练出的模型相对于100个实例训练的模型更加可靠。</p>
+<p>• 泛化能力<br />
+在某些比较敏感的领域，数据往往不被公开，使用A机构数据构建的模型，不一定能在B机构正常工作，此时需要考虑训练数据是单中心还是多中心，单中心数据可能包含的一些本地因素，导致难以泛化，有时需要对比数据运行在不同场景中的测试效果，以展示其泛化性能。</p>
+<p>• 健壮性<br />
+健壮性主要指当数据缺失时，模型能否正常工作。</p>
+<p>• 一致性<br />
+如果使用多模型预测，对比各个模型结果是否一致，也是一种对模型准确性的量度。</p>
+<p>• 可解释性<br />
+可解释性在下文详述。</p>
+<h4 id="为什么解释模型">为什么解释模型</h4>
+<p>• 安全性、可靠性
+精确度都是自己说的，数据处理方法不同，纳入训练集和测试集的数据不同，定义的因变量不同，算出的精确度也不同，因此不能作为模型的唯一量度和对比模型效果。
+对于医疗、自动驾驶，这些生死攸关的领域，除了提供准确率和最终预测结果，还需要提供做出判断的依据，使模型具有可解释性才能被接受。</p>
+<h4 id="隐藏的问题">隐藏的问题</h4>
+<p>• 建模数据和实际数据不一致<br />
+有些数据和类别在训练时无法获取，但实际应用中又必须使用；另外，有时test与train分布一致，但与实际场景中数据不一致。这些都使得评价模型和评价实际效果之间存在差异。</p>
+<p>• 结果正确，但依据不对<br />
+在狼与狗的分类器中，分类的依据可能是图片的背景，而不是动物本身，尽管模型准确率很高，但当狗出现在野外时，很可能被识别为狼。</p>
+<p>• 无法察觉的攻击<br />
+在深度学习领域，有时对抗攻击仅通过人眼不可查觉的微小调整即可骗过模型，这使得模型变得不可靠。</p>
+<p>• 获取数据与现实不一致<br />
+有些数据处理时，在训练集和测试集中都去掉了缺失数据和脏数据。但实际情况下，这些数据可能无法被识别，或者也需要被预测，这使得模型计算得出的准确率比实际应用高很多。</p>
+<h4 id="科研中的回归和解释">科研中的回归和解释</h4>
+<p>科研项目中有时需要提取出可以简单地识别和表达的规律。</p>
+<h4 id="模型选型">模型选型</h4>
+<p>在一些重要领域，模型的可解释性也是选型的重要考虑因素，有时为了可解释性也可以牺牲一些精确度。</p>
+<h4 id="偏差">偏差</h4>
+<p>• 错误数据引起<br />
+训练数据中可能包含错误数据，且清洗时并未发现，这些数据造成了建模的偏差。</p>
+<p>• 模型引起<br />
+有些偏差是模型本身的特性造成的，比如使用线性模型拟合非线性数据，结果误差很大。</p>
+<p>• 人类偏见<br />
+有些数据虽然客观存在，但也蕴含了偏见，如果某一招聘网站计算出女程序员数量少，则可能认为女性不适合从事该工作，从而使模型失去了公平性。伦理和隐私问题目前也是模型正在面对的问题。</p>
+<h4 id="寻找错误原因">寻找错误原因</h4>
+<p>通过分析模型错误预测的原因改进模型。</p>
+<h4 id="哪些模型需要解释">哪些模型需要解释</h4>
+<p>一般情况下复杂的模型都需要解释，比如组合树模型、深度学习模型、非线性模型等等。</p>
+<h2 id="怎么解释模型">怎么解释模型</h2>
+<p>解释是阐明自变量X和因变量Y之间的关系，一般包括解释模型的内部逻辑和决策的原因。常用的方法是统计和归因。同时需要遵循以下原则：</p>
+<p>• 可认知的特征<br />
+需要概念层的解释：易于理解。比如深度学习网络的隐藏层虽然也是一种权重但很难向用户解释其含义。</p>
+<p>• 符合常识<br />
+解释必须符合专家背景知识，否则即使结果正确，也常被认为是“蒙的”。</p>
+<p>• 只解释起决定作用的因素<br />
+代入模型的数据很多，解释应力求简约，一般只解释最重要的前N个特征，以及对重要类别进行解释。</p>
+<p>• 易于理解，便于决策<br />
+规则不能太多，树不能太深，线性的非零参数不能太多；特征之间不能过度组合；对于不同背景知识用户，可使用不同解释方法。</p>
+<h2 id="常用解释方法">常用解释方法</h2>
+<p>• 规则模型（用于纯数据）<br />
+规则是最终提炼出的一组或多组类似if-else的逻辑，某一实例可能符合多条规则得出不同结论、或者不符合任何规则。此时，可使用多条规则的优先级，如top-k
+rules投票方法。</p>
+<p>• 简单决策树（用于纯数据）<br />
+不同于规则模型，树模型中单个实例只可能落入一个分支。</p>
+<p>• 特征重要性（用于纯数据）<br />
+很多模型自带特征重要性输出。</p>
+<p>• 划出重点区域（用于图片，文字）<br />
+常使用Attention方法，画出图中的重要区域，或者文本中的关键词，以解释决策原因。</p>
+<p>• 可视化方法（用于纯数据）<br />
+分析某一特征与结局变量的关系，类似单因素分析。</p>
+<p>• 结局与特征组合的关系（用于纯数据）<br />
+目的往往是去掉不重要的特征</p>
+<p>• 使用元数据解释（所有）<br />
+使用某个类别的典型数据，寻找某一类别的共性，相近实例分析。</p>
+<p>• 最大激活（用于神经网络）<br />
+分析单层最大激活，倒推哪部分特征更重要。</p>
+<p>• 注意事项<br />
+注意限制复杂度，并在精确和解释间取得平衡。</p>
+<h2 id="不同模型方法不同">不同模型方法不同</h2>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-ef54e80f414bb2f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>不同模型使用不同的解释方法，当模型本身就具有可解释性，如树模型或线性模型能解释自身逻辑，但需要考虑如何展示这些规则（TRANSPARENT
+BOX DESIGN）；反之，如果是黑盒模型，则需要考虑如何解释模型整体（MODEL
+EXPLANATION），解释单个实例预测结果（OUTCOME
+EXPLANATION），以及模型检测问题（MODEL
+INSPECTION），下面将一一介绍。</p>
+<h2 id="解释整体模型">解释整体模型</h2>
+<p>论文的第六部分主要介绍了解释整体模型的方法，一般情况下，从解释具体实例开始，再具体实例到各个类别，各个类别又组成了对整体模型的解释。具体方法如下：</p>
+<p>• 决策树<br />
+早在1996年，就已使用决策树模型解释深度网络。<br />
+举例一：使用自上而下的解释方法，先根据各个类别选择元型数据，选取每个元型其及附近数据构造针对每一类别的简单模型并提取特征，用简单模型构造复杂模型。比如一个复杂模型可以识别汽车、行人、长颈鹿等多种物体，而针对其中类型长颈鹿的模型比整体模型简单很多。<br />
+举例二：从森林模型提取主要树模型，可以使用聚类方法，也可以选择其中误差最小的树，或者最重要的树。</p>
+<p>• 规则<br />
+举例一：可为每一类别分别建立一组或多组规则，当规则重叠时，使用支持率更高的规则，或者复杂度较使的规则。<br />
+举例二：可以使用自下而上的解释方法：先对数据聚类，找到元型，再产生规则。</p>
+<p>• 简单模型解释复杂模型<br />
+人们希望找到一种对所有模型都适用的解释方法：用一个简单模型c解释复杂模型b。具体方法如下：</p>
+<ol type="1">
+<li>设黑盒模型为b，解释模型为c。<br />
+</li>
+<li>用迭代方法模拟实例x附近实例代入模型b得到标签y’（遗传、蒙特卡罗、增化学习，倒推）<br />
+</li>
+<li>代入模拟的数据和y’训练模型c。<br />
+</li>
+<li>计算可信度：尽量减少b与c的差异（match比例）。<br />
+</li>
+<li>提取模型c的重要特征，分析路径，分析错误实例。</li>
+</ol>
+<h2 id="解释预测结果">解释预测结果</h2>
+<p>解释单个实例，是一种局部解释，它只涉及输入的单个实例和模型b。且只与模型b的部分实例有关。具体方法如：</p>
+<p>• 寻找重要特征子集<br />
+• 计算特征变化对结局变量影响<br />
+• 神经网络越往后层包含的无关信息越少，以此倒推重要特征。<br />
+• 使用线性解释非线性（但并非所有情况都能使用线性拟合）。</p>
+<p>下例展示了图像识别中影响最终判断的重点区域，方法是计算对用最后一层（线性层），具有最大影响的图像区域（最大平均池化）。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-cae8c810761a9363.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h2 id="模型检查">模型检查</h2>
+<p>模型检查使用了一些做图方法来解释模型，例如：</p>
+<p>• 改变一些属性，对照预测结果变化，并用图片展示分析结果。<br />
+下图展示了一些作图方法，左图使用PDP（Partial Dependence
+Plot）图，其横轴是酒的PH值的高低，纵轴是酒的价值，它解释了部分特征对结局的影响。右图是年龄对风险的影响。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-a1aeb970b5db1d2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>• 基于树可视化<br />
+可用决策树解释RNN，并将特征分组。</p>
+<p>• 基于最大激活<br />
+根据某个实例激活的神经元，展示各层激活的位置和区域。</p>
+<p>• 其它做图方法<br />
+单因素分析（连接、离散）、多因素分析、组合特征分析等。</p>
+<h2 id="透明模型">透明模型</h2>
+<p>有些模型自带可解释性，比如树模型，规则模型，线性模型等，但具体解释时也需要一些技巧。</p>
+<h4 id="简单树模型">简单树模型</h4>
+<p>树模型本身就是对模型的全局解释，而解释具体实例则使用树中的某一路径，注意限制树的复杂度（深度）。</p>
+<h4 id="规则模型">规则模型</h4>
+<p>使用规则时，可使用贪婪算法、贝叶斯算法简化规则，缩小特征空间；通过规则分析错误原因，规则最好相互独立。</p>
+<h4 id="元型选择">元型选择</h4>
+<p>• 典型数据<br />
+对于每一类别，可使用均值、聚类中心等方法选取元型数据。</p>
+<p>• 每一类别可能不止一个元型<br />
+比如手写数字识别时，数据7的典型写法可能不止一种，此时需要使用聚类方法选择多个元型。</p>
+<p>• 人机交互调整<br />
+生成元型数据时，往往模型选择和专家纠正相互迭代进行，以便尽快达到最佳效果。</p>
+<p>• 元型反例<br />
+有时也可使用元型反例，描述与典型规则不一致的特殊情况，比如“鲸鱼不是鱼”。</p>
+<p>• 图像重建<br />
+通过对某一类型数据的学习，如对“狗”图片的学习，用生成对抗的方法生成更为典型的狗图片（忽略背景）。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E7%94%A8Lucene%E6%9E%84%E9%80%A0%E5%9E%82%E7%9B%B4%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" title="用Lucene构造垂直搜索引擎"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">用Lucene构造垂直搜索引擎</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E8%AE%BA%E6%96%87/0_%E6%96%B9%E6%B3%95/%E6%9F%A5%E6%89%BE%E8%AE%BA%E6%96%87/" title="查找论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">查找论文</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/test/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%97%B6%E5%BA%8FTDTS/" title="论文阅读_时序TDTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">论文阅读_时序TDTS</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/0_%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E7%AE%97%E6%B3%95%E4%B9%8B_%E6%AC%A7%E6%8B%89%E5%85%AC%E5%BC%8F/" title="算法之_欧拉公式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-01</div><div class="title">算法之_欧拉公式</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-20</div><div class="title">SHAP解释模型</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B%E4%BA%8C/" title="SHAP解释模型二"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-21</div><div class="title">SHAP解释模型二</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7/" title="分类模型的可解释性"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">分类模型的可解释性</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/4_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/" title="EasyNLP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">EasyNLP</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">论文阅读_解释黑盒模型方法综述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">如何评价模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">为什么解释模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">隐藏的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%91%E7%A0%94%E4%B8%AD%E7%9A%84%E5%9B%9E%E5%BD%92%E5%92%8C%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">科研中的回归和解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E5%9E%8B"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">模型选型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%8F%E5%B7%AE"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">偏差</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.1.0.6.</span> <span class="toc-text">寻找错误原因</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E6%A8%A1%E5%9E%8B%E9%9C%80%E8%A6%81%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.0.7.</span> <span class="toc-text">哪些模型需要解释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">怎么解释模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%A7%A3%E9%87%8A%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">常用解释方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="toc-number">1.4.</span> <span class="toc-text">不同模型方法不同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E6%95%B4%E4%BD%93%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">解释整体模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="toc-number">1.6.</span> <span class="toc-text">解释预测结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">1.7.</span> <span class="toc-text">模型检查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%8F%E6%98%8E%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.8.</span> <span class="toc-text">透明模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%A0%91%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.8.0.1.</span> <span class="toc-text">简单树模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.8.0.2.</span> <span class="toc-text">规则模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="toc-number">1.8.0.3.</span> <span class="toc-text">元型选择</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

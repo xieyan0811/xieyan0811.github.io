@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>数据分析软件SPSS及数据挖掘软件WEKA使用 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据分析软件SPSS及数据挖掘软件WEKA使用 #数据分析 1. 说明 从数据表中读入数据，用 SPSS 进行数据处理，然后用 WEKA 进行数据分析。 2. EXCEL  目的 用 java 将其它数据写入 EXCEL 读写 excel 的 jar 包 jexcelapi 从此处下载 http:&#x2F;&#x2F;www.andykhan.com&#x2F;jexcelapi&#x2F;download.html  java 读写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析软件SPSS及数据挖掘软件WEKA使用">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%BD%AF%E4%BB%B6SPSS%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E8%BD%AF%E4%BB%B6WEKA%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="数据分析软件SPSS及数据挖掘软件WEKA使用 #数据分析 1. 说明 从数据表中读入数据，用 SPSS 进行数据处理，然后用 WEKA 进行数据分析。 2. EXCEL  目的 用 java 将其它数据写入 EXCEL 读写 excel 的 jar 包 jexcelapi 从此处下载 http:&#x2F;&#x2F;www.andykhan.com&#x2F;jexcelapi&#x2F;download.html  java 读写">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2010-10-31T21:30:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.084Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%BD%AF%E4%BB%B6SPSS%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E8%BD%AF%E4%BB%B6WEKA%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据分析软件SPSS及数据挖掘软件WEKA使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">数据分析软件SPSS及数据挖掘软件WEKA使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2010-10-31T21:30:00.000Z" title="Created 2010-10-31 21:30:00">2010-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.084Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据分析软件SPSS及数据挖掘软件WEKA使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+id="数据分析软件spss及数据挖掘软件weka使用">数据分析软件SPSS及数据挖掘软件WEKA使用</h1>
+<p>#数据分析</p>
+<p>1. 说明<br />
+从数据表中读入数据，用 SPSS 进行数据处理，然后用 WEKA 进行数据分析。</p>
+<p>2. EXCEL</p>
+<ol type="1">
+<li><p>目的<br />
+用 java 将其它数据写入 EXCEL</p></li>
+<li><p>读写 excel 的 jar 包 jexcelapi 从此处下载<br />
+<a
+target="_blank" rel="noopener" href="http://www.andykhan.com/jexcelapi/download.html">http://www.andykhan.com/jexcelapi/download.html<br />
+</a></p></li>
+<li><p>java 读写 excel 例程示例<br />
+<a
+target="_blank" rel="noopener" href="http://www.javaeye.com/topic/55844">http://www.javaeye.com/topic/55844</a><br />
+<a
+target="_blank" rel="noopener" href="http://mengqingyu.javaeye.com/blog/440358">http://mengqingyu.javaeye.com/blog/440358<br />
+</a></p></li>
+</ol>
+<p>3. 数据分析软件 SPSS （占据 90% 市场分额）</p>
+<ol type="1">
+<li><p>目的<br />
+整理数据，分析数据，结果展示</p></li>
+<li><p>读入数据</p></li>
+</ol>
+<ol type="a">
+<li><p>方法一：从 excel 中复制单元格，粘贴在 SPSS 中</p></li>
+<li><p>直接打开 excel 文件 (*.xls) ，注意因为版本原因，用 java 写的 xls
+有的需要再用 excel<br />
+转存一下才能供 SPSS 使用</p></li>
+</ol>
+<ol start="3" type="1">
+<li>操作数据</li>
+</ol>
+<ol type="a">
+<li>数据处理</li>
+</ol>
+<ol type="i">
+<li><p>修改字段类型<br />
+从 SPSS 左下角的进入 Variable View 选项卡，可改变字段的类型值<br />
+Meature 数据量度 : Scale( 数值 ), Ordinal( 可排序 ), Nominal( 离散
+)</p></li>
+<li><p>计算新变量<br />
+菜单 Transform-&gt;Compute varliable ，将根据现有列计算出新列</p></li>
+<li><p>排序<br />
+菜单 Transform-&gt;Rank cases 生成新列，新列中是排序号</p></li>
+<li><p>修改内容<br />
+菜单 Transform-&gt;Record into xxx
+，根据某列数据通过某种算法产生新数据</p></li>
+<li><p>文件操作<br />
+菜单 Data-&gt;Merge File</p></li>
+<li><p>数据整理：<br />
+菜单 Data-&gt;Select Cases ，数据选择<br />
+菜单 Data-&gt;Weight Cases ，数据加权</p></li>
+</ol>
+<ol start="2" type="a">
+<li>数据分析</li>
+</ol>
+<ol type="i">
+<li><p>生成关系矩阵<br />
+菜单 Analyze-&gt;Correlate-&gt;Bivariate
+，生成矩阵，数越大，相关性越大</p></li>
+<li><p>生成 K 均值聚簇<br />
+菜单 Analyze-&gt;Classify-&gt;K-Means cluster ，将需计算的数据放入
+Variables ，说明列放入 Label<br />
+Cases by ，在 Iterate 中设置迭代次数， Number of clusters
+中输入簇数，选中 Save<br />
+中项，以生成列（记录属于哪个簇，与簇心的距离）</p></li>
+</ol>
+<ol start="3" type="a">
+<li><p>数据描述，结果展示：<br />
+菜单 Graphs</p></li>
+<li><p>注意：开始使用时，数据最好转成 int 型，以便于计算</p></li>
+</ol>
+<ol start="4" type="1">
+<li>菜单说明<br />
+Data 菜单：操作行<br />
+Transform 菜单：操作列<br />
+Analyze 菜单：数据分析，主要是聚类和分类方法</li>
+</ol>
+<p>4. 数据挖掘软件 WEKA</p>
+<ol type="1">
+<li><p>目的<br />
+数据分析</p></li>
+<li><p>读入数据</p></li>
+</ol>
+<ol type="a">
+<li><p>使用 SPSS 和 Excel 保存为 csv 文件 ( 文本格式的数据文件
+)</p></li>
+<li><p>在预处理选项卡中用 Open file 打开 csv 文件，注意 csv
+中不能含有特殊字符</p></li>
+<li><p>WEKA 中默认的文本格式为 arff
+，也是一种文本格式的数据文件</p></li>
+</ol>
+<ol start="3" type="1">
+<li>操作数据</li>
+</ol>
+<ol type="a">
+<li><p>分类<br />
+选项卡 Classify 选择 Choose-&gt;trees-&gt;J48 或 ID3 (ID3 只能处理离散值
+) ，生成决策树</p></li>
+<li><p>关联<br />
+选项卡 Associate 选择 Choose-&gt;apriori ，在按钮右侧通过点击设置支持度
+(lowerBoundMinSuport)<br />
+，可信度 (upperBoundMinSupport) ， apriori 需要离散化数据</p></li>
+</ol>
+<p>5. 参考</p>
+<ol type="1">
+<li>《 spss 数据统计分析与实践》 pdf 文档</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%BD%AF%E4%BB%B6SPSS%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E8%BD%AF%E4%BB%B6WEKA%E4%BD%BF%E7%94%A8/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%BD%AF%E4%BB%B6SPSS%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E8%BD%AF%E4%BB%B6WEKA%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E8%A7%A3%E5%86%B3eclipse%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%AB%E6%9F%90%E4%BA%9BAPI%E7%9A%84%E9%97%AE%E9%A2%98/" title="解决eclipse无法识别某些API的问题"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">解决eclipse无法识别某些API的问题</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/Android%E4%BD%BF%E7%94%A8XML-RPC%E5%AE%9E%E7%8E%B0blog%E5%AE%A2%E6%88%B7%E7%AB%AF/" title="Android使用XML-RPC实现blog客户端"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Android使用XML-RPC实现blog客户端</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/Bland-Altman%E5%9B%BE/" title="Bland-Altman图"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-18</div><div class="title">Bland-Altman图</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Stata%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%91%BD%E4%BB%A4/" title="Stata中常用的数据分析命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-17</div><div class="title">Stata中常用的数据分析命令</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/TableOne%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" title="TableOne数据分析工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-23</div><div class="title">TableOne数据分析工具</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E5%88%97%E7%BA%BF%E5%9B%BE%E5%B7%A5%E5%85%B7_Nomogram/" title="数据分析_列线图工具_Nomogram"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-11</div><div class="title">数据分析_列线图工具_Nomogram</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/python%E6%95%B0%E6%8D%AE%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/" title="python数据统计分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-02-17</div><div class="title">python数据统计分析</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7_SuperSet/" title="数据分析工具_SuperSet"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-11</div><div class="title">数据分析工具_SuperSet</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%BD%AF%E4%BB%B6spss%E5%8F%8A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E8%BD%AF%E4%BB%B6weka%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">数据分析软件SPSS及数据挖掘软件WEKA使用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

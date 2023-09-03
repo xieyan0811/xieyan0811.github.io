@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_自然语言模型加知识图谱_DKPLM | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="英文题目：DKPLM: Decomposable Knowledge-enhanced Pre-trained Language Model for Natural Language Understanding 中文题目：DKPLM:可分解的利用知识增强的预训练语言模型 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2112.01047 领域：自然语言处理, 知识图谱 发表时间：2021.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_自然语言模型加知识图谱_DKPLM">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="英文题目：DKPLM: Decomposable Knowledge-enhanced Pre-trained Language Model for Natural Language Understanding 中文题目：DKPLM:可分解的利用知识增强的预训练语言模型 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2112.01047 领域：自然语言处理, 知识图谱 发表时间：2021.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-09-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.056Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="图神经网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_自然语言模型加知识图谱_DKPLM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_自然语言模型加知识图谱_DKPLM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-09-11T00:00:00.000Z" title="Created 2022-09-11 00:00:00">2022-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.056Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_自然语言模型加知识图谱_DKPLM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>英文题目：DKPLM: Decomposable Knowledge-enhanced Pre-trained Language
+Model for Natural Language Understanding<br />
+中文题目：DKPLM:可分解的利用知识增强的预训练语言模型<br />
+论文地址：https://arxiv.org/abs/2112.01047<br />
+领域：自然语言处理, 知识图谱<br />
+发表时间：2021.12<br />
+作者：Taolin Zhang等，华东师范大学，阿里团队<br />
+出处：AAAI-2022<br />
+代码和数据：https://github.com/alibaba/EasyNLP（集成于EasyNLP）<br />
+阅读时间：2022.09.11</p>
+<h2 id="读后感">读后感</h2>
+<p>自然语言和知识图结合的一种新尝试，几种优化方法比较有意思。尤其是他对长尾信息的分析，很有启发性：即使在无监督学习的情况下，也要尽量使用重要的数据训练模型。另外，还给出了具体方法，比如实体出现频率高于均值，则忽略它…</p>
+<h2 id="介绍">介绍</h2>
+<p>加入知识增强的自然语言模型简称KEPLM，它将知识图中的三元组注入NLP模型，以提升模型对语言的理解能力。在模型使用时需要知识搜索和编码，运算量大。</p>
+<p>本文提出可分解的知识增强名为DKPLM，具体方法是使用长尾实体作为知识注入的目标，还在训练时设计了重建知识三元组的知识解码任务。它只在预测训练时注入了知识，在精调模型和预测时用法与BERT一致，相对节省资源。如图-1所示：</p>
+<p>[[Pasted image 20220911114024.png]]</p>
+<p>在预训练时使用以下主要技术：</p>
+<ul>
+<li>基于知识的长尾实体探测<br />
+</li>
+<li>利用知识图中三元组做成伪实体替换长尾实体训练模型，模型无需增加参数。<br />
+</li>
+<li>利用三元组中的关系，通过对实体及其谓词来解码对应实体中的每个token。</li>
+</ul>
+<p>实验证明对于zero_shot任务，以及预测速度都有明显提升。</p>
+<h2 id="方法">方法</h2>
+<p>整体架构如图-2所示：</p>
+<p>[[Pasted image 20220911114950.png]]</p>
+<h3 id="长尾实体检测">长尾实体检测</h3>
+<p>通过对wiki数据分析可以看到实体出现的频率服从幂律分布，如图-3所示：<br />
+[[Pasted image 20220911132256.png]]<br />
+只有很少的实体高频出现，多数实体出现次数少，这使用自然语言模型难以从上下文中有效学习。之前论文提到注入高频三元组不总是有利于对下游任务，反而更容易注入负面知识。因此更好的方法是注入长尾实体，同时还需要考虑实体在知识图中和句中的重要性。具体考虑以下三点（图-2第二层右侧）：<br />
+* 实体频率：实体在预训练数据集中出现的频率，记作：Freq(e)。<br />
+*
+语义重要性：实体在句中的重要性，记作：SI(e)。计算SI可以使用语义相似度，通过去掉句中的实体e后的编码hrep与原句编码ho比较，识别该实体的重要性。<br />
+[[Pasted image 20220911133935.png]]<br />
+*
+知识连接：实体在知识图中多跳邻居的个数，记作：KC(e)。如下式所示，其中Rmax，Rmin是预定义的阈值，|N|表示邻居个数，Hop指跳数。<br />
+[[Pasted image 20220911134055.png]]<br />
+最终基于知识的长尾系数KLT计算如下：<br />
+[[Pasted image 20220911134556.png]]<br />
+其I{x}为布尔性的指示函数，当实体出现频率高于均值时，则忽略该实体。<br />
+（我理解是：在训练集中出现次数太多的去掉，在知识图中邻居太多的去掉，在句子里有它没它都一样的去掉）</p>
+<h3 id="伪token嵌入的注入">伪Token嵌入的注入</h3>
+<p>为了提升模型对长尾实体的理解，将知识图中的关系代入模型训练。如果预测训练数据中出现了头实体eh，则用它相关的关系谓词和尾实体替换它的嵌入：<br />
+[[Pasted image 20220911135659.png]]<br />
+同理，如果出现尾实体，则用谓词加头实体来表示。<br />
+以替换头实体为例，对关系和尾实体编码：<br />
+[[Pasted image 20220911140706.png]]<br />
+其中F(e)是预训练模型PLM的输出，fsp是自注意力池化，LN是标准化层，W是模型参数。<br />
+由于尾实体和关系谓词通常都比较短，生成的表示可能是无效的，因此还加入了对头实体的描述文本记作e_h^des，使用预训练模型对其编码，最终的伪实体表示如下：<br />
+[[Pasted image 20220911141118.png]]<br />
+这里的⊕表示串联。通过上述方法，促进模型学习知识图中的三元组。</p>
+<h3 id="相关知识解码">相关知识解码</h3>
+<p>为了更确定地让模型学习注入信息，又调整了解码层逻辑。在最后一层，利用自注意力池化获取跨实体的实体掩码表示。<br />
+[[Pasted image 20220911151343.png]]<br />
+用头实体本身通过上述方式生成表示h_eh<sup>o，再加入hr，目标是解码尾实体，用h_d</sup>i表示预测尾实体的第i个token。<br />
+[[Pasted image 20220911151730.png]]<br />
+上式中δ是缩放因子，h_d^0等于h_eh_o作为初始的启发。</p>
+<p>由于词表较大，使用采样的SoftMax来对比预测值与实际值。损差函数计算方法如下：<br />
+[[Pasted image 20220911152100.png]]<br />
+这里yi是实际token，yn是采样的负token，Q是负采样函数，N为负例个数。</p>
+<p>训练目标包含两项任务：相关的知识解码和BERT自带掩码模型任务，最终损失函数计算如下：<br />
+[[Pasted image 20220911152411.png]]</p>
+<h2 id="实验">实验</h2>
+<p>模型底层框架基于RoBERTa，使用英文Wikipedia作训练数据，知识图包含3085345个实体，822种关系。由于实体太多，使用PEPR算法选择负实体，并将N设为20，λ1最终取值为0.5。主实验结果如下：<br />
+[[Pasted image 20220911153208.png]]<br />
+从表-4可以看到，DKPLM速度明显优于其它知识注入模型：<br />
+[[Pasted image 20220911153609.png]]<br />
+从图-5的消融实验可以看到，三种优化方法各自的贡献：<br />
+[[Pasted image 20220911153712.png]]</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">图神经网络</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F_DK/" title="论文阅读_神经网络知识蒸馏_DK"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_神经网络知识蒸馏_DK</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/ubuntu%E6%9B%B4%E6%96%B0/" title="设置Ubuntu软件源"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">设置Ubuntu软件源</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%B8%85%E5%8D%8EERNIE/" title="论文阅读_清华ERNIE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-25</div><div class="title">论文阅读_清华ERNIE</div></div></a></div><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">深度学习模型压缩</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E7%BB%BC%E8%BF%B0/" title="Survey on Neural Speech Syntheis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Survey on Neural Speech Syntheis</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E5%B0%BE%E5%AE%9E%E4%BD%93%E6%A3%80%E6%B5%8B"><span class="toc-number">3.1.</span> <span class="toc-text">长尾实体检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AAtoken%E5%B5%8C%E5%85%A5%E7%9A%84%E6%B3%A8%E5%85%A5"><span class="toc-number">3.2.</span> <span class="toc-text">伪Token嵌入的注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E8%A7%A3%E7%A0%81"><span class="toc-number">3.3.</span> <span class="toc-text">相关知识解码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">实验</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

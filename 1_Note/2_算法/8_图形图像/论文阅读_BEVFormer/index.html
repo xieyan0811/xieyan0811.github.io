@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍 英文题目：BEVFormer: Learning Bird&#39;s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers 中文题目：BEVFormer: 通过时空Transformers从多摄像头图像学习鸟瞰图表示 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2203.17270">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVFormer/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="介绍 英文题目：BEVFormer: Learning Bird&#39;s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers 中文题目：BEVFormer: 通过时空Transformers从多摄像头图像学习鸟瞰图表示 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2203.17270">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-05-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.524Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自动驾驶">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVFormer/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-28T00:00:00.000Z" title="Created 2022-05-28 00:00:00">2022-05-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.524Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="介绍">介绍</h2>
+<p>英文题目：BEVFormer: Learning Bird's-Eye-View Representation from
+Multi-Camera Images via Spatiotemporal Transformers<br />
+中文题目：BEVFormer:
+通过时空Transformers从多摄像头图像学习鸟瞰图表示<br />
+论文地址：https://arxiv.org/pdf/2203.17270v1.pdf<br />
+领域：机器视觉，自动驾驶<br />
+发表时间：2022年3月<br />
+作者：Zhiqi Li等<br />
+出处：南京大学，上海人工智能实验室，香港大学<br />
+代码和数据：https://github.com/zhiqi-li/BEVFormer<br />
+阅读时间：2022.05.22</p>
+<h2 id="读后感">读后感</h2>
+<p>文中方法和特斯拉视频（<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YU4y1F7UL?spm_id_from=333.337.search-card.all.click">特斯拉2021人工智能日AI
+Day完整视频</a>）架构相似。比较有意思的地方是在<strong>BEV层面结合了时间和空间信息</strong>。</p>
+<h2 id="介绍-1">介绍</h2>
+<p>在3D感知领域，<strong>雷达</strong>已取得了很好效果，机器视觉近几年也受到关注，除了成本低，相对雷达，它还能感知远距离物体，以及识别道路标识。</p>
+<p>BEV鸟瞰图从<strong>多个摄像头</strong>信息计算表征，用于描述周围场景。分割任务证明了BEV的有效性，但由于该方法基于深度信息生成BEV容易出错，所以在三维目标检测方面效果不显著。</p>
+<p>另外，时间信息也很重要，比如车往前开的时候，现在被遮挡的物体，之前可能是能看到的。但是目前用到<strong>时序数据</strong>的不多，主要因为运动中的情况不断变化，不能通过简单堆叠前帧的方法来辅助当前预测。</p>
+<p>文中提出了结合多摄像头和历史BEV特征的方法BEVFormer，如图-1所示：<br />
+[[Pasted image 20220524103231.png]]<br />
+左图是<strong>BEV的网格图，即鸟瞰图</strong>，Ego是汽车本身，黑色方块是关注的物体；中图的交叉注意力结合了多个摄像头信息的空间信息；右图使用<strong>自注意力模型，结合了之前数据的BEV信息</strong>。以此来解决估计运动物体的速度和检测严重遮挡物体的问题。</p>
+<h3 id="文章贡献">文章贡献</h3>
+<ul>
+<li>提出BEVFormer，结合时空信息，支持下游任务。<br />
+</li>
+<li>使用自注意力和交叉注意力，<strong>将特征结合到BEV</strong>。<br />
+</li>
+<li>实验效果好。</li>
+</ul>
+<h2 id="devformer">DEVFormer</h2>
+<h3 id="总体架构">总体架构</h3>
+<p>BEVFormer有六个Encoder层，每层如图-2所示，<br />
+[[Pasted image 20220524104742.png]]<br />
+左图描述了车载的6个摄像头，通过底层 Backbone 提取多层图像特征（Feature
+Map）；中间图
+(a)展示了一个编码层包含时间的自注意力和空间的交叉注意力，空间信息由左图提供，它的输入还包括前一层的网格BEV特征(橙色)和BEV查询(蓝色)，输出是BEV特征；右侧的图(b)细化了空间交叉注意力，BEV查询只与它感兴趣的摄像机图片特征交互；右图(c)细化了时间自注意力，查询与之前的BEV特征和当前的BEV特征交互。</p>
+<p>其中BEV查询是网格形状的可学习参数，用于从摄像头中查询BEV特征。</p>
+<p>预测阶段，在时间t，读取多摄像头的图片特征F，以及t-1时刻的BEV特征，通过上述处理，输出BEV在t时刻的特征，送入下一层；多层处理完最后输出的BEV特征送入下游任务。</p>
+<h3 id="bev-查询">BEV 查询</h3>
+<p>定义一个网格形状的可学习的参数Q ∈
+RH×W×C，其中H,W是BEV平面的大小，其中每个点p=(x,y)指向现实世界中s米的区域，每个点对应一个大小为C的查询Qp。BEV的中心点一般是汽车本身所在的区域。依照惯例，在输入BEVFormer框架前，将位置嵌入到Q查询中。</p>
+<h3 id="空间交叉注意力">空间交叉注意力</h3>
+<p>多个摄像头，每个摄像头又有多层特征输出时，数据量非常大，因此使用了多头注意力。具体使用形变注意力deformable
+attention（一篇非常精典的论文）。BEV查询使每个点只与某些摄像头（视图）相关。</p>
+<p>本文将形变注意力从2D扩展到3D。如图-2(b)所示，先将查询扩展成了一个柱形，采样3D参考点，再投影到2D。把与某点相关的视图记作Vhit。把2D点作为查询Qp的参考点，从相关视图中这些点周围采样。最终得到采样特征的加权和作为空间交叉注意力的输出：<br />
+[[Pasted image 20220524113809.png]]<br />
+式中的i是摄像头索引，j是参考点，N是柱中所有高度参考点，F是特征，Q是查询，P(p,i,r)是投影函数，用于获取第i图中的第j个参考点。</p>
+<p>使用投影函数计算参考点方法如下：<br />
+[[Pasted image 20220524114202.png]]<br />
+x',y'是真实世界坐标，x,y是BEV上的坐标，W,H是BEV大小，S是每个BEV小格对应现实世界的米数。</p>
+<p>现实中，不仅有位置x',y'，还有高度z'，对于每个查询点p，获取一个3D柱<br />
+[[Pasted image 20220524114604.png]]<br />
+，通过相机的投影矩阵将三维参考点投影到不同的图像视图上。<br />
+[[Pasted image 20220524115345.png]]</p>
+<p>此处的P(p, i, j)是由第j个3D点(x',
+y',z'j)投影到第i个视图上的2D点，Ti是第i个相机的已知投影矩阵。</p>
+<h3 id="时间自注意力">时间自注意力</h3>
+<p>通过结合历史BEV来表征当前环境。查询Q和前一时间的Bt-1，首先要对齐运动中的Bt-1和Q，将对齐后的B记作B'，由于物体在运动中，因此，通过自注意力建模：<br />
+[[Pasted image 20220524115744.png]]<br />
+与之前的形变注意力不同的时，此处的位置偏移∆p是通过串联Q和B't-1来预测的。<br />
+相对于简单的堆叠之前的BEV，自注意力更有效地对长时依赖建模，也减少了计算量和信息干扰。</p>
+<h3 id="应用bev特征">应用BEV特征</h3>
+<p>Encoder输出的DEV特征Bt大小为HxWxC，可用于自动驾驶的3D物体探测（预测三维边界框和速度，无需NMS后处理）和地图分割等任务中。</p>
+<h3 id="实现细节">实现细节</h3>
+<h4 id="训练阶段">训练阶段</h4>
+<p>从过去2s中随机抽取3个样本，表示为t-3,t-2,t-1,t，在时间t，根据多摄像头的输入和Bt-1生成Bt，Bt包含四个样本的时空信息，最终输出到下游任务，计算损失函数。</p>
+<h4 id="预测阶段">预测阶段</h4>
+<p>对视频中的每帧计算，并保留BEV特征用于后续计算，尽管使用了时间信息，但是文中方法的预测时间与其它方法差不多。</p>
+<h2 id="实验">实验</h2>
+<h3 id="数据集">数据集</h3>
+<p>实验使用两个公开的自动驾驶数据集：nuScenes和Waymo。</p>
+<p>nuScense包含1000个，每个约20s的数据，标注2Hz，每个样本包含6个摄像机具有360度的水平场景。对于目标检测任务有标注了1.4M个3D框，共包含10个类别。5种评价标准：ATE,
+ASE, AEO, AVE, AAE，另外，nuScense还提出了NDS来计算综合评分。</p>
+<p>Waymo Open
+Dataset包含798个训练序列和202个验证序列，每帧5张图片，摄像机具有252度的水平场景，但提供了360度的标注。由于Waymo是高分辨率且高采样的，所以利用5秒采样切分数据，并只检测车辆类别。</p>
+<h3 id="实验设置">实验设置</h3>
+<p>基础模型使用使ResNet101-DCN和VoVnet-99，三层256通道的FPN，BEV大小为200x200，每小块对应0.512米，用6层编码层，从-5米到3米取4个高度的参考点，24次迭代。由于Waymo不能取到360度全景，由此对BEV大小做了调整。</p>
+<p>基线使用VPN和Lift-Splat模型做对比，另外，还对比了不使用时间信息的BEVFormer-S模型。</p>
+<h3 id="d目标检测">3D目标检测</h3>
+<p>[[Pasted image 20220528102547.png]]<br />
+Modality中L表示雷达，C表示摄像机，可以看到BEVFormer与雷达效果相似。另外，对于速度mAVE也有明显提升。</p>
+<h3 id="多任务感知">多任务感知</h3>
+<p>针对3D检测和地图分割同时训练两种任务，以节省资源，结果如表-4所示：<br />
+[[Pasted image 20220528103658.png]]<br />
+可以看到，在车辆分割中多任务训练效果更好，而道路和车道分割效果较差，这可能是负迁移导致的。</p>
+<h3 id="消融实验">消融实验</h3>
+<h4 id="空间交叉注意力-1">空间交叉注意力</h4>
+<p>与之前模型相比，使用了Deformable的BEV模型有明显提升。相对于全局注意力，只关注参考点的注意力（限制了感受野），稀疏注意力利用了先验的感兴趣区域，取得了更好效果，且相对比较节省资源。<br />
+[[Pasted image 20220528105619.png]]</p>
+<h4 id="时间自注意力-1">时间自注意力</h4>
+<p>通过BEVFormer与BEVFormer-S的比较可以看出，使用时间注意力的效果，其优势如下：更好地预测速度；预测位置方向更准确；对遮挡物体有更高召回率。</p>
+<h4 id="模型规模和延迟">模型规模和延迟</h4>
+<p>[[Pasted image 20220528110159.png]]<br />
+由于需要处理多视图，时间主要用于backbone模型；另外，缩减了BEVFormer后，效果下降也能接受。</p>
+<h3 id="可视化效果">可视化效果</h3>
+<p>[[Pasted image 20220528104206.png]]<br />
+如图-4所示，模型只在较远和小型物体识别有误。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVFormer/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVFormer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/">自动驾驶</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CGIN/" title="图神经网络有多强大GIN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">图神经网络有多强大GIN</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%AE%9E%E6%88%98_%E7%94%A8TFIDF%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94%E7%9B%B8%E4%BC%BC%E5%BA%A6/" title="实战_用TF/IDF算法对比相似度"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">实战_用TF/IDF算法对比相似度</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVSegFormer/" title="BEVSegFormer：基于任意相机的鸟瞰图语义分割"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-05</div><div class="title">BEVSegFormer：基于任意相机的鸟瞰图语义分割</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">2.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">3.</span> <span class="toc-text">介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E8%B4%A1%E7%8C%AE"><span class="toc-number">3.1.</span> <span class="toc-text">文章贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#devformer"><span class="toc-number">4.</span> <span class="toc-text">DEVFormer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">总体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bev-%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.2.</span> <span class="toc-text">BEV 查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.3.</span> <span class="toc-text">空间交叉注意力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">4.4.</span> <span class="toc-text">时间自注意力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8bev%E7%89%B9%E5%BE%81"><span class="toc-number">4.5.</span> <span class="toc-text">应用BEV特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">4.6.</span> <span class="toc-text">实现细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E9%98%B6%E6%AE%B5"><span class="toc-number">4.6.1.</span> <span class="toc-text">训练阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E9%98%B6%E6%AE%B5"><span class="toc-number">4.6.2.</span> <span class="toc-text">预测阶段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">5.1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.2.</span> <span class="toc-text">实验设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"><span class="toc-number">5.3.</span> <span class="toc-text">3D目标检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E6%84%9F%E7%9F%A5"><span class="toc-number">5.4.</span> <span class="toc-text">多任务感知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.5.</span> <span class="toc-text">消融实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B-1"><span class="toc-number">5.5.1.</span> <span class="toc-text">空间交叉注意力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B-1"><span class="toc-number">5.5.2.</span> <span class="toc-text">时间自注意力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%84%E6%A8%A1%E5%92%8C%E5%BB%B6%E8%BF%9F"><span class="toc-number">5.5.3.</span> <span class="toc-text">模型规模和延迟</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%88%E6%9E%9C"><span class="toc-number">5.6.</span> <span class="toc-text">可视化效果</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

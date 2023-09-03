@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>时序预测之二_ARIMA | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="时序预测之二_ARIMA #机器学习 #时序 1. 说明  ARMA回归滑动平均模型(Autoregressive Moving Average Model,简记ARIMA)，是研究时间序列的重要方法，由自回归模型（简称AR模型）与滑动平均模型（简称MA模型）为基础“混合”构成。常用于具有季节变动特征的销售量、市场规模的预测等。ARIMA模型相对ARMA模型，仅多了差分操作。 2. 相关概念 (1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时序预测之二_ARIMA">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="时序预测之二_ARIMA #机器学习 #时序 1. 说明  ARMA回归滑动平均模型(Autoregressive Moving Average Model,简记ARIMA)，是研究时间序列的重要方法，由自回归模型（简称AR模型）与滑动平均模型（简称MA模型）为基础“混合”构成。常用于具有季节变动特征的销售量、市场规模的预测等。ARIMA模型相对ARMA模型，仅多了差分操作。 2. 相关概念 (1">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2018-03-23T15:58:38.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.520Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="时序">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '时序预测之二_ARIMA',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">时序预测之二_ARIMA</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-03-23T15:58:38.000Z" title="Created 2018-03-23 15:58:38">2018-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.520Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="时序预测之二_ARIMA"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="时序预测之二_arima">时序预测之二_ARIMA</h1>
+<p>#机器学习 #时序</p>
+<h2 id="说明">1. 说明</h2>
+<p> ARMA回归滑动平均模型(Autoregressive Moving Average
+Model,简记ARIMA)，是研究时间序列的重要方法，由自回归模型（简称AR模型）与滑动平均模型（简称MA模型）为基础“混合”构成。常用于具有季节变动特征的销售量、市场规模的预测等。ARIMA模型相对ARMA模型，仅多了差分操作。</p>
+<h2 id="相关概念">2. 相关概念</h2>
+<h4 id="自回归模型ar">(1) 自回归模型（AR）</h4>
+<p> 自回归模型autoregressive
+model，简称AR．在时序分析中，描述时间序列｛yt｝自身某一时刻和前p个时刻之间相互关系的模型称自回归模型，其形式为：<br />
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-4c833f770c8c6b2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /><br />
+ 其中Φ1, Φ2,…,
+Φp是模型参数，εt是白噪声序列，它反映了所有其它随机因素的干扰．其中p为模型阶次，即yt由前p个值决定．</p>
+<h4 id="滑动平均模型ma">(2) 滑动平均模型（MA）</h4>
+<p> 滑动平均模型moving average
+model，也称移动平均模型，它将时间序列{yt}看成白噪声序列的线性组合，为什么误差能描述模型呢？假设某个值可通过之间前N个值的平均值预测，稍作变化，即实际值可以通过前一值的预测值加误差得到．因此实际值可用多个误差值的累加来表示．其形式为：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-6e181d2b8ead7117.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h4 id="回归滑动平均模型arma">(3) 回归滑动平均模型（ARMA）</h4>
+<p> 简单地说：AR模型是建立当前值和历史值之间的联系，MA模型是计算AR部分累积的误差。ARMA是两个维度的和．</p>
+<h4 id="数据预处理">(4) 数据预处理</h4>
+<p> ARMA要求被分析的数据呈正态分布，平稳，零均值．平稳性一般是指：均值为常数，方差为常数，且自协方差为常数．比如说上升的趋势中，均值就不是常数；如果震荡幅度越来越大，则方差不是常数。<br />
+ 如果仅是均值非０的情况，可减去均值；如果趋势可用线性拟合，可以减去拟合后的趋势；另外还可以用差分，或者季节性差分的方法使之平稳；对于非正态分布，可使用对数处理．</p>
+<h4 id="差分">(5) 差分</h4>
+<p> 差分是将数据进行移动之后与原数据进行比较得出的差异数据，这里的移动是指上移或者下移．简单的说，比如对某支股票的价格数据做一阶差分，就是将每日价格减去前一天的价格．<br />
+ 在python中，差分运算可使用pandas的diff(periods=n)函数实现，其中n为阶数，默认为一阶差分，一阶差分的具体操作是df.shift()-df．用于生成平稳数据，比如下面的曲线．</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-8c5354c873aa203c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> 一阶差分后</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-4acc0da58cce2f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> 由此可见，差分之后，去掉了趋势，均值趋于０．有助于分析其它特征．</p>
+<h4 id="自相关与偏自相关acfpacf">(6)
+自相关与偏自相关（ACF&amp;PACF）</h4>
+<p> 自相关acf和偏自相关pacf是分析时序数据的重要方法，是在平稳条件下求得的．<br />
+ 自相关函数Auto Correlation Function，简称ACF．形如：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-7faa3325d7567fb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> Ｘ轴表示滞后值，Ｙ轴从[-1,1]，表示了这些值的相关性．比如左边第一点相关性为1，就是说该点与它自己完全相关．从图中可观察到：12个月为周期的相关性相当明显的．调用方法如下：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.graphics.tsaplots <span class="im">import</span> plot_acf  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>plot_acf(df[<span class="st">&#39;xxx&#39;</span>])  </span></code></pre></div>
+<p> 注意时序数据中不能包括空值，如果之前用了一次一阶差分和一次十二阶差分，应去掉前13个为空的值．<br />
+ 图中蓝色部分是描述的统计显著性，如果数据随机分布，Y轴的位置会在蓝色区域之内．因此，要着重看蓝色区域以外的点．<br />
+ 自相关系数包含了其它变量影响下的相关关系，有时需要只考虑某两个变量的相关关系，即偏相关系数．其中的偏字，指的是只考虑首尾两项的关系，把中间项当成常数，使用了偏导数的方法．使用方法如下：</p>
+<pre><code>from statsmodels.graphics.tsaplots import plot_pacf  
+plot_pacf(df[&#39;xxx&#39;])  </code></pre>
+<h4 id="拖尾和截尾">(7) 拖尾和截尾</h4>
+<p> 我们通过观察自相关图和偏自相关图来确使用哪种模型，以自相关图为例，先看看图片呈现的几种形式．</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-f25162242928877b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> 左边的图呈直线形式衰减，说明可能包括趋势，需要进一步差分；中间是截尾图，它指的是在某个值（如图中的7）后截止为0；右则是拖尾图，指的是按指数形式或正弦形式有规律地衰减．<br />
+ 如果自相关系数拖尾，偏自相关系数p阶截尾，则使用p阶的AR模型．<br />
+ 如果自相关系数q阶截尾，偏自相关函数拖尾，则使用q阶的MA模型．<br />
+ 简单的讲，它们两个都是看截尾截在哪儿．<br />
+ 如果自相关函数和偏自相关函数均拖尾，则使用ARMA模型，由于AR和MA相互影响，阶数需要从小到大逐步尝试．</p>
+<h4 id="模型检验">(8) 模型检验</h4>
+<ol type="i">
+<li><p>模型对训练数据的拟合<br />
+ 用模型对训练数据做拟合，用观察或者计算误差的方式，查看二者差异，差异越小越好．</p></li>
+<li><p>检查残差的自相关函数<br />
+ 残差的自相关函数应该没有可识别的结构．</p></li>
+<li><p>AIC信息准则<br />
+ AIC信息准则Akaike information
+criterion，是衡量统计模型拟合优良性的一种标准，AIC值越小越好，也有根据AIC自动选参数的工具．</p></li>
+</ol>
+<h2 id="步骤">3. 步骤</h2>
+<p> 具体使用python调用statsmodels库实现．statsmodels是一套统计工具集．具体需要考虑三个参数：d，p，q．其中d是消除趋势的差分阶数，p是AR阶层，q是MA的阶数．步骤如下：</p>
+<ol type="1">
+<li><p>做时序图观察基本的趋势和周期．</p></li>
+<li><p>分析平稳性，正态性，周期性；并对数据进行转换．</p></li>
+<li><p>做自相关和偏自相关图，确定模型阶次．</p></li>
+<li><p>模型检验</p></li>
+<li><p>用模型预测．</p></li>
+</ol>
+<h2 id="问题与解答">4. 问题与解答</h2>
+<ol type="1">
+<li><p>做ARMA分析前是否应该剔除周期性因素？<br />
+ 我们可以从自相关图中看出周期性波动，比如上边右侧的拖尾图，它说明某天与前7,14,21天都强相关．如果发现强相关，可先进行多阶差分（季节差分）后，再进一步使用ARMA模型处理．需要注意的是各层次差分在预测时都需要对应的还原．</p></li>
+<li><p>做长期预测时如何应对衰减？<br />
+ 我在做盐城上牌预测时就遇到了严重的衰减问题，当时需要预测之后几百天的数据，而ARMA在预测了几十天之后，就从类似正弦波型衰减成了一条直线，导致我最终放弃了该模型，改为使用线性拟合趋势，严重损失了精度．后来看复赛排名第一的大神分享，他也使用ARMA，并且也有衰减问题，不同的是他采用按月预测，相比于按日预测，衰减就好得多，非常赞！</p></li>
+</ol>
+<h2 id="参考">5. 参考</h2>
+<ol type="1">
+<li>第七篇时间序列分析<br />
+https://max.book118.com/html/2014/1223/10828140.shtm</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%97%B6%E5%BA%8F/">时序</a><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%89_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%92%8C%E5%B0%8F%E6%B3%A2%E5%8F%98%E6%8D%A2/" title="时序预测之三_傅立叶和小波变换"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">时序预测之三_傅立叶和小波变换</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%80_%E6%A6%82%E8%BF%B0/" title="时序预测之一_概述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">时序预测之一_概述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/test/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%97%B6%E5%BA%8FTDTS/" title="论文阅读_时序TDTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">论文阅读_时序TDTS</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%80_%E6%A6%82%E8%BF%B0/" title="时序预测之一_概述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-15</div><div class="title">时序预测之一_概述</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E5%9B%9B_Prophet%E6%97%B6%E5%BA%8F%E6%A8%A1%E5%9E%8B/" title="时序预测之四_Prophet时序模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-20</div><div class="title">时序预测之四_Prophet时序模型</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97_%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8BHMM/" title="机器学习_隐马尔可夫模型HMM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-15</div><div class="title">机器学习_隐马尔可夫模型HMM</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/" title="Pytorch_循环神经网络RNN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-06</div><div class="title">Pytorch_循环神经网络RNN</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/" title="Seq2Seq与Attention"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-18</div><div class="title">Seq2Seq与Attention</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_arima"><span class="toc-number">1.</span> <span class="toc-text">时序预测之二_ARIMA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">1. 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.</span> <span class="toc-text">2. 相关概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8Bar"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">(1) 自回归模型（AR）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87%E6%A8%A1%E5%9E%8Bma"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">(2) 滑动平均模型（MA）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%BB%91%E5%8A%A8%E5%B9%B3%E5%9D%87%E6%A8%A1%E5%9E%8Barma"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">(3) 回归滑动平均模型（ARMA）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">(4) 数据预处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%AE%E5%88%86"><span class="toc-number">1.2.0.5.</span> <span class="toc-text">(5) 差分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%9B%B8%E5%85%B3%E4%B8%8E%E5%81%8F%E8%87%AA%E7%9B%B8%E5%85%B3acfpacf"><span class="toc-number">1.2.0.6.</span> <span class="toc-text">(6)
+自相关与偏自相关（ACF&amp;PACF）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%96%E5%B0%BE%E5%92%8C%E6%88%AA%E5%B0%BE"><span class="toc-number">1.2.0.7.</span> <span class="toc-text">(7) 拖尾和截尾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A3%80%E9%AA%8C"><span class="toc-number">1.2.0.8.</span> <span class="toc-text">(8) 模型检验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.3.</span> <span class="toc-text">3. 步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E7%AD%94"><span class="toc-number">1.4.</span> <span class="toc-text">4. 问题与解答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.5.</span> <span class="toc-text">5. 参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

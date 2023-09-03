@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>读文阅读_Node2Vec | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#论文阅读 #自然语言处理 #知识图谱 介绍 英文题目：node2vec: Scalable Feature Learning for Networks 中文题目：node2vec：面向网络的可扩展特征学习 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1607.00653 领域：图神经网络，知识表示 发表时间：2016 出处：KDD 被引量：6181 代码和数据：http:&#x2F;&#x2F;snap.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读文阅读_Node2Vec">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="#论文阅读 #自然语言处理 #知识图谱 介绍 英文题目：node2vec: Scalable Feature Learning for Networks 中文题目：node2vec：面向网络的可扩展特征学习 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1607.00653 领域：图神经网络，知识表示 发表时间：2016 出处：KDD 被引量：6181 代码和数据：http:&#x2F;&#x2F;snap.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-02-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.048Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="图神经网络">
+<meta property="article:tag" content="知识表示">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '读文阅读_Node2Vec',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">读文阅读_Node2Vec</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-02-20T00:00:00.000Z" title="Created 2022-02-20 00:00:00">2022-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.048Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="读文阅读_Node2Vec"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#论文阅读 #自然语言处理 #知识图谱</p>
+<h2 id="介绍">介绍</h2>
+<p>英文题目：node2vec: Scalable Feature Learning for Networks<br />
+中文题目：node2vec：面向网络的可扩展特征学习<br />
+论文地址：https://arxiv.org/abs/1607.00653<br />
+领域：图神经网络，知识表示<br />
+发表时间：2016<br />
+出处：KDD<br />
+被引量：6181<br />
+代码和数据：http://snap.stanford.edu/node2vec/<br />
+参考其它翻译：<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/46344860">【论文笔记】node2vec</a></p>
+<h2 id="说明">说明</h2>
+<ul>
+<li>一切皆可vector<br />
+</li>
+<li>图神经网络经典必读第一篇</li>
+</ul>
+<h2 id="读后感">读后感</h2>
+<p>（看完题目、摘要、结论、图表及小标题看完，约30分钟）<br />
+针对问题：自动学习图中<strong>结点和边</strong>的特征表示<br />
+目标：更好地表征图中的节点：兼顾同质性和结构等价性。<br />
+结果：在多领域与SOTA模型对比，展示算法有效性，可在复杂网络中生成任务无关的表征。<br />
+方法：note2vec框架，<strong>优化随机游走</strong>算法，<strong>结合深度优先和广度优先两种游走方式</strong>，用参数设置游走方式的选择，从而提升效率。</p>
+<h2 id="精读">精读</h2>
+<p>（核心章节：读+整理 ：3小时）</p>
+<h3 id="摘要">摘要</h3>
+<p>如果想使用机器学习算法对图中节点和边建模，需要自动学习对图中元素的描述以替代手动对图的特征工程。</p>
+<p>文中提出node2vec框架，学习对图中节点的连续性特征的表示。将节点映射到低维空间，使图中相邻节点相似性最高。文中设计了一种有偏随机游走过程，核心在于加入有弹性的领域探索方法来增强特征的表达能力。</p>
+<p>在多分类和连接预测任务中对比了node2vec与SOTA模型，展示出文中方法在复杂网络情况下，可有效地学习任务无关的表示。</p>
+<p>……</p>
+<h3 id="特征学习框架">3. 特征学习框架</h3>
+<p>设G=(V,E)，其中G为图，V是节点，E是边。设f为V-&gt;<span
+class="math inline">\(R^d\)</span>
+映射函数，将节点V映射成特征表示R，d是特征维度。对于每个节点u∈V，定义Ns(u)为使用采样策略S得到的节点u的邻居。</p>
+<p>目标是找到映射f，以最大化节点u的邻居是Ns(u)的对数概率。[[Pasted image
+20220220154359.png]]为了简化问题，做以下假设：<br />
+* 条件独立假设：假设节点与其各个邻居之间的关系相互独立<br />
+[[Pasted image 20220220153258.png]]<br />
+* 特征空间中的对称性：节点与其邻居的关系是对称的。<br />
+[[Pasted image 20220220154241.png]]<br />
+基于上述两个假设，公式一可简化成：<br />
+[[Pasted image 20220220154334.png]]<br />
+[[Pasted image 20220220154637.png]]<br />
+当网络很大时，使用<strong>负抽样来逼近它</strong>；并使用随机梯度上升法来优化模型参数。</p>
+<p>特征学习方法使用自然语言处理中的Skip-gram方法。</p>
+<h4 id="经典搜索策略">经典搜索策略</h4>
+<p>[[Pasted image 20220220160807.png]]</p>
+<p><strong>常见两种采样策略：</strong><br />
+* 广度优先(BFS）<br />
+邻域由与它直接连通的节点组成，如上图所示，当邻居数据k=3时，BFS采样节点s1,s2,s3。<br />
+* 深度优先(DFS）<br />
+邻域由距离源节点越来越远的顺序采样的节点组成，如上图中的s4,s5,s6。</p>
+<p><strong>同质性和相似结构：</strong><br />
+* 同质性<br />
+同质网络中各个节点往往是相互连通的，如上图中的u和s1就属于同质网络。<br />
+* 结构相似<br />
+当节点有类似的网络结构时，这些节点可能充当相似角色，比如上图中的u和s6具有结构相似性（看起来像节点中的hub）。需要注意的，结构相似的网络可能并不相连，它们可能出现在网络的不同位置。</p>
+<p>另外，同质性和结构相似性往往在网络中并存。</p>
+<p>不同的采样策略决定了节点的特征表示，基于BFS的嵌入方法与结构相似性相关，它可以找到微观局部的邻居，当目标节点起到桥接或hub作用时，通过直接邻域就可以发现。用BFS只能探索图中比较少的区域。相对来说，DFS可以探索更大区域，它反映了邻域的宏观情况，即同源性。它不但需要推断节点间依赖性，还要推断精确的关系，这相对困难，另外，深度优先涉及更远更复杂的依赖，且一般来说距离越远，相关性越小。</p>
+<h4 id="node2vec">3.2 node2vec</h4>
+<p>文中提出了一种弹性的邻域采样策略，兼顾深度和广度。</p>
+<h5 id="随机游走">3.2.1 随机游走</h5>
+<p>对于节点u，先设定游走的步数l，用ci表示第i步游走的分布，比如第0步时c0=u。<br />
+[[Pasted image 20220220164900.png]]<br />
+其中πvx是节点v和x之间的转移概率，而Z是归一化常数。</p>
+<h5 id="有偏探索">3.2.2 有偏探索</h5>
+<p>最简单的方法是根据<strong>边的权重采样</strong>下一个节点，但这样无法兼顾网络结构以及不同的邻居类型。另外，还需要结合BFS和DFS，而非二选一。</p>
+<p>文中使用了p,q两个参数，如图所示：上一步从t到v，目前处于节点v，此时计算边的转移概率πvx：<br />
+[[Pasted image 20220220170011.png]]<br />
+[[Pasted image 20220220170023.png]]<br />
+其中wvx是图中边的权重，dtx是从t到x的最短路径距离（注意这里指的是t和x的距离，不是v和x的距离）。</p>
+<p>[[Pasted image 20220220165752.png]]</p>
+<p>如图所示，参数p和q控制着游走的距离以及近邻数。</p>
+<p>返回参数p：p控制是否返回t节点，p较大时，不容易返回t节点，它鼓励了模型向外探索，并避免了两跳冗余；当p较小时，则使距离足够短，使表示具有微观性。</p>
+<p>向内/向外参数q：q允许选择探索向内或向外的节点，当q&gt;1时，随机游走倾向回到t，使表示具有微观性；当q&lt;1时，则倾向广度优先。与完全的深度优先不同，这里只考虑了两步。</p>
+<p>相对于单纯的深度或广度优先，随机游走在空间和时间上都更加高效。</p>
+<h5 id="node2vec算法">3.2.3 node2vec算法</h5>
+<p>[[Pasted image 20220220172409.png]]<br />
+PreprocessModifiedWeights根据参数p,q和图G生成转换概率；外循环表示生成r次随机游走；内循环对于每个节点u，用node2vecWork生成随机游走，最后使用随机梯度下降SGD优化模型参数。</p>
+<p>函数note2vecWork用于生成每个节点的游走，遍历每种可能的游走长度l，将当前节点curr设为最后添加的节点，找到它所有的邻居节点，然后根据转移概率π进行有偏采样，得到邻居s并将其加入walk。</p>
+<p>最终由三步构成：计算转移概率、模拟随机游走、使用SGD优化。</p>
+<h4 id="学习边的特征表示">3.3 学习边的特征表示</h4>
+<p>node2vec提供了半监督的节点特征学习方法，有时我们对于节点间的关系更感兴趣，比如链接预测：两个节点间是否存在连接，随机游走方法可将节点的表示扩展成边的表示。</p>
+<p>假设两个节点u和v，其特征向量为f(u),f(v)，则两个节点的关系被表示为g(u,v)。无论u与v之间是否有边存在，都可以用这种方法表示（存在边为true，不存在为false）。还有一些方法也可以用于表示边，如下表所示。</p>
+<p>[[Pasted image 20220220181535.png]]</p>
+<p>图3描述了节点的关系，上图为同质化，下图为结构一致性。</p>
+<p>[[Pasted image 20220220181928.png]]</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">图神经网络</a><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/">知识表示</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E6%90%8F%E5%BC%88%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9B%BE%E6%8E%A8%E7%90%86/" title="基于动态辩论的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">基于动态辩论的知识图推理</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/streamlit%E6%9E%84%E9%80%A0Web%E5%BA%94%E7%94%A8/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%85%B3%E7%B3%BB%E8%A1%A8%E5%BE%81%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0DeepWalk/" title="读文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">读文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CGIN/" title="图神经网络有多强大GIN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-01</div><div class="title">图神经网络有多强大GIN</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GCN%E7%9F%A5%E8%AF%86%E5%9B%BE%E5%AF%B9%E9%BD%90/" title="基于GCN的跨语言知识图对齐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-23</div><div class="title">基于GCN的跨语言知识图对齐</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8D%B7%E7%A7%AF%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91GCN/" title="使用卷积图神经网络实现半监督分类器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-13</div><div class="title">使用卷积图神经网络实现半监督分类器</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9CGAN/" title="图注意力网络"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-02</div><div class="title">图注意力网络</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E6%90%8F%E5%BC%88%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9B%BE%E6%8E%A8%E7%90%86/" title="基于动态辩论的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">基于动态辩论的知识图推理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">3.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E8%AF%BB"><span class="toc-number">4.</span> <span class="toc-text">精读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">4.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6"><span class="toc-number">4.2.</span> <span class="toc-text">3. 特征学习框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E6%90%9C%E7%B4%A2%E7%AD%96%E7%95%A5"><span class="toc-number">4.2.1.</span> <span class="toc-text">经典搜索策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#node2vec"><span class="toc-number">4.2.2.</span> <span class="toc-text">3.2 node2vec</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">3.2.1 随机游走</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E5%81%8F%E6%8E%A2%E7%B4%A2"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">3.2.2 有偏探索</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#node2vec%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.2.3.</span> <span class="toc-text">3.2.3 node2vec算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E8%BE%B9%E7%9A%84%E7%89%B9%E5%BE%81%E8%A1%A8%E7%A4%BA"><span class="toc-number">4.2.3.</span> <span class="toc-text">3.3 学习边的特征表示</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

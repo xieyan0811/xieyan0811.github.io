@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_中文命名实体识别 Lattice LSTM | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文题目：Chinese NER Using Lattice LSTM 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1805.02023.pdf 相关源码：https:&#x2F;&#x2F;github.com&#x2F;jiesutd&#x2F;LatticeLSTM 约1.5K Star 中文翻译：中文实体抽取（NER）论文笔记 中文翻译2：ChineseNER Using LatticeLSTM笔记 读后感 优化中文的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_中文命名实体识别 Lattice LSTM">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%20Lattice%20LSTM/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="论文题目：Chinese NER Using Lattice LSTM 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1805.02023.pdf 相关源码：https:&#x2F;&#x2F;github.com&#x2F;jiesutd&#x2F;LatticeLSTM 约1.5K Star 中文翻译：中文实体抽取（NER）论文笔记 中文翻译2：ChineseNER Using LatticeLSTM笔记 读后感 优化中文的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-01-08T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:41.928Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%20Lattice%20LSTM/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_中文命名实体识别 Lattice LSTM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_中文命名实体识别 Lattice LSTM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-01-08T00:00:00.000Z" title="Created 2022-01-08 00:00:00">2022-01-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:41.928Z" title="Updated 2023-09-03 10:08:41">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_中文命名实体识别 Lattice LSTM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>论文题目：Chinese NER Using Lattice LSTM<br />
+论文地址：<a
+href="%5Bhttps://arxiv.org/pdf/1805.02023.pdf%5D">https://arxiv.org/pdf/1805.02023.pdf</a><br />
+相关源码：<a
+target="_blank" rel="noopener" href="https://github.com/jiesutd/LatticeLSTM">https://github.com/jiesutd/LatticeLSTM</a>
+约1.5K Star<br />
+中文翻译：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/u014475479/article/details/81137671">中文实体抽取（NER）论文笔记</a><br />
+中文翻译2：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42414521">ChineseNER
+Using LatticeLSTM笔记</a></p>
+<h2 id="读后感">读后感</h2>
+<p>优化中文的命名实体识别，加入了对中文词的支持</p>
+<h2 id="介绍">介绍</h2>
+<p>这是一篇2018年发表于 ACL（自然语言处理顶会）
+的论文，文中提出了一种基于格子（Lattice）结构的LSTM模型，用于优化中文的命名实体识别。具体方法结合了字序列和词序列两种方式（考虑可能出现的各种分词情况）。相对于基于"字序列”的方法，模型能兼顾词间关系；相对于”词序列“的方法，模型不受分词错误的影响。门控单元让模型选择最为相关的字和词以实现实体识别。</p>
+<p>近年来英文命名实体识别（NER）常用LSTM-CRF方法实现。中文的NER直觉上似乎应该是先做分词，再进行实体识别。然而由于跨界领域的分词问题难以解决，所以中文以字符为单位的NER往往优于以词为单位的NER。</p>
+<h2 id="模型">模型</h2>
+<p>定义t(i,k)，其中i是词的位置，k是在词中字的位置，如“南京市
+长江大桥”中，t(2,1)是“长”，t(1,3)是“市”。<br />
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-a9252106910bd927.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h4 id="基于字符的模型">4.1 基于字符的模型</h4>
+<p><strong>基础方法</strong><br />
+如图3-a所示，其中<span
+class="math display">\[x_j^c=e^c(c_j)\]</span><br />
+e是通过查表得到的字符c的词嵌入。<br />
+双向的lstm从前后两个方向分别计算隐藏层，得到两组参数<br />
+<span class="math display">\[ h_j^c=[\overrightarrow{h_j^c};
+\overleftarrow{h_j^c}]\]</span><br />
+隐藏层的输出最终代入CRF模型。</p>
+<p><strong>Char + bichar</strong><br />
+与基础方法不同的是，除了当前字符外，还考虑了下一字符，<span
+class="math inline">\(e^b\)</span>用于查询双字对应的词嵌入。<br />
+<span
+class="math display">\[x_j^c=[e^c(c_j);e^b(c_j,c_j+1)]\]</span><br />
+<strong>Char + softword</strong><br />
+将分段方法作为标签与词嵌入相连接，并作为软特征代入模型。<span
+class="math inline">\(e^s\)</span>用于查询分词标记的嵌入。也使用双向的LSTM，最终将隐藏层代入CRF模型。<br />
+<span class="math display">\[x_j^c=[e^c(c_j);e^s(seg(c_j))]\]</span></p>
+<h4 id="基于词的模型">4.2 基于词的模型</h4>
+<p><strong>基础方法</strong><br />
+基于词的模型结构如图3-b所示，<br />
+<span class="math display">\[x_i^w=e^w(w_i)\]</span><br />
+其中<span
+class="math inline">\(e^w\)</span>用于词嵌入查询，双向的lstm最终也生成了两个方向的隐藏层。</p>
+<p><strong>Word + char LSTM</strong><br />
+将词嵌入和字符嵌入结合在一起：<br />
+<span class="math display">\[x_i^w=[e^w(w_i);x_i^c]\]</span><br />
+其中<span
+class="math inline">\(x_i^c\)</span>表征了词i包含所有的字符嵌入，通过以下公式计算：<br />
+<span class="math display">\[x_i^c=[\overrightarrow{h_{t(i,len(i))}^c};
+\overleftarrow{h_{t(i,1)}^c}]\]</span><br />
+使用双向LSTM，学习隐藏层（我理解：由于LSTM计算的是一个序列，所以从左向右的最后一个就能代表整个串，同右向左的的1能代表所有隐藏层传递结果)。</p>
+<p><strong>Word + char LSTM'</strong><br />
+这是对上一模型的微调，它使用同一个LSTM结构去训练正向和反向的词隐藏层h。</p>
+<p><strong>Word + char CNN</strong></p>
+<p>使用CNN方法对每个词生成一个字符表征<span
+class="math inline">\(x_i^c\)</span>，其计算方法如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-e400df5ca1009b1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>取一个最佳值j，使上式结果值最大，其中W和b是网络参数，ke=3是卷积核大小。</p>
+<h4 id="格子模型">4.3 格子模型</h4>
+<p>LSTM的格子模型结构如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-65c0672189ecee32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>它扩展了基于字符的LSTM，加入了基于词的记忆单元和门控。</p>
+<p>从上面的图3-c可以看到，输入是字符序列，同时增加了由该字符开头的字典D中可能出现的所有词。用<span
+class="math inline">\(w_{b,e}^d\)</span>来表示字符串从位置b开始，到位置e结束，比如在图1中的<span
+class="math inline">\(w_{1,2}^d=南京\)</span>, <span
+class="math inline">\(w_{7,8}^d=大桥\)</span><br />
+（我觉得下标好像是写错了）</p>
+<p>模型涉及了四种类型的向量：输入向量、输出隐藏向量、记忆单元向量、门控向量。作为重要元素，每一个输入字符<span
+class="math inline">\(c_j\)</span>和基于字符的模型一样：<br />
+<span class="math display">\[x_j^c=e^c(c_j)\]</span><br />
+每个字符<span
+class="math inline">\(c_j\)</span>都被代入基本循环结构<span
+class="math inline">\(c_j^c\)</span>和<span
+class="math inline">\(h_j^c\)</span>，记忆单元<span
+class="math inline">\(c_j^c\)</span>用于记录从头到j的信息，隐藏层<span
+class="math inline">\(h_j^c\)</span>用作CRF（条件随机场）的输入。</p>
+<p>LSTM的基本结构如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-3ac1e38ef8c1e7b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中的i,f,o分别是输入，遗忘和输出门，<span
+class="math inline">\(W^{cT}\)</span>和<span
+class="math inline">\(b^c\)</span>是模型参数，σ是sigmoid激活函数。</p>
+<p>本文提出的方法与基于字符方法不同的是：计算<span
+class="math inline">\(c_j^c\)</span>还涉及了词序列<span
+class="math inline">\(w_{b,e}^d\)</span>：<br />
+<span class="math display">\[x_{b,e}^w=e^w(w_{b,e}^d)\]</span><br />
+这里的<span
+class="math inline">\(e^w\)</span>与词嵌入模型的查表方法相同。</p>
+<p><span
+class="math inline">\(c_{b,c}^w\)</span>用于表示记忆单元，具体计算方法如下：<br />
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-5d4a82e7927ecccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /><br />
+i是输入向量，f是遗忘门，需要注意的是由于没有对词元素的标签，所以这里不考虑词相关的输出门。</p>
+<p>上式中的<span
+class="math inline">\(c_{b,e}^w\)</span>有多种可能性，比如：“桥“、“大桥“、“长江大桥“都是可选词，所有以”桥“结尾的词，最终都被连接到单元”桥“，用<span
+class="math inline">\(c_e^c\)</span>表示。对每个<span
+class="math inline">\(c_{b,e}^w\)</span>加入门控<span
+class="math inline">\(i_{b,e}^c\)</span>，用于控制每个词对记忆单元<span
+class="math inline">\(c_{b,e}^c\)</span>的贡献度：<br />
+<span class="math display">\[i_{b,e}^c=\sigma(W^{lT}\left[
+\begin{matrix}  
+   x_e^c \\  
+   c_{b,e}^w \\  
+\end{matrix} \right]+b^l)\]</span><br />
+对于记忆单元的计算变为（通过前一个单元和本次输入计算）：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-bc46dc5331a55d20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中α是输入门i归一化的方法，具体计算方法如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-ea5e826f4b464a04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>通过对损失函数的反向传播训练模型参数W和b，让模型动态地聚焦于与词更相关的label。</p>
+<h4 id="解码和训练">3.4 解码和训练</h4>
+<p>最终的CRF层使用最上层的隐藏层结果作为输入。</p>
+<p>标签y=l1,l2....lτ，最终计算概率：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-d2ebcacea6d77b35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>式中的W是对应标签第i个位置的模型参数，b是li-1到li的偏移。</p>
+<p>文中使用维特比算法找到对于基于词或基于字的输入打分最高的标签，利用L2损失函数训练模型：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-130901dffb67cfb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中λ是正则化参数，Θ是设置参数。</p>
+<h2 id="实验">4. 实验</h2>
+<h4 id="实验设置">4.1 实验设置</h4>
+<p><strong>数据</strong><br />
+实验部分使用了四个数据集：OntoNotes 4（新闻）, MSRA（新闻）, Weibo NER,
+Chinese resume（金融领域简历）。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-da40f12ad7ea937c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p><strong>分词方法</strong><br />
+OntoNotes的训练和测试集，MSRA的训练集，都提供了分词的金标准，而其它的数据则没有直接可用的分词方法，则使用了Yang等人提出的自动分词算法，以及通过上述金标准训练的分词器。</p>
+<p><strong>词嵌入</strong><br />
+使用 word2vector 的方法提取了 704.4k
+个词的词嵌入作为预训练词典，其中两字词57.7k，三字词291.5k，四字词278.1k。并在模型训练时进行了微调。</p>
+<p><strong>超参数设置</strong><br />
+超参数如下表所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-f1b40f443d8c1a4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h4 id="进一步实验">4.2 进一步实验</h4>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-a710bac7d7e61c56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>表4中对比了基于字符、词、格子三种模型的效果，</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-4b37fde2a7d17ae1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<p>从图4,表5中可以看出Lattice方法不仅效果好，在没有分词器的情况下，也达到了好于自动分词器，仅次于金标准的效果。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%20Lattice%20LSTM/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E4%B8%AD%E6%96%87%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB%20Lattice%20LSTM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/MYSQL_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%A7%E5%A4%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="MYSQL数据库大太的解决方案"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">MYSQL数据库大太的解决方案</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E4%B9%89%E5%B5%8C%E5%85%A5/" title="论文阅读_语义嵌入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_语义嵌入</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">深度学习模型压缩</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/" title="论文阅读_自然语言模型加知识图谱_DKPLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-11</div><div class="title">论文阅读_自然语言模型加知识图谱_DKPLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E7%BB%BC%E8%BF%B0/" title="Survey on Neural Speech Syntheis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Survey on Neural Speech Syntheis</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%AD%97%E7%AC%A6%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.0.1.</span> <span class="toc-text">4.1 基于字符的模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E8%AF%8D%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.0.2.</span> <span class="toc-text">4.2 基于词的模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%BC%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.0.3.</span> <span class="toc-text">4.3 格子模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%92%8C%E8%AE%AD%E7%BB%83"><span class="toc-number">3.0.4.</span> <span class="toc-text">3.4 解码和训练</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">4. 实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.0.1.</span> <span class="toc-text">4.1 实验设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.0.2.</span> <span class="toc-text">4.2 进一步实验</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

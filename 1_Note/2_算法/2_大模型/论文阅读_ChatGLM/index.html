@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_ChatGLM | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="name_ch: Glm-130B：开放双语预训练模型 name_en: GLM-130B：AN OPEN BILINGUAL PRE-TRAINED paper_addr: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2210.02414 code: https:&#x2F;&#x2F;github.com&#x2F;THUDM&#x2F;GLM-130B&#x2F; date_publish: 2023-01-01 1 读后感 2022年11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_ChatGLM">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="name_ch: Glm-130B：开放双语预训练模型 name_en: GLM-130B：AN OPEN BILINGUAL PRE-TRAINED paper_addr: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2210.02414 code: https:&#x2F;&#x2F;github.com&#x2F;THUDM&#x2F;GLM-130B&#x2F; date_publish: 2023-01-01 1 读后感 2022年11">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-03-23T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:41.496Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_ChatGLM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_ChatGLM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-23T00:00:00.000Z" title="Created 2023-03-23 00:00:00">2023-03-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:41.496Z" title="Updated 2023-09-03 10:08:41">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_ChatGLM"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>name_ch: Glm-130B：开放双语预训练模型<br />
+name_en: GLM-130B：AN OPEN BILINGUAL PRE-TRAINED<br />
+paper_addr: https://arxiv.org/abs/2210.02414<br />
+code: https://github.com/THUDM/GLM-130B/<br />
+date_publish: 2023-01-01</p>
+<h2 id="读后感">1 读后感</h2>
+<p>2022年11月，斯坦福大学大模型中心对全球30个主流大模型进行了全方位的评测2，GLM-130B
+是亚洲唯一入选的大模型。 GLM-130B 在准确性和恶意性指标上与 GPT-3 175B
+(davinci) 接近或持平。<br />
+ChatGLM最大的优点是开源，并针对中文进行了优化，尤其是可以在自己的机器上搭建其简版的int4服务，实测回答一般性问题效果还不错，文后附环境搭建方法。</p>
+<h2 id="摘要">2 摘要</h2>
+<p>ChatGLM是使用中英双语预训练的大语言模型，具有130B参数（1300亿），使用400B
+token训练。<br />
+在模型结构上结合了GPT和BERT。在英文方面，效果优于GPT-3；在中文方面，优于260B参数的ERNIE
+TITAN 3.0。可在4×RTX 3090 (24G) 或 8×RTX 2080 Ti (11G) GPUs
+环境下运行。</p>
+<h2 id="介绍">3 介绍</h2>
+<p>论文提出：通用语言模型General Language Model (GLM)
+，主要使用的技术是：双向注意力和自回归空白填充目标。嵌入梯度收缩策略可以显著提升GLM
+- 130B的训练稳定性。<br />
+<img src="/attachments_2023/Pasted%20image%2020230323174928.png" /></p>
+<h2 id="方法">4 方法</h2>
+<h3 id="结构">4.1 结构</h3>
+<h4 id="glm架构">4.1.1 GLM架构</h4>
+<p>与GPT，PaLM等模型使用Transformer的解码器方式不同，GLM-130B使用了一种双向通用语言模型（GLM）作为其Backbone。模型结构详见论文：<a
+href="/1_Note/2_算法/2_大模型/论文阅读_GLM">论文阅读_GLM</a></p>
+<p>GLM是一种基于Transformer的语言模型，它以自回归空白填充为训练目标。简而言之，对于一个文本序列<code>x=[x1, · · · ,xn]</code>，从其中采样文本<code>span&#123;s1，· · ·，sm&#125;</code>，其中每个si表示连续令牌的跨度，并用单个掩码替换si，要求模型对它们进行自回归恢复。与GPT类模型不同的是，它在不Mask的位置使用双向注意力，因此它混合了两种Mask，以支持理解和生成：</p>
+<p>[MASK]：句子中的短空白，长度加总到输入的某一部分<br />
+[gMASK]：随机长度的长空白，加在提供前缀上下文的句子末尾</p>
+<p>理论上，双向注意力的空白填充目标<strong>比GPT风格的模型能够更有效地理解语境</strong>：当使用
+MASK 时，GLM- 130B表现类似BERT和T5；当使用 gMASK 时，GLM - 130B表现出与
+PrefixLM 相似的性质。</p>
+<p>GLM - 130B在零样本LAMBDA上取得了80.2 %的高准确率，优于图2中的GPT -
+3和PaLM 540B。<br />
+<img src="/attachments_2023/Pasted%20image%2020230323181746.png" /></p>
+<h4 id="归一化方法">4.1.2 归一化方法</h4>
+<p>归一化有助于提升模型训练的稳定性，文中使用了2022年提出的DeepNorm方法（详见论文
+：Deepnet: Scaling transformers to 1,000 layers），其公式为：<br />
+<span class="math display">\[  
+DeepNorm(x) = LayerNorm(α · x + Network(x))  
+\]</span><br />
+<span class="math display">\[α = (2N )^{\frac{1}{2}}\]</span><br />
+其中N为层数。此方法有效地提升了训练稳定性。<br />
+<img src="/attachments_2023/Pasted%20image%2020230323182219.png" /></p>
+<h4 id="位置编码和前馈网络">4.1.3 位置编码和前馈网络</h4>
+<p>对于GLM -
+130B中的位置编码采用旋转位置编码(RoPE)，并选择GeLU激活函数以优化FFN。</p>
+<h3 id="训练设置">4.2 训练设置</h3>
+<p>GLM -
+130B预训练目标不仅包括自监督的GLM自回归空白填充，还包括对小部分token的多任务学习，以提升其下游zero-shot任务的性能。</p>
+<h4 id="自监督空白填充95">4.2.1 自监督空白填充（95%）</h4>
+<p>同时使用了 MASK 和
+gMASK，每个序列使用其中一种。具体来说，MASK用于在30
+%的训练序列中掩盖连续的Token以进行空白填充。对于其他70%的序列，保留每个序列的前缀作为上下文，并使用gMASK来掩盖其余序列训练。<br />
+预训练数据包括1.2 T英语、1.0
+T的中文悟道语料库，以及从网络爬取的250G中文语料库(包括在线论坛、百科全书和QA)，形成了平衡的英汉内容构成。</p>
+<h4 id="多任务指导预训练-mip5">4.2.2 多任务指导预训练 (MIP，5%)</h4>
+<p>预训练中加入包括语言理解、生成和信息提取在内的多种指令提示数据集训练模型。</p>
+<h3 id="并行训练和模型配置">4.3 并行训练和模型配置</h3>
+<p>在96个DGX - A100 GPU ( 8 × 40G
+)服务器集群上进行了60天的训练。将pipline模型并行与其他两种策略结合形成了3D并行策略。</p>
+<h2 id="模型训练的稳定性">5 模型训练的稳定性</h2>
+<p>需要在精度和稳定间保持平衡，低精度的FP格式提高了计算效率，但容易出现溢出错误，导致训练崩溃。</p>
+<h3 id="混合精度">5.1 混合精度</h3>
+<p>FP16用于前向和后向，FP32用于优化器状态和主权重，以减少GPU内存使用，提高训练效率。</p>
+<h3 id="嵌入层梯度收缩">5.2 嵌入层梯度收缩</h3>
+<p>实验表明，梯度范数可以作为训练崩溃的信息指标。具体来说，训练崩溃通常滞后于梯度范数中的"尖峰"几个训练步。发现嵌入层的梯度收缩可以克服损失尖峰，从而稳定GLM
+- 130B的训练。</p>
+<h2 id="在-rtx-2080-ti-上使用模型推理">6 在 Rtx 2080 TI
+上使用模型推理</h2>
+<p>在保持FP16激活精度的同时，重点关注模型权重的量化。量化后的模型在运行时动态转换为FP16精度，引入了较小的计算开销，大大降低了存储模型权重的GPU内存使用量。文中成功地实现了GLM
+- 130B的INT4权重量化，目前模型已发布，可下载使用。<br />
+<img src="/attachments_2023/Pasted%20image%2020230323190102.png" /></p>
+<h2 id="实验">7 实验</h2>
+<p>与英文模型比较：<br />
+<img
+src="/attachments_2023/Pasted%20image%2020230323185137.png" /><br />
+与中文模型比较：<br />
+<img src="/attachments_2023/Pasted%20image%2020230323185038.png" /></p>
+<h2 id="实战环境搭建">8 实战——环境搭建</h2>
+<p>ChatGLM-6B
+是一个具有62亿参数的中英双语语言模型，由大模型量化后得到，代码+模型一共只有几个G大小。</p>
+<h3 id="下载代码和模型">8.1 下载代码和模型</h3>
+<p>由于我家机器性能有限，就下载了int4模型，约占空间5G左右，运行时占GPU内存5G左右。</p>
+<pre><code>$ git clone https://github.com/THUDM/ChatGLM-6B  
+$ git clone https://huggingface.co/THUDM/chatglm-6b-int4/  </code></pre>
+<p>在网站 https://huggingface.co/THUDM/chatglm-6b-int4/tree/main
+中下载：<br />
+ice_text.model 和 pytorch_model.bin 两个大文件，替换git中的文件。</p>
+<h3 id="下载运行环境镜像">8.2 下载运行环境镜像</h3>
+<p>如果使用docker启动，推荐镜像：</p>
+<pre><code>$ docker pull pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime  </code></pre>
+<p>启动镜像</p>
+<pre><code>$ nvidia-docker run -e &quot;LC_ALL=zh_CN.UTF-8&quot; -e &quot;LANGUAGE=zh_CN.UTF-8&quot; -e &quot;LANG=zh_CN.UTF-8&quot; -p 7860:7860 --rm -v /exports:/workspace/exports -it pytorch/pytorch:1.13.1-cuda11.6-cudnn8-runtime bash  </code></pre>
+<h3 id="调整代码">8.3 调整代码</h3>
+<p>修改web_demo.py<br />
+* 修改模型名为指定目录：</p>
+<pre><code>tokenizer = AutoTokenizer.from_pretrained(&quot;../chatglm-6b-int4/&quot;, trust_remote_code=True)  
+model = AutoModel.from_pretrained(&quot;../chatglm-6b-int4/&quot;, trust_remote_code=True).half().cuda()  </code></pre>
+<ul>
+<li>设置server_name为0.0.0.0，以便服务在docker外部调用<br />
+</li>
+</ul>
+<pre><code>demo.queue().launch(share=False, inbrowser=True, server_name=&quot;0.0.0.0&quot;)  </code></pre>
+<h3 id="运行服务">8.4 运行服务</h3>
+<p>在镜像内部运行</p>
+<pre><code>$ cd ChatGLM-6B/  
+$ pip install -r requirements.txt  
+$ python web_demo.py  </code></pre>
+<p>启动服务后，就可以在宿主机浏览器中通过端口7860访问，效果如下：<br />
+<img
+src="/attachments_2023/Pasted%20image%2020230322224537.png" /><br />
+个人觉得速度还挺快的，回答效果也还行。</p>
+<h3 id="相关链接">8.5 相关链接</h3>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/THUDM/ChatGLM-6B">ChatGLM项目地址</a><br />
+<a target="_blank" rel="noopener" href="https://chatglm.cn/blog">ChatGLM模型介绍</a><br />
+<a
+target="_blank" rel="noopener" href="https://huggingface.co/THUDM/chatglm-6b/tree/main">模型下载</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLM/" title="论文阅读_GLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_GLM</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/%E7%86%B5_%E7%9B%B8%E5%AF%B9%E7%86%B5_%E6%95%A3%E5%BA%A6/" title="熵_相对熵_散度"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">熵_相对熵_散度</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Chinchilla/" title="论文阅读_Chinchilla"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">论文阅读_Chinchilla</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLM/" title="论文阅读_GLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-24</div><div class="title">论文阅读_GLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLaM/" title="论文阅读_GLaM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">论文阅读_GLaM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GPT-4/" title="论文阅读_GPT-4"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-29</div><div class="title">论文阅读_GPT-4</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">3 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#glm%E6%9E%B6%E6%9E%84"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1 GLM架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2 归一化方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81%E5%92%8C%E5%89%8D%E9%A6%88%E7%BD%91%E7%BB%9C"><span class="toc-number">4.1.3.</span> <span class="toc-text">4.1.3 位置编码和前馈网络</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 训练设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E7%9B%91%E7%9D%A3%E7%A9%BA%E7%99%BD%E5%A1%AB%E5%85%8595"><span class="toc-number">4.2.1.</span> <span class="toc-text">4.2.1 自监督空白填充（95%）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E6%8C%87%E5%AF%BC%E9%A2%84%E8%AE%AD%E7%BB%83-mip5"><span class="toc-number">4.2.2.</span> <span class="toc-text">4.2.2 多任务指导预训练 (MIP，5%)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E5%92%8C%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 并行训练和模型配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="toc-number">5.</span> <span class="toc-text">5 模型训练的稳定性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E7%B2%BE%E5%BA%A6"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 混合精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%B1%82%E6%A2%AF%E5%BA%A6%E6%94%B6%E7%BC%A9"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 嵌入层梯度收缩</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-rtx-2080-ti-%E4%B8%8A%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">6 在 Rtx 2080 TI
+上使用模型推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">7.</span> <span class="toc-text">7 实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">8.</span> <span class="toc-text">8 实战——环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81%E5%92%8C%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 下载代码和模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%95%9C%E5%83%8F"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 下载运行环境镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 调整代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%8D%E5%8A%A1"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 运行服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="toc-number">8.5.</span> <span class="toc-text">8.5 相关链接</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

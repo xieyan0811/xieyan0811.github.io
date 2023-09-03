@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>几种词嵌入方法 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="几种词嵌入方法 在自然语言处理中常常使用词嵌入。先来看看词嵌入是什么，以及为什么使用词嵌入。 为什么要使用词嵌入 以中文为例，词库中至少包括几千个字，几万个词，将其代入模型时，如果使用onehot编码，则变量有成千上万个维度，参数数量和计算量都非常庞大；且无法计算词间的近似性，无法使用“类比”方法将学到的规则泛化到近义词上，也不利于进一步的迁移学习。 词嵌入可将词的特征映射到较低的维度，比如用20">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几种词嵌入方法">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%87%A0%E7%A7%8D%E8%AF%8D%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="几种词嵌入方法 在自然语言处理中常常使用词嵌入。先来看看词嵌入是什么，以及为什么使用词嵌入。 为什么要使用词嵌入 以中文为例，词库中至少包括几千个字，几万个词，将其代入模型时，如果使用onehot编码，则变量有成千上万个维度，参数数量和计算量都非常庞大；且无法计算词间的近似性，无法使用“类比”方法将学到的规则泛化到近义词上，也不利于进一步的迁移学习。 词嵌入可将词的特征映射到较低的维度，比如用20">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-06-28T21:10:50.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:41.920Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%87%A0%E7%A7%8D%E8%AF%8D%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '几种词嵌入方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">几种词嵌入方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-28T21:10:50.000Z" title="Created 2020-06-28 21:10:50">2020-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:41.920Z" title="Updated 2023-09-03 10:08:41">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="几种词嵌入方法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="几种词嵌入方法">几种词嵌入方法</h2>
+<p>在自然语言处理中常常使用词嵌入。先来看看词嵌入是什么，以及为什么使用词嵌入。</p>
+<h3 id="为什么要使用词嵌入">为什么要使用词嵌入</h3>
+<p>以中文为例，词库中至少包括几千个字，几万个词，将其代入模型时，如果使用onehot编码，则变量有成千上万个维度，参数数量和计算量都非常庞大；且无法计算词间的近似性，无法使用“类比”方法将学到的规则泛化到近义词上，也不利于进一步的迁移学习。</p>
+<p>词嵌入可将词的特征映射到较低的维度，比如用200维特征描述词库中所有的词，使用模型参数更少，训练更快。</p>
+<p>词嵌入可视为给每个组一个n维的编码，能某一维度可能描述词性，另一维度描述感情色彩；用特征描述取代符号描述，类似于机器视觉中使用深度网络提取图片的基本特征。也便于对比、泛化、以及知识迁移。比如使用大量自然语言数据训练了足够好的词表征，在具体任务中使用少量实例fine-tune和pretrain训练好的词嵌入数据训练模型。模型对于fine-tune训练集中从未出现，但在词嵌入中出现的词也能有很好效果，从而实现知识迁移。</p>
+<p>除了作为特征提取器，还可通过词嵌入实现运算，比如：男-女=国王-王后，因此可通过国王-男+女的运算得出王后，从而实现一些类比相关的逻辑推理功能，以及性质变换。</p>
+<h3 id="将onehot编码转换成词嵌入">将onehot编码转换成词嵌入</h3>
+<p>通过矩阵乘法可完成onehot编码到词嵌入的转换，假设词库中包含10000个词，词嵌入200维，onehot变量乘矩阵E可得到词嵌入，E的大小为10000x200，onehot编码型如[0,0,…1,…0]，因此乘法相当于过滤出E矩阵中的某一列，作为该词的词向量表示。矩阵中的权重通过训练得到。可以视为用每一列描述一个具体词的特征。</p>
+<h3 id="训练embedding层">训练Embedding层</h3>
+<p>训练深度学习模型是一种有监督学习，为了利用互联网上庞大的文本数据。一般使用前N个词预测第N+1个词，比如使用“白日依山”作为x，通过词嵌入编码为200x4=800维的输入特征，预测下一个字为y’，y’是词库中每个词是第N+1字的概率。通过上述算法，即可使用未人工标注的数据训练模型。像BERT，GPT-2等目前流行的模型都使用这种方法训练，它们不仅训练了词向量，还使用深度网络学习了语法语义等其它关系。</p>
+<h3 id="word2vec的skip-gram模型">Word2Vec的skip-gram模型</h3>
+<p>skip-gram的原理是根据相关词同时出现的情况估计词义。它在句中随机选定一个词作为上下文context，然后从其附近n个词的范围内随机选择一词作为目标target，构建有监督学习的训练集，用上下文训练目标。模型包含词嵌入矩阵，并在最后一层加入Softmax，以便输出概率。它只有一个词输入和一个词输出，比上面介绍的模型更加简单。训练出的模型并不用于解决具体问题，只用于训练词嵌入。上述只是基本原理，具体使用时，还涉及采样时对停用词以及低频词的处理，优化Softmax速度等方法。</p>
+<p>腾讯词向量使用了skip-gram的改进版本，其中包括800多万中文词和短语，将每个词展开成200维向量。</p>
+<h3 id="word2vec的cbow模型">Word2Vec的CBOW模型</h3>
+<p>CBOW是连续词袋模型Continuous Bag-of-Word
+Model的简称，它用上下文词来预测中间词。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-4b7f92ca33dcbdb4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>如图所示，使用前两个和后两个词（共C=4个）预测中间的词w，其中每个词被映射成V维的词向量；每个词向量乘以参数矩阵A(VN维矩阵)，转换成N维数据，然后将所有词对应的N维的数据相加取均值，计算出N维的隐藏层Hidden；再用隐藏层乘参数矩阵B(NV维)，计算待预测的词w对应的V维词向量；最终用预测出的w与真实的w作比较计算误差函数，然后用梯度下降调整A,B两个参数矩阵。由此，使用简单的神经网络就完成了预测任务。</p>
+<h3 id="glove词向量">GloVe词向量</h3>
+<p>GloVe方法比较简单，全称是Global vectors of word
+representation。它计算目标target有多少次出现在上下文context中。对于每一个句子，其中的词a出现时词b出现与b出现时a也出现的次数是一致的，因此二者具有对称性。</p>
+<p>比如k是单词orange，那么它juice（设为单词i）同时与它出现的概率肯定比它与book（设为单词j）同时出现的概率高。相比单词同时出现的概率，单词同时出现的概率的比率能够更好地区分单词。经过推导，最终得到公式：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-5fa2a8eabad0deb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其中V为词库中的所有词，X为词汇共现矩阵，Xik表示词k出现在词汇i上下文中的次数总和，wi,wk分别为词i和k对应的词向量，f是权重函数，如果ik未同时出现过，则f(Xik)=0，不将其计入目标函数，f还用于均衡高频词于低频词的影响。通过统计词库中各个词组合同时出现的概率训练模型。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%87%A0%E7%A7%8D%E8%AF%8D%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%87%A0%E7%A7%8D%E8%AF%8D%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/Attention%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/" title="Attention注意力机制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Attention注意力机制</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/" title="深度学习资源"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">深度学习资源</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">深度学习模型压缩</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/" title="论文阅读_自然语言模型加知识图谱_DKPLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-11</div><div class="title">论文阅读_自然语言模型加知识图谱_DKPLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E7%BB%BC%E8%BF%B0/" title="Survey on Neural Speech Syntheis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Survey on Neural Speech Syntheis</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E7%A7%8D%E8%AF%8D%E5%B5%8C%E5%85%A5%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">几种词嵌入方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E8%AF%8D%E5%B5%8C%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">为什么要使用词嵌入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86onehot%E7%BC%96%E7%A0%81%E8%BD%AC%E6%8D%A2%E6%88%90%E8%AF%8D%E5%B5%8C%E5%85%A5"><span class="toc-number">1.2.</span> <span class="toc-text">将onehot编码转换成词嵌入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83embedding%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">训练Embedding层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word2vec%E7%9A%84skip-gram%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">Word2Vec的skip-gram模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word2vec%E7%9A%84cbow%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">Word2Vec的CBOW模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#glove%E8%AF%8D%E5%90%91%E9%87%8F"><span class="toc-number">1.6.</span> <span class="toc-text">GloVe词向量</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

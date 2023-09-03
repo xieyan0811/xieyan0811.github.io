@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>比特币挖矿——建立Kafka&amp;ZooKeeper集群 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="比特币挖矿——建立Kafka&amp;ZooKeeper集群 #区块链 1. 介绍 采用ZooKeeper+Kafka的方式建立集群，主要支持了消息传递和负载均衡，常见的一些文档，有的是概念较多，没有实际操作；有的只有命令，不知其原理。这里就结合集群矿池来说说它的具体应用场景，原理，以及具体实现。   图片.png  2. 举例 先举个例子，比如一个理发店： 一开始只有一个理发师，洗剪吹都由他一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币挖矿——建立Kafka&amp;ZooKeeper集群">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E5%BB%BA%E7%AB%8BKafka&ZooKeeper%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="比特币挖矿——建立Kafka&amp;ZooKeeper集群 #区块链 1. 介绍 采用ZooKeeper+Kafka的方式建立集群，主要支持了消息传递和负载均衡，常见的一些文档，有的是概念较多，没有实际操作；有的只有命令，不知其原理。这里就结合集群矿池来说说它的具体应用场景，原理，以及具体实现。   图片.png  2. 举例 先举个例子，比如一个理发店： 一开始只有一个理发师，洗剪吹都由他一个">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2017-10-29T11:09:14.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.780Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="区块链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E5%BB%BA%E7%AB%8BKafka&amp;ZooKeeper%E9%9B%86%E7%BE%A4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '比特币挖矿——建立Kafka&ZooKeeper集群',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——建立Kafka&amp;ZooKeeper集群</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-29T11:09:14.000Z" title="Created 2017-10-29 11:09:14">2017-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.780Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+id="比特币挖矿建立kafkazookeeper集群">比特币挖矿——建立Kafka&amp;ZooKeeper集群</h1>
+<p>#区块链</p>
+<h2 id="介绍">1. 介绍</h2>
+<p>采用ZooKeeper+Kafka的方式建立集群，主要支持了消息传递和负载均衡，常见的一些文档，有的是概念较多，没有实际操作；有的只有命令，不知其原理。这里就结合集群矿池来说说它的具体应用场景，原理，以及具体实现。</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-4757f714e2ad8c0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<h2 id="举例">2. 举例</h2>
+<p>先举个例子，比如一个理发店：<br />
+一开始只有一个理发师，洗剪吹都由他一个人负责，那么只能一个客人做完全套（同一台机器上操作各个步骤），再给下一个客人服务。<br />
+之后,
+又来了几个理发师，每个人负责接待一个客人（多台服务器，每台负责单个流程）。<br />
+再后来理发店又扩大，人多了（多台不同用途的机器），老板发现如果把工作细分为：洗(A)剪(B)吹(C)三部分，这三部分的工作量和难度都不同，可以安排专人专职，以节约人力成本。三个模块工作量不同，需要的人数也不同，如上图所示，洗2人(2台机器)，剪3人(3台机器)，吹2人(2台机器)。Data为库房(数据服务器)，每个人都可能去库房存取工具。<br />
+显然，A与B并不是一一对应的关系。洗发之后，应该分配剪发员执行下一步骤。让洗发员找每个剪发员查询状态显然不是明智的作法，而且，此时可能每个剪发员都不空闲，A还有接下来的工作，也不能一接等在那儿。<br />
+于是就引入了另一个角色：接待员broker，当某个A的工作做完全后，则向broker的topic发一个消息，告诉它本层已完成，需要下一层处理，此时A是发送者producer，中介是broker（它也位于一台机器上，这里没用方框画出来），如果某个B空闲时，也会连接到topic，等待下一个工作（如上图所示），此时B是接受者customer。B和C的通讯也是一样，不过它们间通讯时B是producer，C是customer。<br />
+Broker是Kafka的一个实例，broker按功能不同又可建立多个topic，topic里又可包含多个partition，每个partition都可保证先入先出，但partition之间不保证顺序。多个broker又可以做成Kafka群组。综上，Kafka是传送消息的工具，或者说是一套机制，它实现了消息创建，存取等工作。</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-7034f4aead21f267.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<p>在producer，customer，broker的背后又有着ZooKeeper的支持，它就好像理发店的排班员，在这里主要负责负载均衡，将工作平均分配给customer，避免产生闲的闲死忙的忙死这种问题。ZooKeeper也可以有多个，即使某一个死掉，整个系统仍可正常运转。<br />
+从此处可见Kafka和Zookeeper上跑的不是执行具体工作的程序（洗剪吹），它们的角色是提供通讯和负载均衡的协调者。具体洗剪吹运行在哪个服务器上是另外的工作．</p>
+<h2 id="配置过程">3. 配置过程</h2>
+<h4 id="配置zookeeper">1) 配置ZooKeeper</h4>
+<p>在一台或几台机器上配置和运行ZooKeeper服务。</p>
+<h4 id="配置kafka">2) 配置Kafka</h4>
+<p>配置Kafka的 broker<br />
+创建topic及partition。</p>
+<h4 id="修改程序">3) 修改程序</h4>
+<p>在程序中分别加入对producer和consumer的调用，以传递信息。</p>
+<h4 id="说明">4) 说明</h4>
+<p>通过以上步骤，程序就可以在不同的机器通过简单地调用函数传递消息了。上述的ZooKeeper，Kafka，程序可以运行在同一台机器上，可以分别在运行在不同机器上。</p>
+<h2 id="zookeeper">4. ZooKeeper</h2>
+<h4 id="介绍-1">1) 介绍</h4>
+<p>ZooKeeper是一个快速、高可靠、容错、分布式的协调服务。</p>
+<h4 id="配置">2) 配置</h4>
+<pre><code>$ cp conf/zoo_sample.cfg conf/zoo.cfg  
+$ vi conf/zoo.cfg #修改配置文件  </code></pre>
+<p>配置文件中server*是zookeeper服务器之间交互用的，它使得一台服务器死机时，另外一台，能快速转换为主zookeeper服务器<br />
+dataDir是数据目录，clientPort为ZooKepper端口号，一般不用改</p>
+<pre><code>$ ./startserver.sh start # 启动zooKeeper服务  </code></pre>
+<h3 id="调试工具">3) 调试工具</h3>
+<pre><code>$ bin/zkCli.sh -server 127.0.0.1:2181 #client端连上看一下  
+$ jps #查看进程, 其中QuorumPeerMain是zooKeeper的主进程  
+$ netstat -nap|grep 2181 # 查看配置文件中设置的端口是否打开  </code></pre>
+<p>正常显示为：</p>
+<pre><code>tcp  0   0   0.0.0.0:2181   0.0.0.0:*   LISTEN   10737/java  </code></pre>
+<h2 id="kafka">5. Kafka</h2>
+<h4 id="介绍-2">1) 介绍</h4>
+<p>Kafka是一个分布式的流数据处理平台。</p>
+<h4 id="配置文件">2) 配置文件</h4>
+<pre><code>$ vi config/server.properties  
+这是默认的配置文件，以下几项比较重要  
+broker.id=1 # broker的标识，具有唯一性  
+port=9092 # kafka服务的端口号  
+log.dirs=/tmp/kafka-logs # 存储log的目录，交互的信息就存在该目录下  
+zookeeper.connect=127.0.0.1:2181 # zookeeper服务器的IP和端口,多个用逗号分开  
+host.name=127.0.0.1 # 运行本程序机器的IP地址，在btcpool的cfg中指定  
+delete.topic.enable=true #建议加这句，否则删topic时候特别麻烦  
+message.max.bytes=20000000 # 支持大数据msg，否则传输时将丢弃大数据块  
+replica.fetch.max.bytes=30000000 # 同上     </code></pre>
+<h4 id="启动服务">3) 启动服务</h4>
+<pre><code>$ bin/kafka-server-start.sh config/server.properties  </code></pre>
+<h4 id="创建供btcpool使用的topic">4) 创建供btcpool使用的topic</h4>
+<p>需要先启后台服务，再创建topic，我这里使用了一个本机的zookeeper，如果有多个，请使用逗号分隔。</p>
+<pre><code>$ ./bin/kafka-topics.sh --create --topic test --zookeeper 127.0.0.1:2181 --replication-factor 1 --partitions 1  </code></pre>
+<h4 id="相关工具">5) 相关工具</h4>
+<ol type="i">
+<li>查看topic<br />
+</li>
+</ol>
+<pre><code>$ ./bin/kafka-topics.sh --describe --zookeeper 127.0.0.1:2181 #查看topic  </code></pre>
+<ol start="2" type="i">
+<li>查看kafka服务<br />
+</li>
+</ol>
+<pre><code>$ netstat -nap|grep 9092  </code></pre>
+<p>正常运行时返回</p>
+<pre><code>tcp  0   0 127.0.0.1:9092   0.0.0.0:*   LISTEN   24961/java  </code></pre>
+<h4 id="删除topic">6) 删除topic</h4>
+<p>先删除kafka存储目录（server.properties文件log.dirs配置，默认为"/tmp/kafka-logs"）相关topic目录。注意partition的数据都存在这个目录中。</p>
+<pre><code>./bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic test -delete  </code></pre>
+<p>如果在server.properties中未指定delete.topic.enable=true，则只会做一个删除标记，不会真正删除，删除需要在zookeeper服务器上，通过zkCli.sh连进去删除。</p>
+<h4 id="常出现的错误">7) 常出现的错误</h4>
+<ol type="i">
+<li>kafka-server-start.sh报错找不到主机，然后直接退出<br />
+解决方法，在配置文件中设置主机<br />
+host.name=主机名<br />
+主机名通过命令hostname查看<br />
+</li>
+<li>kafka-server-start.sh虽不退出，但不停报错java.lang.NoClassDefFoundError:
+Could not initialize class kafka.network.RequestChannel$<br />
+这也是主机名相关的问题，在/etc/hosts的最后填加一句<br />
+127.0.0.1 主机名<br />
+主机名通过命令hostname查看</li>
+</ol>
+<h4 id="测试kafka">8) 测试kafka</h4>
+<p>正常情况下，producer上发的，consumer都应该能收到<br />
+i. 创建</p>
+<pre><code>bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test  </code></pre>
+<ol start="2" type="i">
+<li>接收<br />
+</li>
+</ol>
+<pre><code>bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning  </code></pre>
+<ol start="3" type="i">
+<li>发送<br />
+</li>
+</ol>
+<pre><code>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test  </code></pre>
+<p>如果topic没建立，producer会自动建立top，但参数可能与你想要的不同．</p>
+<h2 id="c程序调用kafka发消息">6. C程序调用kafka发消息</h2>
+<p>一般使用librdkafka库，下载库源码编译，其中example目录中的程序也可以用于测试。</p>
+<h2 id="参考">7. 参考</h2>
+<h4 id="apache-kafka-分布式消息队列中间件安装与配置">1) Apache Kafka
+分布式消息队列中间件安装与配置</h4>
+<p>http://blog.csdn.net/wangjia184/article/details/37921183</p>
+<h4 id="kafkazookeeper原理与应用场景介绍">2)
+Kafka&amp;Zookeeper原理与应用场景介绍</h4>
+<p>https://wenku.baidu.com/view/a47389116ad97f192279168884868762caaebbd4.html</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E5%BB%BA%E7%AB%8BKafka&amp;ZooKeeper%E9%9B%86%E7%BE%A4/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E5%BB%BA%E7%AB%8BKafka&amp;ZooKeeper%E9%9B%86%E7%BE%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E9%9B%86%E7%BE%A4%E7%9F%BF%E6%B1%A0btcpool/" title="比特币挖矿——集群矿池btcpool"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">比特币挖矿——集群矿池btcpool</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8E%E7%9F%BF%E6%9C%BA/" title="比特币挖矿——控制器与矿机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">比特币挖矿——控制器与矿机</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E4%BB%8B%E7%BB%8D/" title="比特币挖矿——入门"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-24</div><div class="title">比特币挖矿——入门</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF/" title="比特币挖矿——区块链技术"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-25</div><div class="title">比特币挖矿——区块链技术</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E6%8E%A7%E5%88%B6%E5%99%A8%E4%B8%8E%E7%9F%BF%E6%9C%BA/" title="比特币挖矿——控制器与矿机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-27</div><div class="title">比特币挖矿——控制器与矿机</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E9%92%B1%E5%8C%85/" title="比特币挖矿——钱包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-26</div><div class="title">比特币挖矿——钱包</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E9%9B%86%E7%BE%A4%E7%9F%BF%E6%B1%A0btcpool/" title="比特币挖矿——集群矿池btcpool"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-30</div><div class="title">比特币挖矿——集群矿池btcpool</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E5%BB%BA%E7%AB%8Bkafkazookeeper%E9%9B%86%E7%BE%A4"><span class="toc-number">1.</span> <span class="toc-text">比特币挖矿——建立Kafka&amp;ZooKeeper集群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1. 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BE%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2. 举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">3. 配置过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEzookeeper"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1) 配置ZooKeeper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEkafka"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2) 配置Kafka</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3) 修改程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4) 说明</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper"><span class="toc-number">1.4.</span> <span class="toc-text">4. ZooKeeper</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">1) 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">2) 配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.1.</span> <span class="toc-text">3) 调试工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka"><span class="toc-number">1.5.</span> <span class="toc-text">5. Kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">1) 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">2) 配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">3) 启动服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%BE%9Bbtcpool%E4%BD%BF%E7%94%A8%E7%9A%84topic"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">4) 创建供btcpool使用的topic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.0.5.</span> <span class="toc-text">5) 相关工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4topic"><span class="toc-number">1.5.0.6.</span> <span class="toc-text">6) 删除topic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E5%87%BA%E7%8E%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number">1.5.0.7.</span> <span class="toc-text">7) 常出现的错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95kafka"><span class="toc-number">1.5.0.8.</span> <span class="toc-text">8) 测试kafka</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8kafka%E5%8F%91%E6%B6%88%E6%81%AF"><span class="toc-number">1.6.</span> <span class="toc-text">6. C程序调用kafka发消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.7.</span> <span class="toc-text">7. 参考</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#apache-kafka-%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">1) Apache Kafka
+分布式消息队列中间件安装与配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#kafkazookeeper%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.7.0.2.</span> <span class="toc-text">2)
+Kafka&amp;Zookeeper原理与应用场景介绍</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>从c++到java(一) | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从c++到java (一) #编程语言 #C #Java 学习 JAVA 编程（一） 一、 目的 由于之前都用 C&#x2F;C++ 写程序，现在改用 JAVA 写 android 程序，有些相关的认识和积累，记录下来，自已保存资料，也供大家参考，帮助您在和我遇到同样问题的时候，可以快速解决。 我遇到的问题基本分以下几类： 1. 不了解程序的流程：编译，执行，如何代码组织 2. 看不懂别人写的程序：重要的关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从c++到java(一)">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%B8%80)/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="从c++到java (一) #编程语言 #C #Java 学习 JAVA 编程（一） 一、 目的 由于之前都用 C&#x2F;C++ 写程序，现在改用 JAVA 写 android 程序，有些相关的认识和积累，记录下来，自已保存资料，也供大家参考，帮助您在和我遇到同样问题的时候，可以快速解决。 我遇到的问题基本分以下几类： 1. 不了解程序的流程：编译，执行，如何代码组织 2. 看不懂别人写的程序：重要的关">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2009-10-12T17:52:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.624Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="编程语言">
+<meta property="article:tag" content="C">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%B8%80)/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '从c++到java(一)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">从c++到java(一)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2009-10-12T17:52:00.000Z" title="Created 2009-10-12 17:52:00">2009-10-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.624Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="从c++到java(一)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="从c到java-一">从c++到java (一)</h1>
+<p>#编程语言 #C #Java</p>
+<p>学习 JAVA 编程（一）</p>
+<p>一、 目的<br />
+由于之前都用 C/C++ 写程序，现在改用 JAVA 写 android<br />
+程序，有些相关的认识和积累，记录下来，自已保存资料，也供大家参考，帮助您在和我遇到同样问题的时候，可以快速解决。<br />
+我遇到的问题基本分以下几类：</p>
+<p>1. 不了解程序的流程：编译，执行，如何代码组织</p>
+<p>2. 看不懂别人写的程序：重要的关键字不认识</p>
+<p>3. JAVA 的特性和习惯用法：不明白什么意思</p>
+<p>4. 某些功能不知如何实现：找不到 JAVA 对应的语法</p>
+<p>二、 流程</p>
+<p>1. 组织代码</p>
+<ol type="1">
+<li><p>以类组织<br />
+整个 JAVA
+语言建立在类的逻辑结构上，任何想法都必须封装在类中，也就是说不允许函数，变量定义在类以外。</p></li>
+<li><p>程序入口<br />
+既然所有函数都必须封装在类中，主函数（ main ）也不例外，
+哪个类是入口，就把 main 放在该类里边。对其它类和方法的调用可以写在<br />
+main 中，形如：<br />
+** public class HelloWorld {<br />
+public static void main(String args[]) {<br />
+System.out.println("Hello World!");<br />
+}<br />
+} **</p></li>
+<li><p>文件类型</p></li>
+</ol>
+<ol type="a">
+<li><p>*.java<br />
+源程序代码文件<br />
+一般一个类写在一个 .java 文件中，也可以把两个类写在一个 java
+文件中，编译出来成两个 .class<br />
+public 的类因于供他人调，所以要单写一个 java
+文件，文件的名字和类名一致</p></li>
+<li><p>*.class<br />
+编译后生成的字节码文件</p></li>
+<li><p>*.jar<br />
+JAVA 程序的打包文件（类似 ZIP 包，可用 WINRAR 等工具打开）</p></li>
+</ol>
+<p>2. 编译<br />
+编译单个文件<br />
+** $ javac xxx.java<br />
+** 编译多个文件 **<br />
+$ javac *.java<br />
+** 注意 xxx 要和类名统一，此时当前目录下生成 xxx.class 文件</p>
+<p>3. 执行</p>
+<ol type="1">
+<li><p>运行 xxx.class<br />
+** $ java xxx **<br />
+注意不加扩展名</p></li>
+<li><p>运行 xxx.jar<br />
+** $java -classpath xxx.jar packagename.classname<br />
+** 解压缩 xxx.jar, 其中的目录是 package, 其中的文件是 class<br />
+xxx.jar 通常是由工具生成的，含有一些字节码文件和信息文件</p></li>
+</ol>
+<p>三、 关键字</p>
+<p>1. this 与 super</p>
+<ol type="1">
+<li><p>this 指当前对象， super 指它的父类</p></li>
+<li><p>super 用法</p></li>
+</ol>
+<ol type="a">
+<li><p>放在构造的头一句，调用它父类的构造函数（注意只能放在头一句）</p></li>
+<li><p>super.func(xxx) 是调父类的一个函数，通常用于本类中重写（ override
+）了父类的函数，用此方法调用其父类中的该函数</p></li>
+</ol>
+<p>2. try, cache, finally</p>
+<ol type="1">
+<li><p>try ：把可能出错的代码放在 try {} 里，有些代码加了 try
+就可以编译通过了</p></li>
+<li><p>cache ：把错误处理放在 catch (xxx) {} 中， 可有多个 catch
+同时存在 ， 过不同参数指定不同错误的处理</p></li>
+<li><p>finally ：无论发没发生意外， finally{} 都被执行，它用来释放 try
+申请的资源（如操作数据库时）</p></li>
+</ol>
+<p>3. abstract class （抽象类）与 instance class （具体类）</p>
+<ol type="1">
+<li><p>instance class 可以实例化， abstract class 不能实例化</p></li>
+<li><p>abstract class 里边抽象的方法用 public abstract func();
+它定义了方法，但没有实现，就是 C++<br />
+里的纯虚函数</p></li>
+</ol>
+<p>4. abstract class 与 interface</p>
+<ol type="1">
+<li><p>它们都用于实现多样性（ Polymorphism
+），即继承它的类实现各有不同</p></li>
+<li><p>interface 可以虚拟多重继承而 abstract class 不能</p></li>
+<li><p>abstract class 可以有自己的数据成员，也可以有非 abstract
+的成员方法，而 interface<br />
+方式实现中，只能有静态的不能被修改的数据成员（ static final
+），所有的成员方法都是 abstract 的</p></li>
+<li><p>本质不同： abstract 的父子类间本质相同，而 interface
+只是定义了某个方法约定或者说是性质</p></li>
+</ol>
+<p>5. extends 与 implements</p>
+<ol type="1">
+<li><p>extends ：继承父类，只要那个类不是声明为 final 或者那个类定义为
+abstract 的就能继承</p></li>
+<li><p>implements ： JAVA 中不支持多重继承，但是可以用 interface
+来实现，这样就要用到 implements<br />
+，继承只能继承一个类，但 implements
+可以实现多个接口，用逗号分开就行了，形 如：<br />
+** class A extends B implements C,D,E **</p></li>
+<li><p>extends 用在类名和接口名前<br />
+implements 用在接口名前</p></li>
+</ol>
+<p>6. throw 与 throws</p>
+<ol type="1">
+<li><p>它们 java 处理异常方式</p></li>
+<li><p>throw 用在 try 后面</p></li>
+<li><p>throws 用在一个方法后面</p></li>
+</ol>
+<p>7. final</p>
+<ol type="1">
+<li><p>用于修饰非抽象类，非抽象方法和变量</p></li>
+<li><p>final 类：不能被继承， final 类的方法默认是 final 的</p></li>
+<li><p>final
+方法：不能被子类方法覆盖，可以被继承，编译时被转入内嵌机制，提高执行效率</p></li>
+<li><p>final 变量：只能被赋值一次，之后不能再改变<br />
+通常用 static final 声明常量，注意常量一般用大写</p></li>
+</ol>
+<p>8. static</p>
+<ol type="1">
+<li><p>用于修饰成员变量和成员方法</p></li>
+<li><p>static
+变量和方法独立于该类的任何对象，被类的所有实例共享，所以不需要声明任何对象就可以访问，形如：<br />
+** 类名 ** ** . ** ** 静态方法名（参数列表） ** **<br />
+** ** 类名 ** ** . ** ** 静态变量名 **</p></li>
+<li><p>注意静态方法不能用 this 和 super 关键字</p></li>
+<li><p>static 方法必须被实现，不能是抽象的</p></li>
+</ol>
+<p>9. layout<br />
+layout ：设置容器中的排布方式<br />
+FlowLayout 按添加的顺序从左到右从上到下排布<br />
+BorderLayout 按东西南北中设定位置<br />
+GridLayout 网格布局<br />
+BoxLayout 使需要空间的组件得到最大尺寸</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%B8%80)/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%B8%80)/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="post-meta__tags" href="/tags/C/">C</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Arduino/%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDAndroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F_apk%E5%8C%85/" title="安装和卸载Android应用程序_apk包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">安装和卸载Android应用程序_apk包</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%BA%8C)/" title="从c++到java(二)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">从c++到java(二)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/%E4%BB%8Ec++%E5%88%B0java(%E4%BA%8C)/" title="从c++到java(二)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-10-12</div><div class="title">从c++到java(二)</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/MSN%E5%8D%9A%E5%AE%A2%E6%90%AC%E5%AE%B6%E5%B7%A5%E5%85%B7/" title="MSN博客搬家工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2010-10-21</div><div class="title">MSN博客搬家工具</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8Ec%E5%88%B0java-%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">从c++到java (一)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

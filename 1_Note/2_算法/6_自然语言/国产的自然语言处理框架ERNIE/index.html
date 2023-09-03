@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>国产的自然语言处理框架ERNIE | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="国产的自然语言处理框架ERNIE #自然语言处理 看到题目是否引发一些刻板印象？国产的自然语言处理，主要是用于处理中文？有没有用到最前沿的技术？是不是只提供服务，里面是黑盒？是否全面开源并提供模型？平台是否通用？本文将为您一一解答。 ERNIE是继BERT，ELMo之后又一个以芝麻街人物命名的自然语言模型。ERNIE全称 Enhanced Language Representation with">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国产的自然语言处理框架ERNIE">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%9B%BD%E4%BA%A7%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6ERNIE/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="国产的自然语言处理框架ERNIE #自然语言处理 看到题目是否引发一些刻板印象？国产的自然语言处理，主要是用于处理中文？有没有用到最前沿的技术？是不是只提供服务，里面是黑盒？是否全面开源并提供模型？平台是否通用？本文将为您一一解答。 ERNIE是继BERT，ELMo之后又一个以芝麻街人物命名的自然语言模型。ERNIE全称 Enhanced Language Representation with">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2020-01-07T14:21:27.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:41.940Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%9B%BD%E4%BA%A7%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6ERNIE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '国产的自然语言处理框架ERNIE',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">国产的自然语言处理框架ERNIE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-01-07T14:21:27.000Z" title="Created 2020-01-07 14:21:27">2020-01-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:41.940Z" title="Updated 2023-09-03 10:08:41">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="国产的自然语言处理框架ERNIE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="国产的自然语言处理框架ernie">国产的自然语言处理框架ERNIE</h1>
+<p>#自然语言处理</p>
+<p>看到题目是否引发一些刻板印象？国产的自然语言处理，主要是用于处理中文？有没有用到最前沿的技术？是不是只提供服务，里面是黑盒？是否全面开源并提供模型？平台是否通用？本文将为您一一解答。</p>
+<p>ERNIE是继BERT，ELMo之后又一个以芝麻街人物命名的自然语言模型。ERNIE全称
+Enhanced Language Representation with Informative Entities。<br />
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-c9f7114b16d648fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h3 id="原理">原理</h3>
+<p>ERNIE的结构类似BERT框架，或可视为BERT的延续。也是通过海量无标签数据预训练模型，并在特定领域使用fine-tuning调优，同样也使用了在序列中插入符号，以适配不同的训练任务，以及Mask遮蔽部分数据的方法。</p>
+<p>从全称可以看出，它最初主要致力于在自然语言处理中<strong>加入关于实体的信息</strong>。在ERNIE
+1.0阶段，着重改进了遮蔽策略，BERT遮蔽语料中的词，<strong>而ERNIE把短语和一些专有名词也作为遮蔽的对象</strong>。之前的自然语言模型都是国外模型，因为分词有一定难度，所以处理中文时只是简单地以字为单位。可以想见，引入了词和短语后，ERNIE
+1.0处理中文时有明显优势，在其它语言处理中也有提升。从原理上看，ERNIE在数据处理和模型结构中融入了更多的人类知识，比如短语、专有名词等等。</p>
+<p>在ERNIE
+2.0阶段着眼于模型的应用和发展，提出了连续学习的概念，其论文名为《ERNIE
+2.0: A Continual Pre-Training Framework for Language
+Understanding》，论文地址： <a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/1907.12412.pdf">https://arxiv.org/pdf/1907.12412.pdf</a>。
+旨在持续从多项任务中学习，其灵感源于人类的学习方法：<strong>连续学习和多任务学习</strong>。</p>
+<h4 id="发展趋势">发展趋势</h4>
+<p>从互联网上抓取大量数据训练是自然语言处理的天然优势。那么，是不是掌握了所有数据就能解决所有问题？如何使用通用的知识解决具体问题？如何利用这些庞杂的数据，如何将散落在神经网络参数的中“知识”用于具体的场景之中，是目前研究的重要方向。</p>
+<p><strong>起初是从网络是训练和提取词的特征（GloVe）；而后是提取词在某种前提下（如上下文）的特征（ELMo）；然后是调整模型结构使之从一开始就适合解决多种问题，以便后期针对具体问题基于整个模型调优（GPT,
+BERT）；继而希望使用单个模型解决各种问题（CTRL, ENRIE）</strong>。</p>
+<h4 id="ernie-2.0-核心">ERNIE 2.0 核心</h4>
+<p>ERNIE 2.0核心目标有两点：同一模型适配多种任务，逐步进化。</p>
+<p>同一模型适配多种任务，之前介绍用于续写的<strong>CTRL</strong>模型也有同样的目标，它具体的实现方法是把<strong>文章的类型信息作为序列的第一个元素代入训练</strong>，以便在预测时生成不同类型
+文章；而ERNIE 2.0则是将任务类型<strong>Task Embedding</strong>与Word
+Embedding、Position Embedding、Segment Embedding一起作为模型的输入。</p>
+<p>起初，模型的输入是词向量Word
+Embedding用于学习词义，用多个特征描述一个词汇；而后从RNN过渡到Attention模型时，加入了位置信息Position
+Embedding，通过训练学习位置的作用，模型不再依赖循环神经网络处理词的先后关系；BERT模型加入了段信息Segment
+Embedding用于组织数据，使单个可模型用于多种场景，比如单句的感情色彩分类，两句语义是否相同等等；<strong>ERNIE
+2.0又引入了任务类型，用于学习不同的任务</strong>。</p>
+<p>逐步进化也是一个难点，之前的架构基于海量数据预训练一个大模型，在解决具体问题时基于该模型调优。这样即利用了海量的知识，又减少了解决具体问题运算量。引发的问题是如何将调优时积累的知识汇入基础模型。看似不是什么核心技术，实际应用中却至关重要。</p>
+<p>如果每一次加入少量信息都重新训练整个模型，其运算量是不可想象的；如果用针对具体任务fine-tuning后的模型替换通用模型，则<strong>某些通用知识会被具体任务中的领域知识所覆盖，损失了通用性</strong>。所以需要在学习新任务时不忘记前面学到的知识，同时还要保证学习速度。ERNIE在训练新任务时，先用之前的参数设置模型，然后用新任务的数据和原来的类似数据一起训练模型，以保证旧知识不被忘掉，而训练新任务的迭代次数自动计算生成，以保证学习速度。</p>
+<p>ERNIE
+2.0可谓良心之作，除了逐步多任务训练，<strong>还加入了一些新的技术：ERNIE可同时支持两个损失函数：一个在句子层面，一个在词层面。除了词和句，ERNIE还把任务划分成三类：词任务、句法任务、语义任务。</strong>
+在使用无标签数据方面，也更上一层楼。</p>
+<p>词任务（Word）：引入短语和专有名词的Mask（ERNIE
+1.0功能）；英文方面可预测大小写；<strong>标记同一文档中多次出现的词</strong>（可能在同一文档中含义相同，某词出现次数多也可能与主题相关）。</p>
+<p>句法任务（Structure）：通过重排段落中的句子，学习句与句之间的关系；<strong>句子间的距离是相邻关系、处于同一文档中、或者完全无关</strong>。</p>
+<p>语义任务（Semantic）：判断两句间语义或者修辞的相似度；<strong>通过搜索引擎技术提取某段文字的主旨</strong>，有三种关系：最强的关系是输入“主旨”，引擎找到了相应内容，且该内容被用户点击；弱关系是输入“主旨”，引擎找到了相应内容，但未被用户点击；第三种是无关，输入“主旨”查不到相应内容。</p>
+<h4 id="ernie-2.0-效果">ERNIE 2.0 效果</h4>
+<p>ERNIE
+2.0在中文任务中效果自不必说，在共计16个中英文任务上也超越了BERT和XLNet。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-99e289365227b0ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片摘自论文" />
+<figcaption aria-hidden="true">图片摘自论文</figcaption>
+</figure>
+<p>sota是State of the Arts的缩写，一般理解为比较先进的模型。</p>
+<p>标准模型包含12个Encoder层，12头Attention，隐藏层维度768，是与BERT的基础版本类似的中型模型，为了提升ERNIE模型在实际工业应用中的落地能力，百度还发布了中文的ERNIE-tiny模型，预测提速4.3倍，减少了层数，加大了宽度（隐藏层元素个数）。从评测结果看，效果也不错，不过模型也不小，压缩包大小为1G左右。Git支持中文说明，其中展示了各种评测的具体效果。</p>
+<h3 id="代码分析">代码分析</h3>
+<p>百度发布了ERNIE的完整代码和预训练模型，并且包含中文的说明文档。它的代码既不是TensorFlow也不是Pytorch，而是百度的深度学习平台飞桨PaddlePaddle，这提高了大多数开发者的学习成本。</p>
+<p>代码位置在：<a
+target="_blank" rel="noopener" href="https://github.com/PaddlePaddle/ERNIE/">https://github.com/PaddlePaddle/ERNIE/</a></p>
+<p>核心代码在ernie/model/目录中，不过一两千行，目录中包含三个文件：</p>
+<ul>
+<li>ernie.py  ERNIE 2.0模型实现<br />
+</li>
+<li>ernie_v1.py ERINE 1.0模型实现<br />
+</li>
+<li>transformer_encoder.py 底层模型支持</li>
+</ul>
+<p>其基础也是Transformer框架的Encoder部分，从实现transformer
+encoder可以看到飞桨平台和其它平台的语法差异。它与其它平台实现的函数名几乎都一样，如果熟悉其它深度学习工具，上手应该很快。</p>
+<p>在核心模型外层，还实现了三组调用方法：预训练pretrain*
+，调优fine-tuning<em>，使用模型run_</em>，还全面提供周边的辅助工具和文档，很像一个完整的软件，不加修改也可通过Python训练和使用。</p>
+<h3 id="深度学习框架哪家强">深度学习框架哪家强</h3>
+<p>深度学习框架初看各有差异，实际都是实现各种层，优化器，误差函数，正反向传递；训练、预测、评估也都大同小异。只是思路和适配的场景略有不同。当然，从学习入门的角度看，只可能选择一个切入点，寻找最高效的方法，然后向外延展。</p>
+<p>选择平台时，可参考以下几方面：</p>
+<ul>
+<li><p>通用<br />
+首先，框架必须通用，看完一个新技术的论文之后都需要直接看代码，从这个角度看TensorFlow是首选，其次是Pytorch。</p></li>
+<li><p>易用性<br />
+飞桨和Pytorch的易用和理解难度都小于TensorFlow，都能很快上手。</p></li>
+<li><p>使用场景<br />
+使用场景又分移动端和主机端，移动端有其专门的工具；主机端需要考虑模型的大小、响应速度、稳定性等等因素。TensorFlow也是工业级应用的首选，飞桨支持多机多卡，在高效训练方面也有优势，而学术界更多地使用Pytorch。</p></li>
+<li><p>发展趋势<br />
+目前Pytorch和TensorFlow是两个最流行的深度学习框架，下图为最近几年各个领域发布论文的趋势图，实线是Pytorch，虚线为TensorFlow。不仅可从中看到深度学习领域的高速发展，也可看到近两年Pytorch的飞速发展。而今天的研究，将在明天成为产品。</p></li>
+</ul>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-9495ea788799aab7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>TensorFlow
+于2015年面世，这几年深度学习的高速发展，让TensorFlow超越之前的Caffe，Theano变为主流；TensorFlow框架出现较早，大家都使用它发论文，做产品；在行业快速兴起之后，它便成了主流。</p>
+<p>Pytorch在2017年初推出，借助易用性成为学术界的新宠。Pytorch能快速发展，除了它本身的优点以外，很可能是由于它主要出现在研究领域，而研究领域对时间成本不是非常敏感。</p>
+<p>某一框架能否被广泛使用，周边生态很重要。对于开源软件，大多数人都是拿来主义，越简单，工作量越少越好。工业领域需要计算学习成本、移植成本、收益、风险、稳定性，目前和未来的工作量，技术越成熟，成本计算越精确。投资回报可能比平台好坏更重要。垄断一旦形成，后来的平台如果没有决定性的优势，就很难发展起来。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%9B%BD%E4%BA%A7%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6ERNIE/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%9B%BD%E4%BA%A7%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6ERNIE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/Transformer-XL%E6%A1%86%E6%9E%B6/" title="Transformer-XL框架"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Transformer-XL框架</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E5%AE%9A%E5%90%91%E5%86%99%E4%BD%9C%E6%A8%A1%E5%9E%8BCTRL/" title="定向写作模型CTRL"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">定向写作模型CTRL</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">深度学习模型压缩</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%8A%A0%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1_DKPLM/" title="论文阅读_自然语言模型加知识图谱_DKPLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-11</div><div class="title">论文阅读_自然语言模型加知识图谱_DKPLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E7%BB%BC%E8%BF%B0/" title="Survey on Neural Speech Syntheis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Survey on Neural Speech Syntheis</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BD%E4%BA%A7%E7%9A%84%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6ernie"><span class="toc-number">1.</span> <span class="toc-text">国产的自然语言处理框架ERNIE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.0.1.</span> <span class="toc-text">原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">发展趋势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ernie-2.0-%E6%A0%B8%E5%BF%83"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">ERNIE 2.0 核心</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ernie-2.0-%E6%95%88%E6%9E%9C"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">ERNIE 2.0 效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.0.2.</span> <span class="toc-text">代码分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E5%93%AA%E5%AE%B6%E5%BC%BA"><span class="toc-number">1.0.3.</span> <span class="toc-text">深度学习框架哪家强</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

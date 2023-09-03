@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>图像处理之_傅立叶变换 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="图像处理之_傅立叶变换 #图形图像 1. 图像处理中的傅立叶变换 将一幅图像从其空间域（spatial domain）转换为频域（frequency domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier Transform），下文中简称DFT。   图片.png  如上图所示，左边是原始图像（左白右黑），中间是DFT变换，右侧为变换后生成的频谱图（幅度相位共同决定了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像处理之_傅立叶变换">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="图像处理之_傅立叶变换 #图形图像 1. 图像处理中的傅立叶变换 将一幅图像从其空间域（spatial domain）转换为频域（frequency domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier Transform），下文中简称DFT。   图片.png  如上图所示，左边是原始图像（左白右黑），中间是DFT变换，右侧为变换后生成的频谱图（幅度相位共同决定了">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2017-05-09T13:03:26.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.656Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="图形图像">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '图像处理之_傅立叶变换',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">图像处理之_傅立叶变换</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-05-09T13:03:26.000Z" title="Created 2017-05-09 13:03:26">2017-05-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.656Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图像处理之_傅立叶变换"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="图像处理之_傅立叶变换">图像处理之_傅立叶变换</h1>
+<p>#图形图像</p>
+<h2 id="图像处理中的傅立叶变换">1. 图像处理中的傅立叶变换</h2>
+<p>将一幅图像从其空间域（spatial domain）转换为频域（frequency
+domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier
+Transform），下文中简称DFT。</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-f37b410f6f9e65c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<p>如上图所示，左边是原始图像（左白右黑），中间是DFT变换，右侧为变换后生成的频谱图（幅度相位共同决定了图中点亮度）。<br />
+上图展示了红色点(x,y)的变换，在纵轴方向，它所在的列颜色值都为0（黑色），因此组成它的波形也能量也都为0，在横轴方向，如中间图所示，左则为255（白色），右则为0（黑色），将其拆分成正弦波的组合，再利用拆分后的各个波的幅度（亮度）相位（亮度）以及频率大小（位置）生成频谱图（上图中简化了相位）。<br />
+原始图中的每个像素点，是由不同频率波投射在该点的能量叠加而成的，而频谱图中的每个点是原始图中每个像素点在该频率上的能量叠加而成的。它们之间都是一对多的关系，不存在一一对应。</p>
+<h2 id="如何理解公式">2. 如何理解公式</h2>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-565d314268378100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<p>以上公式分别是一维和二维DFT的定义（摘自《学习OpenCV》），先看看一维DFT公式，其中x0…xN-1是Ｎ个复数，它是原始数据，如音频数据中的每一帧，图像的像素点的灰度等，f是映射到频域后的值，也是复数．下标n是x的变化范围，下标k是f的变化范围．二维空间公式同理．<br />
+图像对应的二维空间举例：把一个256x256像素（Ｎx=256，Ny=256，共65536个点，每一点视为x，其值为亮度）的灰度图转换到频域，得到的也是一个256x256的矩阵，矩阵中的每个点都是复数（每一点视为f）．</p>
+<h2 id="频域矩阵中的各个点的值怎么求">3.
+频域矩阵中的各个点的值怎么求？</h2>
+<p>每一个f点的值，都由所有的x点通过上述公式累加求得．</p>
+<p>##4. 自然指数exp()的作用是什么？exp()和正弦/余弦波有什么关系？<br />
+拆分点x在各个频率上的相位和幅度分量．exp()和正弦/余弦波的关系，详见欧拉公式：</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-ed6f42894063660e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<h2 id="如何描述频域中的值">5. 如何描述频域中的值</h2>
+<p>描述频率三个重要属性是：频率高低、幅值、相位。<br />
+输出的频域数据也由矩阵表示，其中每个点都是复数，实部和虚部分别对应幅值和相位，而该点在矩阵中的位置表示它的频率高低。</p>
+<h2 id="怎么看dft变换后的输出图">6 . 怎么看DFT变换后的输出图 </h2>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-b831ab4de8fdf648.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<p>在很多例程中，变换后，都得到一个从中间到四周的放射状图形，如上图所示。<br />
+右侧图就是频率分布图谱，其中越靠近中心的位置频率越低，越亮的位置代表该频率的信号振幅越大。示意图大多是经过频谱中心化之后的图，如：OpenCV的例程OpenCV/samples/cpp/dft.cpp．在该程序中可以看到调整象限的操作。即左上右下互换，右上左下互换。数字图像的二维DFT所得结果，左上角是直流成分（图像的平均灰度级），四个角周围对应于低频成分，中央部分对应于高频部分。通过象限调整后，低频位置被换到了中间，这称为频谱中心化。对显示的频谱图而言，我们知道中间是低频，周围是高频即可。低频对应图像大致轮廓，高频对应图像细节。<br />
+一维DFT的系数对称(2N点的数据做DFT，变换系数关于N点位置对称，类似图5)。这是因为DFT的的变换基是对0～2π分析的，因为0到π和π到2π对称所以对称。二维可理解为两个一维的组合（见图1,2,3），因此它是从中心向四周扩散的。<br />
+图像中的像素点与频谱中的点虽然大小一样，但并没有一一对应的关系（见图4）</p>
+<h2 id="如何使用dft实现滤波">7. 如何使用DFT实现滤波</h2>
+<p>图6中能量分布在中高频区，从原始上看，它的细节比较多，局部跳变明显（梯度大），可想见，组成它的波成也是在某一中高频波的能量更大，也就是说边缘越多，变化的剧烈程序，中高频波分量越多。<br />
+滤波一般分为：低通（Low-pass）、高通（High-pass）、带通（Band-pass）。所谓高通就是保留图像中的高频成分，过滤低频成分，它类似于通过梯度求图像边缘。需要注意的是它过滤的是频率，而不是亮度。<br />
+具体实现就是将图片转成频谱图，过滤某一部分后，再通过逆变换转成灰度图。</p>
+<h2 id="图像的变换与频谱图">8. 图像的变换与频谱图</h2>
+<p>图像的旋转平移等操作，只是位置变化，整体的亮度（能量）不变，但是在频谱图中却有差异。这是由于变换之后相位的差异，在频谱图上看到的点，实际是由幅度和相位共同算出的（见dft.cpp中的magnitude函数）</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-6b59fac9e1705fc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片.png" />
+<figcaption aria-hidden="true">图片.png</figcaption>
+</figure>
+<h2 id="dft与卷积">9. DFT与卷积</h2>
+<p>利用DFT可以大大加快卷积运算的速度。卷积定理：空间域的卷积运算可以转换为频域的乘法运算。具体实现是将图片转换到频域，将卷积核也转换到频域，计算频域乘法，最后将乘积进行逆变换，转回空间域。<br />
+一般只在卷积核比较大时，才使用该方法优化。</p>
+<h2 id="对频域一些想法">10. 对频域一些想法</h2>
+<p>把声音拆成正弦波比较好理解，声音是声波的叠加：不同高度，宽度，起始位置的波的叠加。比如弹奏“do”，发出的声音是琴弦振动的结果，弦的连续振动，必然是有规律的。人听到的是一系列基音和泛音组合的结果。声音是时域到频域的映射，维度是一，即y=f(x)，其中x是帧发生的时间，y是该帧强度的大小。我们可以通过切分出一个小的时间片
+（do所在的时间段），把它拆分到频谱，找个它的各个基音和泛音，进行对比，重组等等后续处理，人声也是一样，当发出“啊“声音的时候，也是一系列振动引起的。频率是声音的局部特征，即从整条音频中切出“do”或”啊”的时间片段，求取其频谱。<br />
+把一张画拆分成频率，首先把一张彩图拆成不同通道的灰度图，考虑单张灰度图的频谱。图片是空间到频域的映射，维度是二，即z=f(x,y)，其中x,y是像素点的坐标，z是灰度。我们认为像素点间的灰度变化（即梯度）是有规律的。比如画中，墙和窗相交边缘上的各个点，变化都差不多（变化快，梯度大，频率高），远处云与蓝天的边缘也有相似性（变化慢），在单色的区域，比如蓝天整体变化不大（无变化），多处具体共同的性质，也是视作一种重复，我们就把它提取为规律和特征。除了图像音频，还有很多地方都可以用到频域映射，只要是有规律的重复出现即可，进而通过频谱分析，什么东西重复出现最多？它背后原因是什么？</p>
+<h2 id="参考">11. 参考</h2>
+<ol type="1">
+<li><p>图像傅里叶变换<br />
+<a
+target="_blank" rel="noopener" href="http://blog.csdn.net/abcjennifer/article/details/7622228">http://blog.csdn.net/abcjennifer/article/details/7622228<br />
+</a></p></li>
+<li><p>理解深度学习中的卷积<br />
+<a
+target="_blank" rel="noopener" href="http://www.jiqizhixin.com/article/2558">http://www.jiqizhixin.com/article/2558<br />
+</a></p></li>
+<li><p>(精心整理)图像的傅里叶变换<br />
+<a
+target="_blank" rel="noopener" href="https://wenku.baidu.com/view/c5e2cca8fab069dc502201db.html">https://wenku.baidu.com/view/c5e2cca8fab069dc502201db.html<br />
+</a></p></li>
+<li><p>傅里叶分析之掐死教程（完整版）<br />
+<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/19763358?columnSlug=wille">https://zhuanlan.zhihu.com/p/19763358?columnSlug=wille<br />
+</a></p></li>
+<li><p>如何通俗易懂地解释欧拉公式<br />
+<a
+target="_blank" rel="noopener" href="http://www.matongxue.com/madocs/8.html">http://www.matongxue.com/madocs/8.html<br />
+</a></p></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">图形图像</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E8%BD%AE%E5%BB%93%E5%8C%B9%E9%85%8D/" title="图像处理之_轮廓匹配"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">图像处理之_轮廓匹配</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/" title="图像处理之_仿射变换与透视变换"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">图像处理之_仿射变换与透视变换</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_MAE/" title="论文阅读_MAE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-18</div><div class="title">论文阅读_MAE</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Segment_Anything/" title="论文阅读_Segment_Anything"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-07</div><div class="title">论文阅读_Segment_Anything</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Visual_ChatGPT/" title="论文阅读_Visual_ChatGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">论文阅读_Visual_ChatGPT</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC_CLIP/" title="论文阅读_图像生成文本_CLIP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">论文阅读_图像生成文本_CLIP</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/TorchVision/" title="TorchVision"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-04</div><div class="title">TorchVision</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_ARToolKit%E8%87%AA%E5%AE%9A%E4%B9%89Marker/" title="图像处理之_ARToolKit自定义Marker"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-01-20</div><div class="title">图像处理之_ARToolKit自定义Marker</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">图像处理之_傅立叶变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%AD%E7%9A%84%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">1. 图像处理中的傅立叶变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%85%AC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2. 如何理解公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%91%E5%9F%9F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E5%90%84%E4%B8%AA%E7%82%B9%E7%9A%84%E5%80%BC%E6%80%8E%E4%B9%88%E6%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">3.
+频域矩阵中的各个点的值怎么求？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E9%A2%91%E5%9F%9F%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-number">1.4.</span> <span class="toc-text">5. 如何描述频域中的值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%9C%8Bdft%E5%8F%98%E6%8D%A2%E5%90%8E%E7%9A%84%E8%BE%93%E5%87%BA%E5%9B%BE"><span class="toc-number">1.5.</span> <span class="toc-text">6 . 怎么看DFT变换后的输出图 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8dft%E5%AE%9E%E7%8E%B0%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.6.</span> <span class="toc-text">7. 如何使用DFT实现滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%A2%91%E8%B0%B1%E5%9B%BE"><span class="toc-number">1.7.</span> <span class="toc-text">8. 图像的变换与频谱图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dft%E4%B8%8E%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.8.</span> <span class="toc-text">9. DFT与卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E9%A2%91%E5%9F%9F%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95"><span class="toc-number">1.9.</span> <span class="toc-text">10. 对频域一些想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.10.</span> <span class="toc-text">11. 参考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

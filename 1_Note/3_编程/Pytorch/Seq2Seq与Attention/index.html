@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Seq2Seq与Attention | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Seq2Seq与Attention #自然语言处理 #时序 #Pytorch 自然语言处理是典型的序列问题，其底层算法在最近几年迅速发展，比如去年年底发布的BERT在11项自然语言处理任务中表现卓越，今年GPT-2生成文本（写作）的水平也有了显著提高。 目前这些最先进的技术都基于Transformer模型，该模型从RNN，LSTM，Seq2Seq，Attention，ConvS2S，Transfo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seq2Seq与Attention">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Seq2Seq与Attention #自然语言处理 #时序 #Pytorch 自然语言处理是典型的序列问题，其底层算法在最近几年迅速发展，比如去年年底发布的BERT在11项自然语言处理任务中表现卓越，今年GPT-2生成文本（写作）的水平也有了显著提高。 目前这些最先进的技术都基于Transformer模型，该模型从RNN，LSTM，Seq2Seq，Attention，ConvS2S，Transfo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2019-12-18T11:16:38.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.588Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="时序">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Seq2Seq与Attention',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Seq2Seq与Attention</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-18T11:16:38.000Z" title="Created 2019-12-18 11:16:38">2019-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.588Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Seq2Seq与Attention"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="seq2seq与attention">Seq2Seq与Attention</h1>
+<p>#自然语言处理 #时序 #Pytorch</p>
+<p>自然语言处理是典型的序列问题，其底层算法在最近几年迅速发展，比如去年年底发布的BERT在11项自然语言处理任务中表现卓越，今年GPT-2生成文本（写作）的水平也有了显著提高。</p>
+<p>目前这些最先进的技术都基于Transformer模型，该模型从RNN，LSTM，Seq2Seq，Attention，ConvS2S，Transformer一步步进化而来，还涉及自然语言处理的相关知识，包含的知识点太多，无法一次说清。笔者将其分成几篇，从其进化过程逐步引入。之前已经介绍过RNN及LSTM，本篇将介绍Seq2Seq和Attention算法。</p>
+<h3 id="翻译功能">翻译功能</h3>
+<p>深度学习中的自然语言处理常用于自动翻译、语言识别、问答系统、提取概要、写作等等领域。</p>
+<p>其中自动翻译是一项非常典型的应用，在翻译过程中，输入和输出的词汇个数可长可短，不能一一对应，不同语言词汇顺序又可能不同，并且还有一词多义，一义多词，词在不同位置含义不同的情况……是相对复杂的自然语言处理问题。</p>
+<p>先来看看人怎么解决翻译问题，面对一种完全不认识的语言，人把句子分解成词，通过查字典的方式将词转换成母语，然后再通过语法组合成句。其中主要涉及词的实际含义、内容的先后关系，两种语言对应关系。<strong>机器既不需要了解各个词的含义和语法，也不需要字典，就能通过大量训练实现翻译功能，并且效果还不错。</strong>这让神经网络看起来更加难以理解。</p>
+<p>一开始的深度学习神经网络，没有逐词翻译的逻辑，主要实现的是序列生成模型，根据前面的一个词或者几个词去推测后面的词。所以人们认为，机器并没有真正理解语言，以及两种语言之间的对应关系，通过训练生成的知识分散在网络各个节点用权重表示，也不能提炼总结，完全是个黑盒。同时，它也不能代入已有的知识，如果换成与训练数据不同的情境，就无法正常工作了。</p>
+<p>翻译模型发展到今天，已很大程度改善了这一问题，现在的模型<strong>可以通过训练学习到什么是“苹果”，也可以生成翻译词典。而且这些规则不需要事先输入，是它自己“学”出来的。</strong>通过注意力算法，不仅能实现翻译，还能找到词间的对应关系（双语词典）；词向量可以从多个角度描述词的特征，对比“苹果”和“沙果”的相似度（词汇含义）；据此，就可以把高频率出现的规则总结成知识。</p>
+<h3 id="seq2seq">Seq2Seq</h3>
+<h4 id="引入">1. 引入</h4>
+<p>设想最简单的情况，将一句中文X(x1,x2,x3,x4)翻译成英文Y(y1,y2,y3)。</p>
+<p>如果把模型想像成黑盒，则如图下所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-5114af22e23d1b58.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>由于不同语言的词汇不存在绝对的一一对应关系，人工翻译一般是看完输入的完整句子，才开始翻译并输出，如果有条件，最好还能看一下上下文语境。模型处理数据流也是如此。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-0a0df6eceb8dbb50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>前几篇介绍了循环神经网络RNN，它不断向后传递隐藏层h的内容，使得序列中的信息逐步向后传递，下图是RNN网络在翻译问题中最简单的用法，LSTM和GRU原理与RNN相同。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-4336b5b22f6e0a6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>在RNN循环网络中，神经网络的每个时间步对应同一组参数，这些参数存储着翻译功能所包含的大量信息；在翻译任务中，两种语言的词汇语法不同，用同一组参数描述它们显然比较粗糙。如果能对两种语言生成两种规则，用不同网络的不同参数描述，则更加合理。于是，将翻译过程拆分为编码Encoder和解码Decoder两个子模型，可把这个过程想像成：先把中文翻译成一种语义编码c，再把语义编码c翻译成英文。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-86a7325ed1e6741f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>进一步细化，在Decoder过程中，生成每个词汇时，除了需要依赖上一步的隐藏层输出，还需要参考输出序列的前一个词，使得生成的序列符合语法规则（如介词的位置），设置输出序列的第一个词为、、
+&lt;start&gt;，最后一个词为&lt;end&gt;，细化后的逻辑如下图示。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-efe279d8b08be6d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h4 id="概念">2. 概念</h4>
+<p>Seq2Seq也被称为S2S，是Sequence to
+Sequence的简称，即序列到序列的转换。它始于谷歌在2014年发表的一篇论文《Sequence
+to Sequence Learning with Neural Networks》。</p>
+<p>上图中的Encoder-Decoder网络结构就是Seq2Seq，Encoder和Decoder可以使用RNN，LSTM，GRU等基础模型。简言之，就是把翻译中原来的一个循环网络变成了两个。</p>
+<p>除了翻译，Seq2Seq也被用于提取概要，问答，语音识别等场景之中，处理输入和输出规则不同的情况，但是在生成文本的任务中，比如通过前面文字续写后续文字，输入和输出都是同样的序列，则无需Seq2Seq。</p>
+<h3 id="转换词向量">转换词向量</h3>
+<p>在自然语言处理中，常将单词作为序列中的元素。</p>
+<p>模型只能接收数值型数据，代入模型前，需要把词汇转换成数值，如果使用One-Hot编码，数据维度将非常大，并且无法描述词与词之间的相似度。更常用的方法是词嵌入Word
+Embedding，它将每个词表示成向量，比如把“hello”，转换成三维的值[-1.7123,
+-0.6566,
+-0.6055]，可将该操作理解成：把一个词汇拆分成为多个属性。通过比较各个属性的差异可以计算两个词汇之间的距离。</p>
+<p>在不同层面，不同角度将看到事物的不同属性（特征），比如梨和苹果都是水果，但是颜色差异很大，通过模型计算出来的词属性与训练的目标以及训练数据有关。词汇的特征通过反向传播计算得来，从这个角度看，神经网络对每个词进行了特征提取，也可作为词特征提取工具来使用。</p>
+<p>在Pythorch中使用torch.nn.Embedding可实现该功能，它提供了词的索引号与向量之间的转换表。用法是：
+torch.nn.Embedding(m, n) 其中m 表示单词的总数目，n
+表示词嵌入的维度（一个词转成几个特征，常用的维度是256-512），词嵌入相当于将输入的词序列转换成一个矩阵，矩阵的每一行表示一个单词，列为每个单词的多个特征。Embedding也是一层网络，其参数通过训练求得。而词对应的每一维特征的具体值如-1.7123通过这些参数计算得出。</p>
+<p>下面例程，将词序列“hello world”转换成矩阵。</p>
+<pre><code>from torch import nn  
+from torch.autograd import Variable  
+  
+dic = &#123;&#39;hello&#39;:0, &#39;world&#39;:1&#125; # 词汇与索引号转换字典  
+embed = nn.Embedding(2, 3) # 共两个词汇，每个词汇转换成三个特征    
+# Embedding的输入是一个LongTensor。  
+print(embed(Variable(torch.LongTensor([1])))) # 1为词汇的索引号  
+# 输出结果：tensor([[-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  
+print(embed(Variable(torch.LongTensor([dic[&#39;hello&#39;],dic[&#39;world&#39;]]))))  
+# 输出结果：tensor([[-1.7123, -0.6566, -0.6055],  
+# [-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  </code></pre>
+<h3 id="attention">Attention</h3>
+<p>注意力Attention指的是一类算法，常见的有local attention，global
+attention，self attention等等。</p>
+<p>注意力方法最初出现在图像处理问题之中，当人眼观察一幅图像时，某一时刻的视觉焦点只集中在一点上，其注意力是不均衡的，视觉注意力焦点可提高效率和准确性。算法借鉴了人类注意力机制，实现方法是给不同的数据分配不同的权重。</p>
+<p>在上述的Seq2Seq模型中，生成目标句子中的单词时，不论生成哪个单词，都根据语义编码C，比如将“I
+love you” 翻译成“我爱你”时，“I love
+you”三个词对“我”的贡献度都一样，而我们希望“I”对“我”的贡献度更大，于是使用了Attention算法。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-afc801d7ef42828a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>实现Attention的方式有很多种，这里展示比较常用的一种。在Encoder的过程中保留每一步RNN单元的隐藏状态h1……hn，组成编码的状态矩阵Encoder_outputs；在解码过程中，原本是通过上一步的输出y<sub>t-1</sub>和前一个隐藏层h作为输入，现又加入了利用Encoder_outputs计算注意力权重attention_weight的步骤。</p>
+<p>用图和文字很难说清楚，看代码更容易，下面分析将Pytorch官方教程Attention模型的核心部分，完整程序见：<br />
+<a
+target="_blank" rel="noopener" href="https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html">https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html</a><br />
+建议读者运行该例程，跟踪每一步的输入和输出，可以尝试修改代码实现中文互译功能。</p>
+<p>下面为编码器Encoder的实现部分，编码器包含：词向量转换embedding和循环网络GRU。</p>
+<pre><code>class EncoderRNN(nn.Module):  
+    # 参数：input_size为输入语言包含的词个数  
+    def __init__(self, input_size, hidden_size):  
+        super(EncoderRNN, self).__init__()  
+        self.hidden_size = hidden_size  
+        self.embedding = nn.Embedding(input_size, hidden_size) #每词 hidden_size个属性  
+        self.gru = nn.GRU(hidden_size, hidden_size)  
+  
+    def forward(self,input, hidden):  
+        embedded = self.embedding(input).view(1,1,-1)  
+        output = embedded  
+        output, hidden = self.gru(output, hidden)  
+         return output, hidden  
+  
+    def initHidden(self):  
+        return torch.zeros(1,1, self.hidden_size, device=device)  </code></pre>
+<p>其中forward每次处理序列中的一个元素（一个词）。</p>
+<p>难度较大的是Decoder解码模块，注意力逻辑主要实现在该模块中：</p>
+<pre><code>class AttnDecoderRNN(nn.Module):  
+    # 参数：output_size为输出语言包含的所有单词数  
+    def __init__(self,hidden_size,output_size, dropout_p=0.1, max_length = MAX_LENGTH):  
+        super(AttnDecoderRNN, self).__init__()  
+        self.hidden_size = hidden_size  
+        self.output_size = output_size  
+        self.dropout_p = dropout_p  
+        self.max_length = max_length  
+        self.embedding = nn.Embedding(self.output_size, self.hidden_size)  
+        self.attn = nn.Linear(self.hidden_size*2, self.max_length)  
+        self.attn_combine = nn.Linear(self.hidden_size*2, self.hidden_size)  
+        self.dropout = nn.Dropout(self.dropout_p)  
+        self.gru = nn.GRU(self.hidden_size, self.hidden_size)  
+        self.out = nn.Linear(self.hidden_size, self.output_size) # 把256个特征转换成输出语言的词汇个数  
+  
+    # 参数：input每步输入，hidden上一步结果，encoder_outputs编码的状态矩阵  
+    # 计算的值是各词出现的概率  
+    def forward(self, input, hidden, encoder_outputs):  
+        embedded = self.embedding(input).view(1,1,-1)  
+        embedded = self.dropout(embedded)  
+        attn_weights = F.softmax(  
+        self.attn(torch.cat([embedded[0],hidden[0]],1)),dim=1)  
+        attn_applied = torch.bmm(attn_weights.unsqueeze(0), # unsqueeze维度增加  
+        encoder_outputs.unsqueeze(0))  
+        output = torch.cat([embedded[0], attn_applied[0]],1) # 注意力与当前输入拼接  
+        output = self.attn_combine(output).unsqueeze(0)  
+        output = F.relu(output) # 激活函数  
+        output, hidden = self.gru(output, hidden)  
+        output = F.log_softmax(self.out(output[0]),dim=1)  
+        return output, hidden, attn_weights  
+  
+    def initHidden(self):  
+        return torch.zeros(1,1, self.hidden_size, device=devic  </code></pre>
+<p>代码核心是前向传播函数forward，第一个难点是计算attn_weights，先用cat组装输入词向量embedded和隐藏层hidden信息256+256=512，转入全连接层attn，转换后输出10维数据（序列最长10个单词），再用softmax转成和为1的比例值。计算结果是注意力权重attn_weights大小为[1,10]，它描述的是输入encoder中各位置元素对当前decoder输出单词的重要性占比，比如“I
+love
+you”对“爱”字的重要性分别是[0.2,0.6,0.2]。训练调整attn层参数以实现这一功能。</p>
+<p>然后计算attn_applied，用注意力权重attn_weights[1,10]（每个位置的重要性）乘记录encoder每一步状态的矩阵encoder_outputs[10,256]（每个位置的状态）。得到一个综合权重attn_applied[1,256]，用于描述“划了重点”之后的输入序列对当前预测这个单词的影响。得出attn_applied之后，再与词向量embed值组合、转换维度、经过激活函数处理后，和隐藏层一起传入gru循环网络。</p>
+<p>最后通过全连接层out把256维特征转换成输出语言对应的单词个数，其中每维度的值描述了生成该词的可能性，再用log_softmax转换成输出要求格式，以便与其误差函数配合使用（后面详细介绍）。</p>
+<p>下面是训练部分，每调用一次train训练一个句子。其中传入的encoder和decoder分别是上面定义的EncoderRNN和AttnDecoderRNN，input_tensor和target_tensor是训练的原句和译文。</p>
+<pre><code>def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer,  
+    decoder_optimizer, criterion, max_length = MAX_LENGTH):  
+    encoder_hidden = encoder.initHidden()  
+    encoder_optimizer.zero_grad() # 分别优化encoder和decoder  
+    decoder_optimizer.zero_grad()  
+    input_length = input_tensor.size(0)  
+    target_length = target_tensor.size(0)  
+    encoder_outputs = torch.zeros(max_length, encoder.hidden_size, device=device)  
+    loss = 0  
+  
+    for ei in range(input_length): # 每次传入序列中一个元素  
+        encoder_output, encoder_hidden = encoder(input_tensor[ei], encoder_hidden)  
+        encoder_outputs[ei]=encoder_output[0,0] # seq_len为1，batch_size为1，大小为 hidden_size  
+  
+    decoder_input = torch.tensor([[SOS_token]], device=device) # SOS为标记句首  
+    decoder_hidden = encoder_hidden # 把编码的最终状态作为解码的初始状态  
+  
+    for di in range(target_length): # 每次预测一个元素  
+        decoder_output, decoder_hidden, decoder_attention = decoder(  
+        decoder_input, decoder_hidden, encoder_outputs)  
+        topv, topi = decoder_output.topk(1) # 将可能性最大的预测值加入译文序列  
+        decoder_input = topi.squeeze().detach()  
+        loss+=criterion(decoder_output, target_tensor[di])  
+        if decoder_input.item()==EOS_token:  
+        break  
+  
+    loss.backward()  
+    encoder_optimizer.step()  
+    decoder_optimizer.step()  
+    return loss.item() / target_length  </code></pre>
+<p>其中第一个循环为Encoder，程序对输入序列中每个元素做encoder，并把每一次返回的中间状态hidden存入encoder_outputs，最终生成保存所有位置状态的矩阵encoder_outputs。</p>
+<p>第二个循环为Decoder，程序利用当前的隐藏状态decoder_hidden，解码序列的前一个元素decoder_input，和输入的状态矩阵encoder_outputs做解码，并从解码器的输出中选中最有可能的单词作为后序的输入，直到序列结束。其整体误差是每个元素误差的平均值。</p>
+<p>Attention还有很多变型，比如local
+attention为了减少计算量，加入了窗口的概念，只对其中一部分位置操作（选一个点，向右左扩展窗口），窗口以外都取0；self
+attention将在下篇Transformer中详细介绍。</p>
+<h3 id="词向量转换成词">词向量转换成词</h3>
+<p>翻译的第一步是将词的索引号转换成词向量，相对的，最后一步将词向量转换成词的索引号，以确定具体的词。Decoder的最后部分实现了该功能，它使用全连接层out进行维度转换，最后使用log_softmax转换成概率的log值。</p>
+<p>softmax输出的是概率，整体可能性为1。比如输出的语言只有三个词汇[‘a’,’b’,’c’]，softmax求出它们的可能性分别是[0.1,0.1,0.9]，那么此外最可能是’c’。Log_softmax是对softmax的结果再做log运算，生成对数概率向量。</p>
+<p>log函数曲线如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-5f39c2c237d06fbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>由于softmax输出的各个值在0-1之间，梯度太小对反向传播不利，于是log_softmax将0-1映射到负无穷到0之间更宽的区域之中，从而放大了差异。同时，它与损失函数NLLLoss配合使用，NLLLoss的输入是一个对数概率向量和一个目标标签，正好对应最后一层是log_softmax的网络。另外，也可以使用交叉熵作为误差函数：CrossEntropyLoss=log_softmax
++ NLLLoss。</p>
+<h3 id="参考">参考</h3>
+<p>Seq2Seq论文《Sequence to Sequence Learningwith Neural
+Networks》<br />
+<a
+target="_blank" rel="noopener" href="https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf">https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf</a></p>
+<p>Attention论文《Neural machine translation by jointly learning to
+align and translate》<br />
+<a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/1409.0473v2.pdf">https://arxiv.org/pdf/1409.0473v2.pdf</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%97%B6%E5%BA%8F/">时序</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Transformer%E6%A1%86%E6%9E%B6/" title="Transformer框架"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Transformer框架</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/" title="Pytorch_LSTM与GRU"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Pytorch_LSTM与GRU</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%B8%8ELSTM/" title="深度学习_循环神经网络RNN与LSTM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-06</div><div class="title">深度学习_循环神经网络RNN与LSTM</div></div></a></div><div><a href="/test/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%97%B6%E5%BA%8FTDTS/" title="论文阅读_时序TDTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">论文阅读_时序TDTS</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%80_%E6%A6%82%E8%BF%B0/" title="时序预测之一_概述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-15</div><div class="title">时序预测之一_概述</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/" title="时序预测之二_ARIMA"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-23</div><div class="title">时序预测之二_ARIMA</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E5%9B%9B_Prophet%E6%97%B6%E5%BA%8F%E6%A8%A1%E5%9E%8B/" title="时序预测之四_Prophet时序模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-20</div><div class="title">时序预测之四_Prophet时序模型</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97_%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8BHMM/" title="机器学习_隐马尔可夫模型HMM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-15</div><div class="title">机器学习_隐马尔可夫模型HMM</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#seq2seq%E4%B8%8Eattention"><span class="toc-number">1.</span> <span class="toc-text">Seq2Seq与Attention</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E5%8A%9F%E8%83%BD"><span class="toc-number">1.0.1.</span> <span class="toc-text">翻译功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#seq2seq"><span class="toc-number">1.0.2.</span> <span class="toc-text">Seq2Seq</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1. 引入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2. 概念</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E8%AF%8D%E5%90%91%E9%87%8F"><span class="toc-number">1.0.3.</span> <span class="toc-text">转换词向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#attention"><span class="toc-number">1.0.4.</span> <span class="toc-text">Attention</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E5%90%91%E9%87%8F%E8%BD%AC%E6%8D%A2%E6%88%90%E8%AF%8D"><span class="toc-number">1.0.5.</span> <span class="toc-text">词向量转换成词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.0.6.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

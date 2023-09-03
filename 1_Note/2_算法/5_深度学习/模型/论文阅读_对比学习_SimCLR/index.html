@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_对比学习_SimCLR | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="英文题目：A Simple Framework for Contrastive Learning of Visual Representations 中文题目：视觉表征对比学习的简单框架 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2002.05709v2 领域：深度学习，知识表示，半监督学习，对比学习 发表时间：2020 作者：Ting Chen，Hinton团队，Google Res">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_对比学习_SimCLR">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0_SimCLR/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="英文题目：A Simple Framework for Contrastive Learning of Visual Representations 中文题目：视觉表征对比学习的简单框架 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2002.05709v2 领域：深度学习，知识表示，半监督学习，对比学习 发表时间：2020 作者：Ting Chen，Hinton团队，Google Res">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-08-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.444Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="知识表示">
+<meta property="article:tag" content="对比学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0_SimCLR/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_对比学习_SimCLR',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_对比学习_SimCLR</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-14T00:00:00.000Z" title="Created 2022-08-14 00:00:00">2022-08-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.444Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_对比学习_SimCLR"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>英文题目：A Simple Framework for Contrastive Learning of Visual
+Representations<br />
+中文题目：视觉表征对比学习的简单框架<br />
+论文地址：https://arxiv.org/abs/2002.05709v2<br />
+领域：深度学习，知识表示，半监督学习，对比学习<br />
+发表时间：2020<br />
+作者：Ting Chen，Hinton团队，Google Research<br />
+出处：ICML<br />
+被引量：1734<br />
+代码和数据：https://github.com/leftthomas/SimCLR<br />
+阅读时间：22.08.14</p>
+<h1 id="读后感">读后感</h1>
+<p>众所周知，有监督学习相比于无监督学习和半监督学习速度更快，效果更好，但也存在一些问题，比如难以泛化解决其它问题，需要高成本的标注等等．</p>
+<p>对比学习是一种半监督学习（自监督学习），它可以生成一种表示，用一组数表征一个时间序列，一句话，一张图...
+然后再代入下游任务．具体方法是用实例间的相似和差异学习怎么描述这个实例，从而捕捉内在的不变性；从高维到低维，构建更抽象地表示．</p>
+<p>个人感觉有监督和半监督学习各有优势，实际建模时有效结合二者，即可以提升训练效率，也能减少标注成本．</p>
+<h2 id="介绍">1 介绍</h2>
+<p>对比学习属于自监督学习．自监督学习一般不需要标签，通过数据本身构造模型，训练结果可以支持更多下游任务．常见的自监督学习包括：<br />
+* AutoEncoder自编码器<br />
+* GAN生成对抗网络<br />
+* Mask语言模型，如：BERT<br />
+* Contrastive 对比学习模型，其原理是：语义相似-&gt;表征一致</p>
+<p>文中提出了简单的对比学习表示框架SimCLR．</p>
+<p><strong>本文主要贡献</strong><br />
+* 利用数据增强构造训练数据<br />
+* 构建可学习的非线性模型，提升数据表示质量<br />
+* 构造特殊的损失函数<br />
+* 相对于有监督学习，对比学习使用更大的批处理规模和更长的训练时间</p>
+<h2 id="方法">2 方法</h2>
+<h3 id="对比学习框架">2.1 对比学习框架</h3>
+<ul>
+<li>如图-2所示，对于实体x，使用数据增强方法分别构建xi和xj，将二者的组合看作正例对．<br />
+</li>
+<li>使用神经网络编码器 f 获取增强数据的向量表示 h，文中的 f
+使用了用于图片处理的 ResNet．<br />
+</li>
+<li>使用小型神经网络进行投影变换
+g，将向量映射到对比损失函数可以应用的数据空间，转换成向量表示z．<br />
+</li>
+<li>利用对比损失函数判别正反例，正例是对同一实例增强得到的数据对，反例是对不同实例增强产生的数据对．<br />
+[[Pasted image 20220814103850.png]]<br />
+反例一般使用同一batch中的数据构造，损失函数定义如下：<br />
+[[Pasted image 20220814105614.png]]<br />
+设batch中包含N个实例，每个实例生成两个数据增强，则产生2N个增强数据，此时分子计算的是正例间的距离，分母计算负例间的距离，τ
+是温度参数．<br />
+具体算法如下：<br />
+[[Pasted image 20220814105952.png]]</li>
+</ul>
+<h3 id="使用大batch-size训练">2.2 使用大Batch Size训练</h3>
+<p>将Batcch
+size设置为256-8192，此时负例数据巨大，计算量也是巨大的．使用SGD/Momentum优化器可能造成模型不稳定，因此，使用LARS优化器，TPU，32-128个核不等，另外，还使用了全局的Batch归一化方法，以解决不同设备上并行训练时的归一化问题．</p>
+<h3 id="评价策略">2.3 评价策略</h3>
+<p>以预训练的模型为基础，最上层加入一个线性分类器，在冻结的基础网络上训练，以评价具体任务，将测试集准确率作为评价指标，另外，实验还与其它半监督学习和转移学习方法进行了对比．<br />
+由于是对图片数据操作，使用了剪切，缩放，颜色失真，高斯模糊等方法进行数据增强；使用ResNet-50作为编码器，2层的投影变换网络，最终将数据映射到128维空间内．使用NT-Xent作为损失函数，LAR作为优化器，batch:4096，100次迭代．</p>
+<h2 id="具体实现">3 具体实现</h2>
+<p>这篇论文主要介绍了针对图片的对比学习方法，对于自然语言，时序数据，图结构的对比学习方法也与之类似，主要都是针对以下几个方面设计和实现：<br />
+* 数据增强<br />
+根据数据不同，增强方式如：切分/旋转/变化/随机Mask/随机噪声/选择不同阶段数据/dropout/采样；用来自同一样本的数据增强，生成正样本对；用来自不同样本的数据增强，生成负样本对．<br />
+优化方法包括：通过数据增强更好地保留共性；锁定更有效的硬负例等．<br />
+* 信息编码<br />
+通过训练模型，将实体转换为相对低维的向量表示．<br />
+* 损失函数<br />
+根据数据设计损失函数，使正样本更加一致，负样本完全不同，邻近样本比正样本远，比负样本近．<br />
+* 其它优化<br />
+根据数据设计更复杂的结构，比如利用图中的邻居信息构建介于正负样本之间的样本作为中间样本；利用时序数据中来自同一数据源的不同时段数据作为中间样本....</p>
+<h3 id="数据增强">3.1 数据增强</h3>
+<p>[[Pasted image 20220814112211.png]]<br />
+文中对图片的处理方法如图-4所示，就其本质来看，数据增强的目标是调整一些已知特征，让模型学到图中未被修改的深层次特征．这也带来一些问题，比如上图中，增强只与具体图片相关，模型学到了这张图片中的狗，但并未学到狗的共性，这一点稍逊于有监督学习．<br />
+不同的增强方法学习效果也不同，图-5展示了不同方法，以及不同方法组合的影响：<br />
+[[Pasted image 20220814112903.png]]</p>
+<p>可以看到，尽管模型可以区分对比学习中的正反例，但任何单个变换都不足以学习到很好的表征，而颜色失真和剪切的组合效果明显，这可能是由于遮蔽了单张图片的特性，从而学到了共性．</p>
+<p>另外，从表-1中可以看到，数据增强的变化越大，SimCLR学习效果越好：<br />
+[[Pasted image 20220814113730.png]]</p>
+<h3 id="网络结构">3.2 网络结构</h3>
+<p>无监督对比学习受益于更大的模型．如图-7所示：绿叉是90次迭代的有监督学习，红星是1000次迭代的对比学习，蓝点是100次迭代的对比学习．从中可以看到有监督学习的优势．对于无监督学习，网络的深度宽度影响更大．</p>
+<p>[[Pasted image 20220814114107.png]]<br />
+投影变换可提升表示质量．图-8展示了使用不同结构的投影变换效果，对比结果发现，非线性变换（加ReLU激活函数）效果最好，而与输出维度无关．<br />
+[[Pasted image 20220814131300.png]]<br />
+如表-3所示，投影前的表示比投影后的表示携带更多信息，这可能是由于投影函数去除了一些对其它下游任务有用的信息．<br />
+[[Pasted image 20220814141517.png]]</p>
+<h3 id="损失函数和-batch-size">3.3 损失函数和 Batch Size</h3>
+<p>实验证明，不同的损失函数，超参数对实验结果有显著影响．另外，更大的batch
+size及迭代次数也能更好地优化模型．这可能与负例的硬度（难度）和数量相关．<br />
+[[Pasted image 20220814133957.png]]</p>
+<h2 id="实验">4 实验</h2>
+<p>主实验结果如下：<br />
+[[Pasted image 20220814134209.png]]</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0_SimCLR/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0_SimCLR/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/">知识表示</a><a class="post-meta__tags" href="/tags/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0/">对比学习</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%B9%BF%E4%B9%89%E5%8A%A0%E6%80%A7%E6%A8%A1%E5%9E%8B/" title="论文阅读_广义加性模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_广义加性模型</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/7_%E7%9F%A5%E8%AF%86%E5%9B%BE/%E5%95%A5%E6%98%AF%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="啥是图神经网络？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">啥是图神经网络？</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%85%B3%E7%B3%BB%E8%A1%A8%E5%BE%81%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0DeepWalk/" title="读文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">读文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/" title="读文阅读_Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">读文阅读_Node2Vec</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CGIN/" title="图神经网络有多强大GIN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-01</div><div class="title">图神经网络有多强大GIN</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E4%B9%89%E5%B5%8C%E5%85%A5/" title="论文阅读_语义嵌入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-08</div><div class="title">论文阅读_语义嵌入</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/7_%E7%9F%A5%E8%AF%86%E5%9B%BE/%E5%95%A5%E6%98%AF%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" title="啥是图神经网络？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-07</div><div class="title">啥是图神经网络？</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">2 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 对比学习框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%A7batch-size%E8%AE%AD%E7%BB%83"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 使用大Batch Size训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 评价策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3 具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 数据增强</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%92%8C-batch-size"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 损失函数和 Batch Size</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.4.</span> <span class="toc-text">4 实验</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_增强语言模型综述 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="name_ch: 增强语言模型综述 name_en: Augmented Language Models：a Survey paper_addr: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2302.07842 date_publish: 2023-02-15 读后感 文章是一篇增强语言模型（Augmented Language Models，ALMs）综述，这里的增强主要指让大语言模型（LM）通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_增强语言模型综述">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%BB%BC%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="name_ch: 增强语言模型综述 name_en: Augmented Language Models：a Survey paper_addr: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2302.07842 date_publish: 2023-02-15 读后感 文章是一篇增强语言模型（Augmented Language Models，ALMs）综述，这里的增强主要指让大语言模型（LM）通">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-05-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.960Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%BB%BC%E8%BF%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_增强语言模型综述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_增强语言模型综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-20T00:00:00.000Z" title="Created 2023-05-20 00:00:00">2023-05-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.960Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_增强语言模型综述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>name_ch: 增强语言模型综述<br />
+name_en: Augmented Language Models：a Survey<br />
+paper_addr: http://arxiv.org/abs/2302.07842<br />
+date_publish: 2023-02-15</p>
+<h1 id="读后感">读后感</h1>
+<p>文章是一篇增强语言模型（Augmented Language
+Models，ALMs）综述，这里的增强主要指让大语言模型（LM）通过<strong>参数/非参数的方法</strong>与<strong>外部扩展模块</strong>相结合，从而获得<strong>超越单纯的自然语言建模</strong>的能力。具体能力包含：<strong>推理、使用工具、行动</strong>。它不仅能解决<strong>更多类型的问题</strong>，在连接外部模块后，其<strong>处理自然语言处理能力</strong>也得到突破性进展。</p>
+<p>文章从<strong>方法论</strong>的角论进入阐释。内容分为六部分：介绍，推理，使用工具和行动，学习方法，讨论，结论，正文22页。</p>
+<p>对于比较关注 LM
+领域的读者，这篇文章中并没有提到让人意外的特殊方法。然而，文章对现有方法进行了全面细致的整理，提供了全景视角的概览，详细引用了相关文献和软件示例。是对知识很好的概览和梳理。</p>
+<p>下文括号内均为个人观点，不喜勿喷。</p>
+<h2 id="介绍">1 介绍</h2>
+<h3 id="动机">1.1 动机</h3>
+<p>近年来，大型语言模型（LLM）的发展非常迅速，随着模型规模的增加，模型涌现
+emergence 出其突破性能力（各种能力之间相互促进）。然而，LLM
+经常会产生一些幻觉
+hallucinations（一本正经的胡说八道），导致其回答有时不太可信。特别是在解决数学问题、推理等复杂问题时，LLM
+的表现往往不如人意。<br />
+在解决具体问题时，我们需要提供必要的大规模知识给模型。然而，目前存在两大限制：(i)
+参数模型是固定的（通常人们无法使用自己的数据训练大型模型）；(ii)
+上下文受到限制（把知识转给大模型时受到限制）。</p>
+<h3 id="定义">1.2 定义</h3>
+<p>Reasoning：通常被翻译为推理或规划，指将复杂的任务分解为简单的子任务，从而使用现有的工具来解决这些子任务。<br />
+Tool：LLM与外部模块相结合，例如结合文档检索器，通过工作与大型模型的交互操作，提升模型解决复杂问题的能力。<br />
+Act：调用对虚拟或物理世界产生影响的工具并观察其结果，例如机械臂。</p>
+<h2 id="推理">2 推理</h2>
+<p>推理一般包括：常识推理、数学推理和符号推理等，其中推理链较长的被称为多步推理。LLM的在解决简单问题时效果较好，但在复杂问题中表现不佳，往往需要扩展其推理能力。</p>
+<h3 id="通过提示引发推理elicitive-prompts">2.1
+通过提示引发推理（Elicitive prompts）</h3>
+<p>提示主要用于Zero-shot和Few-shot任务。启发式提示 (Elicitive prompts)
+鼓励LM通过在输出答案之前遵循中间步骤来解决任务。<br />
+对于Few-shot任务，Chain-of-thought (CoT)
+可以有效提升其推理能力，此外，还可以通过对比答案一致性来提高效果。<br />
+对于 Zero-shot 任务，可以使用提示语，例如 "Let’s think step by step"
+来帮助解决问题。</p>
+<h3 id="递归提示">2.2 递归提示</h3>
+<p>为解决复杂问题，常使用递归的方法将大问题拆解成子问题。这种方法包括两种具体的方式：一种是分别解决各个子问题，再综合其结果得到最终答案（并行）；另一种是一步一步解决子问题（串行）。文中列举了相关的工作成果和引用文献。</p>
+<h3 id="教语言模型进行推理">2.3 教语言模型进行推理</h3>
+<p>当一个任务需要多个步骤才能正确解决时，人类通常依靠工作记忆来完成。可以通过预训练和微调的方式，将
+step-by-step
+数据加入到模型训练中，让模型能够预测推理步骤。例如，可以使用 work
+标签来包含类似于内部工作记忆的信息。<br />
+<img src="/attachments_2023/Pasted%20image%2020230527082944.png" /></p>
+<h3 id="推理的局限性">2.4 推理的局限性</h3>
+<p>无论是迭代推理还是递归推理，探索所有可行的推理路径都是困难的，并且不能保证每个推理步骤的正确性，失之毫厘，谬以千里。</p>
+<h2 id="工具和行为">3 工具和行为</h2>
+<p>回答问题所需的知识并不全都需要存在模型的权重中，还可以通过调用外部知识来扩展模型的功能。这需要将LLM与扩展模块相结合。</p>
+<h3 id="调用其它模型">3.1 调用其它模型</h3>
+<h4 id="迭代-lm-调用">3.1.1 迭代 LM 调用</h4>
+<p>迭代式调用模型可以逐步改进输出，允许语言模型对自身进行迭代调用，直到输出满足特定标准。例如，Re3能够自动生成长度超过2000字的故事。在此过程中，模型使用先前提供的提示调用GPT3，生成计划、环境设置和角色；然后逐步注入计划和当前故事状态的信息，生成新的故事片段。此外，还可将大纲逐步扩展到任何需求的粒度。</p>
+<h4 id="结合多模态">3.1.2 结合多模态</h4>
+<p>LM
+也可以作为通用接口，与在不同模态上预训练的模型一起使用。例如，处理文本和图像等多个模态的数据，并且可以适应不同的任务。例如，Flamingo是一种视觉语言模型（VLM），可以处理任何交错的文本和图像数据序列。通过训练大规模的多模态网络语料库，并通过少量样本的学习，使其可以轻松适应生成任务或分类任务。另外，Socratic
+Models
+是一种模块化的框架，可以组合不同模态的预训练模型，让模型之间进行信息交换，支持新的应用，例如机器人感知和计划，自由形式的视频问答等。</p>
+<h3 id="信息检索">3.2 信息检索</h3>
+<p>LM
+可以通过增加记忆单元提升推理能力，或通过从外部知识源检索避免产生非事实和过时信息，从而实现与大型
+LM 相当的性能，并减少所需的参数数量。</p>
+<h4 id="检索增强语言模型">3.2.1 检索增强语言模型</h4>
+<p><strong>密集和稀疏表示</strong><br />
+外部知识的文本通常转换成向量表示，表示方法分为密集型和稀疏型。稀疏型指的是使用词袋类方法，生成对每个词的表示；密集型则使用深度学习模型通过嵌入方式表示。在具体使用过程中，先对外部知识进行检索，然后将问题和检索结果一起传递给
+LLM。检索时，对于稀疏型数据，通常使用检查精确的术语重叠方式；对于密集数据，则常使用计算相关概念之间的语义相似性。</p>
+<p><strong>用检索的文档调节 LM</strong><br />
+该方法在知识密集型任务中表现突出，具体方法包括：使用预训练的大模型进行微调；训练端到端的模型；结合已经训练好的BERT预训练模型而无需调整参数等方法。<br />
+<img src="/attachments_2023/Pasted%20image%2020230527094610.png" /></p>
+<p><strong>思维链提示和检索器</strong><br />
+将推理链 CoT 与检索器相结合，这种方法不需要精调模型。只需使用 CoT
+推理来指导检索步骤，将意图分解在查询中。</p>
+<h4 id="搜索引擎查询">3.2.2 搜索引擎查询</h4>
+<p>当模型具备根据提示生成查询的能力时，LM
+可以扩大其行动空间并变得更加主动。LaMDA 和 BlenderBot 是两个用于对话的
+LM
+模型。它们通过引入检索、计算和翻译等机制进行增强，从而进一步提升对话的能力。</p>
+<h4 id="搜索和浏览网页">3.2.3 搜索和浏览网页</h4>
+<p>训练代理在开放式互联网上导航以实现特定目标，例如搜索信息或购买商品。WebGPT
+是一种基于 LM 的代理，它可以与 Web
+浏览环境进行交互，以进一步细化初始查询或根据其与工具的交互执行其他操作，以提高问答能力。当前最好的模型是在人类演示中微调
+GPT3，然后执行拒绝采样来训练以预测人类偏好的奖励模型。WebShops
+可以根据提供的指令找到、定制和购买产品。这两个系统都是基于<strong>自然语言理解和推理</strong>的，因此非常适合语言模型。</p>
+<h3 id="通过符号模块和代码解释器进行计算">3.3
+通过符号模块和代码解释器进行计算</h3>
+<p>LM
+主要在自然语言处理方面表现出色，而对于需要处理大量数字或进行复杂算数运算的问题，即使加强了预训练的推理能力，也并不完美。更进一步的做法是将
+LM 与专业引擎或工具结合使用，例如物理引擎或 Python 程序。例如，CoT
+提供大型
+LM，可以将符号推理、数学推理或算法任务分解为中间步骤以及每个步骤对应的
+python 代码。</p>
+<h3 id="作用于虚拟或物理世界">3.4 作用于虚拟或物理世界</h3>
+<p>除了信息交互，LM也可以与真实世界交互。</p>
+<h4 id="控制虚拟智能体">3.4.1 控制虚拟智能体</h4>
+<p>与现实世界交互的第一步是在模拟的二维和三维环境中执行任务。例如，通过将嵌入序列作为输入来预测下一个动作。这涉及跨不同领域的组合泛化，其中
+LM 可用作多步骤计划器，将高级任务分解为子目标。</p>
+<h4 id="控制机器人">3.4.2 控制机器人</h4>
+<p>一些研究者通过提供示例，使得LM能够编写与自然语言命令相应的机器人策略代码，并结合经典逻辑和外部库以生成利用空间几何推理的策略代码。<br />
+然而，由于缺乏情境培训，语言模型在进行实际决策时存在问题。为了克服这个问题，一些研究者建议引入机器人的低层技能，以便将复杂的高级指令分解为简单的子目标，并根据情境选择最有价值的低层技能来完成任务。<br />
+另外，还通过将环境中的语境信息与图像和文本对齐的方式融入机器人的决策中，提高了机器人在实现控制任务时的性能。</p>
+<h2 id="学习方法">4 学习方法</h2>
+<p>本部分介绍了提升模型效果的具体方法。</p>
+<h3 id="有监督学习">4.1 有监督学习</h3>
+<h4 id="few-shot提示">4.1.1 Few-shot提示</h4>
+<p>人工编写示例是教导LM推理和使用工具以及行动的常用方法之一。该方法不需要调节模型参数，同时可以进行快速实验，且同一模型可供不同场景使用。另外，LM的规模大小、上下文窗口的大小、小样本示例的选择以及它们呈现的顺序也很重要。这个方法也有其缺点：(1)
+一种新的行为非常难以学习，需要的不仅仅是少数几个例子 (2)
+对于动作空间具有很多可能性的情况下，模型学习也会非常困难。</p>
+<h4 id="精调模型">4.1.2 精调模型</h4>
+<p>为提高预训练语言模型的推理和操作能力，可通过标准的监督学习来更新其参数，该方法已被应用于很多工具和系统，如搜索引擎、网页浏览器、计算器和翻译系统等。此外，还可以通过人工标注数据以进行精调，从而提高模型遵循指令的能力。</p>
+<h4 id="预训练提示">4.1.3 预训练提示</h4>
+<p>为了避免精调模型对于预测训练模型基本能力的扭曲，可以采用将预训练数据与带标签的推理示例混合的方法（改进Prompt）。这种方法将预训练数据与来自各种下游任务的示例混合。</p>
+<h4 id="bootstrap自举">4.1.4 bootstrap（自举）</h4>
+<p>自举是一种间接监督的方法，它可以作为精调的替代方案。在多个步骤中，使用这种方法进行探索。丢弃执行的动作或推理步骤没有导致正确预测的示例。最后，使用原始LM或另一个（通常较小的）模型在所有正确的示例上进行微调（通过训练出的模型来筛选实例，这种方法可能更准确）。</p>
+<h3 id="强化学习">4.2 强化学习</h3>
+<p>有监督学习需要大量标注，因为比较复杂且昂贵。相比之下，强化学习则可以利用用户喜好、排序结果等现成数据，更为便捷、快速和廉价。强化学习的核心是奖励函数机制。<br />
+强化学习常应用于机器人、游戏等场景建模，其目标是通过为一系列问题提供策略，从而获得最大化的整体奖励值。在这个过程中，涉及到模型和使用者或其他工具的交互。</p>
+<h4 id="硬编码奖励函数">4.2.1 硬编码奖励函数</h4>
+<p>训练语言模型时，通常使用硬编码的奖励函数来使用外部工具更新模型的权重。该奖励基于工具的输出计算。具体来说，可以输入一段文本到模型中，然后根据模型当前状态生成一系列标记或动作。基于奖励的学习在赋予LM与外部工具交互的能力方面拥有显著的潜力。例如，WebGPT就使用了该技术。</p>
+<h4 id="人类反馈">4.2.2 人类反馈</h4>
+<p>在很多情况下，回答是否合适还取决于提问人的意图。由于人的偏好和价值观很难用硬编码的方式去评价，因此引入了人类反馈的强化学习（RLHF：Reinforcement
+Learning from Human
+Feedback）。这种方法是通过人对机器产生的多个回答进行打分，然后进一步训练模型。例如，GPT-3.5就使用了该方法，改进了模型的有用性、无害性和准确性。</p>
+<h3 id="限制和未来方向">4.3 限制和未来方向</h3>
+<p>当前的 RL
+方法仍存在不稳定的问题，尤其是在没有现成可用数据的情况下需要进行推理和行动的任务中更为如此，此外还有数据质量问题。解决这些问题的方案可能来自于引导方法和离线
+RL，同时还有一些自监督的方法。研究如何将这些方法，将模型扩展到更复杂的场景中，将是基于
+LM 的通用模型的一个有前途的研究方向。</p>
+<h2 id="讨论">5 讨论</h2>
+<p><strong>远离传统语言建模</strong>：ALMs与传统语言建模不同。它可以执行中间的推理步骤，或者拥有访问互联网的能力。此外，它可以通过任务导向的监督数据，将答案与中间步骤明确地联系起来。在做决策时，它还会考虑当前状态和工具因素。</p>
+<p><strong>权衡工具和记忆</strong>：对于某些情况，比如计算213443^344，使用外部工具可能是更好的选择；但是，像“埃菲尔铁塔位于巴黎”这样的信息就不应该移交给外部工具。可以通过调整模型，决定何时使用工具。此外，还可以将每个工具的计算预算整合到损失函数中,
+以让模型学会使用工具。</p>
+<p><strong>非参数框架</strong>：ALM
+是非参数化框架的一种泛化。除信息检索外，LMs
+可以委托给相应的外部工具处理其他问题，比如计算，以避免将很少访问的知识存储在它们的权重中。工具增强
+LM
+可能具有更好的可扩展性，能够产生更小的模型，同时保留较大模型的能力。这对于
+ALMs
+的非参数化泛化具有巨大的益处，能够从外部世界获取最新信息，并避免频繁更新。</p>
+<p><strong>通往自主机器智能的道路</strong>：LeCun（2022）提出了自主智能代理（Agent）的概念。尽管
+ALMs
+的权重基本上包含了世界模型、感知和行动者模块，但作为预测单词级别的模型，它们无法像
+LeCun 的 Agent 那样进行计划和推理。虽然 ALMs 可以作为人类交互的
+Agent，但目前仍有很多开放的研究问题需要解决。</p>
+<p><strong>ALM的优势</strong><br />
+* 更可靠：可以通过与其他工具的印证来增加其可靠性。<br />
+*
+减少不确定性：通过使用外部工具来帮助模型确定其所知道和不知道的内容，ALM可以直接利用此不确定性，更好地了解何时应依赖自身权重，何时应查询外部工具。<br />
+*
+可解释性：ALM提供了中间推理步骤并依赖工具来增强可解释性。引用用于答案撰写的来源是至关重要的，思路链也可以导致正确的预测。<br />
+*
+增强功能：具有改进推理能力和工具的ALM可以成为更有帮助的工具，并解决比标准LM更广泛的任务。推理和操作之间形成一个反馈回路，每种能力都能进一步提高另一种能力。与外部工具、实体和环境交互可以改进推理。同样，推理可以提高ALM的决策能力。</p>
+<p><strong>道德伦理问题</strong>：ALM引发了新的潜在伦理问题。实际上，其中许多预测仍然是不正确的，这使得检测错误变得更加困难。尤其是当它在虚拟或物理世界上采取行动时，如果不进行人工验证，可能会扩大LM造成的有害后果。</p>
+<h2 id="结论">6 结论</h2>
+<p>文章主要讨论归因和工具，以及对于非调参LM的增强能力。这种增强的语言模型通常需要人工标注和反馈的交互支持。此外，还可以将归因和工具结合起来进一步研究，以解决更为复杂的问题。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%BB%BC%E8%BF%B0/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%BB%BC%E8%BF%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E2%80%94%E2%80%94%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8D%87%E7%BC%96%E7%A8%8B%E6%95%88%E7%8E%87/" title="试用智能编程助手——用大模型提升编程效率"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">试用智能编程助手——用大模型提升编程效率</div></div></a></div><div class="next-post pull-right"><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E9%9F%B3%E9%A2%91%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="主题笔记_音频大模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">主题笔记_音频大模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/3_%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_InstructGPT/" title="3_论文阅读_InstructGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">3_论文阅读_InstructGPT</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Chinchilla/" title="论文阅读_Chinchilla"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">论文阅读_Chinchilla</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLM/" title="论文阅读_GLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-24</div><div class="title">论文阅读_GLM</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLaM/" title="论文阅读_GLaM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-26</div><div class="title">论文阅读_GLaM</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1 介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 动机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2 定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2 推理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%8F%90%E7%A4%BA%E5%BC%95%E5%8F%91%E6%8E%A8%E7%90%86elicitive-prompts"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1
+通过提示引发推理（Elicitive prompts）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E6%8F%90%E7%A4%BA"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 递归提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%99%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%A8%E7%90%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 教语言模型进行推理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 推理的局限性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%92%8C%E8%A1%8C%E4%B8%BA"><span class="toc-number">1.3.</span> <span class="toc-text">3 工具和行为</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%85%B6%E5%AE%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 调用其它模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3-lm-%E8%B0%83%E7%94%A8"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">3.1.1 迭代 LM 调用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E5%A4%9A%E6%A8%A1%E6%80%81"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">3.1.2 结合多模态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 信息检索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E7%B4%A2%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">3.2.1 检索增强语言模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">3.2.2 搜索引擎查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%92%8C%E6%B5%8F%E8%A7%88%E7%BD%91%E9%A1%B5"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">3.2.3 搜索和浏览网页</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%AC%A6%E5%8F%B7%E6%A8%A1%E5%9D%97%E5%92%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%99%A8%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3
+通过符号模块和代码解释器进行计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E4%BA%8E%E8%99%9A%E6%8B%9F%E6%88%96%E7%89%A9%E7%90%86%E4%B8%96%E7%95%8C"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 作用于虚拟或物理世界</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E8%99%9A%E6%8B%9F%E6%99%BA%E8%83%BD%E4%BD%93"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">3.4.1 控制虚拟智能体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">3.4.2 控制机器人</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">4 学习方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 有监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#few-shot%E6%8F%90%E7%A4%BA"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">4.1.1 Few-shot提示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E8%B0%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">4.1.2 精调模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E8%AE%AD%E7%BB%83%E6%8F%90%E7%A4%BA"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">4.1.3 预训练提示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bootstrap%E8%87%AA%E4%B8%BE"><span class="toc-number">1.4.1.4.</span> <span class="toc-text">4.1.4 bootstrap（自举）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2 强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E7%BC%96%E7%A0%81%E5%A5%96%E5%8A%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">4.2.1 硬编码奖励函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%BA%E7%B1%BB%E5%8F%8D%E9%A6%88"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">4.2.2 人类反馈</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%90%E5%88%B6%E5%92%8C%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3 限制和未来方向</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.5.</span> <span class="toc-text">5 讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">1.6.</span> <span class="toc-text">6 结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

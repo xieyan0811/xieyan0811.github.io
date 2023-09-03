@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_图像生成_unCLIP | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="读后感 OpenAI出品，应用于DALL-E 2。主要实现了以文本为条件生成图像。它在图像的还原和生成过程中，利用了图像与文本间的映射关系，文本可以看作是人对图片内容的抽象，它让模型从人的视角“看”图片，识别了其中人觉得最重要的内容；在图片内容和人类概念之间建立联系，并能通过文本描述的概念来生成和编辑图片。 从技术层面看，它主要基于CLIP，Diffusion模型，并在GLIDE的方法之上进行了改">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_图像生成_unCLIP">
+<meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90_unCLIP/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="读后感 OpenAI出品，应用于DALL-E 2。主要实现了以文本为条件生成图像。它在图像的还原和生成过程中，利用了图像与文本间的映射关系，文本可以看作是人对图片内容的抽象，它让模型从人的视角“看”图片，识别了其中人觉得最重要的内容；在图片内容和人类概念之间建立联系，并能通过文本描述的概念来生成和编辑图片。 从技术层面看，它主要基于CLIP，Diffusion模型，并在GLIDE的方法之上进行了改">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-04-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:40.528Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="图形图像">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90_unCLIP/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_图像生成_unCLIP',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_图像生成_unCLIP</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:40.528Z" title="Updated 2023-09-03 10:08:40">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_图像生成_unCLIP"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="读后感">读后感</h2>
+<p>OpenAI出品，应用于DALL-E
+2。主要实现了以文本为条件生成图像。它在图像的还原和生成过程中，利用了图像与文本间的映射关系，文本可以看作是人对图片内容的抽象，<strong>它让模型从人的视角“看”图片，识别了其中人觉得最重要的内容</strong>；在图片内容和人类概念之间建立联系，并能通过文本描述的概念来生成和编辑图片。<br />
+从技术层面看，它主要基于CLIP，Diffusion模型，并在GLIDE的方法之上进行了改进（之前GLIDE尝试了有分类的CLIP，本文尝试了无分类的CLIP；GLIDE对Diffusion中加噪图片训练CLIP对齐嵌入，本文用不加噪图片做CLIP）。</p>
+<h2 id="介绍">介绍</h2>
+<p>CLIP模型在图片和文本之间建立映射关系，能很好的获取图片的含义和风格。本文基于CLIP，提出了两阶段模型（如图）：首先，生成给定文本描述对应的CLIP图像嵌入，然后，用解码器生成以图像嵌入为条件的图像。其解码器尝试了自回归和扩散两种方法，发现扩散模型效率更高。</p>
+<p>其核心逻辑如图所示：虚线上结合了文本和图像的表示空间；虚线下是生成图片的过程，用文本嵌入产生一个图像嵌入，然后利用这个嵌入在条件约束下送入扩散解码器产生最终图像。</p>
+<figure>
+<img src="/attachments_2023/image-Pasted%20image%2020230216175637.png"
+alt="image-Pasted image 20230216175637" />
+<figcaption aria-hidden="true">image-Pasted image
+20230216175637</figcaption>
+</figure>
+<h2 id="方法">方法</h2>
+<p>数据集由成对的( x ,
+y)：图像x和它们对应的描述y组成，用zi和zt分别表示CLIP图像和文本嵌入。<br />
+<span class="math display">\[P(x \mid y)=P\left(x, z_{i} \mid
+y\right)=P\left(x \mid z_{i}, y\right) P\left(z_{i} \mid
+y\right)\]</span><br />
+利用上述公式，生成图片，其中先验（上图中prior）P (zi |
+y)，生成以字幕y为条件的CLIP图像嵌入zi；解码器（上图中Decoder）P (x|zi ,
+y)，生成以CLIP图像嵌入zi
+(以及可选的文本标题y)为条件的图像x(具体训练细见附录C)。</p>
+<h3 id="解码器-decoder">解码器 Decoder</h3>
+<p>使用扩散模型生成基于CLIP图像嵌入(以及可选的文本标题)的图像。基于GLIDE模型做了一些修改（GLIDE模型使用加噪后的图片训练CLIP），将CLIP嵌入投影到额外的4个上下文标记中，这些上下文标记串联到GLIDE文本编码器的输出序列中；并在训练过程中随机丢弃文本标题50
+%的来实现无分类器指导；另外，还考虑了上采样以改进模型精度，以及提升模型鲁棒性的方法。</p>
+<h3 id="先验-prior">先验 Prior</h3>
+<p>上述编码器可用嵌入空间数据生成图像，但还需要一个先验模型，从标题y生成zi，以便从文本生成图像。本文探索了两种不同的模型作为先验模型：<br />
+* 自回归先验<br />
+* 扩散先验<br />
+其中扩散模型效率更高。训练一个带因果注意力掩膜的解码器Transformer，之前的扩散先验由：编码文本、CLIP文本嵌入、扩散时间步嵌入、带噪CLIP图像嵌入、最终通过Transformer预测不带噪CLIP图像嵌入。本文生成zi的两个样本，并选择与zt点积较高的样本来提高采样质量。并且发现更好的Diffusion方法是<strong>训练模型直接预测不带噪的zi</strong>，因此改进了
+Diffusion 损失函数。</p>
+<p><span class="math display">\[L_{\text {prior }}=\mathbb{E}_{t \sim[1,
+T], z_{i}^{(t)} \sim q_{t}}\left[\left\|f_{\theta}\left(z_{i}^{(t)}, t,
+y\right)-z_{i}\right\|^{2}\right]\]</span></p>
+<p>另外，还使用主成分分析( PCA
+)对CLIP图像嵌入zi进行降维。通过在原始的1024个主成分中只保留320个主成分，能够保留几乎所有的信息，从后面实验部分，主成分中越重要的维度对应的概念越核心。</p>
+<h2 id="操作图像">操作图像</h2>
+<p>下面展示了几种应用模型的方法：</p>
+<h3 id="生成语义相似的图像">生成语义相似的图像</h3>
+<p>给定一幅图像x，可以生成具有相同本质内容（主体元素和风格）但在其他方面不同的相关图像，如形状和方向。具体方法是通过η值控制DDIM采样的随机性。<br />
+<img src="/attachments_2023/image-Pasted%20image%2020230219141652.png"
+alt="image-Pasted image 20230219141652" /><br />
+上方是原图，下面九张为修改后生成的图。</p>
+<h3 id="混合图像">混合图像</h3>
+<p>混合x1,x2两张图（最左和最右两张），通过对输入图像的嵌入使用球面插值在它们的zi1和zi2之间旋转。<br />
+<img src="/attachments_2023/image-Pasted%20image%2020230219141741.png"
+alt="image-Pasted image 20230219141741" /></p>
+<h3 id="修改图像">修改图像</h3>
+<p>通过语义描述修改图像。输入是一个图像和对它的描述，以及转换目标的描述，如图第四行：输入为冬天图片，目标是将其转成秋天的图片。实现方法是计算两个输入标题嵌入的差值，然后使用插件方法在图像嵌入和文本差值间旋转。<br />
+<img src="/attachments_2023/image-Pasted%20image%2020230219141808.png"
+alt="image-Pasted image 20230219141808" /></p>
+<h2 id="探索稳空间">探索稳空间</h2>
+<p>PCA重构提供了一种探测CLIP潜在空间结构的工具。在图-7中，右侧是原图，对CLIP的嵌入空间降维，原空间维度为1024，仅保留重性为24,30,40...
+320的PCA维度进行重建。可以看到不同维度编码了哪些语义信息。</p>
+<p>我们观察到重要性高的PCA维度保留了粗粒度的语义信息，如场景中的物体类型，而重要性相对低的PCA维度编码了更细粒度的细节，如物体的形状和精确形式。</p>
+<p>例如，在第一个场景中，重要的维度只有食物，也许还有一个容器，而增加维度后则有西红柿、绿植和瓶子。<br />
+<img src="/attachments_2023/image-Pasted%20image%2020230219141844.png"
+alt="image-Pasted image 20230219141844" /></p>
+<p>之后，作者还对图片的逼真度、多样性和美学性进行了评测，展示unCLIP优于之前模型。</p>
+<h2 id="zotero地址">Zotero地址</h2>
+<p><a
+target="_blank" rel="noopener" href="http://zotero.org/users/10876188/items/I52IZHL8">Hierarchical
+Text-Conditional Image Generation with CLIP Latents</a><br />
+zotero id: I52IZHL8</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90_unCLIP/">http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90_unCLIP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">图形图像</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC_CLIP/" title="论文阅读_图像生成文本_CLIP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_图像生成文本_CLIP</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/11_%E4%BC%98%E5%8C%96/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%A8%A1%E5%9E%8B%E9%B2%81%E6%A3%92%E6%80%A7%E7%9A%84%E9%87%8F%E5%8C%96%E6%8C%87%E6%A0%87/" title="论文阅读_模型鲁棒性的量化指标"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_模型鲁棒性的量化指标</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">深度学习模型压缩</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Segment_Anything/" title="论文阅读_Segment_Anything"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-07</div><div class="title">论文阅读_Segment_Anything</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Visual_ChatGPT/" title="论文阅读_Visual_ChatGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">论文阅读_Visual_ChatGPT</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC_CLIP/" title="论文阅读_图像生成文本_CLIP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">论文阅读_图像生成文本_CLIP</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-03</div><div class="title">EasyNLP</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%A8%A1%E5%9E%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN%E4%B8%8ELSTM/" title="深度学习_循环神经网络RNN与LSTM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-06</div><div class="title">深度学习_循环神经网络RNN与LSTM</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E5%99%A8-decoder"><span class="toc-number">3.1.</span> <span class="toc-text">解码器 Decoder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E9%AA%8C-prior"><span class="toc-number">3.2.</span> <span class="toc-text">先验 Prior</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%9B%BE%E5%83%8F"><span class="toc-number">4.</span> <span class="toc-text">操作图像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E7%9A%84%E5%9B%BE%E5%83%8F"><span class="toc-number">4.1.</span> <span class="toc-text">生成语义相似的图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%9B%BE%E5%83%8F"><span class="toc-number">4.2.</span> <span class="toc-text">混合图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%9B%BE%E5%83%8F"><span class="toc-number">4.3.</span> <span class="toc-text">修改图像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E7%B4%A2%E7%A8%B3%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">探索稳空间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zotero%E5%9C%B0%E5%9D%80"><span class="toc-number">6.</span> <span class="toc-text">Zotero地址</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

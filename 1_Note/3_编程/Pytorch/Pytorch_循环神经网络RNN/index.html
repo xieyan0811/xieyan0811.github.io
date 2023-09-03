@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Pytorch_循环神经网络RNN | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Pytorch_循环神经网络RNN #Pytorch #时序 RNN是Recurrent Neural Networks的缩写，即循环神经网络，它常用于解决序列问题。RNN有记忆功能，除了当前输入，还把上下文环境作为预测的依据。它常用于语音识别、翻译等场景之中。 RNN是序列模型的基础，尽管能够直接调用现成的RNN算法，但后续的复杂网络很多构建在RNN网络的基础之上，如Attention方法需要使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pytorch_循环神经网络RNN">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Pytorch_循环神经网络RNN #Pytorch #时序 RNN是Recurrent Neural Networks的缩写，即循环神经网络，它常用于解决序列问题。RNN有记忆功能，除了当前输入，还把上下文环境作为预测的依据。它常用于语音识别、翻译等场景之中。 RNN是序列模型的基础，尽管能够直接调用现成的RNN算法，但后续的复杂网络很多构建在RNN网络的基础之上，如Attention方法需要使">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2019-12-06T17:33:10.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:42.608Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="时序">
+<meta property="article:tag" content="Pytorch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Pytorch_循环神经网络RNN',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch_循环神经网络RNN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-06T17:33:10.000Z" title="Created 2019-12-06 17:33:10">2019-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:42.608Z" title="Updated 2023-09-03 10:08:42">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch_循环神经网络RNN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch_循环神经网络rnn">Pytorch_循环神经网络RNN</h1>
+<p>#Pytorch #时序</p>
+<p>RNN是Recurrent Neural
+Networks的缩写，即循环神经网络，它常用于解决序列问题。RNN有记忆功能，除了当前输入，还把上下文环境作为预测的依据。它常用于语音识别、翻译等场景之中。</p>
+<p>RNN是序列模型的基础，尽管能够直接调用现成的RNN算法，但后续的复杂网络很多构建在RNN网络的基础之上，如Attention方法需要使用RNN的隐藏层数据。RNN的原理并不复杂，但由于其中包括循环，很难用语言或者画图来描述，最好的方法是自己手动编写一个RNN网络。本篇将介绍RNN网络的原理及具体实现。</p>
+<h3 id="序列">序列</h3>
+<p>在学习循环神经网络之前，先看看什么是序列。序列sequence简称seq，是有先后顺序的一组数据。自然语言处理是最为典型的序列问题，比如将一句话翻译成另一句话时，其中某个词汇的含义不仅取决于它本身，还与它前后的多个单词相关。类似的，如果想预测电影的情节发展，不仅与当前的画面有关，还与当前的一系列前情有关。在使用序列模型预测的过程中，输入是序列，而输出是一个或多个预测值。</p>
+<p>在使用深度学习模型解决序列问题时，<strong>最容易混淆的是，序列与序列中的元素</strong>。在不同的场景中，定义序列的方式不同，当分析单词的感情色彩时，一个单词是一个序列seq；当分析句子感情色彩时，一个句子是一个seq，其中的每个单词是序列中的元素；当分析文章感情色彩时，一篇文章是一个seq。简单地说，seq是最终使用模型时的输入数据，由一系列元素组成。</p>
+<p>当分析句子的感情色彩时，以句为seq，而句中包含的各个单词的含义，以及单词间的关系是具体分析的对象，此时，单词是序列中的元素，每一个单词又可有多维特征。从单词中提取特征的方法将在后面的自然语言处理中介绍。</p>
+<h4 id="循环神经网络">循环神经网络</h4>
+<p>RNN有很多种形式，单个输入单个输入；多个输入多个输出，单个输入多个输出等等。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-93546d98c65ff36c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>举个最简单的例子：用模型预测一个四字短语的感情色彩，它的输入为四个元素X={x1,x2,x3,x4}，它的输出为单个值Y={y1}。字的排列顺序至关重要，比如“从好变坏”和“从坏变好”，表达的意思完全相反。之所以输入输出的个数不需要一一对应，是因为中间的隐藏层，变向存储中间信息。</p>
+<p>如果把模型设想成黑盒，如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-94367aac7a6e2248.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>如果模型使用全连接网络，在每次迭代时，模型将计算各个元素x1,x2...中各个特征f1,f2...代入网络，求它们对结果y的贡献度。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-1c793a8d6c22a22d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>RNN网络则要复杂一些，在模型内部，它不是将序列中所有元素的特征一次性输入模型，而是每一次将序列中单个元素的特征输入模型，下图描述了RNN的数据处理过程，左图为分步展示，右图将所有时序步骤抽象成单一模块。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-0e878021316d9d79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>第一步：将第一个元素x1的特征f1,f2...输入模型，模型根据输入计算出隐藏层h。</p>
+<p>第二步：将第二个元素x2的特征输入模型，模型根据输入和上一步产生的h再计算隐藏层h，其它元素以此类推。</p>
+<p>第三步：将最后一个元素xn的特征输入模型，模型根据输入和上一步产生的h计算隐藏层h和预测值y。</p>
+<p>隐藏层h可视为将序列中前面元素的特征和位置通过编码向前传递，从而对输出y发生作用，隐藏层的大小决定了模型携带信息量的多少。隐藏层也可以作为模型的输入从外部传入，以及作为模型的输出返回给外部调用。</p>
+<h3 id="代码分析">代码分析</h3>
+<p>本例仍使用上篇中的航空乘客序列数据，分别用两种方法实现RNN：自己编写程序实现RNN模型，以及调用Pytorch提供的RNN模型。前一种方法主要用于剖析原理，后一种用于展示常用的调用方法。</p>
+<h4 id="读取数据">1．读取数据</h4>
+<p>首先导入头文件，读取乘客数据，做归一化处理，并将数据切分为测试集和训练集，与之前不同的是加入了create_dataset函数，用于生成序列数据，序列的输入部分，每个元素中包括两个特征：前一个月的乘客量prev和月份值mon，这里的月份值并不是关键特征，主要用于在例程中展示如何使用多个特征。</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn  </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.autograd <span class="im">import</span> Variable  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 归一化  </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> feature_normalize(data):  </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    mu <span class="op">=</span> np.mean(data,axis<span class="op">=</span><span class="dv">0</span>)  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    std <span class="op">=</span> np.std(data,axis<span class="op">=</span><span class="dv">0</span>)  </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (data <span class="op">-</span> mu)<span class="op">/</span>std  </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据转换  </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_dataset(df):  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    dataX <span class="op">=</span> torch.from_numpy(np.array(df[[<span class="st">&#39;prev&#39;</span>,<span class="st">&#39;mon&#39;</span>]].astype(<span class="st">&#39;float32&#39;</span>)).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>))  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    dataY <span class="op">=</span> torch.from_numpy(np.array(df[<span class="st">&#39;y&#39;</span>].astype(<span class="st">&#39;float32&#39;</span>)).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> dataX, dataY  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">&#39;data/AirPassengers.csv&#39;</span>)  </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;y&#39;</span>] <span class="op">=</span> feature_normalize(df[<span class="st">&#39;#Passengers&#39;</span>])  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;mon&#39;</span>] <span class="op">=</span> feature_normalize(df[<span class="st">&#39;Month&#39;</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="bu">float</span>(x[<span class="dv">5</span>:])))  </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">&#39;prev&#39;</span>] <span class="op">=</span> df[<span class="st">&#39;y&#39;</span>].shift() <span class="co"># 将前一个月的乘客量写入prev特征  </span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna() <span class="co"># 去掉包含空值的行  </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>TRAIN_PERCENT <span class="op">=</span> <span class="fl">0.7</span>  </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>train_size <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(df) <span class="op">*</span> TRAIN_PERCENT)  </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> df[:train_size]  </span></code></pre></div>
+<h4 id="实现rnn模型">2．实现RNN模型</h4>
+<p>第一步：实现模型类，此例中的RNN模型除了全连接层，还生成了一个隐藏层，并在下一次前向传播时将隐藏层输出的数据与输入数据组合后再代入模型运算。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RNN1(nn.Module):  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_size, hidden_size, output_size):  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(RNN1, <span class="va">self</span>).<span class="fu">__init__</span>()  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.hidden_size <span class="op">=</span> hidden_size  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rnn <span class="op">=</span> nn.Linear(input_size <span class="op">+</span> hidden_size, hidden_size)  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reg <span class="op">=</span> nn.Linear(input_size <span class="op">+</span> hidden_size, output_size)  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, <span class="bu">input</span>, hidden):  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        combined <span class="op">=</span> torch.cat((<span class="bu">input</span>, hidden), <span class="dv">1</span>) <span class="co"># combined: [1,(128+6)]  </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        hidden <span class="op">=</span> <span class="va">self</span>.rnn(combined)  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        output <span class="op">=</span> <span class="va">self</span>.reg(combined)  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> output, hidden  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initHidden(<span class="va">self</span>): <span class="co"># 初始化隐藏层  </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Variable(torch.zeros(<span class="dv">1</span>, <span class="va">self</span>.hidden_size))  </span></code></pre></div>
+<p>第二步，训练模型，使用全部数据训练500次，在每次训练时，内部for循环将序列中的每个元素代入模型，并将模型输出的隐藏层和下一个元素一起送入下一次迭代。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>FEATURE_SIZE <span class="op">=</span> <span class="dv">2</span>  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>OUTPUT_SIZE <span class="op">=</span> <span class="dv">1</span>  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RNN1(FEATURE_SIZE, <span class="dv">128</span>, OUTPUT_SIZE)  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>loss_func <span class="op">=</span> nn.MSELoss() <span class="co"># 损失函数  </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.01</span>) <span class="co"># 优化器  </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>train_x, train_y <span class="op">=</span> create_dataset(train)  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>all_x, all_y <span class="op">=</span> create_dataset(df)  </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">500</span>):  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    h_state <span class="op">=</span> model.initHidden()  </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, (x,y) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(train_x, train_y)):  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        prediction, _h_state <span class="op">=</span> model(x, h_state) <span class="co"># 返回隐藏层  </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        h_state <span class="op">=</span> _h_state.data <span class="co"># 隐藏层的参数部分  </span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> loss_func(prediction, y)  </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()  </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        loss.backward()  </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        optimizer.step()  </span></code></pre></div>
+<p>第三步：预测和作图，预测的过程与训练一样，把全部数据拆分成元素代入模型，并将每一次预测结果存储在数组中，并作图显示。</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.<span class="bu">eval</span>()  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>arr_pred <span class="op">=</span> []  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>h_state <span class="op">=</span> model.initHidden()  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x,y <span class="kw">in</span> <span class="bu">zip</span>(all_x, all_y):  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    prediction, _h_state <span class="op">=</span> model(x, h_state) <span class="co"># 返回隐藏层  </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    h_state <span class="op">=</span> _h_state.data  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    arr_pred.append(prediction.detach().numpy().flatten()[<span class="dv">0</span>])  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.plot(all_y.numpy().flatten(), <span class="st">&#39;y&#39;</span>, label<span class="op">=</span><span class="st">&#39;real&#39;</span>)  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.plot(arr_pred, label<span class="op">=</span><span class="st">&#39;prediction&#39;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)  </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">&#39;best&#39;</span>)  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>plt.grid()  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code></pre></div>
+<p>需要注意的是，在训练和预测过程中，每一次开始输入新序列之前，都重置了隐藏层，这是由于隐藏层的内容只与当前序列相关，序列之间并无连续性。</p>
+<p>程序输出结果如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-89cb4e0a244604db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>经过500次迭代，使用RNN的效果明显优于上一篇中使用全连接网络的拟合效果，还可以通过调整超参数以及选择不同特征，进一步优化。</p>
+<h4 id="调用现有rnn模型">3．调用现有RNN模型</h4>
+<p>使用Pytorch提供的RNN模型，torch.nn.RNN类可直接使用，是循环网络最常用的解决方案。RNN，LSTM，GRU等循环网络都实现在同一源码文件torch/nn/modules/rnn.py中。</p>
+<p>第一步：创建模型，模型包含两部分，第一部分是Pytorch提供的RNN层，第二部分是一个全连接层，用于将RNN的输出转换成输出目标的维度。</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RNN2(nn.Module):  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_size, hidden_size, output_size<span class="op">=</span><span class="dv">1</span>, num_layers<span class="op">=</span><span class="dv">2</span>):  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(RNN2, <span class="va">self</span>).<span class="fu">__init__</span>()  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.rnn <span class="op">=</span> nn.RNN(input_size, hidden_size, num_layers)  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.reg <span class="op">=</span> nn.Linear(hidden_size, output_size)  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):  </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        x, _ <span class="op">=</span> <span class="va">self</span>.rnn(x) <span class="co"># 未在不同序列中传递hidden_state  </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.reg(x)  </span></code></pre></div>
+<p>Pytorch的RNN前向传播允许将隐藏层数据h作为参数传入模型，并将模型产生的h和y作为函数返回值。形如：
+pred, h_state = model(x, h_state)</p>
+<p>什么情况下需要接收隐藏层的状态h_state，并转入下一次迭代呢？当处理单个seq时，h在内部前向传递；当序列与序列之间也存在前后依赖关系时，可以接收h_state并传入下一步迭代。另外，当模型比较复杂如LSTM模型包含众多参数，传递会增加模型的复杂度，使训练过程变慢。本例未将隐藏层转到模型外部，这是由于模型内部实现了对整个序列的处理，而非处理单个元素，而每次代入的序列之间又没有连续性。</p>
+<p>第二步：训练模型，与上例中把序列中的元素逐个代入模型不同，本例一次性把整个序列代入了模型，因此，只有一个for循环。</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>FEATURE_SIZE <span class="op">=</span> <span class="dv">2</span>  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>OUTPUT_SIZE <span class="op">=</span> <span class="dv">1</span>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> RNN2(FEATURE_SIZE, <span class="dv">64</span>, OUTPUT_SIZE)  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>loss_func <span class="op">=</span> nn.MSELoss()  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span><span class="fl">0.01</span>)  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>train_x, train_y <span class="op">=</span> create_dataset(train)  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>all_x, all_y <span class="op">=</span> create_dataset(df) <span class="co"># 全部数据  </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">500</span>):  </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    var_x <span class="op">=</span> Variable(train_x)  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    var_y <span class="op">=</span> Variable(train_y)  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> model(var_x) <span class="co"># var_x: [100, 1, 2]  </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> loss_func(out, var_y)  </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    loss.backward()  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    optimizer.step()  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (e<span class="op">+</span><span class="dv">1</span>)<span class="op">%</span><span class="dv">100</span><span class="op">==</span><span class="dv">0</span>:  </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&#39;Epoch:</span><span class="sc">&#123;&#125;</span><span class="st">, Loss:</span><span class="sc">&#123;:.5f&#125;</span><span class="st">&#39;</span>.<span class="bu">format</span>(e<span class="op">+</span><span class="dv">1</span>, loss.item()))  </span></code></pre></div>
+<p>Pythorch支持批量处理，前向传递时输入数据格式是[seq_len, batch_size,
+input_dim)，本例中输入数据的维度是[100, 1,
+2]，input_dim是每个元素的特征数，batch_size是训练的序列个数，seq_len是序列的长度，这里使用70%作为训练数据，seq_len为100。如果数据维度的顺序与要求不一致，一般使用transpose转换。</p>
+<p>第三步：预测和作图，将全部数据作为序列代入模型，并用预测值作图。</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.<span class="bu">eval</span>()  </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pred_y <span class="op">=</span> model(Variable(all_x)) <span class="co"># 预测  </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.plot(all_y.view(<span class="op">-</span><span class="dv">1</span>).data.numpy(), <span class="st">&#39;y&#39;</span>, label<span class="op">=</span><span class="st">&#39;real&#39;</span>)  </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.plot(pred_y.view(<span class="op">-</span><span class="dv">1</span>).data.numpy(), label<span class="op">=</span><span class="st">&#39;prediction&#39;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">&#39;best&#39;</span>)  </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.grid()  </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.show()  </span></code></pre></div>
+<p>程序输出结果如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-ce8012e8cba685aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>可以看到，经过500次迭代，在前100个元素的训练集上拟合得很好，但在测试集效果较差，可能存在过拟合。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9CRNN/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%97%B6%E5%BA%8F/">时序</a><a class="post-meta__tags" href="/tags/Pytorch/">Pytorch</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch_LSTM%E4%B8%8EGRU/" title="Pytorch_LSTM与GRU"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Pytorch_LSTM与GRU</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Pytorch%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%BD%91%E7%BB%9C/" title="Pytorch全连接网络"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Pytorch全连接网络</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/test/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%97%B6%E5%BA%8FTDTS/" title="论文阅读_时序TDTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">论文阅读_时序TDTS</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%80_%E6%A6%82%E8%BF%B0/" title="时序预测之一_概述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-15</div><div class="title">时序预测之一_概述</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%BA%8C_ARIMA/" title="时序预测之二_ARIMA"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-23</div><div class="title">时序预测之二_ARIMA</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E5%BA%8F%E9%A2%84%E6%B5%8B%E4%B9%8B%E5%9B%9B_Prophet%E6%97%B6%E5%BA%8F%E6%A8%A1%E5%9E%8B/" title="时序预测之四_Prophet时序模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-05-20</div><div class="title">时序预测之四_Prophet时序模型</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/9_%E6%97%B6%E5%BA%8F/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97_%E9%9A%90%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%A8%A1%E5%9E%8BHMM/" title="机器学习_隐马尔可夫模型HMM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-15</div><div class="title">机器学习_隐马尔可夫模型HMM</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Pytorch/Seq2Seq%E4%B8%8EAttention/" title="Seq2Seq与Attention"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-18</div><div class="title">Seq2Seq与Attention</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pytorch_%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Crnn"><span class="toc-number">1.</span> <span class="toc-text">Pytorch_循环神经网络RNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97"><span class="toc-number">1.0.1.</span> <span class="toc-text">序列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">循环神经网络</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">1.0.2.</span> <span class="toc-text">代码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">1．读取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0rnn%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">2．实现RNN模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E7%8E%B0%E6%9C%89rnn%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.2.3.</span> <span class="toc-text">3．调用现有RNN模型</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

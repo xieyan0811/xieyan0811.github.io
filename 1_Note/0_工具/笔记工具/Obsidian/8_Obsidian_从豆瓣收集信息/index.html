@@ -1,0 +1,492 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Obsidian_从豆瓣收集图书_电影_电视剧信息 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="功能 从豆瓣收集图书_电影_电视剧信息，插入Obsidian笔记。 原理 用JS抓取网站内容填入模板，插入笔记，通过插件之间的配合实现强大功能。 设置  安装 QuickAdd 插件  把js文件复制到 templates&#x2F;script&#x2F;目录下  把模板复制到 templates&#x2F;目录下  在左下角设置界面调出QuickAdd的设置界面   加Micro  点Manage Micros-&gt;起">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Obsidian_从豆瓣收集图书_电影_电视剧信息">
+<meta property="og:url" content="http://example.com/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/8_Obsidian_%E4%BB%8E%E8%B1%86%E7%93%A3%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="功能 从豆瓣收集图书_电影_电视剧信息，插入Obsidian笔记。 原理 用JS抓取网站内容填入模板，插入笔记，通过插件之间的配合实现强大功能。 设置  安装 QuickAdd 插件  把js文件复制到 templates&#x2F;script&#x2F;目录下  把模板复制到 templates&#x2F;目录下  在左下角设置界面调出QuickAdd的设置界面   加Micro  点Manage Micros-&gt;起">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-03-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-03T10:08:39.940Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Obsidian">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/8_Obsidian_%E4%BB%8E%E8%B1%86%E7%93%A3%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Obsidian_从豆瓣收集图书_电影_电视剧信息',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-03 10:08:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Obsidian_从豆瓣收集图书_电影_电视剧信息</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-03T10:08:39.940Z" title="Updated 2023-09-03 10:08:39">2023-09-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Obsidian_从豆瓣收集图书_电影_电视剧信息"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h3 id="功能">功能</h3>
+<p>从豆瓣收集图书_电影_电视剧信息，插入Obsidian笔记。</p>
+<h3 id="原理">原理</h3>
+<p>用JS抓取网站内容填入模板，插入笔记，通过插件之间的配合实现强大功能。</p>
+<h3 id="设置">设置</h3>
+<ul>
+<li>安装 QuickAdd 插件<br />
+</li>
+<li>把js文件复制到 templates/script/目录下<br />
+</li>
+<li>把模板复制到 templates/目录下<br />
+</li>
+<li>在左下角设置界面调出QuickAdd的设置界面<br />
+<img src="/attachments_2023/Pasted%20image%2020230319221121.png"
+alt="|400" /><br />
+</li>
+<li>加Micro
+<ul>
+<li>点Manage Micros-&gt;起个名-&gt;Add Micro<br />
+</li>
+<li>加好Macro后点其对应的Configure设置<br />
+</li>
+<li>加JS脚本
+<ul>
+<li>在User Scripts中选刚才拷到script下的脚本，然后点其后的Add<br />
+</li>
+</ul></li>
+<li>点Template按钮，加上一个模板后，设置其内容
+<ul>
+<li>在Template Path中设置刚才拷进的模板<br />
+</li>
+<li>勾选File Name Format<br />
+</li>
+<li>在File Name中输入：<code>&#123;&#123;VALUE:name&#125;&#125;</code><br />
+</li>
+<li>双击顶部的模板名，设置成自定义名称<br />
+</li>
+<li>点右上的叉退出，自动保存<br />
+</li>
+</ul></li>
+</ul></li>
+<li>连接显示名称和Macro
+<ul>
+<li>进入最顶层的QuickAdd Setting界面（上图所示界面）<br />
+</li>
+<li>起一个最终显示的名字，选Macro，点Add Choice<br />
+</li>
+<li>设置刚生成项目，将其与前面设置的Macro连接<br />
+</li>
+</ul></li>
+<li>点亮对应的 Add Command for xxx（打雷图标）</li>
+</ul>
+<h3 id="添加豆瓣">添加豆瓣</h3>
+<ul>
+<li>Ctrl+P调出菜单<br />
+</li>
+<li>选择QuickAdd新建的功能</li>
+</ul>
+<h2 id="其它">其它</h2>
+<ul>
+<li>稍微改一下js脚本，支持IMDb，就可以支持收集电影电视剧信息。<br />
+</li>
+<li>对于唯一标识，书是采用的是ISBN；电影是IMDb；音乐国外是条形码，国内是ISRC。<br />
+</li>
+<li>如果还想收集综艺，就把那个网页地址填入输入框。</li>
+</ul>
+<h2 id="代码">代码</h2>
+<p>方法主要参考"参考"部分的代码和视频，我加了少量简化和修改</p>
+<h3 id="我的模板">我的模板</h3>
+<pre><code>---  
+title: &#123;&#123;VALUE:title&#125;&#125;  
+author: &#123;&#123;VALUE:author&#125;&#125;  
+transAuthor: &#123;&#123;VALUE:transAuthor&#125;&#125;  
+rating: &#123;&#123;VALUE:rating&#125;&#125;  
+tags: &#123;&#123;VALUE:tags&#125;&#125;  
+ISBN: &#123;&#123;VALUE:isbn&#125;&#125;  
+type: ReadNote  
+link: &#123;&#123;VALUE:link&#125;&#125;  
+cover: &#123;&#123;VALUE:coverUrl&#125;&#125;  
+pages: &#123;&#123;VALUE:pages&#125;&#125;  
+BeginDate: &#123;&#123;VALUE:today&#125;&#125;  
+---  
+  
+# &#123;&#123;VALUE:name&#125;&#125;  
+  
+![&#123;&#123;VALUE:name&#125;&#125;|300](&#123;&#123;VALUE:coverUrl&#125;&#125;)  
+  
+
+## 简介  
+
+### 书籍简介  
+  
+&#123;&#123;VALUE:intro&#125;&#125;  
+  
+
+### 作者简介  
+  
+&#123;&#123;VALUE:authorIntro&#125;&#125;  </code></pre>
+<p>另外，修改js，兼容了综艺和电影和直接输入http地址，只简单加了一个，没做太多解释：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Author: @Lumos  </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Url: https://github.com/LumosLovegood  </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> headers <span class="op">=</span> &#123;  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Content-Type&quot;</span><span class="op">:</span> <span class="st">&quot;text/html; charset=utf-8&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Connection&#39;</span><span class="op">:</span> <span class="st">&#39;keep-alive&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Upgrade-Insecure-Requests&#39;</span><span class="op">:</span> <span class="st">&#39;1&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;User-Agent&#39;</span><span class="op">:</span> <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Accept&#39;</span><span class="op">:</span> <span class="st">&#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;sec-ch-ua&#39;</span><span class="op">:</span> <span class="st">&#39;&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;98&quot;, &quot;Google Chrome&quot;;v=&quot;98&quot;&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;sec-ch-ua-mobile&#39;</span><span class="op">:</span> <span class="st">&#39;?0&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;sec-ch-ua-platform&#39;</span><span class="op">:</span> <span class="st">&#39;&quot;Windows&quot;&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Sec-Fetch-Site&#39;</span><span class="op">:</span> <span class="st">&#39;same-site&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Sec-Fetch-Mode&#39;</span><span class="op">:</span> <span class="st">&#39;navigate&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Sec-Fetch-User&#39;</span><span class="op">:</span> <span class="st">&#39;?1&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Sec-Fetch-Dest&#39;</span><span class="op">:</span> <span class="st">&#39;document&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Referer&#39;</span><span class="op">:</span> <span class="st">&#39;https://m.douban.com/&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Accept-Language&#39;</span><span class="op">:</span> <span class="st">&#39;en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">douban</span>(QuickAdd)&#123;  </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> user_input <span class="op">=</span> <span class="cf">await</span> QuickAdd<span class="op">.</span><span class="at">quickAddApi</span><span class="op">.</span><span class="fu">inputPrompt</span>(  </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;请输入书籍背后的13位ISBN码/10位IMDb/网页地址：&quot;</span>  </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span>  </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> simpleInfo<span class="op">=</span>&#123;&#125;<span class="op">;</span>  </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(user_input<span class="op">.</span><span class="fu">substring</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">4</span>)<span class="op">!=</span><span class="st">&#39;http&#39;</span>) &#123;  </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(user_input<span class="op">.</span><span class="at">length</span><span class="op">!=</span><span class="dv">13</span> <span class="op">&amp;&amp;</span> user_input<span class="op">.</span><span class="at">length</span><span class="op">!=</span><span class="dv">10</span> <span class="op">&amp;&amp;</span> user_input<span class="op">.</span><span class="fu">substring</span>(<span class="dv">0</span><span class="op">,</span><span class="dv">4</span>)<span class="op">!=</span><span class="st">&#39;http&#39;</span>)&#123;  </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;输入错误&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&quot;输入错误&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        &#125;  </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        simpleInfo <span class="op">=</span><span class="cf">await</span> <span class="fu">getBookUrl</span>(user_input)<span class="op">;</span>  </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(<span class="op">!</span>simpleInfo)&#123;  </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;无法识别此ISBN码&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&quot;无法识别此ISBN码&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        &#125;  </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    &#125; <span class="cf">else</span> &#123;  </span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        simpleInfo<span class="op">.</span><span class="at">title</span><span class="op">=</span><span class="st">&#39;数据&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        simpleInfo<span class="op">.</span><span class="at">url</span> <span class="op">=</span> user_input<span class="op">;</span>  </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    &#125;      </span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> url <span class="op">=</span> simpleInfo<span class="op">.</span><span class="at">url</span><span class="op">;</span>  </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;准备获取《&quot;</span><span class="op">+</span>simpleInfo<span class="op">.</span><span class="at">title</span><span class="op">+</span><span class="st">&quot;》的内容信息&quot;</span><span class="op">,</span><span class="dv">1000</span>)  </span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> bookInfo <span class="op">=</span> <span class="cf">await</span> <span class="fu">getDetailInfo</span>(url)  </span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="op">!</span>bookInfo)&#123;  </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;获取内容失败&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&quot;获取内容失败&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;笔记已生成！&quot;</span><span class="op">,</span><span class="dv">500</span>)<span class="op">;</span>  </span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 获取今日日期  </span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> date <span class="op">=</span> <span class="bu">window</span><span class="op">.</span><span class="fu">moment</span>()<span class="op">.</span><span class="fu">format</span>(<span class="st">&quot;gggg-MM-DD&quot;</span>)  </span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">today</span> <span class="op">=</span> date<span class="op">;</span>  </span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    QuickAdd<span class="op">.</span><span class="at">variables</span> <span class="op">=</span> &#123;  </span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>        <span class="op">...</span>bookInfo  </span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    &#125;<span class="op">;</span>  </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>&#125;  </span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">getBookUrl</span>(isbn)&#123;  </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">&quot;https://m.douban.com/search/?query=&quot;</span><span class="op">+</span>isbn<span class="op">;</span>  </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> searchUrl <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(url)<span class="op">;</span>  </span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="fu">request</span>(&#123;  </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      <span class="dt">url</span><span class="op">:</span> searchUrl<span class="op">.</span><span class="at">href</span><span class="op">,</span>  </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>      <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;GET&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="dt">cache</span><span class="op">:</span> <span class="st">&quot;no-cache&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      <span class="dt">headers</span><span class="op">:</span> &#123;  </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Content-Type&quot;</span><span class="op">:</span> <span class="st">&quot;text/html; charset=utf-8&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;sec-ch-ua&#39;</span><span class="op">:</span> <span class="st">&#39;&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;98&quot;, &quot;Google Chrome&quot;;v=&quot;98&quot;&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;sec-ch-ua-mobile&#39;</span><span class="op">:</span> <span class="st">&#39;?0&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;sec-ch-ua-platform&#39;</span><span class="op">:</span> <span class="st">&#39;&quot;Windows&quot;&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;Upgrade-Insecure-Requests&#39;</span><span class="op">:</span> <span class="st">&#39;1&#39;</span><span class="op">,</span>  </span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;User-Agent&#39;</span><span class="op">:</span> <span class="st">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36&#39;</span>  </span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      &#125;  </span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    &#125;)<span class="op">;</span>  </span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="op">!</span>res)&#123;  </span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span>  </span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> p <span class="op">=</span> <span class="kw">new</span> <span class="fu">DOMParser</span>()<span class="op">;</span>  </span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> doc <span class="op">=</span> p<span class="op">.</span><span class="fu">parseFromString</span>(res<span class="op">,</span> <span class="st">&quot;text/html&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> title <span class="op">=</span> doc<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&quot;div.subject-info span&quot;</span>)<span class="op">.</span><span class="at">textContent</span><span class="op">;</span>  </span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> detailUrl <span class="op">=</span> <span class="bu">String</span>(doc<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&quot;ul li a&quot;</span>)<span class="op">.</span><span class="at">href</span>)<span class="op">.</span><span class="fu">replace</span>(<span class="st">&quot;app://obsidian.md&quot;</span><span class="op">,</span><span class="st">&quot;https://m.douban.com&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span>detailUrl)&#123;  </span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span>  </span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> simpleInfo<span class="op">=</span>&#123;&#125;<span class="op">;</span>  </span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>    simpleInfo<span class="op">.</span><span class="at">title</span><span class="op">=</span>title<span class="op">;</span>  </span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>    simpleInfo<span class="op">.</span><span class="at">url</span> <span class="op">=</span> detailUrl<span class="op">;</span>  </span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> simpleInfo<span class="op">;</span>  </span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>&#125;  </span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="kw">async</span> <span class="kw">function</span> <span class="fu">getDetailInfo</span>(url)&#123;  </span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> bookUrl <span class="op">=</span> <span class="kw">new</span> <span class="fu">URL</span>(url)<span class="op">;</span>  </span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="fu">request</span>(&#123;  </span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        <span class="dt">url</span><span class="op">:</span> bookUrl<span class="op">.</span><span class="at">href</span><span class="op">,</span>  </span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>        <span class="dt">method</span><span class="op">:</span> <span class="st">&quot;GET&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        <span class="dt">cache</span><span class="op">:</span> <span class="st">&quot;no-cache&quot;</span><span class="op">,</span>  </span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>        <span class="dt">headers</span><span class="op">:</span> headers  </span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>    &#125;)<span class="op">;</span>  </span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> p <span class="op">=</span> <span class="kw">new</span> <span class="fu">DOMParser</span>()<span class="op">;</span>  </span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> doc <span class="op">=</span> p<span class="op">.</span><span class="fu">parseFromString</span>(res<span class="op">,</span> <span class="st">&quot;text/html&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> $ <span class="op">=</span> s <span class="kw">=&gt;</span> doc<span class="op">.</span><span class="fu">querySelector</span>(s)<span class="op">;</span>  </span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> $2 <span class="op">=</span> z <span class="kw">=&gt;</span> doc<span class="op">.</span><span class="fu">querySelectorAll</span>(z)<span class="op">;</span>  </span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> bookInfo <span class="op">=</span> &#123;&#125;<span class="op">;</span>   </span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>    <span class="co">//书名、作者、ISBN、封面  </span></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> name <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;meta[property=&#39;og:title&#39;]&quot;</span>)<span class="op">?.</span><span class="at">content</span><span class="op">;</span>  </span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> title <span class="op">=</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">+</span>name<span class="op">+</span><span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">;</span> <span class="co">//用于放到front matter里，加引号避免因为包含特殊字符导致ymal解析错误  </span></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> author <span class="op">=</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">+</span><span class="fu">$</span>(<span class="st">&quot;meta[property=&#39;book:author&#39;]&quot;</span>)<span class="op">?.</span><span class="at">content</span><span class="op">.</span><span class="fu">replace</span>(<span class="ss">/</span><span class="sc">[\[\]\(\)（）]</span><span class="ss">/g</span><span class="op">,</span><span class="st">&quot;&quot;</span>)<span class="op">+</span><span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> isbn <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;meta[property=&#39;book:isbn&#39;]&quot;</span>)<span class="op">?.</span><span class="at">content</span><span class="op">;</span>  </span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> cover <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;meta[property=&#39;og:image&#39;]&quot;</span>)<span class="op">?.</span><span class="at">content</span><span class="op">;</span>  </span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>    <span class="co">//其他信息(译者、原作名、页数)  </span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> text <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;#info&quot;</span>)<span class="op">?.</span><span class="at">textContent</span><span class="op">.</span><span class="fu">replace</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span><span class="st">&quot;&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> transAuthor <span class="op">=</span> text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=译者:</span><span class="sc">\s*)\S+\s?\S+</span><span class="ss">/g</span>)<span class="op">?</span>text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=译者:</span><span class="sc">\s*)\S+\s?\S+</span><span class="ss">/g</span>)[<span class="dv">0</span>]<span class="op">.</span><span class="fu">trim</span>()<span class="op">:</span><span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> originalName <span class="op">=</span> text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=原作名:</span><span class="sc">\s*)[\S ]+</span><span class="ss">/g</span>)<span class="op">?</span>(<span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span><span class="op">+</span>text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=原作名:</span><span class="sc">\s*)[\S ]+</span><span class="ss">/g</span>)[<span class="dv">0</span>]<span class="op">.</span><span class="fu">trim</span>()<span class="op">+</span><span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>)<span class="op">:</span><span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> pages <span class="op">=</span> text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=页数:</span><span class="sc">\s*)[\S ]+</span><span class="ss">/g</span>)<span class="op">?</span>text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=页数:</span><span class="sc">\s*)[\S ]+</span><span class="ss">/g</span>)[<span class="dv">0</span>]<span class="op">.</span><span class="fu">trim</span>()<span class="op">:</span><span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> publisher <span class="op">=</span> text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=出版社:</span><span class="sc">\s*)\S+\s?\S+</span><span class="ss">/g</span>)<span class="op">?</span>text<span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=出版社:</span><span class="sc">\s*)\S+\s?\S+</span><span class="ss">/g</span>)[<span class="dv">0</span>]<span class="op">.</span><span class="fu">trim</span>()<span class="op">:</span><span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>    <span class="co">//豆瓣评分  </span></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> rating <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;div#interest_sectl div div strong&quot;</span>)<span class="op">?.</span><span class="at">textContent</span><span class="op">.</span><span class="fu">replace</span>(<span class="ss">/</span><span class="sc">\s</span><span class="ss">/g</span><span class="op">,</span><span class="st">&quot;&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>    <span class="co">//书籍和作者简介，这一块儿不同类型的书对应的网页结构都不太一样，尽力做兼容了，还有问题我也没办法 \摊手  </span></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> intro <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> authorIntro <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> temp1 <span class="op">=</span> <span class="fu">$</span>(<span class="st">&quot;h2&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(temp1<span class="op">.</span><span class="at">innerText</span><span class="op">.</span><span class="fu">includes</span>(<span class="st">&quot;内容简介&quot;</span>))&#123;  </span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> temp2 <span class="op">=</span> temp1<span class="op">.</span><span class="at">nextElementSibling</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;div.intro&quot;</span>)  </span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> temp3 <span class="op">=</span> temp2[temp2<span class="op">.</span><span class="at">length</span><span class="op">-</span><span class="dv">1</span>]<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span>temp3<span class="op">.</span><span class="at">length</span><span class="op">;</span>i<span class="op">++</span>)&#123;  </span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>            intro <span class="op">=</span> intro<span class="op">+</span>temp3[i]<span class="op">.</span><span class="at">textContent</span><span class="op">+</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>        &#125;  </span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>&#123;  </span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>            temp2 <span class="op">=</span> <span class="fu">$2</span>(<span class="st">&quot;h2&quot;</span>)[<span class="dv">1</span>]<span class="op">.</span><span class="at">nextElementSibling</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;div.intro&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>            temp3 <span class="op">=</span> temp2[temp2<span class="op">.</span><span class="at">length</span><span class="op">-</span><span class="dv">1</span>]<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span>temp3<span class="op">.</span><span class="at">length</span><span class="op">;</span>i<span class="op">++</span>)&#123;  </span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>                authorIntro <span class="op">=</span> authorIntro<span class="op">+</span>temp3[i]<span class="op">.</span><span class="at">textContent</span><span class="op">+</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>            &#125;  </span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>        &#125;<span class="cf">catch</span>(e)&#123;  </span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> <span class="fu">Notice</span>(<span class="st">&quot;没有简介&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>        &#125;          </span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>    &#125;<span class="cf">else</span> <span class="cf">if</span>(temp1<span class="op">.</span><span class="at">innerText</span><span class="op">.</span><span class="fu">includes</span>(<span class="st">&quot;作者简介&quot;</span>))&#123;  </span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> temp2 <span class="op">=</span> temp1<span class="op">.</span><span class="at">nextElementSibling</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;div.intro&quot;</span>)  </span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>        <span class="kw">var</span> temp3 <span class="op">=</span> temp2[temp2<span class="op">.</span><span class="at">length</span><span class="op">-</span><span class="dv">1</span>]<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&quot;p&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span>i<span class="op">&lt;</span>temp3<span class="op">.</span><span class="at">length</span><span class="op">;</span>i<span class="op">++</span>)&#123;  </span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>            authorIntro <span class="op">=</span> authorIntro<span class="op">+</span>temp3[i]<span class="op">.</span><span class="at">textContent</span><span class="op">+</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>        &#125;  </span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>    <span class="co">//豆瓣常用标签，记得之前这一块儿网页元素里是有的，后来找不到了，但是尝试性源代码全文搜索的时候 在Script标签里找到了，但是感觉随时会改。  </span></span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> temp <span class="op">=</span> <span class="fu">$2</span>(<span class="st">&quot;script&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> tags <span class="op">=</span> temp[temp<span class="op">.</span><span class="at">length</span><span class="op">-</span><span class="dv">3</span>]<span class="op">.</span><span class="at">textContent</span><span class="op">.</span><span class="fu">match</span>(<span class="ss">/</span><span class="sc">(?</span><span class="ss">&lt;=:</span><span class="sc">)[\u4e00-\u9fa5·]+</span><span class="ss">/g</span>)<span class="op">;</span>  </span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (tags <span class="op">===</span> <span class="kw">null</span>) &#123;  </span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>        tags <span class="op">=</span> []<span class="op">;</span>  </span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    &#125; <span class="cf">else</span> &#123;  </span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>        tags<span class="op">.</span><span class="fu">push</span>(<span class="st">&quot;book&quot;</span>)<span class="op">;</span>  </span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">name</span> <span class="op">=</span> name<span class="op">;</span>  </span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">title</span><span class="op">=</span>title<span class="op">;</span>  </span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">author</span><span class="op">=</span>author<span class="op">;</span>  </span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">transAuthor</span><span class="op">=</span>transAuthor<span class="op">;</span>  </span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">coverUrl</span><span class="op">=</span>cover<span class="op">;</span>  </span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">originalName</span><span class="op">=</span>originalName<span class="op">;</span>  </span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">pages</span><span class="op">=</span>pages<span class="op">;</span>  </span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">publisher</span><span class="op">=</span>publisher<span class="op">;</span>  </span>
+<span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">intro</span><span class="op">=</span>intro<span class="op">;</span>  </span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">isbn</span><span class="op">=</span>isbn<span class="op">;</span>  </span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">rating</span><span class="op">=</span>rating<span class="op">;</span>  </span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">authorIntro</span> <span class="op">=</span>authorIntro<span class="op">;</span>  </span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">tags</span><span class="op">=</span>tags<span class="op">;</span>  </span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    bookInfo<span class="op">.</span><span class="at">link</span> <span class="op">=</span> url<span class="op">;</span>  </span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 如果为空的话，quickadd会出现提示框让自己填，太麻烦了，所以先填一个默认空值  </span></span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(<span class="kw">var</span> i <span class="kw">in</span> bookInfo)&#123;  </span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span>(bookInfo[i]<span class="op">==</span><span class="st">&quot;&quot;</span>)&#123;  </span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>            bookInfo[i]<span class="op">=</span><span class="st">&quot;Not Found.&quot;</span><span class="op">;</span>  </span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>        &#125;  </span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> bookInfo<span class="op">;</span>  </span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a>&#125;  </span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span>  douban  </span></code></pre></div>
+<h2 id="参考">参考</h2>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/LumosLovegood/myScripts/tree/main/CreateReadNote">代码</a><br />
+<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NT4y1U7P3/?from=seopage">视频</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/8_Obsidian_%E4%BB%8E%E8%B1%86%E7%93%A3%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF/">http://example.com/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/8_Obsidian_%E4%BB%8E%E8%B1%86%E7%93%A3%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/Obsidian/">Obsidian</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/flask%E5%A4%9A%E5%B9%B6%E5%8F%91/" title="flask多并发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">flask多并发</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLM/" title="论文阅读_GLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_GLM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/0_Obsidian_%E7%AE%80%E4%BB%8B/" title="Obsidian简介"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-04</div><div class="title">Obsidian简介</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/1_Obsidian_%E5%AE%89%E8%A3%85/" title="Obsidian安装"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-13</div><div class="title">Obsidian安装</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/2_Obsidian_%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" title="Obsidian常用三方插件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-27</div><div class="title">Obsidian常用三方插件</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/3_Obsidian_%E7%94%A8Git%E5%90%8C%E6%AD%A5%E7%AC%94%E8%AE%B0/" title="Obsidian用Git同步笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-06</div><div class="title">Obsidian用Git同步笔记</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/4_Obsidian_%E5%9B%BE%E5%BA%8A/" title="Obsidian用Gitee做图床"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-15</div><div class="title">Obsidian用Gitee做图床</div></div></a></div><div><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/5_Obsidian_DataView/" title="ObsidianDataView插件的简单用法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-04</div><div class="title">ObsidianDataView插件的简单用法</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">一些想法</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">510</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">87</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%B1%86%E7%93%A3"><span class="toc-number">4.</span> <span class="toc-text">添加豆瓣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number"></span> <span class="toc-text">其它</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number"></span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.</span> <span class="toc-text">我的模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number"></span> <span class="toc-text">参考</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/5_%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%B7%A5%E5%85%B7/EasyNLP/" title="EasyNLP">EasyNLP</a><time datetime="2023-09-03T09:55:41.108Z" title="Created 2023-09-03 09:55:41">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E6%A8%A1%E5%9E%8B%E5%8E%8B%E7%BC%A9/" title="深度学习模型压缩">深度学习模型压缩</a><time datetime="2023-09-03T09:55:40.488Z" title="Created 2023-09-03 09:55:40">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_%E5%A2%9E%E5%BC%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" title="增强语言模型导读">增强语言模型导读</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/llamaindex_%E5%88%86%E4%BA%AB/" title="llamaindex_分享">llamaindex_分享</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8MetaGPT/" title="试用MetaGPT">试用MetaGPT</a><time datetime="2023-09-02T00:00:00.000Z" title="Created 2023-09-02 00:00:00">2023-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
