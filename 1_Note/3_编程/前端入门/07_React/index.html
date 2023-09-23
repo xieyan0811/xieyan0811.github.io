@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>07_React | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 相关术语  React: 用于构建用户界面的 JavaScript 库  node: 通过JavaScript语言开发web服务端  npm：相当于python的pip工具，pip用于安装python相关的各种工具，npm用于Node.JS相关的各种工具  jsx：JSX是一种 JavaScript 的语法扩展，用于react中，既不是字符串也不是 HTML，有点像模板，形如：   &lt;d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="07_React">
+<meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/07_React/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1 相关术语  React: 用于构建用户界面的 JavaScript 库  node: 通过JavaScript语言开发web服务端  npm：相当于python的pip工具，pip用于安装python相关的各种工具，npm用于Node.JS相关的各种工具  jsx：JSX是一种 JavaScript 的语法扩展，用于react中，既不是字符串也不是 HTML，有点像模板，形如：   &lt;d">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2022-01-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-23T09:10:40.743Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="编程语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/07_React/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '07_React',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-23 09:10:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">522</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">07_React</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-23T09:10:40.743Z" title="Updated 2023-09-23 09:10:40">2023-09-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/">前端入门</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="07_React"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="相关术语">1 相关术语</h2>
+<ul>
+<li>React: 用于构建用户界面的 JavaScript 库<br />
+</li>
+<li>node: 通过JavaScript语言开发web服务端<br />
+</li>
+<li>npm：相当于python的pip工具，pip用于安装python相关的各种工具，npm用于Node.JS相关的各种工具<br />
+</li>
+<li>jsx：JSX是一种 JavaScript
+的语法扩展，用于react中，既不是字符串也不是
+HTML，有点像模板，形如：<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>div<span class="op">&gt;</span>&#123;arr&#125;<span class="op">&lt;/</span>div<span class="op">&gt;</span>  </span></code></pre></div>
+<h2 id="react与只有js的区别">2 react与只有JS的区别</h2>
+<p>单纯的JS是直接操作和构造html。<br />
+react是数据驱动界面，它通过虚拟的html生成标签。<br />
+react的基础逻辑是数据由上向下单向流动。<br />
+虚拟的html有点类似于模板，html中其中可嵌入变量和程序段。</p>
+<p>举个例子，之前提交表单时将表单中每个元素取值转给server，也就是从html中取值；使用react后，当按下按钮时，一般调用某个react函数，由函数内部通过数据构造请求，以及处理请求的结果，再进一步渲染控件，而非整个刷新整个界面。</p>
+<h2 id="基本概念">3 基本概念</h2>
+<h3 id="组件">3.1 组件</h3>
+<p>组件component是react的核心概念，一般功能都通过组件实现。<br />
+组件名首字符必须大写，否则被认为是标签。<br />
+react中有两种组件：函数组件（Functional Components) 和类组件（Class
+Components）。</p>
+<h4 id="函数组件">3.1.1 函数组件</h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">&#39;react-dom&#39;</span><span class="op">;</span>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">MyFuncComp</span>() &#123;  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>组件内容<span class="op">&lt;/</span>h1<span class="op">&gt;</span>  </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>&#125;  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;</span>div<span class="op">&gt;</span>  </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>MyFuncComp<span class="op">/&gt;</span>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="op">&lt;/</span>div<span class="op">&gt;,</span>   </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&quot;root&quot;</span>)  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span>  </span></code></pre></div>
+<h4 id="类组件">3.1.2 类组件</h4>
+<p>继承自Component，且至少实现render函数；constructor为其构造函数，参数props用于接收外部传来的属性。</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React<span class="op">,</span> &#123; Component &#125; <span class="im">from</span> <span class="st">&#39;react&#39;</span>  </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> <span class="kw">class</span> MyClassComp <span class="kw">extends</span> Component &#123;  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">constructor</span>(props) &#123;  </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span>(props)  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(props)  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">state</span> <span class="op">=</span> &#123;  </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">initData</span><span class="op">:</span> <span class="kw">this</span><span class="op">.</span><span class="at">props</span><span class="op">.</span><span class="at">time</span>  </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  &#125;  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>() &#123;  </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>组件内容<span class="op">&lt;/</span>h1<span class="op">&gt;</span>  </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  &#125;  </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>&#125;  </span></code></pre></div>
+<h4 id="组件状态">3.1.3 组件状态</h4>
+<p>组件可以维护自己的数据，可将状态看作组件的属性。<br />
+具体实现，如上例中的 this.state={xxx}。<br />
+不能直接改变state，否则无法引发界面刷新，需要使用setState函数：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">.</span><span class="fu">setState</span>(&#123;  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">initData</span><span class="op">:</span> <span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">initData</span> <span class="op">-</span> <span class="dv">1</span>  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      &#125;)<span class="op">;</span>  </span></code></pre></div>
+<h4 id="bind函数">3.1.4 Bind函数</h4>
+<p>ES5之前，函数自动bind，而在ES6之后，需要手动bind函数，比如：回调函数需要在构造里bind，形如：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">render</span>() &#123;  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      <span class="op">&lt;</span>input type<span class="op">=</span><span class="st">&quot;button&quot;</span> value<span class="op">=</span><span class="st">&quot;Log&quot;</span> onClick<span class="op">=</span>&#123;<span class="kw">this</span><span class="op">.</span><span class="at">logMessage</span><span class="op">.</span><span class="fu">bind</span>(<span class="kw">this</span>)&#125; <span class="op">/&gt;</span>  </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  &#125;  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">//或者用箭头方式bind  </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">//&lt;input type=&quot;button&quot; value=&quot;Log&quot; onClick=&#123;() =&gt; this.logMessage()&#125; /&gt;  </span></span></code></pre></div>
+<h4 id="控件的key">3.1.5 控件的Key</h4>
+<p>key 可以帮助 React
+高效识别哪些元素发生了改变，哪些元素没有发生改变。最好给每个控件指定key，比如：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span> () &#123;  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>ul<span class="op">&gt;</span>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      &#123;<span class="kw">this</span><span class="op">.</span><span class="at">state</span><span class="op">.</span><span class="at">todoItems</span><span class="op">.</span><span class="fu">map</span>((&#123;task<span class="op">,</span> uid&#125;) <span class="kw">=&gt;</span> &#123;  </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="op">&lt;</span>li key<span class="op">=</span>&#123;uid&#125;<span class="op">&gt;</span>&#123;task&#125;<span class="op">&lt;/</span>li<span class="op">&gt;</span>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      &#125;)&#125;  </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>ul<span class="op">&gt;</span>  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  )  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>&#125;  </span></code></pre></div>
+<p>这使得每个控件得以区分，控制刷新，提升效率……</p>
+<h4 id="组件之间通讯">3.1.6 组件之间通讯</h4>
+<p>react主导思想是数据只能从父控件向子控件流动，兄弟组件间不能通讯；数据只能被组件内部及其子组件使用。父子组间通讯，常使用方法。<br />
+* 通过设置属性props把父组件数据传给子组件<br />
+*
+通过设置属性props把父组件句柄传给子组件，使子组件可调父组件中的方法（使用时注意bind）</p>
+<h2 id="生命周期">4 生命周期</h2>
+<p>详见<a
+target="_blank" rel="noopener" href="https://1lib.domains/?redirectUrl=/">详解React生命周期(包括react16最新版)</a></p>
+<h2 id="第一个程序">5 第一个程序</h2>
+<h3 id="新建一个项目">5.1 新建一个项目</h3>
+<pre class="shell"><code>$ create-react-app frontend  
+$ cd frontend  </code></pre>
+<h3 id="写代码">5.2 写代码</h3>
+<h4 id="react简单示例">5.2.1 react简单示例</h4>
+<p>删除src/下所有文件，并编辑src/index.js如下:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&#39;react&#39;</span>  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">&#39;react-dom&#39;</span>  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> App <span class="kw">extends</span> React<span class="op">.</span><span class="at">Component</span> &#123;  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>() &#123;  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>div className<span class="op">=</span><span class="st">&quot;container&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>h1 className<span class="op">=</span><span class="st">&quot;center-align&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                    盒装一流弊<span class="op">&lt;</span>br<span class="op">/&gt;</span>  </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                    <span class="op">&lt;</span>span className<span class="op">=</span><span class="st">&quot;waves-effect waves-light btn&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                        <span class="op">&lt;</span>i className<span class="op">=</span><span class="st">&quot;material-icons right&quot;</span><span class="op">&gt;</span>cloud<span class="op">&lt;/</span>i<span class="op">&gt;</span>您说的都对  </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                    <span class="op">&lt;/</span>span<span class="op">&gt;</span>  </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;/</span>h1<span class="op">&gt;</span>  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>div<span class="op">&gt;</span>  </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span>  </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    &#125;     </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>&#125;  </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>App <span class="op">/&gt;,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;root&#39;</span>))  </span></code></pre></div>
+<h4 id="react-bootstrap示例">5.2.2 react-bootstrap示例</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> React <span class="im">from</span> <span class="st">&#39;react&#39;</span><span class="op">;</span>  </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">&#39;react-dom&#39;</span>  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> &#123;Button<span class="op">,</span>Form&#125; <span class="im">from</span> <span class="st">&#39;react-bootstrap&#39;</span>  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FormInstance <span class="kw">extends</span> React<span class="op">.</span><span class="at">Component</span> &#123;  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">render</span>() &#123;  </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>(  </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>html<span class="op">&gt;</span>  </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Group</span> className<span class="op">=</span><span class="st">&quot;mb-3&quot;</span> controlId<span class="op">=</span><span class="st">&quot;formBasicEmail&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Label</span><span class="op">&gt;</span>Email address<span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Label</span><span class="op">&gt;</span>  </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Control</span> type<span class="op">=</span><span class="st">&quot;email&quot;</span> placeholder<span class="op">=</span><span class="st">&quot;Enter email&quot;</span> <span class="op">/&gt;</span>  </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Text</span> className<span class="op">=</span><span class="st">&quot;text-muted&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                We<span class="st">&#39;ll never share your email with anyone else.  </span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Text</span><span class="op">&gt;</span>  </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Group</span><span class="op">&gt;</span>  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Group</span> className<span class="op">=</span><span class="st">&quot;mb-3&quot;</span> controlId<span class="op">=</span><span class="st">&quot;formBasicPassword&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Label</span><span class="op">&gt;</span>Password<span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Label</span><span class="op">&gt;</span>  </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Control</span> type<span class="op">=</span><span class="st">&quot;password&quot;</span> placeholder<span class="op">=</span><span class="st">&quot;Password&quot;</span> <span class="op">/&gt;</span>  </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Group</span><span class="op">&gt;</span>  </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Group</span> className<span class="op">=</span><span class="st">&quot;mb-3&quot;</span> controlId<span class="op">=</span><span class="st">&quot;formBasicCheckbox&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>Form<span class="op">.</span><span class="at">Check</span> type<span class="op">=</span><span class="st">&quot;checkbox&quot;</span> label<span class="op">=</span><span class="st">&quot;Check me out&quot;</span> <span class="op">/&gt;</span>  </span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>Form<span class="op">.</span><span class="at">Group</span><span class="op">&gt;</span>  </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>Button variant<span class="op">=</span><span class="st">&quot;primary&quot;</span> type<span class="op">=</span><span class="st">&quot;submit&quot;</span><span class="op">&gt;</span>  </span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                Submit  </span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>Button<span class="op">&gt;</span>  </span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;/</span>html<span class="op">&gt;</span>  </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        )  </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    &#125;  </span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>&#125;<span class="op">;</span>  </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>ReactDOM<span class="op">.</span><span class="fu">render</span>(<span class="op">&lt;</span>FormInstance <span class="op">/&gt;,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;root&#39;</span>))  </span></code></pre></div>
+<h3 id="在浏览器中运行">5.3 在浏览器中运行</h3>
+<p>启动浏览器看运行效果</p>
+<pre class="shell"><code>$ sudo npm start  </code></pre>
+<h3 id="编译">5.4 编译</h3>
+<pre class="shell"><code>$ npm run build  </code></pre>
+<p>此时build目录下生成index.html及static/js/，把它们复制到你的flask项目里，调用index.html即可看到用react生成的网页。</p>
+<h2 id="使用-vscode-调试-react-应用">6 使用 VSCode 调试 React 应用</h2>
+<ul>
+<li>安装Debugger for Chrome插件<br />
+</li>
+<li>从vscode左侧调出运行与调式面板<br />
+</li>
+<li>设置配置launch.js，将端口改为3000<br />
+</li>
+<li>在终端输入npm start，即可运行调试<br />
+</li>
+<li>此时在浏览器中可看到界面，修改界面不需要再次运行，即可在浏览器中同步看到效果</li>
+</ul>
+<h2 id="reactbootstrap">7 react+bootstrap</h2>
+<pre><code>$ sudo npm install react-bootstrap bootstrap@3.3.7  </code></pre>
+<p>安装好后，就可以在react中直接使用了，如：</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> &#123; Navbar<span class="op">,</span> Jumbotron<span class="op">,</span> Button &#125; <span class="im">from</span> <span class="st">&#39;react-bootstrap&#39;</span><span class="op">;</span>  </span></code></pre></div>
+<h2 id="简单范例">8 简单范例</h2>
+<pre><code>$ git clone https://github.com/lingjiawen/react_bootstrap_demo.git  
+$ cd react_bootstrap_demo  
+$ npm install  
+$ npm run dev  </code></pre>
+<p>此时，可以在浏览器打开localhost:8080，看到示例</p>
+<h2 id="编译前端代码">9 编译前端代码</h2>
+<h4 id="为什么编译">9.1.1 为什么编译</h4>
+<p>即使用babel这样的库可以在运行时编译html，但会遇到以下问题：<br />
+* 在js中引入文件，如“import xxx from
+yyy”时，如果yyy是编译过的xxx可能找不到。<br />
+* yyy往往是多个js文件的集合，无法单独使用<br />
+* 自己的js中可能使用了多个库，都放进项目里占空间大且乱</p>
+<h4 id="如何编译">9.1.2 如何编译</h4>
+<pre><code>$ npm run build  </code></pre>
+<p>编译后在build目录下生成html和js文件</p>
+<h2 id="问题与解决">10 问题与解决</h2>
+<h3 id="问题一">10.1 问题一</h3>
+<ul>
+<li>问题：npm start时报错：code: 'MODULE_NOT_FOUND'<br />
+</li>
+<li>分析：这是由于npm和node版本不一致引起的<br />
+</li>
+<li>解决方法：升级npm<br />
+</li>
+</ul>
+<pre class="shell"><code>$ sudo n 6.3 # 降级node版本  
+$ sudo npm install npm -g # 升级npm版本  </code></pre>
+<h3 id="问题二">10.2 问题二</h3>
+<ul>
+<li>问题：npm升级了多个软件包后由于版本不匹配而无法工作<br />
+</li>
+<li>分析：冲突异致，由于npm安装了很多软件，导致使用apt
+remove删除npm后，冲突依然存在；当npm不能正常运行时，也无法管理被它安装的软件包。<br />
+</li>
+<li>解决方法：删除npm以及所有的缓存和相关安装包，它们的位置如下：<br />
+</li>
+</ul>
+<pre><code>HOME/.npm/*  
+/usr/local/lib/node_modules/  
+/usr/local/bin/npm  
+/usr/local/bin/node  </code></pre>
+<h3 id="问题三">10.3 问题三</h3>
+<ul>
+<li>问题：console.log() 在哪显示<br />
+</li>
+<li>解决：在浏览器F12，控制台里显示</li>
+</ul>
+<h3 id="问题四">10.4 问题四</h3>
+<ul>
+<li>问题：访问本机提供服务的端口时报错：No
+'Access-Control-Allow-Origin'跨域问题<br />
+</li>
+<li>分析：跨域问题<br />
+</li>
+<li>解决方法：在flask里设置一下CORS，形如：<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_cors <span class="im">import</span> CORS  </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> <span class="fu">Flask</span>(__name__)  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">CORS</span>(app)  </span></code></pre></div>
+<h3 id="问题五">10.5 问题五</h3>
+<ul>
+<li>问题：什么是脚手架<br />
+</li>
+<li>回答：一个工作，用于快速地构建开发环境</li>
+</ul>
+<h3 id="问题六">10.6 问题六</h3>
+<ul>
+<li>问题：如何一次渲染多个组件<br />
+</li>
+<li>回答：<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">render</span>() &#123;  </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div<span class="op">&gt;</span>  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>MyComponent1 <span class="op">/&gt;</span>  </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>MyComponent2  <span class="op">/&gt;</span>  </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>MyComponent3 <span class="op">/&gt;</span>   </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span>  </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>&#125;  </span></code></pre></div>
+<h3 id="问题七">10.7 问题七</h3>
+<ul>
+<li>问题：如何调试JSX<br />
+</li>
+<li>回答：JSX中可通过{}加入简单代码段</li>
+</ul>
+<h3 id="问题八">10.8 问题八</h3>
+<ul>
+<li>问题：用 create-react-app 创建的项目太大，无法保存<br />
+</li>
+<li>回答：去掉node-modules目录，只保存其它即可</li>
+</ul>
+<h3 id="问题九">10.9 问题九</h3>
+<ul>
+<li>问题: js文件不能立即更新<br />
+</li>
+<li>回答: 浏览器-&gt;F12-&gt;网络面板-&gt;停用缓存</li>
+</ul>
+<h3 id="问题十">10.10 问题十</h3>
+<p>问题：不编译是否可以使用react<br />
+回答：在网站中加入少量react代码时，可使用bebel工具，直接在js中使用jsx语法，引入以下包：</p>
+<pre><code>&lt;script src=&quot;https://unpkg.com/babel-standalone@6/babel.min.js&quot;&gt;&lt;/script&gt;  </code></pre>
+<p>详见：<a
+target="_blank" rel="noopener" href="https://react.docschina.org/docs/add-react-to-a-website.html">在网站中添加
+React</a></p>
+<h3 id="问题十一">10.11 问题十一</h3>
+<p>问题：如何实现同时使用jsx和import<br />
+回答：script type只能设置一个值，用以下方法同时作为module和bebal</p>
+<pre><code>&lt;script data-plugins=&quot;transform-es2015-modules-umd&quot; type=&quot;text/babel&quot;&gt;  </code></pre>
+<h2 id="参考">11 参考</h2>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30583784">使用 VSCode 调试
+React 应用</a><br />
+<a target="_blank" rel="noopener" href="https://react-bootstrap.github.io/">React
+Bootstrap官网</a><br />
+<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ae482813b791">React
+简单介绍</a><br />
+<a target="_blank" rel="noopener" href="https://react-bootstrap.github.io/forms/overview/">React
+Bootstrap Get Start</a><br />
+<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/nxcniuxiangchen/article/details/122014958">详解React组件生命周期</a></p>
+<h2 id="发现">12 发现</h2>
+<p>它可以用不同的class描绘不同的控件<br />
+setstate会触发渲染<br />
+控制台会打出错误信息</p>
+<h2 id="访问远程数据">13 访问远程数据</h2>
+<pre><code>$ npm isntall axios --save  </code></pre>
+<h2 id="复杂示例">14 复杂示例</h2>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32766999/article/details/82855600">react
+利用select编写省市级三级联动</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/07_React/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/07_React/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/06_bootstrap/" title="06_bootstrap"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">06_bootstrap</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/2_Obsidian_%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6/" title="Obsidian常用三方插件"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Obsidian常用三方插件</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/01_%E7%8E%AF%E5%A2%83/" title="前端_搭建环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">前端_搭建环境</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/02_HTML5/" title="02_HTML5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">02_HTML5</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/03_JS/" title="03_JS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">03_JS</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/04_JQuery%E5%92%8CAjax/" title="04_JQuery和Ajax"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">04_JQuery和Ajax</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/05_CSS/" title="05_CSS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">05_CSS</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF%E5%85%A5%E9%97%A8/06_bootstrap/" title="06_bootstrap"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-30</div><div class="title">06_bootstrap</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">522</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="toc-number">1.</span> <span class="toc-text">1 相关术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#react%E4%B8%8E%E5%8F%AA%E6%9C%89js%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.</span> <span class="toc-text">2 react与只有JS的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">3.</span> <span class="toc-text">3 基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%BB%84%E4%BB%B6"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 函数组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 类组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 组件状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bind%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 Bind函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E7%9A%84key"><span class="toc-number">3.1.5.</span> <span class="toc-text">3.1.5 控件的Key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E9%80%9A%E8%AE%AF"><span class="toc-number">3.1.6.</span> <span class="toc-text">3.1.6 组件之间通讯</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">4.</span> <span class="toc-text">4 生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F"><span class="toc-number">5.</span> <span class="toc-text">5 第一个程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 新建一个项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 写代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#react%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.2.1.</span> <span class="toc-text">5.2.1 react简单示例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#react-bootstrap%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.2.2.</span> <span class="toc-text">5.2.2 react-bootstrap示例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%BF%90%E8%A1%8C"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 在浏览器中运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 编译</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-vscode-%E8%B0%83%E8%AF%95-react-%E5%BA%94%E7%94%A8"><span class="toc-number">6.</span> <span class="toc-text">6 使用 VSCode 调试 React 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reactbootstrap"><span class="toc-number">7.</span> <span class="toc-text">7 react+bootstrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%8C%83%E4%BE%8B"><span class="toc-number">8.</span> <span class="toc-text">8 简单范例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81"><span class="toc-number">9.</span> <span class="toc-text">9 编译前端代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BC%96%E8%AF%91"><span class="toc-number">9.0.1.</span> <span class="toc-text">9.1.1 为什么编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E8%AF%91"><span class="toc-number">9.0.2.</span> <span class="toc-text">9.1.2 如何编译</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="toc-number">10.</span> <span class="toc-text">10 问题与解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-number">10.1.</span> <span class="toc-text">10.1 问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-number">10.2.</span> <span class="toc-text">10.2 问题二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%89"><span class="toc-number">10.3.</span> <span class="toc-text">10.3 问题三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%9B%9B"><span class="toc-number">10.4.</span> <span class="toc-text">10.4 问题四</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%94"><span class="toc-number">10.5.</span> <span class="toc-text">10.5 问题五</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AD"><span class="toc-number">10.6.</span> <span class="toc-text">10.6 问题六</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%83"><span class="toc-number">10.7.</span> <span class="toc-text">10.7 问题七</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AB"><span class="toc-number">10.8.</span> <span class="toc-text">10.8 问题八</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B9%9D"><span class="toc-number">10.9.</span> <span class="toc-text">10.9 问题九</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%8D%81"><span class="toc-number">10.10.</span> <span class="toc-text">10.10 问题十</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%8D%81%E4%B8%80"><span class="toc-number">10.11.</span> <span class="toc-text">10.11 问题十一</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">11.</span> <span class="toc-text">11 参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0"><span class="toc-number">12.</span> <span class="toc-text">12 发现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE"><span class="toc-number">13.</span> <span class="toc-text">13 访问远程数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E7%A4%BA%E4%BE%8B"><span class="toc-number">14.</span> <span class="toc-text">14 复杂示例</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_1_%E5%85%A5%E9%97%A8/" title="Django_1_入门">Django_1_入门</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_2_%E8%BF%9B%E9%98%B6/" title="Django_2_进阶">Django_2_进阶</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/11_%E5%BA%94%E7%94%A8/AI%E7%BB%98%E7%94%BB/%E7%94%9F%E6%88%90%E5%8D%A1%E9%80%9A%E5%A4%B4%E5%83%8F/" title="生成卡通头像">生成卡通头像</a><time datetime="2023-09-17T00:00:00.000Z" title="Created 2023-09-17 00:00:00">2023-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B_Llama2/" title="论文阅读_大语言模型_Llama2">论文阅读_大语言模型_Llama2</a><time datetime="2023-09-11T00:00:00.000Z" title="Created 2023-09-11 00:00:00">2023-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E6%A8%A1%E5%9E%8B_ToolLLM/" title="论文阅读_大模型_ToolLLM">论文阅读_大模型_ToolLLM</a><time datetime="2023-09-04T00:00:00.000Z" title="Created 2023-09-04 00:00:00">2023-09-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

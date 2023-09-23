@@ -5,10 +5,10 @@
 <meta property="og:site_name" content="Yan 的杂物志">
 <meta property="og:description" content="顺流而下还是逆流而上？">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:author" content="Yan.xie">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/36/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/page/36/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-09-07 00:30:05'
+  postUpdate: '2023-09-23 09:11:12'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,232 +163,110 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">509</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">63</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/Python%E5%87%BD%E6%95%B0%E7%BB%98%E5%9B%BE/" title="Python函数绘图">Python函数绘图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-19T13:51:23.000Z" title="Created 2017-05-19 13:51:23">2017-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python函数绘图
-#Python
-最近看数学，发现有时候画个图还真管用，对理解和展示效果都不错。尤其是三维空间和一些复杂函数，相当直观，也有助于解题。
-本来想用mathlab，下载安装都太费事，杀鸡不用牛刀，Python基本就能实现，三维图还可以拖动图像来回旋转。
-下面分别在二维三维举例说明。
-1. 二维绘图
-
-   描述：  
-绘制极坐标系中r=1和r=2cosθ的相交部分（没画的时候，确实没看出r=2cosθ也是正圆）
-
-  程序  
-
-import numpy as np  
-import matplotlib.pyplot as plt  
-  
-plt.figure(1)  
-ax = plt.subplot(111)  
-x = np.linspace(0, np.pi * 2, 200)  # 在0到2pi之间，均匀产生200点的数组  
-   
-# r = 2cosθ  
-r = 2 * np.cos(x)  # 半径  
-ax.plot(r * np.cos(x), r * np.sin(x))  
-  
-# r = 1  
-r = 1  
-ax.plot(r * ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E8%BD%AE%E5%BB%93%E5%8C%B9%E9%85%8D/" title="图像处理之_轮廓匹配">图像处理之_轮廓匹配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T13:12:50.000Z" title="Created 2017-05-09 13:12:50">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_轮廓匹配
-#图形图像 #数学
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">522</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E2%80%94%E2%80%94%E4%BB%8B%E7%BB%8D/" title="比特币挖矿——入门">比特币挖矿——入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-24T15:10:19.000Z" title="Created 2017-10-24 15:10:19">2017-10-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——入门
+#区块链
+说比特币之前，先来说说虚拟货币，以及虚拟币的价值。比如说，百度文库文下载章需要付点数，自己上传文件被别人下载可以得到点数，点数就是虚拟货币，如果没有点数，又能想下文档，可以用钱兑换，这就是虚拟货币与真实货币的关系。至于一个点数研究值多少钱，又怎么给一篇文档定价，一般会借鉴类似资源的定价，使用的人多了，虚拟货币的价值也逐渐趋于稳定。
+比特币是最流行的虚拟货币，它是基于P2P的数字货币，在互联网的某处，每10分钟产生13个币，至于新产生的币归谁，就看谁挖到了（也就是挖矿，具体算法后面说明）。一般大家最大的疑问是：算法产生的一串数就能对应真金白银吗？来看看货币的价值：钱是一张纸，印这张纸花多少钱是它的自然属性，它能当多少钱花是它的社会属性，我们更关注它能当多少钱花。钱的使用价值是以发行方的信用作担保的，也就是说有国家在，就不用担心你的钱明天变成废纸。那谁给比特币谁作担保呢？上学的时候学：说一个事物，要么是主观的，要么是客观的，现在说，介于主观和客观之间叫互为主体(intersubjective)，即：相信的人多了，它就存在了。随着比特币越来越多的被用在交易中，互 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E5%85%AB_%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B/" title="Python股票处理之八_大数定律">Python股票处理之八_大数定律</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-31T22:49:05.000Z" title="Created 2017-07-31 22:49:05">2017-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之八_大数定律
+#Python #股票
 1. 引子
-图像识别可通过轮廓，直方图等方式实现，像人脸识别这种复杂应用，实现它的方法很多，通常是基础方法的改进版与机器学习组合。
-基于轮廓的识别，需要把图像拆分通道，寻找边缘，转换为轮廓（多边形逼近，特性概括等），然后进行轮廓匹配（图像与图像匹配，图像与模板匹配）。
-程序员根据不同情境，选择适合图像抽象方法和匹配方法。
-轮廓的匹配主要是解决大小，位置，旋转角度，精度不同图像间的匹配问题。方法包括轮廓矩，成对几何直方图，凸包和凸缺陷，等级匹配等等，下面以轮廓矩为例，看看它是如何实现的，同时也了解一下矩在图像处理中的应用（基于统计的方法）。
-2. 是什么矩（moment）
-数学定义：实函数相对于值c的n阶矩为
-
-
-图片.png
-
-从上述公式可以看到，它就是一个加了权重的积分，而权重是(x-c)n，其中n是阶数（n阶矩），如果把它想成一个平面直角系中，c是x轴上的一点，(x-c)n是各个x点相对于c点值的n次方。以下是个积分的图示，只要想象一下，它的每个小方块再乘上权重：(xi-c)^n即可得到矩。
-
-
-图片.png
-
-轮廓处理中用到的矩，是它在统 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="图像处理之_傅立叶变换">图像处理之_傅立叶变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T13:03:26.000Z" title="Created 2017-05-09 13:03:26">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_傅立叶变换
-#图形图像
-1. 图像处理中的傅立叶变换
-将一幅图像从其空间域（spatial domain）转换为频域（frequency
-domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier
-Transform），下文中简称DFT。
-
-
-图片.png
-
-如上图所示，左边是原始图像（左白右黑），中间是DFT变换，右侧为变换后生成的频谱图（幅度相位共同决定了图中点亮度）。
-上图展示了红色点(x,y)的变换，在纵轴方向，它所在的列颜色值都为0（黑色），因此组成它的波形也能量也都为0，在横轴方向，如中间图所示，左则为255（白色），右则为0（黑色），将其拆分成正弦波的组合，再利用拆分后的各个波的幅度（亮度）相位（亮度）以及频率大小（位置）生成频谱图（上图中简化了相位）。
-原始图中的每个像素点，是由不同频率波投射在该点的能量叠加而成的，而频谱图中的每个点是原始图中每个像素点在该频率上的能量叠加而成的。它们之间都是一对多的关系，不存在一一对应。
-2. 如何理解公式
-
-
-图片.png
-
-以上公式分别是一维和二维DFT的定义（摘自《学习OpenCV》），先看 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2%E4%B8%8E%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2/" title="图像处理之_仿射变换与透视变换">图像处理之_仿射变换与透视变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T08:42:31.000Z" title="Created 2017-05-03 08:42:31">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_仿射变换与透视变换
-#图形图像
-1. 仿射变换
-1) 用途
-旋转 (线性变换)，平移(向量加)．缩放(线性变换)，错切，反转
-2) 方法
-仿射变换是一种二维坐标到二维坐标之间的线性变换，它保持了二维图形的“平直性”（直线经过变换之后依然是直线）和“平行性”（二维图形之间的相对位置关系保持不变，平行线依然是平行线，且直线上点的位置顺序不变）。任意的仿射变换都能表示为乘以一个矩阵(线性变换)，再加上一个向量
-(平移) 的形式．
-
-
-图片.png
-
-以上公式将点(x,y)映射到(x’,y’)，在OpenCV中通过指定一个2x3矩阵实现此功能（公式中的m矩阵，是线性变换和平移的组合，m11,m12,m21,m22为线性变化参数，m13,m23为平移参数，其最后一行固定为0,0,1，因此，将3x3矩阵简化为2x3）
-3) 举例
-
-   以原点为中心旋转，2x3矩阵为：  
-
-[ cos(theta), -sin(theta), 0 ],  
-[ sin(theta), cos(theta), 0 ]  
-则  
-x’ = x * cos(theta) - sin(theta) * y ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E8%81%9A%E7%84%A6%E6%95%88%E6%9E%9CLogPolar/" title="图像处理之_聚焦效果LogPolar">图像处理之_聚焦效果LogPolar</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T08:35:05.000Z" title="Created 2017-05-03 08:35:05">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_聚焦效果LogPolar
-#图形图像 #数学
-1. LogPolar
-LogPolar是将笛卡尔坐标到对数极坐标的变换．即：将(x,y) 映射到
-(log(ρ),θ)
-2. 笛卡尔空间＆笛卡尔坐标
-笛卡尔坐标系(Cartesiancoordinates)就是直角坐标系和斜角坐标系的统称．本文中用到的是平面直角坐标系．
-
-
-图片.png
-
-3. 极坐标
-在平面上取一定点o，称为极点，由o出发的一条射线ox，称为极轴。再取定一个长度单位，通常规定角度取逆时针方向为正。这样，平面上任一点P的位置就可以用线段OP的长度ρ以及从Ox到OP的角度θ来确定，有序数对（ρ，θ）就称为P点的极坐标，记为P（ρ，θ）；ρ称为P点的极径，θ称为P点的极角。
-
-
-图片.png
-
-4. 笛卡尔坐标到极坐标变换
-
-
-图片.png
-
-在OpenCV中使用函数CartToPolar()实现．
-5. 自然常数e（欧拉数）
-自然常数e（约为2.71828）其是公式为
-
-
-图片.png
-
-6. 对数定义
-若a^n=b(a&gt;0且a≠1)
-则n=logab。其中，a叫做“底数”，b叫做“真数”，n叫做“以a为 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E9%9C%8D%E5%A4%AB%EF%BC%88Hough%EF%BC%89%E5%8F%98%E6%8D%A2/" title="图像处理之_霍夫（Hough）变换">图像处理之_霍夫（Hough）变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-28T08:02:02.000Z" title="Created 2017-04-28 08:02:02">2017-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_霍夫（Hough）变换
-#图形图像
-1. 用途
-Hough变换是一种在图像中寻找直线，圆及其它简单形状的方法．当我们对图像进行边缘检测之后，可用Hough变换识别图像中的简单形状．该转换也是对图像的一种抽象（由繁到简）．下面介绍最基本Hough变换：寻找直线算法．
-2. 思路
-Hough变换通过从直角坐标系到极坐标系的转换，将直角坐标系中的一条＂直线＂，转换为极坐标系上的一个＂点＂，落在这条＂直线＂上的像素点越多，这个极坐标中＂点＂的权越重，最终通过分析各个＂点＂的权重（局部最大值），获取重要线段．为区别直角坐标系中的点和极坐标系中的点，下面我们将直角坐标系中的点称为像素点．
-3. 具体实现
-
-如图所示，假设我们有一个桃心图形，由多个红色像素点组成（红色为其有意义的像素点，即轮廓值），想提取出其中的直线．如果将各个像素点连成直线，直线将会有很多条，有些有意义，有些没意义．一般认为像素点足够多的直线更具意义，比如图中的绿色和蓝色的直线．在直角坐标系中，可以用斜截式y=kx+b来表示一条直线（k是斜率，b是y轴上的截距）．转换到极坐标系P（ρ，θ）；ρ称为P点的极径（从原点到直 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B9%8B_%E5%AF%BC%E6%95%B0%E5%BE%AE%E5%88%86/" title="图像处理之_导数微分">图像处理之_导数微分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-28T07:55:45.000Z" title="Created 2017-04-28 07:55:45">2017-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">图像处理之_导数微分
-#图形图像 #数学
-1. 一阶导数应用：图像的梯度
-1) 用途:
-在图像处理中, 常用梯度求取图像的边缘, 这是一个很基础的应用.
-下图为在OpenCV中使用cvSobel()函数的具体效果. 四张图分别为: 原图,
-在x方向上的梯度, y方向上的梯度, xy方向上的梯度.
-
-2) 二元函数
-这里我们只讨论二元函数z=f(x,y)的导数, 通常把二元函数想像成一个曲面,
-公式中的x,y,z分别映射到坐标系中的x,y,z轴.
-于是我们看到了很多像山坡一样的三维图, 切线, 切面,
-很看来很复杂．我觉得从图像处理的角度看二元函数似乎更容易理解, 为了简化,
-我们以一张黑白图为例. x,y轴分别对应成图像的宽和高, 颜色的灰度对应z值: z
-= f(x,y)，每个像素点的颜色值是其坐标(x,y)的函数．
-
-3) 梯度的定义
-函数 z =
-f(x,y)在区域D内具有一阶连续偏导数，则对于每一个属于D的点P(x,y)，都可定出一个向量，这个向量称为函数
-z = f(x,y)在点P处的梯度．记作gradf(x,y). 一般通过求导(微分)来实现的.
-导数是函数的局部性质。描述 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/Android%E5%BC%80%E5%8F%91_%E7%B2%BE%E5%87%86%E6%8E%92%E5%B8%83%E6%8E%A7%E4%BB%B6%E4%BD%8D%E7%BD%AE/" title="Android开发_精准排布控件位置">Android开发_精准排布控件位置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T12:12:12.000Z" title="Created 2017-04-24 12:12:12">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android开发_精准排布控件位置
-#移动开发 #android
-1. 简述
-在Android系统上开发程序，很多时候需要精准的排布控件的位置和大小．并且适合各种比例的屏幕（4:3，16:9…），下面分别介绍在高版本和低版本的Android中的实现方法．
-2. Android
-Studio／高版本Android实现
-
-说明
-使用高版本android内置的android-support-percent-lib库，通过设置百分比的方法，实现了该功能，
-Demo一般都是android
-studio，Eclipse下需要下载支持库： http://download.csdn.net/detail/sbsujjbcy/8857747
-
-在Layout中设置百分比：PercentRelativeLayout/PercentFrameLayout/PercentLinearLayout
-Layout文件
-
-&lt;android.support.percent.PercentFrameLayout
-xmlns:android="http://schemas.android.com/apk/res/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8Android-Studio/" title="Ubuntu上安装和使用AndroidStudio">Ubuntu上安装和使用AndroidStudio</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T11:50:29.000Z" title="Created 2017-04-24 11:50:29">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Ubuntu上安装和使用Android
-Studio
-#移动开发 #android
-1． 对比Eclipse与Android
-Studio开发
-
-
-
-
-
-
-
-
-
-Eclipse开发
-Android Studio开发
-
-
-
-
-Java开发工具
-JDK (可通用)
-JDK (可通用)
-
-
-Android开发工具
-Android SDK
-Android SDK
-
-
-集成开发环境
-Eclipse
-Android Studio
-
-
-命令行编译工具
-Ant
-Gradle
-
-
-结构
-Android
-Studio的Project类于Eclipse的Workspace
-Android
-Studio的module类似于Eclipse的Project
-
-
-优点
-Eclipse支持C/C++/Java/Python起初大家都有它做Android开发，熟悉度高
-针对Android安装使用方便一些，5.0以后的有些功能只能在Android
-Studio上使用
-
-
-
-2． 说明
-
-        本文的安装环境是Ubuntu 16.10，其它Ubuntu版本也可以，强烈建议使用64位系统，因为最新版本Studio可 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/Python%E8%AE%BE%E7%BD%AE%E4%B8%89%E6%96%B9%E5%BA%93%E8%B7%AF%E5%BE%84/" title="Python设置三方库路径">Python设置三方库路径</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-31T18:43:31.000Z" title="Created 2017-03-31 18:43:31">2017-03-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python设置三方库路径
-#Python
-一般安装Python的三方库，直接使用Python的包管理工具pip，或者下载源码包后，使用其中的setup.py安装，就可以直接安装在Python的系统库目录中了．
-如果想使用一个三方库，又不想安装在Python的默认库目录中，可以程序中使用
-”sys.path.append("具体路径")”
-将三方库路径暂时加入库路径．如果想操作一次，之后任何程序都可以直接使用，比如自己写的库，以Ubuntu系统为例，示例如下：
-1. 建立自己的库
-123456789101112131415161718192021222324252627282930    $ mkdir /tmp/8888  # 建自己的库目录，此处只是试验，/tmp目录一重启就清除了      $ vi /tmp/8888/x888.py   # 编写库文件，内容如下      def testme():          print &#x27;hahahaha&#x27;      ```    ##  2\. 看一下python的默认库路径        ```      $  ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/35/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/#content-inner">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/#content-inner">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/#content-inner">51</a><a class="extend next" rel="next" href="/page/37/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">509</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">63</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E6%A8%A1%E5%9E%8B_ToolLLM/" title="论文阅读_大模型_ToolLLM">论文阅读_大模型_ToolLLM</a><time datetime="2023-09-04T00:00:00.000Z" title="Created 2023-09-04 00:00:00">2023-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/hexo/hexo%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/" title="hexo问题及解决">hexo问题及解决</a><time datetime="2023-09-03T00:00:00.000Z" title="Created 2023-09-03 00:00:00">2023-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8%E6%96%87%E5%BF%83%E4%B8%80%E8%A8%80/" title="试用文心一言">试用文心一言</a><time datetime="2023-08-31T00:00:00.000Z" title="Created 2023-08-31 00:00:00">2023-08-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/hexo/%E6%9E%84%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2_Obsidian_github.io_hexo/" title="构建个人博客_Obsidian_github">构建个人博客_Obsidian_github</a><time datetime="2023-08-27T00:00:00.000Z" title="Created 2023-08-27 00:00:00">2023-08-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2_Knowledge/2_%E6%8A%80%E6%9C%AF/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0_AI%E7%BB%98%E7%94%BB/" title="主题笔记_AI绘图">主题笔记_AI绘图</a><time datetime="2023-08-25T00:00:00.000Z" title="Created 2023-08-25 00:00:00">2023-08-25</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给X同学。结果人家说“70%多，这准确率高么？瞎蒙的准确率也有50%”
+这准确率高么？只靠对技术形态的判断，好像也还行吧？如果有70%的正确率，到底怎么做赢的机会比较大？达到多少百分比，才能够满意？
+看《程序员的数学2：概率统计》中有一道类似的习题：设结果甲出现概率为0.7，结果乙出现概述为0.3，且不论甲还是乙，只要猜中，就能获得下注同等的金额，猜不中则输掉赌资。显然选择甲是明智的做法。假设你每天都会参与这场赌博，你会将占总资产比例p的金额投给甲，p在整个过程中保持不变，请问应该如何设定p值？（我把该题简化了，大概是这个意思）
+如果只考虑一天，显然把所有资产都投给甲p=1是最佳选择，然而不断重复赌局时，总会出现没有中奖而失去所有财产的情况。下面写一个程序模拟这个赌局：
+2.程序
+# -*- coding: utf-8 -*-  
+  
+import random  
+import math  
+import matplotlib.pyplot as ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E4%B8%83_%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AD%98%E5%82%A8/" title="Python股票处理之七_数据库存储">Python股票处理之七_数据库存储</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-21T12:16:22.000Z" title="Created 2017-07-21 12:16:22">2017-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之七_数据库存储
+#股票 #Python
+1. 说明
+股票数据无需每次都从网上下载，像日线级别的历史数据会常常用到，使用多线程下载一般也需要几个小时，最好存储到本地，除了已有的特征值，还有清洗后的数据，和计算出的新特征值，以及需要与其它程序共享数据。相对于数据文件，使用数据库更合适。
+本文介绍pandas（数据结构支持）通过sqlalchemy与数据库连接，存储tushare下载的日线数据，用一套代码操作不同数据库（Mysql/sqlite）。
+2. 安装数据库
+1) Sqlalchemy工具
+$ pip install sqlalchemy  
+2) Mysql数据库
+$ sudo apt-get install mysql-server  
+$ sudo apt-get install mysql-client  
+$ mysql -u root –p  
+mysql&gt; create database stock    # 建立名为stock的数据库，之后程序中会用到  
+mysql&gt; show databases;  # 显示已有的数据库  
+3) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Python%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" title="Python数据分析常用工具">Python数据分析常用工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-21T12:09:03.000Z" title="Created 2017-07-21 12:09:03">2017-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span></div><div class="content">Python数据分析常用工具
+#大数据 #Python
+1． Numpy：
+科学计算基础包, 提供矩阵数据类型、矢量处理，以及精密的运算库。
+12345678910111213141516171819202122232425262728293031$ pip install numpy  ```  ## 2．	Pandas：  基于Numpy，最初被作为金融数据分析工具而开发出来，一般用于处理结构化数据。  ```  $ pip install pandas  ```  ## 3．	Matplotlib：  绘制数据图表  ```  $ pip install matplotlib  ```  ## 4．	Seaborn：  在 Matplotlib的基础上进行了更高级的API封装，从而使得作图更加容易。  ```  $ pip install seaborn  ```  ## 5．	IPython：  Python 的交互式 shell，比默认的python shell 好用，支持变量自动补全，自动缩进，支持 bash shell 命令，内置了许多很有用的功能和函数。  ```  $ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E5%85%AD_%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86A/" title="Python股票处理之六_数据预处理A">Python股票处理之六_数据预处理A</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-04T13:32:02.000Z" title="Created 2017-07-04 13:32:02">2017-07-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之六_数据预处理A
+#Python #股票
+1. 说明
+在数据统计和预测的过程中，工程师基本都使用现成的算法，工程师的主要工作是根据具体业务逻辑预处理数据和选择算法。
+首先要对数据预处理（数据清洗），包括数据的归一化，去除重复数据，修改错误数据，填充无效数据，抽象数据表示，筛选特征值，分配权重等等，以得到更准确的数据和更有效的结果。
+继续上次关于股票直方图的话题，来看看简单的股票数据预处理。左图是昨天股票涨跌的直方图，从中看出，涨跌幅分布在-10到50的区间内。
+涨幅超过10%是因为计入了新股的首日涨幅，跌涨超过-10%，可能由于分红配送等原因引起。下面程序中将对此区域进行特殊处理。
+对于当日停牌的数据，它的开盘价收盘价最高价最低价都是同一个值，如果加入统计，会在0附近形成一个无意义的峰值，在预处理中也把它去掉。
+如果用左图结果做一个从(-10,10)共计20个区间的分类器，那么结果多半会落入(-1,1)的区间内，这并不是我们想要的。我们更希望看到的是将3000多支股票平均分布在这20个区域，每个区域股票数量相同，但是各区域大小不同。根据区域得到更合理的分类结果。（ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E4%BA%94_%E7%9B%B4%E6%96%B9%E5%9B%BE%E7%BB%9F%E8%AE%A1/" title="Python股票处理之五_直方图统计">Python股票处理之五_直方图统计</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-04T13:27:38.000Z" title="Created 2017-07-04 13:27:38">2017-07-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之五_直方图统计
+#Python #股票
+1. 说明
+直方图(Histogram)又称质量分布图。是一种统计报告图，由一系列高度不等的纵向条纹或线段表示数据分布的情况（见下图）。
+直方图是统计中的常用工具，在图像处理中，经常通过边缘或者颜色统计计算直方图，并通过直方图匹配实现图像识别；也可以据此判断颜色分布，以调节色彩均衡；还可以筛选出感兴趣的区域，并做进一步处理。
+在股票数据处理中，也同理，统计出直方图后，可利用它和以往数据匹配，寻找近似的情况；统计有效数据集中区域，并聚焦于该区域进一步处理。
+下面是一个最简单的实例：每天我们能看出大盘的整体涨跌，但并不了解各股涨跌情况的分布（比如：是普涨还是二八行情），下例分析并显示了昨天各股涨跌幅主要分布在哪些区间内。
+2. 程序
+1) 代码
+# -*- coding:utf-8 -*-    
+   
+  
+import tushare as ts  
+import numpy as np    
+import matplotlib.pyplot as plt    
+   
+  
+e = ts.get_today_all( ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E5%9B%9B_%E8%82%A1%E7%A5%A8%E7%AD%9B%E9%80%89/" title="Python股票处理之四_股票筛选">Python股票处理之四_股票筛选</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T17:40:19.000Z" title="Created 2017-06-30 17:40:19">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之四_股票筛选
+#Python #股票
+一、 说明
+本例实现了股票筛选功能。
+前一半是过滤出市盈率在0-30倍之间，且今日换手率&gt;1%，涨幅超2%的股票。
+后一半统计今日涨停和接近涨停的股票。
+二、 程序
+1234567891011121314151617181920212223242526272829303132#! usr/bin/python #coding=utf-8    import pandas as pd  import tushare as ts    e = ts.get_today_all()  code = e[u&#x27;code&#x27;]  name = e[u&#x27;name&#x27;]  per = e[u&#x27;per&#x27;] # 市盈率  tt = e[u&#x27;turnoverratio&#x27;]	# 换手率  cc = e[u&#x27;changepercent&#x27;]	# 涨跌幅  mm = e[u&#x27;mktcap&#x27;]	# 总市值    idx = len(nam ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E4%B8%89_%E5%AE%9E%E6%97%B6%E7%9B%91%E6%B5%8B/" title="Python股票处理之三_实时监测">Python股票处理之三_实时监测</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T17:37:45.000Z" title="Created 2017-06-30 17:37:45">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之三_实时监测
+#Python #股票
+1. 说明
+写个脚本帮你每天盯着某几支股票，达到预设值时响铃提醒。这是最简单的股票应用，虽然谈不上智能，但是自动化――老盯着就容易冲动操作。
+本例中实现了每5秒取一次股票数据，并在上证指数高于3200点，或601318低于49元时响提醒。
+2. 程序
+1234567891011121314151617181920import os  import time  import tushare as ts  import pandas as pd    def check(code, low, high):  	df = ts.get_realtime_quotes(code)  	e = df[[&#x27;code&#x27;,&#x27;name&#x27;,&#x27;price&#x27;,&#x27;time&#x27;]]  	p = df[u&#x27;price&#x27;]  	print e   	if float(p[0]) &gt; low and float(p[0]) &lt; high:  		ret ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E4%BA%8C_%E6%95%B0%E6%8D%AE%E5%AD%98%E7%9B%98/" title="Python股票处理之二_数据存盘">Python股票处理之二_数据存盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T17:35:39.000Z" title="Created 2017-06-30 17:35:39">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python股票处理之二_数据存盘
+#Python #股票
+1. 说明
+有些历史数据不用每次下载，可以存储到本地。尤其在调试阶段，省去了每测一遍都要下载数据的时间和流量。
+Python存储数据非常方便，完全不用考虑数据库的格式，存进去是那个结构，取出来还是那个结构，屏蔽了所有细节。
+具体使用HDF格式，该格式可以存储不同类型的图像和数码数据的文件格式。
+2. 安装相关库
+123456789101112131415161718192021222324252627$ sudo apt-get install libhdf5-dev  $ sudo pip install h5py  $ sudo pip install --upgrade tables  ```  ## 3.	程序  #### 1)	存储  ```  import tushare as ts  import pandas as pd    e = ts.get_today_all()  print e  h5 = pd.HDFStore(&#x27;data/tmp.h5&#x27;,&#x27;w&#x27;)  h5[ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/Python%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E4%B8%80_%E8%8E%B7%E5%8F%96%E5%9B%BD%E5%86%85%E8%82%A1%E7%A5%A8%E6%95%B0%E6%8D%AE/" title="Python获取国内股票数据">Python获取国内股票数据</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-27T15:06:48.000Z" title="Created 2017-06-27 15:06:48">2017-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python获取国内股票数据
+#Python #股票
+1 安装支持库
+$ pip install panda  
+$ pip install tushare  
+2 说明
+Pandas是数据分析工具包
+TuShare是国内股票数据抓取工具，除了股票的实时和历史数据，还有基本面数据，加上自然语言处理（比如情绪分析），或者机器学习，就比较有趣了。
+3 程序
+3.1 代码
+import tushare as ts  
+d = ts.get_tick_data(&#39;601318&#39;,date=&#39;2017-06-26&#39;)  
+print d  
+e = ts.get_hist_data(&#39;601318&#39;,start=&#39;2017-06-23&#39;,end=&#39;2017-06-26  
+&#39;)  
+print e  
+3.2 执行结果
+…  
+4758  09:30:01  50.02  0.03    1044   5226339  买盘  
+4759  09:28:45  49.99    --       0          ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/35/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/#content-inner">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/#content-inner">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/#content-inner">53</a><a class="extend next" rel="next" href="/page/37/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">522</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_1_%E5%85%A5%E9%97%A8/" title="Django_1_入门">Django_1_入门</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_2_%E8%BF%9B%E9%98%B6/" title="Django_2_进阶">Django_2_进阶</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/11_%E5%BA%94%E7%94%A8/AI%E7%BB%98%E7%94%BB/%E7%94%9F%E6%88%90%E5%8D%A1%E9%80%9A%E5%A4%B4%E5%83%8F/" title="生成卡通头像">生成卡通头像</a><time datetime="2023-09-17T00:00:00.000Z" title="Created 2023-09-17 00:00:00">2023-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B_Llama2/" title="论文阅读_大语言模型_Llama2">论文阅读_大语言模型_Llama2</a><time datetime="2023-09-11T00:00:00.000Z" title="Created 2023-09-11 00:00:00">2023-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E6%A8%A1%E5%9E%8B_ToolLLM/" title="论文阅读_大模型_ToolLLM">论文阅读_大模型_ToolLLM</a><time datetime="2023-09-04T00:00:00.000Z" title="Created 2023-09-04 00:00:00">2023-09-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">499</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">37</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/vscode/"><span class="card-category-list-name">vscode</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">版本管理</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">笔记工具</span><span class="card-category-list-count">14</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/CRF/" style="font-size: 1.1em; color: #999">CRF</a> <a href="/tags/pytorch/" style="font-size: 1.1em; color: #999">pytorch</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.34em; color: #99a2af">数学</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/theme/" style="font-size: 1.1em; color: #999">theme</a> <a href="/tags/python/" style="font-size: 1.26em; color: #99a0a9">python</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.22em; color: #999ea4">区块链</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">前端</a> <a href="/tags/xgboost/" style="font-size: 1.29em; color: #99a1ab">xgboost</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.45em; color: #99a7bb">图形图像</a> <a href="/tags/Pytorch/" style="font-size: 1.31em; color: #99a1ad">Pytorch</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.12em; color: #999a9b">多模态</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.15em; color: #999b9d">模型解释</a> <a href="/tags/ES/" style="font-size: 1.1em; color: #999">ES</a> <a href="/tags/Arduino/" style="font-size: 1.38em; color: #99a4b4">Arduino</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.19em; color: #999da2">知识蒸馏</a> <a href="/tags/%E7%A1%AC%E4%BB%B6/" style="font-size: 1.1em; color: #999">硬件</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E6%8E%A8%E7%90%86/" style="font-size: 1.1em; color: #999">知识推理</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A3%81%E5%89%AA/" style="font-size: 1.1em; color: #999">模型裁剪</a> <a href="/tags/%E7%BD%91%E7%AB%99/" style="font-size: 1.19em; color: #999da2">网站</a> <a href="/tags/Linux/" style="font-size: 1.43em; color: #99a6b8">Linux</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" style="font-size: 1.15em; color: #999b9d">大模型应用</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.31em; color: #99a1ad">笔记</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.34em; color: #99a2af">语音</a> <a href="/tags/gui/" style="font-size: 1.1em; color: #999">gui</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.41em; color: #99a5b6">算法实战</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.1em; color: #999">人工智能</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 1.1em; color: #999">日志</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.36em; color: #99a3b2">大模型</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">生物医学</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.15em; color: #999b9d">版本管理</a> <a href="/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.17em; color: #999ca0">扩散模型</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.12em; color: #999a9b">自动驾驶</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.48em; color: #99a8bd">机器学习</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.24em; color: #999fa6">数据分析</a> <a href="/tags/%E6%9D%A1%E4%BB%B6%E9%9A%8F%E6%9C%BA%E5%9C%BA/" style="font-size: 1.1em; color: #999">条件随机场</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.26em; color: #99a0a9">模型结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">February 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">November 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">509</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-09-07T00:30:04.165Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/"><span class="card-category-list-name">0_Inbox</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/0-%E6%AD%A3%E5%9C%A8%E7%9C%8B/"><span class="card-category-list-name">0_正在看</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/1-%E6%AD%A3%E5%9C%A8%E5%81%9A/"><span class="card-category-list-name">1_正在做</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/1-%E6%AD%A3%E5%9C%A8%E5%81%9A/django/"><span class="card-category-list-name">django</span><span class="card-category-list-count">2</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">509</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">37</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.14em; color: #999b9d">模型解释</a> <a href="/tags/%E6%97%A5%E5%BF%97/" style="font-size: 1.1em; color: #999">日志</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.16em; color: #999b9f">论文阅读</a> <a href="/tags/JNI/" style="font-size: 1.1em; color: #999">JNI</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.22em; color: #999ea4">数据库</a> <a href="/tags/C/" style="font-size: 1.14em; color: #999b9d">C</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.18em; color: #999ca1">知识蒸馏</a> <a href="/tags/CRF/" style="font-size: 1.1em; color: #999">CRF</a> <a href="/tags/Linux/" style="font-size: 1.36em; color: #99a3b2">Linux</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A3%81%E5%89%AA/" style="font-size: 1.1em; color: #999">模型裁剪</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.46em; color: #99a7bb">自然语言处理</a> <a href="/tags/android/" style="font-size: 1.48em; color: #99a8bd">android</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" style="font-size: 1.2em; color: #999da3">知识表示</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.4em; color: #99a5b6">机器学习</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/%E6%97%B6%E5%BA%8F/" style="font-size: 1.3em; color: #99a1ac">时序</a> <a href="/tags/Arduino/" style="font-size: 1.34em; color: #99a3b0">Arduino</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">大模型</a> <a href="/tags/Python/" style="font-size: 1.44em; color: #99a7b9">Python</a> <a href="/tags/Pytorch/" style="font-size: 1.3em; color: #99a1ac">Pytorch</a> <a href="/tags/Docker/" style="font-size: 1.2em; color: #999da3">Docker</a> <a href="/tags/%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">增强学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.16em; color: #999b9f">特征工程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.42em; color: #99a6b7">工具</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E6%A1%86%E6%9E%B6/" style="font-size: 1.14em; color: #999b9d">深度框架</a> <a href="/tags/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.18em; color: #999ca1">少儿编程</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999b9d">版本管理</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.2em; color: #999da3">区块链</a> <a href="/tags/%E6%A1%86%E6%9E%B6%E7%90%86%E8%AE%BA/" style="font-size: 1.1em; color: #999">框架理论</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.3em; color: #99a1ac">数学</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b4">深度学习</a> <a href="/tags/ES/" style="font-size: 1.1em; color: #999">ES</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.3em; color: #99a1ac">语音</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.2em; color: #999da3">随笔</a> <a href="/tags/xgboost/" style="font-size: 1.26em; color: #999fa8">xgboost</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">主题笔记</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.28em; color: #99a0aa">前端</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 1.24em; color: #999fa6">股票</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">February 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">November 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">522</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">644.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-09-23T09:11:10.908Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
