@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SHAP解释模型 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#Python #机器学习 #模型解释 1 简介 近年来，模型的可解释性越来越受到重视，SHAP是一个Python工具包，它可以解析任何模型的输出。本文除了介绍SHAP的基本用法之外，还示例了新版本提供的一些高级用法，进一步提升了预测的归因效果以及分组分析。 2 环境配置： 以下实验使用当前最新版本shap：0.39.0 $ pip install shap   注意xgboost也需要使用对应的">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SHAP解释模型 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="#Python #机器学习 #模型解释 1 简介 近年来，模型的可解释性越来越受到重视，SHAP是一个Python工具包，它可以解析任何模型的输出。本文除了介绍SHAP的基本用法之外，还示例了新版本提供的一些高级用法，进一步提升了预测的归因效果以及分组分析。 2 环境配置： 以下实验使用当前最新版本shap：0.39.0 1$ pip install shap   注意xgboost也需要使用对应">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SHAP解释模型">
 <meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="Yan 的杂物志">
-<meta property="og:description" content="#Python #机器学习 #模型解释 1 简介 近年来，模型的可解释性越来越受到重视，SHAP是一个Python工具包，它可以解析任何模型的输出。本文除了介绍SHAP的基本用法之外，还示例了新版本提供的一些高级用法，进一步提升了预测的归因效果以及分组分析。 2 环境配置： 以下实验使用当前最新版本shap：0.39.0 $ pip install shap   注意xgboost也需要使用对应的">
+<meta property="og:description" content="#Python #机器学习 #模型解释 1 简介 近年来，模型的可解释性越来越受到重视，SHAP是一个Python工具包，它可以解析任何模型的输出。本文除了介绍SHAP的基本用法之外，还示例了新版本提供的一些高级用法，进一步提升了预测的归因效果以及分组分析。 2 环境配置： 以下实验使用当前最新版本shap：0.39.0 1$ pip install shap   注意xgboost也需要使用对应">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2021-09-20T17:13:48.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.332Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.167Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="机器学习">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,114 +168,63 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SHAP解释模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-09-20T17:13:48.000Z" title="Created 2021-09-20 17:13:48">2021-09-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.332Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SHAP解释模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#Python #机器学习 #模型解释</p>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SHAP解释模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-09-20T17:13:48.000Z" title="Created 2021-09-20 17:13:48">2021-09-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.167Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SHAP解释模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#Python #机器学习 #模型解释</p>
 <h2 id="简介">1 简介</h2>
 <p>近年来，模型的可解释性越来越受到重视，SHAP是一个Python工具包，它可以解析任何模型的输出。本文除了介绍SHAP的基本用法之外，还示例了新版本提供的一些高级用法，进一步提升了预测的归因效果以及分组分析。</p>
 <h2 id="环境配置">2 环境配置：</h2>
-<p>以下实验使用当前最新版本shap：0.39.0</p>
-<pre class="shell"><code>$ pip install shap  </code></pre>
-<p>注意xgboost也需要使用对应的较新版本，如：</p>
-<pre class="shell"><code>$ pip install xgboost==0.82  </code></pre>
-<p>为使用交互界面，notebook环境下，加载用于可视化的JS代码</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap  </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>shap.initjs()  </span></code></pre></div>
+<p>以下实验使用当前最新版本shap：0.39.0<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install shap</span>  </span><br></pre></td></tr></table></figure> 注意xgboost也需要使用对应的较新版本，如：<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install xgboost==0.82</span>  </span><br></pre></td></tr></table></figure>
+为使用交互界面，notebook环境下，加载用于可视化的JS代码<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shap  </span><br><span class="line">shap.initjs()  </span><br></pre></td></tr></table></figure></p>
 <h2 id="实验数据">3 实验数据</h2>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shap  </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>shap.initjs()  </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>X,y <span class="op">=</span> shap.datasets.boston()  </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> xgboost.train(&#123;<span class="st">&quot;learning_rate&quot;</span>: <span class="fl">0.01</span>&#125;, xgboost.DMatrix(X, label<span class="op">=</span>y), <span class="dv">100</span>)  </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>explainer <span class="op">=</span> shap.TreeExplainer(model)  </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>shap_values <span class="op">=</span> explainer.shap_values(X)   </span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shap  </span><br><span class="line">shap.initjs()  </span><br><span class="line">  </span><br><span class="line">X,y = shap.datasets.boston()  </span><br><span class="line">model = xgboost.train(&#123;<span class="string">&quot;learning_rate&quot;</span>: <span class="number">0.01</span>&#125;, xgboost.DMatrix(X, label=y), <span class="number">100</span>)  </span><br><span class="line">  </span><br><span class="line">explainer = shap.TreeExplainer(model)  </span><br><span class="line">shap_values = explainer.shap_values(X)   </span><br></pre></td></tr></table></figure>
 <h2 id="实验">4 实验</h2>
 <h4 id="实验一">4.1.1 实验一</h4>
-<p>SHAP的可解释性，基于对每一个训练数据的解析。比如：解析第一个实例每个特征对最终预测结果的贡献。</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shap.plots.force(shap_values[<span class="dv">0</span>])    </span></code></pre></div>
-<figure>
-<img
+<p>SHAP的可解释性，基于对每一个训练数据的解析。比如：解析第一个实例每个特征对最终预测结果的贡献。<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.force(shap_values[<span class="number">0</span>])    </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-caad6880f59c0fe9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图一）" />
-<figcaption aria-hidden="true">（图一）</figcaption>
-</figure>
+alt="（图一）" /></p>
 <p>图中，红色特征使预测值更大（类似正相关），蓝色使预测值变小，而颜色区域宽度越大，说明该特征的影响越大。（此处图中数字是特征的具体数值）<br />
 其中base_value是所有样本的平均预测值，output_value即f(x)是本实例的预测值。本例分析了回归问题，对于分类问题，可以看到base_value和output_value并不在0-1之间，这是由于对数转换造成的。</p>
 <h4 id="实验二">4.1.2 实验二</h4>
-<p>进而可以画出每个特征对结果影响程度的具体大小（此处图中数字是特征权重）</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>shap.plots.waterfall(shap_values[<span class="dv">0</span>])    </span></code></pre></div>
-<figure>
-<img
+<p>进而可以画出每个特征对结果影响程度的具体大小（此处图中数字是特征权重）<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.waterfall(shap_values[<span class="number">0</span>])    </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-c6c5ac73907e672f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图二）" />
-<figcaption aria-hidden="true">（图二）</figcaption>
-</figure>
+alt="（图二）" /></p>
 <h4 id="实验三">4.1.3 实验三</h4>
-<p>以上都是对于单个实例的解释，更多的时候我们看到的是这种图：</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>shap.plots.beeswarm(shap_values)<span class="op">!</span>[]  </span></code></pre></div>
-<figure>
-<img
+<p>以上都是对于单个实例的解释，更多的时候我们看到的是这种图：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.beeswarm(shap_values)![]  </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-2a423df57a895e32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图三）" />
-<figcaption aria-hidden="true">（图三）</figcaption>
-</figure>
+alt="（图三）" /></p>
 <p>它对所有实例作图，相当于把图一上的每个特征旋转90度画成点图。这样可以看到特征对预测影响的大小，需要注意的是：这里的横坐标是shap-value，即影响的权重，而非特征的具体值，特征值大小对结果的影响通过颜色表示（红色为值大，蓝色为值小，紫色邻近均值）。因此，区域分布越宽说明它的影响力越大，这个图一般是上宽下窄（影响大的放在上面）。<br />
 图中最后一行显示了Sum of other
-features，如果不需要显示这一行，可使用函数做图 ：</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>shap.summary_plot(shap_values, test, max_display<span class="op">=</span><span class="dv">5</span>)  </span></code></pre></div>
+features，如果不需要显示这一行，可使用函数做图 ：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.summary_plot(shap_values, test, max_display=<span class="number">5</span>)  </span><br></pre></td></tr></table></figure></p>
 <h4 id="实验四">4.1.4 实验四</h4>
 <p>以上只是罗列结果，并未进行统计处理，而对模型产生最大影响的前N的特征，一般是通过各个特征绝对值的均值（abs()-&gt;mean()）得到的，使用绝对值解决了正负抵消的问题，更关注相关性的大小。<br />
 从这个图中就没办法看出是正相关还是负相关了，但使用shap工具可以得到具体的shap
-value，可以自行处理。</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>shap.plots.bar(shap_values)    </span></code></pre></div>
-<figure>
-<img
+value，可以自行处理。<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.bar(shap_values)    </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-3f6009832fbd3309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图四）" />
-<figcaption aria-hidden="true">（图四）</figcaption>
-</figure>
+alt="（图四）" /></p>
 <h4 id="实验五">4.1.5 实验五</h4>
 <p>此处可引申出SHAP更多的用法，尤其对于研究和归因，比如研究模型对“老年男性”或者“入院第五天”人群的特征重要性。做柱图的bar函数支持cohort参数，通过传入list（与实例个数相等），来划分人群（当前版本
-0.39.0 支持cohort分群逻辑）。</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np    </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> [<span class="st">&#39;aa&#39;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">506</span>)] <span class="co"># 定义群及对应标签    </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>idx[<span class="dv">5</span>]<span class="op">=</span><span class="st">&#39;bb&#39;</span>    </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>idx[<span class="dv">8</span>]<span class="op">=</span><span class="st">&#39;bb&#39;</span>    </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>shap.plots.bar(shap_values.cohorts(idx))    </span></code></pre></div>
-<figure>
-<img
+0.39.0 支持cohort分群逻辑）。<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np    </span><br><span class="line">idx = [<span class="string">&#x27;aa&#x27;</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">506</span>)] <span class="comment"># 定义群及对应标签    </span></span><br><span class="line">idx[<span class="number">5</span>]=<span class="string">&#x27;bb&#x27;</span>    </span><br><span class="line">idx[<span class="number">8</span>]=<span class="string">&#x27;bb&#x27;</span>    </span><br><span class="line">shap.plots.bar(shap_values.cohorts(idx))    </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-919a2af1f6db5e2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图五）" />
-<figcaption aria-hidden="true">（图五）</figcaption>
-</figure>
+alt="（图五）" /></p>
 <h4 id="实验六">4.1.6 实验六</h4>
-<p>上述bar画出的是统计图，有时还是想在图中看出特征是正相关还是负相关，使用force函数可将多个实例的特征贡献度画在一张图上。</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shap.plots.force(explainer.expected_value, shap_values.values[:<span class="dv">10</span>])    </span></code></pre></div>
-<figure>
-<img
+<p>上述bar画出的是统计图，有时还是想在图中看出特征是正相关还是负相关，使用force函数可将多个实例的特征贡献度画在一张图上。<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.force(explainer.expected_value, shap_values.values[:<span class="number">10</span>])    </span><br></pre></td></tr></table></figure> <img
 src="https://upload-images.jianshu.io/upload_images/5357893-29436ec0ba270d82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
-alt="（图六）" />
-<figcaption aria-hidden="true">（图六）</figcaption>
-</figure>
+alt="（图六）" /></p>
 <p>force()工具非常灵活，横纵坐标都可以选择，每个横坐标对应一个实例，可选择：按输出排序，按实例顺序排序，按近似实例排序；纵向可以选择查看哪些特征，默认是查看所有特征。通过转入不同的shap
 value数组，可以研究部分或全部实例。</p>
 <h2 id="保存图片">5 保存图片</h2>
-<p>静态图可通过plt.savefig保存(只支持单实例)，注意设置matplot和show参数：</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shap.force_plot(explainer.expected_value[<span class="dv">0</span>], shap_values[<span class="dv">0</span>], data_arry, matplotlib<span class="op">=</span><span class="va">True</span>,show<span class="op">=</span><span class="va">False</span>)  </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="va">None</span>)  </span></code></pre></div>
-<p>动态图只能保存成html，具体使用:</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xx <span class="op">=</span> shap.force_plot(....)  </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>shap.save_html(<span class="st">&#39;xx.html&#39;</span>, xx)  </span></code></pre></div>
+<p>静态图可通过plt.savefig保存(只支持单实例)，注意设置matplot和show参数：<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shap.force_plot(explainer.expected_value[<span class="number">0</span>], shap_values[<span class="number">0</span>], data_arry, matplotlib=<span class="literal">True</span>,show=<span class="literal">False</span>)  </span><br><span class="line">plt.savefig(<span class="literal">None</span>)  </span><br></pre></td></tr></table></figure> 动态图只能保存成html，具体使用:<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xx = shap.force_plot(....)  </span><br><span class="line">shap.save_html(<span class="string">&#x27;xx.html&#x27;</span>, xx)  </span><br></pre></td></tr></table></figure></p>
 <h2 id="参考">6 参考</h2>
 <p><a
 target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106320452">不再黑盒，机器学习解释利器：SHAP原理及实战</a><br />

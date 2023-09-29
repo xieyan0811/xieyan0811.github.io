@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-11-03T18:35:36.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.956Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.791Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="图形图像">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">深度学习_卷积神经网络CNN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-03T18:35:36.000Z" title="Created 2017-11-03 18:35:36">2017-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.956Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="深度学习_卷积神经网络CNN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="深度学习_卷积神经网络cnn">深度学习_卷积神经网络CNN</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">深度学习_卷积神经网络CNN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-03T18:35:36.000Z" title="Created 2017-11-03 18:35:36">2017-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.791Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="深度学习_卷积神经网络CNN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="深度学习_卷积神经网络cnn">深度学习_卷积神经网络CNN</h1>
 <p>#深度学习 #图形图像</p>
 <h2 id="引入">1. 引入</h2>
 <p>卷积神经网络（CNN）是一种专门用来处理具有网格结构数据的神经网络．它属于前馈神经网络，它被定义为：至少在某一层用卷积代替了矩阵乘法的神经网络．最常见的应用场景是图像识别．<br />
@@ -237,72 +237,8 @@ DropOut就如同在层与层之间故意加入了一些噪声，虽然避免了�
 <h4 id="说明">1) 说明</h4>
 <p>代码的主要功能是根据Mnist库的图像数据训练手写数字识别．核心代码在后半部分，它使用了卷积层，池化层，Dropout层，Flatten层，和全连接层．</p>
 <h4 id="代码-1">2) 代码</h4>
-<p>（为了让大家复制粘贴就能运行，还是附上了全部代码）</p>
-<pre><code># -*- coding: utf-8 -*-  
-from __future__ import print_function  
-import keras  
-from keras.datasets import mnist  
-from keras.models import Sequential  
-from keras.layers import Dense, Dropout, Flatten  
-from keras.layers import Conv2D, MaxPooling2D  
-from keras import backend as K  
-  
-batch_size = 128 # 批尺寸  
-num_classes = 10　# 0-9十个数字对应10个分类  
-epochs = 12 # 训练12次  
-  
-# input image dimensions  
-img_rows, img_cols = 28, 28 # 训练图片大小28x28  
-  
-# the data, shuffled and split between train and test sets  
-(x_train, y_train), (x_test, y_test) = mnist.load_data()  
-  
-if K.image_data_format() == &#39;channels_first&#39;:  
-    x_train = x_train.reshape(x_train.shape[0], 1, img_rows, img_cols)  
-    x_test = x_test.reshape(x_test.shape[0], 1, img_rows, img_cols)  
-    input_shape = (1, img_rows, img_cols)  
-else:  
-    x_train = x_train.reshape(x_train.shape[0], img_rows, img_cols, 1)  
-    x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, 1)  
-    input_shape = (img_rows, img_cols, 1)  
-  
-x_train = x_train.astype(&#39;float32&#39;)  
-x_test = x_test.astype(&#39;float32&#39;)  
-x_train /= 255  
-x_test /= 255  
-print(&#39;x_train shape:&#39;, x_train.shape)  
-print(x_train.shape[0], &#39;train samples&#39;)  
-print(x_test.shape[0], &#39;test samples&#39;)  
-  
-# convert class vectors to binary class matrices  
-y_train = keras.utils.to_categorical(y_train, num_classes)  
-y_test = keras.utils.to_categorical(y_test, num_classes)  
-  
-# 下面model相关的是关键部分  
-model = Sequential()  
-model.add(Conv2D(32, kernel_size=(3, 3), #加卷积层，核大小3x3，输出维度32  
-                 activation=&#39;relu&#39;, #激活函数为relu  
-                 input_shape=input_shape)) #传入数据  
-model.add(Conv2D(64, (3, 3), activation=&#39;relu&#39;))　#又加一个卷积层  
-model.add(MaxPooling2D(pool_size=(2, 2))) # 以2x2为一块池化  
-model.add(Dropout(0.25)) # 随机断开25%的连接  
-model.add(Flatten()) # 扁平化，例如将28x28x1变为784的格式  
-model.add(Dense(128, activation=&#39;relu&#39;)) # 加入全连接层  
-model.add(Dropout(0.5))　# 再加一层Dropout  
-model.add(Dense(num_classes, activation=&#39;softmax&#39;)) # 加入到输出层的全连接  
-  
-model.compile(loss=keras.losses.categorical_crossentropy, # 设损失函数  
-              optimizer=keras.optimizers.Adadelta(), # 设学习率  
-              metrics=[&#39;accuracy&#39;])  
-  
-model.fit(x_train, y_train,  
-          batch_size=batch_size, # 设批大小  
-          epochs=epochs, # 设学习次数  
-          verbose=1,  
-          validation_data=(x_test, y_test))  
-score = model.evaluate(x_test, y_test, verbose=0) # 用测试集评测  
-print(&#39;Test loss:&#39;, score[0])  
-print(&#39;Test accuracy:&#39;, score[1])  </code></pre>
+<p>（为了让大家复制粘贴就能运行，还是附上了全部代码）<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-  </span><br><span class="line">from __future__ import print_function  </span><br><span class="line">import keras  </span><br><span class="line">from keras.datasets import mnist  </span><br><span class="line">from keras.models import Sequential  </span><br><span class="line">from keras.layers import Dense, Dropout, Flatten  </span><br><span class="line">from keras.layers import Conv2D, MaxPooling2D  </span><br><span class="line">from keras import backend as K  </span><br><span class="line">  </span><br><span class="line">batch_size = 128 # 批尺寸  </span><br><span class="line">num_classes = 10　# 0-9十个数字对应10个分类  </span><br><span class="line">epochs = 12 # 训练12次  </span><br><span class="line">  </span><br><span class="line"># input image dimensions  </span><br><span class="line">img_rows, img_cols = 28, 28 # 训练图片大小28x28  </span><br><span class="line">  </span><br><span class="line"># the data, shuffled and split between train and test sets  </span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()  </span><br><span class="line">  </span><br><span class="line">if K.image_data_format() == &#x27;channels_first&#x27;:  </span><br><span class="line">    x_train = x_train.reshape(x_train.shape[0], 1, img_rows, img_cols)  </span><br><span class="line">    x_test = x_test.reshape(x_test.shape[0], 1, img_rows, img_cols)  </span><br><span class="line">    input_shape = (1, img_rows, img_cols)  </span><br><span class="line">else:  </span><br><span class="line">    x_train = x_train.reshape(x_train.shape[0], img_rows, img_cols, 1)  </span><br><span class="line">    x_test = x_test.reshape(x_test.shape[0], img_rows, img_cols, 1)  </span><br><span class="line">    input_shape = (img_rows, img_cols, 1)  </span><br><span class="line">  </span><br><span class="line">x_train = x_train.astype(&#x27;float32&#x27;)  </span><br><span class="line">x_test = x_test.astype(&#x27;float32&#x27;)  </span><br><span class="line">x_train /= 255  </span><br><span class="line">x_test /= 255  </span><br><span class="line">print(&#x27;x_train shape:&#x27;, x_train.shape)  </span><br><span class="line">print(x_train.shape[0], &#x27;train samples&#x27;)  </span><br><span class="line">print(x_test.shape[0], &#x27;test samples&#x27;)  </span><br><span class="line">  </span><br><span class="line"># convert class vectors to binary class matrices  </span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)  </span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)  </span><br><span class="line">  </span><br><span class="line"># 下面model相关的是关键部分  </span><br><span class="line">model = Sequential()  </span><br><span class="line">model.add(Conv2D(32, kernel_size=(3, 3), #加卷积层，核大小3x3，输出维度32  </span><br><span class="line">                 activation=&#x27;relu&#x27;, #激活函数为relu  </span><br><span class="line">                 input_shape=input_shape)) #传入数据  </span><br><span class="line">model.add(Conv2D(64, (3, 3), activation=&#x27;relu&#x27;))　#又加一个卷积层  </span><br><span class="line">model.add(MaxPooling2D(pool_size=(2, 2))) # 以2x2为一块池化  </span><br><span class="line">model.add(Dropout(0.25)) # 随机断开25%的连接  </span><br><span class="line">model.add(Flatten()) # 扁平化，例如将28x28x1变为784的格式  </span><br><span class="line">model.add(Dense(128, activation=&#x27;relu&#x27;)) # 加入全连接层  </span><br><span class="line">model.add(Dropout(0.5))　# 再加一层Dropout  </span><br><span class="line">model.add(Dense(num_classes, activation=&#x27;softmax&#x27;)) # 加入到输出层的全连接  </span><br><span class="line">  </span><br><span class="line">model.compile(loss=keras.losses.categorical_crossentropy, # 设损失函数  </span><br><span class="line">              optimizer=keras.optimizers.Adadelta(), # 设学习率  </span><br><span class="line">              metrics=[&#x27;accuracy&#x27;])  </span><br><span class="line">  </span><br><span class="line">model.fit(x_train, y_train,  </span><br><span class="line">          batch_size=batch_size, # 设批大小  </span><br><span class="line">          epochs=epochs, # 设学习次数  </span><br><span class="line">          verbose=1,  </span><br><span class="line">          validation_data=(x_test, y_test))  </span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=0) # 用测试集评测  </span><br><span class="line">print(&#x27;Test loss:&#x27;, score[0])  </span><br><span class="line">print(&#x27;Test accuracy:&#x27;, score[1])  </span><br></pre></td></tr></table></figure></p>
 <h2 id="cnn的历史">4. CNN的历史</h2>
 <p>看CNN的发展，从1998年LeCun的经典之作LeNet,
 到将ImageNet图像识别率提高了10个百分点的AlexNet, VGG(加入更多卷积层),

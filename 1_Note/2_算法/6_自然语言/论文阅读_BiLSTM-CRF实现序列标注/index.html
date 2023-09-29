@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-11-01T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:22.520Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:07.403Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="自然语言处理">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:22'
+  postUpdate: '2023-09-29 06:52:07'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读：BiLSTM-CRF实现序列标注</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-11-01T00:00:00.000Z" title="Created 2020-11-01 00:00:00">2020-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:22.520Z" title="Updated 2023-09-29 05:49:22">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读：BiLSTM-CRF实现序列标注"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读：BiLSTM-CRF实现序列标注</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-11-01T00:00:00.000Z" title="Created 2020-11-01 00:00:00">2020-11-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:07.403Z" title="Updated 2023-09-29 06:52:07">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读：BiLSTM-CRF实现序列标注"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="论文阅读bilstm-crf实现序列标注">论文阅读：BiLSTM-CRF实现序列标注</h1>
 <p>论文名称：《Bidirectional LSTM-CRF Models for Sequence
 Tagging》<br />
@@ -237,17 +237,14 @@ src="https://upload-images.jianshu.io/upload_images/5357893-8b575e5b857841a0.png
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-5027ec6b0aee8853.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>建议阅读代码，以便更好理解具体实现。</p>
-<p>下载源码：</p>
-<pre class="shell"><code>$ git clone [https://github.com/BrikerMan/Kashgari](https://github.com/BrikerMan/Kashgari)  </code></pre>
-<p>下载环境docker镜像：</p>
-<pre class="shell"><code>$ docker pull tensorflow/tensorflow:2.3.1-gpu-jupyter  </code></pre>
-<p>目前最高版本tensorflow+gpu+jupyters，其python版本3.6.9</p>
-<p>启动镜像：</p>
-<pre class="shell"><code>$ nvidia-docker run -d -p 8894:8888 -v/raid/xieyan/2020:/tf/2020/ tensorflow/tensorflow: 2.3.1-gpu-jupyter  </code></pre>
-<p>进docker之后，安装Kashgari（先编辑一下pip.conf，下载比较快）</p>
-<pre class="shell"><code>$ cd Kashgari下载目录  
-$ pip install -r requirements.txt  
-$ python setup.py install  </code></pre>
+<p>下载源码：<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> [https://github.com/BrikerMan/Kashgari](https://github.com/BrikerMan/Kashgari)</span>  </span><br></pre></td></tr></table></figure></p>
+<p>下载环境docker镜像：<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker pull tensorflow/tensorflow:2.3.1-gpu-jupyter</span>  </span><br></pre></td></tr></table></figure> 目前最高版本tensorflow+gpu+jupyters，其python版本3.6.9</p>
+<p>启动镜像：<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">nvidia-docker run -d -p 8894:8888 -v/raid/xieyan/2020:/tf/2020/ tensorflow/tensorflow: 2.3.1-gpu-jupyter</span>  </span><br></pre></td></tr></table></figure>
+进docker之后，安装Kashgari（先编辑一下pip.conf，下载比较快）<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> Kashgari下载目录</span>  </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install -r requirements.txt</span>  </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">python setup.py install</span>  </span><br></pre></td></tr></table></figure></p>
 <h2 id="参考">参考</h2>
 <p><a
 target="_blank" rel="noopener" href="https://www.jianshu.com/p/1d6689851622">五分钟搭建一个基于BERT的NER模型</a></p>

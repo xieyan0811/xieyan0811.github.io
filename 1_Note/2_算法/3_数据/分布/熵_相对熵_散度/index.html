@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2023-03-19T14:34:57.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.032Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:07.887Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="数据分析">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:07'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">熵_相对熵_散度</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-19T14:34:57.000Z" title="Created 2023-03-19 14:34:57">2023-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.032Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="熵_相对熵_散度"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="信息量">1 信息量</h2>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">熵_相对熵_散度</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-19T14:34:57.000Z" title="Created 2023-03-19 14:34:57">2023-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:07.887Z" title="Updated 2023-09-29 06:52:07">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="熵_相对熵_散度"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="信息量">1 信息量</h2>
 <p>意外越大，越不可能发生，概率就越小，信息量也就越大，也就是信息越多。比如说“今天肯定会天黑”，实现概率100%，说了和没说差不多，信息量就是0。<br />
 详见：<a href="None">2. 信息量</a></p>
 <h3 id="公式">1.1 公式</h3>
@@ -186,48 +186,25 @@
 <li>接近确定性的分布 (输出几乎可以确定) 具有较低的熵</li>
 </ul>
 <h3 id="实例">2.3 实例</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math  </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats  </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">1000</span>]  </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>e <span class="op">=</span> <span class="dv">0</span>  </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> arr:  </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> x<span class="op">/</span><span class="bu">sum</span>(arr)  </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">&#123;</span>x<span class="sc">&#125;</span><span class="ss">, </span><span class="sc">&#123;</span><span class="bu">round</span>(p,<span class="dv">5</span>)<span class="sc">&#125;</span><span class="ss"> * </span><span class="sc">&#123;</span><span class="bu">round</span>(math.log(p),<span class="dv">5</span>)<span class="sc">&#125;</span><span class="ss"> = </span><span class="sc">&#123;</span><span class="bu">round</span>(p<span class="op">*</span>math.log(p),<span class="dv">5</span>)<span class="sc">&#125;</span><span class="ss">&quot;</span>)  </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    e <span class="op">+=</span> p<span class="op">*</span>math.log(p)  </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">-</span>e)  </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scipy.stats.entropy(arr))  </span></code></pre></div>
-<p>运行结果</p>
-<pre><code>1, 0.0009 * -7.01302 = -0.00631  
-10, 0.009 * -4.71043 = -0.0424  
-100, 0.09001 * -2.40785 = -0.21673  
-1000, 0.90009 * -0.10526 = -0.09474  
-0.3601821726181299  
-0.3601821726181299  </code></pre>
-<ul>
-<li>首先要注意的是：数组里存放的是每个类别中元素的个数，而不是元素的具体值，本例中共1111个元素，分为四类。<br />
-</li>
-<li>p是每个类别出现的频率，取值在0-1之间，因此log(p)为负，频率p离1越近，log(p)离0越近。<br />
-</li>
-<li>就每一类而言，有以下几种可能：
-<ul>
-<li>a.该类占整体比例越大，p越大，log(p)离0越近，相乘后，对整体熵（混乱程度）的贡献比较小<br />
-</li>
-<li>b.该类占整体比例越小，p越小，log(p)离0越远，相乘后，对整体熵（混乱程度）的贡献比较小<br />
-</li>
-<li>c.该类占整体比例适中，p值中等，log(p)也中等，相乘后，对整体熵（混乱程度）的贡献反而比较大<br />
-</li>
-</ul></li>
-<li>其背后的逻辑是：
-<ul>
-<li>a.有一个类别可能性非常大（如a），绝大多数属于该类，就“蒙”这一类<br />
-</li>
-<li>b.有一个类别可能性非常小（如b），绝大多数不属于该类，“不蒙”这一类<br />
-</li>
-<li>c.如果数据被平均分成少数几个类别（c中的一种情况），那就很难“蒙对”了，这也是最不确定的情况</li>
-</ul></li>
-</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math  </span><br><span class="line"><span class="keyword">import</span> scipy.stats  </span><br><span class="line">  </span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>,<span class="number">1000</span>]  </span><br><span class="line">e = <span class="number">0</span>  </span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> arr:  </span><br><span class="line">    p = x/<span class="built_in">sum</span>(arr)  </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;<span class="built_in">round</span>(p,<span class="number">5</span>)&#125;</span> * <span class="subst">&#123;<span class="built_in">round</span>(math.log(p),<span class="number">5</span>)&#125;</span> = <span class="subst">&#123;<span class="built_in">round</span>(p*math.log(p),<span class="number">5</span>)&#125;</span>&quot;</span>)  </span><br><span class="line">    e += p*math.log(p)  </span><br><span class="line"><span class="built_in">print</span>(-e)  </span><br><span class="line"><span class="built_in">print</span>(scipy.stats.entropy(arr))  </span><br></pre></td></tr></table></figure>
+<p>运行结果<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1, 0.0009 * -7.01302 = -0.00631  </span><br><span class="line">10, 0.009 * -4.71043 = -0.0424  </span><br><span class="line">100, 0.09001 * -2.40785 = -0.21673  </span><br><span class="line">1000, 0.90009 * -0.10526 = -0.09474  </span><br><span class="line">0.3601821726181299  </span><br><span class="line">0.3601821726181299  </span><br></pre></td></tr></table></figure> *
+首先要注意的是：数组里存放的是每个类别中元素的个数，而不是元素的具体值，本例中共1111个元素，分为四类。<br />
+*
+p是每个类别出现的频率，取值在0-1之间，因此log(p)为负，频率p离1越近，log(p)离0越近。<br />
+* 就每一类而言，有以下几种可能：<br />
+*
+a.该类占整体比例越大，p越大，log(p)离0越近，相乘后，对整体熵（混乱程度）的贡献比较小<br />
+*
+b.该类占整体比例越小，p越小，log(p)离0越远，相乘后，对整体熵（混乱程度）的贡献比较小<br />
+*
+c.该类占整体比例适中，p值中等，log(p)也中等，相乘后，对整体熵（混乱程度）的贡献反而比较大<br />
+* 其背后的逻辑是：<br />
+* a.有一个类别可能性非常大（如a），绝大多数属于该类，就“蒙”这一类<br />
+*
+b.有一个类别可能性非常小（如b），绝大多数不属于该类，“不蒙”这一类<br />
+*
+c.如果数据被平均分成少数几个类别（c中的一种情况），那就很难“蒙对”了，这也是最不确定的情况</p>
 <h2 id="相对熵">3 相对熵</h2>
 <p>相对熵可以用来衡量两个分布之间的差异程度。两者差异越小，KL散度越小。</p>
 <h3 id="kl散度">3.1 KL散度</h3>

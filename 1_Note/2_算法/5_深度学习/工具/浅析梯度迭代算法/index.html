@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-06-07T10:53:28.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.908Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.743Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">浅析梯度迭代算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-07T10:53:28.000Z" title="Created 2020-06-07 10:53:28">2020-06-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.908Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="浅析梯度迭代算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="浅析梯度迭代算法">浅析梯度迭代算法</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">浅析梯度迭代算法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-07T10:53:28.000Z" title="Created 2020-06-07 10:53:28">2020-06-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.743Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="浅析梯度迭代算法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="浅析梯度迭代算法">浅析梯度迭代算法</h1>
 <p>#深度学习</p>
 <p>梯度迭代类算法已成为目前各种领域的主流算法。各种现实中的问题分解抽象成机器可以处理的形式之后，基本都可归类为图像、自然语言处理、决策、时序、强化学习这几种类型，而当今解决这些问题的顶尖算法中，梯度迭代（梯度上升或梯度下降）都占据主流地位，比如决策类问题的比赛中，梯度下降决策树GBDT类算法是完全的主流，使用深度学习网络处理图片自然语言问题更毋庸置疑。</p>
 <p>那么，梯度迭代算法究竟是什么？简单地说，就是代入数据，预测结果，如果结果偏大就调小参数，结果偏小就调大参数。举一个简单的例子，分为三个小问题：</p>
@@ -174,28 +174,8 @@
 src="https://upload-images.jianshu.io/upload_images/5357893-4654f10dfc126951.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p><strong>问题一</strong></p>
 <p>假设父亲的智商影响儿子的智商，设父亲的智商为ｘ，儿子的智商为ｙ，y=wx，训练一个参数w学习二者之间的关系。目前有多个父子智商数据对，其中第一个数据：父亲智商x=100，儿子智商w=110，将w初值设为w=1.0；学习率设为0.00001，计算平均误差。</p>
-<p>如下程序用于学习w。</p>
-<pre><code>import torch    
-import matplotlib.pyplot as plt    
-%matplotlib inline    
-    
-x = torch.tensor([100.]) # 只做训练不求梯度    
-y = torch.tensor([110.])    
-w = torch.tensor([1.], requires_grad=True) # 模拟网络参数    
-lr = 0.00001 # 学习率    
-arr = []    
-        
-for i in range(10):    
-    pred = x * w    
-    loss = (pred-y)*(pred-y) # 平方误差    
-    loss.backward() # 计算梯度    
-    print(&quot;real&quot;, y.item(), &quot;pred&quot;, pred.item(), &quot;loss&quot;, loss.item())    
-    print(&quot;w.data&quot;, w.data.item(), &quot;w.grad&quot;, w.grad.item())    
-    w.data = w.data - lr * w.grad # 按学习率调参    
-    w.grad.zero_() # 梯度清 0，否则梯度会不断累加    
-    arr.append(loss.item())    
-    
-plt.plot(arr)    </code></pre>
+<p>如下程序用于学习w。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import torch    </span><br><span class="line">import matplotlib.pyplot as plt    </span><br><span class="line">%matplotlib inline    </span><br><span class="line">    </span><br><span class="line">x = torch.tensor([100.]) # 只做训练不求梯度    </span><br><span class="line">y = torch.tensor([110.])    </span><br><span class="line">w = torch.tensor([1.], requires_grad=True) # 模拟网络参数    </span><br><span class="line">lr = 0.00001 # 学习率    </span><br><span class="line">arr = []    </span><br><span class="line">	    </span><br><span class="line">for i in range(10):    </span><br><span class="line">    pred = x * w    </span><br><span class="line">    loss = (pred-y)*(pred-y) # 平方误差    </span><br><span class="line">    loss.backward() # 计算梯度    </span><br><span class="line">    print(&quot;real&quot;, y.item(), &quot;pred&quot;, pred.item(), &quot;loss&quot;, loss.item())    </span><br><span class="line">    print(&quot;w.data&quot;, w.data.item(), &quot;w.grad&quot;, w.grad.item())    </span><br><span class="line">    w.data = w.data - lr * w.grad # 按学习率调参    </span><br><span class="line">    w.grad.zero_() # 梯度清 0，否则梯度会不断累加    </span><br><span class="line">    arr.append(loss.item())    </span><br><span class="line">    </span><br><span class="line">plt.plot(arr)    </span><br></pre></td></tr></table></figure></p>
 <p>程序中使用了torch的基本数据结构Tensor及其自动计算梯度的功能，模型、优化器、误差函数全部写代码实现。其误差等于实际的y值减预测值的平方，在第一次迭代中计算结果如下：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-becf1645618da3b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
@@ -210,23 +190,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-a3bb4f37bf0645f4.png
 src="https://upload-images.jianshu.io/upload_images/5357893-754950465a0782bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>此时再代入值x=100，即可得到正确的预测y=110。上述是最简单的情况，为简化操作只训练了一个实例，如果有10000个实例代入训练，反复迭代20次，最终将通过微调的方法得到最为合理的参数ｗ。</p>
 <p>使用Pytorch提供的线性层、误差函数和优化器，功能与上面的程序一致，代码更加简单：</p>
-<pre><code>import torch    
-    
-x = torch.tensor([100.]) # 只做训练不求梯度    
-y = torch.tensor([110.])    
-lr = 0.00001 # 学习率    
-    
-model = torch.nn.Linear(1, 1, bias=False)    
-model.weight.data.fill_(1.0) # 初始化参数    
-optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=0) # 优化器    
-lossfunc = torch.nn.MSELoss() # 平方根损失    
-    
-for i in range(10):    
-    pred = model(x)    
-    loss = lossfunc(pred, y)    
-    loss.backward() # 计算梯度    
-    optimizer.step()    
-    optimizer.zero_grad()    </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import torch    </span><br><span class="line">    </span><br><span class="line">x = torch.tensor([100.]) # 只做训练不求梯度    </span><br><span class="line">y = torch.tensor([110.])    </span><br><span class="line">lr = 0.00001 # 学习率    </span><br><span class="line">    </span><br><span class="line">model = torch.nn.Linear(1, 1, bias=False)    </span><br><span class="line">model.weight.data.fill_(1.0) # 初始化参数    </span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=0) # 优化器    </span><br><span class="line">lossfunc = torch.nn.MSELoss() # 平方根损失    </span><br><span class="line">    </span><br><span class="line">for i in range(10):    </span><br><span class="line">    pred = model(x)    </span><br><span class="line">    loss = lossfunc(pred, y)    </span><br><span class="line">    loss.backward() # 计算梯度    </span><br><span class="line">    optimizer.step()    </span><br><span class="line">    optimizer.zero_grad()    </span><br></pre></td></tr></table></figure>
 <p><strong>问题二</strong></p>
 <p>如果孩子的智商由父母双方决定，那么每一实例的ｘ将提供父母双方的智商值x1,x2，学到的参数w也是两个：y=x1w1+x2w2，每次调节参数时误差函数分别对w1,w2求偏导。</p>
 <p><img
@@ -234,28 +198,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-c636dc2c813b0d72.png
 <p>（码字不易，转载请注明出处：谢彦的技术博客）</p>
 <p><strong>问题三</strong></p>
 <p>如果孩子的智商由父亲决定，父亲的智商由奶奶决定，此时网络的输入是奶奶的智商x，输出是孩子的智商y，父亲的智商成为中间变量。因此有：y=x<em>w1</em>w2，其中w1是奶奶对父亲的影响，w2是父亲对儿子的影响。（示例仅用于描述多层网络，实际上这样的双层网络与单层网络效果无异w3=w2*w1）。</p>
-<pre><code>import torch    
-    
-x = torch.tensor([100.]) # 只做训练不求梯度    
-y = torch.tensor([110.])    
-lr = 0.00001 # 学习率    
-    
-model1 = torch.nn.Linear(1, 1, bias=False)    
-model2 = torch.nn.Linear(1, 1, bias=False)    
-params = [&#123;&#39;params&#39;:model1.parameters()&#125;,     
-          &#123;&#39;params&#39;:model2.parameters()&#125;] # 同时优化两组参数    
-optimizer = torch.optim.SGD(params, lr=lr, momentum=0) # 优化器    
-lossfunc = torch.nn.MSELoss() # 平方根损失    
-    
-for i in range(10):    
-    pred = model2(model1(x))    
-    loss = lossfunc(pred, y)    
-    loss.backward() # 计算梯度    
-    optimizer.step()    
-    print(&quot;real&quot;, y.item(), &quot;pred&quot;, pred.item(), &quot;loss&quot;, loss.item())    
-    print(&quot;w1.data&quot;, model1.weight.data.item(), &quot;w1.grad&quot;, model1.weight.grad.item())    
-    print(&quot;w2.data&quot;, model2.weight.data.item(), &quot;w2.grad&quot;, model2.weight.grad.item())    
-    optimizer.zero_grad()  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import torch    </span><br><span class="line">    </span><br><span class="line">x = torch.tensor([100.]) # 只做训练不求梯度    </span><br><span class="line">y = torch.tensor([110.])    </span><br><span class="line">lr = 0.00001 # 学习率    </span><br><span class="line">    </span><br><span class="line">model1 = torch.nn.Linear(1, 1, bias=False)    </span><br><span class="line">model2 = torch.nn.Linear(1, 1, bias=False)    </span><br><span class="line">params = [&#123;&#x27;params&#x27;:model1.parameters()&#125;,     </span><br><span class="line">          &#123;&#x27;params&#x27;:model2.parameters()&#125;] # 同时优化两组参数    </span><br><span class="line">optimizer = torch.optim.SGD(params, lr=lr, momentum=0) # 优化器    </span><br><span class="line">lossfunc = torch.nn.MSELoss() # 平方根损失    </span><br><span class="line">    </span><br><span class="line">for i in range(10):    </span><br><span class="line">    pred = model2(model1(x))    </span><br><span class="line">    loss = lossfunc(pred, y)    </span><br><span class="line">    loss.backward() # 计算梯度    </span><br><span class="line">    optimizer.step()    </span><br><span class="line">    print(&quot;real&quot;, y.item(), &quot;pred&quot;, pred.item(), &quot;loss&quot;, loss.item())    </span><br><span class="line">    print(&quot;w1.data&quot;, model1.weight.data.item(), &quot;w1.grad&quot;, model1.weight.grad.item())    </span><br><span class="line">    print(&quot;w2.data&quot;, model2.weight.data.item(), &quot;w2.grad&quot;, model2.weight.grad.item())    </span><br><span class="line">    optimizer.zero_grad()  </span><br></pre></td></tr></table></figure>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-5bf7ca14623169e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>（码字不易，转载请注明出处：谢彦的技术博客）</p>

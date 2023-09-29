@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2021-10-13T14:58:19.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.336Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.183Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python实现PDF内容抽取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-13T14:58:19.000Z" title="Created 2021-10-13 14:58:19">2021-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.336Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">495</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python实现PDF内容抽取"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#Python</p>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python实现PDF内容抽取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-13T14:58:19.000Z" title="Created 2021-10-13 14:58:19">2021-10-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.183Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">497</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python实现PDF内容抽取"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>#Python</p>
 <h2 id="python-的-pdf-工具">1 Python 的 PDF 工具</h2>
 <ul>
 <li>PyMuPDF: 支持更多高级功能和处理复杂PDF文件<br />
@@ -179,52 +179,11 @@
 <p>最近需要把扫描的PDF转换成文本，试用了pdfminer，pypdf2等工具，解析图片的效果都不太好，用起来也比较麻烦，后来试用了PyMuPDF，相对其它工具，它最新版本屏蔽了更多细节，围绕Page进行操作，调用非常方便。除了PDF它还支持解析epub等电子书格式。</p>
 <p>目前网上例程大多是只抽取图片，没有同时转换图片和文字，且因为旧版本API，大多已无法正常运行。本文将示例其用法。</p>
 <h2 id="安装">3 安装</h2>
-<pre><code>$ pip install pymupdf==1.18.19  </code></pre>
-<p>如果提取找不到fiz.h，建议更新pip版本</p>
-<pre><code>$ pip3.6 install --upgrade pip  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pymupdf==1.18.19  </span><br></pre></td></tr></table></figure>
+<p>如果提取找不到fiz.h，建议更新pip版本<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3.6 install --upgrade pip  </span><br></pre></td></tr></table></figure></p>
 <h2 id="例程">4 例程</h2>
-<pre><code>def parse(inpath, outpath):  
-    remove(TMPDIR) # 清除临时目录   
-    os.mkdir(TMPDIR)  
-    remove(outpath) # 清除输出文件  
-  
-    t0 = time.clock()  
-    doc = fitz.open(inpath)  
-    lenXREF = doc.xrefLength()  
-    print(&quot;文件名:&#123;&#125;, 页数: &#123;&#125;, 对象: &#123;&#125;&quot;.format(inpath, len(doc), lenXREF - 1))  
-  
-    imgcount = 0  
-    for i,page in enumerate(doc):  
-        t1 = time.clock()  
-        # 文字  
-        text = page.get_text()  
-        if len(text) &gt; 0:  
-             write_file(outpath, text, &#39;a&#39;)  
-        # 图片          
-        imglist = page.get_images() # 解析该页中图片  
-        for item in imglist:  
-            xref = item[0]  
-            pix = fitz.Pixmap(doc, xref)  
-            new_name = &quot;&#123;&#125;.png&quot;.format(imgcount)  
-            # 如果pix.n&lt;5,可以直接存为PNG  
-            path = os.path.join(TMPDIR, new_name)  
-            if pix.n &lt; 5:  
-                pix.writePNG(path)  
-            # 否则先转换CMYK  
-            else:  
-                pix0 = fitz.Pixmap(fitz.csRGB, pix)  
-                pix0.writePNG(path)  
-                pix0 = None  
-            pix = None  
-            if OCR_ONLINE:  
-                text = img_to_str_baidu(path)  
-            else:  
-                text = img_to_str_tesseract(path)  
-            print(&quot;img-&gt;text&quot;, text)  
-            write_file(outpath, text, &#39;a&#39;)  
-            write_file(outpath, &#39;\n&#39; + &#39;-----------&#39; + &#39;\n&#39;, &#39;a&#39;)  
-            imgcount += 1  
-        print(&quot;page &#123;&#125; 运行时间:&#123;&#125;s&quot;.format(i, &#123;t1 - t0&#125;))  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">def parse(inpath, outpath):  </span><br><span class="line">    remove(TMPDIR) # 清除临时目录   </span><br><span class="line">    os.mkdir(TMPDIR)  </span><br><span class="line">    remove(outpath) # 清除输出文件  </span><br><span class="line">  </span><br><span class="line">    t0 = time.clock()  </span><br><span class="line">    doc = fitz.open(inpath)  </span><br><span class="line">    lenXREF = doc.xrefLength()  </span><br><span class="line">    print(&quot;文件名:&#123;&#125;, 页数: &#123;&#125;, 对象: &#123;&#125;&quot;.format(inpath, len(doc), lenXREF - 1))  </span><br><span class="line">  </span><br><span class="line">    imgcount = 0  </span><br><span class="line">    for i,page in enumerate(doc):  </span><br><span class="line">        t1 = time.clock()  </span><br><span class="line">        # 文字  </span><br><span class="line">        text = page.get_text()  </span><br><span class="line">        if len(text) &gt; 0:  </span><br><span class="line">             write_file(outpath, text, &#x27;a&#x27;)  </span><br><span class="line">        # 图片          </span><br><span class="line">        imglist = page.get_images() # 解析该页中图片  </span><br><span class="line">        for item in imglist:  </span><br><span class="line">            xref = item[0]  </span><br><span class="line">            pix = fitz.Pixmap(doc, xref)  </span><br><span class="line">            new_name = &quot;&#123;&#125;.png&quot;.format(imgcount)  </span><br><span class="line">            # 如果pix.n&lt;5,可以直接存为PNG  </span><br><span class="line">            path = os.path.join(TMPDIR, new_name)  </span><br><span class="line">            if pix.n &lt; 5:  </span><br><span class="line">                pix.writePNG(path)  </span><br><span class="line">            # 否则先转换CMYK  </span><br><span class="line">            else:  </span><br><span class="line">                pix0 = fitz.Pixmap(fitz.csRGB, pix)  </span><br><span class="line">                pix0.writePNG(path)  </span><br><span class="line">                pix0 = None  </span><br><span class="line">            pix = None  </span><br><span class="line">            if OCR_ONLINE:  </span><br><span class="line">                text = img_to_str_baidu(path)  </span><br><span class="line">            else:  </span><br><span class="line">                text = img_to_str_tesseract(path)  </span><br><span class="line">            print(&quot;img-&gt;text&quot;, text)  </span><br><span class="line">            write_file(outpath, text, &#x27;a&#x27;)  </span><br><span class="line">            write_file(outpath, &#x27;\n&#x27; + &#x27;-----------&#x27; + &#x27;\n&#x27;, &#x27;a&#x27;)  </span><br><span class="line">            imgcount += 1  </span><br><span class="line">        print(&quot;page &#123;&#125; 运行时间:&#123;&#125;s&quot;.format(i, &#123;t1 - t0&#125;))  </span><br></pre></td></tr></table></figure>
 <p>完整例程请见参考部分</p>
 <h2 id="参考">5 参考</h2>
 <p>帮助文档 <a

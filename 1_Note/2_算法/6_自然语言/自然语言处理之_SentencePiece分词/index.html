@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2018-05-26T16:52:43.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:22.568Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:07.451Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="自然语言处理">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:22'
+  postUpdate: '2023-09-29 06:52:07'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">自然语言处理之_SentencePiece分词</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-05-26T16:52:43.000Z" title="Created 2018-05-26 16:52:43">2018-05-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:22.568Z" title="Updated 2023-09-29 05:49:22">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">940</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="自然语言处理之_SentencePiece分词"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">自然语言处理之_SentencePiece分词</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-05-26T16:52:43.000Z" title="Created 2018-05-26 16:52:43">2018-05-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:07.451Z" title="Updated 2023-09-29 06:52:07">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">944</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="自然语言处理之_SentencePiece分词"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="自然语言处理之_sentencepiece分词">自然语言处理之_SentencePiece分词</h1>
 <p>#自然语言处理</p>
 <h2 id="说明">1、 说明</h2>
@@ -182,27 +182,16 @@ id="自然语言处理之_sentencepiece分词">自然语言处理之_SentencePie
 <p> 模型使用部分同时支持二进制程序和Python调用两种方式，训练完生成的词典数据是明文，可编辑，因此也可以用任何语言读取和使用。</p>
 <h4 id="在ubuntu系统中安装python支持">1)
 在Ubuntu系统中安装Python支持</h4>
-<pre><code>$ sudo pip install SentencePiece  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install SentencePiece  </span><br></pre></td></tr></table></figure>
 <h4 id="下载源码">2) 下载源码</h4>
-<pre><code>$ git clone https://github.com/google/sentencepiece  
-$ cd sentencepiece  
-$ ./autogen.sh  
-$ ./confiture; make; sudo make install # 注意需要先安装autogen,automake等编译工具  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/google/sentencepiece  </span><br><span class="line">$ cd sentencepiece  </span><br><span class="line">$ ./autogen.sh  </span><br><span class="line">$ ./confiture; make; sudo make install # 注意需要先安装autogen,automake等编译工具  </span><br></pre></td></tr></table></figure>
 <h2 id="训练模型">3、 训练模型</h2>
-<pre><code>$ spm_train --input=/tmp/a.txt --model_prefix=/tmp/test  
-# --input指定需要训练的文本文件，--model_prefix指定训练好的模型名，本例中生成/tmp/test.model和/tmp/test.vocab两个文件，vocab是词典信息。  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ spm_train --input=/tmp/a.txt --model_prefix=/tmp/test  </span><br><span class="line"># --input指定需要训练的文本文件，--model_prefix指定训练好的模型名，本例中生成/tmp/test.model和/tmp/test.vocab两个文件，vocab是词典信息。  </span><br></pre></td></tr></table></figure>
 <h2 id="使用模型">4、 使用模型</h2>
 <h4 id="命令行调用">(1) 命令行调用</h4>
-<pre><code>$ echo &quot;食材上不会有这样的纠结&quot; | spm_encode --model=/tmp/test.model  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ echo &quot;食材上不会有这样的纠结&quot; | spm_encode --model=/tmp/test.model  </span><br></pre></td></tr></table></figure>
 <h4 id="python程序调用">(2) Python程序调用</h4>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sentencepiece <span class="im">as</span> spm  </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sp <span class="op">=</span> spm.SentencePieceProcessor()  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">&quot;食材上不会有这样的纠结&quot;</span>   </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sp.Load(<span class="st">&quot;/tmp/test.model&quot;</span>)   </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sp.EncodeAsPieces(text))  </span></code></pre></div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sentencepiece <span class="keyword">as</span> spm  </span><br><span class="line">  </span><br><span class="line">sp = spm.SentencePieceProcessor()  </span><br><span class="line">text = <span class="string">&quot;食材上不会有这样的纠结&quot;</span>   </span><br><span class="line">  </span><br><span class="line">sp.Load(<span class="string">&quot;/tmp/test.model&quot;</span>)   </span><br><span class="line"><span class="built_in">print</span>(sp.EncodeAsPieces(text))  </span><br></pre></td></tr></table></figure>
 <h2 id="使用技巧">5、 使用技巧</h2>
 <p> 如果我们分析某个领域相关问题，可以用该领域的书籍和文档去训练模型。并不限于被分析的内容本身。训练数据越多，模型效果越好。更多参数及用法，请见git上的说明文件。</p>
 <h2 id="参考">6、 参考</h2>

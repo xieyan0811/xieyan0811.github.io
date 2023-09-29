@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2021-10-05T20:41:02.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.944Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.779Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="自然语言处理">
 <meta property="article:tag" content="深度学习">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">语义相似度模型SBERT——一个挛生网络的优美范例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-05T20:41:02.000Z" title="Created 2021-10-05 20:41:02">2021-10-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.944Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="语义相似度模型SBERT——一个挛生网络的优美范例"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="语义相似度模型sbert-一个挛生网络的优美范例">语义相似度模型SBERT
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">语义相似度模型SBERT——一个挛生网络的优美范例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-05T20:41:02.000Z" title="Created 2021-10-05 20:41:02">2021-10-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.779Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="语义相似度模型SBERT——一个挛生网络的优美范例"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="语义相似度模型sbert-一个挛生网络的优美范例">语义相似度模型SBERT
 ——一个挛生网络的优美范例</h1>
 <p>#深度学习 #自然语言处理</p>
 <p>论文地址：https://arxiv.org/abs/1908.10084<br />
@@ -185,36 +185,12 @@ src="https://upload-images.jianshu.io/upload_images/5357893-b2a0a42ef78d44fa.png
 <p>SBERT对Pytorch进行了封装，简单使用该工具时，不仅不需要了解太多BERT
 API的细节， Pytorch相关方法也不多，下面来看看其具体用法。</p>
 <h3 id="配置环境">配置环境</h3>
-<p>需要注意的是机器需要能正常配置BERT运行环境，如GPU+CUDA+Pytorch+Transformer匹配版本。</p>
-<pre><code>$ pip install sentence_transformers  </code></pre>
-<p>下载源码</p>
-<pre><code>$ git clone https://github.com/UKPLab/sentence-transformers.git  </code></pre>
+<p>需要注意的是机器需要能正常配置BERT运行环境，如GPU+CUDA+Pytorch+Transformer匹配版本。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install sentence_transformers  </span><br></pre></td></tr></table></figure> 下载源码<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/UKPLab/sentence-transformers.git  </span><br></pre></td></tr></table></figure></p>
 <h3 id="模型预测">模型预测</h3>
-<p>在未进行调优（fine-tune）前，使用预训练的通用中文BERT模型也可以达到一定效果，下例是从几个选项中找到与目标最相近的字符串。</p>
-<pre><code>from sentence_transformers import SentenceTransformer  
-import scipy.spatial  
-  
-embedder = SentenceTransformer(&#39;bert-base-chinese&#39;)  
-corpus = [&#39;这是一支铅笔&#39;,  
-  &#39;关节置换术&#39;,  
-  &#39;我爱北京天安门&#39;,  
-]  
-corpus_embeddings = embedder.encode(corpus)  
-# 待查询的句子  
-queries = [&#39;心脏手术&#39;,&#39;中国首都在哪里&#39;]  
-query_embeddings = embedder.encode(queries)  
-# 对于每个句子，使用余弦相似度查询最接近的n个句子  
-closest_n = 2  
-for query, query_embedding in zip(queries, query_embeddings):  
-  distances = scipy.spatial.distance.cdist([query_embedding], corpus_embeddings, &quot;cosine&quot;)[0]  
-  # 按照距离逆序  
-  results = zip(range(len(distances)), distances)  
-  results = sorted(results, key=lambda x: x[1])  
-  print(&quot;======================&quot;)  
-  print(&quot;Query:&quot;, query)  
-  print(&quot;Result:Top 5 most similar sentences in corpus:&quot;)  
-  for idx, distance in results[0:closest_n]:  
-    print(corpus[idx].strip(), &quot;(Score: %.4f)&quot; % (1-distance))  </code></pre>
+<p>在未进行调优（fine-tune）前，使用预训练的通用中文BERT模型也可以达到一定效果，下例是从几个选项中找到与目标最相近的字符串。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from sentence_transformers import SentenceTransformer  </span><br><span class="line">import scipy.spatial  </span><br><span class="line">  </span><br><span class="line">embedder = SentenceTransformer(&#x27;bert-base-chinese&#x27;)  </span><br><span class="line">corpus = [&#x27;这是一支铅笔&#x27;,  </span><br><span class="line">  &#x27;关节置换术&#x27;,  </span><br><span class="line">  &#x27;我爱北京天安门&#x27;,  </span><br><span class="line">]  </span><br><span class="line">corpus_embeddings = embedder.encode(corpus)  </span><br><span class="line"># 待查询的句子  </span><br><span class="line">queries = [&#x27;心脏手术&#x27;,&#x27;中国首都在哪里&#x27;]  </span><br><span class="line">query_embeddings = embedder.encode(queries)  </span><br><span class="line"># 对于每个句子，使用余弦相似度查询最接近的n个句子  </span><br><span class="line">closest_n = 2  </span><br><span class="line">for query, query_embedding in zip(queries, query_embeddings):  </span><br><span class="line">  distances = scipy.spatial.distance.cdist([query_embedding], corpus_embeddings, &quot;cosine&quot;)[0]  </span><br><span class="line">  # 按照距离逆序  </span><br><span class="line">  results = zip(range(len(distances)), distances)  </span><br><span class="line">  results = sorted(results, key=lambda x: x[1])  </span><br><span class="line">  print(&quot;======================&quot;)  </span><br><span class="line">  print(&quot;Query:&quot;, query)  </span><br><span class="line">  print(&quot;Result:Top 5 most similar sentences in corpus:&quot;)  </span><br><span class="line">  for idx, distance in results[0:closest_n]:  </span><br><span class="line">    print(corpus[idx].strip(), &quot;(Score: %.4f)&quot; % (1-distance))  </span><br></pre></td></tr></table></figure></p>
 <h3 id="训练中文模型">训练中文模型</h3>
 <p><strong>模型训练方法</strong></p>
 <p>训练原理：https://www.sbert.net/docs/training/overview.html<br />
@@ -223,72 +199,9 @@ for query, query_embedding in zip(queries, query_embeddings):
 <p><strong>训练中文模型</strong></p>
 <p>把示例中的bert-base-cased换成bert-base-chinese，即可下载和使用中文模型。需要注意的是：中文和英文词库不同，不能将中文模型用于英文数据训练。</p>
 <p><strong>下载中文训练数据</strong></p>
-<p>下载信贷相关数据，csv数据7M多，约10W条训练数据，可在下例中使用</p>
-<pre><code>$ git clone https://github.com/lixuanhng/NLP_related_projects.git  
-$ ls NLP_related_projects/BERT/Bert_sim/data  </code></pre>
-<p><strong>代码</strong></p>
-<pre><code>from torch.utils.data import DataLoader  
-import math  
-from sentence_transformers import SentenceTransformer, LoggingHandler, losses, models, util  
-from sentence_transformers.evaluation import EmbeddingSimilarityEvaluator  
-from sentence_transformers.readers import InputExample  
-import logging  
-from datetime import datetime  
-import sys  
-import os  
-import pandas as pd  
-  
-model_name = &#39;bert-base-chinese&#39;  
-train_batch_size = 16  
-num_epochs = 4  
-model_save_path = &#39;test_output&#39;  
-logging.basicConfig(format=&#39;%(asctime)s - %(message)s&#39;,  
-  datefmt=&#39;%Y-%m-%d %H:%M:%S&#39;,  
-  level=logging.INFO,  
-  handlers=[LoggingHandler()])  
-  
-# Use Huggingface/transformers model (like BERT, RoBERTa, XLNet, XLM-R) for mapping tokens to embeddings  
-word_embedding_model = models.Transformer(model_name)  
-  
-# Apply mean pooling to get one fixed sized sentence vector  
-pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(),  
-  pooling_mode_mean_tokens=True,  
-  pooling_mode_cls_token=False,  
-  pooling_mode_max_tokens=False)  
-  
-model = SentenceTransformer(modules=[word_embedding_model, pooling_model])  
-train_samples = []  
-dev_samples = []  
-test_samples = []  
-  
-def load(path):  
-  df = pd.read_csv(path)  
-  samples = []  
-  for idx,item in df.iterrows():  
-    samples.append(InputExample(texts=[item[&#39;sentence1&#39;], item[&#39;sentence2&#39;]], label=float(item[&#39;label&#39;])))  
-  return samples  
-  
-train_samples = load(&#39;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/train.csv&#39;)  
-test_samples = load(&#39;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/test.csv&#39;)  
-dev_samples = load(&#39;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/dev.csv&#39;)  
-  
-train_dataloader = DataLoader(train_samples, shuffle=True, batch_size=train_batch_size)  
-train_loss = losses.CosineSimilarityLoss(model=model)  
-evaluator = EmbeddingSimilarityEvaluator.from_input_examples(dev_samples, name=&#39;sts-dev&#39;)  
-warmup_steps = math.ceil(len(train_dataloader) * num_epochs * 0.1) #10% of train data for warm-up  
-  
-# Train the model  
-model.fit(train_objectives=[(train_dataloader, train_loss)],  
-  evaluator=evaluator,  
-  epochs=num_epochs,  
-  evaluation_steps=1000,  
-  warmup_steps=warmup_steps,  
-  output_path=model_save_path)  
-  
-model = SentenceTransformer(model_save_path)  
-test_evaluator = EmbeddingSimilarityEvaluator.from_input_examples(test_samples, name=&#39;sts-test&#39;)  
-test_evaluator(model, output_path=model_save_path)  </code></pre>
-<p><strong>测试结果</strong></p>
+<p>下载信贷相关数据，csv数据7M多，约10W条训练数据，可在下例中使用<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/lixuanhng/NLP_related_projects.git  </span><br><span class="line">$ ls NLP_related_projects/BERT/Bert_sim/data  </span><br></pre></td></tr></table></figure> <strong>代码</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">from torch.utils.data import DataLoader  </span><br><span class="line">import math  </span><br><span class="line">from sentence_transformers import SentenceTransformer, LoggingHandler, losses, models, util  </span><br><span class="line">from sentence_transformers.evaluation import EmbeddingSimilarityEvaluator  </span><br><span class="line">from sentence_transformers.readers import InputExample  </span><br><span class="line">import logging  </span><br><span class="line">from datetime import datetime  </span><br><span class="line">import sys  </span><br><span class="line">import os  </span><br><span class="line">import pandas as pd  </span><br><span class="line">  </span><br><span class="line">model_name = &#x27;bert-base-chinese&#x27;  </span><br><span class="line">train_batch_size = 16  </span><br><span class="line">num_epochs = 4  </span><br><span class="line">model_save_path = &#x27;test_output&#x27;  </span><br><span class="line">logging.basicConfig(format=&#x27;%(asctime)s - %(message)s&#x27;,  </span><br><span class="line">  datefmt=&#x27;%Y-%m-%d %H:%M:%S&#x27;,  </span><br><span class="line">  level=logging.INFO,  </span><br><span class="line">  handlers=[LoggingHandler()])  </span><br><span class="line">  </span><br><span class="line"># Use Huggingface/transformers model (like BERT, RoBERTa, XLNet, XLM-R) for mapping tokens to embeddings  </span><br><span class="line">word_embedding_model = models.Transformer(model_name)  </span><br><span class="line">  </span><br><span class="line"># Apply mean pooling to get one fixed sized sentence vector  </span><br><span class="line">pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension(),  </span><br><span class="line">  pooling_mode_mean_tokens=True,  </span><br><span class="line">  pooling_mode_cls_token=False,  </span><br><span class="line">  pooling_mode_max_tokens=False)  </span><br><span class="line">  </span><br><span class="line">model = SentenceTransformer(modules=[word_embedding_model, pooling_model])  </span><br><span class="line">train_samples = []  </span><br><span class="line">dev_samples = []  </span><br><span class="line">test_samples = []  </span><br><span class="line">  </span><br><span class="line">def load(path):  </span><br><span class="line">  df = pd.read_csv(path)  </span><br><span class="line">  samples = []  </span><br><span class="line">  for idx,item in df.iterrows():  </span><br><span class="line">    samples.append(InputExample(texts=[item[&#x27;sentence1&#x27;], item[&#x27;sentence2&#x27;]], label=float(item[&#x27;label&#x27;])))  </span><br><span class="line">  return samples  </span><br><span class="line">  </span><br><span class="line">train_samples = load(&#x27;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/train.csv&#x27;)  </span><br><span class="line">test_samples = load(&#x27;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/test.csv&#x27;)  </span><br><span class="line">dev_samples = load(&#x27;/workspace/exports/git/NLP_related_projects/BERT/Bert_sim/data/dev.csv&#x27;)  </span><br><span class="line">  </span><br><span class="line">train_dataloader = DataLoader(train_samples, shuffle=True, batch_size=train_batch_size)  </span><br><span class="line">train_loss = losses.CosineSimilarityLoss(model=model)  </span><br><span class="line">evaluator = EmbeddingSimilarityEvaluator.from_input_examples(dev_samples, name=&#x27;sts-dev&#x27;)  </span><br><span class="line">warmup_steps = math.ceil(len(train_dataloader) * num_epochs * 0.1) #10% of train data for warm-up  </span><br><span class="line">  </span><br><span class="line"># Train the model  </span><br><span class="line">model.fit(train_objectives=[(train_dataloader, train_loss)],  </span><br><span class="line">  evaluator=evaluator,  </span><br><span class="line">  epochs=num_epochs,  </span><br><span class="line">  evaluation_steps=1000,  </span><br><span class="line">  warmup_steps=warmup_steps,  </span><br><span class="line">  output_path=model_save_path)  </span><br><span class="line">  </span><br><span class="line">model = SentenceTransformer(model_save_path)  </span><br><span class="line">test_evaluator = EmbeddingSimilarityEvaluator.from_input_examples(test_samples, name=&#x27;sts-test&#x27;)  </span><br><span class="line">test_evaluator(model, output_path=model_save_path)  </span><br></pre></td></tr></table></figure> <strong>测试结果</strong></p>
 <ul>
 <li>直接使用预训练的英文模型，测试集正确率21%<br />
 </li>

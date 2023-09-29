@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-06-11T21:35:53.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.908Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.743Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">激活函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-11T21:35:53.000Z" title="Created 2020-06-11 21:35:53">2020-06-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.908Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="激活函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="激活函数">激活函数</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">激活函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-11T21:35:53.000Z" title="Created 2020-06-11 21:35:53">2020-06-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.743Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="激活函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="激活函数">激活函数</h1>
 <p>#深度学习</p>
 <h3 id="为什么使用激活函数">为什么使用激活函数</h3>
 <p>如果没有激活函数，神经网络就变成了线性模型，输出是输入的线性组合，使用一层与使用多层没有区别。如下式所示，输入为x，经过线性层计算出a1，将a1输入下个线性层得到a2，展开后可以看出，最终得到的仍然是wx+b的线性组合，只是参数值不同。</p>
@@ -193,8 +193,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-a5344f53619ed153.png
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-069d15a3420cb451.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>Python代码实现：</p>
-<pre><code>def sigmoid(x):    
-    return 1. / (1 + np.exp(-x))  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def sigmoid(x):    </span><br><span class="line">    return 1. / (1 + np.exp(-x))  </span><br></pre></td></tr></table></figure>
 <p>试想将值代入时，当x趋近正无穷，分母为1，计算结果为1；当x趋近负无穷，分母为无穷大，计算结果为0。当x为0时，分母为２，计算结果为0.5。</p>
 <p>函数图示如下：</p>
 <p><img
@@ -211,8 +210,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-23eb7d9a5ed03539.png
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-1424d0d6edd3e8a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>Python代码实现：</p>
-<pre><code>import numpy as np    
-np.tanh(x)  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np    </span><br><span class="line">np.tanh(x)  </span><br></pre></td></tr></table></figure>
 <p>尽管tanh略优于sigmoid，但它也有sigmoid同样的缺点：计算量大及饱和问题，目前也很少使用，另外，0均值也可通过归一化层实现。因此，只做简单介绍，不再展开。</p>
 <p><strong>ReLU激活函数</strong></p>
 <p>ReLU激活函数，原理，计算以及求导都非常简单：如果x大于0，则y=x，如果小于0，则y=0，其图示如下：</p>
@@ -226,8 +224,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-cc5b5ed90032b69e.png
 src="https://upload-images.jianshu.io/upload_images/5357893-4bc3bc966548fdb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>需要注意的是，ReLU在0值不可微，但一般情况下，不会遇到太多的0值，因此将0值的梯度置为0或1都可以。</p>
 <p>Python代码实现：</p>
-<pre><code>def relu(x):    
-    return np.maximum(0,x)  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def relu(x):    </span><br><span class="line">    return np.maximum(0,x)  </span><br></pre></td></tr></table></figure>
 <p>ReLU非常简单，运算速度非常快，收敛也快，由于它没有压缩数据，因此，也避免了由激活函数引起的梯度问题。另外，处理结果不能为负（如房价不能为负，或者避免sum累积时正负抵消）的问题时，也可以在层后添加ReLU激活函数。</p>
 <p><strong>ReLU衍生的激活函数</strong></p>
 <p>虽然ReLU相对于之前算法表现优异，但也存在问题，试想当梯度大幅变化时，由于ReLU在大于0的情况下，不做处理直接向后传递，则可能造成之前线性层参数的大幅变化，因此，很可能产生大量小于0的数据输入ReLU。若ReLU的输入大多是负数，则会导致大部分梯度无法向后传递，从而引起“Dead
@@ -241,13 +238,7 @@ src="https://upload-images.jianshu.io/upload_images/5357893-de45445c6ccf8327.png
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-71cb0d8abb9ed7af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>Python代码如下：</p>
-<pre><code>def elu(x,a):    
-    y = []    
-    for i in x:    
-        if i&lt;0:    
-            i = a * (np.exp(i)-1)    
-        y.append(i)    
-    return y  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def elu(x,a):    </span><br><span class="line">    y = []    </span><br><span class="line">    for i in x:    </span><br><span class="line">        if i&lt;0:    </span><br><span class="line">            i = a * (np.exp(i)-1)    </span><br><span class="line">        y.append(i)    </span><br><span class="line">    return y  </span><br></pre></td></tr></table></figure>
 <p>它的均值趋近0，没有Dead
 ReLU的问题，但计算量略大。更简单一点的还有Leaky ReLU，如下图所示：</p>
 <p><img

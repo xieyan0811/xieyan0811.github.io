@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-07-21T12:16:22.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.448Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.291Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="股票">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之七_数据库存储</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-21T12:16:22.000Z" title="Created 2017-07-21 12:16:22">2017-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.448Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">623</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之七_数据库存储"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之七_数据库存储</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-21T12:16:22.000Z" title="Created 2017-07-21 12:16:22">2017-07-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.291Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">627</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之七_数据库存储"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="python股票处理之七_数据库存储">Python股票处理之七_数据库存储</h1>
 <p>#股票 #Python</p>
 <h2 id="说明">1. 说明</h2>
@@ -175,49 +175,19 @@ id="python股票处理之七_数据库存储">Python股票处理之七_数据库
 本文介绍pandas（数据结构支持）通过sqlalchemy与数据库连接，存储tushare下载的日线数据，用一套代码操作不同数据库（Mysql/sqlite）。</p>
 <h2 id="安装数据库">2. 安装数据库</h2>
 <h4 id="sqlalchemy工具">1) Sqlalchemy工具</h4>
-<pre><code>$ pip install sqlalchemy  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install sqlalchemy  </span><br></pre></td></tr></table></figure>
 <h4 id="mysql数据库">2) Mysql数据库</h4>
-<pre><code>$ sudo apt-get install mysql-server  
-$ sudo apt-get install mysql-client  
-$ mysql -u root –p  
-mysql&gt; create database stock    # 建立名为stock的数据库，之后程序中会用到  
-mysql&gt; show databases;  # 显示已有的数据库  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysql-server  </span><br><span class="line">$ sudo apt-get install mysql-client  </span><br><span class="line">$ mysql -u root –p  </span><br><span class="line">mysql&gt; create database stock	# 建立名为stock的数据库，之后程序中会用到  </span><br><span class="line">mysql&gt; show databases;	# 显示已有的数据库  </span><br></pre></td></tr></table></figure>
 <h4 id="sqlite数据库">3) Sqlite数据库</h4>
-<pre><code>$ sudo apt install sqlite3    
-$ sqlite stock.db   # stock.db是数据库文件，将在运行示例程序时生成  
-sqlite &gt; .tables        # 查看数据表  
-sqlite &gt; select * from s002230; # 遍历表s002230中的数据  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install sqlite3	  </span><br><span class="line">$ sqlite stock.db	# stock.db是数据库文件，将在运行示例程序时生成  </span><br><span class="line">sqlite &gt; .tables		# 查看数据表  </span><br><span class="line">sqlite &gt; select * from s002230;	# 遍历表s002230中的数据  </span><br></pre></td></tr></table></figure>
 <p>（也可使用图形界面工具sqliteman查看数据库）</p>
 <h2 id="程序">3. 程序</h2>
-<pre><code># -*- coding: utf-8 -*-  
-  
-import tushare as ts  
-from sqlalchemy import create_engine  
-import pandas as pd  
-  
-#ADDR = &#39;mysql://root:1234@localhost:3306/stock?charset=utf8&#39;   # 使用mysql，用户名root,密码1234，库名为stock，端口3306为mysql默认端口  
-ADDR = &#39;sqlite:///stock.db&#39;     # 使用sqlite，当前目录的stock.db作为数据库文件  
-  
-engine = create_engine(ADDR)  
-stocklist = [&#39;002230&#39;,&#39;601318&#39;]  
-  
-def save(code):  
-    print &quot;save code:&quot;,code  
-    try:  
-        df = ts.get_h_data(code, start=&#39;1990-01-01&#39;, retry_count = 5)  
-        df = df.sort_index(ascending=True)  
-        name = &#39;s&#39;+code  
-        df.to_sql(name, engine, if_exists=&#39;fail&#39;)  
-    except:  
-        print code, &quot; save failed&quot;  
-  
-for i in range(0, len(stocklist)):  
-    save(stocklist[i])  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-  </span><br><span class="line">  </span><br><span class="line">import tushare as ts  </span><br><span class="line">from sqlalchemy import create_engine  </span><br><span class="line">import pandas as pd  </span><br><span class="line">  </span><br><span class="line">#ADDR = &#x27;mysql://root:1234@localhost:3306/stock?charset=utf8&#x27;	# 使用mysql，用户名root,密码1234，库名为stock，端口3306为mysql默认端口  </span><br><span class="line">ADDR = &#x27;sqlite:///stock.db&#x27; 	# 使用sqlite，当前目录的stock.db作为数据库文件  </span><br><span class="line">  </span><br><span class="line">engine = create_engine(ADDR)  </span><br><span class="line">stocklist = [&#x27;002230&#x27;,&#x27;601318&#x27;]  </span><br><span class="line">  </span><br><span class="line">def save(code):  </span><br><span class="line">    print &quot;save code:&quot;,code  </span><br><span class="line">    try:  </span><br><span class="line">        df = ts.get_h_data(code, start=&#x27;1990-01-01&#x27;, retry_count = 5)  </span><br><span class="line">        df = df.sort_index(ascending=True)  </span><br><span class="line">        name = &#x27;s&#x27;+code  </span><br><span class="line">        df.to_sql(name, engine, if_exists=&#x27;fail&#x27;)  </span><br><span class="line">    except:  </span><br><span class="line">        print code, &quot; save failed&quot;  </span><br><span class="line">  </span><br><span class="line">for i in range(0, len(stocklist)):  </span><br><span class="line">	save(stocklist[i])  </span><br></pre></td></tr></table></figure>
 <h2 id="其它">4. 其它</h2>
 <h4 id="运行sql语句">1) 运行SQL语句</h4>
-<p>sqlalchemy也支持直接运行SQL语句，形如：</p>
-<pre><code>result = engine.execute(‘select * from stock’)  </code></pre>
-<p>使用sqlalchemy后，除了方便与pandas中的数据对接以外，也基本屏蔽了不同数据库之间的差异，换库时无需大量调整代码，十分方便。</p>
+<p>sqlalchemy也支持直接运行SQL语句，形如：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = engine.execute(‘select * from stock’)  </span><br></pre></td></tr></table></figure>
+使用sqlalchemy后，除了方便与pandas中的数据对接以外，也基本屏蔽了不同数据库之间的差异，换库时无需大量调整代码，十分方便。</p>
 <h4 id="多线程下载">2) 多线程下载</h4>
 <p>历史日线数据量较大，可使用python中的multiprocessing.dummy.Pool多线程下载。</p>
 <h4 id="从数据库中读出数据">3) 从数据库中读出数据</h4>

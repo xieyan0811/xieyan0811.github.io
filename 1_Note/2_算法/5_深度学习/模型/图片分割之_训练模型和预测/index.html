@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2019-02-03T08:26:59.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:19.012Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.847Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="图形图像">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:19'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">图片分割之_训练模型和预测</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-02-03T08:26:59.000Z" title="Created 2019-02-03 08:26:59">2019-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:19.012Z" title="Updated 2023-09-29 05:49:19">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>10min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图片分割之_训练模型和预测"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="图片分割之_训练模型和预测">图片分割之_训练模型和预测</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">图片分割之_训练模型和预测</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-02-03T08:26:59.000Z" title="Created 2019-02-03 08:26:59">2019-02-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.847Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>10min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图片分割之_训练模型和预测"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="图片分割之_训练模型和预测">图片分割之_训练模型和预测</h1>
 <p>#图形图像 #深度学习</p>
 <h3 id="说明">1. 说明</h3>
 <p> 本篇使用Mask
@@ -178,13 +178,9 @@ src="https://upload-images.jianshu.io/upload_images/5357893-da5f08774d71ba21.png
 <p> 操作步骤可分为：安装工具，标注图片，修改源码，模型训练和模型预测。我的工作环境是Ubuntu，硬件有GPU支持，操作过程中使用了python，图片标注工具，以及shell脚本。</p>
 <h3 id="安装工具">2. 安装工具</h3>
 <p><strong>(1) 下载程序源码</strong></p>
-<pre><code>$ git clone https://github.com/matterport/Mask_RCNN.git # (大概200多M)  </code></pre>
-<p><strong>(2) 下载相关软件</strong></p>
-<pre><code>$ sudo pip install opencv-python  
-$ sudo pip install tensorflow  
-$ sudo pip install scikit-image  
-$ sudo pip install keras==2.0.8  
-$ sudo pip install labelme # 标注工具  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/matterport/Mask_RCNN.git # (大概200多M)  </span><br></pre></td></tr></table></figure>
+<p><strong>(2) 下载相关软件</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install opencv-python  </span><br><span class="line">$ sudo pip install tensorflow  </span><br><span class="line">$ sudo pip install scikit-image  </span><br><span class="line">$ sudo pip install keras==2.0.8  </span><br><span class="line">$ sudo pip install labelme # 标注工具  </span><br></pre></td></tr></table></figure></p>
 <h3 id="标注图片">3. 标注图片</h3>
 <p><strong>(1) 收集图片</strong></p>
 <p> 香蕉图片可以从网上下载，也可用手机拍照，图片分辨率不用太高，1000x1000以下即可，如果分辨率太高，可用linux中的convert命令缩放。我使用的15张图片如下图所示：</p>
@@ -192,7 +188,7 @@ $ sudo pip install labelme # 标注工具  </code></pre>
 src="https://upload-images.jianshu.io/upload_images/5357893-34ace3d326fab314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p> 需要注意的是，图片需要包括香蕉的各个角度，以及常见的多根组合的几种形态。</p>
 <p><strong>(2) 用软件标注图片</strong></p>
-<pre><code>$ labelme 图片文件名.jpg  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ labelme 图片文件名.jpg  </span><br></pre></td></tr></table></figure>
 <p> labelme为一个图形化的标注工具，使用左侧面板中的create
 polygons，将图片中所需识别的香蕉圈出来，如果某个点画错了，用Backspace可删除最后设置的点（用法类似于photoshop中的多边形套锁工具），标注完加入填入label名，这个名字后面在程序中会到，标注完注意保存文件，文件名默认为：图片名.json。锚点的细密程度请参考下图：</p>
 <p><img
@@ -205,30 +201,15 @@ src="https://upload-images.jianshu.io/upload_images/5357893-2efff38ca0d65f21.png
 src="https://upload-images.jianshu.io/upload_images/5357893-eaed10a73e92e40d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p> 一条命令可以转换一个图片，当图片多时，建议使用 shell 脚本处理，shell
 脚本示例如下，请根据环境调整。</p>
-<pre><code>for file in `ls *.json`  
-do  
-    echo labelme_json_to_dataset $file  
-    labelme_json_to_dataset $file  
-done  
-mkdir ../labelme_json/  
-mv *_json ../labelme_json/  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for file in `ls *.json`  </span><br><span class="line">do  </span><br><span class="line">    echo labelme_json_to_dataset $file  </span><br><span class="line">    labelme_json_to_dataset $file  </span><br><span class="line">done  </span><br><span class="line">mkdir ../labelme_json/  </span><br><span class="line">mv *_json ../labelme_json/  </span><br></pre></td></tr></table></figure>
 <p><strong>(4) mask文件转码</strong></p>
 <p> 由于不同版本的 labelme
 生成的文件格式不同，有的mask是24位色，有的是8位色，用以下python程序看一下图片格式：</p>
-<pre><code>from PIL import Image  
-img = Image.open(None)  
-print(img.mode)  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from PIL import Image  </span><br><span class="line">img = Image.open(None)  </span><br><span class="line">print(img.mode)  </span><br></pre></td></tr></table></figure>
 <p> 如果image.mode是P，即8位彩色图像，直接使用即可，如果是其它格式，使用以下程序将其转换成8位图片：</p>
-<pre><code>Img_8 = img.convert(&quot;P&quot;)   
-Img_8.save(None)  </code></pre>
-<p> 将转换后的图片复制到另一文件夹即可，复制方法请参考以下shell脚本</p>
-<pre><code>mkdir ../cv2_mask  
-cd ../cv2_mask  
-for file in `ls ../labelme_json`  
-do  
-    echo &#39;cp ../labelme_json/&#39;$file&#39;/label.png &#39;$file.png   
-    cp &#39;../ labelme_json /&#39;$file&#39;/label.png&#39; $file.png   
-done  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Img_8 = img.convert(&quot;P&quot;)   </span><br><span class="line">Img_8.save(None)  </span><br></pre></td></tr></table></figure>
+<p> 将转换后的图片复制到另一文件夹即可，复制方法请参考以下shell脚本<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mkdir ../cv2_mask  </span><br><span class="line">cd ../cv2_mask  </span><br><span class="line">for file in `ls ../labelme_json`  </span><br><span class="line">do  </span><br><span class="line">    echo &#x27;cp ../labelme_json/&#x27;$file&#x27;/label.png &#x27;$file.png   </span><br><span class="line">    cp &#x27;../ labelme_json /&#x27;$file&#x27;/label.png&#x27; $file.png   </span><br><span class="line">done  </span><br></pre></td></tr></table></figure></p>
 <p><strong>(5) 调整目录结构</strong></p>
 <p> 把上述的原图放在pic目录中, 标注文件放在 json 目录中,
 拆分后的标注文件放在 labelme_json 目录中，掩码mask放在cv2_mask目录中，
@@ -239,213 +220,16 @@ src="https://upload-images.jianshu.io/upload_images/5357893-c75e101e618ef08b.png
 本例中所有程序和数据，数据放在data目录中，训练好的模型放在models目录中。</p>
 <h3 id="训练和预测">4. 训练和预测</h3>
 <p><strong>(1) 训练模型</strong></p>
-<p><strong>源码</strong></p>
-<pre><code>import os  
-import sys  
-sys.path.append(xxxx) # 加入Mask_RCNN源码所在目录  
-import random  
-import math  
-import re  
-import time  
-import numpy as np  
-import cv2  
-import matplotlib  
-import matplotlib.pyplot as plt  
-import tensorflow as tf  
-from mrcnn.config import Config  
-from mrcnn import model as modellib,utils  
-from mrcnn import visualize  
-import yaml  
-from mrcnn.model import log  
-from PIL import Image  
-  
-ROOT_DIR = os.getcwd()  
-MODEL_DIR = os.path.join(ROOT_DIR, &quot;models&quot;)  
-iter_num=0  
-COCO_MODEL_PATH = os.path.join(ROOT_DIR, &quot;mask_rcnn_coco.h5&quot;)  
-  
-# 从网上下载训练好的基础模型  
-if not os.path.exists(COCO_MODEL_PATH):  
-    utils.download_trained_weights(COCO_MODEL_PATH)  
-  
-# 配置  
-class ShapesConfig(Config):  
-    NAME = &quot;shapes&quot; # 命名  
-    GPU_COUNT = 1  
-    IMAGES_PER_GPU = 1  
-    NUM_CLASSES = 1 + 1  # 背景一类，香蕉一类，共两类  
-    IMAGE_MIN_DIM = 320  
-    IMAGE_MAX_DIM = 384  
-    RPN_ANCHOR_SCALES = (8 * 6, 16 * 6, 32 * 6, 64 * 6, 128 * 6)  
-    TRAIN_ROIS_PER_IMAGE = 100 # Aim to allow ROI sampling to pick 33% positive ROIs  
-    STEPS_PER_EPOCH = 100  
-    VALIDATION_STEPS = 50  
-  
-config = ShapesConfig()  
-config.display()  
-  
-# 重写数据集  
-class DrugDataset(utils.Dataset):  
-    def get_obj_index(self, image):  
-        n = np.max(image)  
-        return n  
-  
-    # 获取标签  
-    def from_yaml_get_class(self, image_id):  
-        info = self.image_info[image_id]  
-        with open(info[&#39;yaml_path&#39;]) as f:  
-            temp = yaml.load(f.read())  
-            labels = temp[&#39;label_names&#39;]  
-            del labels[0]  
-        return labels  
-  
-    # 填充mask  
-    def draw_mask(self, num_obj, mask, image,image_id):  
-        info = self.image_info[image_id]  
-        for index in range(num_obj):  
-            for i in range(info[&#39;width&#39;]):  
-                for j in range(info[&#39;height&#39;]):  
-                    at_pixel = image.getpixel((i, j))  
-                    if at_pixel == index + 1:  
-                        mask[j, i, index] = 1  
-        return mask  
-      
-    # 读入训练图片及其配置文件  
-    def load_shapes(self, count, img_floder, mask_floder, imglist, dataset_root_path):  
-        self.add_class(&quot;shapes&quot;, 1, &quot;banana&quot;) # 自定义标签   
-        for i in range(count):  
-            filestr = imglist[i].split(&quot;.&quot;)[0]  
-            mask_path = mask_floder + &quot;/&quot; + filestr + &quot;_json.png&quot;  
-            yaml_path = dataset_root_path + &quot;labelme_json/&quot; + filestr + &quot;_json/info.yaml&quot;  
-            cv_img = cv2.imread(None)  
-            self.add_image(&quot;shapes&quot;, image_id=i, path=img_floder + &quot;/&quot; + imglist[i],  
-                           width=cv_img.shape[1], height=cv_img.shape[0], mask_path=mask_path, yaml_path=yaml_path)  
-  
-    # 读取标签和配置   
-    def load_mask(self, image_id):  
-        global iter_num  
-        print(&quot;image_id&quot;,image_id)  
-        info = self.image_info[image_id]  
-        count = 1  # number of object  
-        img = Image.open(info[&#39;mask_path&#39;])  
-        num_obj = self.get_obj_index(img)  
-        mask = np.zeros([info[&#39;height&#39;], info[&#39;width&#39;], num_obj], dtype=np.uint8)  
-        mask = self.draw_mask(num_obj, mask, img,image_id)  
-        occlusion = np.logical_not(mask[:, :, -1]).astype(np.uint8)  
-        for i in range(count - 2, -1, -1):  
-            mask[:, :, i] = mask[:, :, i] * occlusion  
-            occlusion = np.logical_and(occlusion, np.logical_not(mask[:, :, i]))  
-        labels = []  
-        labels = self.from_yaml_get_class(image_id)  
-        labels_form = []  
-        for i in range(len(labels)):  
-            if labels[i].find(&quot;banana&quot;) != -1: # 自定义标签  
-                labels_form.append(&quot;banana&quot;)  
-        class_ids = np.array([self.class_names.index(s) for s in labels_form])  
-        return mask, class_ids.astype(np.int32)  
-  
-#基础设置  
-dataset_root_path=&quot;data/&quot;  
-img_floder = dataset_root_path + &quot;pic&quot; # 基本图片目录  
-mask_floder = dataset_root_path + &quot;cv2_mask&quot; # mask图片目录  
-imglist = os.listdir(img_floder)  
-count = len(imglist)  
-  
-# 构造训练集  
-dataset_train = DrugDataset()  
-dataset_train.load_shapes(count, img_floder, mask_floder, imglist, dataset_root_path)  
-dataset_train.prepare()  
-  
-# 构造验证集  
-dataset_val = DrugDataset()  
-dataset_val.load_shapes(7, img_floder, mask_floder, imglist, dataset_root_path)  
-dataset_val.prepare()  
-  
-# 建立模型  
-model = modellib.MaskRCNN(mode=&quot;training&quot;, config=config,  
-                          model_dir=MODEL_DIR)  
-  
-# 定义模式  
-init_with = &quot;coco&quot;  # imagenet, coco, or last  
-  
-if init_with == &quot;imagenet&quot;:  
-    model.load_weights(model.get_imagenet_weights(), by_name=True)  
-elif init_with == &quot;coco&quot;:  
-    model.load_weights(COCO_MODEL_PATH, by_name=True,  
-                       exclude=[&quot;mrcnn_class_logits&quot;, &quot;mrcnn_bbox_fc&quot;,  
-                                &quot;mrcnn_bbox&quot;, &quot;mrcnn_mask&quot;])  
-elif init_with == &quot;last&quot;:  
-    model.load_weights(model.find_last()[1], by_name=True)  
-  
-model.train(dataset_train, dataset_val,  
-            learning_rate=config.LEARNING_RATE,  
-            epochs=10,  
-            layers=&#39;heads&#39;)  
-  
-model.train(dataset_train, dataset_val,  
-            learning_rate=config.LEARNING_RATE / 10,  
-            epochs=30,  
-            layers=&quot;all&quot;)  
-  </code></pre>
-<p><strong>运行程序</strong></p>
-<pre><code>$ python train.py  </code></pre>
+<p><strong>源码</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line">import os  </span><br><span class="line">import sys  </span><br><span class="line">sys.path.append(xxxx) # 加入Mask_RCNN源码所在目录  </span><br><span class="line">import random  </span><br><span class="line">import math  </span><br><span class="line">import re  </span><br><span class="line">import time  </span><br><span class="line">import numpy as np  </span><br><span class="line">import cv2  </span><br><span class="line">import matplotlib  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">import tensorflow as tf  </span><br><span class="line">from mrcnn.config import Config  </span><br><span class="line">from mrcnn import model as modellib,utils  </span><br><span class="line">from mrcnn import visualize  </span><br><span class="line">import yaml  </span><br><span class="line">from mrcnn.model import log  </span><br><span class="line">from PIL import Image  </span><br><span class="line">  </span><br><span class="line">ROOT_DIR = os.getcwd()  </span><br><span class="line">MODEL_DIR = os.path.join(ROOT_DIR, &quot;models&quot;)  </span><br><span class="line">iter_num=0  </span><br><span class="line">COCO_MODEL_PATH = os.path.join(ROOT_DIR, &quot;mask_rcnn_coco.h5&quot;)  </span><br><span class="line">  </span><br><span class="line"># 从网上下载训练好的基础模型  </span><br><span class="line">if not os.path.exists(COCO_MODEL_PATH):  </span><br><span class="line">    utils.download_trained_weights(COCO_MODEL_PATH)  </span><br><span class="line">  </span><br><span class="line"># 配置  </span><br><span class="line">class ShapesConfig(Config):  </span><br><span class="line">    NAME = &quot;shapes&quot; # 命名  </span><br><span class="line">    GPU_COUNT = 1  </span><br><span class="line">    IMAGES_PER_GPU = 1  </span><br><span class="line">    NUM_CLASSES = 1 + 1  # 背景一类，香蕉一类，共两类  </span><br><span class="line">    IMAGE_MIN_DIM = 320  </span><br><span class="line">    IMAGE_MAX_DIM = 384  </span><br><span class="line">    RPN_ANCHOR_SCALES = (8 * 6, 16 * 6, 32 * 6, 64 * 6, 128 * 6)  </span><br><span class="line">    TRAIN_ROIS_PER_IMAGE = 100 # Aim to allow ROI sampling to pick 33% positive ROIs  </span><br><span class="line">    STEPS_PER_EPOCH = 100  </span><br><span class="line">    VALIDATION_STEPS = 50  </span><br><span class="line">  </span><br><span class="line">config = ShapesConfig()  </span><br><span class="line">config.display()  </span><br><span class="line">  </span><br><span class="line"># 重写数据集  </span><br><span class="line">class DrugDataset(utils.Dataset):  </span><br><span class="line">    def get_obj_index(self, image):  </span><br><span class="line">        n = np.max(image)  </span><br><span class="line">        return n  </span><br><span class="line">  </span><br><span class="line">    # 获取标签  </span><br><span class="line">    def from_yaml_get_class(self, image_id):  </span><br><span class="line">        info = self.image_info[image_id]  </span><br><span class="line">        with open(info[&#x27;yaml_path&#x27;]) as f:  </span><br><span class="line">            temp = yaml.load(f.read())  </span><br><span class="line">            labels = temp[&#x27;label_names&#x27;]  </span><br><span class="line">            del labels[0]  </span><br><span class="line">        return labels  </span><br><span class="line">  </span><br><span class="line">    # 填充mask  </span><br><span class="line">    def draw_mask(self, num_obj, mask, image,image_id):  </span><br><span class="line">        info = self.image_info[image_id]  </span><br><span class="line">        for index in range(num_obj):  </span><br><span class="line">            for i in range(info[&#x27;width&#x27;]):  </span><br><span class="line">                for j in range(info[&#x27;height&#x27;]):  </span><br><span class="line">                    at_pixel = image.getpixel((i, j))  </span><br><span class="line">                    if at_pixel == index + 1:  </span><br><span class="line">                        mask[j, i, index] = 1  </span><br><span class="line">        return mask  </span><br><span class="line">	  </span><br><span class="line">    # 读入训练图片及其配置文件  </span><br><span class="line">    def load_shapes(self, count, img_floder, mask_floder, imglist, dataset_root_path):  </span><br><span class="line">        self.add_class(&quot;shapes&quot;, 1, &quot;banana&quot;) # 自定义标签   </span><br><span class="line">        for i in range(count):  </span><br><span class="line">            filestr = imglist[i].split(&quot;.&quot;)[0]  </span><br><span class="line">            mask_path = mask_floder + &quot;/&quot; + filestr + &quot;_json.png&quot;  </span><br><span class="line">            yaml_path = dataset_root_path + &quot;labelme_json/&quot; + filestr + &quot;_json/info.yaml&quot;  </span><br><span class="line">            cv_img = cv2.imread(None)  </span><br><span class="line">            self.add_image(&quot;shapes&quot;, image_id=i, path=img_floder + &quot;/&quot; + imglist[i],  </span><br><span class="line">                           width=cv_img.shape[1], height=cv_img.shape[0], mask_path=mask_path, yaml_path=yaml_path)  </span><br><span class="line">  </span><br><span class="line">	# 读取标签和配置   </span><br><span class="line">    def load_mask(self, image_id):  </span><br><span class="line">        global iter_num  </span><br><span class="line">        print(&quot;image_id&quot;,image_id)  </span><br><span class="line">        info = self.image_info[image_id]  </span><br><span class="line">        count = 1  # number of object  </span><br><span class="line">        img = Image.open(info[&#x27;mask_path&#x27;])  </span><br><span class="line">        num_obj = self.get_obj_index(img)  </span><br><span class="line">        mask = np.zeros([info[&#x27;height&#x27;], info[&#x27;width&#x27;], num_obj], dtype=np.uint8)  </span><br><span class="line">        mask = self.draw_mask(num_obj, mask, img,image_id)  </span><br><span class="line">        occlusion = np.logical_not(mask[:, :, -1]).astype(np.uint8)  </span><br><span class="line">        for i in range(count - 2, -1, -1):  </span><br><span class="line">            mask[:, :, i] = mask[:, :, i] * occlusion  </span><br><span class="line">            occlusion = np.logical_and(occlusion, np.logical_not(mask[:, :, i]))  </span><br><span class="line">        labels = []  </span><br><span class="line">        labels = self.from_yaml_get_class(image_id)  </span><br><span class="line">        labels_form = []  </span><br><span class="line">        for i in range(len(labels)):  </span><br><span class="line">            if labels[i].find(&quot;banana&quot;) != -1: # 自定义标签  </span><br><span class="line">                labels_form.append(&quot;banana&quot;)  </span><br><span class="line">        class_ids = np.array([self.class_names.index(s) for s in labels_form])  </span><br><span class="line">        return mask, class_ids.astype(np.int32)  </span><br><span class="line">  </span><br><span class="line">#基础设置  </span><br><span class="line">dataset_root_path=&quot;data/&quot;  </span><br><span class="line">img_floder = dataset_root_path + &quot;pic&quot; # 基本图片目录  </span><br><span class="line">mask_floder = dataset_root_path + &quot;cv2_mask&quot; # mask图片目录  </span><br><span class="line">imglist = os.listdir(img_floder)  </span><br><span class="line">count = len(imglist)  </span><br><span class="line">  </span><br><span class="line"># 构造训练集  </span><br><span class="line">dataset_train = DrugDataset()  </span><br><span class="line">dataset_train.load_shapes(count, img_floder, mask_floder, imglist, dataset_root_path)  </span><br><span class="line">dataset_train.prepare()  </span><br><span class="line">  </span><br><span class="line"># 构造验证集  </span><br><span class="line">dataset_val = DrugDataset()  </span><br><span class="line">dataset_val.load_shapes(7, img_floder, mask_floder, imglist, dataset_root_path)  </span><br><span class="line">dataset_val.prepare()  </span><br><span class="line">  </span><br><span class="line"># 建立模型  </span><br><span class="line">model = modellib.MaskRCNN(mode=&quot;training&quot;, config=config,  </span><br><span class="line">                          model_dir=MODEL_DIR)  </span><br><span class="line">  </span><br><span class="line"># 定义模式  </span><br><span class="line">init_with = &quot;coco&quot;  # imagenet, coco, or last  </span><br><span class="line">  </span><br><span class="line">if init_with == &quot;imagenet&quot;:  </span><br><span class="line">    model.load_weights(model.get_imagenet_weights(), by_name=True)  </span><br><span class="line">elif init_with == &quot;coco&quot;:  </span><br><span class="line">    model.load_weights(COCO_MODEL_PATH, by_name=True,  </span><br><span class="line">                       exclude=[&quot;mrcnn_class_logits&quot;, &quot;mrcnn_bbox_fc&quot;,  </span><br><span class="line">                                &quot;mrcnn_bbox&quot;, &quot;mrcnn_mask&quot;])  </span><br><span class="line">elif init_with == &quot;last&quot;:  </span><br><span class="line">    model.load_weights(model.find_last()[1], by_name=True)  </span><br><span class="line">  </span><br><span class="line">model.train(dataset_train, dataset_val,  </span><br><span class="line">            learning_rate=config.LEARNING_RATE,  </span><br><span class="line">            epochs=10,  </span><br><span class="line">            layers=&#x27;heads&#x27;)  </span><br><span class="line">  </span><br><span class="line">model.train(dataset_train, dataset_val,  </span><br><span class="line">            learning_rate=config.LEARNING_RATE / 10,  </span><br><span class="line">            epochs=30,  </span><br><span class="line">            layers=&quot;all&quot;)  </span><br><span class="line">  </span><br></pre></td></tr></table></figure> <strong>运行程序</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python train.py  </span><br></pre></td></tr></table></figure>
 <p> 在程序运行过程中，如果因为tensorflow版本与mask_rcnn不匹配，引起找不到keepdims问题，需要修改
 Mask_RCNN/mrcnn/model.py，将其中的keepdims改为keep_dims即可。<br />
  我的机器训练完不到15分钟，如果把两次训练的迭代次数分别设成1和2则2分钟完成训练。</p>
 <p><strong>(2) 预测模型</strong><br />
-<strong>源码</strong></p>
-<pre><code># -*- coding: utf-8 -*-  
-  
-import os  
-import sys  
-sys.path.append(os.path.dirname(os.getcwd())) # 注意：加mask_rcnn目录  
-import skimage.io  
-from mrcnn.config import Config  
-from datetime import datetime   
-import mrcnn.model as modellib  
-from mrcnn import visualize  
-  
-ROOT_DIR = os.getcwd()  
-sys.path.append(ROOT_DIR)  
-MODEL_DIR = os.path.join(ROOT_DIR, &quot;models&quot;)  
-  
-# 配置，同train  
-class ShapesConfig(Config):  
-    NAME = &quot;shapes&quot;  
-    GPU_COUNT = 1  
-    IMAGES_PER_GPU = 1  
-    NUM_CLASSES = 1 + 1  
-    IMAGE_MIN_DIM = 320  
-    IMAGE_MAX_DIM = 384  
-    RPN_ANCHOR_SCALES = (8 * 6, 16 * 6, 32 * 6, 64 * 6, 128 * 6)  
-    TRAIN_ROIS_PER_IMAGE =100  
-    STEPS_PER_EPOCH = 100  
-    VALIDATION_STEPS = 50  
-  
-class InferenceConfig(ShapesConfig):  
-    GPU_COUNT = 1  
-    IMAGES_PER_GPU = 1  
-  
-config = InferenceConfig()  
-model = modellib.MaskRCNN(mode=&quot;inference&quot;, model_dir=MODEL_DIR, config=config)  
-model.load_weights(&#39;models/shapes20190117T1428/mask_rcnn_shapes_0001.h5&#39;, by_name=True) # 注意换成你模型的路径  
-#model.load_weights(&#39;models/shapes20190117T1428/mask_rcnn_shapes_0030.h5&#39;, by_name=True) # 注意换成你模型的路径  
-#model.load_weights(&#39;mask_rcnn_coco.h5&#39;, by_name=True) # 注意换成你模型的路径  
-  
-class_names = [&#39;BG&#39;, &#39;banana&#39;]  
-image = skimage.io.imread(None) # 注意事换成你要识别的图片  
-  
-a=datetime.now()   
-results = model.detect([image], verbose=1)  
-b=datetime.now()   
-print(&quot;@@ detect duration&quot;,(b-a).seconds, &#39;second&#39;)  
-r = results[0]  
-# 画图  
-visualize.display_instances(image, r[&#39;rois&#39;], r[&#39;masks&#39;], r[&#39;class_ids&#39;],   
-                            class_names, r[&#39;scores&#39;])  
-  </code></pre>
-<p><strong>运行程序</strong></p>
-<pre><code>$ python test.py  </code></pre>
+<strong>源码</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-  </span><br><span class="line">  </span><br><span class="line">import os  </span><br><span class="line">import sys  </span><br><span class="line">sys.path.append(os.path.dirname(os.getcwd())) # 注意：加mask_rcnn目录  </span><br><span class="line">import skimage.io  </span><br><span class="line">from mrcnn.config import Config  </span><br><span class="line">from datetime import datetime   </span><br><span class="line">import mrcnn.model as modellib  </span><br><span class="line">from mrcnn import visualize  </span><br><span class="line">  </span><br><span class="line">ROOT_DIR = os.getcwd()  </span><br><span class="line">sys.path.append(ROOT_DIR)  </span><br><span class="line">MODEL_DIR = os.path.join(ROOT_DIR, &quot;models&quot;)  </span><br><span class="line">  </span><br><span class="line"># 配置，同train  </span><br><span class="line">class ShapesConfig(Config):  </span><br><span class="line">    NAME = &quot;shapes&quot;  </span><br><span class="line">    GPU_COUNT = 1  </span><br><span class="line">    IMAGES_PER_GPU = 1  </span><br><span class="line">    NUM_CLASSES = 1 + 1  </span><br><span class="line">    IMAGE_MIN_DIM = 320  </span><br><span class="line">    IMAGE_MAX_DIM = 384  </span><br><span class="line">    RPN_ANCHOR_SCALES = (8 * 6, 16 * 6, 32 * 6, 64 * 6, 128 * 6)  </span><br><span class="line">    TRAIN_ROIS_PER_IMAGE =100  </span><br><span class="line">    STEPS_PER_EPOCH = 100  </span><br><span class="line">    VALIDATION_STEPS = 50  </span><br><span class="line">  </span><br><span class="line">class InferenceConfig(ShapesConfig):  </span><br><span class="line">    GPU_COUNT = 1  </span><br><span class="line">    IMAGES_PER_GPU = 1  </span><br><span class="line">  </span><br><span class="line">config = InferenceConfig()  </span><br><span class="line">model = modellib.MaskRCNN(mode=&quot;inference&quot;, model_dir=MODEL_DIR, config=config)  </span><br><span class="line">model.load_weights(&#x27;models/shapes20190117T1428/mask_rcnn_shapes_0001.h5&#x27;, by_name=True) # 注意换成你模型的路径  </span><br><span class="line">#model.load_weights(&#x27;models/shapes20190117T1428/mask_rcnn_shapes_0030.h5&#x27;, by_name=True) # 注意换成你模型的路径  </span><br><span class="line">#model.load_weights(&#x27;mask_rcnn_coco.h5&#x27;, by_name=True) # 注意换成你模型的路径  </span><br><span class="line">  </span><br><span class="line">class_names = [&#x27;BG&#x27;, &#x27;banana&#x27;]  </span><br><span class="line">image = skimage.io.imread(None) # 注意事换成你要识别的图片  </span><br><span class="line">  </span><br><span class="line">a=datetime.now()   </span><br><span class="line">results = model.detect([image], verbose=1)  </span><br><span class="line">b=datetime.now()   </span><br><span class="line">print(&quot;@@ detect duration&quot;,(b-a).seconds, &#x27;second&#x27;)  </span><br><span class="line">r = results[0]  </span><br><span class="line"># 画图  </span><br><span class="line">visualize.display_instances(image, r[&#x27;rois&#x27;], r[&#x27;masks&#x27;], r[&#x27;class_ids&#x27;],   </span><br><span class="line">                            class_names, r[&#x27;scores&#x27;])  </span><br><span class="line">  </span><br></pre></td></tr></table></figure> <strong>运行程序</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python test.py  </span><br></pre></td></tr></table></figure></p>
 <h3 id="分析总结">5. 分析总结</h3>
 <ul>
 <li><p>自动标注：当图片数量很多时，可以先训练少量图片，生成模型，让模型自动标注，人为检查标注是否正确，对于不正确的人工重新标注。</p></li>

@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2018-07-29T15:56:03.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:22.520Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:07.403Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="大数据">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:22'
+  postUpdate: '2023-09-29 06:52:07'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,7 +168,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">全文搜索引擎ElasticSearch</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-07-29T15:56:03.000Z" title="Created 2018-07-29 15:56:03">2018-07-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:22.520Z" title="Updated 2023-09-29 05:49:22">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="全文搜索引擎ElasticSearch"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="全文搜索引擎elasticsearch">全文搜索引擎ElasticSearch</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">全文搜索引擎ElasticSearch</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-07-29T15:56:03.000Z" title="Created 2018-07-29 15:56:03">2018-07-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:07.403Z" title="Updated 2023-09-29 06:52:07">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="全文搜索引擎ElasticSearch"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="全文搜索引擎elasticsearch">全文搜索引擎ElasticSearch</h1>
 <p>#大数据 #ES #Python</p>
 <h2 id="介绍">1. 介绍</h2>
 <p>ElasticSearch简称ES。</p>
@@ -180,78 +180,52 @@
 <h4 id="安装8以上的java版本">(1) 安装8以上的Java版本</h4>
 <p> ES是由java编写的，所以先要安装与其版本匹配的JAVA工具<br />
  在以下网址下载Java8版本：<br />
-http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</p>
-<pre><code>$ cd /usr/lib/jvm/  
-$ tar xvzf jdk-8u181-linux-x64.tar.gz # 解包  
-$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_181/bin/java # 把新版java纳入版本管理  
-$ sudo update-alternatives --config java　#　选择新版本为默认java版本  </code></pre>
-<p> 用以上方法设置可以省去手动设置JAVA_HOME等环境变量。</p>
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd /usr/lib/jvm/  </span><br><span class="line">$ tar xvzf jdk-8u181-linux-x64.tar.gz # 解包  </span><br><span class="line">$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_181/bin/java # 把新版java纳入版本管理  </span><br><span class="line">$ sudo update-alternatives --config java　#　选择新版本为默认java版本  </span><br></pre></td></tr></table></figure>  用以上方法设置可以省去手动设置JAVA_HOME等环境变量。</p>
 <h4 id="安装es和kibana">(2) 安装ES和Kibana</h4>
-<p> 安装时，需要考虑ES和它的辅助软件kibana的版本匹配，于是在网站https://www.elastic.co/downloads，下载了最新版本的deb包（目前最新为6.3.2）</p>
-<pre><code>$ sudo dpkg -i elasticsearch-6.3.2.deb # ubuntu系统下安装  
-$ sudo dpkg -i kibana-6.3.2-amd64.deb  </code></pre>
+<p> 安装时，需要考虑ES和它的辅助软件kibana的版本匹配，于是在网站https://www.elastic.co/downloads，下载了最新版本的deb包（目前最新为6.3.2）<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i elasticsearch-6.3.2.deb # ubuntu系统下安装  </span><br><span class="line">$ sudo dpkg -i kibana-6.3.2-amd64.deb  </span><br></pre></td></tr></table></figure></p>
 <h4 id="配置es">(3) 配置ES</h4>
-<pre><code>$ sudo vi /etc/elasticsearch/elasticsearch.yml # 编辑配置文件，也可以通过该配置文件，配置ES集群（一个设成master node, 多个data node，使用同一集群名）  
-此处介绍最简单的配置，将host替换为你的地址  
-network.host: 127.0.0.1　#　我用的是本机地址  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/elasticsearch/elasticsearch.yml # 编辑配置文件，也可以通过该配置文件，配置ES集群（一个设成master node, 多个data node，使用同一集群名）  </span><br><span class="line">此处介绍最简单的配置，将host替换为你的地址  </span><br><span class="line">network.host: 127.0.0.1　#　我用的是本机地址  </span><br></pre></td></tr></table></figure>
 <h4 id="启动es">(4) 启动ES</h4>
-<pre><code>$ sudo service elasticsearch restart # 重启ES  
-如果无法启动，也可尝试手动启动服务，命令如下：  
-$ sudo /usr/share/elasticsearch/bin/elasticsearch -d  
-此时在浏览器中打开：http://127.0.0.1:9200/，可看到端口已打开。  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service elasticsearch restart # 重启ES  </span><br><span class="line">如果无法启动，也可尝试手动启动服务，命令如下：  </span><br><span class="line">$ sudo /usr/share/elasticsearch/bin/elasticsearch -d  </span><br><span class="line">此时在浏览器中打开：http://127.0.0.1:9200/，可看到端口已打开。  </span><br></pre></td></tr></table></figure>
 <h4 id="配置kibana">(5) 配置Kibana</h4>
-<pre><code>$ sudo vi /etc/kibana/kibana.yml # 修改配置文件  
-此处介绍最简单的配置，打开对以下行的注释：  
-server.port: 5601  
-server.host: &quot;127.0.0.1&quot;  
-server.name: &quot;testme&quot;  
-elasticsearch.url: &quot;http://127.0.0.1:9200&quot;  
-elasticsearch.preserveHost: true  
-kibana.index: &quot;.kibana&quot;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/kibana/kibana.yml # 修改配置文件  </span><br><span class="line">此处介绍最简单的配置，打开对以下行的注释：  </span><br><span class="line">server.port: 5601  </span><br><span class="line">server.host: &quot;127.0.0.1&quot;  </span><br><span class="line">server.name: &quot;testme&quot;  </span><br><span class="line">elasticsearch.url: &quot;http://127.0.0.1:9200&quot;  </span><br><span class="line">elasticsearch.preserveHost: true  </span><br><span class="line">kibana.index: &quot;.kibana&quot;  </span><br></pre></td></tr></table></figure>
 <h4 id="启动kibana">(6) 启动Kibana</h4>
-<pre><code>$ sudo service kibana restart  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service kibana restart  </span><br></pre></td></tr></table></figure>
 <p> 此时在浏览器中，打开http://127.0.0.1:5601，即可看到kibana已启动</p>
 <h4 id="一次性安装es和kibana">(7) 一次性安装ES和Kibana</h4>
-<pre><code>$ docker pull nshou/elasticsearch-kibana  
-$ docker run -it --name es-kibana -d -p 9200:9200 -p 5601:5601 nshou/elasticsearch-kibana  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull nshou/elasticsearch-kibana  </span><br><span class="line">$ docker run -it --name es-kibana -d -p 9200:9200 -p 5601:5601 nshou/elasticsearch-kibana  </span><br></pre></td></tr></table></figure>
 <p>目前下载的是较新的 7.16.2 版本</p>
 <h2 id="使用curl命令访问es">3. 使用curl命令访问ES</h2>
 <h4 id="查看服务状态也可以在浏览器中查看">(1)
 查看服务状态（也可以在浏览器中查看）</h4>
-<pre><code>$ curl &#39;localhost:9200/_cat/health?v&#39;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#x27;localhost:9200/_cat/health?v&#x27;  </span><br></pre></td></tr></table></figure>
 <h4 id="查看当前的node节点">(2) 查看当前的Node节点</h4>
-<pre><code>$ curl &#39;localhost:9200/_cat/nodes?v&#39;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#x27;localhost:9200/_cat/nodes?v&#x27;  </span><br></pre></td></tr></table></figure>
 <h4 id="新建一个index类似于数据库操作中的建库">(3)
 新建一个index（类似于数据库操作中的建库）</h4>
-<pre><code>$ curl -XPUT &#39;localhost:9200/test_1&#39;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -XPUT &#x27;localhost:9200/test_1&#x27;  </span><br></pre></td></tr></table></figure>
 <p> 此时在浏览器输入http://127.0.0.1:9200/test_1?pretty，可看到具体信息。</p>
 <h4 id="查看当前所有index">(4) 查看当前所有index</h4>
-<pre><code>$ curl &#39;localhost:9200/_cat/indices?v&#39;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl &#x27;localhost:9200/_cat/indices?v&#x27;  </span><br></pre></td></tr></table></figure>
 <h4 id="向index中添加数据">(5) 向index中添加数据</h4>
-<pre><code>$ curl -XPOST http://localhost:9200/test_1/product/ -d &#39;&#123;&quot;author&quot; : &quot;Jack&quot;, , &quot;age&quot;: 32&#125;&#39;  </code></pre>
-<p> 如果报错406，请加入参数-H，如下：</p>
-<pre><code>$ curl -XPOST http://localhost:9200/test_1/product/ -H &#39;Content-Type: application/json&#39; -d &#39;&#123;&quot;author&quot; : &quot;Xie Yan&quot;&#125;&#39;  </code></pre>
-<p> 插入的index是test_1，type是product，此处可以看到，输入ES数据的格式是相当灵活的，它以key-value的方式存取，不像数据库中固定的字段。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -XPOST http://localhost:9200/test_1/product/ -d &#x27;&#123;&quot;author&quot; : &quot;Jack&quot;, , &quot;age&quot;: 32&#125;&#x27;  </span><br></pre></td></tr></table></figure>
+<p> 如果报错406，请加入参数-H，如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -XPOST http://localhost:9200/test_1/product/ -H &#x27;Content-Type: application/json&#x27; -d &#x27;&#123;&quot;author&quot; : &quot;Xie Yan&quot;&#125;&#x27;  </span><br></pre></td></tr></table></figure>
+ 插入的index是test_1，type是product，此处可以看到，输入ES数据的格式是相当灵活的，它以key-value的方式存取，不像数据库中固定的字段。</p>
 <h4 id="查询所有数据">(6) 查询所有数据</h4>
-<pre><code>$ curl -XPOST &#39;localhost:9200/test_1/_search&#39; -d &#39; &#123; &quot;query&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125; &#125;&#39;  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -XPOST &#x27;localhost:9200/test_1/_search&#x27; -d &#x27; &#123; &quot;query&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125; &#125;&#x27;  </span><br></pre></td></tr></table></figure>
 <h4 id="条件查询">(7) 条件查询</h4>
-<pre><code>$ curl -XGET http://localhost:9200/test_1/_search?q=age:32  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -XGET http://localhost:9200/test_1/_search?q=age:32  </span><br></pre></td></tr></table></figure>
 <p>##4. 使用Kibana查看ES数据<br />
  浏览器访问http://127.0.0.1:5601，在Management-&gt;
 Elasticsearch中即可以查看当前的index和type，及其它们的内容，以及进一步分析。</p>
 <h2 id="用python访问es数据">5. 用Python访问ES数据</h2>
 <h4 id="安装python支持库">(1) 安装python支持库</h4>
-<pre><code>$ sudo pip install elasticsearch  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install elasticsearch  </span><br></pre></td></tr></table></figure>
 <h4 id="代码">(2) 代码</h4>
-<pre><code>from elasticsearch import Elasticsearch  
-  
-es_host = &#39;127.0.0.1&#39;  
-es_index = &#39;test_1&#39;  
-es = Elasticsearch(es_host)  
-  
-result = es.search(index=es_index, body=&#123;&#125;, size=10)  
-for item in result[&#39;hits&#39;][&#39;hits&#39;]:  
-    print(item)  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from elasticsearch import Elasticsearch  </span><br><span class="line">  </span><br><span class="line">es_host = &#x27;127.0.0.1&#x27;  </span><br><span class="line">es_index = &#x27;test_1&#x27;  </span><br><span class="line">es = Elasticsearch(es_host)  </span><br><span class="line">  </span><br><span class="line">result = es.search(index=es_index, body=&#123;&#125;, size=10)  </span><br><span class="line">for item in result[&#x27;hits&#x27;][&#x27;hits&#x27;]:  </span><br><span class="line">	print(item)  </span><br></pre></td></tr></table></figure>
 <h4 id="说明">(3) 说明</h4>
 <p> 可以在body中加入一些用json串描述的查询条件和需要的字段，条件最多1024个，在size中可设置返回条目的多少，用此方法查询最多能返回一万条。<br />
 如果超过一万条，用helpers.scan，详见参考的第三部分<br />

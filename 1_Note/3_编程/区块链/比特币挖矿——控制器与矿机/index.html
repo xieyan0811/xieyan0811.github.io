@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-10-27T10:02:15.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.596Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.443Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="区块链">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——控制器与矿机</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-27T10:02:15.000Z" title="Created 2017-10-27 10:02:15">2017-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.596Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——控制器与矿机"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="比特币挖矿控制器与矿机">比特币挖矿——控制器与矿机</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——控制器与矿机</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-27T10:02:15.000Z" title="Created 2017-10-27 10:02:15">2017-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.443Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——控制器与矿机"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="比特币挖矿控制器与矿机">比特币挖矿——控制器与矿机</h1>
 <p>#区块链</p>
 <h2 id="介绍">1. 介绍</h2>
 <p>只要把矿机插电、插网,
@@ -182,20 +182,13 @@ alt="图片.png" />
 <p>下面以树莓派控制板为例分析，控制内部如何运作，以及如何与上下层交互。一般树莓派都自带再dhcp客户端，连上网线就能自动获取IP地址，其上运行一个WebServer，外加miner-web工具，即可支持矿机的Web设置界面。矿工通过路由器看找到分给控制器的IP地址，然后用http连接的方式来设置它，此时需要设置矿池的具体信息，以及钱包的地址，地址从矿池得到。通过usb连接的矿机(可通过hub连多台)，直接映射成/dev下的设备，树莓派上运行的挖矿程序miner控制设备完成具体计算，miner的参数通过web设置得到。如果没有控制器，用电脑也可以完成上述工作，只是像树莓派这种微型电脑功耗低，出售者又已把挖矿等相关功能做好，相对省时，省力，省电．控制器的核心就是miner程序，也可以在电脑上运行minerd控制矿机，如果还没买矿机，也可以用电脑上的CPU／GPU挖，只是算力有限挖不出来。不过用该方法，在搭建矿池时，就可以用一台机器来模拟矿池整个运行逻辑。下面介绍几种常用的挖矿工具：</p>
 <h4 id="cpuminer可以云端模拟不需要gpu矿机等设备">1)
 cpuminer（可以云端模拟，不需要gpu，矿机等设备）</h4>
-<pre><code>$ git clone https://github.com/pooler/cpuminer.git  
-$ cd cpuminer/  
-$ ./autogen.sh  
-$ ./configure  
-$ make;make install  
-$ minerd --url=矿池地址 --user=用户名 --pass=密码  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/pooler/cpuminer.git  </span><br><span class="line">$ cd cpuminer/  </span><br><span class="line">$ ./autogen.sh  </span><br><span class="line">$ ./configure  </span><br><span class="line">$ make;make install  </span><br><span class="line">$ minerd --url=矿池地址 --user=用户名 --pass=密码  </span><br></pre></td></tr></table></figure>
 <h4 id="cpugpuminer需要矿机无法在云端测试">2)
 cpu/gpuminer（需要矿机，无法在云端测试）</h4>
-<pre><code>$ apt-get install cgminer  
-$ cgminer -o 矿坑地址 -u 用户名 -p 密码  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install cgminer  </span><br><span class="line">$ cgminer -o 矿坑地址 -u 用户名 -p 密码  </span><br></pre></td></tr></table></figure>
 <h4 id="bfgminer需要矿机无法在云端测试">3)
 bfgminer（需要矿机，无法在云端测试）</h4>
-<pre><code>$ apt-get install bfgminer  
-$ bfgminer  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install bfgminer  </span><br><span class="line">$ bfgminer  </span><br></pre></td></tr></table></figure>
 <p>不指定参数，也可以找到本机上开启的矿池，并搜索与本机相连的矿机硬件．</p>
 <h2 id="矿机计算部分">3. 矿机（计算部分）</h2>
 <p>早期使用电脑挖矿，现在都是专用矿机：显卡，FPGA（现场可编程门阵列）、ASIC（专用集成电路）矿机的面世，使算力级别大幅提升、计算时间减小。</p>

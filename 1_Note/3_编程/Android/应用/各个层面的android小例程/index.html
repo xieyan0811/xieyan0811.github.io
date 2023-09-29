@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>各个层面的android小例程 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="各个层面的android小例程 #移动开发 #android 1. 说明 在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍 android 各个层面的测试的编写：普通的 java 程序，加入 android 类的 java 程序，带 android 界面的 java 程序和运行在 android 平台上的 c&#x2F;c++ 程序 2. 配置环境 $ cd $ANDROID_SRC_">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>各个层面的android小例程 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="各个层面的android小例程 #移动开发 #android 1. 说明 在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍 android 各个层面的测试的编写：普通的 java 程序，加入 android 类的 java 程序，带 android 界面的 java 程序和运行在 android 平台上的 c&#x2F;c++ 程序 2. 配置环境 123$ cd $ANDROID_SR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="各个层面的android小例程">
 <meta property="og:url" content="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Yan 的杂物志">
-<meta property="og:description" content="各个层面的android小例程 #移动开发 #android 1. 说明 在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍 android 各个层面的测试的编写：普通的 java 程序，加入 android 类的 java 程序，带 android 界面的 java 程序和运行在 android 平台上的 c&#x2F;c++ 程序 2. 配置环境 $ cd $ANDROID_SRC_">
+<meta property="og:description" content="各个层面的android小例程 #移动开发 #android 1. 说明 在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍 android 各个层面的测试的编写：普通的 java 程序，加入 android 类的 java 程序，带 android 界面的 java 程序和运行在 android 平台上的 c&#x2F;c++ 程序 2. 配置环境 123$ cd $ANDROID_SR">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2010-05-27T14:36:00.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.596Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.443Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="移动开发">
 <meta property="article:tag" content="android">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,72 +167,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">各个层面的android小例程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2010-05-27T14:36:00.000Z" title="Created 2010-05-27 14:36:00">2010-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.596Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">719</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="各个层面的android小例程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="各个层面的android小例程">各个层面的android小例程</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">各个层面的android小例程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2010-05-27T14:36:00.000Z" title="Created 2010-05-27 14:36:00">2010-05-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.443Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">731</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="各个层面的android小例程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="各个层面的android小例程">各个层面的android小例程</h1>
 <p>#移动开发 #android</p>
 <p>1. 说明<br />
 在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍
 android 各个层面的测试的编写：普通的 java 程序，加入<br />
 android 类的 java 程序，带 android 界面的 java 程序和运行在 android
 平台上的 c/c++ 程序</p>
-<p>2. 配置环境</p>
-<pre><code>$ cd $ANDROID_SRC_    
-$ . build/envsetup.sh    
-$ cd development    </code></pre>
+<p>2. 配置环境<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd $ANDROID_SRC_    </span><br><span class="line">$ . build/envsetup.sh    </span><br><span class="line">$ cd development    </span><br></pre></td></tr></table></figure></p>
 <p>3. 普通 java 程序</p>
 <ol type="1">
-<li>建立 Foo.java ，内容如下<br />
-</li>
+<li><p>建立 Foo.java ，内容如下<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Foo &#123;    </span><br><span class="line">public static void main(String[] args)    </span><br><span class="line">&#123;System.out.println(“Hello, world”);&#125;    </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>编译<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ javac Foo.java    </span><br><span class="line">$ dx --dex --output=foo.jar Foo.class # _ _ 把一个或多个  class  编成一个  jar   </span><br></pre></td></tr></table></figure></p></li>
+<li><p>运行<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb push foo.jar /sdcard #_ _ 复制到设备的  sd  卡中    </span><br><span class="line">$ adb shell dalvikvm -cp /sdcard/foo.jar Foo # 指明路径和类名   </span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<pre><code>class Foo &#123;    
-public static void main(String[] args)    
-&#123;System.out.println(“Hello, world”);&#125;    
-&#125;  </code></pre>
-<ol start="2" type="1">
-<li>编译<br />
-</li>
-</ol>
-<pre><code>$ javac Foo.java    
-$ dx --dex --output=foo.jar Foo.class # _ _ 把一个或多个  class  编成一个  jar   </code></pre>
-<ol start="3" type="1">
-<li>运行<br />
-</li>
-</ol>
-<pre><code>$ adb push foo.jar /sdcard #_ _ 复制到设备的  sd  卡中    
-$ adb shell dalvikvm -cp /sdcard/foo.jar Foo # 指明路径和类名   </code></pre>
 <p>4. 使用 android 特定功能的 java 程序（需引入 android 库）</p>
 <ol type="1">
-<li>建立 Foo.java ，内容如下<br />
-</li>
+<li><p>建立 Foo.java ，内容如下<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import android.os.Debug;    </span><br><span class="line">class Foo &#123;    </span><br><span class="line">public static void main(String[] args)    </span><br><span class="line">&#123;    </span><br><span class="line">System.out.println(“Hello, world”)    </span><br><span class="line">android.os.Debug.dumpHprofData(“/sdcard/test.hprof”);    </span><br><span class="line">;&#125;    </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>建立 Android.mk ，内容如下<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= $(call my-dir)    </span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line">LOCAL_SRC_FILES:=$(call all-subdir-java-files)    </span><br><span class="line">LOCAL_MODULE:=foo    </span><br><span class="line">include $(BUILD_JAVA_LIBRARY)  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>编译<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mm  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>运行<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ adb push $ANDROID_SRC/out/target/product/xxxxxxx/system/framework foo.jar  </span><br><span class="line">/sdcard #_ _ 复制到设备的 sd 卡中  </span><br><span class="line">$ adb shell dalvikvm -cp /sdcard/foo.jar Foo # 指明路径和类名  </span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<pre><code>import android.os.Debug;    
-class Foo &#123;    
-public static void main(String[] args)    
-&#123;    
-System.out.println(“Hello, world”)    
-android.os.Debug.dumpHprofData(“/sdcard/test.hprof”);    
-;&#125;    
-&#125;  </code></pre>
-<ol start="2" type="1">
-<li>建立 Android.mk ，内容如下<br />
-</li>
-</ol>
-<pre><code>LOCAL_PATH:= $(call my-dir)    
-include $(CLEAR_VARS)    
-LOCAL_SRC_FILES:=$(call all-subdir-java-files)    
-LOCAL_MODULE:=foo    
-include $(BUILD_JAVA_LIBRARY)  </code></pre>
-<ol start="3" type="1">
-<li>编译<br />
-</li>
-</ol>
-<pre><code>$ mm  </code></pre>
-<ol start="4" type="1">
-<li>运行<br />
-</li>
-</ol>
-<pre><code>$ adb push $ANDROID_SRC/out/target/product/xxxxxxx/system/framework foo.jar  
-/sdcard #_ _ 复制到设备的 sd 卡中  
-$ adb shell dalvikvm -cp /sdcard/foo.jar Foo # 指明路径和类名  </code></pre>
 <p>5. 带界面的 android 程序</p>
 <ol type="1">
 <li>使用 eclipse 建立</li>
@@ -271,70 +234,28 @@ Project: test_xy // 刚才起的 project, 即目录名</p></li>
 <li>从命令行运行</li>
 </ol>
 <ol type="i">
-<li>复制工程到 Android 源码目录中<br />
-</li>
+<li><p>复制工程到 Android 源码目录中<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp $WORKSPACE/test_xy $ANDROID_SRC/development/ -R  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>加入 Android.mk<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cd $ANDROID_SRC/development/test_xy/    </span><br><span class="line">编写  Android.mk  内容如下    </span><br><span class="line">LOCAL_PATH:=$(call my-dir)    </span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line">LOCAL_SRC_FILES := $(call all-subdir-java-files)    </span><br><span class="line">LOCAL_PACKAGE_NAME:=XyTest    </span><br><span class="line">LOCAL_CERTIFICATE:=platform    </span><br><span class="line">include $(BUILD_PACKAGE)  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>编译<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mm  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>运行<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ adb install $ANDROID_SRC/out/target/product/xxxxxx/system/app/XyTest.apk    </span><br><span class="line">$ adb shell am start -n com.android.testxy/com.android.testxy.TestXy  </span><br><span class="line"># am start -n  类名  /  类名  .Activity  名  </span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<pre><code>$ cp $WORKSPACE/test_xy $ANDROID_SRC/development/ -R  </code></pre>
-<ol start="2" type="i">
-<li>加入 Android.mk<br />
-</li>
-</ol>
-<pre><code>$ cd $ANDROID_SRC/development/test_xy/    
-编写  Android.mk  内容如下    
-LOCAL_PATH:=$(call my-dir)    
-include $(CLEAR_VARS)    
-LOCAL_SRC_FILES := $(call all-subdir-java-files)    
-LOCAL_PACKAGE_NAME:=XyTest    
-LOCAL_CERTIFICATE:=platform    
-include $(BUILD_PACKAGE)  </code></pre>
-<ol start="3" type="i">
-<li>编译<br />
-</li>
-</ol>
-<pre><code>$ mm  </code></pre>
-<ol start="4" type="i">
-<li>运行<br />
-</li>
-</ol>
-<pre><code>$ adb install $ANDROID_SRC/out/target/product/xxxxxx/system/app/XyTest.apk    
-$ adb shell am start -n com.android.testxy/com.android.testxy.TestXy  
-# am start -n  类名  /  类名  .Activity  名  </code></pre>
 <p>6. 简单的 c++ 程序</p>
 <ol type="1">
-<li>建立 main.c ，内容如下<br />
-</li>
+<li><p>建立 main.c ，内容如下<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include    </span><br><span class="line">int main()    </span><br><span class="line">&#123;    </span><br><span class="line">printf(&quot;Hello World!/n&quot;);    </span><br><span class="line">return 0;    </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>建立 Android.mk ，内容如下<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_PATH:= $(call my-dir)    </span><br><span class="line">include $(CLEAR_VARS)    </span><br><span class="line">LOCAL_SRC_FILES:= /    </span><br><span class="line">main.c    </span><br><span class="line">LOCAL_MODULE := helloworld    </span><br><span class="line">include $(BUILD_EXECUTABLE)  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>编译<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd $(ANDROID_SRC)  &amp;&amp; make helloworld    </span><br><span class="line">或    </span><br><span class="line">$ mm  </span><br></pre></td></tr></table></figure></p></li>
+<li><p>运行<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb push out/target/product/generic/system/bin/helloworld /sdcard    </span><br><span class="line">$ adb shell /sdcard/helloword  </span><br></pre></td></tr></table></figure></p></li>
 </ol>
-<pre><code>#include    
-int main()    
-&#123;    
-printf(&quot;Hello World!/n&quot;);    
-return 0;    
-&#125;  </code></pre>
-<ol start="2" type="1">
-<li>建立 Android.mk ，内容如下<br />
-</li>
-</ol>
-<pre><code>LOCAL_PATH:= $(call my-dir)    
-include $(CLEAR_VARS)    
-LOCAL_SRC_FILES:= /    
-main.c    
-LOCAL_MODULE := helloworld    
-include $(BUILD_EXECUTABLE)  </code></pre>
-<ol start="3" type="1">
-<li>编译<br />
-</li>
-</ol>
-<pre><code>$ cd $(ANDROID_SRC)  &amp;&amp; make helloworld    
-或    
-$ mm  </code></pre>
-<ol start="4" type="1">
-<li>运行<br />
-</li>
-</ol>
-<pre><code>$ adb push out/target/product/generic/system/bin/helloworld /sdcard    
-$ adb shell /sdcard/helloword  </code></pre>
 <p>（转载请注明出处： http://xy0811.spaces.live.com）</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="post-meta__tags" href="/tags/android/">android</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/JDWP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%B0%83%E8%AF%95/" title="JDWP命令行调试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">JDWP命令行调试</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/android%E7%9A%84%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E9%9B%86/" title="android的调试工具集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">android的调试工具集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E4%B8%AD%E6%96%87%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E5%BC%95%E6%93%8E_Easytts_%E6%98%93%E8%A8%80%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E4%B8%AD%E6%96%87%E4%BC%98%E5%8C%96%E7%89%88/" title="中文语音合成引擎_Easytts_易言语音合成中文优化版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-05-11</div><div class="title">中文语音合成引擎_Easytts_易言语音合成中文优化版</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Arduino/%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDAndroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F_apk%E5%8C%85/" title="安装和卸载Android应用程序_apk包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">安装和卸载Android应用程序_apk包</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Android%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B7%A5%E5%85%B7/" title="Android常用命令及工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Android常用命令及工具</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Android%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" title="Android常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">Android常用工具</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Eclipse%E7%BC%96%E8%AF%91%E5%B8%A6so%E5%BA%93%E6%88%96jar%E5%8C%85%E7%9A%84android%E5%BA%94%E7%94%A8/" title="Eclipse编译带so库或jar包的android应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Eclipse编译带so库或jar包的android应用</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/android_G1_%E5%88%B7%E6%9C%BA/" title="android_G1_刷机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2010-05-05</div><div class="title">android_G1_刷机</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">各个层面的android小例程</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/" title="沉浸式翻译">沉浸式翻译</a><time datetime="2023-09-29T00:00:00.000Z" title="Created 2023-09-29 00:00:00">2023-09-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/CentOS%E7%B3%BB%E7%BB%9F/" title="CentOS系统">CentOS系统</a><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/Ubuntu%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2_%E5%90%91%E6%97%A5%E8%91%B5/" title="Ubuntu远程桌面_向日葵">Ubuntu远程桌面_向日葵</a><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_1_%E5%85%A5%E9%97%A8/" title="Django_1_入门">Django_1_入门</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_2_%E8%BF%9B%E9%98%B6/" title="Django_2_进阶">Django_2_进阶</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B/">http://example.com/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="post-meta__tags" href="/tags/android/">android</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/JDWP%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%B0%83%E8%AF%95/" title="JDWP命令行调试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">JDWP命令行调试</div></div></a></div><div class="next-post pull-right"><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/android%E7%9A%84%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E9%9B%86/" title="android的调试工具集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">android的调试工具集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E4%B8%AD%E6%96%87%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E5%BC%95%E6%93%8E_Easytts_%E6%98%93%E8%A8%80%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E4%B8%AD%E6%96%87%E4%BC%98%E5%8C%96%E7%89%88/" title="中文语音合成引擎_Easytts_易言语音合成中文优化版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-05-11</div><div class="title">中文语音合成引擎_Easytts_易言语音合成中文优化版</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Arduino/%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDAndroid%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F_apk%E5%8C%85/" title="安装和卸载Android应用程序_apk包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">安装和卸载Android应用程序_apk包</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Android%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B7%A5%E5%85%B7/" title="Android常用命令及工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Android常用命令及工具</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Android%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" title="Android常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">Android常用工具</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Eclipse%E7%BC%96%E8%AF%91%E5%B8%A6so%E5%BA%93%E6%88%96jar%E5%8C%85%E7%9A%84android%E5%BA%94%E7%94%A8/" title="Eclipse编译带so库或jar包的android应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Eclipse编译带so库或jar包的android应用</div></div></a></div><div><a href="/1_Note/3_%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8Android-Studio/" title="Ubuntu上安装和使用AndroidStudio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-24</div><div class="title">Ubuntu上安装和使用AndroidStudio</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84android%E5%B0%8F%E4%BE%8B%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">各个层面的android小例程</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/" title="沉浸式翻译">沉浸式翻译</a><time datetime="2023-09-29T00:00:00.000Z" title="Created 2023-09-29 00:00:00">2023-09-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/CentOS%E7%B3%BB%E7%BB%9F/" title="CentOS系统">CentOS系统</a><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/Ubuntu%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2_%E5%90%91%E6%97%A5%E8%91%B5/" title="Ubuntu远程桌面_向日葵">Ubuntu远程桌面_向日葵</a><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_1_%E5%85%A5%E9%97%A8/" title="Django_1_入门">Django_1_入门</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/1_%E6%AD%A3%E5%9C%A8%E5%81%9A/django/Django_2_%E8%BF%9B%E9%98%B6/" title="Django_2_进阶">Django_2_进阶</a><time datetime="2023-09-19T00:00:00.000Z" title="Created 2023-09-19 00:00:00">2023-09-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],

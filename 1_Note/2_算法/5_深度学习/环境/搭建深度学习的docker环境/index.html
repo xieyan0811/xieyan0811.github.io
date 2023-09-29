@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-06-04T19:08:14.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.916Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.751Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta property="article:tag" content="Docker">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,102 +167,42 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">搭建深度学习的docker环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-04T19:08:14.000Z" title="Created 2020-06-04 19:08:14">2020-06-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.916Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="搭建深度学习的docker环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="搭建深度学习的docker环境">搭建深度学习的docker环境</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">搭建深度学习的docker环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-04T19:08:14.000Z" title="Created 2020-06-04 19:08:14">2020-06-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.751Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="搭建深度学习的docker环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="搭建深度学习的docker环境">搭建深度学习的docker环境</h1>
 <p>#Docker #深度学习</p>
 <h3 id="介绍">介绍</h3>
 <p>深度学习一般依赖比较复杂的环境，每个项目需要的底层库各有不同，有时在github中下载的代码只能运行在版本较低的的工具链之上。想在一台机器上建立适合所有项目的环境非常困难，大多数情况下使用docker维护不同项目针对的不同环境。</p>
 <p>CUDA是NVIDIA推出的运算平台，一般通过它调用GPU，CUDA的主要版本有7.x,
-8.x,9.x,10.x，目前最常用的是9和10，它们对接的上层软件版本也各不相同。如：</p>
-<pre><code>torch 1.1.0/1.1.0 + torchvision 0.2.* + CUDA 9  
-torch 1.2.0/1.3.0 + torchvision 0.3.* + CUDA 10  
-torch 1.2.0/1.3.0 + torchvision 0.4.* + CUDA 10  
-torch 1.4.0 + torchvision 0.5.* + CUDA 10  </code></pre>
-<p>除了CUDA基础库以外，还需安装相关工具包。可以在同一个操作系统中安装多个CUDA版本，使用时切换即可。</p>
+8.x,9.x,10.x，目前最常用的是9和10，它们对接的上层软件版本也各不相同。如：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch 1.1.0/1.1.0 + torchvision 0.2.* + CUDA 9  </span><br><span class="line">torch 1.2.0/1.3.0 + torchvision 0.3.* + CUDA 10  </span><br><span class="line">torch 1.2.0/1.3.0 + torchvision 0.4.* + CUDA 10  </span><br><span class="line">torch 1.4.0 + torchvision 0.5.* + CUDA 10  </span><br></pre></td></tr></table></figure>
+除了CUDA基础库以外，还需安装相关工具包。可以在同一个操作系统中安装多个CUDA版本，使用时切换即可。</p>
 <p>在Docker中使用GPU除了在Docker内部安装CUDA及相关工具以外，还需要使用nvidia-docker启动镜像，并且要在宿主机上安装CUDA的底层支持（注意版本兼容）。</p>
-<p>###宿主机安装Nvidia驱动</p>
-<pre><code>$ sudo add-apt-repository ppa:graphics-drivers/ppa  
-$ sudo apt-get update  
-$ sudo ubuntu-drivers devices # 查看当前显卡及推荐的驱动  
-$ sudo apt-get install nvidia-driver-435 # 选择其中一个推荐安装，尽量安装较高版本  
-$ sudo apt install nvidia-utils-435 # nvidia-smi支持（查看显卡信息）  
-$ sudo apt install nvidia-cuda-toolkit # nvcc支持（nv环境下的C语言编译器，注意：这个包比较大，一般在docker里使用，在宿主机不一定非要安装）  
-$ sudo reboot  </code></pre>
-<p>(后来再安装的时候，有时nvidia-cuda-toolkit和nvidia-utils-435冲突)<br />
+<p>###宿主机安装Nvidia驱动<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:graphics-drivers/ppa  </span><br><span class="line">$ sudo apt-get update  </span><br><span class="line">$ sudo ubuntu-drivers devices # 查看当前显卡及推荐的驱动  </span><br><span class="line">$ sudo apt-get install nvidia-driver-435 # 选择其中一个推荐安装，尽量安装较高版本  </span><br><span class="line">$ sudo apt install nvidia-utils-435 # nvidia-smi支持（查看显卡信息）  </span><br><span class="line">$ sudo apt install nvidia-cuda-toolkit # nvcc支持（nv环境下的C语言编译器，注意：这个包比较大，一般在docker里使用，在宿主机不一定非要安装）  </span><br><span class="line">$ sudo reboot  </span><br></pre></td></tr></table></figure>
+(后来再安装的时候，有时nvidia-cuda-toolkit和nvidia-utils-435冲突)<br />
 重启之后，使用nvidia-smi命令即可看到机器上的显卡及当前使用情况：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-1e7290af94368fc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <h3 id="安装支持cuda的docker工具">安装支持CUDA的Docker工具</h3>
-<p>安装Docker</p>
-<pre><code># 安装系统工具  
-$ sudo apt-get update  
-$ sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common  
-# 安装GPG证书  
-$ curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -  
-# 写入软件源信息  
-$ sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu (lsb_release -cs) stable&quot;   
-# 着情修改, 具体形如  
-$ sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu jammy stable&quot;  
-# 更新并安装 Docker-CE  
-$ sudo apt-get -y update  
-$ sudo apt-get -y install docker-ce  </code></pre>
-<p>安装Nvidia-docker2</p>
-<pre><code>$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \  
- sudo apt-key add -  
-$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)  
-$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \  
- sudo tee /etc/apt/sources.list.d/nvidia-docker.list  
-$ sudo apt-get update  
-$ sudo apt-get install -y nvidia-docker2  
-$ sudo pkill -SIGHUP dockerd  
-$ sudo docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi # 测试  </code></pre>
-<p>测试时自动从网上下载镜像nvidia/cuda，该镜像大小为2.83G，只包含基本的9.1版本的CUDA环境，不含Python相关工具。</p>
+<p>安装Docker<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 安装系统工具  </span><br><span class="line">$ sudo apt-get update  </span><br><span class="line">$ sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common  </span><br><span class="line"># 安装GPG证书  </span><br><span class="line">$ curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -  </span><br><span class="line"># 写入软件源信息  </span><br><span class="line">$ sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu (lsb_release -cs) stable&quot;   </span><br><span class="line"># 着情修改, 具体形如  </span><br><span class="line">$ sudo add-apt-repository &quot;deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu jammy stable&quot;  </span><br><span class="line"># 更新并安装 Docker-CE  </span><br><span class="line">$ sudo apt-get -y update  </span><br><span class="line">$ sudo apt-get -y install docker-ce  </span><br></pre></td></tr></table></figure> 安装Nvidia-docker2<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \  </span><br><span class="line"> sudo apt-key add -  </span><br><span class="line">$ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)  </span><br><span class="line">$ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \  </span><br><span class="line"> sudo tee /etc/apt/sources.list.d/nvidia-docker.list  </span><br><span class="line">$ sudo apt-get update  </span><br><span class="line">$ sudo apt-get install -y nvidia-docker2  </span><br><span class="line">$ sudo pkill -SIGHUP dockerd  </span><br><span class="line">$ sudo docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi # 测试  </span><br></pre></td></tr></table></figure>
+测试时自动从网上下载镜像nvidia/cuda，该镜像大小为2.83G，只包含基本的9.1版本的CUDA环境，不含Python相关工具。</p>
 <p>###推荐Docker镜像</p>
-<p>目前最常用的是CUDA 9.x和CUDA 10.x，推荐下面两个镜像。 下载方法：</p>
-<pre><code>$ docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:1.1.0-cuda10.0-py3  
-$ docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:latest-cuda9.0-py3   </code></pre>
-<p>运行方法：</p>
-<pre><code>$ nvidia-docker run --rm -it registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:latest-cuda9.0-py3 bash  </code></pre>
-<p>它们的大小分别是4.17G和3.56G，以cuda-10.0版本为例，其内部为Ubuntu
+<p>目前最常用的是CUDA 9.x和CUDA 10.x，推荐下面两个镜像。
+下载方法：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:1.1.0-cuda10.0-py3  </span><br><span class="line">$ docker pull registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:latest-cuda9.0-py3   </span><br></pre></td></tr></table></figure> 运行方法：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvidia-docker run --rm -it registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:latest-cuda9.0-py3 bash  </span><br></pre></td></tr></table></figure>
+它们的大小分别是4.17G和3.56G，以cuda-10.0版本为例，其内部为Ubuntu
 16.04系统，可使用apt-get安装软件，其Python版本为3.6.5。pytorch版本为1.0.0。</p>
 <h3 id="在docker中使用jupyter开发">在Docker中使用Jupyter开发</h3>
 <p>在pytorch:1.1.0-cuda10.0-py3的基础上安装jupyter开发环境：<br />
-在当前目录下创建Dockerfile，内容如下：</p>
-<pre><code>FROM registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:1.1.0-cuda10.0-py3  
-ADD . /  
-RUN mkdir ~/.pip \  
- &amp;&amp; echo &quot;[global]\nindex-url = https://mirrors.aliyun.com/pypi/simple/&quot; &gt; ~/.pip/pip.conf  
-RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list  
-RUN apt-get clean  
-RUN apt-get update -y  
-RUN pip install jupyter  
-  
-ENV PASSWORD=123456  
-ENV CONFIG_PATH=&quot;/root/.jupyter/jupyter_notebook_config.py&quot;  
-COPY &quot;jupyter_notebook_config.py&quot; $&#123;CONFIG_PATH&#125;  
-WORKDIR /notebooks/  
-#CMD [&quot;sh&quot;, &quot;run.sh&quot;]  </code></pre>
-<p>在当前目录下创建jupyter配置文件jupyter_notebook_config.py，用于设置密码：</p>
-<pre><code>import os  
-from IPython.lib import passwd  
-# c = c # pylint:disable=undefined-variable  
-c = get_config()  
-c.NotebookApp.ip = &#39;0.0.0.0&#39;  
-c.NotebookApp.port = int(os.getenv(&#39;PORT&#39;, 8888))  
-c.NotebookApp.open_browser = False  
-# sets a password if PASSWORD is set in the environment  
-if &#39;PASSWORD&#39; in os.environ:  
-    password = os.environ[&#39;PASSWORD&#39;]  
-    if password:  
-        c.NotebookApp.password = passwd(password)  
-    else:  
-        c.NotebookApp.password = &#39;&#39;  
-        c.NotebookApp.token = &#39;&#39;  
-del os.environ[&#39;PASSWORD&#39;]  </code></pre>
-<p>创建名为test:0.1的Docker镜像：</p>
-<pre><code>$ sudo docker build . -t test:0.1  </code></pre>
-<p>启动方法</p>
-<pre><code>$ sudo nvidia-docker run --rm -v 宿主机目录:docker内部目录 -p 8891:8888 -it test:0.1 jupyter notebook --allow-root -y --no-browser --ip=0.0.0.0 --config=/root/.jupyter/jupyter_notebook_config.py  </code></pre>
-<p>此时，用网络上任意一台机器可以访问docker启动的jupyter环境：http://宿主机IP地址:8891</p>
+在当前目录下创建Dockerfile，内容如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM registry.cn-shanghai.aliyuncs.com/tcc-public/pytorch:1.1.0-cuda10.0-py3  </span><br><span class="line">ADD . /  </span><br><span class="line">RUN mkdir ~/.pip \  </span><br><span class="line"> &amp;&amp; echo &quot;[global]\nindex-url = https://mirrors.aliyun.com/pypi/simple/&quot; &gt; ~/.pip/pip.conf  </span><br><span class="line">RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list  </span><br><span class="line">RUN apt-get clean  </span><br><span class="line">RUN apt-get update -y  </span><br><span class="line">RUN pip install jupyter  </span><br><span class="line">  </span><br><span class="line">ENV PASSWORD=123456  </span><br><span class="line">ENV CONFIG_PATH=&quot;/root/.jupyter/jupyter_notebook_config.py&quot;  </span><br><span class="line">COPY &quot;jupyter_notebook_config.py&quot; $&#123;CONFIG_PATH&#125;  </span><br><span class="line">WORKDIR /notebooks/  </span><br><span class="line">#CMD [&quot;sh&quot;, &quot;run.sh&quot;]  </span><br></pre></td></tr></table></figure>
+在当前目录下创建jupyter配置文件jupyter_notebook_config.py，用于设置密码：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import os  </span><br><span class="line">from IPython.lib import passwd  </span><br><span class="line"># c = c # pylint:disable=undefined-variable  </span><br><span class="line">c = get_config()  </span><br><span class="line">c.NotebookApp.ip = &#x27;0.0.0.0&#x27;  </span><br><span class="line">c.NotebookApp.port = int(os.getenv(&#x27;PORT&#x27;, 8888))  </span><br><span class="line">c.NotebookApp.open_browser = False  </span><br><span class="line"># sets a password if PASSWORD is set in the environment  </span><br><span class="line">if &#x27;PASSWORD&#x27; in os.environ:  </span><br><span class="line">    password = os.environ[&#x27;PASSWORD&#x27;]  </span><br><span class="line">    if password:  </span><br><span class="line">        c.NotebookApp.password = passwd(password)  </span><br><span class="line">    else:  </span><br><span class="line">        c.NotebookApp.password = &#x27;&#x27;  </span><br><span class="line">        c.NotebookApp.token = &#x27;&#x27;  </span><br><span class="line">del os.environ[&#x27;PASSWORD&#x27;]  </span><br></pre></td></tr></table></figure> 创建名为test:0.1的Docker镜像：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker build . -t test:0.1  </span><br></pre></td></tr></table></figure> 启动方法<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo nvidia-docker run --rm -v 宿主机目录:docker内部目录 -p 8891:8888 -it test:0.1 jupyter notebook --allow-root -y --no-browser --ip=0.0.0.0 --config=/root/.jupyter/jupyter_notebook_config.py  </span><br></pre></td></tr></table></figure>
+此时，用网络上任意一台机器可以访问docker启动的jupyter环境：http://宿主机IP地址:8891</p>
 <h3 id="天池竞赛上传镜像">天池竞赛上传镜像</h3>
 <p>下面为参加阿里天池大数据比赛时上传镜像的方法：</p>
 <p>登录阿里云：<a
@@ -272,11 +212,9 @@ target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-shanghai/i
 具体流程见： <a
 target="_blank" rel="noopener" href="https://tianchi.aliyun.com/competition/entrance/231759/tab/174?spm=5176.12586973.0.0.547d780b0Cgnoh">https://tianchi.aliyun.com/competition/entrance/231759/tab/174?spm=5176.12586973.0.0.547d780b0Cgnoh</a><br />
 创建一个镜像仓库，复制其公网地址。</p>
-<p>在本地登录</p>
-<pre><code>$ sudo docker login --username=您的用户名 registry.cn-shenzhen.aliyuncs.com  </code></pre>
-<p>上传镜像</p>
-<pre><code>$ sudo docker tag test:0.1 公网地址  
-$ sudo docker push 公网地址  </code></pre>
+<p>在本地登录<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker login --username=您的用户名 registry.cn-shenzhen.aliyuncs.com  </span><br></pre></td></tr></table></figure> 上传镜像<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker tag test:0.1 公网地址  </span><br><span class="line">$ sudo docker push 公网地址  </span><br></pre></td></tr></table></figure></p>
 <h3 id="问题及解决">问题及解决</h3>
 <p><strong>问题一：安装证书报错</strong></p>
 <p>问题：运行

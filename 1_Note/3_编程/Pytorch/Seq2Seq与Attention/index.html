@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2019-12-18T11:16:38.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.484Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.327Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="自然语言处理">
 <meta property="article:tag" content="时序">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Seq2Seq与Attention</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-18T11:16:38.000Z" title="Created 2019-12-18 11:16:38">2019-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.484Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>13min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Seq2Seq与Attention"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="seq2seq与attention">Seq2Seq与Attention</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Seq2Seq与Attention</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-18T11:16:38.000Z" title="Created 2019-12-18 11:16:38">2019-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.327Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>13min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Seq2Seq与Attention"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="seq2seq与attention">Seq2Seq与Attention</h1>
 <p>#自然语言处理 #时序 #Pytorch</p>
 <p>自然语言处理是典型的序列问题，其底层算法在最近几年迅速发展，比如去年年底发布的BERT在11项自然语言处理任务中表现卓越，今年GPT-2生成文本（写作）的水平也有了显著提高。</p>
 <p>目前这些最先进的技术都基于Transformer模型，该模型从RNN，LSTM，Seq2Seq，Attention，ConvS2S，Transformer一步步进化而来，还涉及自然语言处理的相关知识，包含的知识点太多，无法一次说清。笔者将其分成几篇，从其进化过程逐步引入。之前已经介绍过RNN及LSTM，本篇将介绍Seq2Seq和Attention算法。</p>
@@ -212,18 +212,8 @@ Embedding，它将每个词表示成向量，比如把“hello”，转换成三
 <p>在Pythorch中使用torch.nn.Embedding可实现该功能，它提供了词的索引号与向量之间的转换表。用法是：
 torch.nn.Embedding(m, n) 其中m 表示单词的总数目，n
 表示词嵌入的维度（一个词转成几个特征，常用的维度是256-512），词嵌入相当于将输入的词序列转换成一个矩阵，矩阵的每一行表示一个单词，列为每个单词的多个特征。Embedding也是一层网络，其参数通过训练求得。而词对应的每一维特征的具体值如-1.7123通过这些参数计算得出。</p>
-<p>下面例程，将词序列“hello world”转换成矩阵。</p>
-<pre><code>from torch import nn  
-from torch.autograd import Variable  
-  
-dic = &#123;&#39;hello&#39;:0, &#39;world&#39;:1&#125; # 词汇与索引号转换字典  
-embed = nn.Embedding(2, 3) # 共两个词汇，每个词汇转换成三个特征    
-# Embedding的输入是一个LongTensor。  
-print(embed(Variable(torch.LongTensor([1])))) # 1为词汇的索引号  
-# 输出结果：tensor([[-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  
-print(embed(Variable(torch.LongTensor([dic[&#39;hello&#39;],dic[&#39;world&#39;]]))))  
-# 输出结果：tensor([[-1.7123, -0.6566, -0.6055],  
-# [-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  </code></pre>
+<p>下面例程，将词序列“hello world”转换成矩阵。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from torch import nn  </span><br><span class="line">from torch.autograd import Variable  </span><br><span class="line">  </span><br><span class="line">dic = &#123;&#x27;hello&#x27;:0, &#x27;world&#x27;:1&#125; # 词汇与索引号转换字典  </span><br><span class="line">embed = nn.Embedding(2, 3) # 共两个词汇，每个词汇转换成三个特征    </span><br><span class="line"># Embedding的输入是一个LongTensor。  </span><br><span class="line">print(embed(Variable(torch.LongTensor([1])))) # 1为词汇的索引号  </span><br><span class="line"># 输出结果：tensor([[-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  </span><br><span class="line">print(embed(Variable(torch.LongTensor([dic[&#x27;hello&#x27;],dic[&#x27;world&#x27;]]))))  </span><br><span class="line"># 输出结果：tensor([[-1.7123, -0.6566, -0.6055],  </span><br><span class="line"># [-1.5716, 0.8978, 0.4581]], grad_fn=&lt;EmbeddingBackward&gt;)  </span><br></pre></td></tr></table></figure></p>
 <h3 id="attention">Attention</h3>
 <p>注意力Attention指的是一类算法，常见的有local attention，global
 attention，self attention等等。</p>
@@ -238,95 +228,18 @@ src="https://upload-images.jianshu.io/upload_images/5357893-afc801d7ef42828a.png
 <a
 target="_blank" rel="noopener" href="https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html">https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html</a><br />
 建议读者运行该例程，跟踪每一步的输入和输出，可以尝试修改代码实现中文互译功能。</p>
-<p>下面为编码器Encoder的实现部分，编码器包含：词向量转换embedding和循环网络GRU。</p>
-<pre><code>class EncoderRNN(nn.Module):  
-    # 参数：input_size为输入语言包含的词个数  
-    def __init__(self, input_size, hidden_size):  
-        super(EncoderRNN, self).__init__()  
-        self.hidden_size = hidden_size  
-        self.embedding = nn.Embedding(input_size, hidden_size) #每词 hidden_size个属性  
-        self.gru = nn.GRU(hidden_size, hidden_size)  
-  
-    def forward(self,input, hidden):  
-        embedded = self.embedding(input).view(1,1,-1)  
-        output = embedded  
-        output, hidden = self.gru(output, hidden)  
-         return output, hidden  
-  
-    def initHidden(self):  
-        return torch.zeros(1,1, self.hidden_size, device=device)  </code></pre>
-<p>其中forward每次处理序列中的一个元素（一个词）。</p>
-<p>难度较大的是Decoder解码模块，注意力逻辑主要实现在该模块中：</p>
-<pre><code>class AttnDecoderRNN(nn.Module):  
-    # 参数：output_size为输出语言包含的所有单词数  
-    def __init__(self,hidden_size,output_size, dropout_p=0.1, max_length = MAX_LENGTH):  
-        super(AttnDecoderRNN, self).__init__()  
-        self.hidden_size = hidden_size  
-        self.output_size = output_size  
-        self.dropout_p = dropout_p  
-        self.max_length = max_length  
-        self.embedding = nn.Embedding(self.output_size, self.hidden_size)  
-        self.attn = nn.Linear(self.hidden_size*2, self.max_length)  
-        self.attn_combine = nn.Linear(self.hidden_size*2, self.hidden_size)  
-        self.dropout = nn.Dropout(self.dropout_p)  
-        self.gru = nn.GRU(self.hidden_size, self.hidden_size)  
-        self.out = nn.Linear(self.hidden_size, self.output_size) # 把256个特征转换成输出语言的词汇个数  
-  
-    # 参数：input每步输入，hidden上一步结果，encoder_outputs编码的状态矩阵  
-    # 计算的值是各词出现的概率  
-    def forward(self, input, hidden, encoder_outputs):  
-        embedded = self.embedding(input).view(1,1,-1)  
-        embedded = self.dropout(embedded)  
-        attn_weights = F.softmax(  
-        self.attn(torch.cat([embedded[0],hidden[0]],1)),dim=1)  
-        attn_applied = torch.bmm(attn_weights.unsqueeze(0), # unsqueeze维度增加  
-        encoder_outputs.unsqueeze(0))  
-        output = torch.cat([embedded[0], attn_applied[0]],1) # 注意力与当前输入拼接  
-        output = self.attn_combine(output).unsqueeze(0)  
-        output = F.relu(output) # 激活函数  
-        output, hidden = self.gru(output, hidden)  
-        output = F.log_softmax(self.out(output[0]),dim=1)  
-        return output, hidden, attn_weights  
-  
-    def initHidden(self):  
-        return torch.zeros(1,1, self.hidden_size, device=devic  </code></pre>
-<p>代码核心是前向传播函数forward，第一个难点是计算attn_weights，先用cat组装输入词向量embedded和隐藏层hidden信息256+256=512，转入全连接层attn，转换后输出10维数据（序列最长10个单词），再用softmax转成和为1的比例值。计算结果是注意力权重attn_weights大小为[1,10]，它描述的是输入encoder中各位置元素对当前decoder输出单词的重要性占比，比如“I
+<p>下面为编码器Encoder的实现部分，编码器包含：词向量转换embedding和循环网络GRU。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class EncoderRNN(nn.Module):  </span><br><span class="line">    # 参数：input_size为输入语言包含的词个数  </span><br><span class="line">    def __init__(self, input_size, hidden_size):  </span><br><span class="line">        super(EncoderRNN, self).__init__()  </span><br><span class="line">        self.hidden_size = hidden_size  </span><br><span class="line">        self.embedding = nn.Embedding(input_size, hidden_size) #每词 hidden_size个属性  </span><br><span class="line">        self.gru = nn.GRU(hidden_size, hidden_size)  </span><br><span class="line">  </span><br><span class="line">    def forward(self,input, hidden):  </span><br><span class="line">        embedded = self.embedding(input).view(1,1,-1)  </span><br><span class="line">        output = embedded  </span><br><span class="line">        output, hidden = self.gru(output, hidden)  </span><br><span class="line">         return output, hidden  </span><br><span class="line">  </span><br><span class="line">    def initHidden(self):  </span><br><span class="line">        return torch.zeros(1,1, self.hidden_size, device=device)  </span><br></pre></td></tr></table></figure> 其中forward每次处理序列中的一个元素（一个词）。</p>
+<p>难度较大的是Decoder解码模块，注意力逻辑主要实现在该模块中：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class AttnDecoderRNN(nn.Module):  </span><br><span class="line">    # 参数：output_size为输出语言包含的所有单词数  </span><br><span class="line">    def __init__(self,hidden_size,output_size, dropout_p=0.1, max_length = MAX_LENGTH):  </span><br><span class="line">        super(AttnDecoderRNN, self).__init__()  </span><br><span class="line">        self.hidden_size = hidden_size  </span><br><span class="line">        self.output_size = output_size  </span><br><span class="line">        self.dropout_p = dropout_p  </span><br><span class="line">        self.max_length = max_length  </span><br><span class="line">        self.embedding = nn.Embedding(self.output_size, self.hidden_size)  </span><br><span class="line">        self.attn = nn.Linear(self.hidden_size*2, self.max_length)  </span><br><span class="line">        self.attn_combine = nn.Linear(self.hidden_size*2, self.hidden_size)  </span><br><span class="line">        self.dropout = nn.Dropout(self.dropout_p)  </span><br><span class="line">        self.gru = nn.GRU(self.hidden_size, self.hidden_size)  </span><br><span class="line">        self.out = nn.Linear(self.hidden_size, self.output_size) # 把256个特征转换成输出语言的词汇个数  </span><br><span class="line">  </span><br><span class="line">    # 参数：input每步输入，hidden上一步结果，encoder_outputs编码的状态矩阵  </span><br><span class="line">    # 计算的值是各词出现的概率  </span><br><span class="line">    def forward(self, input, hidden, encoder_outputs):  </span><br><span class="line">        embedded = self.embedding(input).view(1,1,-1)  </span><br><span class="line">        embedded = self.dropout(embedded)  </span><br><span class="line">        attn_weights = F.softmax(  </span><br><span class="line">        self.attn(torch.cat([embedded[0],hidden[0]],1)),dim=1)  </span><br><span class="line">        attn_applied = torch.bmm(attn_weights.unsqueeze(0), # unsqueeze维度增加  </span><br><span class="line">        encoder_outputs.unsqueeze(0))  </span><br><span class="line">        output = torch.cat([embedded[0], attn_applied[0]],1) # 注意力与当前输入拼接  </span><br><span class="line">        output = self.attn_combine(output).unsqueeze(0)  </span><br><span class="line">        output = F.relu(output) # 激活函数  </span><br><span class="line">        output, hidden = self.gru(output, hidden)  </span><br><span class="line">        output = F.log_softmax(self.out(output[0]),dim=1)  </span><br><span class="line">        return output, hidden, attn_weights  </span><br><span class="line">  </span><br><span class="line">    def initHidden(self):  </span><br><span class="line">        return torch.zeros(1,1, self.hidden_size, device=devic  </span><br></pre></td></tr></table></figure>
+代码核心是前向传播函数forward，第一个难点是计算attn_weights，先用cat组装输入词向量embedded和隐藏层hidden信息256+256=512，转入全连接层attn，转换后输出10维数据（序列最长10个单词），再用softmax转成和为1的比例值。计算结果是注意力权重attn_weights大小为[1,10]，它描述的是输入encoder中各位置元素对当前decoder输出单词的重要性占比，比如“I
 love
 you”对“爱”字的重要性分别是[0.2,0.6,0.2]。训练调整attn层参数以实现这一功能。</p>
 <p>然后计算attn_applied，用注意力权重attn_weights[1,10]（每个位置的重要性）乘记录encoder每一步状态的矩阵encoder_outputs[10,256]（每个位置的状态）。得到一个综合权重attn_applied[1,256]，用于描述“划了重点”之后的输入序列对当前预测这个单词的影响。得出attn_applied之后，再与词向量embed值组合、转换维度、经过激活函数处理后，和隐藏层一起传入gru循环网络。</p>
 <p>最后通过全连接层out把256维特征转换成输出语言对应的单词个数，其中每维度的值描述了生成该词的可能性，再用log_softmax转换成输出要求格式，以便与其误差函数配合使用（后面详细介绍）。</p>
-<p>下面是训练部分，每调用一次train训练一个句子。其中传入的encoder和decoder分别是上面定义的EncoderRNN和AttnDecoderRNN，input_tensor和target_tensor是训练的原句和译文。</p>
-<pre><code>def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer,  
-    decoder_optimizer, criterion, max_length = MAX_LENGTH):  
-    encoder_hidden = encoder.initHidden()  
-    encoder_optimizer.zero_grad() # 分别优化encoder和decoder  
-    decoder_optimizer.zero_grad()  
-    input_length = input_tensor.size(0)  
-    target_length = target_tensor.size(0)  
-    encoder_outputs = torch.zeros(max_length, encoder.hidden_size, device=device)  
-    loss = 0  
-  
-    for ei in range(input_length): # 每次传入序列中一个元素  
-        encoder_output, encoder_hidden = encoder(input_tensor[ei], encoder_hidden)  
-        encoder_outputs[ei]=encoder_output[0,0] # seq_len为1，batch_size为1，大小为 hidden_size  
-  
-    decoder_input = torch.tensor([[SOS_token]], device=device) # SOS为标记句首  
-    decoder_hidden = encoder_hidden # 把编码的最终状态作为解码的初始状态  
-  
-    for di in range(target_length): # 每次预测一个元素  
-        decoder_output, decoder_hidden, decoder_attention = decoder(  
-        decoder_input, decoder_hidden, encoder_outputs)  
-        topv, topi = decoder_output.topk(1) # 将可能性最大的预测值加入译文序列  
-        decoder_input = topi.squeeze().detach()  
-        loss+=criterion(decoder_output, target_tensor[di])  
-        if decoder_input.item()==EOS_token:  
-        break  
-  
-    loss.backward()  
-    encoder_optimizer.step()  
-    decoder_optimizer.step()  
-    return loss.item() / target_length  </code></pre>
-<p>其中第一个循环为Encoder，程序对输入序列中每个元素做encoder，并把每一次返回的中间状态hidden存入encoder_outputs，最终生成保存所有位置状态的矩阵encoder_outputs。</p>
+<p>下面是训练部分，每调用一次train训练一个句子。其中传入的encoder和decoder分别是上面定义的EncoderRNN和AttnDecoderRNN，input_tensor和target_tensor是训练的原句和译文。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">def train(input_tensor, target_tensor, encoder, decoder, encoder_optimizer,  </span><br><span class="line">    decoder_optimizer, criterion, max_length = MAX_LENGTH):  </span><br><span class="line">    encoder_hidden = encoder.initHidden()  </span><br><span class="line">    encoder_optimizer.zero_grad() # 分别优化encoder和decoder  </span><br><span class="line">    decoder_optimizer.zero_grad()  </span><br><span class="line">    input_length = input_tensor.size(0)  </span><br><span class="line">    target_length = target_tensor.size(0)  </span><br><span class="line">    encoder_outputs = torch.zeros(max_length, encoder.hidden_size, device=device)  </span><br><span class="line">    loss = 0  </span><br><span class="line">  </span><br><span class="line">    for ei in range(input_length): # 每次传入序列中一个元素  </span><br><span class="line">        encoder_output, encoder_hidden = encoder(input_tensor[ei], encoder_hidden)  </span><br><span class="line">        encoder_outputs[ei]=encoder_output[0,0] # seq_len为1，batch_size为1，大小为 hidden_size  </span><br><span class="line">  </span><br><span class="line">    decoder_input = torch.tensor([[SOS_token]], device=device) # SOS为标记句首  </span><br><span class="line">    decoder_hidden = encoder_hidden # 把编码的最终状态作为解码的初始状态  </span><br><span class="line">  </span><br><span class="line">    for di in range(target_length): # 每次预测一个元素  </span><br><span class="line">        decoder_output, decoder_hidden, decoder_attention = decoder(  </span><br><span class="line">        decoder_input, decoder_hidden, encoder_outputs)  </span><br><span class="line">        topv, topi = decoder_output.topk(1) # 将可能性最大的预测值加入译文序列  </span><br><span class="line">        decoder_input = topi.squeeze().detach()  </span><br><span class="line">        loss+=criterion(decoder_output, target_tensor[di])  </span><br><span class="line">        if decoder_input.item()==EOS_token:  </span><br><span class="line">        break  </span><br><span class="line">  </span><br><span class="line">    loss.backward()  </span><br><span class="line">    encoder_optimizer.step()  </span><br><span class="line">    decoder_optimizer.step()  </span><br><span class="line">    return loss.item() / target_length  </span><br></pre></td></tr></table></figure>
+其中第一个循环为Encoder，程序对输入序列中每个元素做encoder，并把每一次返回的中间状态hidden存入encoder_outputs，最终生成保存所有位置状态的矩阵encoder_outputs。</p>
 <p>第二个循环为Decoder，程序利用当前的隐藏状态decoder_hidden，解码序列的前一个元素decoder_input，和输入的状态矩阵encoder_outputs做解码，并从解码器的输出中选中最有可能的单词作为后序的输入，直到序列结束。其整体误差是每个元素误差的平均值。</p>
 <p>Attention还有很多变型，比如local
 attention为了减少计算量，加入了窗口的概念，只对其中一部分位置操作（选一个点，向右左扩展窗口），窗口以外都取0；self

@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-07-04T13:32:02.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.444Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.291Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="股票">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之六_数据预处理A</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-04T13:32:02.000Z" title="Created 2017-07-04 13:32:02">2017-07-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.444Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">927</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之六_数据预处理A"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之六_数据预处理A</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-04T13:32:02.000Z" title="Created 2017-07-04 13:32:02">2017-07-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.291Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">928</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之六_数据预处理A"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="python股票处理之六_数据预处理a">Python股票处理之六_数据预处理A</h1>
 <p>#Python #股票</p>
 <h2 id="说明">1. 说明</h2>
@@ -179,53 +179,7 @@ id="python股票处理之六_数据预处理a">Python股票处理之六_数据�
 如果用左图结果做一个从(-10,10)共计20个区间的分类器，那么结果多半会落入(-1,1)的区间内，这并不是我们想要的。我们更希望看到的是将3000多支股票平均分布在这20个区域，每个区域股票数量相同，但是各区域大小不同。根据区域得到更合理的分类结果。（假设我们之后将要通过现有股票的各个特征，预测涨跌最有可能分布在哪个区域，这是一个对结果的分类问题，暂不考虑回归）</p>
 <h2 id="程序">2. 程序</h2>
 <h4 id="代码">1) 代码</h4>
-<pre><code># -*- coding:utf-8 -*-    
-   
-  
-import tushare as ts  
-import numpy as np    
-import matplotlib.pyplot as plt    
-   
-  
-e = ts.get_today_all()  
-size = 20 #把区间分成20份  
-array = []  
-   
-  
-ll = e[u&#39;high&#39;]  # 最高价  
-hh = e[u&#39;low&#39;] # 最低价  
-cc = e[u&#39;changepercent&#39;]# 涨跌幅  
-for i in range(0, len(e)):  
-       ifll[i] != hh[i]:      # 最高价与最低价相同说明停牌  
-              ifcc[i] &gt; 10:   # 涨幅大于10%的股票归为10%  
-                     array.append(10)  
-              elifcc[i] &lt; -10:      # 跌幅大于-10%的股票归为-10%  
-                     array.append(-10)  
-              else:  
-                     array.append(cc[i])  
-   
-  
-print &quot;Total:&quot;,len(array)  
-array=np.sort(array)      # 排序  
-   
-  
-bin_arr = []  
-bin_arr.append(-10)       # 加入区间的左侧值  
-count = 0 #区域计数  
-for i in range(0, len(array)):  
-       count+=1   
-       ifcount &gt; len(array) / size:  
-              printarray[i]  
-              count= 0  
-              bin_arr.append(array[i])  
-bin_arr.append(10) # 加入区间右侧值  
-   
-  
-hist, bins = np.histogram(array,bins=bin_arr)     # 按bin_arr给定的区域计算直方图  
-width = np.diff(bins)  
-center = (bins[:-1] + bins[1:]) / 2  
-plt.bar(center, hist, align=&#39;center&#39;,width=width)  
-plt.show()   </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-    </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">import tushare as ts  </span><br><span class="line">import numpy as np    </span><br><span class="line">import matplotlib.pyplot as plt    </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">e = ts.get_today_all()  </span><br><span class="line">size = 20 #把区间分成20份  </span><br><span class="line">array = []  </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">ll = e[u&#x27;high&#x27;]  # 最高价  </span><br><span class="line">hh = e[u&#x27;low&#x27;] # 最低价  </span><br><span class="line">cc = e[u&#x27;changepercent&#x27;]# 涨跌幅  </span><br><span class="line">for i in range(0, len(e)):  </span><br><span class="line">       ifll[i] != hh[i]:      # 最高价与最低价相同说明停牌  </span><br><span class="line">              ifcc[i] &gt; 10:   # 涨幅大于10%的股票归为10%  </span><br><span class="line">                     array.append(10)  </span><br><span class="line">              elifcc[i] &lt; -10:      # 跌幅大于-10%的股票归为-10%  </span><br><span class="line">                     array.append(-10)  </span><br><span class="line">              else:  </span><br><span class="line">                     array.append(cc[i])  </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">print &quot;Total:&quot;,len(array)  </span><br><span class="line">array=np.sort(array)      # 排序  </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">bin_arr = []  </span><br><span class="line">bin_arr.append(-10)       # 加入区间的左侧值  </span><br><span class="line">count = 0 #区域计数  </span><br><span class="line">for i in range(0, len(array)):  </span><br><span class="line">       count+=1   </span><br><span class="line">       ifcount &gt; len(array) / size:  </span><br><span class="line">              printarray[i]  </span><br><span class="line">              count= 0  </span><br><span class="line">              bin_arr.append(array[i])  </span><br><span class="line">bin_arr.append(10) # 加入区间右侧值  </span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">hist, bins = np.histogram(array,bins=bin_arr)     # 按bin_arr给定的区域计算直方图  </span><br><span class="line">width = np.diff(bins)  </span><br><span class="line">center = (bins[:-1] + bins[1:]) / 2  </span><br><span class="line">plt.bar(center, hist, align=&#x27;center&#x27;,width=width)  </span><br><span class="line">plt.show()   </span><br></pre></td></tr></table></figure>
 <h4 id="运行结果">2) 运行结果</h4>
 <figure>
 <img
@@ -233,8 +187,7 @@ src="http://upload-images.jianshu.io/upload_images/5357893-94490d23ad8c74e8.png?
 alt="图片.png" />
 <figcaption aria-hidden="true">图片.png</figcaption>
 </figure>
-<pre><code>Total: 3010  
--1.271     -0.667     -0.289     -0.098     0.061      0.219      0.348      0.482      0.599      0.719      0.873      1.021      1.16       1.312      1.505      1.786      2.133      2.713      3.74  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Total: 3010  </span><br><span class="line">-1.271     -0.667     -0.289     -0.098     0.061      0.219      0.348      0.482      0.599      0.719      0.873      1.021      1.16       1.312      1.505      1.786      2.133      2.713      3.74  </span><br></pre></td></tr></table></figure>
 <h4 id="分析">3) 分析</h4>
 <p>从结果可以看出，总共筛选出了3010支股票，将其分成20个区间，其中每个区间的股票数基本相等（最后一个不足1/20），此处只使用了一天的数据，当天微涨；实际处理时，需要使用更多数据来划分区域，20个区域可能也有点多。此处只是抛砖引玉，程序写得并不严谨，大家领会精神即可。以上计算用到了直方图均衡化的原理，在频域上划分，替代按值域划分，让我们聚焦于数据更集中的区域。</p>
 <h2 id="参考">3. 参考</h2>

@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2019-11-29T19:55:34.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.492Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.339Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Pytorch">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,26 +166,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch全连接网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-29T19:55:34.000Z" title="Created 2019-11-29 19:55:34">2019-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.492Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch全连接网络"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch全连接网络">Pytorch全连接网络</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch全连接网络</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-29T19:55:34.000Z" title="Created 2019-11-29 19:55:34">2019-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.339Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch全连接网络"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch全连接网络">Pytorch全连接网络</h1>
 <p>#Pytorch</p>
 <p>本篇开始学习搭建真正的神经网络，前一部分讨论深度学习中预处理数据的基本流程；后一部分构建了两种全连接网络，用三种不同方案拟合时序数据；并在例程中详细分析误差函数，优化器，网络调参，以及数据反向求导的过程。</p>
 <h3 id="数据预处理">数据预处理</h3>
 <p>本篇使用航空乘客数据AirPassengers.csv，其中包括从1949-1960年每月旅客的数量，程序则用于预测未来几年中每月的旅客数量，数据可从以下Git项目中下载。</p>
 <p>https://github.com/aarshayj/analytics_vidhya/blob/master/Articles/Time_Series_Analysis/AirPassengers.csv</p>
 <h4 id="读取数据">1．读取数据</h4>
-<p>首先，引入必要的头文件，并从文件中读入数据：</p>
-<pre><code>import pandas as pd  
-import numpy as np  
-import matplotlib.pyplot as plt  
-%matplotlib inline  
-  
-import torch  
-import torch.nn as nn  
-from torch.autograd import Variable  
-  
-df = pd.read_csv(&#39;data/AirPassengers.csv&#39;)  
-plt.plot(df[&#39;#Passengers&#39;])  
-plt.show()   </code></pre>
+<p>首先，引入必要的头文件，并从文件中读入数据：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">%matplotlib inline  </span><br><span class="line">  </span><br><span class="line">import torch  </span><br><span class="line">import torch.nn as nn  </span><br><span class="line">from torch.autograd import Variable  </span><br><span class="line">  </span><br><span class="line">df = pd.read_csv(&#x27;data/AirPassengers.csv&#x27;)  </span><br><span class="line">plt.plot(df[&#x27;#Passengers&#x27;])  </span><br><span class="line">plt.show()   </span><br></pre></td></tr></table></figure></p>
 <p>程序输出如下图所示：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-2e82535a6d9a0828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
@@ -193,26 +182,11 @@ src="https://upload-images.jianshu.io/upload_images/5357893-2e82535a6d9a0828.png
 <p>无论机器学习还是深度学习，使用哪一种框架，归一化都是必要环节。归一化的目标是将每一维特征压缩到一定范围之内，以免不同特征因取值范围不同而影响其权重。非常大或非常小的值搭配上不恰当的学习率，往往使得收敛过慢，或者因每次调整的波动太大最终无法收敛。归一化去除了这些不稳定因素。</p>
 <p>归一化的具体做法是将某一列特征转换成均值为
 0、标准差为1的数据，在图像处理过程中，也常把0-255之间的颜色值转换为0-1之间的小数。</p>
-<p>本例中使用了均值和标准差编写了归一化和反归一化函数：</p>
-<pre><code>def feature_normalize(data):  
-    mu = np.mean(data,axis=0) # 均值  
-    std = np.std(data,axis=0) # 标准差  
-    return (data - mu)/std  
-  
-def feature_unnormalize(data, arr):  
-    mu = np.mean(data,axis=0)  
-    std = np.std(data,axis=0)  
-    return arr * std + mu  </code></pre>
+<p>本例中使用了均值和标准差编写了归一化和反归一化函数：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def feature_normalize(data):  </span><br><span class="line">    mu = np.mean(data,axis=0) # 均值  </span><br><span class="line">    std = np.std(data,axis=0) # 标准差  </span><br><span class="line">    return (data - mu)/std  </span><br><span class="line">  </span><br><span class="line">def feature_unnormalize(data, arr):  </span><br><span class="line">    mu = np.mean(data,axis=0)  </span><br><span class="line">    std = np.std(data,axis=0)  </span><br><span class="line">    return arr * std + mu  </span><br></pre></td></tr></table></figure></p>
 <h4 id="提取新特征">3．提取新特征</h4>
-<p>提取新特征是指从现有特征中提取更多可以代入模型的信息，从而生成新特征，本例中的数据包括两列，第一列“Month”是字符串类型的时间，第二列“#Passengers”是乘客量，也就是需要预测的数据y。下面通过拆分和类型转换，从第一列中提取具体的年“year”和月“mon”，将索引列变为特征“x”，并使用上面定义的函数实现归一化功能。</p>
-<pre><code>df[&#39;year&#39;] = df[&#39;Month&#39;].apply(lambda x: float(x[:4]))  
-df[&#39;mon&#39;] = df[&#39;Month&#39;].apply(lambda x: float(x[5:]))  
-df[&#39;x&#39;] = feature_normalize(df.index)  
-df[&#39;y&#39;] = feature_normalize(df[&#39;#Passengers&#39;])  
-df[&#39;year&#39;] = feature_normalize(df[&#39;year&#39;])  
-df[&#39;mon&#39;] = feature_normalize(df[&#39;mon&#39;])  
-df[&#39;real&#39;] = feature_unnormalize(df[&#39;#Passengers&#39;], df[&#39;y&#39;])  </code></pre>
-<p>处理后的数据如下图所示：</p>
+<p>提取新特征是指从现有特征中提取更多可以代入模型的信息，从而生成新特征，本例中的数据包括两列，第一列“Month”是字符串类型的时间，第二列“#Passengers”是乘客量，也就是需要预测的数据y。下面通过拆分和类型转换，从第一列中提取具体的年“year”和月“mon”，将索引列变为特征“x”，并使用上面定义的函数实现归一化功能。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df[&#x27;year&#x27;] = df[&#x27;Month&#x27;].apply(lambda x: float(x[:4]))  </span><br><span class="line">df[&#x27;mon&#x27;] = df[&#x27;Month&#x27;].apply(lambda x: float(x[5:]))  </span><br><span class="line">df[&#x27;x&#x27;] = feature_normalize(df.index)  </span><br><span class="line">df[&#x27;y&#x27;] = feature_normalize(df[&#x27;#Passengers&#x27;])  </span><br><span class="line">df[&#x27;year&#x27;] = feature_normalize(df[&#x27;year&#x27;])  </span><br><span class="line">df[&#x27;mon&#x27;] = feature_normalize(df[&#x27;mon&#x27;])  </span><br><span class="line">df[&#x27;real&#x27;] = feature_unnormalize(df[&#x27;#Passengers&#x27;], df[&#x27;y&#x27;])  </span><br></pre></td></tr></table></figure> 处理后的数据如下图所示：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-de2f1c13b153c31a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <h4 id="处理缺失值和异常值">4．处理缺失值和异常值</h4>
@@ -220,46 +194,20 @@ src="https://upload-images.jianshu.io/upload_images/5357893-de2f1c13b153c31a.png
 <h4 id="向量化">5．向量化</h4>
 <p>向量化是将读出的数据转换成模型需要的数据格式，根据不同的模型做法不同，本例中的向量化将在后面的模型部分实现。</p>
 <h4 id="切分训练集和测试集">6．切分训练集和测试集</h4>
-<p>训练前还需要把数据切分成训练集和测试集，以避免过拟合，本例中将70%的数据用于训练，最终模型将对所有数据预测并做图。</p>
-<pre><code>TRAIN_PERCENT = 0.7  
-train_size = int(len(df) * TRAIN_PERCENT)  
-train = df[:train_size]  </code></pre>
+<p>训练前还需要把数据切分成训练集和测试集，以避免过拟合，本例中将70%的数据用于训练，最终模型将对所有数据预测并做图。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TRAIN_PERCENT = 0.7  </span><br><span class="line">train_size = int(len(df) * TRAIN_PERCENT)  </span><br><span class="line">train = df[:train_size]  </span><br></pre></td></tr></table></figure></p>
 <h3 id="拟合直线">拟合直线</h3>
 <p>拟合程序分成三部分：定义模型、优化器和误差函数；训练模型；预测并做图。</p>
 <h4 id="定义模型优化器误差函数">1．定义模型、优化器、误差函数</h4>
-<p>模型继承自mm.Module，并实现了两个核心函数，__init__用于初始化模型结构，forward用于定义前向传播的过程。本例中实现了最为简单的模型，其中只包含一个全连接层，使用nn.Linear定义，torch.nn中定义了常用的网络层实现。</p>
-<pre><code>class LinearRegression(nn.Module):  
-    def __init__(self):  
-        super(LinearRegression, self).__init__()  
-        self.linear = nn.Linear(1, 1) # 输入和输出的维度都是1  
-  
-    def forward(self, x):  
-        x = self.linear(x)  
-        return x  
-  
-model = LinearRegression()  
-criterion = nn.MSELoss() # 损失函数：均方误差  
-optimizer = torch.optim.SGD(model.parameters(), lr=0.001) # 优化算法：随机梯度下降  </code></pre>
-<p>损失函数使用了均方误差
+<p>模型继承自mm.Module，并实现了两个核心函数，__init__用于初始化模型结构，forward用于定义前向传播的过程。本例中实现了最为简单的模型，其中只包含一个全连接层，使用nn.Linear定义，torch.nn中定义了常用的网络层实现。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class LinearRegression(nn.Module):  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(LinearRegression, self).__init__()  </span><br><span class="line">        self.linear = nn.Linear(1, 1) # 输入和输出的维度都是1  </span><br><span class="line">  </span><br><span class="line">    def forward(self, x):  </span><br><span class="line">        x = self.linear(x)  </span><br><span class="line">        return x  </span><br><span class="line">  </span><br><span class="line">model = LinearRegression()  </span><br><span class="line">criterion = nn.MSELoss() # 损失函数：均方误差  </span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=0.001) # 优化算法：随机梯度下降  </span><br></pre></td></tr></table></figure> 损失函数使用了均方误差
 MSELoss，它计算的是预测值与真值之差平方的期望值，MSELoss也是回归中最常用的损失函数，torch.nn中实现了一些常用的损失函数，可以直接使用，</p>
 <p>优化的目标是更好地更新参数，使模型快速收敛。优化算法就是调整模型参数更新的策略，优化器是优化算法的具体实现。本例中优化器optimizer使用了最基础的随机梯度下降optim.SGD优化方法，torch.optim中定义了常用的优化器。在参数中设置了学习率为0.001，并将模型的参数句柄传入优化器，优化器后期将调整这些参数。</p>
 <p>注意：学习率是一个重要参数，最好从小到大设置，如果设置太大，可能造成每次对参数修改过大，造成抖动，使得最终无法收敛。</p>
 <h4 id="训练模型">2．训练模型</h4>
-<p>训练之前，先把数据转换成模型需要的数据格式，将pandas的数据格式转换为float32格式的Tensor张量，然后用unsqueeze扩展维度到2维（unsqueeze已在上一篇详细介绍）。</p>
-<pre><code>x = torch.unsqueeze(torch.tensor(np.array(train[&#39;x&#39;]), dtype=torch.float32), dim=1)  
-y = torch.unsqueeze(torch.tensor(np.array(train[&#39;y&#39;]), dtype=torch.float32), dim=1)  
-  
-for e in range(10000):  
-    inputs = Variable(x)  
-    target = Variable(y)  
-    out = model(inputs) # 前向传播  
-    loss = criterion(out, target) # 计算误差  
-    optimizer.zero_grad() # 梯度清零  
-    loss.backward() # 后向传播  
-    optimizer.step() # 调整参数  
-    if (e+1) % 1000 == 0: # 每1000次迭代打印一次误差值  
-        print(&#39;Epoch:&#123;&#125;, Loss:&#123;:.5f&#125;&#39;.format(e+1, loss.item()))  </code></pre>
-<p>后面的循环部分进行了10000次迭代，也就是说将所有数据放进模型训练了10000次，从而使模型收敛。每一次循环之中，将x,y分别转换成变量Variable格式。</p>
+<p>训练之前，先把数据转换成模型需要的数据格式，将pandas的数据格式转换为float32格式的Tensor张量，然后用unsqueeze扩展维度到2维（unsqueeze已在上一篇详细介绍）。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">x = torch.unsqueeze(torch.tensor(np.array(train[&#x27;x&#x27;]), dtype=torch.float32), dim=1)  </span><br><span class="line">y = torch.unsqueeze(torch.tensor(np.array(train[&#x27;y&#x27;]), dtype=torch.float32), dim=1)  </span><br><span class="line">  </span><br><span class="line">for e in range(10000):  </span><br><span class="line">    inputs = Variable(x)  </span><br><span class="line">    target = Variable(y)  </span><br><span class="line">    out = model(inputs) # 前向传播  </span><br><span class="line">    loss = criterion(out, target) # 计算误差  </span><br><span class="line">    optimizer.zero_grad() # 梯度清零  </span><br><span class="line">    loss.backward() # 后向传播  </span><br><span class="line">    optimizer.step() # 调整参数  </span><br><span class="line">    if (e+1) % 1000 == 0: # 每1000次迭代打印一次误差值  </span><br><span class="line">        print(&#x27;Epoch:&#123;&#125;, Loss:&#123;:.5f&#125;&#x27;.format(e+1, loss.item()))  </span><br></pre></td></tr></table></figure>
+后面的循环部分进行了10000次迭代，也就是说将所有数据放进模型训练了10000次，从而使模型收敛。每一次循环之中，将x,y分别转换成变量Variable格式。</p>
 <p>然后进行前先传播，model(inputs)调用的是nn.Module
 的__call__()函数（__call__是Python类中的一个特殊方法，如果类中定义了此方法，可以通过实例名加括号的方式调用该方法）父类的<strong>call</strong>()调用了前向函数forward()将数据传入层中处理。</p>
 <p>接下来是误差函数和优化器配合调整模型参数，此处到底修改了哪些值，又是如何修改的，是最难理解的部分。先通过定义的误差函数计算误差，从loss值可以看到每一次迭代之后误差的情况。</p>
@@ -267,27 +215,13 @@ for e in range(10000):
 <p>之后是反向传播，误差函数的backward，调用了torch.autograd.backward()函数，backward()是上面定义的forward()的反向过程，对每层每一个参数求导，并填充在model.parameters的grad中。</p>
 <p>最后调用优化器的step方法（step的具体实现可参考torch源码中optim/sgd.py中的step函数），它使用model.parameters中的梯度grad和设置的学习率、动量等参数计算出model.parameters的新data值，形如：weight
 = weight - learning_rate * gradient。</p>
-<p>可以说，最后几步都是针对model.parameters模型参数的修改。整个过程可以通过跟踪model.parameters的data和grad的内容变化来分析。方法如下：</p>
-<pre><code>for p in model.parameters():  
-    print(p.data, p.grad)  </code></pre>
-<p>也可以在程序中加入以下代码，用于跟踪后向传播的过程：</p>
-<pre><code>f = loss.grad_fn  
-while True:  
-    print(f)  
-    if len(f.next_functions) == 0:  
-        break  
-    f = f.next_functions[0][0]  </code></pre>
+<p>可以说，最后几步都是针对model.parameters模型参数的修改。整个过程可以通过跟踪model.parameters的data和grad的内容变化来分析。方法如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for p in model.parameters():  </span><br><span class="line">    print(p.data, p.grad)  </span><br></pre></td></tr></table></figure> 也可以在程序中加入以下代码，用于跟踪后向传播的过程：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">f = loss.grad_fn  </span><br><span class="line">while True:  </span><br><span class="line">    print(f)  </span><br><span class="line">    if len(f.next_functions) == 0:  </span><br><span class="line">        break  </span><br><span class="line">    f = f.next_functions[0][0]  </span><br></pre></td></tr></table></figure></p>
 <h4 id="预测和做图">3．预测和做图</h4>
-<p>本例中用70%数据作为训练集，用所有数据作为测试集，因此，用全部数据重新计算了x,y值；使用eval函数将模型转换为测试模式（有一些层在训练模型和预测模型时有差别）；将数据代入模型预测，并转换成numpy格式作图显示。</p>
-<pre><code>x = torch.unsqueeze(torch.tensor(np.array(df[&#39;x&#39;]), dtype=torch.float32), dim=1)  
-y = torch.unsqueeze(torch.tensor(np.array(df[&#39;y&#39;]), dtype=torch.float32), dim=1)  
-model.eval() #将模型变为测试模式  
-predict = model(Variable(x)) # 预测  
-predict = predict.data.numpy() # 转换成numpy格式  
-plt.plot(x.numpy(), y.numpy(), &#39;y&#39;)  
-plt.plot(x.numpy(), predict)  
-plt.show()  </code></pre>
-<p>程序运行结果如下图所示，可以看到模型用一条直线拟合曲线，在前70%的训练数据中表现更好。</p>
+<p>本例中用70%数据作为训练集，用所有数据作为测试集，因此，用全部数据重新计算了x,y值；使用eval函数将模型转换为测试模式（有一些层在训练模型和预测模型时有差别）；将数据代入模型预测，并转换成numpy格式作图显示。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = torch.unsqueeze(torch.tensor(np.array(df[&#x27;x&#x27;]), dtype=torch.float32), dim=1)  </span><br><span class="line">y = torch.unsqueeze(torch.tensor(np.array(df[&#x27;y&#x27;]), dtype=torch.float32), dim=1)  </span><br><span class="line">model.eval() #将模型变为测试模式  </span><br><span class="line">predict = model(Variable(x)) # 预测  </span><br><span class="line">predict = predict.data.numpy() # 转换成numpy格式  </span><br><span class="line">plt.plot(x.numpy(), y.numpy(), &#x27;y&#x27;)  </span><br><span class="line">plt.plot(x.numpy(), predict)  </span><br><span class="line">plt.show()  </span><br></pre></td></tr></table></figure>
+程序运行结果如下图所示，可以看到模型用一条直线拟合曲线，在前70%的训练数据中表现更好。</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-72c7d159d30b68b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <h3 id="多特征拟合">多特征拟合</h3>
@@ -299,51 +233,14 @@ src="https://upload-images.jianshu.io/upload_images/5357893-72c7d159d30b68b7.png
 </ul>
 <p>多参数拟合人x不止一个，可能是{x1,x2,x3...}，设计模型时只需要把输入参数变成多个即可。</p>
 <h4 id="定义模型优化器误差函数-1">1．定义模型、优化器、误差函数</h4>
-<p>与直线拟合的差异是将输入维度变为3维，模型、优化器、误差函数不变。</p>
-<pre><code>class Net2(torch.nn.Module):  
-    def __init__(self):  
-        super(Net2, self).__init__()  
-        self.linear = nn.Linear(3, 1) # 输入3维，输出1维  
-  
-    def forward(self, x):  
-        x = self.linear(x)  
-        return x  
-  
-model = Net2()  
-criterion = nn.MSELoss()  
-optimizer = torch.optim.SGD(model.parameters(), lr=0.001)  </code></pre>
+<p>与直线拟合的差异是将输入维度变为3维，模型、优化器、误差函数不变。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Net2(torch.nn.Module):  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(Net2, self).__init__()  </span><br><span class="line">        self.linear = nn.Linear(3, 1) # 输入3维，输出1维  </span><br><span class="line">  </span><br><span class="line">    def forward(self, x):  </span><br><span class="line">        x = self.linear(x)  </span><br><span class="line">        return x  </span><br><span class="line">  </span><br><span class="line">model = Net2()  </span><br><span class="line">criterion = nn.MSELoss()  </span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=0.001)  </span><br></pre></td></tr></table></figure></p>
 <h4 id="训练模型-1">2．训练模型</h4>
-<p>训练模型步分的主要差异在于处理输入数据，get_data函数分别提供了两种方法，前一种方法用于多项式拟合，后一种方法将年，月信息也作为代入模型的特征，此处，可以更好地理解全连接层的两维输入，其中一维是实例个数，另一维是实例中的各个特征。</p>
-<pre><code>def get_data(train):  
-    if False: # 可切换两种方法  
-        inputs = [[i, i*i, i*i*i] for i in train[&#39;x&#39;]] # 一个x变成3维输入数据  
-    else:  
-        inputs = [[item[&#39;x&#39;], item[&#39;year&#39;], item[&#39;mon&#39;]] for idx,item in train.iterrows()]  
-    X = torch.tensor(np.array(inputs), dtype=torch.float32)  
-    y = torch.unsqueeze(torch.tensor(np.array(train[&#39;y&#39;]), dtype=torch.float32), dim=1)  
-    return X, y  
-  
-X, y = get_data(train)  
-for e in range(20000):  
-    inputs = Variable(X)  
-    target = Variable(y)  
-    out = model(inputs) # 前向传播  
-    loss = criterion(out, target) # 计算误差  
-    optimizer.zero_grad() # 清零  
-    loss.backward() # 后向传播  
-    optimizer.step() # 调整参数  
-    if (e+1) % 1000 == 0:  
-        print(&#39;Epoch:&#123;&#125;, Loss:&#123;:.5f&#125;&#39;.format(e+1, loss.item()))  </code></pre>
+<p>训练模型步分的主要差异在于处理输入数据，get_data函数分别提供了两种方法，前一种方法用于多项式拟合，后一种方法将年，月信息也作为代入模型的特征，此处，可以更好地理解全连接层的两维输入，其中一维是实例个数，另一维是实例中的各个特征。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def get_data(train):  </span><br><span class="line">    if False: # 可切换两种方法  </span><br><span class="line">        inputs = [[i, i*i, i*i*i] for i in train[&#x27;x&#x27;]] # 一个x变成3维输入数据  </span><br><span class="line">    else:  </span><br><span class="line">        inputs = [[item[&#x27;x&#x27;], item[&#x27;year&#x27;], item[&#x27;mon&#x27;]] for idx,item in train.iterrows()]  </span><br><span class="line">    X = torch.tensor(np.array(inputs), dtype=torch.float32)  </span><br><span class="line">    y = torch.unsqueeze(torch.tensor(np.array(train[&#x27;y&#x27;]), dtype=torch.float32), dim=1)  </span><br><span class="line">    return X, y  </span><br><span class="line">  </span><br><span class="line">X, y = get_data(train)  </span><br><span class="line">for e in range(20000):  </span><br><span class="line">    inputs = Variable(X)  </span><br><span class="line">    target = Variable(y)  </span><br><span class="line">    out = model(inputs) # 前向传播  </span><br><span class="line">    loss = criterion(out, target) # 计算误差  </span><br><span class="line">    optimizer.zero_grad() # 清零  </span><br><span class="line">    loss.backward() # 后向传播  </span><br><span class="line">    optimizer.step() # 调整参数  </span><br><span class="line">    if (e+1) % 1000 == 0:  </span><br><span class="line">        print(&#x27;Epoch:&#123;&#125;, Loss:&#123;:.5f&#125;&#x27;.format(e+1, loss.item()))  </span><br></pre></td></tr></table></figure></p>
 <h4 id="预测和做图-1">3．预测和做图</h4>
-<p>预测和做图只有取数据部分与直线拟合不同。</p>
-<pre><code>model.eval() #将模型变为测试模式  
-X, y = get_data(df)  
-predict = model(Variable(X)) # 预测  
-predict = predict.data.numpy() # 转换成numpy格式  
-plt.plot(y.numpy(), &#39;y&#39;)  
-plt.plot(predict)  
-plt.show()  </code></pre>
-<p>两种方法拟合的曲线如下图所示：</p>
+<p>预测和做图只有取数据部分与直线拟合不同。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">model.eval() #将模型变为测试模式  </span><br><span class="line">X, y = get_data(df)  </span><br><span class="line">predict = model(Variable(X)) # 预测  </span><br><span class="line">predict = predict.data.numpy() # 转换成numpy格式  </span><br><span class="line">plt.plot(y.numpy(), &#x27;y&#x27;)  </span><br><span class="line">plt.plot(predict)  </span><br><span class="line">plt.show()  </span><br></pre></td></tr></table></figure> 两种方法拟合的曲线如下图所示：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-25651ca38c6c796a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p><img

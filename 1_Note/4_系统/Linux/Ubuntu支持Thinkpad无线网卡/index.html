@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ubuntu支持Thinkpad无线网卡 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ubuntu支持Thinkpad无线网卡 #linux #驱动 最近新入了一个Thinkpad，安装ubuntu16.04之后，不能识别无线网卡，解法如下： 1.查看无线网卡型号 $ lspci    我无线网卡的型号是Realtek Semiconductor Co., Ltd. Device c821 2.下载驱动程序，编译内核模块 $ git clone https:&#x2F;&#x2F;github.com">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ubuntu支持Thinkpad无线网卡 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ubuntu支持Thinkpad无线网卡 #linux #驱动 最近新入了一个Thinkpad，安装ubuntu16.04之后，不能识别无线网卡，解法如下： 1.查看无线网卡型号 1$ lspci    我无线网卡的型号是Realtek Semiconductor Co., Ltd. Device c821 2.下载驱动程序，编译内核模块 12345$ git clone https:&#x2F;&#x2F;gith">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu支持Thinkpad无线网卡">
 <meta property="og:url" content="http://example.com/1_Note/4_%E7%B3%BB%E7%BB%9F/Linux/Ubuntu%E6%94%AF%E6%8C%81Thinkpad%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1/index.html">
 <meta property="og:site_name" content="Yan 的杂物志">
-<meta property="og:description" content="Ubuntu支持Thinkpad无线网卡 #linux #驱动 最近新入了一个Thinkpad，安装ubuntu16.04之后，不能识别无线网卡，解法如下： 1.查看无线网卡型号 $ lspci    我无线网卡的型号是Realtek Semiconductor Co., Ltd. Device c821 2.下载驱动程序，编译内核模块 $ git clone https:&#x2F;&#x2F;github.com">
+<meta property="og:description" content="Ubuntu支持Thinkpad无线网卡 #linux #驱动 最近新入了一个Thinkpad，安装ubuntu16.04之后，不能识别无线网卡，解法如下： 1.查看无线网卡型号 1$ lspci    我无线网卡的型号是Realtek Semiconductor Co., Ltd. Device c821 2.下载驱动程序，编译内核模块 12345$ git clone https:&#x2F;&#x2F;gith">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2018-12-15T16:07:35.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.272Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.119Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="工具">
 <meta property="article:tag" content="Linux">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,35 +167,29 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Ubuntu支持Thinkpad无线网卡</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-12-15T16:07:35.000Z" title="Created 2018-12-15 16:07:35">2018-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.272Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">387</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>1min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ubuntu支持Thinkpad无线网卡"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="ubuntu支持thinkpad无线网卡">Ubuntu支持Thinkpad无线网卡</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Ubuntu支持Thinkpad无线网卡</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-12-15T16:07:35.000Z" title="Created 2018-12-15 16:07:35">2018-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.119Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">392</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>1min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ubuntu支持Thinkpad无线网卡"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="ubuntu支持thinkpad无线网卡">Ubuntu支持Thinkpad无线网卡</h1>
 <p>#linux #驱动</p>
 <p>最近新入了一个Thinkpad，安装ubuntu16.04之后，不能识别无线网卡，解法如下：</p>
 <h3 id="查看无线网卡型号">1.查看无线网卡型号</h3>
-<pre><code>$ lspci  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lspci  </span><br></pre></td></tr></table></figure>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-21e3c1e8ed80dbcb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>我无线网卡的型号是Realtek Semiconductor Co., Ltd. Device c821</p>
 <h3 id="下载驱动程序编译内核模块">2.下载驱动程序，编译内核模块</h3>
-<pre><code>$ git clone https://github.com/tomaspinho/rtl8821ce  
-$ cd rtl8821ce  
-$ chmod +x dkms-install.sh  
-$ chmod +x dkms-remove.sh  
-$ sudo ./dkms-install.sh  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/tomaspinho/rtl8821ce  </span><br><span class="line">$ cd rtl8821ce  </span><br><span class="line">$ chmod +x dkms-install.sh  </span><br><span class="line">$ chmod +x dkms-remove.sh  </span><br><span class="line">$ sudo ./dkms-install.sh  </span><br></pre></td></tr></table></figure>
 <p>如果网卡型号和我的不同，可以试试realtek的其它驱动包: git clone
 https://github.com/lwfinger/rtlwifi_new</p>
 <h3 id="加载网卡驱动">3.加载网卡驱动</h3>
-<p>查看驱动模块是否被加载</p>
-<pre><code>$ lspci -v  </code></pre>
-<p>这时看到Device c821设备下面有Kernal modeles, 但是没有Moder driver in
-use, 也就是说模型编出来了，但插入内核失败了，于是手动加载内核模块</p>
-<pre><code>$ sudo modprobe 8821ce  </code></pre>
-<p>此时报错：ERROR：Required key not available，这是由于Ubuntu Kernel
-使用 EFI_SECURE_BOOT_SIG_ENFORCE
+<p>查看驱动模块是否被加载<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lspci -v  </span><br></pre></td></tr></table></figure> 这时看到Device c821设备下面有Kernal modeles, 但是没有Moder
+driver in use,
+也就是说模型编出来了，但插入内核失败了，于是手动加载内核模块<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo modprobe 8821ce  </span><br></pre></td></tr></table></figure> 此时报错：ERROR：Required key not
+available，这是由于Ubuntu Kernel 使用 EFI_SECURE_BOOT_SIG_ENFORCE
 内核配置，这样会阻止内核载入第三方模块，就是说你自己编的ko模块不能被加载到内核。如果你也遇到了这个问题，解法如下。</p>
 <h3
 id="修改内核设置允许加载三方模块">4.修改内核设置，允许加载三方模块</h3>
-<pre><code>$ sudo apt install mokutil  
-$ sudo mokutil --disable-validation  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install mokutil  </span><br><span class="line">$ sudo mokutil --disable-validation  </span><br></pre></td></tr></table></figure>
 <p>此时输入一个8位以上的密码，之后重启系统，出现如下蓝屏，选择Change
 Secure Boot state</p>
 <p><img

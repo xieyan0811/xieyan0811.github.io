@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-07-31T22:49:05.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.444Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.291Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="股票">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之八_大数定律</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-31T22:49:05.000Z" title="Created 2017-07-31 22:49:05">2017-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.444Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之八_大数定律"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="python股票处理之八_大数定律">Python股票处理之八_大数定律</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之八_大数定律</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-31T22:49:05.000Z" title="Created 2017-07-31 22:49:05">2017-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.291Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之八_大数定律"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="python股票处理之八_大数定律">Python股票处理之八_大数定律</h1>
 <p>#Python #股票</p>
 <h2 id="引子">1. 引子</h2>
 <p>有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给X同学。结果人家说“70%多，这准确率高么？瞎蒙的准确率也有50%”<br />
@@ -175,43 +175,7 @@
 看《程序员的数学2：概率统计》中有一道类似的习题：设结果甲出现概率为0.7，结果乙出现概述为0.3，且不论甲还是乙，只要猜中，就能获得下注同等的金额，猜不中则输掉赌资。显然选择甲是明智的做法。假设你每天都会参与这场赌博，你会将占总资产比例p的金额投给甲，p在整个过程中保持不变，请问应该如何设定p值？（我把该题简化了，大概是这个意思）<br />
 如果只考虑一天，显然把所有资产都投给甲p=1是最佳选择，然而不断重复赌局时，总会出现没有中奖而失去所有财产的情况。下面写一个程序模拟这个赌局：</p>
 <h2 id="程序">2.程序</h2>
-<pre><code># -*- coding: utf-8 -*-  
-  
-import random  
-import math  
-import matplotlib.pyplot as plt  
-  
-TIMES = 50  # 赌博总数50次  
-BASE_MONEY=100  # 本金100元  
-  
-def test(p):    # p是赌资占资产的比例，在0-1之间  
-    money = BASE_MONEY  # 当前资产  
-    for i in range(1,TIMES):  
-        r = random.randint(1,10)    # 在1-10中取随机数r  
-        val = money * p # 计算本次赌资val  
-        if r &gt; 3:   # 有70%的可能性r&gt;3  
-            money += val    # 赢val元  
-        else:  
-            money -= val    # 亏val元  
-        if money &lt;= 0:  # 如果输光，则提前出局  
-            money = 0.000001   
-            break  
-    return money / BASE_MONEY   # 此次操作的赢亏，&gt;1为赢  
-  
-for idx in range(0,9):  
-    p = 0.1 * (idx + 1) # 投资比例占总资产的比例为0.1,0.2...0.9  
-    plt.subplot(331+idx)    # 设定做图位置  
-    array = []  
-    lose = 0  
-    for i in range(1, 100): # 每个p值试验100次  
-        v = test(p)  
-        if v &lt; 1:   # 亏本的次数  
-            lose += 1  
-        array.append(math.log10(v)) # 因数值跨度太大，以10底取对数  
-    print &quot;percent &quot;, p, &quot;, lose &quot;, lose  
-    plt.ylim(-1, 10)    # y轴坐标设定为-1到10做图  
-    plt.plot(array)  
-plt.show()  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-  </span><br><span class="line">  </span><br><span class="line">import random  </span><br><span class="line">import math  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">  </span><br><span class="line">TIMES = 50	# 赌博总数50次  </span><br><span class="line">BASE_MONEY=100	# 本金100元  </span><br><span class="line">  </span><br><span class="line">def test(p):	# p是赌资占资产的比例，在0-1之间  </span><br><span class="line">	money = BASE_MONEY	# 当前资产  </span><br><span class="line">	for i in range(1,TIMES):  </span><br><span class="line">		r = random.randint(1,10)	# 在1-10中取随机数r  </span><br><span class="line">		val = money * p	# 计算本次赌资val  </span><br><span class="line">		if r &gt; 3:	# 有70%的可能性r&gt;3  </span><br><span class="line">			money += val	# 赢val元  </span><br><span class="line">		else:  </span><br><span class="line">			money -= val	# 亏val元  </span><br><span class="line">		if money &lt;= 0:	# 如果输光，则提前出局  </span><br><span class="line">			money = 0.000001   </span><br><span class="line">			break  </span><br><span class="line">	return money / BASE_MONEY	# 此次操作的赢亏，&gt;1为赢  </span><br><span class="line">  </span><br><span class="line">for idx in range(0,9):  </span><br><span class="line">	p = 0.1 * (idx + 1)	# 投资比例占总资产的比例为0.1,0.2...0.9  </span><br><span class="line">	plt.subplot(331+idx)	# 设定做图位置  </span><br><span class="line">	array = []  </span><br><span class="line">	lose = 0  </span><br><span class="line">	for i in range(1, 100):	# 每个p值试验100次  </span><br><span class="line">		v = test(p)  </span><br><span class="line">		if v &lt; 1:	# 亏本的次数  </span><br><span class="line">			lose += 1  </span><br><span class="line">		array.append(math.log10(v))	# 因数值跨度太大，以10底取对数  </span><br><span class="line">	print &quot;percent &quot;, p, &quot;, lose &quot;, lose  </span><br><span class="line">	plt.ylim(-1, 10)	# y轴坐标设定为-1到10做图  </span><br><span class="line">	plt.plot(array)  </span><br><span class="line">plt.show()  </span><br></pre></td></tr></table></figure>
 <h2 id="执行结果">3.执行结果</h2>
 <h4 id="原程序单次胜算为70">(1) 原程序，单次胜算为70%</h4>
 <p><img

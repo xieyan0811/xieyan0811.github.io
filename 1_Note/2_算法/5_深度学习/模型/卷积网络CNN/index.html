@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-06-19T11:19:46.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.940Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.771Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">卷积网络CNN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-19T11:19:46.000Z" title="Created 2020-06-19 11:19:46">2020-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.940Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="卷积网络CNN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="卷积网络cnn">卷积网络CNN</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">卷积网络CNN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-06-19T11:19:46.000Z" title="Created 2020-06-19 11:19:46">2020-06-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.771Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="卷积网络CNN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="卷积网络cnn">卷积网络CNN</h1>
 <p>#深度学习</p>
 <p>卷积网络是近年来非常流行的网络结构，常用于处理图像（2维卷积）和自然语言（1维卷积）。在不明觉厉的情况下使用卷积层，往往使用别人设计的结构，凑参数往模型里塞，同复杂的原理书中的内容又有点对不上号。本篇从应用场景，具体用法入手，深入到每一个重要参数：具体用途、用法及计算方法。</p>
 <h3 id="为什么使用卷积网络">为什么使用卷积网络</h3>
@@ -180,14 +180,11 @@ src="https://upload-images.jianshu.io/upload_images/5357893-06ec3f7b7468dc22.png
 <p>卷积网络的优势在于共享参数，比如一个3x3的检测物体边缘卷积核训练好后，即可用于整个图片，此时需要学习的参数只有3x3=9个，如果在一层中训练20个3x3的卷积核用于检测不同特征，也只需要训练3x3x20=60个参数。</p>
 <p>需要注意的问题是使用同样一组参数（卷积核）处理层的多个输入特征时，每组输入特征需要具有共同的性质，才能被处理，比如图片中的每个小区域边缘都具有相同的性质，可使用同种方法检测；但是预测汽车价格时，各个特征都代表完全不同的含义，就无法将不同意义的特征分组后使用同样的方法处理。</p>
 <h3 id="具体用法">具体用法</h3>
-<p>卷积网络常用于图像处理，它常与池化层同时使用。以Pytorch为例，在模型的__init__初始化中创建层：</p>
-<pre><code>self.conv=torch.nn.Conv2d(3,16,2,stride=1,padding=1)    
-self.pool=torch.nn.MaxPool2d(4,4)    </code></pre>
-<p>在forward前向传播时使用层：</p>
-<pre><code>out = self.conv(X)    
-out = self.pool(out)    </code></pre>
-<p>传入卷积层的一般是４维数据[m,w,h,c]。此处创建的卷积层可以处理任意大小的图片。构造该层的参数如下：</p>
-<pre><code>torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)    </code></pre>
+<p>卷积网络常用于图像处理，它常与池化层同时使用。以Pytorch为例，在模型的__init__初始化中创建层：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.conv=torch.nn.Conv2d(3,16,2,stride=1,padding=1)    </span><br><span class="line">self.pool=torch.nn.MaxPool2d(4,4)    </span><br></pre></td></tr></table></figure> 在forward前向传播时使用层：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">out = self.conv(X)    </span><br><span class="line">out = self.pool(out)    </span><br></pre></td></tr></table></figure>
+传入卷积层的一般是４维数据[m,w,h,c]。此处创建的卷积层可以处理任意大小的图片。构造该层的参数如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)    </span><br></pre></td></tr></table></figure>
 <p>其中前五个参数最为重要：<br />
 * in_channel：输入通道数<br />
 * out_channel：输出通道数<br />

@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2019-12-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.492Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.339Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="模型结构">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Transformer框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-25T00:00:00.000Z" title="Created 2019-12-25 00:00:00">2019-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.492Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Transformer框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>name_ch: 注意力就是你所需要的<br />
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Transformer框架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-12-25T00:00:00.000Z" title="Created 2019-12-25 00:00:00">2019-12-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.339Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Transformer框架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>name_ch: 注意力就是你所需要的<br />
 name_en: Attention is All you Need<br />
 paper_addr:
 https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf</p>
@@ -210,18 +210,9 @@ vocab。但有几点主要差别：</p>
 <p>从ConvS2S模型开始，位置编码被引入模型计算。这样不使用循环网络，也可以描述序列中元素的前后关系。自然语言处理以及任何序列问题都可以采用位置编码描述其位置信息。</p>
 <p>位置编码将与词向量值相加，比如一个序列中有五个词，每个词用512维向量表示，词向量[1,5,512]加位置向量[1,5,512]，得到大小为[1,5,512]的结果，这个值包含意义和位置两种信息，也可看成这个词在该位置的含义。</p>
 <p>如果位置编码值过大，比如一段文字长度为2048，编码为0,1,...2047，则会削弱词向量的重要性，此时，可使用归一化转换成0,0.0005.....,1；另外，还需要保证不同长度的序列词间距离相等，比如“谁
-知道”这两个词在三词序列间的距离需要与它在三百个词的序列中的距离相等。Transformer使用正余弦函数给位置编码，无需训练，直接使用公式算出，其编码如下（完整例程请见参考部分）：</p>
-<pre><code>def get_sinusoid_encoding_table(n_position, d_model):  
-    def cal_angle(position, hid_idx): # hid_idx为维度索引  
-        return position / np.power(10000, 2 * (hid_idx // 2) / d_model) # //为整数除法  
-    def get_posi_angle_vec(position): # position为序列中的位置  
-        return [cal_angle(position, hid_j) for hid_j in range(d_model)]  
-  
-    sinusoid_table = np.array([get_posi_angle_vec(pos_i) for pos_i in range(n_position)])  
-    sinusoid_table[:, 0::2] = np.sin(sinusoid_table[:, 0::2]) # 2i为双数索引位  
-    sinusoid_table[:, 1::2] = np.cos(sinusoid_table[:, 1::2]) # 2i+1为单数索引位  
-    return torch.FloatTensor(sinusoid_table)  </code></pre>
-<p>位置编码函数的输入是序列长度n_position和维数d_model（一般是256或512），输出是大小为
+知道”这两个词在三词序列间的距离需要与它在三百个词的序列中的距离相等。Transformer使用正余弦函数给位置编码，无需训练，直接使用公式算出，其编码如下（完整例程请见参考部分）：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def get_sinusoid_encoding_table(n_position, d_model):  </span><br><span class="line">    def cal_angle(position, hid_idx): # hid_idx为维度索引  </span><br><span class="line">        return position / np.power(10000, 2 * (hid_idx // 2) / d_model) # //为整数除法  </span><br><span class="line">    def get_posi_angle_vec(position): # position为序列中的位置  </span><br><span class="line">        return [cal_angle(position, hid_j) for hid_j in range(d_model)]  </span><br><span class="line">  </span><br><span class="line">    sinusoid_table = np.array([get_posi_angle_vec(pos_i) for pos_i in range(n_position)])  </span><br><span class="line">    sinusoid_table[:, 0::2] = np.sin(sinusoid_table[:, 0::2]) # 2i为双数索引位  </span><br><span class="line">    sinusoid_table[:, 1::2] = np.cos(sinusoid_table[:, 1::2]) # 2i+1为单数索引位  </span><br><span class="line">    return torch.FloatTensor(sinusoid_table)  </span><br></pre></td></tr></table></figure>
+位置编码函数的输入是序列长度n_position和维数d_model（一般是256或512），输出是大小为
 (n_position, d_model)
 的矩阵，其中每一行对应一个单词的位置，每个位置由d_model个值表示，类似于词向量用d_model个特征描述一个词的含义。</p>
 <p>其公式如下：</p>
@@ -279,55 +270,17 @@ Attiotion是多头注意力模型，即对同一个词向量序列，同时做�
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-215a80b6c110b617.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>建立多组参数矩阵W，用每组W分别计算Attention­，得到多个head输出，再用concat把多个输出连接到一起，最后乘输出参数W<sup>o</sup>，得到MultiHead值。</p>
-<p>多头注意力模型核心代码如下：</p>
-<pre><code>class ScaledDotProductAttention(nn.Module): # 点乘  
-    def __init__(self):  
-        super(ScaledDotProductAttention, self).__init__()  
-  
-    def forward(self, Q, K, V, attn_mask): # 实现注意力公式  
-        scores = torch.matmul(Q, K.transpose(-1, -2)) / np.sqrt(d_k)  
-        scores.masked_fill_(attn_mask, -1e9)  
-        attn = nn.Softmax(dim=-1)(scores)  
-        context = torch.matmul(attn, V)  
-        return context, attn  
-  
-class MultiHeadAttention(nn.Module): # 多头注意力  
-    def __init__(self):  
-        super(MultiHeadAttention, self).__init__()  
-        self.W_Q = nn.Linear(d_model, d_k * n_heads)  
-        self.W_K = nn.Linear(d_model, d_k * n_heads)  
-        self.W_V = nn.Linear(d_model, d_v * n_heads)  
-     
-    def forward(self, Q, K, V, attn_mask):  
-        residual, batch_size = Q, Q.size(0)  
-        q_s = self.W_Q(Q).view(batch_size, -1, n_heads, d_k).transpose(1,2)  
-        k_s = self.W_K(K).view(batch_size, -1, n_heads, d_k).transpose(1,2)  
-        v_s = self.W_V(V).view(batch_size, -1, n_heads, d_v).transpose(1,2)  
-        attn_mask = attn_mask.unsqueeze(1).repeat(1, n_heads, 1, 1)  
-        context, attn = ScaledDotProductAttention()(q_s, k_s, v_s, attn_mask)  
-        context = context.transpose(1, 2).contiguous().view(batch_size, -1, n_heads * d_v)  
-        output = nn.Linear(n_heads * d_v, d_model)(context)  
-        return nn.LayerNorm(d_model)(output + residual), attn  </code></pre>
-<p>程序中还加入了残差Residual和归一化处理LayerNorm。</p>
+<p>多头注意力模型核心代码如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class ScaledDotProductAttention(nn.Module): # 点乘  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(ScaledDotProductAttention, self).__init__()  </span><br><span class="line">  </span><br><span class="line">    def forward(self, Q, K, V, attn_mask): # 实现注意力公式  </span><br><span class="line">        scores = torch.matmul(Q, K.transpose(-1, -2)) / np.sqrt(d_k)  </span><br><span class="line">        scores.masked_fill_(attn_mask, -1e9)  </span><br><span class="line">        attn = nn.Softmax(dim=-1)(scores)  </span><br><span class="line">        context = torch.matmul(attn, V)  </span><br><span class="line">        return context, attn  </span><br><span class="line">  </span><br><span class="line">class MultiHeadAttention(nn.Module): # 多头注意力  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(MultiHeadAttention, self).__init__()  </span><br><span class="line">        self.W_Q = nn.Linear(d_model, d_k * n_heads)  </span><br><span class="line">        self.W_K = nn.Linear(d_model, d_k * n_heads)  </span><br><span class="line">        self.W_V = nn.Linear(d_model, d_v * n_heads)  </span><br><span class="line">     </span><br><span class="line">    def forward(self, Q, K, V, attn_mask):  </span><br><span class="line">        residual, batch_size = Q, Q.size(0)  </span><br><span class="line">        q_s = self.W_Q(Q).view(batch_size, -1, n_heads, d_k).transpose(1,2)  </span><br><span class="line">        k_s = self.W_K(K).view(batch_size, -1, n_heads, d_k).transpose(1,2)  </span><br><span class="line">        v_s = self.W_V(V).view(batch_size, -1, n_heads, d_v).transpose(1,2)  </span><br><span class="line">        attn_mask = attn_mask.unsqueeze(1).repeat(1, n_heads, 1, 1)  </span><br><span class="line">        context, attn = ScaledDotProductAttention()(q_s, k_s, v_s, attn_mask)  </span><br><span class="line">        context = context.transpose(1, 2).contiguous().view(batch_size, -1, n_heads * d_v)  </span><br><span class="line">        output = nn.Linear(n_heads * d_v, d_model)(context)  </span><br><span class="line">        return nn.LayerNorm(d_model)(output + residual), attn  </span><br></pre></td></tr></table></figure> 程序中还加入了残差Residual和归一化处理LayerNorm。</p>
 <p>在Encoder部分，自注意力将计算每个词与其它所有词的关系；在Decoder部分，尤其是在预测过程中，如要翻译出“我爱你”，翻译到“爱”时，“你”还没产生，因此，只能参考当前位置之前的词（已经生成的词）。attn_mask用于实现该功能，具体方法是使用上三角矩阵遮蔽部分数据。</p>
 <h3 id="前向传播网络">前向传播网络</h3>
 <p>完成Attention之后，再使用Pos-wise Feed
 Forward做前向传播，Transformer论文中介绍前向传播可以使用两个卷积层，或者两个全连接层（卷积核大小为1时，卷积与全连接效果相同），两层之间加一个ReLU激活函数，将小于0的值都置为0，其公式为：</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-98062448176616bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
-<p>代码实现如下：</p>
-<pre><code>class PoswiseFeedForwardNet(nn.Module):  
-    def __init__(self):  
-        super(PoswiseFeedForwardNet, self).__init__()  
-        self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=1)  
-        self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=1)  
-  
-    def forward(self, inputs):  
-        residual = inputs # inputs : [batch_size, len_q, d_model]  
-        output = nn.ReLU()(self.conv1(inputs.transpose(1, 2)))  
-        output = self.conv2(output).transpose(1, 2)  
-        return nn.LayerNorm(d_model)(output + residual)  </code></pre>
-<p>除了两个卷积层，模型还加入了残差redidual和归一化处理LayerNorm。</p>
+<p>代码实现如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class PoswiseFeedForwardNet(nn.Module):  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(PoswiseFeedForwardNet, self).__init__()  </span><br><span class="line">        self.conv1 = nn.Conv1d(in_channels=d_model, out_channels=d_ff, kernel_size=1)  </span><br><span class="line">        self.conv2 = nn.Conv1d(in_channels=d_ff, out_channels=d_model, kernel_size=1)  </span><br><span class="line">  </span><br><span class="line">    def forward(self, inputs):  </span><br><span class="line">        residual = inputs # inputs : [batch_size, len_q, d_model]  </span><br><span class="line">        output = nn.ReLU()(self.conv1(inputs.transpose(1, 2)))  </span><br><span class="line">        output = self.conv2(output).transpose(1, 2)  </span><br><span class="line">        return nn.LayerNorm(d_model)(output + residual)  </span><br></pre></td></tr></table></figure>
+除了两个卷积层，模型还加入了残差redidual和归一化处理LayerNorm。</p>
 <h3 id="多子层组合">多子层组合</h3>
 <p>Transformer分为Encoder和Decoder两部分，
 Encoder中又包含六个子模块Encoder Layer，每个Encoder

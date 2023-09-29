@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SHAP解释模型二 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SHAP解释模型（二） 本文在SHAP解析模型之后，又尝试了一些SHAP新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）． $ pip install shap&#x3D;&#x3D;0.41.0   $ pip install xgboost&#x3D;&#x3D;0.82   $ pip">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SHAP解释模型二 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SHAP解释模型（二） 本文在SHAP解析模型之后，又尝试了一些SHAP新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）． 123$ pip install shap&#x3D;&#x3D;0.41.0  $ pip install xgboost&#x3D;&#x3D;0.82  $ pip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SHAP解释模型二">
 <meta property="og:url" content="http://example.com/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/SHAP%E8%A7%A3%E9%87%8A%E6%A8%A1%E5%9E%8B%E4%BA%8C/index.html">
 <meta property="og:site_name" content="Yan 的杂物志">
-<meta property="og:description" content="SHAP解释模型（二） 本文在SHAP解析模型之后，又尝试了一些SHAP新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）． $ pip install shap&#x3D;&#x3D;0.41.0   $ pip install xgboost&#x3D;&#x3D;0.82   $ pip">
+<meta property="og:description" content="SHAP解释模型（二） 本文在SHAP解析模型之后，又尝试了一些SHAP新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）． 123$ pip install shap&#x3D;&#x3D;0.41.0  $ pip install xgboost&#x3D;&#x3D;0.82  $ pip">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2022-08-21T11:21:48.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.308Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.147Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="机器学习">
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -168,105 +168,60 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SHAP解释模型二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-21T11:21:48.000Z" title="Created 2022-08-21 11:21:48">2022-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.308Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">988</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SHAP解释模型二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>SHAP解释模型（二）</p>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SHAP解释模型二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-21T11:21:48.000Z" title="Created 2022-08-21 11:21:48">2022-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.147Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">961</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SHAP解释模型二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>SHAP解释模型（二）</p>
 <p>本文在<a
 target="_blank" rel="noopener" href="https://blog.csdn.net/xieyan0811/article/details/120393090">SHAP解析模型</a>之后，又尝试了一些SHAP新版本的进阶用法，整理并与大家分享．</p>
 <h2 id="环境配置">1 环境配置</h2>
-<p>以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）．</p>
-<pre><code>$ pip install shap==0.41.0  
-$ pip install xgboost==0.82  
-$ pip install matplotlib==3.5.2  </code></pre>
+<p>以下实验使用当前最新版本shap：0.41.0，同时安装xgboost作为预测模型，并使用较高版本的matplotlib（低版本有时画图报错）．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install shap==0.41.0  </span><br><span class="line">$ pip install xgboost==0.82  </span><br><span class="line">$ pip install matplotlib==3.5.2  </span><br></pre></td></tr></table></figure></p>
 <h2 id="实验数据">2 实验数据</h2>
-<p>仍延用波士顿房价数据集，由于有些方法需要explainer对象，因此构造了shap_value_obj</p>
-<pre><code>import shap  
-import xgboost  
-X,y = shap.datasets.boston()  
-  
-model = xgboost.train(&#123;&quot;learning_rate&quot;: 0.01&#125;, xgboost.DMatrix(X, label=y), 100)  
-explainer = shap.TreeExplainer(model)   
-shap_values = explainer.shap_values(X)   
-shap_values_obj = explainer(X)   </code></pre>
+<p>仍延用波士顿房价数据集，由于有些方法需要explainer对象，因此构造了shap_value_obj<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import shap  </span><br><span class="line">import xgboost  </span><br><span class="line">X,y = shap.datasets.boston()  </span><br><span class="line">  </span><br><span class="line">model = xgboost.train(&#123;&quot;learning_rate&quot;: 0.01&#125;, xgboost.DMatrix(X, label=y), 100)  </span><br><span class="line">explainer = shap.TreeExplainer(model)   </span><br><span class="line">shap_values = explainer.shap_values(X)   </span><br><span class="line">shap_values_obj = explainer(X)   </span><br></pre></td></tr></table></figure></p>
 <h2 id="单特征实验">3 单特征实验</h2>
 <p>首先，尝试一些单特征分析方法．</p>
 <h3 id="分析单个实例">3.1 分析单个实例</h3>
-<p>在图中主要关注base_value，它是预测的均值，而f(x)展示了该实例的具体预测值，红色和蓝色区域的颜色和宽度展示了主要特征的影响和方向．</p>
-<pre><code>shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821100923.png"
-alt="Pasted%20image%2020220821100923.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821100923.png</figcaption>
-</figure>
+<p>在图中主要关注base_value，它是预测的均值，而f(x)展示了该实例的具体预测值，红色和蓝色区域的颜色和宽度展示了主要特征的影响和方向．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821100923.png"
+alt="Pasted%20image%2020220821100923.png" /></p>
 <h3 id="决策图">3.2 决策图</h3>
 <p>决策图可在一张图上展示多个实例的特征对结果的影响，一般情况下，位置越靠上的特征影响越大．本例中设定feature_order='hclust'，则是按shap
 value进行聚类，再按特征的相关度排序，因此线条看起来比较直；其x轴描述的是各个特征对最终预测值拉扯的方向和力度．<br />
-使用该方法也可以用于异常值检测，如果有一条线明显与其它线的方向不同，则可能是异常值．</p>
-<pre><code>features = X[:20] # 只分析前20个样本  
-shap_values = explainer.shap_values(features)  
-shap.decision_plot(explainer.expected_value, shap_values,   
-                   features, feature_order=&#39;hclust&#39;)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821101551.png"
-alt="Pasted%20image%2020220821101551.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821101551.png</figcaption>
-</figure>
+使用该方法也可以用于异常值检测，如果有一条线明显与其它线的方向不同，则可能是异常值．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">features = X[:20] # 只分析前20个样本  </span><br><span class="line">shap_values = explainer.shap_values(features)  </span><br><span class="line">shap.decision_plot(explainer.expected_value, shap_values,   </span><br><span class="line">                   features, feature_order=&#x27;hclust&#x27;)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821101551.png"
+alt="Pasted%20image%2020220821101551.png" /></p>
 <h3 id="热力图">3.3 热力图</h3>
-<p>热力图的横轴是每个实例，纵轴是每个特征对该实例的影响，用颜色描述该特征对该实例的影响方向和力度，比如x轴在300附近的实例，其预测值f(x)在0.5附近，原因是LSTAT对它起到正向作用，而RM对它起负向作用，其它特征影响比较小（浅色）．</p>
-<pre><code>shap.plots.heatmap(shap_values_obj)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821101642.png"
-alt="Pasted%20image%2020220821101642.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821101642.png</figcaption>
-</figure>
+<p>热力图的横轴是每个实例，纵轴是每个特征对该实例的影响，用颜色描述该特征对该实例的影响方向和力度，比如x轴在300附近的实例，其预测值f(x)在0.5附近，原因是LSTAT对它起到正向作用，而RM对它起负向作用，其它特征影响比较小（浅色）．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.heatmap(shap_values_obj)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821101642.png"
+alt="Pasted%20image%2020220821101642.png" /></p>
 <h2 id="特征组合实验">4 特征组合实验</h2>
 <p>特征组合是数据分析的重要因素，下面实验对特征组合的挖掘方法．</p>
 <h3 id="带聚类的特征图">4.1 带聚类的特征图</h3>
 <p>先对shap
-value做聚类，此时shap_value值类似的实例被分成一组，相关性强的特征就能显现出来，再画条形图时，展示了特征的相关性．</p>
-<pre><code>clustering = shap.utils.hclust(X, y)   
-shap.plots.bar(shap_values_obj,   
-               clustering=clustering,  
-               clustering_cutoff=0.5)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821101740.png"
-alt="Pasted%20image%2020220821101740.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821101740.png</figcaption>
-</figure>
+value做聚类，此时shap_value值类似的实例被分成一组，相关性强的特征就能显现出来，再画条形图时，展示了特征的相关性．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clustering = shap.utils.hclust(X, y)   </span><br><span class="line">shap.plots.bar(shap_values_obj,   </span><br><span class="line">               clustering=clustering,  </span><br><span class="line">               clustering_cutoff=0.5)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821101740.png"
+alt="Pasted%20image%2020220821101740.png" /></p>
 <h3 id="依赖图">4.2 依赖图</h3>
 <p>依赖图分析一个特征对另一个特征的影响，示图类似shap散点图，横坐标为特征"RM"的取值范围，纵坐标为其取值对应的shap
-value，颜色分析的是另一特征"RAD"在"RM"变化过程中的分布．</p>
-<pre><code>shap.dependence_plot(&quot;RM&quot;, shap_values_obj.values, X, interaction_index=&#39;RAD&#39;)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821101052.png"
-alt="Pasted%20image%2020220821101052.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821101052.png</figcaption>
-</figure>
+value，颜色分析的是另一特征"RAD"在"RM"变化过程中的分布．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.dependence_plot(&quot;RM&quot;, shap_values_obj.values, X, interaction_index=&#x27;RAD&#x27;)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821101052.png"
+alt="Pasted%20image%2020220821101052.png" /></p>
 <h3 id="交互图">4.3 交互图</h3>
 <p>交互图对角线上展示的是该特征与预测值的关系，它与最普通的shap
 plot相一致，对角线以外其它位置是特征两两组合对预测的影响．每个子图的横坐标为shap
-value，也就是说，子图越宽，该特征组合对结果影响越大．</p>
-<pre><code>shap_interaction_values = explainer.shap_interaction_values(X)  
-shap.summary_plot(shap_interaction_values, X)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821101147.png"
-alt="Pasted%20image%2020220821101147.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821101147.png</figcaption>
-</figure>
+value，也就是说，子图越宽，该特征组合对结果影响越大．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shap_interaction_values = explainer.shap_interaction_values(X)  </span><br><span class="line">shap.summary_plot(shap_interaction_values, X)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821101147.png"
+alt="Pasted%20image%2020220821101147.png" /></p>
 <h3 id="特征组合的影响">4.4 特征组合的影响</h3>
-<p>将交互图按特征重要性排序后绘图．个人认为下图非常有用，它将单特征与特征组合画在一张图中，可以从中分析出哪些特征组合更为重要．</p>
-<pre><code>shap_interaction_values = explainer.shap_interaction_values(X)  
-shap.summary_plot(shap_interaction_values, X, max_display=10, plot_type=&quot;compact_dot&quot;)  </code></pre>
-<figure>
-<img src="/attachments_2022/Pasted%20image%2020220821102503.png"
-alt="Pasted%20image%2020220821102503.png" />
-<figcaption
-aria-hidden="true">Pasted%20image%2020220821102503.png</figcaption>
-</figure>
+<p>将交互图按特征重要性排序后绘图．个人认为下图非常有用，它将单特征与特征组合画在一张图中，可以从中分析出哪些特征组合更为重要．<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shap_interaction_values = explainer.shap_interaction_values(X)  </span><br><span class="line">shap.summary_plot(shap_interaction_values, X, max_display=10, plot_type=&quot;compact_dot&quot;)  </span><br></pre></td></tr></table></figure> <img
+src="/attachments_2022/Pasted%20image%2020220821102503.png"
+alt="Pasted%20image%2020220821102503.png" /></p>
 <h2 id="参考">5 参考</h2>
 <p><a target="_blank" rel="noopener" href="https://www.modb.pro/db/129193">用 SHAP
 可视化解释机器学习模型实用指南(下)</a><br />

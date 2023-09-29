@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-10-29T11:09:14.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.600Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.443Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="区块链">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——建立Kafka&amp;ZooKeeper集群</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-29T11:09:14.000Z" title="Created 2017-10-29 11:09:14">2017-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.600Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——建立Kafka&amp;ZooKeeper集群</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-29T11:09:14.000Z" title="Created 2017-10-29 11:09:14">2017-10-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.443Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="比特币挖矿建立kafkazookeeper集群">比特币挖矿——建立Kafka&amp;ZooKeeper集群</h1>
 <p>#区块链</p>
 <h2 id="介绍">1. 介绍</h2>
@@ -208,53 +208,36 @@ alt="图片.png" />
 <h4 id="介绍-1">1) 介绍</h4>
 <p>ZooKeeper是一个快速、高可靠、容错、分布式的协调服务。</p>
 <h4 id="配置">2) 配置</h4>
-<pre><code>$ cp conf/zoo_sample.cfg conf/zoo.cfg  
-$ vi conf/zoo.cfg #修改配置文件  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cp conf/zoo_sample.cfg conf/zoo.cfg  </span><br><span class="line">$ vi conf/zoo.cfg #修改配置文件  </span><br></pre></td></tr></table></figure>
 <p>配置文件中server*是zookeeper服务器之间交互用的，它使得一台服务器死机时，另外一台，能快速转换为主zookeeper服务器<br />
-dataDir是数据目录，clientPort为ZooKepper端口号，一般不用改</p>
-<pre><code>$ ./startserver.sh start # 启动zooKeeper服务  </code></pre>
+dataDir是数据目录，clientPort为ZooKepper端口号，一般不用改<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./startserver.sh start # 启动zooKeeper服务  </span><br></pre></td></tr></table></figure></p>
 <h3 id="调试工具">3) 调试工具</h3>
-<pre><code>$ bin/zkCli.sh -server 127.0.0.1:2181 #client端连上看一下  
-$ jps #查看进程, 其中QuorumPeerMain是zooKeeper的主进程  
-$ netstat -nap|grep 2181 # 查看配置文件中设置的端口是否打开  </code></pre>
-<p>正常显示为：</p>
-<pre><code>tcp  0   0   0.0.0.0:2181   0.0.0.0:*   LISTEN   10737/java  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ bin/zkCli.sh -server 127.0.0.1:2181 #client端连上看一下  </span><br><span class="line">$ jps #查看进程, 其中QuorumPeerMain是zooKeeper的主进程  </span><br><span class="line">$ netstat -nap|grep 2181 # 查看配置文件中设置的端口是否打开  </span><br></pre></td></tr></table></figure>
+<p>正常显示为：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp  0   0   0.0.0.0:2181   0.0.0.0:*   LISTEN   10737/java  </span><br></pre></td></tr></table></figure></p>
 <h2 id="kafka">5. Kafka</h2>
 <h4 id="介绍-2">1) 介绍</h4>
 <p>Kafka是一个分布式的流数据处理平台。</p>
 <h4 id="配置文件">2) 配置文件</h4>
-<pre><code>$ vi config/server.properties  
-这是默认的配置文件，以下几项比较重要  
-broker.id=1 # broker的标识，具有唯一性  
-port=9092 # kafka服务的端口号  
-log.dirs=/tmp/kafka-logs # 存储log的目录，交互的信息就存在该目录下  
-zookeeper.connect=127.0.0.1:2181 # zookeeper服务器的IP和端口,多个用逗号分开  
-host.name=127.0.0.1 # 运行本程序机器的IP地址，在btcpool的cfg中指定  
-delete.topic.enable=true #建议加这句，否则删topic时候特别麻烦  
-message.max.bytes=20000000 # 支持大数据msg，否则传输时将丢弃大数据块  
-replica.fetch.max.bytes=30000000 # 同上     </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ vi config/server.properties  </span><br><span class="line">这是默认的配置文件，以下几项比较重要  </span><br><span class="line">broker.id=1 # broker的标识，具有唯一性  </span><br><span class="line">port=9092 # kafka服务的端口号  </span><br><span class="line">log.dirs=/tmp/kafka-logs # 存储log的目录，交互的信息就存在该目录下  </span><br><span class="line">zookeeper.connect=127.0.0.1:2181 # zookeeper服务器的IP和端口,多个用逗号分开  </span><br><span class="line">host.name=127.0.0.1 # 运行本程序机器的IP地址，在btcpool的cfg中指定  </span><br><span class="line">delete.topic.enable=true #建议加这句，否则删topic时候特别麻烦  </span><br><span class="line">message.max.bytes=20000000 # 支持大数据msg，否则传输时将丢弃大数据块  </span><br><span class="line">replica.fetch.max.bytes=30000000 # 同上	  </span><br></pre></td></tr></table></figure>
 <h4 id="启动服务">3) 启动服务</h4>
-<pre><code>$ bin/kafka-server-start.sh config/server.properties  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/kafka-server-start.sh config/server.properties  </span><br></pre></td></tr></table></figure>
 <h4 id="创建供btcpool使用的topic">4) 创建供btcpool使用的topic</h4>
-<p>需要先启后台服务，再创建topic，我这里使用了一个本机的zookeeper，如果有多个，请使用逗号分隔。</p>
-<pre><code>$ ./bin/kafka-topics.sh --create --topic test --zookeeper 127.0.0.1:2181 --replication-factor 1 --partitions 1  </code></pre>
+<p>需要先启后台服务，再创建topic，我这里使用了一个本机的zookeeper，如果有多个，请使用逗号分隔。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/kafka-topics.sh --create --topic test --zookeeper 127.0.0.1:2181 --replication-factor 1 --partitions 1  </span><br></pre></td></tr></table></figure></p>
 <h4 id="相关工具">5) 相关工具</h4>
 <ol type="i">
 <li>查看topic<br />
-</li>
-</ol>
-<pre><code>$ ./bin/kafka-topics.sh --describe --zookeeper 127.0.0.1:2181 #查看topic  </code></pre>
-<ol start="2" type="i">
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./bin/kafka-topics.sh --describe --zookeeper 127.0.0.1:2181 #查看topic  </span><br></pre></td></tr></table></figure></li>
 <li>查看kafka服务<br />
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -nap|grep 9092  </span><br></pre></td></tr></table></figure> 正常运行时返回<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp  0   0 127.0.0.1:9092   0.0.0.0:*   LISTEN   24961/java  </span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre><code>$ netstat -nap|grep 9092  </code></pre>
-<p>正常运行时返回</p>
-<pre><code>tcp  0   0 127.0.0.1:9092   0.0.0.0:*   LISTEN   24961/java  </code></pre>
 <h4 id="删除topic">6) 删除topic</h4>
-<p>先删除kafka存储目录（server.properties文件log.dirs配置，默认为"/tmp/kafka-logs"）相关topic目录。注意partition的数据都存在这个目录中。</p>
-<pre><code>./bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic test -delete  </code></pre>
-<p>如果在server.properties中未指定delete.topic.enable=true，则只会做一个删除标记，不会真正删除，删除需要在zookeeper服务器上，通过zkCli.sh连进去删除。</p>
+<p>先删除kafka存储目录（server.properties文件log.dirs配置，默认为"/tmp/kafka-logs"）相关topic目录。注意partition的数据都存在这个目录中。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kafka-topics.sh --zookeeper 127.0.0.1:2181 --topic test -delete  </span><br></pre></td></tr></table></figure>
+如果在server.properties中未指定delete.topic.enable=true，则只会做一个删除标记，不会真正删除，删除需要在zookeeper服务器上，通过zkCli.sh连进去删除。</p>
 <h4 id="常出现的错误">7) 常出现的错误</h4>
 <ol type="i">
 <li>kafka-server-start.sh报错找不到主机，然后直接退出<br />
@@ -270,19 +253,11 @@ Could not initialize class kafka.network.RequestChannel$<br />
 </ol>
 <h4 id="测试kafka">8) 测试kafka</h4>
 <p>正常情况下，producer上发的，consumer都应该能收到<br />
-i. 创建</p>
-<pre><code>bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test  </code></pre>
-<ol start="2" type="i">
-<li>接收<br />
-</li>
-</ol>
-<pre><code>bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning  </code></pre>
-<ol start="3" type="i">
-<li>发送<br />
-</li>
-</ol>
-<pre><code>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test  </code></pre>
-<p>如果topic没建立，producer会自动建立top，但参数可能与你想要的不同．</p>
+i. 创建<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test  </span><br></pre></td></tr></table></figure> ii. 接收<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning  </span><br></pre></td></tr></table></figure> iii. 发送<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test  </span><br></pre></td></tr></table></figure>
+如果topic没建立，producer会自动建立top，但参数可能与你想要的不同．</p>
 <h2 id="c程序调用kafka发消息">6. C程序调用kafka发消息</h2>
 <p>一般使用librdkafka库，下载库源码编译，其中example目录中的程序也可以用于测试。</p>
 <h2 id="参考">7. 参考</h2>

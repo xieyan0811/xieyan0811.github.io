@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2021-10-05T20:39:03.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.916Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.747Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="自然语言处理">
 <meta property="article:tag" content="Pytorch">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,67 +167,40 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">配置BERT运行环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-05T20:39:03.000Z" title="Created 2021-10-05 20:39:03">2021-10-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.916Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">975</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="配置BERT运行环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="配置bert运行环境">配置BERT运行环境</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">配置BERT运行环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-10-05T20:39:03.000Z" title="Created 2021-10-05 20:39:03">2021-10-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.747Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">985</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="配置BERT运行环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="配置bert运行环境">配置BERT运行环境</h1>
 <p>#Pytorch #自然语言处理</p>
 <p>自然语言处理库Transformers包含了BERT、GPT、GPT-2、Transformer-XL、XLNet、XLM等模型的实现，近两年Pytorch生态日趋成熟。因此，本文中使用Transformers的Pytorch支持来调用BERT模型。</p>
 <h3 id="检查cuda版本">检查cuda版本</h3>
 <p>深度学习模型如果没有GPU加持，训练速度几乎是无法忍受的，因此，在使用模型前请先确认GPU正常工作；另外，最新版本的Transformers需要Pytorch
 1.5.0及以上版本，而Pytorch 1.5.0底层又依赖CUDA 10.2以上版本。</p>
-<p>使用以下命令查看CUDA版本</p>
-<pre><code>$ nvidia-smi  </code></pre>
-<p>（查看右上角CUDA Version: xx.x）</p>
-<p>如果低于10.2，可通过以下命令安装</p>
-<pre><code>$ sudo apt-get install cuda-10-2  </code></pre>
-<p>安装好后请重启系统</p>
+<p>使用以下命令查看CUDA版本<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvidia-smi  </span><br></pre></td></tr></table></figure> （查看右上角CUDA Version: xx.x）</p>
+<p>如果低于10.2，可通过以下命令安装<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install cuda-10-2  </span><br></pre></td></tr></table></figure> 安装好后请重启系统</p>
 <h3 id="安装方法一通用方法">安装方法一：通用方法</h3>
 <p>由于安装依赖库可能干扰主机Linux系统中的Python环境，建议在docker中使用Transformers运行环境。</p>
-<p>如果之前有比较常用的docker image，可通过pip安装transformers。</p>
-<pre><code>$ pip install transformers  </code></pre>
-<p>推荐下载transfromers源码安装，以保持例程与系统中软件版本一致</p>
-<pre><code>$ git clone https://github.com/huggingface/transformers.git  
-$ cd transformers  
-$ python3 -m pip install --no-cache-dir .  </code></pre>
+<p>如果之前有比较常用的docker image，可通过pip安装transformers。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install transformers  </span><br></pre></td></tr></table></figure>
+推荐下载transfromers源码安装，以保持例程与系统中软件版本一致<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/huggingface/transformers.git  </span><br><span class="line">$ cd transformers  </span><br><span class="line">$ python3 -m pip install --no-cache-dir .  </span><br></pre></td></tr></table></figure></p>
 <h3 id="安装方法二标准方法">安装方法二：标准方法</h3>
 <p>如果不考虑现有的docker
-image，可利用官方提供的Dockerfile制做transforms镜像。</p>
-<pre><code>$ git clone https://github.com/huggingface/transformers.git # README支持中文简体  
-$ cd transformers/  
-$ docker build -t transformers-pytorch-gpu:test1 docker/transformers-pytorch-gpu  </code></pre>
-<p>（注意：在transformers目录下运行，否则Dockerfile中复制文件路径不对）</p>
-<p>启动docker</p>
-<pre><code>$ nvidia-docker run --rm -v /exports:/exports -it transformers-pytorch-gpu:test1 bash   </code></pre>
-<p>（注意：使用nvidia-docker启动docker，否则无法在docker内部使用GPU）</p>
+image，可利用官方提供的Dockerfile制做transforms镜像。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/huggingface/transformers.git # README支持中文简体  </span><br><span class="line">$ cd transformers/  </span><br><span class="line">$ docker build -t transformers-pytorch-gpu:test1 docker/transformers-pytorch-gpu  </span><br></pre></td></tr></table></figure>
+（注意：在transformers目录下运行，否则Dockerfile中复制文件路径不对）</p>
+<p>启动docker<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nvidia-docker run --rm -v /exports:/exports -it transformers-pytorch-gpu:test1 bash   </span><br></pre></td></tr></table></figure>
+（注意：使用nvidia-docker启动docker，否则无法在docker内部使用GPU）</p>
 <h3 id="测试gpu是否正常工作">测试GPU是否正常工作</h3>
-<p>在docker内运行以下Python程序，测试GPU+CUDA+Pytorch是否正常工作。</p>
-<pre><code>import torch  
-  
-print(torch.cuda.is_available())  
-print(torch.__version__)  
-  
-ngpu= 1  
-device = torch.device(&quot;cuda:0&quot; if (torch.cuda.is_available() and ngpu &gt; 0) else &quot;cpu&quot;)  
-print(device)  
-print(torch.cuda.get_device_name(0))  
-print(torch.rand(3,3).cuda())  </code></pre>
+<p>在docker内运行以下Python程序，测试GPU+CUDA+Pytorch是否正常工作。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import torch  </span><br><span class="line">  </span><br><span class="line">print(torch.cuda.is_available())  </span><br><span class="line">print(torch.__version__)  </span><br><span class="line">  </span><br><span class="line">ngpu= 1  </span><br><span class="line">device = torch.device(&quot;cuda:0&quot; if (torch.cuda.is_available() and ngpu &gt; 0) else &quot;cpu&quot;)  </span><br><span class="line">print(device)  </span><br><span class="line">print(torch.cuda.get_device_name(0))  </span><br><span class="line">print(torch.rand(3,3).cuda())  </span><br></pre></td></tr></table></figure></p>
 <h3 id="下载预训练好的中文bert模型">下载预训练好的中文BERT模型</h3>
-<pre><code>$ git clone https://huggingface.co/bert-base-chinese  
-$ cd bert-base-chinese/  </code></pre>
-<p>从浏览器下载pytorch_model.bin覆盖目录中的pytorch_model.bin（用393M的文件覆盖134K的文件），或者复制download地址后用wget下载：</p>
-<pre><code>$ wget https://huggingface.co/bert-base-chinese/resolve/main/pytorch_model.bin  </code></pre>
-<p>（使用模型时指定bert-base-chinese，有些情况下模型可自动下载）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://huggingface.co/bert-base-chinese  </span><br><span class="line">$ cd bert-base-chinese/  </span><br></pre></td></tr></table></figure>
+<p>从浏览器下载pytorch_model.bin覆盖目录中的pytorch_model.bin（用393M的文件覆盖134K的文件），或者复制download地址后用wget下载：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://huggingface.co/bert-base-chinese/resolve/main/pytorch_model.bin  </span><br></pre></td></tr></table></figure>
+（使用模型时指定bert-base-chinese，有些情况下模型可自动下载）</p>
 <h3 id="测试中文bert">测试中文BERT</h3>
-<pre><code>import torch  
-from transformers import BertModel, BertConfig, BertTokenizer  
-  
-modle_path = &#39;/exports/git/bert-base-chinese&#39; # 下载模型的目录  
-tokenizer = BertTokenizer.from_pretrained(modle_path)  
-model = BertModel.from_pretrained(modle_path)  
-input_ids = torch.tensor([tokenizer.encode(&quot;测试一下&quot;, add_special_tokens=True)])  
-with torch.no_grad():  
-  output = model(input_ids)  
-  last_hidden_state = output[0]  
-  pooler_output = output[1]  
-  print(last_hidden_state[:, 0, :])  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import torch  </span><br><span class="line">from transformers import BertModel, BertConfig, BertTokenizer  </span><br><span class="line">  </span><br><span class="line">modle_path = &#x27;/exports/git/bert-base-chinese&#x27; # 下载模型的目录  </span><br><span class="line">tokenizer = BertTokenizer.from_pretrained(modle_path)  </span><br><span class="line">model = BertModel.from_pretrained(modle_path)  </span><br><span class="line">input_ids = torch.tensor([tokenizer.encode(&quot;测试一下&quot;, add_special_tokens=True)])  </span><br><span class="line">with torch.no_grad():  </span><br><span class="line">  output = model(input_ids)  </span><br><span class="line">  last_hidden_state = output[0]  </span><br><span class="line">  pooler_output = output[1]  </span><br><span class="line">  print(last_hidden_state[:, 0, :])  </span><br></pre></td></tr></table></figure>
 <h3 id="语义相似度示例">语义相似度示例</h3>
 <p>源码的transformers/examples/pytorch/目录下有各种例程，其中包含常用的问答，多选，分类等自然语言应用。</p>
 <p>下面以语义相似度为例，看看如何使用BERT库解决实际问题。</p>
@@ -235,13 +208,11 @@ with torch.no_grad():
 模型的一组标准，其中包含诸多项目，以语义相似度STS-B（Semantic Textual
 Similarity）为目录，相关代码在：</p>
 <p>transformers/examples/pytorch/text-classification/run_glue.py，可以该程序为入口学习如何使用BERT模型。</p>
-<p><strong>安装依赖库</strong></p>
-<pre><code>$ cd transformers/examples/pytorch/text-classification/  
-$ pip install -r requirements.txt  </code></pre>
-<p><strong>测试例程</strong>（具体请参考例程目录下的README）</p>
-<pre><code>$ export TASK_NAME=stsb  
-$ python run_glue.py --model_name_or_path bert-base-cased --task_name $TASK_NAME --do_train --do_eval --max_seq_length 128 --per_device_train_batch_size 32 --learning_rate 2e-5 --num_train_epochs 3 --output_dir /tmp/$TASK_NAME/   </code></pre>
-<p>此时程序将下载相似度训练数据，并按指定参数训练模型（外网时常连不通，请多试几次）。另外，也要以加参数--cache_dir
+<p><strong>安装依赖库</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd transformers/examples/pytorch/text-classification/  </span><br><span class="line">$ pip install -r requirements.txt  </span><br></pre></td></tr></table></figure>
+<strong>测试例程</strong>（具体请参考例程目录下的README）<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ export TASK_NAME=stsb  </span><br><span class="line">$ python run_glue.py --model_name_or_path bert-base-cased --task_name $TASK_NAME --do_train --do_eval --max_seq_length 128 --per_device_train_batch_size 32 --learning_rate 2e-5 --num_train_epochs 3 --output_dir /tmp/$TASK_NAME/   </span><br></pre></td></tr></table></figure>
+此时程序将下载相似度训练数据，并按指定参数训练模型（外网时常连不通，请多试几次）。另外，也要以加参数--cache_dir
 /exports/bert/
 来指定数据存放路径。如果GPU配置正常，几分钟即可训练完成。</p>
 <h3 id="参考">参考</h3>

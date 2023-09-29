@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2019-10-24T17:56:12.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:23.480Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:08.327Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Pytorch">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:23'
+  postUpdate: '2023-09-29 06:52:08'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch初探</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-10-24T17:56:12.000Z" title="Created 2019-10-24 17:56:12">2019-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:23.480Z" title="Updated 2023-09-29 05:49:23">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch初探"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch初探">Pytorch初探</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Pytorch初探</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-10-24T17:56:12.000Z" title="Created 2019-10-24 17:56:12">2019-10-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:08.327Z" title="Updated 2023-09-29 06:52:08">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Pytorch初探"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="pytorch初探">Pytorch初探</h1>
 <p>#Pytorch #Python</p>
 <h3 id="什么是pytorch">什么是Pytorch</h3>
 <p>Facebook的Pytorch和Google
@@ -200,50 +200,18 @@ Pytorch可以对不同的层设置不同的优化参数。</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-7493a45ea1319835.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>安装好之后，用以下方法，可查看torch版本:</p>
-<pre><code>import torch  
-print(torch.__version__)  </code></pre>
-<p><strong>下载源码</strong></p>
-<pre><code>$ git clone --recursive [https://github.com/pytorch/pytorch](https://github.com/pytorch/pytorch) # 下载源码   
-$ git clone [https://github.com/pytorch/examples.git](https://github.com/pytorch/examples.git) # 下载例程  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import torch  </span><br><span class="line">print(torch.__version__)  </span><br></pre></td></tr></table></figure>
+<p><strong>下载源码</strong><br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone --recursive [https://github.com/pytorch/pytorch](https://github.com/pytorch/pytorch) # 下载源码   </span><br><span class="line">$ git clone [https://github.com/pytorch/examples.git](https://github.com/pytorch/examples.git) # 下载例程  </span><br></pre></td></tr></table></figure></p>
 <h3 id="实例">实例</h3>
 <p>pytorch/examples/中包括各种例程，其中mnist手写数字识别是深度学习中最常用的示例数据，其Pytorch例程只有百余行，核心代码在50行左右。
 下面将讲解其核心函数。</p>
 <p>首先，它实现了基于Module的类，用于描述神经网络，其中构造函数__init__()定义了网络结构，函数forward()描述了前向传播的方法。</p>
-<pre><code>class Net(nn.Module): # 定义神经网络  
-    def __init__(self): # 构建网络  
-        super(Net, self).__init__()  
-        self.conv1 = nn.Conv2d(1, 20, 5, 1) # 卷积层，输入为1，输出为20，卷积核5x5  
-        self.conv2 = nn.Conv2d(20, 50, 5, 1)  
-        self.fc1 = nn.Linear(4*4*50, 500) # 全连接层，输入为4*4*50，输出为500  
-        self.fc2 = nn.Linear(500, 10)  
-    def forward(self, x): # 前向传播  
-        x = F.relu(self.conv1(x)) # 激活函数  
-        x = F.max_pool2d(x, 2, 2) # 最大池化  
-        x = F.relu(self.conv2(x))  
-        x = F.max_pool2d(x, 2, 2)  
-        x = x.view(-1, 4*4*50) # 改变形状，将数据展开  
-        x = F.relu(self.fc1(x))  
-        x = self.fc2(x)  
-        return F.log_softmax(x, dim=1)  </code></pre>
-<p>然后，分别实现了训练train和测试test两个函数，train将整体数据分块batch代入模型训练，再用损失函数计算误差，求梯度，并用优化器调整网络参数。</p>
-<pre><code>def train(args, model, device, train_loader, optimizer, epoch):  
-    model.train()  
-    for batch_idx, (data, target) in enumerate(train_loader): # 整体数据分块训练  
-    data, target = data.to(device), target.to(device)  
-    optimizer.zero_grad() # 清空了grad，而非params  
-    output = model(data)  
-    loss = F.nll_loss(output, target) # 误差函数将output与target设入loss  
-    loss.backward() # 反向传播，修改了网络参数中的grad  
-    optimizer.step() # 根据反向传播梯度更新网络参数  
-    if batch_idx % args.log_interval == 0:  
-        print(&#39;Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&#39;.format(epoch, batch_idx * len(data), len(train_loader.dataset), 100\. * batch_idx / len(train_loader), loss.item()))  </code></pre>
-<p>主程序根据迭代次数（epoch），多次调用train和test训练模型。</p>
-<pre><code>model = Net().to(device)  
-optimizer = optim.SGD(model.parameters(), # 神经网络参数设置给优化器  
-lr=args.lr, momentum=args.momentum)  
-for epoch in range(1, args.epochs + 1): # 所有数据训练多次  
-    train(args, model, device, train_loader, optimizer, epoch)  
-    test(args, model, device, test_loader)  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Net(nn.Module): # 定义神经网络  </span><br><span class="line">    def __init__(self): # 构建网络  </span><br><span class="line">        super(Net, self).__init__()  </span><br><span class="line">        self.conv1 = nn.Conv2d(1, 20, 5, 1) # 卷积层，输入为1，输出为20，卷积核5x5  </span><br><span class="line">        self.conv2 = nn.Conv2d(20, 50, 5, 1)  </span><br><span class="line">        self.fc1 = nn.Linear(4*4*50, 500) # 全连接层，输入为4*4*50，输出为500  </span><br><span class="line">        self.fc2 = nn.Linear(500, 10)  </span><br><span class="line">    def forward(self, x): # 前向传播  </span><br><span class="line">        x = F.relu(self.conv1(x)) # 激活函数  </span><br><span class="line">        x = F.max_pool2d(x, 2, 2) # 最大池化  </span><br><span class="line">        x = F.relu(self.conv2(x))  </span><br><span class="line">        x = F.max_pool2d(x, 2, 2)  </span><br><span class="line">        x = x.view(-1, 4*4*50) # 改变形状，将数据展开  </span><br><span class="line">        x = F.relu(self.fc1(x))  </span><br><span class="line">        x = self.fc2(x)  </span><br><span class="line">        return F.log_softmax(x, dim=1)  </span><br></pre></td></tr></table></figure>
+<p>然后，分别实现了训练train和测试test两个函数，train将整体数据分块batch代入模型训练，再用损失函数计算误差，求梯度，并用优化器调整网络参数。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def train(args, model, device, train_loader, optimizer, epoch):  </span><br><span class="line">    model.train()  </span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader): # 整体数据分块训练  </span><br><span class="line">    data, target = data.to(device), target.to(device)  </span><br><span class="line">    optimizer.zero_grad() # 清空了grad，而非params  </span><br><span class="line">    output = model(data)  </span><br><span class="line">    loss = F.nll_loss(output, target) # 误差函数将output与target设入loss  </span><br><span class="line">    loss.backward() # 反向传播，修改了网络参数中的grad  </span><br><span class="line">    optimizer.step() # 根据反向传播梯度更新网络参数  </span><br><span class="line">    if batch_idx % args.log_interval == 0:  </span><br><span class="line">        print(&#x27;Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&#x27;.format(epoch, batch_idx * len(data), len(train_loader.dataset), 100\. * batch_idx / len(train_loader), loss.item()))  </span><br></pre></td></tr></table></figure>
+主程序根据迭代次数（epoch），多次调用train和test训练模型。<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">model = Net().to(device)  </span><br><span class="line">optimizer = optim.SGD(model.parameters(), # 神经网络参数设置给优化器  </span><br><span class="line">lr=args.lr, momentum=args.momentum)  </span><br><span class="line">for epoch in range(1, args.epochs + 1): # 所有数据训练多次  </span><br><span class="line">    train(args, model, device, train_loader, optimizer, epoch)  </span><br><span class="line">    test(args, model, device, test_loader)  </span><br></pre></td></tr></table></figure></p>
 <h3 id="总结">总结</h3>
 <p>Pytorch的难度介于keras和TensorFlow之间，最重要的是，它的顺序结构，让程序员对流程一目了然。
 相对于看原理和论文，很多时候，程序员看代码效果更好，Pytorch的数据处理过程与原理契合度很高。而且预训练、对抗网络的例程也很多，公式完全能落实到代码中。</p>

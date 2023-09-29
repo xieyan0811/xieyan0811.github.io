@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2017-11-17T16:14:41.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.864Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.703Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="数学">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -167,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">机器学习_最小二乘法，线性回归与逻辑回归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-17T16:14:41.000Z" title="Created 2017-11-17 16:14:41">2017-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.864Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习_最小二乘法，线性回归与逻辑回归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">机器学习_最小二乘法，线性回归与逻辑回归</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-17T16:14:41.000Z" title="Created 2017-11-17 16:14:41">2017-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.703Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习_最小二乘法，线性回归与逻辑回归"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
 id="机器学习_最小二乘法线性回归与逻辑回归">机器学习_最小二乘法，线性回归与逻辑回归</h1>
 <p>#机器学习 #数学</p>
 <h2 id="线性回归">1. 线性回归</h2>
@@ -195,45 +195,7 @@ squares，简称OLS）的核心就是保证所有数据偏差的平方和最小�
 <img
 src="http://upload-images.jianshu.io/upload_images/5357893-84b4daf414097a0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <h2 id="线性回归代码实现">3. 线性回归代码实现</h2>
-<pre><code># -*- coding: utf-8 -*-  
-  
-import numpy as np  
-import matplotlib.pyplot as plt  
-  
-# 训练  
-def standRegres(xArr,yArr):    
-    m,n = np.shape(xArr)  
-    xMat = np.mat(np.ones((m, n+1))) # 加第一列设为1，为计算截距  
-    x = np.mat(xArr)  
-    xMat[:,1:n+1] = x[:,0:n];  
-    yMat = np.mat(yArr).T    
-    xTx = xMat.T*xMat    
-    if np.linalg.det(xTx) == 0.0:    
-        print(&quot;This matrix is sigular, cannot do inverse&quot;) #行列式的值为0，无逆矩阵  
-        return    
-    ws = xTx.I*(xMat.T*yMat)    
-    return ws    
-  
-# 预测  
-def predict(xArr, ws):  
-    m,n = np.shape(xArr)  
-    xMat = np.mat(np.ones((m, n+1))) # 加第一列设为1, 为计算截距  
-    x = np.mat(xArr)  
-    xMat[:,1:n+1] = x[:,0:n];  
-    return xMat*ws  
-  
-if __name__ == &#39;__main__&#39;:  
-    x = [[1], [2], [3], [4]]  
-    y = [4.1, 5.9, 8.1, 10.1]  
-    ws = standRegres(x,y)  
-    print(ws)  
-    print(predict([[5]], ws))  
-  
-    # 画图  
-    plt.scatter(x, y, s=20)  
-    yHat = predict(x, ws)  
-    plt.plot(x, yHat, linewidth=2.0, color=&#39;red&#39;)   
-    plt.show()  </code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-  </span><br><span class="line">  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">  </span><br><span class="line"># 训练  </span><br><span class="line">def standRegres(xArr,yArr):    </span><br><span class="line">    m,n = np.shape(xArr)  </span><br><span class="line">    xMat = np.mat(np.ones((m, n+1))) # 加第一列设为1，为计算截距  </span><br><span class="line">    x = np.mat(xArr)  </span><br><span class="line">    xMat[:,1:n+1] = x[:,0:n];  </span><br><span class="line">    yMat = np.mat(yArr).T    </span><br><span class="line">    xTx = xMat.T*xMat    </span><br><span class="line">    if np.linalg.det(xTx) == 0.0:    </span><br><span class="line">        print(&quot;This matrix is sigular, cannot do inverse&quot;) #行列式的值为0，无逆矩阵  </span><br><span class="line">        return    </span><br><span class="line">    ws = xTx.I*(xMat.T*yMat)    </span><br><span class="line">    return ws    </span><br><span class="line">  </span><br><span class="line"># 预测  </span><br><span class="line">def predict(xArr, ws):  </span><br><span class="line">    m,n = np.shape(xArr)  </span><br><span class="line">    xMat = np.mat(np.ones((m, n+1))) # 加第一列设为1, 为计算截距  </span><br><span class="line">    x = np.mat(xArr)  </span><br><span class="line">    xMat[:,1:n+1] = x[:,0:n];  </span><br><span class="line">    return xMat*ws  </span><br><span class="line">  </span><br><span class="line">if __name__ == &#x27;__main__&#x27;:  </span><br><span class="line">    x = [[1], [2], [3], [4]]  </span><br><span class="line">    y = [4.1, 5.9, 8.1, 10.1]  </span><br><span class="line">    ws = standRegres(x,y)  </span><br><span class="line">    print(ws)  </span><br><span class="line">    print(predict([[5]], ws))  </span><br><span class="line">  </span><br><span class="line">    # 画图  </span><br><span class="line">    plt.scatter(x, y, s=20)  </span><br><span class="line">    yHat = predict(x, ws)  </span><br><span class="line">    plt.plot(x, yHat, linewidth=2.0, color=&#x27;red&#x27;)   </span><br><span class="line">    plt.show()  </span><br></pre></td></tr></table></figure>
 <p> 注意：回归系数的个数应该比属性多一个，用于表示截距，在sklearn中也是这样，只不过截距相关的放在intercept_中，其它放在coef_中。</p>
 <h2 id="逻辑回归">4. 逻辑回归</h2>
 <p> 逻辑回归，也叫逻辑斯蒂回归，logistic regression。<br />

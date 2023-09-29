@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-02-13T16:26:10.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.924Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.759Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">生成对抗网络GAN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-02-13T16:26:10.000Z" title="Created 2020-02-13 16:26:10">2020-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.924Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生成对抗网络GAN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="生成对抗网络gan">生成对抗网络GAN</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">生成对抗网络GAN</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-02-13T16:26:10.000Z" title="Created 2020-02-13 16:26:10">2020-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.759Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生成对抗网络GAN"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="生成对抗网络gan">生成对抗网络GAN</h1>
 <p>#深度学习</p>
 <p>生成对抗网络GAN是一种深度学习模型，它源于2014年发表的论文：《Generative
 Adversarial Nets》，论文地址：<a
@@ -217,38 +217,9 @@ alt="图片摘自论文" />
 <h3 id="代码">代码</h3>
 <p>推荐例程： <a
 target="_blank" rel="noopener" href="https://github.com/RedstoneWill/MachineLearningInAction/blob/master/GAN/GAN_1.ipynb">https://github.com/RedstoneWill/MachineLearningInAction/blob/master/GAN/GAN_1.ipynb</a>
-整个例程不到100行，使用GAN方法拟合曲线。生成模型G和判别模型D都使用深度学习网络，且互过逆过程。其核心代码摘录如下：</p>
-<pre><code>G = nn.Sequential( # 生成模型  
-    nn.Linear(N_IDEAS, 128),  
-    nn.ReLU(),  
-    nn.Linear(128, ART_COMPONENTS),  
-)  
-  
-D = nn.Sequential( # 判别模型  
-    nn.Linear(ART_COMPONENTS, 128),  
-    nn.ReLU(),  
-    nn.Linear(128, 1),  
-    nn.Sigmoid(), # 计算判别结果  
-)  
-  
-for step in range(10000):　# 10000次迭代  
-    artist_paintings = artist_works() # 取真实数据  
-    G_ideas = torch.randn(BATCH_SIZE, N_IDEAS) # 生成随机噪声  
-    G_paintings = G(G_ideas) # 利用噪声生成模拟数据  
-    prob_artist0 = D(artist_paintings) # 真实数据代入判别模型  
-    prob_artist1 = D(G_paintings) # 模拟数据代入判别模型  
-     
-    D_loss = - torch.mean(torch.log(prob_artist0) + torch.log(1\. - prob_artist1)) # 误差函数  
-    G_loss = torch.mean(torch.log(1\. - prob_artist1)) # 误差函数（见公式）  
-  
-    opt_D.zero_grad()  
-    D_loss.backward(retain_graph=True) # 反向传播，模型D调参  
-    opt_D.step()  
-  
-    opt_G.zero_grad()  
-    G_loss.backward() # 反向传播，模型G调参  
-    opt_G.step()  </code></pre>
-<p>整体迭代了10000次，每次迭代时取真实数据，并将随机数代入生成模型G生成模拟数据，将数据代入判别模型D，然后根据损失函数调参。下图摘录了曲线拟合不同阶段的结果。</p>
+整个例程不到100行，使用GAN方法拟合曲线。生成模型G和判别模型D都使用深度学习网络，且互过逆过程。其核心代码摘录如下：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">G = nn.Sequential( # 生成模型  </span><br><span class="line">    nn.Linear(N_IDEAS, 128),  </span><br><span class="line">    nn.ReLU(),  </span><br><span class="line">    nn.Linear(128, ART_COMPONENTS),  </span><br><span class="line">)  </span><br><span class="line">  </span><br><span class="line">D = nn.Sequential( # 判别模型  </span><br><span class="line">    nn.Linear(ART_COMPONENTS, 128),  </span><br><span class="line">    nn.ReLU(),  </span><br><span class="line">    nn.Linear(128, 1),  </span><br><span class="line">    nn.Sigmoid(), # 计算判别结果  </span><br><span class="line">)  </span><br><span class="line">  </span><br><span class="line">for step in range(10000):　# 10000次迭代  </span><br><span class="line">    artist_paintings = artist_works() # 取真实数据  </span><br><span class="line">    G_ideas = torch.randn(BATCH_SIZE, N_IDEAS) # 生成随机噪声  </span><br><span class="line">    G_paintings = G(G_ideas) # 利用噪声生成模拟数据  </span><br><span class="line">    prob_artist0 = D(artist_paintings) # 真实数据代入判别模型  </span><br><span class="line">    prob_artist1 = D(G_paintings) # 模拟数据代入判别模型  </span><br><span class="line">     </span><br><span class="line">    D_loss = - torch.mean(torch.log(prob_artist0) + torch.log(1\. - prob_artist1)) # 误差函数  </span><br><span class="line">    G_loss = torch.mean(torch.log(1\. - prob_artist1)) # 误差函数（见公式）  </span><br><span class="line">  </span><br><span class="line">    opt_D.zero_grad()  </span><br><span class="line">    D_loss.backward(retain_graph=True) # 反向传播，模型D调参  </span><br><span class="line">    opt_D.step()  </span><br><span class="line">  </span><br><span class="line">    opt_G.zero_grad()  </span><br><span class="line">    G_loss.backward() # 反向传播，模型G调参  </span><br><span class="line">    opt_G.step()  </span><br></pre></td></tr></table></figure>
+整体迭代了10000次，每次迭代时取真实数据，并将随机数代入生成模型G生成模拟数据，将数据代入判别模型D，然后根据损失函数调参。下图摘录了曲线拟合不同阶段的结果。</p>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-b0e1f6c54ac20a97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>在图像处理领域使用生成对抗网络可以让模型学习生成特定类型的图片。推荐生成卡通人物图片的例程：</p>

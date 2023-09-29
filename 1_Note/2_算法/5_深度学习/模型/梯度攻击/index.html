@@ -7,7 +7,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/img/blog_logo.png">
 <meta property="article:published_time" content="2020-03-11T10:23:53.000Z">
-<meta property="article:modified_time" content="2023-09-29T05:49:18.928Z">
+<meta property="article:modified_time" content="2023-09-29T06:52:03.759Z">
 <meta property="article:author" content="Yan.xie">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-09-29 05:49:18'
+  postUpdate: '2023-09-29 06:52:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -166,7 +166,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">梯度攻击</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-03-11T10:23:53.000Z" title="Created 2020-03-11 10:23:53">2020-03-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T05:49:18.928Z" title="Updated 2023-09-29 05:49:18">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="梯度攻击"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="梯度攻击">梯度攻击</h1>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">526</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">65</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">梯度攻击</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-03-11T10:23:53.000Z" title="Created 2020-03-11 10:23:53">2020-03-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-09-29T06:52:03.759Z" title="Updated 2023-09-29 06:52:03">2023-09-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>8min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="梯度攻击"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="梯度攻击">梯度攻击</h1>
 <p>#深度学习</p>
 <p>模型攻击主要指人为地制造干扰迷惑模型，使之产生错误的结果。随着深度学习模型的广泛使用，人们发现它很容易被数据的轻微扰动所欺骗，于是开始寻找更加有效的攻击方法，针对攻击又有对抗攻击的方法，二者相互推进，不仅加强了模型的健壮性，有时还能提升模型的准确度。</p>
 <h3 id="原理">原理</h3>
@@ -199,178 +199,10 @@ src="https://upload-images.jianshu.io/upload_images/5357893-a10d247dc6ac532e.png
 <p>注意等式右边的∏在这里不是连乘符号，它保证扰动过程中的数据x始终处于限制范围之内（若过大则裁剪）。此公式与类似FGSM类似，其中的α是每次修改的步长，而每一次修改的x<sup>t+1</sup>都基于其前一次修改x<sup>t</sup>。论文中提到，PGD攻击是最强的一阶攻击，由于相对复杂，PGD也需要更多的时间和算力。</p>
 <h3 id="例程">例程</h3>
 <p>以上两种算法原理都非常简单，而实际操作中，比较困难的是如何对输入求取梯度。下面使用识别Mnist手写体数据集为例展示攻击效果，先训练一个识别率在95%以上的模型，然后分别用两种方法加入扰动，并分析其识别率的变化。例程分为三部分：训练分类模型、攻击、做图。</p>
-<p>训练分类模型：</p>
-<pre><code>import torch  
-import torch.nn as nn  
-import torch.nn.functional as F  
-import torch.optim as optim  
-from torchvision import datasets, transforms  
-from torch.autograd import Variable  
-import numpy as np  
-import matplotlib.pyplot as plt  
-  
-class Net(nn.Module):  
-    def __init__(self):  
-        super(Net, self).__init__()  
-        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)  
-        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)  
-        self.conv2_drop = nn.Dropout2d()  
-        self.fc1 = nn.Linear(320, 50)  
-        self.fc2 = nn.Linear(50, 10)  
-  
-    def forward(self, x):  
-        x = F.relu(F.max_pool2d(self.conv1(x), 2))  
-        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))  
-        x = x.view(-1, 320)  
-        x = F.relu(self.fc1(x))  
-        x = F.dropout(x, training=self.training)  
-        x = self.fc2(x)  
-        return x  
-  
-device = torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;) #启用GPU  
-train_loader = torch.utils.data.DataLoader(  # 加载训练数据  
-    datasets.MNIST(&#39;datasets&#39;, train=True, download=True,  
-                   transform=transforms.Compose([  
-                       transforms.ToTensor(),  
-                       transforms.Normalize((0.1307,), (0.3081,))  
-                   ])),  
-    batch_size=64, shuffle=True)  
-  
-model = Net()  
-model = model.to(device)  
-optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.5)  # 初始化优化器  
-  
-for epoch in range(1, 10 + 1):  # 共迭代10次  
-    for batch_idx, (data, target) in enumerate(train_loader):  
-        data = data.to(device)  
-        target = target.to(device)  
-        data, target = Variable(data), Variable(target)  
-        optimizer.zero_grad()  
-        output = model(data) # 代入模型  
-        loss = F.cross_entropy(output,target)  
-        loss.backward()  
-        optimizer.step()  
-        if batch_idx % 100 == 0:  
-            print(&#39;Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&#39;.format(  
-                epoch, batch_idx * len(data), len(train_loader.dataset),  
-                       100. * batch_idx / len(train_loader), loss.item()))  
-  
-torch.save(model, &#39;datasets/model.pth&#39;) #保存模型  </code></pre>
-<p>攻击：</p>
-<pre><code>USE_PGD = False  
-  
-def draw(data):  
-    ex = data.squeeze().detach().cpu().numpy()  
-    plt.imshow(ex, cmap=&quot;gray&quot;)  
-    plt.show()  
-      
-def test(model, device, test_loader, epsilon, t = 5, debug = False):  
-    correct = 0  
-    adv_examples = []  
-  
-    for data, target in test_loader:  
-        data, target = data.to(device), target.to(device)  
-        data.requires_grad = True # 以便对输入求导 ** 重要 **  
-        output = model(data)  
-        init_pred = output.max(1, keepdim=True)[1]  
-        if init_pred.item() != target.item(): # 如果不扰动也预测不对，则跳过  
-            continue  
-        if debug:  
-            draw(data)  
-              
-        if USE_PGD:              
-            alpha = epsilon / t # 每次只改变一小步  
-            perturbed_data = data  
-            final_pred = init_pred  
-            #while target.item() == final_pred.item(): # 只要修改成功就退出  
-            for i in range(t): # 共迭代 t 次  
-                if debug:  
-                    print(&quot;target&quot;, target.item(), &quot;pred&quot;, final_pred.item())  
-                loss = F.cross_entropy(output, target)   
-                model.zero_grad()  
-                loss.backward(retain_graph=True)  
-                data_grad = data.grad.data # 输入数据的梯度 ** 重要 **  
-  
-                sign_data_grad = data_grad.sign() # 取符号（正负）  
-                perturbed_image = perturbed_data + alpha * sign_data_grad # 添加扰动  
-                perturbed_data = torch.clamp(perturbed_image, 0, 1) # 把各元素压缩到[0,1]之间  
-  
-                output = model(perturbed_data) # 代入扰动后的数据  
-                final_pred = output.max(1, keepdim=True)[1] # 预测选项  
-                if debug:  
-                    draw(perturbed_data)  
-        else:  
-            loss = F.cross_entropy(output, target)   
-            model.zero_grad()  
-            loss.backward()  
-  
-            data_grad = data.grad.data # 输入数据的梯度 ** 重要 **  
-            sign_data_grad = data_grad.sign() # 取符号（正负）  
-            perturbed_image = data + epsilon*sign_data_grad # 添加扰动  
-            perturbed_data = torch.clamp(perturbed_image, 0, 1) # 把各元素压缩到[0,1]之间  
-  
-            output = model(perturbed_data) # 代入扰动后的数据  
-            final_pred = output.max(1, keepdim=True)[1]  
-          
-        # 统计准确率并记录，以便后面做图  
-        if final_pred.item() == target.item():  
-            correct += 1  
-            if (epsilon == 0) and (len(adv_examples) &lt; 5):  
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()  
-                adv_examples.append((init_pred.item(), final_pred.item(), adv_ex))  
-        else: # 保存扰动后错误分类的图片  
-            if len(adv_examples) &lt; 5:  
-                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()  
-                adv_examples.append((init_pred.item(), final_pred.item(), adv_ex))  
-  
-    final_acc = correct / float(len(test_loader)) # 计算整体准确率  
-    print(&quot;Epsilon: &#123;&#125;\tTest Accuracy = &#123;&#125; / &#123;&#125; = &#123;&#125;&quot;.format(epsilon, correct, len(test_loader), final_acc))  
-    return final_acc, adv_examples  
-  
-epsilons = [0, .05, .1, .15, .2, .25, .3] # 使用不同的调整力度  
-pretrained_model = &quot;datasets/model.pth&quot;  # 使用的预训练模型路径  
-  
-test_loader = torch.utils.data.DataLoader(  
-    datasets.MNIST(&#39;datasets&#39;, train=False, download=True, transform=transforms.Compose([  
-        transforms.ToTensor(),  
-    ])),  
-    batch_size=1, shuffle=True  
-)  
-model = torch.load(pretrained_model, map_location=&#39;cpu&#39;).to(device)  
-model.eval()  
-  
-accuracies = []  
-examples = []  
-for eps in epsilons:  # 每次测一种超参数  
-    acc, ex = test(model, device, test_loader, eps)  
-    accuracies.append(acc)  
-    examples.append(ex)  </code></pre>
-<p>做图</p>
-<pre><code># 做图  
-plt.figure(figsize=(8,5))  
-plt.plot(epsilons, accuracies, &quot;*-&quot;)  
-plt.yticks(np.arange(0, 1.1, step=0.1))  
-plt.xticks(np.arange(0, .35, step=0.05))  
-plt.title(&quot;Accuracy vs Epsilon&quot;)  
-plt.xlabel(&quot;Epsilon&quot;)  
-plt.ylabel(&quot;Accuracy&quot;)  
-plt.show()  
-  
-cnt = 0  
-plt.figure(figsize=(8,10))  
-for i in range(len(epsilons)):  
-    for j in range(len(examples[i])):  
-        cnt += 1  
-        plt.subplot(len(epsilons),len(examples[0]),cnt)  
-        plt.xticks([], [])  
-        plt.yticks([], [])  
-        if j == 0:  
-            plt.ylabel(&quot;Eps: &#123;&#125;&quot;.format(epsilons[i]), fontsize=14)  
-        orig,adv,ex = examples[i][j]  
-        plt.title(&quot;&#123;&#125; -&gt; &#123;&#125;&quot;.format(orig, adv))  
-        plt.imshow(ex, cmap=&quot;gray&quot;)  
-plt.tight_layout()  
-plt.show()  </code></pre>
+<p>训练分类模型：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import torch  </span><br><span class="line">import torch.nn as nn  </span><br><span class="line">import torch.nn.functional as F  </span><br><span class="line">import torch.optim as optim  </span><br><span class="line">from torchvision import datasets, transforms  </span><br><span class="line">from torch.autograd import Variable  </span><br><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">  </span><br><span class="line">class Net(nn.Module):  </span><br><span class="line">    def __init__(self):  </span><br><span class="line">        super(Net, self).__init__()  </span><br><span class="line">        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)  </span><br><span class="line">        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)  </span><br><span class="line">        self.conv2_drop = nn.Dropout2d()  </span><br><span class="line">        self.fc1 = nn.Linear(320, 50)  </span><br><span class="line">        self.fc2 = nn.Linear(50, 10)  </span><br><span class="line">  </span><br><span class="line">    def forward(self, x):  </span><br><span class="line">        x = F.relu(F.max_pool2d(self.conv1(x), 2))  </span><br><span class="line">        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))  </span><br><span class="line">        x = x.view(-1, 320)  </span><br><span class="line">        x = F.relu(self.fc1(x))  </span><br><span class="line">        x = F.dropout(x, training=self.training)  </span><br><span class="line">        x = self.fc2(x)  </span><br><span class="line">        return x  </span><br><span class="line">  </span><br><span class="line">device = torch.device(&#x27;cuda&#x27; if torch.cuda.is_available() else &#x27;cpu&#x27;) #启用GPU  </span><br><span class="line">train_loader = torch.utils.data.DataLoader(  # 加载训练数据  </span><br><span class="line">    datasets.MNIST(&#x27;datasets&#x27;, train=True, download=True,  </span><br><span class="line">                   transform=transforms.Compose([  </span><br><span class="line">                       transforms.ToTensor(),  </span><br><span class="line">                       transforms.Normalize((0.1307,), (0.3081,))  </span><br><span class="line">                   ])),  </span><br><span class="line">    batch_size=64, shuffle=True)  </span><br><span class="line">  </span><br><span class="line">model = Net()  </span><br><span class="line">model = model.to(device)  </span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.5)  # 初始化优化器  </span><br><span class="line">  </span><br><span class="line">for epoch in range(1, 10 + 1):  # 共迭代10次  </span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader):  </span><br><span class="line">        data = data.to(device)  </span><br><span class="line">        target = target.to(device)  </span><br><span class="line">        data, target = Variable(data), Variable(target)  </span><br><span class="line">        optimizer.zero_grad()  </span><br><span class="line">        output = model(data) # 代入模型  </span><br><span class="line">        loss = F.cross_entropy(output,target)  </span><br><span class="line">        loss.backward()  </span><br><span class="line">        optimizer.step()  </span><br><span class="line">        if batch_idx % 100 == 0:  </span><br><span class="line">            print(&#x27;Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&#x27;.format(  </span><br><span class="line">                epoch, batch_idx * len(data), len(train_loader.dataset),  </span><br><span class="line">                       100. * batch_idx / len(train_loader), loss.item()))  </span><br><span class="line">  </span><br><span class="line">torch.save(model, &#x27;datasets/model.pth&#x27;) #保存模型  </span><br></pre></td></tr></table></figure> 攻击：<br />
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">USE_PGD = False  </span><br><span class="line">  </span><br><span class="line">def draw(data):  </span><br><span class="line">    ex = data.squeeze().detach().cpu().numpy()  </span><br><span class="line">    plt.imshow(ex, cmap=&quot;gray&quot;)  </span><br><span class="line">    plt.show()  </span><br><span class="line">      </span><br><span class="line">def test(model, device, test_loader, epsilon, t = 5, debug = False):  </span><br><span class="line">    correct = 0  </span><br><span class="line">    adv_examples = []  </span><br><span class="line">  </span><br><span class="line">    for data, target in test_loader:  </span><br><span class="line">        data, target = data.to(device), target.to(device)  </span><br><span class="line">        data.requires_grad = True # 以便对输入求导 ** 重要 **  </span><br><span class="line">        output = model(data)  </span><br><span class="line">        init_pred = output.max(1, keepdim=True)[1]  </span><br><span class="line">        if init_pred.item() != target.item(): # 如果不扰动也预测不对，则跳过  </span><br><span class="line">            continue  </span><br><span class="line">        if debug:  </span><br><span class="line">            draw(data)  </span><br><span class="line">              </span><br><span class="line">        if USE_PGD:              </span><br><span class="line">            alpha = epsilon / t # 每次只改变一小步  </span><br><span class="line">            perturbed_data = data  </span><br><span class="line">            final_pred = init_pred  </span><br><span class="line">            #while target.item() == final_pred.item(): # 只要修改成功就退出  </span><br><span class="line">            for i in range(t): # 共迭代 t 次  </span><br><span class="line">                if debug:  </span><br><span class="line">                    print(&quot;target&quot;, target.item(), &quot;pred&quot;, final_pred.item())  </span><br><span class="line">                loss = F.cross_entropy(output, target)   </span><br><span class="line">                model.zero_grad()  </span><br><span class="line">                loss.backward(retain_graph=True)  </span><br><span class="line">                data_grad = data.grad.data # 输入数据的梯度 ** 重要 **  </span><br><span class="line">  </span><br><span class="line">                sign_data_grad = data_grad.sign() # 取符号（正负）  </span><br><span class="line">                perturbed_image = perturbed_data + alpha * sign_data_grad # 添加扰动  </span><br><span class="line">                perturbed_data = torch.clamp(perturbed_image, 0, 1) # 把各元素压缩到[0,1]之间  </span><br><span class="line">  </span><br><span class="line">                output = model(perturbed_data) # 代入扰动后的数据  </span><br><span class="line">                final_pred = output.max(1, keepdim=True)[1] # 预测选项  </span><br><span class="line">                if debug:  </span><br><span class="line">                    draw(perturbed_data)  </span><br><span class="line">        else:  </span><br><span class="line">            loss = F.cross_entropy(output, target)   </span><br><span class="line">            model.zero_grad()  </span><br><span class="line">            loss.backward()  </span><br><span class="line">  </span><br><span class="line">            data_grad = data.grad.data # 输入数据的梯度 ** 重要 **  </span><br><span class="line">            sign_data_grad = data_grad.sign() # 取符号（正负）  </span><br><span class="line">            perturbed_image = data + epsilon*sign_data_grad # 添加扰动  </span><br><span class="line">            perturbed_data = torch.clamp(perturbed_image, 0, 1) # 把各元素压缩到[0,1]之间  </span><br><span class="line">  </span><br><span class="line">            output = model(perturbed_data) # 代入扰动后的数据  </span><br><span class="line">            final_pred = output.max(1, keepdim=True)[1]  </span><br><span class="line">          </span><br><span class="line">        # 统计准确率并记录，以便后面做图  </span><br><span class="line">        if final_pred.item() == target.item():  </span><br><span class="line">            correct += 1  </span><br><span class="line">            if (epsilon == 0) and (len(adv_examples) &lt; 5):  </span><br><span class="line">                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()  </span><br><span class="line">                adv_examples.append((init_pred.item(), final_pred.item(), adv_ex))  </span><br><span class="line">        else: # 保存扰动后错误分类的图片  </span><br><span class="line">            if len(adv_examples) &lt; 5:  </span><br><span class="line">                adv_ex = perturbed_data.squeeze().detach().cpu().numpy()  </span><br><span class="line">                adv_examples.append((init_pred.item(), final_pred.item(), adv_ex))  </span><br><span class="line">  </span><br><span class="line">    final_acc = correct / float(len(test_loader)) # 计算整体准确率  </span><br><span class="line">    print(&quot;Epsilon: &#123;&#125;\tTest Accuracy = &#123;&#125; / &#123;&#125; = &#123;&#125;&quot;.format(epsilon, correct, len(test_loader), final_acc))  </span><br><span class="line">    return final_acc, adv_examples  </span><br><span class="line">  </span><br><span class="line">epsilons = [0, .05, .1, .15, .2, .25, .3] # 使用不同的调整力度  </span><br><span class="line">pretrained_model = &quot;datasets/model.pth&quot;  # 使用的预训练模型路径  </span><br><span class="line">  </span><br><span class="line">test_loader = torch.utils.data.DataLoader(  </span><br><span class="line">    datasets.MNIST(&#x27;datasets&#x27;, train=False, download=True, transform=transforms.Compose([  </span><br><span class="line">        transforms.ToTensor(),  </span><br><span class="line">    ])),  </span><br><span class="line">    batch_size=1, shuffle=True  </span><br><span class="line">)  </span><br><span class="line">model = torch.load(pretrained_model, map_location=&#x27;cpu&#x27;).to(device)  </span><br><span class="line">model.eval()  </span><br><span class="line">  </span><br><span class="line">accuracies = []  </span><br><span class="line">examples = []  </span><br><span class="line">for eps in epsilons:  # 每次测一种超参数  </span><br><span class="line">    acc, ex = test(model, device, test_loader, eps)  </span><br><span class="line">    accuracies.append(acc)  </span><br><span class="line">    examples.append(ex)  </span><br></pre></td></tr></table></figure> 做图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># 做图  </span><br><span class="line">plt.figure(figsize=(8,5))  </span><br><span class="line">plt.plot(epsilons, accuracies, &quot;*-&quot;)  </span><br><span class="line">plt.yticks(np.arange(0, 1.1, step=0.1))  </span><br><span class="line">plt.xticks(np.arange(0, .35, step=0.05))  </span><br><span class="line">plt.title(&quot;Accuracy vs Epsilon&quot;)  </span><br><span class="line">plt.xlabel(&quot;Epsilon&quot;)  </span><br><span class="line">plt.ylabel(&quot;Accuracy&quot;)  </span><br><span class="line">plt.show()  </span><br><span class="line">  </span><br><span class="line">cnt = 0  </span><br><span class="line">plt.figure(figsize=(8,10))  </span><br><span class="line">for i in range(len(epsilons)):  </span><br><span class="line">    for j in range(len(examples[i])):  </span><br><span class="line">        cnt += 1  </span><br><span class="line">        plt.subplot(len(epsilons),len(examples[0]),cnt)  </span><br><span class="line">        plt.xticks([], [])  </span><br><span class="line">        plt.yticks([], [])  </span><br><span class="line">        if j == 0:  </span><br><span class="line">            plt.ylabel(&quot;Eps: &#123;&#125;&quot;.format(epsilons[i]), fontsize=14)  </span><br><span class="line">        orig,adv,ex = examples[i][j]  </span><br><span class="line">        plt.title(&quot;&#123;&#125; -&gt; &#123;&#125;&quot;.format(orig, adv))  </span><br><span class="line">        plt.imshow(ex, cmap=&quot;gray&quot;)  </span><br><span class="line">plt.tight_layout()  </span><br><span class="line">plt.show()  </span><br></pre></td></tr></table></figure>
 <p><img
 src="https://upload-images.jianshu.io/upload_images/5357893-a67610c54ac91c88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
 <p>从例程运行结果可以看到，同样的改动大小ε，PGD明显比FGSM效果好，这让开发者使用更小的改动达到更好的效果，当然，PGD速度也比较慢。</p>
