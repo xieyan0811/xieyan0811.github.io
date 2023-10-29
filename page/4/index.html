@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-10-19 04:17:25'
+  postUpdate: '2023-10-29 07:57:32'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,180 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">532</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">69</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E2%80%94%E2%80%94%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8D%87%E7%BC%96%E7%A8%8B%E6%95%88%E7%8E%87/" title="试用智能编程助手——用大模型提升编程效率">试用智能编程助手——用大模型提升编程效率</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-15T00:00:00.000Z" title="Created 2023-08-15 00:00:00">2023-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/">ChatGPT</a></span></div><div class="content">1 简介
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">536</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">69</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B_DDPM/" title="论文阅读_扩散模型_DDPM">论文阅读_扩散模型_DDPM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-22T00:00:00.000Z" title="Created 2023-08-22 00:00:00">2023-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Denoising Diffusion Probabilistic Models
+中文名称: 去噪扩散概率模型
+论文地址: http://arxiv.org/abs/2006.11239
+代码地址 1: https://github.com/hojonathanho/diffusion （论文对应代码
+tensorflow）
+代码地址 2: https://github.com/AUTOMATIC1111/stable-diffusion-webui
+stable-diffusion-webui/modules/models/diffusion/ddpm_edit.py (推荐
+pytorch)
+时间: 2020-12-16
+作者: Jonathan Ho, 加州大学伯克利分校
+引用量: 3286
+论文阅读_生成模型_VAE
+读后感
+论文优化了扩散模型的具体实现，并证明了扩散模型可生成高质量的图像。具体方法是结合扩散概率模型和朗之万动力学去噪的加权变分训练模型。
+学习路径
+论文中公式很多，有些依赖 DM 论文，VAE
+论文，还有跳步，虽然方法部分不长，但是很难读明白。至今看 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B_DM/" title="论文阅读_扩散模型_DM">论文阅读_扩散模型_DM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-22T00:00:00.000Z" title="Created 2023-08-22 00:00:00">2023-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Deep Unsupervised Learning using Nonequilibrium
+Thermodynamics
+中文名称: 使用非平衡热力学原理的深度无监督学习
+论文地址: http://arxiv.org/abs/1503.03585
+代码地址:
+https://github.com/Sohl-Dickstein/Diffusion-Probabilistic-Models
+时间: 2015-11-18
+作者: Jascha Sohl-Dickstein, 斯坦福大学
+引用量: 1813
+1 读后感
+论文目标是建立灵活且易用的数据生成模型。它利用非平衡统计物理学原理：通过扩散过程（少量加噪）系统地、缓慢地破坏数据分布中的结构；然后，学习反向扩散过程，恢复数据结构。
+2 介绍
+2.1 扩散模型与变分模型
+扩散模型与变分模型原理类似，都是将图片拆成一系列高斯分布的均值和方差，而扩散模型是一个逐步变化的过程，主要差别如下：
+
+原理不同：扩散模型使用物理学、准静态过程和退火采样的思想。由于任何平滑目标分布都存在扩散过程，因此理论上该方法可以捕获任意形式的数据分布。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84_ControlNet/" title="论文阅读_模型结构_ControlNet">论文阅读_模型结构_ControlNet</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-17T00:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Adding Conditional Control to Text-to-Image Diffusion
+Models
+中文名称: 向文本到图像的扩散模型添加条件控制
+论文地址: http://arxiv.org/abs/2302.05543
+代码: https://github.com/lllyasviel/ControlNet
+时间: 2023-02-10
+作者: Lvmin Zhang
+
+1 读后感
+ControlNet 几乎是 Stable Diffusion
+中最重要的功能插件，利用它可对画面内容进入精准控制。本文介绍了
+ControlNet 的原理和具体功能。
+ControlNet 是一种对文本生成图像的优化方法。比如：生成 AI
+画作时，画面中人体的形态，面部表情都难以精准控制，ControlNet
+基于图生图的操作方式，从另一图中提取对应元素，用于新图像的生成，大幅提升了人对大模型的控制力。
+具体方法是调整网络结构，基于预训练的扩散模型，根据新输入的描述和指定任务对应的条件进一步训练模型。使模型既可以在小数据量（&lt;50K）时在个人设备上训练，也可以在 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84_LoRA/" title="论文阅读_模型结构_LoRA">论文阅读_模型结构_LoRA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-17T00:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: LoRA: Low-Rank Adaptation of Large Language Models
+中文名称: LORA：大语言模型的低阶自适应
+论文地址: http://arxiv.org/abs/2106.09685
+代码: https://github.com/microsoft/LoRA pytorch，风格简捷
+时间: 2021-10-16
+作者: Edward J. Hu
+引用量: 657
+1 读后感
+LoRA 是 Low-Rank
+的缩写，它是一种大模型微调技术。一开始用于优化自然语言模型，但是后来自然语言模型后来选择了
+Prompt 的道路；而该技术在图像领域得到了广泛的应用，比如 Stable Diffusion
+的一众 LoRA 模型，从背景风格到人物形像，不用精调 2-8 G
+的基础模型，通过训练 只有几十到几百兆 LoRA 模型，就可以实现建模。
+它针对的问题是：当模型大到一定程度，比如 GPT-3 有 175B
+参数，精调变得费时而昂贵。其解决方法是：它修改了fine-tune过程，提出低阶自适应技术，冻结了预训练的模型权重，并将可训练的秩分解矩 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/ChatGPT/%E8%AF%95%E7%94%A8%E6%99%BA%E8%83%BD%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B%E2%80%94%E2%80%94%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8F%90%E5%8D%87%E7%BC%96%E7%A8%8B%E6%95%88%E7%8E%87/" title="试用智能编程助手——用大模型提升编程效率">试用智能编程助手——用大模型提升编程效率</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-15T00:00:00.000Z" title="Created 2023-08-15 00:00:00">2023-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/">ChatGPT</a></span></div><div class="content">1 简介
 网传有了大模型之后，很多人都要失业了，其中也包括一部分程序员，确实大模型可以减轻开发者的工作量，但是具体到减轻了多少工作量，哪种类型的工作，学习成本，使用成本如何？不捧不踩,今天我们尽量客观地体验一下。
 本文将介绍目前使用最多的三个智能编程助手，它们均可提供：代码解释、注释、生成、实时补全等功能。下面基于
 VSCode 环境来介绍具体的使用方法。
@@ -243,79 +416,13 @@ llama_index由三个主要模块组成：
 语音中最小的、不可再分的语音单元。在不同语言中，音素数量也有所不同，例如英语中有大约44个音素，中文普通话中有约20个声母和38个韵母。
 2.2 语义特征与声学特征
 语义特征是指语音合成的内容，如：音调、语速、语调；而声学特征则是指语音的物理属性，如基频、共振峰等。二者在不同场景及文章中定义也不完全一致。可以简单地理解为：语义与文本内容更相关，声学与声音更相关，即：文本-&gt;语义-&gt;声学-&gt;音频。
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E5%B7%A5%E5%85%B7_bark/" title="语音合成工具_bark">语音合成工具_bark</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-07T00:00:00.000Z" title="Created 2023-05-07 00:00:00">2023-05-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/1-%E8%AF%AD%E9%9F%B3/">1_语音</a></span></div><div class="content">1 介绍
-多语言的文字转语音模型。
-地址: https://github.com/suno-ai/bark
-2 模型原理
-Bark通过三个Transformer模型，将文本转换为音频。
-2.1 文本到语义Token
-输入：由Hugging Face的BERT标记器分词的文本
-输出：编码生成音频的语义Token
-2.2 语义到粗略Token
-输入：语义Token
-输出：来自Facebook的EnCodec编解码器的前两个codebooks的Token
-2.3 粗略到细节Token
-输入：EnCodec的前两个codebooks
-输出：EnCodec的8个codebooks
-3 使用方法
-3.1 环境配置
-1docker pull pytorch/pytorch:2.0.0-cuda11.7-cudnn8-runtime  
-运行docker
-1nvidia-docker run -e NVIDIA_DRIVER_CAPABILITIES=compute,utility -e NVIDIA_VISIBLE_DEVICES=all -p 8893:8888 -v /raid/:/opt/ra ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E9%9F%B3%E9%A2%91%E8%A1%A8%E7%A4%BA_w2v-BERT/" title="论文阅读_音频表示_w2v-BERT">论文阅读_音频表示_w2v-BERT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-02T00:00:00.000Z" title="Created 2023-05-02 00:00:00">2023-05-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch:
-W2V-BERT：结合对比学习和Mask语言建模进行自监督语音预训练
-name_en: w2v-BERT：Combining Contrastive Learning and Masked Language
-Modeling for
-Self-Supervised Speech Pre-Training
-paper_addr: https://ieeexplore.ieee.org/document/9688253/
-date_publish: 2021-12-13
-1 读后感
-w2v-BERT是音频的表示学习。模型可用于优化语音识别。可以看作对w2v 2.0
-的延展。
-2 摘要
-文中提出自监督的语音表示学习w2v-BERT，它结合了对比学习和Mask语言模型，前者使用模型将输入的连续语音信号离散化为一组有限的可辨别的语音标记；后面通过Mask方法生成结合上下文的语音表示。
-相对于之前模型，w2v-BERT结合了两个不同模型，实现了end-to-end
-训练。w2v-BERT 优于 wav2vec 2.0 30% 以上。
-3 介绍
-主要贡献
-* 提出
-w2v-BERT ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9_SoundStream/" title="论文阅读_音频压缩_SoundStream">论文阅读_音频压缩_SoundStream</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-01T00:00:00.000Z" title="Created 2023-05-01 00:00:00">2023-05-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/1-%E8%AF%AD%E9%9F%B3/">1_语音</a></span></div><div class="content">name_ch: SoundStream：一种端到端的神经音频编解码器
-name_en: SoundStream：An End-to-End Neural Audio Codec
-paper_addr: http://arxiv.org/abs/2107.03312
-date_publish: 2021-07-07
-1 读后感
-高效压缩语音、音乐和一般音频。模型由编码器，量化器，解码器组成，主要使用了卷积技术。
-2 摘要
-基于神经网络的音频编码器，可高效生成文本，音乐。模型结构由全卷积编码器/解码器网络和残差矢量量化器组成。它结合了对抗和重建损失技术，可将量化的嵌入作为输入，生成高质量音频。
-单模型生成3kbps~18kpbs的音频。该模型适用于低延迟实现，支持流式推理，并可在智能手机
-CPU
-上实时运行。通过主观质量证明，SoundStream输出音频高于之前模型。
-
-3 介绍
-主要贡献：
-*
-提出音频编码器SoundStream，由编码、解码、量化器组成；通过重建和对抗损失训练模型，实现高品质音频生成。
-* 提出新的残差量化器，平衡速率/失真/复杂度；提出quantizer
-dro ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E9%9F%B3%E9%A2%91%E5%8E%8B%E7%BC%A9_Encodec/" title="论文阅读_音频压缩_Encodec">论文阅读_音频压缩_Encodec</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-27T00:00:00.000Z" title="Created 2023-04-27 00:00:00">2023-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/1-%E8%AF%AD%E9%9F%B3/">1_语音</a></span></div><div class="content">name_ch: 高保真神经音频压缩
-name_en: High Fidelity Neural Audio Compression
-date_publish: 2022-10-24
-paper_addr: http://arxiv.org/abs/2210.13438
-code: github.com/facebookresearch/encodec
-1 读后感
-方法与SoundStream相似，模型主要使用了卷积，LSTM，还加入Transformer优化量化单元，以减少带宽。
-2 摘要
-Encodec也是一个音频编码器 audio
-codec，包括编码器-解码器架构、量化方法和感知损失等要素。EnCodec在多个音频压缩比和采样率条件下，在语音和音乐的压缩中均达到了最先进的质量水平。
-文章还讨论了神经网络压缩模型的两个问题：如何表示噪音和如何高效地压缩，作者通过构建大而多元化的训练集和引入辨别器网络，解决了第一个问题，而通过引入熵编码和实时模式流的控制来解决第二个问题。
-检验了EnCodec的运算速度、实时和压缩效果，得到了较好的实验效果。
-3 方法
-
-模型由编码器，量化器，解码 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/#content-inner">54</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">532</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">69</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/%E4%B9%B0%E5%9F%9F%E5%90%8D/" title="买域名">买域名</a><time datetime="2023-10-19T00:00:00.000Z" title="Created 2023-10-19 00:00:00">2023-10-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/VPN%E9%85%8D%E7%BD%AE/" title="VPN配置">VPN配置</a><time datetime="2023-10-17T00:00:00.000Z" title="Created 2023-10-17 00:00:00">2023-10-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/Obsidian_%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90231005/" title="Obsidian_插件推荐231005">Obsidian_插件推荐231005</a><time datetime="2023-10-05T00:00:00.000Z" title="Created 2023-10-05 00:00:00">2023-10-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GPT4_4V/" title="论文阅读_GPT4_4V">论文阅读_GPT4_4V</a><time datetime="2023-10-04T00:00:00.000Z" title="Created 2023-10-04 00:00:00">2023-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/%E6%B2%89%E6%B5%B8%E5%BC%8F%E7%BF%BB%E8%AF%91/" title="沉浸式翻译">沉浸式翻译</a><time datetime="2023-09-29T00:00:00.000Z" title="Created 2023-09-29 00:00:00">2023-09-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/#content-inner">54</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">536</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">69</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">70</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/%E4%BB%A3%E7%A0%81%E8%A7%84%E5%88%99%E5%8C%96%E5%B7%A5%E5%85%B7%20Black%20Formatter/" title="代码规则化工具 Black Formatter">代码规则化工具 Black Formatter</a><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/Python%E5%9C%A8pdf%E4%B8%AD%E6%8F%90%E5%8F%96%E8%A1%A8%E6%A0%BC/" title="Python在pdf中提取表格">Python在pdf中提取表格</a><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/Python%E8%A1%8C%E5%AF%B9%E9%BD%90%E5%B7%A5%E5%85%B7difflib/" title="Python行对齐工具difflib">Python行对齐工具difflib</a><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/%E5%A4%87%E6%A1%88/" title="备案">备案</a><time datetime="2023-10-27T00:00:00.000Z" title="Created 2023-10-27 00:00:00">2023-10-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/4_%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/%E4%B9%B0%E5%9F%9F%E5%90%8D/" title="买域名">买域名</a><time datetime="2023-10-19T00:00:00.000Z" title="Created 2023-10-19 00:00:00">2023-10-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">522</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">39</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">7</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/vscode/"><span class="card-category-list-name">vscode</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">浏览器工具</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">版本管理</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.29em; color: #99a1ab">大模型</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.38em; color: #99a4b4">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.31em; color: #99a1ad">深度学习/工具</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.36em; color: #99a3b2">论文阅读</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.36em; color: #99a3b2">机器学习/时序</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.17em; color: #999ca0">模型解释</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.22em; color: #999ea4">区块链</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.15em; color: #999b9d">自动驾驶</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.31em; color: #99a1ad">语音</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.17em; color: #999ca0">Python/数据</a> <a href="/tags/Arduino/" style="font-size: 1.43em; color: #99a6b8">Arduino</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.17em; color: #999ca0">数据存储/MYSQL</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.38em; color: #99a4b4">编程语言/前端</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.41em; color: #99a5b6">机器学习/算法</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.17em; color: #999ca0">大模型/应用</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.22em; color: #999ea4">随笔</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.15em; color: #999b9d">版本管理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/Docker/" style="font-size: 1.24em; color: #999fa6">Docker</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.15em; color: #999b9d">AI绘画</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.5em; color: #99a9bf">操作系统/Linux</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.48em; color: #99a8bd">图形图像</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">#随笔</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.45em; color: #99a7bb">深度学习/模型结构</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.34em; color: #99a2af">知识图/图神经网络</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.15em; color: #999b9d">编程语言/Java</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.17em; color: #999ca0">自然语言处理/工具</a> <a href="/tags/Pytorch/" style="font-size: 1.34em; color: #99a2af">Pytorch</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.19em; color: #999da2">深度学习/知识蒸馏</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.36em; color: #99a3b2">深度学习</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.17em; color: #999ca0">机器学习/自动建模</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.12em; color: #999a9b">多模态</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.17em; color: #999ca0">深度学习/扩散模型</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.26em; color: #99a0a9">Python/股票</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">February 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">532</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">651k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-10-19T04:17:24.123Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">526</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">40</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/vscode/"><span class="card-category-list-name">vscode</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">浏览器工具</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">版本管理</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.18em; color: #999ca1">主题笔记</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.13em; color: #999a9c">Python/图形图像</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.23em; color: #999ea6">区块链</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.13em; color: #999a9c">知识图/知识图谱</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.42em; color: #99a6b7">论文阅读</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.15em; color: #999b9e">AI绘画</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.13em; color: #999a9c">多模态</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">生物医学</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.23em; color: #999ea6">特征工程</a> <a href="/tags/Docker/" style="font-size: 1.26em; color: #999fa8">Docker</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.37em; color: #99a4b2">语音</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.23em; color: #999ea6">数学</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.21em; color: #999da3">数据存储/Hadoop</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.15em; color: #999b9e">编程语言/C</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.18em; color: #999ca1">深度学习/扩散模型</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.21em; color: #999da3">深度学习/知识蒸馏</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.18em; color: #999ca1">大模型/应用</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.45em; color: #99a7ba">深度学习/模型结构</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.34em; color: #99a3b0">笔记/Obsidian</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.37em; color: #99a4b2">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.31em; color: #99a2ad">Python/股票</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.13em; color: #999a9c">自然语言处理/统计方法</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.18em; color: #999ca1">自然语言处理/工具</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.39em; color: #99a5b5">知识图/图神经网络</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.29em; color: #99a0ab">自然语言处理/BERT</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">#随笔</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.18em; color: #999ca1">Python/数据</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.15em; color: #999b9e">异常检测</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.47em; color: #99a8bc">算法实战</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.31em; color: #99a2ad">编程语言</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.18em; color: #999ca1">数据存储/MYSQL</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">February 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">January 2023</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">536</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">653.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-10-29T07:57:30.399Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
