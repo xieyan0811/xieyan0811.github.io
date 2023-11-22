@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_生成式Agent | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="12345678英文名称: Generative Agents: Interactive Simulacra of Human Behavior  中文名称: 生成代理：**人类行为的交互式模拟**  文章: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2304.03442  代码: https:&#x2F;&#x2F;github.com&#x2F;joonspk-research&#x2F;generative_agents  作者:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_生成式Agent">
+<meta property="og:url" content="http://example.com/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%9F%E6%88%90%E5%BC%8FAgent/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="12345678英文名称: Generative Agents: Interactive Simulacra of Human Behavior  中文名称: 生成代理：**人类行为的交互式模拟**  文章: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2304.03442  代码: https:&#x2F;&#x2F;github.com&#x2F;joonspk-research&#x2F;generative_agents  作者:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2023-11-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-21T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="通用人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%9F%E6%88%90%E5%BC%8FAgent/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_生成式Agent',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-21 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">548</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">74</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_生成式Agent</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-21T00:00:00.000Z" title="Created 2023-11-21 00:00:00">2023-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-11-21T00:00:00.000Z" title="Updated 2023-11-21 00:00:00">2023-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/0-Inbox/">0_Inbox</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/0-Inbox/0-%E6%AD%A3%E5%9C%A8%E7%9C%8B/">0_正在看</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>14min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_生成式Agent"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">英文名称: Generative Agents: Interactive Simulacra of Human Behavior  </span><br><span class="line">中文名称: 生成代理：**人类行为的交互式模拟**  </span><br><span class="line">文章: http://arxiv.org/abs/2304.03442  </span><br><span class="line">代码: https://github.com/joonspk-research/generative_agents  </span><br><span class="line">作者: Joon Sung Park  </span><br><span class="line">机构: 斯坦福大学  </span><br><span class="line">日期: 2023-08-05 (预发表时间：2023.4)  </span><br><span class="line">引用次数: 231  </span><br></pre></td></tr></table></figure>
+<p><img
+src="/attachments_2023/Pasted%20image%2020231121102936.png" /></p>
+<h2 id="摘要">摘要</h2>
+<p>论文建立了一个有 25 个机器人 (代理)
+的虚拟小镇（沙箱环境），用户可以观察和干预代理的计划、分享新闻、建立关系和协调团体活动。用
+GPT
+工具模拟人类行为：起床，做早餐，去上班；作画，写作；形成意见、互相关注并发起对话；反思过去计划未来。</p>
+<p>文中描述了一种架构，通过<strong>扩展大语言模型</strong>，<strong>使用自然语言存储智能体的完整经历记录</strong>，随着时间的推移将这些记忆<strong>综合成更高层次的反思</strong>，并动态地<strong>检索它们以规划行为</strong>。</p>
+<p>论文还观察和评测了智能体作为个体和群体的行为，通过消融实验证明了代理架构的组成部分：观察、计划和反思，对于代理行为的可信度至关重要。</p>
+<h2 id="读后感">读后感</h2>
+<p>我觉得这篇文章非常具有启发性，很多点都可以引发进一步思考和研究，比如<strong>在产品设计方面</strong>：定制反映自己特点和经验的计划助手；在<strong>结构设计方面</strong>，提出三个组件：记忆、反思、计划
+的架构，用于存储、合成和应用相关记忆，根据这些原则，<strong>应对各种复杂的场景</strong>。在具体实现方面还在附录中给出了一些可用的提示信息。</p>
+<p>之前听同事讲了一遍，自己又看了两遍，整理了一下，总计花了一天多的时间。下面对整个结构过了一遍，除了核心点以外，还摘录了我觉得重要的内容。</p>
+<h2 id="引言">1. 引言</h2>
+<p>论文研究如何构建一个交互式的人工社会，以反映真实可信的人类行为。计算机驱动的代理<strong>根据过去的经验进行前后一致地行为</strong>，<strong>对环境做出真实的反应</strong>。模拟可以在虚拟空间和社区中呈现真实的社会现象，训练人们如何处理罕见但困难的人际关系情境，测试社会科学理论……</p>
+<p>本文中介绍的生成型代理，能够产生可信的<strong>个体和群体行为的模拟</strong>。在个体性方面，生成式代理对自身、其他代理和环境进行各种推理；他们制定反映自身特征和经验的日常计划，执行计划，在适当的时候进行反应和重新规划；当用户（人）改变它们的环境或用自然语言命令它们时，它们会做出响应。在社会性方面，研究了新的社会动态的出现，新关系的形成，信息扩散，以及代理之间的协调。</p>
+<p>文中设计了一种架构，该架构<strong>存储、综合和应用相关的记忆</strong>，使用大型语言模型生成可信的行为，包括三个主要组件：记忆流、反思、规划。</p>
+<p>大语言模型可以在单个时间点上模拟人类行为，而实际生活中，随着<strong>新的互动、冲突和事件</strong>随着时间的推移而<strong>出现和消失</strong>，<strong>记忆不断增长</strong>，同时处理多个代理之间展开的<strong>级联社会动态</strong>则更为复杂。<strong>反思</strong>这些记忆以<strong>概括</strong>和得出<strong>更高层次的推论</strong>，并应用该推理来制定在当前和长期的代理行为中有意义的<strong>计划和反应</strong>。</p>
+<p><strong>论文贡献如下</strong>:</p>
+<p>•
+<strong>做了什么</strong>：生成代理，模拟人类行为，动态地受到代理的不断变化的经验和环境的影响。</p>
+<p>•
+<strong>怎么做的</strong>：新颖的架构，使得生成性代理能够记忆、检索、反思、与其他代理互动，并在动态演化的情况下进行规划。架构利用了大语言模型强大的提示能力，并支持更长期的代理一致性，管理动态演化的记忆能力，并递归地产生更高层次的反思。</p>
+<p>•
+<strong>评估</strong>：两项评估，受控评估确定架构组件重要性，并识别由不正确的检索等引起的故障；全面评估用于评估代理的社会性行为。</p>
+<p>•
+<strong>讨论</strong>：讨论交互系统中生成代理的机会以及道德和社会风险。</p>
+<h2 id="相关工作">2. 相关工作</h2>
+<p>交互的人工智能系统旨在将人类的洞察力和能力与计算工具相结合，以增强人类的能力。近年来，出现了一些基于语言和代理的人机交互案例，即通过自然语言进行交流。</p>
+<p>在虚拟环境中，通常简化代理的行为，使其无法涵盖在真实世界中可能发生的各种情境；这些代理通常在对抗性游戏中表现较好，这些游戏有明确的奖励目标，算法可以针对这些目标进行优化；然而，它们尚未成功解决在开放世界（自然生活）中创建可信代理的挑战。</p>
+<h2 id="生成代理的行为和互动">3. 生成代理的行为和互动</h2>
+<p><img
+src="/attachments_2023/Pasted%20image%2020231121110913.png" /></p>
+<p>图
+2：沙盒世界：根节点描述整个世界，子节点描述区域（例如房屋、咖啡馆、商店），叶节点描述对象（例如桌子、书架）。代理记住一个子图，反映他们所见到的世界，并维护这些部分的状态。</p>
+<h3 id="代理角色和通信">3.1 代理角色和通信</h3>
+<p>由 25
+个代理组成社区，为每个代理的身份编写一个<strong>自然语言描述段落，包括他们的职业和与其他代理的关系</strong>，作为种子记忆。</p>
+<h4 id="代理间的交流">3.1.1 代理间的交流</h4>
+<p>代理通过行动与世界互动，并通过自然语言与彼此交流。在<strong>每个时间步中</strong>，代理会输出一句描述他们当前行动的<strong>自然语言陈述</strong>，并使用表情符号显示在界面中。</p>
+<h4 id="用户控制">3.1.2 用户控制</h4>
+<p>用户（工作人员）通过自然语言与代理进行交流，通过指定一个角色来让代理感知他们；用户还可以扮演代理的“内心声音”
+，使代理有可能将该陈述视为指令。</p>
+<h3 id="环境交互">3.2 环境交互</h3>
+<p>环境由手动生成。它包含一个小村庄常见的设施，包括咖啡馆、酒吧、公园、学校、宿舍、房屋和商店。还定义了使这些空间功能正常的子区域和物体，例如房屋中的厨房和厨房中的炉子（图
+2）。</p>
+<p>代理在 Smallville
+中的移动方式类似于简单的视频游戏，进入和离开建筑物，导航地图，并接近其他代理。</p>
+<p>用户可以作为一个代理进入沙盒世界进行操作。用户所扮演的代理可以是已经存在于世界中的代理，也可以是没有在
+Smallville
+中有过历史的外来访客；用户还可以通过以自然语言重写代理周围物体的状态来改变环境。</p>
+<h3 id="示例一天的生活">3.3 示例“一天的生活”</h3>
+<p>从单段描述开始，生成式代理开始计划他们的一天。随着时间流逝，他们的行为会随着这些代理之间和世界的互动而演变，建立记忆和关系，并协调共同的活动。</p>
+<p><img
+src="/attachments_2023/Pasted%20image%2020231121112035.png" /></p>
+<p>追踪系统在一天中对代理 John Lin 的输出展示生成式代理的行为（图
+3）。</p>
+<h3 id="通过交互产生社会行为">3.4 通过交互产生社会行为</h3>
+<p>生成代理可以<strong>交换信息、建立新的关系并协调共同活动</strong>。这些互动不是预先编程的。</p>
+<h4 id="信息传播">3.4.1 信息传播</h4>
+<p>当代理注意到彼此时，它们可以进行对话，这样信息就可以从一个代理传播到另一个代理。</p>
+<h4 id="关系记忆">3.4.2 关系记忆</h4>
+<p>代理会随着时间的推移建立新的关系，并记住与其他代理的互动。</p>
+<h4 id="协调">3.4.3 协调</h4>
+<p>生成型代理彼此协调，关系进一步自动延展。如：用户设置了举办派对的初始意图，传播消息、装饰、邀请对方、到达派对并在派对上相互交流的社交行为是由代理架构自动发起的。</p>
+<h2 id="生成代理架构">4. 生成代理架构</h2>
+<p><img
+src="/attachments_2023/Pasted%20image%2020231121112620.png" /></p>
+<p>为开放世界中的行为提供一个框架：这个框架可以与<strong>其他智能体进行交互，并对环境的变化做出反应</strong>。生成型智能体将其<strong>当前环境和过去的经验作为输入，并生成行为作为输出</strong>。具体方法是：它将大型语言模型
+(gpt3.5-turbo)
+与合成和检索相关信息的机制相结合。生成型智能体产生大量的<strong>事件和记忆</strong>，这些记忆必须被保留，架构的一个核心挑战是确保在需要时<strong>检索和合成智能体记忆中最相关的部分</strong>。</p>
+<h3 id="记忆与检索">4.1 记忆与检索</h3>
+<p>完整的记忆流可能会分散模型的注意力，而且无法适应有限的上下文窗口。</p>
+<p><strong>内存流</strong>维护了代理经验的全面记录。它是一个内存对象的列表，每个对象包含自然语言描述、创建时间戳和最近访问时间戳。内存流的最基本元素是观察，即代理直接感知到的事件。常见的<strong>观察</strong>包括代理自己执行的行为，或者代理感知到其他代理或非代理对象执行的行为。</p>
+<p>架构实现了<strong>检索函数</strong>，它以代理当前情况作为输入，并返回内存流的一个子集，以传递给语言模型。检索函数的实现取决于代理在决定如何行动时需要考虑<strong>什么是重要</strong>的。记忆流包括大量与代理当前情境相关和不相关的观察。检索识别出应该传递给语言模型以调整其对情境的响应的子集。</p>
+<p>重要性考虑如下因素：</p>
+<ul>
+<li>最近性：根据时间计算，为指数衰减函数。<br />
+</li>
+<li>重要性：将平凡的记忆与核心记忆区分开来（调用语言模型实现）。<br />
+</li>
+<li>相关性：将更高的分数分配给与当前情况相关的记忆对象（向量距离）。</li>
+</ul>
+<h3 id="反思">4.2 反思</h3>
+<p>假设问题是：" 选择一个人陪你度过一个小时
+"，如果只考虑观察记忆，代理会选择最频繁互动的人，通过反思则会选择有共同兴趣的人。</p>
+<p>实现方法是：引入了第二种类型的记忆——反思。反思是由代理生成的更高层次、更抽象的思考。在检索发生时，反思与观察结果一起被包括在内。反思是定期生成的；当代理感知到的最新事件的重要性得分总和超过阈值时，生成反思，大约每天反思两到三次。</p>
+<p>具体使用提示实现，形如”仅根据上述信息，可以回答关于这些陈述中的主题的三个最重要的高层次问题是什么？“，然后针对问题生成查询，并收集与每个问题相关的记忆（包括其他反思）。提示语言模型提取见解，并引用作为见解证据的特定记录。</p>
+<p>反思包含对观察的反思和对反思的反思。代理会生成反思树：树的叶节点代表基本观察，非叶节点代表思考，随着树的层级越高，思考会变得更加抽象和高层。最终得出自我认知。</p>
+<h3 id="计划和反应">4.3 计划和反应</h3>
+<p>代理需要在更长的时间范围内进行规划，以确保他们的行动序列连贯可信。计划包括地点、开始时间和持续时间。</p>
+<p>与反思一样，计划存储在记忆流中，并包含在检索过程中。代理在决定如何行动时可以同时考虑观察、反思和计划。代理可能会在需要时更改他们的计划。具体方法是自上而下逐步生成更详细的计划。</p>
+<h4 id="反应和更新计划">4.3.1 反应和更新计划</h4>
+<p>在每个时间步，智能体都感知周围的世界，并将这些感知到的观察结果存储在记忆流中。使用这些观察结果提示语言模型，智能体决定是否应该继续执行其现有计划，或做出调整。</p>
+<h4 id="对话">4.3.2 对话</h4>
+<p>代理在彼此互动时进行对话，通过将代理的历史对话与他们对彼此的记忆联系起来来生成新对话。</p>
+<h2 id="实现沙盒环境">5. 实现沙盒环境</h2>
+<p>Smallville 沙盒游戏环境使用 Phaserweb
+游戏开发框架构建。服务器维护一个 JSON
+数据结构，其中包含沙盒世界中每个代理的信息，包括当前的位置，动作描述以及他们正在与之交互的沙盒对象。</p>
+<h3 id="从结构化环境到自然语言再回到结构化环境">5.1
+从结构化环境到自然语言再回到结构化环境</h3>
+<p>从结构化环境到自然语言，再回到结构化环境的转化过程，是一种双向的信息转化。通过将结构化数据转化为自然语言，可以更好地理解和处理信息。而通过将自然语言转化为结构化数据，可以更方便地整合和分析文本信息。</p>
+<p>将沙盒环境区域和物体表示为树形数据结构，树中的边表示沙盒世界中的包含关系。代理在沙盒世界中导航时，他们会更新这棵树以反映新感知到的区域。递归地使用相同的过程来确定所选区域内最合适的子区域，直到达到代理环境树的叶节点。当代理在对象上执行动作时，提示语言模型询问对象的状态会发生什么变化。</p>
+<h2 id="受控评估">6. 受控评估</h2>
+<h3 id="评估程序">6.1 评估程序</h3>
+<p>对智能体进行“面试”，以测试它们记忆过去经历的能力、基于经验规划未来行动的能力、对意外事件做出适当反应的能力以及反思自身表现以改进未来行动的能力。为了正确回答这些问题，智能体必须成功地检索和综合信息。</p>
+<p>面试包括五个问题类别：维护自我知识、检索记忆、生成计划、反应和反思。附录
+B 中包含了问题的完整列表和代理回答的样本。</p>
+<p>招募 100
+名参与者比较了由四种不同代理架构和一个由人类（普通人类行为水平，非专家）撰写的条件生成的面试回答，按照可信度从最可信到最不可信对条件进行排名。参与者可以访问代理记忆流中存储的所有信息。</p>
+<h3 id="条件">6.2 条件</h3>
+<p>消融实验基于两天的实验数据，只在检索时进入消融（不加入反思/计划）；如果重新实验，路径将不一致，从而无法比较。其中没有观察、没有反思、没有规划的条件代表了通过大型语言模型创建的代理的先前状态。</p>
+<h3 id="人类评估者">6.3 人类评估者</h3>
+<p>招募了 100 名评估者。</p>
+<h3 id="分析">6.4 分析</h3>
+<p>使用 TrueSkill 评分计算每个条件的平均评分和标准差；然后应用
+Kruskal-Wallis 检验对排名数据进行统计显著性分析，并使用 Dunn
+检验确定条件之间的差异。最后通过 Holm-Bonferroni 方法调整了 Dunn
+检验的多重比较 p 值。</p>
+<h3 id="结果">6.5 结果</h3>
+<p>结果如下：</p>
+<p><img
+src="/attachments_2023/Pasted%20image%2020231121093242.png" /></p>
+<ul>
+<li>消融：完整的架构优于其他条件，<strong>没有反思能力的消融架构是次优的</strong>；除了众包工人条件和完全消除基线之间的差异不显著外，所有条件之间的两两差异都是<strong>显著</strong>的。<br />
+</li>
+<li>记忆：具有完整记忆模块的生成型代理能够<strong>回忆过去的经历</strong>，并以与其自我<strong>认知一致</strong>的方式回答问题；但记忆也有缺陷：有时无法正确地从记忆中检索到相关实例；有时，智能体会产生对他们知识的夸张幻觉；智能体还可能根据语言模型中的世界知识夸张他们的知识，比如混淆同一人名的不同人。<br />
+</li>
+<li>反思：反思对于生成型代理是有优势的。</li>
+</ul>
+<h2 id="全面评估">7. 全面评估</h2>
+<p>本部分将评估群体行为。</p>
+<h3 id="紧急社交行为">7.1 紧急社交行为</h3>
+<p>探究了三种紧急社交：信息扩散、关系形成和代理协调。使用采访过程进行评测：</p>
+<ul>
+<li>信息扩散：了解市长候选人身份的代理数量从一个增加到八个，了解
+派对的代理数量从一个增加到十三个。<br />
+</li>
+<li>每个代理对其他每个代理的了解，出现新的关系，网络密度从 0.167 增加到
+0.74。<br />
+</li>
+<li>代理的协调行为包括，代理需要听说事件，并选择在正确的时间和地点出现。受邀的
+12 位代理中有 5 位来到了咖啡馆参加派对，7
+位未能出席派对的代理，有三位提到了阻止他们参加派对的原因。</li>
+</ul>
+<h3 id="边界和错误">7.2 边界和错误</h3>
+<p>归纳分析以研究代理的边界条件和不规律行为。三种常见的不规律行为模式：</p>
+<ul>
+<li>合成越来越大的记忆集不仅在检索最相关的信息方面存在挑战，如：一些代理选择了不太典型的位置进行行动。<br />
+</li>
+<li>对行为的错误分类导致的不稳定性，尤其当某些地点的物理规范很难用自然语言传达时。（不了解一些环境常识）<br />
+</li>
+<li>代理比现实中更加礼貌和合作。</li>
+</ul>
+<h2 id="讨论">8. 讨论</h2>
+<h3 id="生成代理的应用">8.1 生成代理的应用</h3>
+<ul>
+<li>生成代理具有广泛的应用潜力，特别是在可以从<strong>长期经验中获益</strong>的行为模型的领域。<br />
+</li>
+<li>创建更强大的人类行为模拟的可能性，同时也可以<strong>创造新的互动体验</strong>。<br />
+</li>
+<li>人本设计过程：代理充当人类的代理，并学习基于某人的生活模式可能展示的行为和反思。深入地了解他们的需求和偏好，从而实现<strong>更个性化和有效的技术体验</strong>。</li>
+</ul>
+<h3 id="未来的工作和局限性">8.2 未来的工作和局限性</h3>
+<p>研究需要大量的时间和资源来模拟 25
+个代理在两天内运行，耗费了数千美元的代币。</p>
+<p>在改进方面，检索模块可以通过微调检索函数的相关性、新近性和重要性来提高在给定上下文中检索更相关信息的能力；可以提升架构的性能，使其更具成本效益；随着基础模型的进步，相信代理的性能将会提高。</p>
+<p>生成型代理的鲁棒性仍然未知。它们可能容易受到提示攻击、记忆篡改（通过精心设计的对话使代理相信发生了从未发生过的事件）和幻觉。</p>
+<h3 id="道德和社会影响">8.3 道德和社会影响</h3>
+<ul>
+<li>人们与生成主体形成准社会关系，比如用户过度依赖或情感依附于代理。<br />
+</li>
+<li>错误产生可能造成伤害。<br />
+</li>
+<li>生成式代理可能加剧与生成式人工智能相关的现有风险，如深度伪造、生成虚假信息和定制说服。<br />
+</li>
+<li>开发者或设计师可能会使用生成代理并取代人类和系统利益相关者在设计过程中的角色。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%9F%E6%88%90%E5%BC%8FAgent/">http://example.com/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%9F%E6%88%90%E5%BC%8FAgent/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E9%80%9A%E7%94%A8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">通用人工智能</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/0_Inbox/%E6%9C%AC%E5%91%A8/Linux%E8%B0%83%E8%AF%95Android%E6%89%8B%E6%9C%BA/" title="Linux调试Android手机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Linux调试Android手机</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%85%B3%E7%B3%BB%E8%A1%A8%E5%BE%81%E7%9A%84%E5%9C%A8%E7%BA%BF%E5%AD%A6%E4%B9%A0DeepWalk/" title="读文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">读文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%AF%E6%89%A9%E5%B1%95%E7%89%B9%E5%BE%81%E5%AD%A6%E4%B9%A0Node2Vec/" title="读文阅读_Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">读文阅读_Node2Vec</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9F%BA%E4%BA%8E%E5%8A%A8%E6%80%81%E6%90%8F%E5%BC%88%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9B%BE%E6%8E%A8%E7%90%86/" title="基于动态辩论的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">基于动态辩论的知识图推理</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/14_%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%A7%A3%E9%87%8A%E9%BB%91%E7%9B%92%E6%A8%A1%E5%9E%8B%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E7%BB%BC%E8%BF%B0/" title="Survey on Neural Speech Syntheis"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">Survey on Neural Speech Syntheis</div></div></a></div><div><a href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GPT4_4V/" title="论文阅读_GPT4_4V"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-04</div><div class="title">论文阅读_GPT4_4V</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">548</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">74</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">2.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">1. 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">2. 相关工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%90%86%E7%9A%84%E8%A1%8C%E4%B8%BA%E5%92%8C%E4%BA%92%E5%8A%A8"><span class="toc-number">5.</span> <span class="toc-text">3. 生成代理的行为和互动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E8%A7%92%E8%89%B2%E5%92%8C%E9%80%9A%E4%BF%A1"><span class="toc-number">5.1.</span> <span class="toc-text">3.1 代理角色和通信</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E9%97%B4%E7%9A%84%E4%BA%A4%E6%B5%81"><span class="toc-number">5.1.1.</span> <span class="toc-text">3.1.1 代理间的交流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%8E%A7%E5%88%B6"><span class="toc-number">5.1.2.</span> <span class="toc-text">3.1.2 用户控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E4%BA%A4%E4%BA%92"><span class="toc-number">5.2.</span> <span class="toc-text">3.2 环境交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%B8%80%E5%A4%A9%E7%9A%84%E7%94%9F%E6%B4%BB"><span class="toc-number">5.3.</span> <span class="toc-text">3.3 示例“一天的生活”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BA%A4%E4%BA%92%E4%BA%A7%E7%94%9F%E7%A4%BE%E4%BC%9A%E8%A1%8C%E4%B8%BA"><span class="toc-number">5.4.</span> <span class="toc-text">3.4 通过交互产生社会行为</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E4%BC%A0%E6%92%AD"><span class="toc-number">5.4.1.</span> <span class="toc-text">3.4.1 信息传播</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E8%AE%B0%E5%BF%86"><span class="toc-number">5.4.2.</span> <span class="toc-text">3.4.2 关系记忆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E8%B0%83"><span class="toc-number">5.4.3.</span> <span class="toc-text">3.4.3 协调</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%90%86%E6%9E%B6%E6%9E%84"><span class="toc-number">6.</span> <span class="toc-text">4. 生成代理架构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E4%B8%8E%E6%A3%80%E7%B4%A2"><span class="toc-number">6.1.</span> <span class="toc-text">4.1 记忆与检索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E6%80%9D"><span class="toc-number">6.2.</span> <span class="toc-text">4.2 反思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E5%88%92%E5%92%8C%E5%8F%8D%E5%BA%94"><span class="toc-number">6.3.</span> <span class="toc-text">4.3 计划和反应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%BA%94%E5%92%8C%E6%9B%B4%E6%96%B0%E8%AE%A1%E5%88%92"><span class="toc-number">6.3.1.</span> <span class="toc-text">4.3.1 反应和更新计划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%AF%9D"><span class="toc-number">6.3.2.</span> <span class="toc-text">4.3.2 对话</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B2%99%E7%9B%92%E7%8E%AF%E5%A2%83"><span class="toc-number">7.</span> <span class="toc-text">5. 实现沙盒环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%BB%93%E6%9E%84%E5%8C%96%E7%8E%AF%E5%A2%83%E5%88%B0%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%86%8D%E5%9B%9E%E5%88%B0%E7%BB%93%E6%9E%84%E5%8C%96%E7%8E%AF%E5%A2%83"><span class="toc-number">7.1.</span> <span class="toc-text">5.1
+从结构化环境到自然语言再回到结构化环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E8%AF%84%E4%BC%B0"><span class="toc-number">8.</span> <span class="toc-text">6. 受控评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E7%A8%8B%E5%BA%8F"><span class="toc-number">8.1.</span> <span class="toc-text">6.1 评估程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-number">8.2.</span> <span class="toc-text">6.2 条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E7%B1%BB%E8%AF%84%E4%BC%B0%E8%80%85"><span class="toc-number">8.3.</span> <span class="toc-text">6.3 人类评估者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">8.4.</span> <span class="toc-text">6.4 分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">8.5.</span> <span class="toc-text">6.5 结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E9%9D%A2%E8%AF%84%E4%BC%B0"><span class="toc-number">9.</span> <span class="toc-text">7. 全面评估</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A7%E6%80%A5%E7%A4%BE%E4%BA%A4%E8%A1%8C%E4%B8%BA"><span class="toc-number">9.1.</span> <span class="toc-text">7.1 紧急社交行为</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E5%92%8C%E9%94%99%E8%AF%AF"><span class="toc-number">9.2.</span> <span class="toc-text">7.2 边界和错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA"><span class="toc-number">10.</span> <span class="toc-text">8. 讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E4%BB%A3%E7%90%86%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">10.1.</span> <span class="toc-text">8.1 生成代理的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E6%9D%A5%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%92%8C%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-number">10.2.</span> <span class="toc-text">8.2 未来的工作和局限性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%93%E5%BE%B7%E5%92%8C%E7%A4%BE%E4%BC%9A%E5%BD%B1%E5%93%8D"><span class="toc-number">10.3.</span> <span class="toc-text">8.3 道德和社会影响</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/0_%E6%AD%A3%E5%9C%A8%E7%9C%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%9F%E6%88%90%E5%BC%8FAgent/" title="论文阅读_生成式Agent">论文阅读_生成式Agent</a><time datetime="2023-11-21T00:00:00.000Z" title="Created 2023-11-21 00:00:00">2023-11-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/%E6%9C%AC%E5%91%A8/Linux%E8%B0%83%E8%AF%95Android%E6%89%8B%E6%9C%BA/" title="Linux调试Android手机">Linux调试Android手机</a><time datetime="2023-11-15T00:00:00.000Z" title="Created 2023-11-15 00:00:00">2023-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B_%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5%E6%9C%BA%E5%99%A8%E4%BA%BA/" title="编程助手_代码审查机器人">编程助手_代码审查机器人</a><time datetime="2023-11-15T00:00:00.000Z" title="Created 2023-11-15 00:00:00">2023-11-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E5%AE%9E%E6%B5%8B_GPT_Assistant/" title="实测_GPT_Assistant">实测_GPT_Assistant</a><time datetime="2023-11-14T00:00:00.000Z" title="Created 2023-11-14 00:00:00">2023-11-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E6%A8%A1%E5%9E%8B%E7%A4%BE%E5%8C%BA_Huggingface/" title="模型社区_Huggingface">模型社区_Huggingface</a><time datetime="2023-11-14T00:00:00.000Z" title="Created 2023-11-14 00:00:00">2023-11-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
