@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-12-08 09:21:14'
+  postUpdate: '2023-12-28 01:03:47'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,197 +163,139 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">558</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLaM/" title="论文阅读_GLaM">论文阅读_GLaM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-26T00:00:00.000Z" title="Created 2023-03-26 00:00:00">2023-03-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: GLaM：使用混合专家有效扩展语言模型
-name_en: GLaM：Efficient Scaling of Language Models with
-Mixture-of-Experts
-paper_addr: http://arxiv.org/abs/2112.06905
-journal: ICML 2022（会议）
-date_publish: 2022-08-01
-读后感
-针对节约计算资源的研究，推进了针对细分专家领域。
-一种混合专家（MoE）模型，可以将其视为具有不同子模型（或专家）的模型，每个子模型都专门针对不同的输入。每层中的专家由门控网络控制，该网络根据输入数据激活专家。
-摘要
-文中提出 GLaM (Generalist Language Model)
-通用语言模型，它使用稀疏激活的专家混合架构来扩展模型容量，同时与密集变体相比，训练成本也大大降低，其中输入批次中的每个标记仅激活
-96.6B（1.2T 的 8%）参数的子网络。
-最大的 GLaM 有 1.2 万亿个参数，大约是 GPT-3 的 7 倍。它仅消耗用于训练
-GPT-3 的 1/3 的能量，并且 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Chinchilla/" title="论文阅读_Chinchilla">论文阅读_Chinchilla</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: 训练计算优化的大型语言模型
-name_en: Training Compute-Optimal Large Language Models
-paper_addr: http://arxiv.org/abs/2203.15556
-date_publish: 2022-03-29
-读后感
-针对训练数据量，模型参数量，以及数据训练量，通过实验，得出一些结论：更长的训练时间，更多token，能提升模型效果；大模型的参数量和性能之间存在幂律分布；训练时token越多，模型效果越好，作者认为模型的大小与训练token量应等比增加。
-换言之：不应该太过纠结于拟合当前的知识和存储量，更重要的是扩展知识面，另外应该多“思考”。
-摘要
-现在大模型严重训练不足。通过大量实验发现对于模型的每加倍size
-训练令牌的数量也应该加倍。Chinchilla
-使用更少的计算来进行微调和推理，极大地促进了下游应用。
-介绍
-可以看到，相对当时其它模型，Chinchilla使用了更多的token和更少的模型参数。
-
-文中主要讨论了，在运算量固定的情况下，如何选择参数和token量的配比，使损失函数最小。
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_LLaMA/" title="论文阅读_LLaMA">论文阅读_LLaMA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: LLaMA：开放高效的基础语言模型
-name_en: LLaMA：Open and Efficient Foundation Language Models
-paper_addr: https://arxiv.org/abs/2302.13971
-code: https://github.com/facebookresearch/llama
-date_publish: 2023-02-27
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">569</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/1_%E8%AF%AD%E9%9F%B3/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E9%9F%B3%E9%A2%91%E7%94%9F%E6%88%90_AudioLM/" title="论文阅读_音频生成_AudioLM">论文阅读_音频生成_AudioLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/1-%E8%AF%AD%E9%9F%B3/">1_语音</a></span></div><div class="content">name_ch: AudioLM：一种音频生成的语言建模方法
+name_en: AudioLM：a Language Modeling Approach to Audio Generation
+date_publish: 2022-09-07
+paper_addr: http://arxiv.org/abs/2209.03143
 1 读后感
-开源项目，以小取胜。使用更多token训练，更少的模型参数。其小模型可以运行在单GPU环境下，65B大模型可与PaLM模型效果竞争；主要技术包含：调整了模型结构，加速了训练和推理。
+主要解决生成语音的两个问题：一致性和高质量。
 2 摘要
-论文展示了仅使用公开可用的数据集来训练最先进的模型，而无需诉诸专有和不可访问的数据集。模型从7B-65B参数，使用T级别token训练。LLaMA-13B模型效果超越了GPT-3(175B)模型。LLaMA-65B模型可与当前最好模型竞争。
+这是一个利用长期一致性生成高质量音频的框架，它先将音频输入转成一系列离散的token，然后将生成音频作为表示空间的语言建模。提出了一种混合的分词方案来平衡重建质量和长依赖的结构。
+使用Mask方法捕获长距离的关系，最终使用离散编码生成高品质的合成效果。它可以通过简短的提示，来生成自然连贯延续语音。利用大量无监督数据训练，在没有任何文字标注或注释的情况下，AudioLM
+会生成句法和语义上合理的语音延续，同时还保持说话人身份和不可见的说话人的韵律。另外，还可以生成钢琴音乐。
 3 介绍
-大模型在Few
-Shot上表现好，主要归功于大模型的参数量。本文至力于找到合适的数据量和参数量，以实现快速推理。
-4 方法
-4.1  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%94%A8%E5%BC%95%E5%AF%BC%E8%B0%83%E4%BC%98%E6%A8%A1%E5%9E%8B/" title="论文阅读_用引导调优模型">论文阅读_用引导调优模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">name_ch: 微调语言模型是零样本学习者
-name_en: Finetuned Language Models Are Zero-Shot Learners
-paper_addr: http://arxiv.org/abs/2109.01652
-code: https://github.com/google-research/flan
-date_publish: 2022-02-08
+在数据都是无监督的情况下，基于Transformer架构。具体使用的技术包括：对抗性神经音频压缩，自监督表示学习 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_MAE/" title="论文阅读_MAE">论文阅读_MAE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-18T00:00:00.000Z" title="Created 2023-04-18 00:00:00">2023-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: 带遮蔽的自编码器是大规模的视觉学习者
+name_en: Masked Autoencoders Are Scalable Vision Learners
+others: MAE 论文逐段精读
+https://www.bilibili.com/video/BV1sq4y1q77t/?spm_id_from=333.337.search-card.all.click&amp;vd_source=eef058f284e51ad4598d556801a9fc84
+paper_addr: https://ieeexplore.ieee.org/document/9879206/
+journal: 2022 IEEE/CVF Conference on Computer Vision and Pattern
+Recognition (CVPR)
+date_publish: 2022-06-01
 读后感
+图像领域的无监督学习，延续ViT使用Transformer结构论文阅读_ViT，学习BERT遮蔽图片块，然后预测被遮蔽的块实现自我学习autoencoder。
+ViT论文最后也做过 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E6%96%87%E6%9C%AC_CLIP/" title="论文阅读_图像生成文本_CLIP">论文阅读_图像生成文本_CLIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">读后感
+使用大量数据的对比学习，基于对齐图片和文本嵌入的原理，实现了根据图像生成描述文本的功能，为后续根据文本生成图像奠定了基础。
 介绍
-指令调优是：在通过指令描述的一组数据集上微调语言模型，它显著提高了未见任务的
-zeroshot 性能。将此类模型称为FLAN（Finetuned Language Net），采用 137B
-参数预训练语言模型，并在 60 多个通过自然语言指令模板的 NLP
-数据集上对其进行指令调优。
-模型效果，图-1展示了模型在不同类型任务上的效果对比：
-
+文中提出CLIP（Contrastive Language-Image
+Pre-training）方法，即：对比式语言-图像预训练。它的先进性在于：之前模型只能判断图片是否属于固定类别，而它可以根据一张图片内容，生成文本描述，或者利用文本描述的新类别匹配图片，而无需根据新类别调优模型，即零样本学习。
+具体实现方法利用少量有标注数据和大量无标注数据（4亿个图片文本对）方法建模，利用对比学习训练模型，对齐文本和图像的嵌入。
+通过在30多个不同的现有视觉数据集上进行基准测试，证明该模型能很好地应用到大多数任务中。
+它为后面一系列的图像生成模型（利用文本生成图片）奠定了基础。比如：用DALL-E(unCLIP)
+用“小狗吹喇叭”自动生成对应的图片。
 方法
-原理图
+数据
+虽然MS - COCO和Visual
+Genome是高质量的人工标记数据集，但按现代标准它们都很小。YFCC100M，在1亿张照片中，保留带有自然语言标题和/或英文描述的图片，仅有1500万张。这与I ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90_unCLIP/" title="论文阅读_图像生成_unCLIP">论文阅读_图像生成_unCLIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">读后感
+OpenAI出品，应用于DALL-E
+2。主要实现了以文本为条件生成图像。它在图像的还原和生成过程中，利用了图像与文本间的映射关系，文本可以看作是人对图片内容的抽象，它让模型从人的视角“看”图片，识别了其中人觉得最重要的内容；在图片内容和人类概念之间建立联系，并能通过文本描述的概念来生成和编辑图片。
+从技术层面看，它主要基于CLIP，Diffusion模型，并在GLIDE的方法之上进行了改进（之前GLIDE尝试了有分类的CLIP，本文尝试了无分类的CLIP；GLIDE对Diffusion中加噪图片训练CLIP对齐嵌入，本文用不加噪图片做CLIP）。
+介绍
+CLIP模型在图片和文本之间建立映射关系，能很好的获取图片的含义和风格。本文基于CLIP，提出了两阶段模型（如图）：首先，生成给定文本描述对应的CLIP图像嵌入，然后，用解码器生成以图像嵌入为条件的图像。其解码器尝试了自回归和扩散两种方法，发现扩散模型效率更高。
+其核心逻辑如图所示：虚线上结合了文本和图像的表示空间；虚线下是生成图片的过程，用文本嵌入产生一个图像嵌入，然后利用这个嵌入在条件约束下送入扩散解码器产生最终图像。
 
-用 Tensorflow Datasets 上公开可用的 62
-个文本数据集（包括语言理解和语言生成任务）聚合到一起，每个数据集被分类为十二个任务集之一。
-
-对于每个数据集，我们手动编写了十个独特的模板，这些模板使用自然语言指令来描述 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/Python/flask%E5%A4%9A%E5%B9%B6%E5%8F%91/" title="flask多并发">flask多并发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/3-%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="content">多线程
-flask默认使用多进程处理请求，因此，是支持并发的。比如两个调用a.html和b.html，
-* 请求a.html未运行完成，在浏览访问b.html不会阻塞。
-*
-开两个不同浏览器，分别请求请求运行时间较长的a.html也不阻塞。只要不用一个浏览去调，它都是不阻塞的；如果开一个浏览器在不同tab页请求同一阻塞页面，则会阻塞，这是浏览器引起的。
-WSGI协议
-WSGI是Web Server Gateway
-Interface的缩写，它是Python应用程序或者框架（如Flask）和web服务器之间的一种接口。flask默认使用werkzeug库实现WSGI协议。
-只要实现了WSGI协议的任何web server都可以作为flask
-app的服务器，比如uWSGI， Gunicorn，mod_wsgi都可以替换Werkzeug作为 web
-server。
-flask自带的多进程
-
-在app.run()时加入参数：threaded=False, processes=5,
-debug=False时，可使用5个进程。
-
-进入flash的app.run()函数内部，可以看到真正使用wer ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/8_Obsidian_%E4%BB%8E%E8%B1%86%E7%93%A3%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF/" title="Obsidian_从豆瓣收集图书_电影_电视剧信息">Obsidian_从豆瓣收集图书_电影_电视剧信息</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-25T00:00:00.000Z" title="Created 2023-03-25 00:00:00">2023-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a></span></div><div class="content">功能
-从豆瓣收集图书_电影_电视剧信息，插入Obsidian笔记。
-原理
-用JS抓取网站内容填入模板，插入笔记，通过插件之间的配合实现强大功能。
-设置
-
-安装 QuickAdd 插件
-
-把js文件复制到 templates/script/目录下
-
-把模板复制到 templates/目录下
-
-在左下角设置界面调出QuickAdd的设置界面
-
-
-加Micro
-
-点Manage Micros-&gt;起个名-&gt;Add Micro
-
-加好Macro后点其对应的Configure设置
-
-加JS脚本
-
-在User Scripts中选刚才拷到script下的脚本，然后点其后的Add
-
-
-点Template按钮，加上一个模板后，设置其内容
-
-在Template Path中设置刚才拷进的模板
-
-勾选File Name Format
-
-在File Name中输入：&#123;&#123;VALUE:name&#125;&#125;
-
-双击顶部的模板名，设置成自定义名称
-
-点右上的叉退出，自动保存
-
-
-
-连接显示名称和Macro
-
-进入最顶层的QuickAdd Setting界面（上图所示界面）
-
-起 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GLM/" title="论文阅读_GLM">论文阅读_GLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-24T00:00:00.000Z" title="Created 2023-03-24 00:00:00">2023-03-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">中文名称: GLM：使用自回归空白填充的通用语言模型预训练
-英文名称: GLM：General Language Model Pretraining with Autoregressive
-Blank Infilling
-论文地址: https://aclanthology.org/2022.acl-long.26
-出处: Proceedings of the 60th Annual Meeting of the Association for
-Computational
-Linguistics (Volume 1：Long Papers)
-时间: 2022-01-01
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/11_%E4%BC%98%E5%8C%96/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E6%A8%A1%E5%9E%8B%E9%B2%81%E6%A3%92%E6%80%A7%E7%9A%84%E9%87%8F%E5%8C%96%E6%8C%87%E6%A0%87/" title="论文阅读_模型鲁棒性的量化指标">论文阅读_模型鲁棒性的量化指标</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/">11_优化</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/">模型优化</a></span></div><div class="content">读后感
+建立一个框架，用于计算和量化模型鲁棒性。使用者应根据情境，风险偏好，以及分布等角度选择不同的衡量方法。更抽象地讲，它是对不确定性的决策原则。选择不同鲁棒性评价方法会影响决策，尽量使用多个指标结合的方式。
+介绍
+根据经济学中的不确定型决策原则。在深度不确定性下，存在多种不确定因素共同影响决策的后果。在这样的系统中，系统性能通常使用鲁棒性指标来衡量。
+具体方法介绍
+Maximin
+悲观原则：有若干种结果，选择每个系列中最坏结果中的最好结果
+\[Maximin = max(min_1, min_2, ...,
+min_n)\]
+Maximax
+乐观原则：有若干种结果，选择每个系列中最好结果中的最好结果
+\[ Maximax = max(max_1, max_2, ..., max_n)
+\]
+Hurwicz optimism-pessimism
+rule
+折衷原则：按比例结合乐观和悲观原则
+\[ HOR = αMaxmin + (1 − α)Maximax
+\]
+Laplace's principle
+of insufficient reason
+不充分理由原则：对所有结果取平均
+\ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ViT/" title="论文阅读_ViT">论文阅读_ViT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-08T00:00:00.000Z" title="Created 2023-04-08 00:00:00">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">name_ch: 将16x16的块看作词：用Transformers实现大规模图像识别
+name_en: An Image is Worth 16x16 Words：Transformers for Image
+Recognition at Scale
+paper_addr: http://arxiv.org/abs/2010.11929
+code: https://github.com/google-research/vision_transformer
+date_publish: 2021-06-03
+other src:
+ViT论文逐段精读：https://www.bilibili.com/video/BV15P4y137jb/?spm_id_from=333.999.0.0
 读后感
-通过在结构上的调整，结合了GPT和BERT类模型的优点，且模型规模和复杂度没有提升。将NLU任务转换成生成任务训练模型，使上下游任务训练方式保持一致。
-摘要
-没有一个预训练框架对自然语言理解
-(NLU)、无条件生成和条件生成这三个主要类别的所有任务表现都好。文中提出了通用语言模型：General
-Language Model (GLM)，它基于自回归空白填充来解决这一挑战。
-在 NLU 任务上的性能优于 BER ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_ChatGLM/" title="论文阅读_ChatGLM">论文阅读_ChatGLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-23T00:00:00.000Z" title="Created 2023-03-23 00:00:00">2023-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: Glm-130B：开放双语预训练模型
-name_en: GLM-130B：AN OPEN BILINGUAL PRE-TRAINED
-paper_addr: https://arxiv.org/abs/2210.02414
-code: https://github.com/THUDM/GLM-130B/
-date_publish: 2023-01-01
-1 读后感
-2022年11月，斯坦福大学大模型中心对全球30个主流大模型进行了全方位的评测2，GLM-130B
-是亚洲唯一入选的大模型。 GLM-130B 在准确性和恶意性指标上与 GPT-3 175B
-(davinci) 接近或持平。
-ChatGLM最大的优点是开源，并针对中文进行了优化，尤其是可以在自己的机器上搭建其简版的int4服务，实测回答一般性问题效果还不错，文后附环境搭建方法。
-2 摘要
-ChatGLM是使用中英双语预训练的大语言模型，具有130B参数（1300亿），使用400B
-token训练。
-在模型结构上结合了GPT和BERT。在英文方面，效果优于GPT-3；在中文方面，优于260B参数的ERNIE
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/3_%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/%E7%86%B5_%E7%9B%B8%E5%AF%B9%E7%86%B5_%E6%95%A3%E5%BA%A6/" title="熵_相对熵_散度">熵_相对熵_散度</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-19T14:34:57.000Z" title="Created 2023-03-19 14:34:57">2023-03-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/">分布</a></span></div><div class="content">1 信息量
-意外越大，越不可能发生，概率就越小，信息量也就越大，也就是信息越多。比如说“今天肯定会天黑”，实现概率100%，说了和没说差不多，信息量就是0。
-详见：2. 信息量
-1.1 公式
-\[I(x)=-logP(x)\]
-概率P(x)越小，信息量越大，可以简单理解为最小编码长度，比如概率0.125，log(1/0.125)，如果以2为底做log，则需要3位二进制数描述。
-2 熵
-熵用于描述不确定性，越不确定，熵越高。熵是事件所属的整个分布的不确定性总量量化。可以说：熵越小，越容易被预测。
-2.1 公式
-\[H(\mathrm{x})=\mathbb{E}_{\mathbf{x}
-\sim P}[I(x)]=-\mathbb{E}_{\mathbf{x} \sim P}[\log P(x)]=-\sum_{x} P(x)
-\log P(x)\]
-这里乘了概率P(x)，等于计算了平均最小编码长度。
-2.2 特性
-
-接近均匀分布的概率分布具有较高的熵
-
-接近确定性的分布 (输出几乎可以确定) 具有较低的熵
-
-2.3 实例
-1234567891011import math  import ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_PaLM/" title="论文阅读_PaLM">论文阅读_PaLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-17T00:00:00.000Z" title="Created 2023-03-17 00:00:00">2023-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: PaLM：使用Pathways的扩展语言建模
-name_en: PaLM：Scaling Language Modeling with Pathways
-paper_addr: http://arxiv.org/abs/2204.02311
-date_publish: 2022-10-05
+ViT是Vision
+Transformer的缩写，是2020年Google团队提出的将Transformer应用在图像分类的模型。ViT将输入图片分为多个patch，再将每个patch投影为固定长度的向量送入Transformer，后续encoder的操作和原始Transformer中完全相同。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_Segment_Anything/" title="论文阅读_Segment_Anything">论文阅读_Segment_Anything</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-07T00:00:00.000Z" title="Created 2023-04-07 00:00:00">2023-04-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">name_ch: 切分任何东西
+name_en: Segment Anything
+paper_addr: http://arxiv.org/abs/2304.02643
+date_publish: 2023-04-05
+demo: https://segment-anything.com
 读后感
-论文主要介绍了Google的超大模型PaLM，它在多数任务上都超过了SOTA，其主因是使用模型使用了大量参数和数据训练，作者认为当模型大到一定程度后，其性能也能飞跃，而PathWay技术是其大规模训练的基础。
-和其它模型相比，PaLM更关注逻辑推理相关的任务，这也为后面的PaLM-E机器人行为规划奠定了基础。
-动态路由层选择具体的路怎么走。
-摘要
-文中提出了 Pathways Language Model (PaLM)，使用6144 个TPU
-v4芯片训练，模型540 B参数，780 B高质量token，密集激活，Transformer
-语言模型。在推理任务上表现很好，文中提出：扩展到巨大模型后，性能急剧提高（Pathways是Jeff
-Dean与2021年提出的一种谷歌通 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/56/#content-inner">56</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">558</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">70</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/%E6%9C%AC%E5%91%A8/MusicGen/" title="MusicGen">MusicGen</a><time datetime="2023-12-08T00:00:00.000Z" title="Created 2023-12-08 00:00:00">2023-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/%E6%9C%AC%E5%91%A8/openstack%E6%8F%92%E4%BB%B6/" title="openstack插件">openstack插件</a><time datetime="2023-12-08T00:00:00.000Z" title="Created 2023-12-08 00:00:00">2023-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/%E6%9C%AC%E5%91%A8/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%8F%8D%E6%80%9D%E6%A8%A1%E5%9E%8B/" title="论文阅读_反思模型">论文阅读_反思模型</a><time datetime="2023-12-08T00:00:00.000Z" title="Created 2023-12-08 00:00:00">2023-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/GPT%E5%BA%94%E7%94%A8/ChatGPT-Next-Web_%E5%B7%B2%E6%95%B4%E7%90%86/" title="ChatGPT-Next-Web_已整理">ChatGPT-Next-Web_已整理</a><time datetime="2023-12-05T00:00:00.000Z" title="Created 2023-12-05 00:00:00">2023-12-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/0_Inbox/GPT%E5%BA%94%E7%94%A8/WeChatMsg_%E4%B8%8B%E8%BD%BD%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95_%E5%B7%B2%E6%95%B4%E7%90%86/" title="WeChatMsg_下载微信聊天记录_已整理">WeChatMsg_下载微信聊天记录_已整理</a><time datetime="2023-12-05T00:00:00.000Z" title="Created 2023-12-05 00:00:00">2023-12-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+论文提出 Segment Anything
+(SA)模型，无需精调，即可通过文本提示进行图像分割(抠图)。
+SA 基于将 Transformer 模型应用到图像处理领域 ViT 论文阅读_ViT，对图像的无监督学习
+MAE 论文阅读_MAE，以及文本图像相互映射的CLIP
+论文阅读_图像生成文本_CLIP
+，可以说它是图像领域大模型落地的一个精典范例。
+之前的图像分割模型，比如要识别图中的猫，先需要做一些标注数据，用工具把图中的猫标注出来，然后用这些标注数据在pretrain模型的基础上fine-tune。
+SA
+论文解决了两个问题：把文字描述和图中形象联系起来；在不fine-tune的情况下解决zero-shot问题。另外，本文的一大亮点是：用先交互后自动的方式标注了数以十亿记的图片，实现 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B_%E5%B8%A6%E6%9D%A5%E7%9A%84%E4%B8%80%E4%BA%9B%E5%90%AF%E5%8F%91/" title="大语言模型带来的一些启发">大语言模型带来的一些启发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-01T00:00:00.000Z" title="Created 2023-04-01 00:00:00">2023-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">仅代表个人看法，不喜勿喷。
+
+The limits of my language means the limits of my world. (Ludwig
+Wittgenstein)
+我的语言的极限意味着我的世界的极限。——维特根斯坦
+
+大语言模型解决的不仅是处理文本相关问题，它带来的是人对世界的理解，或者说让机器可以直接理解人的意图，而不再需要翻译成指邻、代码，而语言本身又隐含了人对世界的理解。从这个角度看，自然语言模型引领AI时代的进步也就不足为奇了。
+十年前说这个，可能觉得很科幻吧；三年前，当看到GPT-3生成的驴唇不对马嘴的文章和回答，也只当是个炒作的噱头，一笑了之；最近两个月发布的AI进展真称得上是日新月异了，在这一刻，当ChatGPT仅两个月就月活过亿，那只能说，你可以不变，但阻止不了世界改变。
+过分拟合人的想法是对真实世界的扭曲
+图片来自 GPT-4
+论文[1]，对比了预训练模型和使用强化学习调优后模型预测的分布。可以看到，没调前（左图）和真实分布基本是一致的：世界是什么样，模型就学成了什么样；学习调优反而不一致了。强化学习的目标是让AI的回答更符合人的提问意图，以及去 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D/" title="自然语言大模型介绍">自然语言大模型介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-01T00:00:00.000Z" title="Created 2023-04-01 00:00:00">2023-04-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">1 简介
+最近一直被大语言模型刷屏。本文是周末技术分享会的提纲，总结了一些自然语言模型相关的重要技术，以及各个主流公司的研究方向和进展，和大家共同学习。
+2 Transformer
+目前的大模型基本都是Transformer及其变种。本部分将介绍Transformer基础模型及其主要变种。
+2.1 Transformer模型
+Transformer是一种基于自注意力机制的模型，由Encoder和Decoder两部分组成。
+下图是精典论文《Attention is all you
+need》中展示的模型结构图，左边是Encoder，右边是Decoder，
+
+在Transformer中，Encoder将输入序列映射到一个高维空间中，Decoder则将这个高维空间中的向量映射回输出序列。
+在Encoder中，所有的词一起输入一起计算；在Decoder中像RNN一样一个一个词输入，将已经出现的词计算得到的Q与Encoder计算得到的K,V进行计算，经过了全部Decoder层再经过FC+Softmax得到结果之后再把结果当做Decoder的输入再走一遍整个流程直到得到END标签。
+Transfo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/2_%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_LaMDA/" title="论文阅读_LaMDA">论文阅读_LaMDA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-03-30T00:00:00.000Z" title="Created 2023-03-30 00:00:00">2023-03-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/2-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">2_大模型</a></span></div><div class="content">中文名称: LaMDA：对话应用程序的语言模型
+英文名称: LaMDA：Language Models for Dialog Applications
+论文地址: http://arxiv.org/abs/2201.08239
+时间: 2022-02-10
+读后感
+对于对话机器人的调优。提升模型的安全性和事实性，同时可咨询外部知识来源，如：信息检索系统、语言翻译器和计算器——结合了自然语言模型与其它工具。利用众包方式，选择人类偏好的回答，利用外部知识库验证其可靠性。
+介绍
+Google推出的LaMDA（Language Model for Dialogue
+Applications），针对对话应用的大语言模型。它可以处理开放式对话，这种对话通常围绕特定主题展开（外部知识源）。
+方法
+模型结构
+LaMDA采用的是纯decoder的结构，类似于GPT，使用了46层Transformer。
+数据
+在公共对话数据和 web tex 的 1.56T 词进行预训练，137B 参数。
+以SSI为例，要求众包工作者与 LaMDA 实例就任何主题进行交互来收集 6400
+轮，121K 的对话。这些对话需 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/#content-inner">57</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">569</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8_chuanhu%E5%B7%9D%E8%99%8E/" title="GPT应用_chuanhu川虎">GPT应用_chuanhu川虎</a><time datetime="2923-12-14T00:00:00.000Z" title="Created 2923-12-14 00:00:00">2923-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8_AutoGPT/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AB%98%E6%98%9F%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" title="大模型相关的高星开源工具">大模型相关的高星开源工具</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%A4%A7%E6%A8%A1%E5%9E%8B/Supabase/" title="Supabase">Supabase</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/6_%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/%E5%81%87%E8%AE%BE%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E4%BD%93/" title="假设我是一个智能体">假设我是一个智能体</a><time datetime="2023-12-21T00:00:00.000Z" title="Created 2023-12-21 00:00:00">2023-12-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/"><span class="card-category-list-name">0_Inbox</span><span class="card-category-list-count">6</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/%E6%9C%AC%E5%91%A8/"><span class="card-category-list-name">本周</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">542</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">46</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.24em; color: #999fa6">Python/股票</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.26em; color: #999fa8">机器学习/XGBoost</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">生物医学</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.16em; color: #999b9f">主题笔记</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.2em; color: #999da3">数学</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.46em; color: #99a7bb">图形图像</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.14em; color: #999b9d">异常检测</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/Arduino/" style="font-size: 1.4em; color: #99a5b6">Arduino</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.22em; color: #999ea4">工具</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.42em; color: #99a6b7">深度学习/模型结构</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.38em; color: #99a4b4">论文阅读</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.12em; color: #999a9b">知识图/知识图谱</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999b9d">版本管理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.16em; color: #999b9f">深度学习/扩散模型</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.44em; color: #99a7b9">算法实战</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.18em; color: #999ca1">数据存储</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.14em; color: #999b9d">AI绘画</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.2em; color: #999da3">区块链</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.34em; color: #99a3b0">机器学习/时序</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">#随笔</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.28em; color: #99a0aa">笔记/Obsidian</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.14em; color: #999b9d">编程语言/Java</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.32em; color: #99a2ae">知识图/图神经网络</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.36em; color: #99a3b2">编程语言/前端</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.2em; color: #999da3">深度学习/图形图像</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.12em; color: #999a9b">自然语言处理/统计方法</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.22em; color: #999ea4">自然语言处理/BERT</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.16em; color: #999b9f">Python/数据</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.3em; color: #99a1ac">数据分析</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.14em; color: #999b9d">编程语言/C</a> <a href="/tags/Pytorch/" style="font-size: 1.32em; color: #99a2ae">Pytorch</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.3em; color: #99a1ac">语音</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">March 2023</span><span class="card-archive-list-count">18</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">558</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">669.8k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-08T09:21:12.927Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/"><span class="card-category-list-name">0_Inbox</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/%E6%9C%AC%E5%91%A8/"><span class="card-category-list-name">本周</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">557</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">55</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.26em; color: #999fa8">自然语言处理/BERT</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">自然语言处理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.14em; color: #999b9d">编程语言/Java</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.17em; color: #999c9f">自然语言处理/工具</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.14em; color: #999b9d">异常检测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.3em; color: #99a1ac">机器学习/XGBoost</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.26em; color: #999fa8">工具</a> <a href="/tags/Pytorch/" style="font-size: 1.37em; color: #99a4b2">Pytorch</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.17em; color: #999c9f">深度学习/扩散模型</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.23em; color: #999ea6">随笔</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.28em; color: #99a0aa">编程语言</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">大模型</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.19em; color: #999da1">深度学习/知识蒸馏</a> <a href="/tags/Docker/" style="font-size: 1.23em; color: #999ea6">Docker</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.21em; color: #999da4">深度学习/图形图像</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.12em; color: #999a9b">多模态</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.39em; color: #99a5b4">机器学习/时序</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.21em; color: #999da4">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.19em; color: #999da1">数据存储/Hadoop</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.34em; color: #99a3b0">数据分析</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.34em; color: #99a3b0">深度学习/工具</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999b9d">版本管理</a> <a href="/tags/indent/" style="font-size: 1.1em; color: #999">indent</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.43em; color: #99a6b9">图形图像</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a7bb">操作系统/Linux</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.34em; color: #99a3b0">语音</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.14em; color: #999b9d">编程语言/C</a> <a href="/tags/%E8%A7%84%E8%8C%83%E5%8C%96/" style="font-size: 1.1em; color: #999">规范化</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.12em; color: #999a9b">Python/图形图像</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.41em; color: #99a5b7">机器学习/算法</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">#随笔</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.39em; color: #99a5b4">深度学习</a> <a href="/tags/%E9%80%9A%E7%94%A8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.1em; color: #999">通用人工智能</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2923/12/"><span class="card-archive-list-date">December 2923</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">569</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">682.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-28T01:03:45.685Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
