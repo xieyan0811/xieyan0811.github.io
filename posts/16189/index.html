@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Android界面开发 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Android 界面开发 #移动开发 #Android 一、界面元素 1. 窗口：Activity 应用程序中每个屏幕显示都通过继承和扩展基类 Activity 实现 分类：基本 Activity，带内容的 Activity（如 ListActivity） 2. 对话框：Dialog 一种显示于 Activity 之上的界面元素，由 Activity 管理，用于显示一些临时信息和功能，它比 Act">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android界面开发">
+<meta property="og:url" content="http://example.com/posts/16189/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Android 界面开发 #移动开发 #Android 一、界面元素 1. 窗口：Activity 应用程序中每个屏幕显示都通过继承和扩展基类 Activity 实现 分类：基本 Activity，带内容的 Activity（如 ListActivity） 2. 对话框：Dialog 一种显示于 Activity 之上的界面元素，由 Activity 管理，用于显示一些临时信息和功能，它比 Act">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2009-11-03T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="移动开发">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/16189/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Android界面开发',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Android界面开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2009-11-03T00:00:00.000Z" title="Created 2009-11-03 00:00:00">2009-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Android界面开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="android-界面开发">Android 界面开发</h1>
+<p>#移动开发 #Android</p>
+<p>一、界面元素</p>
+<p>1. 窗口：Activity<br />
+应用程序中每个屏幕显示都通过继承和扩展基类 Activity 实现</p>
+<p>分类：基本 Activity，带内容的 Activity（如 ListActivity）</p>
+<p>2. 对话框：Dialog<br />
+一种显示于 Activity 之上的界面元素，由 Activity
+管理，用于显示一些临时信息和功能，它比 Activity 开销小</p>
+<ol type="1">
+<li><p>常用对话框： AlertDialog：信息对话框<br />
+DatePickerDialog，TimePickerDialog：时间日期选择对话框<br />
+ProgressDialog：进度对话框<br />
+还可以设置对话框内容为我们自定义的 View</p></li>
+<li><p>相关函数： onCreateDialog()：创建对话框的实现<br />
+showDialog()：需要显示的时候调用<br />
+onPrepareDialog()：更改已有对话框时调用</p></li>
+</ol>
+<p>3. 菜单：Menu<br />
+一种显示于 Activity 之上的界面元素，由 Activity
+管理，用于提供用户一些额外的选项和设置</p>
+<ol type="1">
+<li><p>常用菜单： Options Menu：按 Menu 键时从屏幕底部滑出的菜单<br />
+Context Menu：用户通过在按件上长按调出它<br />
+Submenu：用于给菜单分类，可被添加到其它菜单上，不能添加到子菜单上</p></li>
+<li><p>相关函数： onCreateOptionMenu()：创建菜单（onCreateContextMenu…）
+onOptionsItemSelected()：处理菜单项的单击事件<br />
+onPrepareOptionsMenu()：动态更新</p></li>
+</ol>
+<p>4. 可视化控件：View<br />
+View 是可视化控件的基类</p>
+<ol type="1">
+<li><p>常用控件： TextView, ImageView<br />
+Button, CheckBox, RadioButton, ImageButton, ToggleButton<br />
+AnalogClock, DigitalClock<br />
+EditText, List…</p></li>
+<li><p>数据绑定：adapter<br />
+adapter 将控件（如 List,
+GridView）和复杂数据（如数据，键表）绑定起来</p></li>
+</ol>
+<p>5. 其它界面元素<br />
+标题栏</p>
+<p>二、布局的实现<br />
+设置控件在屏幕上如何排布</p>
+<p>1. LinearLayout：线性的布局方式<br />
+最常用，上下或左右的添加控件</p>
+<p>2. GridView：网格布局<br />
+控件按照顺序依次填到每个格子里就好了，使界面很整齐</p>
+<p>3. TableLayout：表格布局<br />
+以行列形式管理子控件，每行为一个 TableRow，TableRow 可添加子控件</p>
+<p>4. AbsoluteLayout：绝对坐标布局<br />
+可以让子元素指定准确的 x/y 坐标值，并显示在屏幕上。(0, 0) 为左上角。
+AbsoluteLayout 没有页边框，允许元素之间互相重叠（尽管不推荐）。
+不推荐使用，因为其在不同的设备上可能不能很好地工作。</p>
+<p>5. RelativeLayout：相对坐标布局<br />
+控件可指定他们相对于其它元素或父元素的位置（通过 ID 指定）。
+可以以右对齐，或上下，或置于屏幕中央的形式来排列两个元素。</p>
+<p>6. FrameLayout：单帧布局<br />
+所有的子元素将会固定在屏幕的左上角，后一个子元素将会直接在前一个子元素之上进行覆盖填充</p>
+<p>三、事件响应</p>
+<p>1. 用注册回调函数的方式响应事件</p>
+<p>2. 如果没被任何一个 View 处理，则由 Activity 处理</p>
+<p>3. 常用事件处理</p>
+<ol type="1">
+<li><p>onKeyDown()</p></li>
+<li><p>onKeyUp()</p></li>
+<li><p>onTrackballEvent()</p></li>
+<li><p>onTouchEvent()</p></li>
+</ol>
+<p>四、应用软件代码结构</p>
+<p>1. res：资源<br />
+资源是在代码中使用到的并且在编译时被打包进您的应用程序的附加文件<br />
+在代码中通过 R 类调用 (R 类自动生成，形如 R.string.title)</p>
+<ol type="1">
+<li>layout：存放布局用的 xml 文件</li>
+</ol>
+<ol type="a">
+<li><p>布局就像容器，里面可以装下很多控件，每个控件又有布局，字体设定，
+如字体大小在 layout 的 xml 里使用：
+Android:textAppearance=”?android:attr/textAppearanceSmall”</p></li>
+<li><p>默认的布局文件 main.xml</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>drawable：存放图片图标</p></li>
+<li><p>values：存放常量的 xml 文件（如字串）</p></li>
+</ol>
+<p>2. src：代码</p>
+<p>3. AndroidManifest.xml<br />
+包含应用程序的基本信息，有哪些组件，哪些资源</p>
+<ol type="1">
+<li><p>应用程序的 java 包名</p></li>
+<li><p>应用程序中所含组件（Activity, Service, BroadcastReceiver,
+ContentProvider）</p></li>
+<li><p>应用程序调用其它程序时的权限</p></li>
+<li><p>应用程序被其它程序调用时对其它程序的权限要求</p></li>
+<li><p>使用 Android API 的最低版本</p></li>
+<li><p>应用程序依赖的库</p></li>
+</ol>
+<p>五、国际化的支持（多语言）</p>
+<p>1. 在系统中如何设置本地语言<br />
+桌面 -&gt;settings-&gt;Local &amp; text-&gt;Select
+locale-&gt;Chinese(China)</p>
+<p>2. 在程序中如何加入多语言支持<br />
+res/value 中是默认的字体<br />
+把它复制一份成为 res/value-zh-rCN 文件夹，然后把其中文字改为简体中文</p>
+<p>3. 在不改变系统设置的前提前，测试当前应用对某一语言的支持<br />
+import java.util.Local; // 引入相关类<br />
+import android.util.DisplayMetrics;</p>
+<p>在 OnCreate 函数中加入以下本地化设置<br />
+Resources res = getResources();<br />
+Configuration conf = res.getConfiguration();<br />
+conf.locale = Locale.SIMPLIFIED_CHINESE; // 设置为简体中文<br />
+DisplayMetrics dm = res.getDisplayMetrics();<br />
+res.updateConfiguration(conf,dm);<br />
+编译后再运行程序时，读取的字串就是 res/value-zh-rCN 目录中 strings.xml
+里的文字了</p>
+<p>六、常见问题及解决方法</p>
+<p>1. android.app.Application<br />
+创建一个属于你自己的 android.app.Application 的子类，然后在 manifest
+中申明一下这个类，这是 android</p>
+<p>就为此建立一个全局可用的实例，你可以在其他任何地方使用
+Context.getApplicationContext()</p>
+<p>方法获取这个实例，进而获取其中的状态</p>
+<p>2. 用别人写的 java 文件改出自己的，R.xx 报错<br />
+由于资源找不对，要把它的 res 文件和 AndroidManifest.xml
+内容也做相应替换，注意 xml 里边要改成自己的类名</p>
+<p>3. android 中可以使用 java 中的类吗<br />
+一般数据结构使用它，而界面使用 android 自带的界面元素</p>
+<p>4. layout 中的控件与程序中控件的关系<br />
+平等的，layout 中的控件用 R.id.xxx 得到</p>
+<p>5. 布局冲突<br />
+requestWindowFeature 与 setContentView 冲突</p>
+<p>七、android 是重要的包<br />
+android.app：提供高层的程序模型、提供基本的运行环境<br />
+android.content：包含各种的对设备上的数据进行访问和发布的类<br />
+android.database：通过内容提供者浏览和操作数据库<br />
+android.graphics：底层的图形库，包含画布，颜色过滤，点，矩形，可以将他们直接绘制到屏幕上.<br />
+android.location：定位和相关服务的类<br />
+android.media：提供一些类管理多种音频、视频的媒体接口<br />
+android.net：提供帮助网络访问的类，超过通常的 java.net.* 接口<br />
+android.os：提供了系统服务、消息传输、IPC 机制<br />
+android.opengl：提供 OpenGL 的工具<br />
+android.provider：提供类访问 Android 的内容提供者<br />
+android.telephony：提供与拨打电话相关的 API 交互<br />
+android.view：提供基础的用户界面接口框架<br />
+android.util：涉及工具性的方法，例如时间日期的操作<br />
+android.webkit：默认浏览器操作接口<br />
+android.widget：包含各种 UI
+元素（大部分是可见的）在应用程序的屏幕中使用</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/16189/">http://example.com/posts/16189/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="post-meta__tags" href="/tags/Android/">Android</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/11399/" title="Android模拟器调试与真机调试"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Android模拟器调试与真机调试</div></div></a></div><div class="next-post pull-right"><a href="/posts/18511/" title="Android基本组件及其交互"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Android基本组件及其交互</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/16225/" title="中文语音合成引擎_Easytts_易言语音合成中文优化版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-05-11</div><div class="title">中文语音合成引擎_Easytts_易言语音合成中文优化版</div></div></a></div><div><a href="/posts/60329/" title="安装和卸载Android应用程序_apk包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">安装和卸载Android应用程序_apk包</div></div></a></div><div><a href="/posts/29780/" title="Android常用命令及工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Android常用命令及工具</div></div></a></div><div><a href="/posts/794/" title="Android常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">Android常用工具</div></div></a></div><div><a href="/posts/35729/" title="Eclipse编译带so库或jar包的android应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Eclipse编译带so库或jar包的android应用</div></div></a></div><div><a href="/posts/54377/" title="Ubuntu上安装和使用Android-Studio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-24</div><div class="title">Ubuntu上安装和使用Android-Studio</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#android-%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">Android 界面开发</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

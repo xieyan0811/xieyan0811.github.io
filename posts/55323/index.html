@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>比特币挖矿——集群矿池btcpool | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="比特币挖矿——集群矿池 btcpool #区块链 1. 介绍 btcpool 一个集群的解决方案，它使用了 mysql 数据库，web 服务，kafka，zooKeeper，据说可以控制 100000 矿机。代码中逻辑和安装说明都比较完整，但还需要一些编写一些 web 界面做 UI 支持。配好之后就和其它大矿池差不多了。 挖矿的哈希碰撞需要大量计算，由矿机实现。而拆分集成运算量，分配任务，在矿机多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币挖矿——集群矿池btcpool">
+<meta property="og:url" content="http://example.com/posts/55323/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="比特币挖矿——集群矿池 btcpool #区块链 1. 介绍 btcpool 一个集群的解决方案，它使用了 mysql 数据库，web 服务，kafka，zooKeeper，据说可以控制 100000 矿机。代码中逻辑和安装说明都比较完整，但还需要一些编写一些 web 界面做 UI 支持。配好之后就和其它大矿池差不多了。 挖矿的哈希碰撞需要大量计算，由矿机实现。而拆分集成运算量，分配任务，在矿机多">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-10-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="区块链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/55323/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '比特币挖矿——集群矿池btcpool',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——集群矿池btcpool</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-30T00:00:00.000Z" title="Created 2017-10-30 00:00:00">2017-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——集群矿池btcpool"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="比特币挖矿集群矿池-btcpool">比特币挖矿——集群矿池 btcpool</h1>
+<p>#区块链</p>
+<h2 id="介绍">1. 介绍</h2>
+<p>btcpool 一个集群的解决方案，它使用了 mysql 数据库，web
+服务，kafka，zooKeeper，据说可以控制 100000
+矿机。代码中逻辑和安装说明都比较完整，但还需要一些编写一些 web 界面做 UI
+支持。配好之后就和其它大矿池差不多了。</p>
+<p>挖矿的哈希碰撞需要大量计算，由矿机实现。而拆分集成运算量，分配任务，在矿机多的情况下也需要大量的算力支持。Btcpool
+是一个去中心化集群的解决方案（矿池内部去中心，对外自成体系）。N
+个矿机连一个控制板，控制板接入网络，通过端口连服务器，服务器再把拆分运算量的工作分担给矿池内的多台服务器同时计算。</p>
+<p>它的主旨就是整套系统切分成功能块，块与块之间用使用 kafka
+传递数据和信息，后台由 zooKeeper
+负载均衡，从而使不同的功能块运行在不同的服务器上。像钱包和 mysql
+这种频率使用的公用数据放在另外的服务器上，各功能块通过 rpc，zmp
+等方式访问它们。</p>
+<p>其中最核心的程序是 sserver，矿机控制板连接的就是该程序。它支持
+Stratum
+协议。现在一般的比特币矿池都支持两种协议:getwork、stratum。getwork
+比较方便也非常好理解，直接连接到矿池挖矿。stratum
+协议是一个挖矿代理，先通过电脑稳定连接矿池，然后挖矿机连接到电脑上，通过电脑中转挖矿结果和接收新的
+block，因为有电脑作为中转，相对来说挖矿过程比较稳定。</p>
+<h2 id="btcpool核心工具">2. btcpool（核心工具）</h2>
+<h4 id="下载">1) 下载</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/btccom/btcpool</span><br></pre></td></tr></table></figure>
+<h4 id="安装">2) 安装</h4>
+<p>btcpool 源码里，虽然没有什么文档，但是 README 和 INSTALL
+里面写得很清楚。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ su  #install脚本里，指定了/root等绝对路径，最好切换成root安装</span><br><span class="line">$ unzip btcpool-master.zip</span><br><span class="line">$ cd btcpool-master/install</span><br><span class="line">$ . install_btcpool.sh #第一次安装，有些辅助软件从git下载（一次连不上可多连几次），这样有效地保证了版本匹配，数据下载和安装在/root/sources和/work/中，具体说明见 INSTALL.md。</span><br><span class="line">$ cd /work/btcpool/build</span><br><span class="line">$ bash ../install/init_folders.sh</span><br></pre></td></tr></table></figure>
+<h4 id="注意事项">3) 注意事项</h4>
+<ol type="i">
+<li><p>/work/btcpool/build/run_xxx/xxx.cfg
+文件必须根据具体信息修改，先安装好支持软件，最后修改配置文件。</p></li>
+<li><p>集群的搭建方法必须按 btcpool/docs/INSTALL*.md
+来操作，因为有一些重要参数，比如 broker.id，max.size
+等等需要调整，如按一般方法安装，调试起来非常麻烦。</p></li>
+<li><p>尽量不要变更目录，很多路径都是写死的</p></li>
+<li><p>核心算法在 src/bitcoin
+目录下，它编出来的是一个静态库，其它的可执行程序调用它。</p></li>
+</ol>
+<h2 id="zookeeper依赖工具">3. ZooKeeper（依赖工具）</h2>
+<p>主要负责负载均衡。安装 Kafka 的说明书在/work/btcpool/docs/ INSTALL-
+ZooKeeper.md 中，最好按它的步骤配置，否则调试可能很麻烦。ZooKeeper
+原理及调试方法见上篇《比特币挖矿——建立 Kafka&amp;Zookeeper 集群》</p>
+<h2 id="kafka依赖工具">4. Kafka（依赖工具）</h2>
+<p>主要负责消息传送。安装 Kafka 的说明书在/work/btcpool/docs/
+INSTALL-Kafka.md
+中，一定要按它的要求修改配置文件，如果一开始配置错误，后对调试很麻烦。具体原理及调试方法见上篇《比特币挖矿——建立
+Kafka&amp;Zookeeper 集群》</p>
+<p>建 topic 操作见 INSTALL.md 脚本</p>
+<h2 id="mysql-数据库依赖工具">5. Mysql 数据库（依赖工具）</h2>
+<ol type="1">
+<li>安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install mysql-client</span><br><span class="line">$ apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>建库</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mysql</span><br><span class="line">&gt; CREATE DATABASE bpool_local_db; # 这两个库在.cfg中设置</span><br><span class="line">&gt; CREATE DATABASE bpool_local_stats_db;</span><br><span class="line">&gt; exit</span><br></pre></td></tr></table></figure>
+<p>其它操作见 INSTALL.md 脚本</p>
+<h2 id="http-服务器-apache2依赖工具">6. http 服务器
+Apache2（依赖工具）</h2>
+<ol type="1">
+<li>安装</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt install apache2</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>需要写一个 php，能输入如下内容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;err_no&quot;:0,&quot;err_msg&quot;:null,&quot;data&quot;:&#123;&quot;jack&quot;:1,&quot;terry&quot;:2&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>它与矿工连上来的用户名对应。</p>
+<h2 id="zeromq辅助工具">7. zeromq（辅助工具）</h2>
+<p>ZeroMQ 看起来像一个可嵌入的网络库,
+但其作用就像是一个并发框架。它提供了各种传输工具, 如进程内, 进程间, TCP
+和组播中进行原子消息传递的套接字。</p>
+<p>在 install.sh
+脚本里下载到/root/sources/下，并安装，无需手动再安了。</p>
+<p>在 gbtmaker.cfg 中的默认设置为使用 zeromq 通讯，需要 bitcoin
+钱包也支持 zeromq，如果不想用它，在 gbtmaker.cfg 里将 zmq 相关的设为
+false，它将改为调用 rpc 通讯。</p>
+<h2 id="supervisor依赖工具">8. supervisor（依赖工具）</h2>
+<h4 id="说明">1) 说明</h4>
+<p>它负责管理后台进程，服务一般要长时间运行，它负责监测进程状态，在死掉时重启服务等等，其中的配置文件
+conf 用于指定具体的程序及参数。</p>
+<h4 id="安装-1">2) 安装</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ apt-get install supervisor # 这是后台进程管理用的</span><br></pre></td></tr></table></figure>
+<p>将需要启动的服务配置写成 conf 文件复制到/etc/supervisor/conf.d
+下即可，其它操作见 INSTALL.md 脚本</p>
+<h4 id="常用命令">3) 常用命令</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ supervisorctl</span><br><span class="line">&gt; reread</span><br><span class="line">&gt; update</span><br><span class="line">&gt; status # 查看状态</span><br><span class="line">&gt; restart xxxx # 可选择重启某一个</span><br><span class="line">其它</span><br><span class="line">$ supervisorctl start xxx</span><br><span class="line">$ supervisorctl stop xxx</span><br></pre></td></tr></table></figure>
+<h2 id="测试">9. 测试</h2>
+<h4 id="自带的测试工具-simulator">1) 自带的测试工具 simulator</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /work/btcpool/build/run_simulator</span><br><span class="line">$ ./simulator -c simulator.cfg -l /tmp/log</span><br></pre></td></tr></table></figure>
+<h4 id="模拟矿机连接">2) 模拟矿机连接</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">minerd -o stratum+tcp://127.0.0.1:3333 -O jack:1</span><br></pre></td></tr></table></figure>
+<p>注意这里的用户名要和 http 服务上的匹配</p>
+<h2 id="集成说明">10. 集成说明</h2>
+<h4 id="一般调试过程如下">1) 一般调试过程如下：</h4>
+<ol type="i">
+<li><p>所有程序正常运行，不退出，不报错，不卡往。</p></li>
+<li><p>矿机能连上矿池，能分配到工作，开始计算。</p></li>
+<li><p>数据库中出现用户登录的记录。</p></li>
+<li><p>数据库中的各项数据都显示正常。</p></li>
+<li><p>程序员做一些监控统计的工具，供一般用户使用。</p></li>
+</ol>
+<h4 id="调试说明">2) 调试说明：</h4>
+<ol type="i">
+<li><p>首先要根据具体情况修改各个.cfg 文件</p></li>
+<li><p>调试时，可以先不使用
+supervisorctl，直接调用/work/btcpool/build/run*
+中的程序，具体参数见对应的 conf 程序</p></li>
+<li><p>建议从核心程序开始一个一个调试。默认有很多 log
+文件，里面显示了具体程序出错的位置。调试的顺序是
+blkmaker-&gt;gbtmaker-&gt;jobmaker-&gt;sserver-&gt;其它</p></li>
+<li><p>集成最重要的是配置文件和软件版本，配完后最好对其进行记录和备份</p></li>
+<li><p>综上，Btcpool
+提供了一个工作框架，真正用起来还需要做很多工作。</p></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/55323/">http://example.com/posts/55323/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/55681/" title="深度学习_简介及相关概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">深度学习_简介及相关概念</div></div></a></div><div class="next-post pull-right"><a href="/posts/4343/" title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">比特币挖矿——建立Kafka&amp;ZooKeeper集群</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/5581/" title="比特币挖矿——介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-24</div><div class="title">比特币挖矿——介绍</div></div></a></div><div><a href="/posts/28362/" title="比特币挖矿——区块链技术"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-25</div><div class="title">比特币挖矿——区块链技术</div></div></a></div><div><a href="/posts/4343/" title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-29</div><div class="title">比特币挖矿——建立Kafka&amp;ZooKeeper集群</div></div></a></div><div><a href="/posts/27921/" title="比特币挖矿——控制器与矿机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-27</div><div class="title">比特币挖矿——控制器与矿机</div></div></a></div><div><a href="/posts/8235/" title="比特币挖矿——钱包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-26</div><div class="title">比特币挖矿——钱包</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E9%9B%86%E7%BE%A4%E7%9F%BF%E6%B1%A0-btcpool"><span class="toc-number">1.</span> <span class="toc-text">比特币挖矿——集群矿池 btcpool</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1. 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#btcpool%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.</span> <span class="toc-text">2. btcpool（核心工具）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1) 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2) 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3) 注意事项</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zookeeper%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.3.</span> <span class="toc-text">3. ZooKeeper（依赖工具）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kafka%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.4.</span> <span class="toc-text">4. Kafka（依赖工具）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.5.</span> <span class="toc-text">5. Mysql 数据库（依赖工具）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E6%9C%8D%E5%8A%A1%E5%99%A8-apache2%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.6.</span> <span class="toc-text">6. http 服务器
+Apache2（依赖工具）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zeromq%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">1.7.</span> <span class="toc-text">7. zeromq（辅助工具）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#supervisor%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7"><span class="toc-number">1.8.</span> <span class="toc-text">8. supervisor（依赖工具）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.8.0.1.</span> <span class="toc-text">1) 说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">1.8.0.2.</span> <span class="toc-text">2) 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.8.0.3.</span> <span class="toc-text">3) 常用命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">1.9.</span> <span class="toc-text">9. 测试</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%B8%A6%E7%9A%84%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7-simulator"><span class="toc-number">1.9.0.1.</span> <span class="toc-text">1) 自带的测试工具 simulator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E7%9F%BF%E6%9C%BA%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.9.0.2.</span> <span class="toc-text">2) 模拟矿机连接</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E8%AF%B4%E6%98%8E"><span class="toc-number">1.10.</span> <span class="toc-text">10. 集成说明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E5%A6%82%E4%B8%8B"><span class="toc-number">1.10.0.1.</span> <span class="toc-text">1) 一般调试过程如下：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E8%AF%B4%E6%98%8E"><span class="toc-number">1.10.0.2.</span> <span class="toc-text">2) 调试说明：</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>熵_相对熵_散度 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 信息量 意外越大，越不可能发生，概率就越小，信息量也就越大，也就是信息越多。比如说“今天肯定会天黑”，实现概率 100%，说了和没说差不多，信息量就是 0。 详见：2. 信息量 1.1 公式 \[ I(x)&#x3D;-logP(x) \] 概率 P(x) 越小，信息量越大，可以简单理解为最小编码长度，比如概率 0.125，log(1&#x2F;0.125)，如果以 2 为底做 log，则需要 3 位二进制数描述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="熵_相对熵_散度">
+<meta property="og:url" content="http://example.com/posts/53001/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1 信息量 意外越大，越不可能发生，概率就越小，信息量也就越大，也就是信息越多。比如说“今天肯定会天黑”，实现概率 100%，说了和没说差不多，信息量就是 0。 详见：2. 信息量 1.1 公式 \[ I(x)&#x3D;-logP(x) \] 概率 P(x) 越小，信息量越大，可以简单理解为最小编码长度，比如概率 0.125，log(1&#x2F;0.125)，如果以 2 为底做 log，则需要 3 位二进制数描述">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2023-03-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-19T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/53001/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '熵_相对熵_散度',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-19 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">熵_相对熵_散度</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-03-19T00:00:00.000Z" title="Created 2023-03-19 00:00:00">2023-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-03-19T00:00:00.000Z" title="Updated 2023-03-19 00:00:00">2023-03-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/">分布</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="熵_相对熵_散度"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="信息量">1 信息量</h2>
+<p>意外越大，越不可能发生，概率就越小，信息量也就越大，也就是信息越多。比如说“今天肯定会天黑”，实现概率
+100%，说了和没说差不多，信息量就是 0。</p>
+<p>详见：<a
+href="1_Note/2_算法/4_机器学习/机器学习_决策树与信息熵.md#2.%20信息量">2.
+信息量</a></p>
+<h3 id="公式">1.1 公式</h3>
+<p><span class="math display">\[
+I(x)=-logP(x)
+\]</span></p>
+<p>概率 P(x) 越小，信息量越大，可以简单理解为最小编码长度，比如概率
+0.125，log(1/0.125)，如果以 2 为底做 log，则需要 3 位二进制数描述。</p>
+<h2 id="熵">2 熵</h2>
+<p>熵用于描述不确定性，越不确定，熵越高。熵是事件所属的整个分布的不确定性总量量化。可以说：熵越小，越容易被预测。</p>
+<h3 id="公式-1">2.1 公式</h3>
+<p><span class="math display">\[
+H(\mathrm{x})=\mathbb{E}_{\mathbf{x} \sim
+P}[I(x)]=-\mathbb{E}_{\mathbf{x} \sim P}[\log P(x)]=-\sum_{x} P(x) \log
+P(x)
+\]</span></p>
+<p>这里乘了概率 P(x)，等于计算了平均最小编码长度。</p>
+<h3 id="特性">2.2 特性</h3>
+<ul>
+<li>接近均匀分布的概率分布具有较高的熵</li>
+<li>接近确定性的分布 (输出几乎可以确定) 具有较低的熵</li>
+</ul>
+<h3 id="实例">2.3 实例</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> scipy.stats</span><br><span class="line"></span><br><span class="line">arr = [<span class="number">1</span>,<span class="number">10</span>,<span class="number">100</span>,<span class="number">1000</span>]</span><br><span class="line">e = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> arr:</span><br><span class="line">    p = x/<span class="built_in">sum</span>(arr)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span>, <span class="subst">&#123;<span class="built_in">round</span>(p,<span class="number">5</span>)&#125;</span> * <span class="subst">&#123;<span class="built_in">round</span>(math.log(p),<span class="number">5</span>)&#125;</span> = <span class="subst">&#123;<span class="built_in">round</span>(p*math.log(p),<span class="number">5</span>)&#125;</span>&quot;</span>)</span><br><span class="line">    e += p*math.log(p)</span><br><span class="line"><span class="built_in">print</span>(-e)</span><br><span class="line"><span class="built_in">print</span>(scipy.stats.entropy(arr))</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1, 0.0009 * -7.01302 = -0.00631</span><br><span class="line">10, 0.009 * -4.71043 = -0.0424</span><br><span class="line">100, 0.09001 * -2.40785 = -0.21673</span><br><span class="line">1000, 0.90009 * -0.10526 = -0.09474</span><br><span class="line">0.3601821726181299</span><br><span class="line">0.3601821726181299</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先要注意的是：数组里存放的是每个类别中元素的个数，而不是元素的具体值，本例中共
+1111 个元素，分为四类。</li>
+<li>p 是每个类别出现的频率，取值在 0-1 之间，因此 log(p) 为负，频率 p 离
+1 越近，log(p) 离 0 越近。</li>
+<li>就每一类而言，有以下几种可能：
+<ul>
+<li>a.该类占整体比例越大，p 越大，log(p) 离 0
+越近，相乘后，对整体熵（混乱程度）的贡献比较小</li>
+<li>b.该类占整体比例越小，p 越小，log(p) 离 0
+越远，相乘后，对整体熵（混乱程度）的贡献比较小</li>
+<li>c.该类占整体比例适中，p 值中等，log(p)
+也中等，相乘后，对整体熵（混乱程度）的贡献反而比较大</li>
+</ul></li>
+<li>其背后的逻辑是：
+<ul>
+<li>a.有一个类别可能性非常大（如
+a），绝大多数属于该类，就“蒙”这一类</li>
+<li>b.有一个类别可能性非常小（如
+b），绝大多数不属于该类，“不蒙”这一类</li>
+<li>c.如果数据被平均分成少数几个类别（c
+中的一种情况），那就很难“蒙对”了，这也是最不确定的情况</li>
+</ul></li>
+</ul>
+<h2 id="相对熵">3 相对熵</h2>
+<p>相对熵可以用来衡量两个分布之间的差异程度。两者差异越小，KL
+散度越小。</p>
+<h3 id="kl-散度">3.1 KL 散度</h3>
+<p>KL 散度，KL 距离，又叫相对熵 (relative
+entropy)，衡量两个概率分布之间的不同程度。</p>
+<ul>
+<li>KL 散度被称为：相对熵、互熵、鉴别信息、Kullback 熵、Kullback-Leible
+散度 (即 KL 散度的简写)。</li>
+<li>KL 散度常在损失函数中用于限制函数变化。</li>
+<li>在机器学习、深度学习领域中，KL 散度被广泛运用于变分自编码器中
+(Variational AutoEncoder,简称 VAE)、EM 算法、GAN 网络中。</li>
+<li>KL 散度是非对称的，如需考虑双向散度，请见 JS 散度。</li>
+<li>KL 散度结果为 0-
+正无穷，很难给出一个绝对的阈值，但可以使用比较的方法计算相对的大小。</li>
+</ul>
+<h4 id="定义">3.1.1 定义</h4>
+<p>一个离散随机变量 X 的可能取值为 X=x1,x2,...xn，对应的概率
+pi=p(X=xi)。</p>
+<h4 id="离散公式">3.1.2 离散公式</h4>
+<p><span class="math display">\[
+D_{K L}(p \| q)=\sum_{i=1}^{n} p(x) \log \frac{p(x)}{q(x)}
+\]</span></p>
+<p>上述公式描述的是 p 相对于 q 的散度，针对每个 x，计算不同分布中概率
+p(x) 与 q(x) 的比值，当无差异时，其值为 1，log(1) 为 0（见下方 log
+函数图），此 x 项对应项则为 0，否则根据其概率 p(x)
+与差异的大小的乘积累加。当两个分布一致时，其 KL 散度为 0。</p>
+<h4 id="连续公式">3.1.3 连续公式</h4>
+<p><span class="math display">\[
+D_{KL}(p \| q)=\int_x p(x) \log \frac{p(x)}{q(x)} d x
+\]</span></p>
+<p>与离散公式类似，差异是将离散 x 变为连续值计算积分，其目标也是让 x
+取值范围中所有值 p(x) 与 q(x) 一致。</p>
+<h4 id="用途">3.1.4 用途</h4>
+<ul>
+<li><p>用户画像</p>
+<p>使用 KL 散度去计算同一类型商品不同用户群体之间的金额（或其余指标）的
+KL
+散度，如果都很接近，说明这个类型商品不是不同用户群体之间的差异点，可以进行剔除，只保留有差异性的商品类型
+(KL 散度较大)。</p></li>
+</ul>
+<h3 id="js-散度">3.2 JS 散度</h3>
+<h4 id="定义-1">3.2.1 定义</h4>
+<p>JS 散度是基于 KL 散度的变体，解决了 KL
+散度非对称的问题，同样是二者越相似，JS 散度越小。</p>
+<h4 id="特性-1">3.2.2 特性</h4>
+<p>JS 散度的取值范围在 0-1 之间，完全相同时为 0。</p>
+<h4 id="公式-2">3.2.3 公式</h4>
+<p><span class="math display">\[
+J_S(P_1||P_2)=\frac{1}{2}KL(P_1||\frac{P_1+P_2}{2})+\frac{1}{2}KL(P_2||\frac{P_1+P_2}{2})
+\]</span></p>
+<p>把数据 1 和数据 2 放一块作为一个整体，再用数据 1 和数据 2
+分别和整体比。</p>
+<h2 id="交叉熵">4 交叉熵</h2>
+<h3 id="公式-3">4.1 公式</h3>
+<p>交叉熵常作为损失函数使用，用于评价离散值的预测：</p>
+<p><span class="math display">\[
+\mathrm{H}(\mathrm{p}, \mathrm{q})=\sum_{x} p(x) \cdot \log
+\left(\frac{1}{q(x)}\right)
+\]</span></p>
+<p>p 表示真实标签的分布，q
+则为训练后的模型的预测标签分布，交叉熵损失函数可以衡量 p 与 q
+的相似性。如果把 q 换成 p，则计算的是数据的熵。</p>
+<h3 id="交叉熵损失函数">4.2 交叉熵损失函数</h3>
+<p>交叉熵作为分类的损失函数时，由于实际上每个实例只属于一个分类，则只有一个
+p(x) 为 1，其它 p(x) 都为 0，那么只需要考虑模型预测为该类别的概率
+q(x)。展开式示例如下：</p>
+<p><span class="math display">\[
+\begin{array}{c}
+H\left(P_{1}, Q_{1}\right)=-\sum_{i} P_{1}(i) \log _{2} Q_{1}(i) \\
+=-(1 \log 0.4+0 \log 0.3+0 \log 0.05+0 \log 0.05+0 \log 0.2) \approx
+0.916
+\end{array}
+\]</span></p>
+<p>当预测完全正确，q(x)=1，log(1/q(x))=0，p(x)=1，H(p,q)=0。</p>
+<p>当预测概率为
+40%，q(x)=0.4，log(1/0.4)=0.916，p(x)=1，H(p,q)=0.916，预测不准，loss
+大。</p>
+<p>当预测概率为
+90%，q(x)=0.9，log(1/0.9)=0.105，p(x)=1，H(p,q)=0.105，预测较准，loss
+小。</p>
+<p>如果说第一项是“狗”，实际也真是狗，第一项的 P(x)=1，也希望预测的 q(x)
+接近 1（它是个概率取值在 0-1 之间）；它离 1 越远 (近
+0)，越要惩罚它。</p>
+<h2 id="参考">5 参考</h2>
+<h3 id="log-曲线">5.1 log 曲线</h3>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230304081642.png" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/53001/">http://example.com/posts/53001/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/9680/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_ChatGLM</div></div></a></div><div class="next-post pull-right"><a href="/posts/34843/" title="论文阅读_PaLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_PaLM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/35170/" title="Bland-Altman图"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-18</div><div class="title">Bland-Altman图</div></div></a></div><div><a href="/posts/34734/" title="从正态分布到T检验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-12-22</div><div class="title">从正态分布到T检验</div></div></a></div><div><a href="/posts/2746/" title="Python数据分析常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-21</div><div class="title">Python数据分析常用工具</div></div></a></div><div><a href="/posts/13632/" title="Stata中常用的数据分析命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-17</div><div class="title">Stata中常用的数据分析命令</div></div></a></div><div><a href="/posts/65495/" title="TableOne数据分析工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-23</div><div class="title">TableOne数据分析工具</div></div></a></div><div><a href="/posts/46159/" title="列线图工具_Nomogram"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-11</div><div class="title">列线图工具_Nomogram</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E9%87%8F"><span class="toc-number">1.</span> <span class="toc-text">1 信息量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%86%B5"><span class="toc-number">2.</span> <span class="toc-text">2 熵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E7%86%B5"><span class="toc-number">3.</span> <span class="toc-text">3 相对熵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kl-%E6%95%A3%E5%BA%A6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 KL 散度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E6%95%A3%E5%85%AC%E5%BC%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 离散公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%85%AC%E5%BC%8F"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 连续公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E9%80%94"><span class="toc-number">3.1.4.</span> <span class="toc-text">3.1.4 用途</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E6%95%A3%E5%BA%A6"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 JS 散度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%80%A7-1"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F-2"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3 公式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="toc-number">4.</span> <span class="toc-text">4 交叉熵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F-3"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 交叉熵损失函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">5 参考</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#log-%E6%9B%B2%E7%BA%BF"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 log 曲线</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

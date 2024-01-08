@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SHAP解释模型二 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SHAP 解释模型（二） 本文在 SHAP解析模型 之后，又尝试了一些 SHAP 新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本 shap：0.41.0，同时安装 xgboost 作为预测模型，并使用较高版本的 matplotlib（低版本有时画图报错）． 123$ pip install shap&#x3D;&#x3D;0.41.0$ pip install xgboost&#x3D;&#x3D;0.82">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SHAP解释模型二">
+<meta property="og:url" content="http://example.com/posts/56928/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="SHAP 解释模型（二） 本文在 SHAP解析模型 之后，又尝试了一些 SHAP 新版本的进阶用法，整理并与大家分享． 1 环境配置 以下实验使用当前最新版本 shap：0.41.0，同时安装 xgboost 作为预测模型，并使用较高版本的 matplotlib（低版本有时画图报错）． 123$ pip install shap&#x3D;&#x3D;0.41.0$ pip install xgboost&#x3D;&#x3D;0.82">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2022-08-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="模型解释">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/56928/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SHAP解释模型二',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">SHAP解释模型二</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-08-21T00:00:00.000Z" title="Created 2022-08-21 00:00:00">2022-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/14-%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/">14_模型解释</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">987</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SHAP解释模型二"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>SHAP 解释模型（二）</p>
+<p>本文在 <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/xieyan0811/article/details/120393090">SHAP解析模型</a>
+之后，又尝试了一些 SHAP 新版本的进阶用法，整理并与大家分享．</p>
+<h2 id="环境配置">1 环境配置</h2>
+<p>以下实验使用当前最新版本 shap：0.41.0，同时安装 xgboost
+作为预测模型，并使用较高版本的 matplotlib（低版本有时画图报错）．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install shap==0.41.0</span><br><span class="line">$ pip install xgboost==0.82</span><br><span class="line">$ pip install matplotlib==3.5.2</span><br></pre></td></tr></table></figure>
+<h2 id="实验数据">2 实验数据</h2>
+<p>仍延用波士顿房价数据集，由于有些方法需要 explainer 对象，因此构造了
+shap_value_obj</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import shap</span><br><span class="line">import xgboost</span><br><span class="line">X,y = shap.datasets.boston()</span><br><span class="line"></span><br><span class="line">model = xgboost.train(&#123;&quot;learning_rate&quot;: 0.01&#125;, xgboost.DMatrix(X, label=y), 100)</span><br><span class="line">explainer = shap.TreeExplainer(model) </span><br><span class="line">shap_values = explainer.shap_values(X) </span><br><span class="line">shap_values_obj = explainer(X) </span><br></pre></td></tr></table></figure>
+<h2 id="单特征实验">3 单特征实验</h2>
+<p>首先，尝试一些单特征分析方法．</p>
+<h3 id="分析单个实例">3.1 分析单个实例</h3>
+<p>在图中主要关注 base_value，它是预测的均值，而 f(x)
+展示了该实例的具体预测值，红色和蓝色区域的颜色和宽度展示了主要特征的影响和方向．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.force_plot(explainer.expected_value, shap_values[0,:], X.iloc[0,:])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821100923.png"
+alt="Pasted image 20220821100923.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821100923.png</figcaption>
+</figure>
+<h3 id="决策图">3.2 决策图</h3>
+<p>决策图可在一张图上展示多个实例的特征对结果的影响，一般情况下，位置越靠上的特征影响越大．本例中设定
+feature_order='hclust'，则是按 shap value
+进行聚类，再按特征的相关度排序，因此线条看起来比较直；其 x
+轴描述的是各个特征对最终预测值拉扯的方向和力度．</p>
+<p>使用该方法也可以用于异常值检测，如果有一条线明显与其它线的方向不同，则可能是异常值．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">features = X[:20] # 只分析前20个样本</span><br><span class="line">shap_values = explainer.shap_values(features)</span><br><span class="line">shap.decision_plot(explainer.expected_value, shap_values, </span><br><span class="line">                   features, feature_order=&#x27;hclust&#x27;)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821101551.png"
+alt="Pasted image 20220821101551.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821101551.png</figcaption>
+</figure>
+<h3 id="热力图">3.3 热力图</h3>
+<p>热力图的横轴是每个实例，纵轴是每个特征对该实例的影响，用颜色描述该特征对该实例的影响方向和力度，比如
+x 轴在 300 附近的实例，其预测值 f(x) 在 0.5 附近，原因是 LSTAT
+对它起到正向作用，而 RM 对它起负向作用，其它特征影响比较小（浅色）．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.plots.heatmap(shap_values_obj)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821101642.png"
+alt="Pasted image 20220821101642.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821101642.png</figcaption>
+</figure>
+<h2 id="特征组合实验">4 特征组合实验</h2>
+<p>特征组合是数据分析的重要因素，下面实验对特征组合的挖掘方法．</p>
+<h3 id="带聚类的特征图">4.1 带聚类的特征图</h3>
+<p>先对 shap value 做聚类，此时 shap_value
+值类似的实例被分成一组，相关性强的特征就能显现出来，再画条形图时，展示了特征的相关性．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clustering = shap.utils.hclust(X, y) </span><br><span class="line">shap.plots.bar(shap_values_obj, </span><br><span class="line">               clustering=clustering,</span><br><span class="line">               clustering_cutoff=0.5)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821101740.png"
+alt="Pasted image 20220821101740.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821101740.png</figcaption>
+</figure>
+<h3 id="依赖图">4.2 依赖图</h3>
+<p>依赖图分析一个特征对另一个特征的影响，示图类似 shap
+散点图，横坐标为特征 "RM" 的取值范围，纵坐标为其取值对应的 shap
+value，颜色分析的是另一特征 "RAD" 在 "RM" 变化过程中的分布．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shap.dependence_plot(&quot;RM&quot;, shap_values_obj.values, X, interaction_index=&#x27;RAD&#x27;)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821101052.png"
+alt="Pasted image 20220821101052.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821101052.png</figcaption>
+</figure>
+<h3 id="交互图">4.3 交互图</h3>
+<p>交互图对角线上展示的是该特征与预测值的关系，它与最普通的 shap plot
+相一致，对角线以外其它位置是特征两两组合对预测的影响．每个子图的横坐标为
+shap value，也就是说，子图越宽，该特征组合对结果影响越大．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shap_interaction_values = explainer.shap_interaction_values(X)</span><br><span class="line">shap.summary_plot(shap_interaction_values, X)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821101147.png"
+alt="Pasted image 20220821101147.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821101147.png</figcaption>
+</figure>
+<h3 id="特征组合的影响">4.4 特征组合的影响</h3>
+<p>将交互图按特征重要性排序后绘图．个人认为下图非常有用，它将单特征与特征组合画在一张图中，可以从中分析出哪些特征组合更为重要．</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shap_interaction_values = explainer.shap_interaction_values(X)</span><br><span class="line">shap.summary_plot(shap_interaction_values, X, max_display=10, plot_type=&quot;compact_dot&quot;)</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220821102503.png"
+alt="Pasted image 20220821102503.png" />
+<figcaption aria-hidden="true">Pasted image
+20220821102503.png</figcaption>
+</figure>
+<h2 id="参考">5 参考</h2>
+<p><a target="_blank" rel="noopener" href="https://www.modb.pro/db/129193">用 SHAP
+可视化解释机器学习模型实用指南(下)</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/456843338">数据科学家必备｜可解释模型SHAP可视化全解析</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/56928/">http://example.com/posts/56928/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/">模型解释</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4040/" title="设置电脑休眠"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">设置电脑休眠</div></div></a></div><div class="next-post pull-right"><a href="/posts/20337/" title="论文阅读_广义加性模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_广义加性模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/14484/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-20</div><div class="title">SHAP解释模型</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/30305/" title="streamlit构造Web应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-12</div><div class="title">streamlit构造Web应用</div></div></a></div><div><a href="/posts/6517/" title="算法之_欧拉公式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-01</div><div class="title">算法之_欧拉公式</div></div></a></div><div><a href="/posts/28040/" title="分类模型的可解释性"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">分类模型的可解释性</div></div></a></div><div><a href="/posts/64113/" title="常用的线性回归模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">常用的线性回归模型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">1 环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">2 实验数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%89%B9%E5%BE%81%E5%AE%9E%E9%AA%8C"><span class="toc-number">3.</span> <span class="toc-text">3 单特征实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%8D%95%E4%B8%AA%E5%AE%9E%E4%BE%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 分析单个实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 决策图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E5%8A%9B%E5%9B%BE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 热力图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E7%BB%84%E5%90%88%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">4 特征组合实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E8%81%9A%E7%B1%BB%E7%9A%84%E7%89%B9%E5%BE%81%E5%9B%BE"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 带聚类的特征图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E5%9B%BE"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 依赖图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E5%9B%BE"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 交互图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E7%BB%84%E5%90%88%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 特征组合的影响</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">5 参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

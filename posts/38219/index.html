@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_语音合成_VALL-E | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="name_ch: 神经网络编解码器语言模型实现零样本 TTS name_en: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers date_publish: 2023-01-05 paper_addr: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2301.02111 code: https:&#x2F;&#x2F;github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_语音合成_VALL-E">
+<meta property="og:url" content="http://example.com/posts/38219/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="name_ch: 神经网络编解码器语言模型实现零样本 TTS name_en: Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers date_publish: 2023-01-05 paper_addr: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2301.02111 code: https:&#x2F;&#x2F;github">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2023-04-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-04-25T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="语音">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/38219/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_语音合成_VALL-E',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-25 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_语音合成_VALL-E</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-04-25T00:00:00.000Z" title="Updated 2023-04-25 00:00:00">2023-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E8%AF%AD%E9%9F%B3/">1_语音</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">943</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_语音合成_VALL-E"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>name_ch: 神经网络编解码器语言模型实现零样本 TTS</p>
+<p>name_en: Neural Codec Language Models are Zero-Shot Text to Speech
+Synthesizers</p>
+<p>date_publish: 2023-01-05</p>
+<p>paper_addr: http://arxiv.org/abs/2301.02111</p>
+<p>code: https://github.com/microsoft/unilm/tree/master/valle</p>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230505151400.png" /></p>
+<h2 id="读后感">1 读后感</h2>
+<p>语音合成模型，输入是待合成的文本，3
+秒的录音，输出为与录音一致的合成后的语音内容。</p>
+<h2 id="与传统-tts-的差异">2 与传统 TTS 的差异</h2>
+<p>之前的语音模型是：音素 -&gt;梅尔倒谱 -&gt;音频；VALL-E 是：音素
+-&gt;离散编码 -&gt;音频。</p>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230505151746.png" /></p>
+<h2 id="主要贡献">3 主要贡献</h2>
+<p>• 我们提出了 VALL-E，有效使用上下文学习能力的 TTS
+框架，音频编解码器代码作为中间表示，以取代<strong>传统的梅尔声谱图</strong>。</p>
+<p>•
+通过利用大量的<strong>半监督数据</strong>在说话者维度构建了一个通用的
+TTS 系统。</p>
+<p>• VALL-E
+能够以相同的输入文本提供不同的输出，并保持声音提示的<strong>声学环境和说话者的情绪</strong>。</p>
+<p>•
+在零样本场景中提示来合成具有高说话人相似度的<strong>自然语音</strong>。</p>
+<h2 id="背景">4 背景</h2>
+<p>合成音频数据的<strong>挑战</strong>，包括每个时间步骤需要生成的概率数量多和序列长度长的问题。为了解决这些问题，使用语音量化技术来压缩数据和提高推理速度。矢量量化广泛应用于自监督语音模型中进行<strong>特征提取</strong>，如
+vq-wav2vec 和 HuBERT。</p>
+<p>最近的研究表明，<strong>自监督模型</strong>中的编码也可以重构内容，并且推理速度比
+WaveNet 快。但是，说话人身份已被丢弃，重构质量很差。而 AudioLM
+模型有效解决了以上问题。深度学习在音频编码方面也取得了显著提升，这里使用了
+Encodec 作为音频编码器。</p>
+<h2 id="方法">5 方法</h2>
+<h3 id="问题表述">5.1 问题表述</h3>
+<p>其中 y 是音频样本，x = {x0, x1,..., xL}
+是其对应的音素转录，我们使用预训练的神经编解码器模型将每个音频样本编码成离散的声学代码，表示为
+Encodec(y) = C，T 是下采样的话语长度。重建波形 Decodec(C) ≈ y^。</p>
+<p>推理过程中，给定音素序列和未见过的说话人的 3
+秒登记录音，首先通过训练的语言模型估计具有相应内容和说话人语音的声学代码矩阵，模型推理，然后用解码器合成高质量的语音。</p>
+<h3 id="训练">5.2 训练</h3>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230505154108.png" /></p>
+<p>以分层的方式设计了两个条件语言模型，一个用于生成声音 c1（自回归
+AR），一个用于精调声音 c2-8（NAR 非自回归）。AR 模型和 NAR
+模型的结合在语音质量和推理速度之间提供了良好的折衷。</p>
+<p>自回归为了生成具有特定内容的语音，使用音素序列作为语言模型的音素提示。使用非自回归
+(NAR) 模型生成其他七个量化器的代码。与 AR 不同的是，NAR 模型允许每个
+token 参与 self-attention 层中的所有输入 token。</p>
+<h3 id="推理">5.3 推理</h3>
+<p>如果该模型无需微调即可为看不见的说话人合成高质量的语音，则该模型被认为具有上下文学习能力。</p>
+<p>首先将文本转换为音素序列，并将录音编码为声学矩阵，形成音素提示和声学提示。对于
+AR
+模型，使用以提示为条件的基于采样的方法，可以显着增加输出的多样性。对于
+NAR
+模型，使用贪心解码来选择概率最高的标记。最后，使用解码器生成以八个代码序列为条件的波形。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/38219/">http://example.com/posts/38219/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%AD%E9%9F%B3/">语音</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/12779/" title="论文阅读_语音合成_Spear-TTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_语音合成_Spear-TTS</div></div></a></div><div class="next-post pull-right"><a href="/posts/53626/" title="论文阅读_语音合成_VALLE-X"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_语音合成_VALLE-X</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/12779/" title="论文阅读_语音合成_Spear-TTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-25</div><div class="title">论文阅读_语音合成_Spear-TTS</div></div></a></div><div><a href="/posts/53626/" title="论文阅读_语音合成_VALLE-X"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-25</div><div class="title">论文阅读_语音合成_VALLE-X</div></div></a></div><div><a href="/posts/60055/" title="论文阅读_音频压缩_Encodec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-27</div><div class="title">论文阅读_音频压缩_Encodec</div></div></a></div><div><a href="/posts/11939/" title="论文阅读_音频压缩_SoundStream"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-01</div><div class="title">论文阅读_音频压缩_SoundStream</div></div></a></div><div><a href="/posts/10468/" title="论文阅读_音频生成_AudioLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-25</div><div class="title">论文阅读_音频生成_AudioLM</div></div></a></div><div><a href="/posts/62410/" title="论文阅读_语音合成综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">论文阅读_语音合成综述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F-tts-%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="toc-number">2.</span> <span class="toc-text">2 与传统 TTS 的差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%B4%A1%E7%8C%AE"><span class="toc-number">3.</span> <span class="toc-text">3 主要贡献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">4.</span> <span class="toc-text">4 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">5 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A1%A8%E8%BF%B0"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 问题表述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E7%90%86"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 推理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

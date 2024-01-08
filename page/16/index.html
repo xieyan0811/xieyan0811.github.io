@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-12-28 01:03:47'
+  postUpdate: '2024-01-08 09:54:48'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,229 +163,253 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">569</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/8_%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BEVFormer/" title="BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示">BEVFormer：通过时空Transformers从多摄像头图像学习鸟瞰图表示</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-28T00:00:00.000Z" title="Created 2022-05-28 00:00:00">2022-05-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">介绍
-英文题目：BEVFormer: Learning Bird's-Eye-View Representation from
-Multi-Camera Images via Spatiotemporal Transformers
-中文题目：BEVFormer:
-通过时空Transformers从多摄像头图像学习鸟瞰图表示
-论文地址：https://arxiv.org/pdf/2203.17270v1.pdf
-领域：机器视觉，自动驾驶
-发表时间：2022年3月
-作者：Zhiqi Li等
-出处：南京大学，上海人工智能实验室，香港大学
-代码和数据：https://github.com/zhiqi-li/BEVFormer
-阅读时间：2022.05.22
-读后感
-文中方法和特斯拉视频（特斯拉2021人工智能日AI
-Day完整视频）架构相似。比较有意思的地方是在BEV层面结合了时间和空间信息。
-介绍
-在3D感知领域，雷达已取得了很好效果，机器视觉近几年也受到关注，除了成本低，相对雷达，它还能感知远距离物体，以及识别道路标识。
-BEV鸟瞰图从多个摄像头信息计算表征，用于描述周围场景。分割任务证明 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%AE%9E%E6%88%98_%E7%94%A8TFIDF%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94%E7%9B%B8%E4%BC%BC%E5%BA%A6/" title="实战_用TF/IDF算法对比相似度">实战_用TF/IDF算法对比相似度</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-15T12:41:03.000Z" title="Created 2022-05-15 12:41:03">2022-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">实战_用TF/IDF算法对比相似度
-原理
-TF/IDF方法于1983年题出，它先计算每个单词出现的频率，然后适当归一化。利用TF-IDF方法将任意长度的文档缩减为固定长度的数字列表，然后对比文本相似度，gensim工具包提供该方法。
-简单复习一下具体算法：
-词频TF
-\[  
-tf_{i,j}=\frac{n_{i,j}}{\sum_kn_{k,j}}  
-\]
-其中n是句中词，i是词的索引号，j是文章索引号，k是文章中所有词，上式计算的是词i在本篇出现的比率。请注意：在短文本的情况下，绝大多数词只出现一次，tf就只和文章长短有关了。
-逆向文档频率IDF
-\[  
-idf_{i}=log \frac{|D|}{|j:t_i\in d_j|}  
-\]
-其中分母是文章总数，分子是包含词i的文章数。
-TF/IDF
-\[tfidf_{i,j}=tf_{i,j} \times
-idf_{i}\]
-tfidf值反映的是每个词在文档中的重要程度。请注意：这是一种基于计数的方法，不直接使用词义。
-该算法的优点在于算法简单，计算量小；而缺点在于无法处理对同一概念的不同描述，另外，它是词袋类模型，不考虑 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%9A%E7%B1%BB%E5%9E%8B%E5%AE%9E%E4%BD%93%E7%9A%84%E5%9B%BE%E5%AF%B9%E9%BD%90_CGMuAlign/" title="论文阅读_多类型实体的图对齐_CGMuAlign">论文阅读_多类型实体的图对齐_CGMuAlign</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-15T00:00:00.000Z" title="Created 2022-05-15 00:00:00">2022-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">读后感
-文中的一个重要思想是：认为被对齐的图中的知识都是不完备的，所以在图间对齐时，主要对齐对些能齐上的，忽略那些对不上的；同时结构了自注意力模型，对不同关系分配不同权重。
-多类型实体的图对齐_CGMuAlign
-英文题目：Collective Multi-type Entity Alignment Between Knowledge
-Graphs
-中文题目：基于知识图的集合多类型实体对齐
-论文地址：https://assets.amazon.science/ff/7a/b96282984a0fbe5e31a8fcf68d17/scipub-1202.pdf
-领域：知识图谱，实体对齐
-发表时间：2020年
-作者：Qi Zhu，伊利诺伊大学，亚马逊
-出处：the web conference
-被引量：17
-代码和数据：https://github.com/GentleZhu/CG-MuAlign
-阅读时间：2022.04.25
-介绍
-实体对齐的目标是识别不同图中的同一实体。不同的图在建构的时候由于目标不同，各有偏重。比如图-1中的左右两张图：
-
-图中的Aditya
-Raj是同一实体，在左 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_BERT-wwm/" title="论文阅读_BERT-wwm">论文阅读_BERT-wwm</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-15T00:00:00.000Z" title="Created 2022-05-15 00:00:00">2022-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">1 介绍
-英文题目：Pre-Training with Whole Word Masking for Chinese BERT
-中文题目：中文BERT的全词掩码预训练
-论文地址：https://arxiv.org/pdf/1906.08101.pdf
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/11024/" title="论文阅读_清华ERNIE">论文阅读_清华ERNIE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-25T00:00:00.000Z" title="Created 2022-06-25 00:00:00">2022-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">英文题目：ERNIE: Enhanced Language Representation with Informative
+Entities
+中文题目：ERNIE: 使用信息实体增强语言表示
+论文地址：https://arxiv.org/pdf/1905.07129v3/n
 领域：自然语言处理
 发表时间：2019
-作者：Yiming Cui，社会计算和信息检索研究中心，哈工大，讯飞
-出处：第二届“讯飞杯”中文机器阅读理解评测，CMRC 2018
-被引量：255
-代码和数据：https://github.com/ymcui/Chinese-BERT-wwm
-阅读时间：2022.05.10
-2 读后感
-中文和英文不同，一般通过词而非字来表意，而分词也有难度，BERT以字单位建模，这样损失了词义。文中将之前用于英文的全词MASK方法应用于中文，文中没什么公式，原理也简单，但对中文确实是一个重要的方法，该模型也被广泛使用。
-3 介绍
-BERT(2019)利用Transformer，未标注的数据，综合上下文信息，使模型达到很好效果，之后，BERT的作者又提出升级版WWM，它利用全词MASK进一步提升BERT效果，本文将 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%A4%A7%E5%9B%BE%E7%9A%84%E8%8A%82%E7%82%B9%E8%A1%A8%E5%BE%81GraphSAGE/" title="基于大图的归纳表示学习">基于大图的归纳表示学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-03T00:00:00.000Z" title="Created 2022-05-03 00:00:00">2022-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
-英文题目：Inductive Representation Learning on Large Graphs
-中文题目：基于大图的归纳表示学习
-论文地址：https://arxiv.org/abs/1706.02216
-领域：知识图谱，知识表征
-发表时间：2017
-作者：William L. Hamilton，斯坦福大学
-出处：NIPS
-被引量：2398
-代码和数据：https://github.com/williamleif/GraphSAGE，pyg和dgl均有对该方法的支持
-阅读时间：2022.05.03
+作者：Zhengyan Zhang，清华大学
+出处：ACL
+被引量：37
+代码和数据：https://github.com/thunlp/ERNIE
+阅读时间：2002.06.25
 读后感
-学习大图、不断扩展的图，未见过节点的表征，是一个很常见的应用场景。GraphSAGE通过训练聚合函数，实现优化未知节点的表示方法。之后提出的GAN（图注意力网络）也针对此问题优化。
-文中提出了：传导性问题和归纳性问题，传导性问题是已知全图情况，计算节点表征向量；归纳性问题是在不完全了解全图的情况下，训练节点的表征函数（不是直接计算向量表示）。
-图工具的处理过程每轮迭代（
-一次propagation）一般都包含：收集信息、聚合、更新，从本文也可以更好地理解，其中聚合 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E5%9B%BE%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%BD%91%E7%BB%9CGAN/" title="图注意力网络">图注意力网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-05-02T00:00:00.000Z" title="Created 2022-05-02 00:00:00">2022-05-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
-英文题目：GRAPH ATTENTION NETWORKS
-中文题目：图注意力网络
-论文地址：https://export.arxiv.org/pdf/1710.10903.pdf
-领域：知识图谱，知识表示
-发表时间：2018年
-作者：Petar Veliˇckovi ́c，剑桥大学
-出处：深度学习顶会 ICLR
-被引量：1000
-代码和数据：https://github.com/PetarV-/GAT
-阅读时间：2022.04.25
+2019 年前后清华和百度都提出了名为 ERNIE
+的模型，名字相同，方法不同。清华的 ERNIE
+把知识图融入了文本的向量表示，也叫
+KEPLM，想法比较有意思，模型改进效果：使用少量数据训练模型时，ERNIE
+比其它模型效果更好。从技术角度，它示范了整合异构数据的方法。
+介绍
+本文提出
+ERNIE，它是结合知识图和大规模数据的预训练语言模型。引入知识图面临两个重要挑战：
+
+如何在文本表示中提取和表示知识图中的结构
+整合异构数据：将预训练模型表示和知识图表示映射到同一向量空间
+
+ERNI ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36040/" title="论文阅读_ICD编码_BERT">论文阅读_ICD编码_BERT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-20T00:00:00.000Z" title="Created 2022-06-20 00:00:00">2022-06-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="content">英文题目：BERT-based Ranking for Biomedical Entity Normalization
+中文题目：基于 bert 的生物医学实体标准化排序
+论文地址：https://arxiv.org/pdf/1908.03548
+领域：自然语言处理，生物医学，实体标准化
+发表时间：2019
+作者：Zongcheng Ji, 德克萨斯大学
+被引量：6
+阅读时间：22.06.20
 读后感
-简介部分复习了当时主流做法的演进过程，是很好的导读，其中GNN（基于RNN），GCN（基于CNN），GAN
-（基于Attention）都比较重要，MoNet和GraphSAGE也可以读一下（GraphSAGE用于大规模数据）。
-泛读
+中规中矩的方法，评测了各个预训练模型的差异。
+介绍
+BERT 是常用的自然语言处理深度学习模型, BoiBERT 和 ClinicalBERT
+是针对医疗领域预训练的模型，文中提出的架构用于将上述模型通过微调解决医疗实体规范化问题．
+实体规范化 Entity linking，主要面临以下挑战：
 
-针对问题：基于图结构的节点分类
+歧义问题：同一实体可能与多个概念相连
+变体问题：同一概念可能与不同的实体相连
+缺失问题：实体不与知识库中的任务概念相连
 
-结果：在小数据集传导测试中GAN与GCN效果不相上下，略好一点；在大数据集归纳测试中，无法使用GCN等方法，GAN更有优势。
-
-核心方法：把注意力机制引入图神经网络。
-
-难点：如果之前了解Attention和图的基本表示方法，本篇原理和代码都不复杂。
-
-泛读后理解程度：直接精 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_GCN%E7%9F%A5%E8%AF%86%E5%9B%BE%E5%AF%B9%E9%BD%90/" title="基于GCN的跨语言知识图对齐">基于GCN的跨语言知识图对齐</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-23T00:00:00.000Z" title="Created 2022-04-23 00:00:00">2022-04-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
-英文题目：Cross-lingual Knowledge Graph Alignment viaGraph
-Convolutional Networks
-中文题目：基于GCN的跨语言知识图对齐
-论文地址：https://aclanthology.org/D18-1032.pdf
-领域：知识图谱，知识对齐
-发表时间：2018
-作者：Zhichun Wang 北京师范大学
-出处：EMNLP
-被引量：198
-代码和数据：https://github.com/1049451037/GCN-Align
-阅读时间：2022.04.15
-其它介绍
-文章亮点：
-* 复习了之前的对齐方法
-* 提出了邻接矩阵的计算以及属性的代入方法技巧
-* GCNAlign和同类文件相比，引用量大，速度快，效果好，常作为默认工具
-* 文章偏重真实场景中，多种关系，属性类别，属性值的应用。
-泛读
-
-针对问题：不同语言知识图中的实体对齐
-
-结果：使用比较简单的方法，超过或得到与之前的方法近似的效果
-
-核心方法：调整GCN层计算方法，可同时对结构和属性编码
-
-难点：无
-
-泛读后理解程度：直接精读
-（看完题目、摘要、结论、 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/6_%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_KnowPrompt%E7%9F%A5%E8%AF%86%E6%8A%BD%E5%8F%96/" title="论文阅读_KnowPrompt">论文阅读_KnowPrompt</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-17T00:00:00.000Z" title="Created 2022-04-17 00:00:00">2022-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">读后感
-
-针对问题：few-shot场景下从文本中抽取关系（知识检索、对话、问答）。
-
-结果：在5个数据集，及少量标注情况下，测试效果优于之前模型
-
-核心方法：希望在pretrain后不再fine-tuning，于是引入了提示prompt，通过构建提问（提问方法/答案范围）来实现类似tuning的效果。
-
-难点：之前对知识抽取和提示学习都不太了解；后来读了代码才了解，文中指的知识不是来自外界引入，而是将词嵌入作为知识。
-
-泛读后理解程度：60%
-（看完题目、摘要、结论、图表及小标题）
-
-围绕句子的逻辑，利用之前定义好的模板提问，回答
-基于知识的提示学习KnowPrompt
-英文题目：KnowPrompt: Knowledge-aware Prompt-tuning with Synergistic
-Optimizationfor Relation Extraction
-中文题目：KnowPrompt:
-基于协同优化的知识感知快速调优关系提取
-论文地址：https://arxiv.org/pdf/2104.07650.pdf
-领域：自然语言处理，关系提取
+（这里指的概念是规范化后的文本）
+在医疗领域主要任务是对实体的规范化和编码，变体问题是医疗领域的主要问题。
+方法
+已知文档的句子中的有实体 m，以及包含很多概念的知识知识库
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14828/" title="论文阅读_医疗NLP模型_EMBERT">论文阅读_医疗NLP模型_EMBERT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-20T00:00:00.000Z" title="Created 2022-06-20 00:00:00">2022-06-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="content">英文题目：EMBERT: A Pre-trained Language Model for Chinese Medical
+Text Mining
+中文题目：中文医学文本挖掘的预训练语言模型
+论文地址：https://chywang.github.io/papers/apweb2021.pdf
+领域：自然语言处理，知识图谱，生物医疗
 发表时间：2021
-作者：Xia ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/2_%E7%AE%97%E6%B3%95/12_%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB_%E7%9F%A5%E8%AF%86%E5%9B%BE%E5%AF%B9%E9%BD%90PRASE/" title="论文阅读_知识图对齐PRASE">论文阅读_知识图对齐PRASE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-09T00:00:00.000Z" title="Created 2022-04-09 00:00:00">2022-04-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
-英文题目：Unsupervised Knowledge Graph Alignment by Probabilistic
-Reasoning and Semantic Embedding
-中文题目：基于概率推理和语义嵌入的无监督知识图对齐
-论文地址：https://arxiv.org/abs/2105.05596v1
-领域：自然语言处理，知识图谱
-发表时间：2021
-作者：腾讯天衍实验室
-出处：IJCAI（国际人工智能联合会议）
+作者：Zerui Cai 等，华东师范大学
+出处：APWEB/WAIM
 被引量：1
+阅读时间：22.06.22
+读后感
+针对医疗领域，利用知识图中的同义词（只使用了词典，未使用图计算方法），训练类似
+BERT
+的自然语言表示模型。优势在于代入了知识，具体设计了三种自监督学习方法来捕捉细粒度实体间的关系。实验效果略好于现有模型。没找到对应代码，具体的操作方法写的也不是特别细，主要领会精神。
+比较值得借鉴的是，其中用到的中文医疗知识图，其中同义词的使用方法，AutoPhrase自动识别短语，高频词边界的切分方法等。
+介绍
+文中方法致力于：更好地利用大量未标注数据和预训练模型；使用实体级的知识增强；捕捉细粒度的语义关系。与
+MC-BERT 相 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/15539/" title="论文阅读_中文语言技术平台LTP">论文阅读_中文语言技术平台LTP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-20T00:00:00.000Z" title="Created 2022-06-20 00:00:00">2022-06-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">英文题目：N-LTP: An Open-source Neural Language Technology Platform
+for Chinese
+中文题目：开源中文神经网络语言技术平台 N-LTP
+论文地址：https://arxiv.org/pdf/2009.11616v4.pdf
+代码：https://github.com/HIT-SCIR/ltp
+发表时间：2021
+作者：Wanxiang Che 等，哈工大
+出处：EMNLP
+被引量：18+
+1 读后感
+它是一个基于Pytorch的针对中文的离线工具，带训练好的模型，最小模型仅
+164M。直接支持分词，命名实体识别等六种任务，六种任务基本都围绕分词、确定词的成份、关系。
+实测：比想象中好用，如果用于识别人名，效果还可以，直接用于垂直领域，效果一般，可能还需要进一步精调。
+
+
+Pasted image
+20220620152139.png
+
+2 介绍
+2.1 文章贡献
+
+支持六项中文自然语言任务。
+基于多任务框架，共享知识，减少内存用量，加快速度。
+高扩展性：支持用户引入的 BERT 类模型。
+容易使用：支持多语言接口 C++ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4971/" title="论文阅读_关系抽取_CASREL">论文阅读_关系抽取_CASREL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-19T00:00:00.000Z" title="Created 2022-06-19 00:00:00">2022-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">介绍
+英文题目：A Novel Cascade Binary Tagging Framework for Relational
+Triple Extraction
+中文题目：抽取关系三元组的级联二元标注框架
+论文地址：https://aclanthology.org/2020.acl-main.136.pdf
+领域：自然语言处理，知识抽取
+发表时间：2019
+作者：Zhepei Wei, 吉林大学
+出处：ACL
+被引量：3
 代码和数据：
-https://github.com/qizhyuan/PRASE-Python
-https://github.com/dig-team/PARIS
-阅读时间：22.04.08
+https://github.com/xiangking/ark-nlp
+https://github.com/weizhepei/CasRel
+阅读时间：2022.06.17
+读后感
+主要解决了三元组重叠问题，相较之前模型，在架构上进行了大调整。
+介绍
+知识抽取 Information extraction
+(IE）是从文本构建知识图谱的重要环节。具体操作是从文中抽取关系三元组，它包含：主语
+s，关系 r，宾语 o。早期一般使用管道 pipeline
+方法：先识别句中的实体，然后对每个实体对建立关系，这可能引起错误的传播；后来出现了基于人工构建特征的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/15446/" title="论文阅读_ICD编码_TLSTM">论文阅读_ICD编码_TLSTM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-18T00:00:00.000Z" title="Created 2022-06-18 00:00:00">2022-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="content">介绍
+英文题目：A Neural Architecture for Automated ICD Coding
+中文题目：ICD 自动编码的神经体系结构
+论文地址：http://www.cs.cmu.edu/~epxing/papers/2018/Xie_etal_acl18.pdf
+领域：自然语言处理，生物医疗
+发表时间：2018
+作者：Pengtao Xie 等，卡内基梅隆大学，北京大学
+出处：ACL 2018
+被引量：55
+阅读时间：2022.06.18
+读后感
+论文主要挖掘了ICD
+编码之间的层级和相关性，同时还考虑到人工描述和 ICD
+标准文本不同的语言风格，一对多的情况下，多个对应项的重要性排序，以及编码的协同和互斥。
 泛读
 
-针对问题：实体对齐（不是本体对齐）
+针对问题：ICD 自动编码
+核心方法：
 
-结果：效果优于之前模型
+使用树和序列 LSTM 计算基于语义的 ICD 编码表示
+使用对抗学习协调人工输入和 ICD 描述的语言风格
+利用等张约束做重要性排序
+利用注意力机制实现一对多、多对一映射
 
-核心方法：提出PRASE，基于概率推理和语义嵌入，使用不断更新种子的方法迭代训练上述两个子模型。
+泛读后理解程度：
 
-难点：先需要了解一下PARIS模型
+一个半小时精读，两个小时整理。
 
-泛读后理解程度：70%
-（看完题目、摘要、结论、图表及小标题）
 
-精读
-摘要
-目前常用的实体对齐方法包括：基于词嵌入的对齐、常识推理和字典匹配。前 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/markdown/markdown_%E9%A1%B5%E9%9D%A2%E4%B8%AD%E8%B7%B3%E8%BD%AC/" title="markdown_页面中跳转">markdown_页面中跳转</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-04-05T21:48:00.000Z" title="Created 2022-04-05 21:48:00">2022-04-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Note/">1_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/markdown/">markdown</a></span></div><div class="content">#笔记/markdown
-1 标题跳转
-1.1 页内跳转
-1[[#本页标题名]]  
-1.2 页间跳转
-1[[文档名#标题名]]  
-1.3 跳转时显示特定文本
-1[显示的内容](#标题标号-标题文本)  
-1.4 注意
-()小括号内部声明跳转目标标题，以#开头(无论几级标题，都只要一个井号)，标题题号如果包含.、下划线直接忽略掉，标题文本中如果有空格，使用-横杠符号替代，标题文本中的大写字母转换成小写。
-2 块跳转
-Obsidian支持块跳转功能，Help中有详细说明，简要概括如下：
-使用^号定义块
-1正文 ^dcf64c  
-跳转
-1[[#^dcf64c]]   
-在文档中嵌入块内容
-1![[#^dcf64c]]  
-形如:
+方法
+概览
 
-3 脚注
-调用脚注写法：
-1点击跳到脚注 [^aa]   脚注本身写法：
-1[^aa]:我是脚注本身（点击右测可返回调用处）  
-4 参考
-#
-Markdown实用语法之实现页面内跳转
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/15/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/#content-inner">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/57/#content-inner">57</a><a class="extend next" rel="next" href="/page/17/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">569</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">73</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">75</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8_chuanhu%E5%B7%9D%E8%99%8E/" title="GPT应用_chuanhu川虎">GPT应用_chuanhu川虎</a><time datetime="2923-12-14T00:00:00.000Z" title="Created 2923-12-14 00:00:00">2923-12-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/GPT%E5%BA%94%E7%94%A8_AutoGPT/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/0_%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E7%9A%84%E9%AB%98%E6%98%9F%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/" title="大模型相关的高星开源工具">大模型相关的高星开源工具</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1_Note/3_%E7%BC%96%E7%A8%8B/%E5%A4%A7%E6%A8%A1%E5%9E%8B/Supabase/" title="Supabase">Supabase</a><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/6_%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/%E5%81%87%E8%AE%BE%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%99%BA%E8%83%BD%E4%BD%93/" title="假设我是一个智能体">假设我是一个智能体</a><time datetime="2023-12-21T00:00:00.000Z" title="Created 2023-12-21 00:00:00">2023-12-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+Pasted image
+20220618143519.png
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/21052/" title="论文阅读_ICD编码_MSATT-KG">论文阅读_ICD编码_MSATT-KG</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-16T00:00:00.000Z" title="Created 2022-06-16 00:00:00">2022-06-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="content">介绍
+英文题目：EHR Coding with Multi-scale Feature Attention and
+Structured Knowledge Graph Propagation
+中文题目：基于多尺度特征关注和结构化知识图传播的 EHR 编码
+论文地址：https://sci-hubtw.hkvisa.net/10.1145/3357384.3357897
+领域：自然语言处理，生物医疗，ICD 编码
+发表时间：2019
+作者：Xiancheng Xie 等，复旦大学
+出处：ACM CIKM
+被引量：25
+阅读时间：2022.06.16
+读后感
+很好地结合了现有的资源和方法：利用编码的内在关系，结合了注意力机制，知识图谱，密连接网络等方法。
+泛读
+
+针对问题：ICD 自动编码
+核心方法：
+
+通过对每个词上下文邻居的
+n-gram，选择多尺度特征
+利用 ICD
+标签的语义：编码越相近，含义越相近，利用图卷积网络捕捉 ICD
+编码的层次关系和语义
+基于 ICD
+标签的注意力；结合多尺度特征，用注意力选择信息量最大的 n-gram
+特征
+
+理解程度：
+
+一个半小时精读，又花了约两 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/42915/" title="论文阅读_ICD编码_MSMN">论文阅读_ICD编码_MSMN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-14T00:00:00.000Z" title="Created 2022-06-14 00:00:00">2022-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="content">介绍
+英文题目：Code Synonyms Do Matter: Multiple Synonyms Matching Network
+for Automatic ICD Coding
+中文题目：自动 ICD 编码的同义词匹配网络
+论文地址：https://export.arxiv.org/pdf/2203.01515.pdf
+领域：自然语言处理、生物医疗
+发表时间：2022
+作者：Zheng Yuan 等，清华大学，阿里巴巴
+出处：ACL
+代码和数据：https://github.com/GanjinZero/ICD-MSMN
+阅读时间：2022.06.14
+读后感
+通过代入外部资源
+UMLS，论文收集了每个编码的同义词，从而弥补了电子病历与
+ICD 编码描述中同义不同词的问题。
+其算法并没有像之前一些模型那么精巧，但引入外部资源后，效果的确提升不少。
+泛读
+
+针对问题：ICD 编码中一义多词问题
+核心方法：
+
+提出了多同义词匹配网络 (MSMN)
+使用LSTM+ 多头注意力
+将编码的同义词作为 query
+以关注描述中的不同短语，从而生成与 ICD 编码相关的表示。
+使用双仿射的  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/39113/" title="论文阅读_中文NLP精减模型ELECTRA">论文阅读_中文NLP精减模型ELECTRA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-14T00:00:00.000Z" title="Created 2022-06-14 00:00:00">2022-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/">11_优化</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/">模型蒸馏</a></span></div><div class="content">
+介绍：ELECTRA 由 Manning
+联合谷歌发布，后来哈工大讯飞联合实验室训练了相应的中文模型。精减后的模型效果和
+BERT 差不太多，而模型大小只有 BERT 的 1/10，ELECTRA-small 只有
+46M。
+代码&amp;模型下载&amp;详细说明：https://github.com/ymcui/Chinese-ELECTRA
+使用：LTP 使用它为基础模型。
+原理：使用生成对抗网络训练自然语言模型，时间短，参数少。模型分为两部分：生成器和判别器，生成实现
+MLM，判别器用于识别每一个单词是否为模型生成。
+效果：以中文阅读理解为例，其效果对比如下，其它实验详见 github
+
+
+
+Pasted image
+20220620181324.png
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/50245/" title="论文阅读_BEVSegFormer">论文阅读_BEVSegFormer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-06-05T00:00:00.000Z" title="Created 2022-06-05 00:00:00">2022-06-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a></span></div><div class="content">介绍
+英文题目：BEVSegFormer: Bird’s Eye View Semantic Segmentation From
+Arbitrary Camera Rigs
+中文题目：BEVSegFormer: 基于任意相机的鸟瞰图语义分割
+论文地址：https://arxiv.org/abs/2203.04050
+领域：机器视觉,自动驾驶
+发表时间：2022 年 3 月
+作者：来自上海的自动驾驶创业公司 Nullmax
+阅读时间：2022.05.28
+其它相关网文：https://blog.csdn.net/Yong_Qi2015/article/details/124311369
+介绍
+之前从摄像机视图转成 BEV 的方法多以 IPM
+为主，该方法需要知道摄像机的内外参数以及位置信息。在有遮挡及距离比较远的情况下，都无法达到很好的效果。近年来更多应用了深度学习方法。
+优点
+
+不需要摄像机的参数
+有效聚合多摄像头数据
+优化了图像分割效果
+
+核心算法
+（论文正文第 3 页）
+三个步骤：
+
+从一个共享 Backbone 处理各摄像机，输出 Feature map。
+基于 Transfor ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/15/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#content-inner">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/#content-inner">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/58/#content-inner">58</a><a class="extend next" rel="next" href="/page/17/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/"><span class="card-category-list-name">0_Inbox</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-Inbox/%E6%9C%AC%E5%91%A8/"><span class="card-category-list-name">本周</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/"><span class="card-category-list-name">1_Note</span><span class="card-category-list-count">557</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">55</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Note/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.26em; color: #999fa8">自然语言处理/BERT</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">自然语言处理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.14em; color: #999b9d">编程语言/Java</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.17em; color: #999c9f">自然语言处理/工具</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.14em; color: #999b9d">异常检测</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.3em; color: #99a1ac">机器学习/XGBoost</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.26em; color: #999fa8">工具</a> <a href="/tags/Pytorch/" style="font-size: 1.37em; color: #99a4b2">Pytorch</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.17em; color: #999c9f">深度学习/扩散模型</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.23em; color: #999ea6">随笔</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.28em; color: #99a0aa">编程语言</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">大模型</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.19em; color: #999da1">深度学习/知识蒸馏</a> <a href="/tags/Docker/" style="font-size: 1.23em; color: #999ea6">Docker</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.21em; color: #999da4">深度学习/图形图像</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.12em; color: #999a9b">多模态</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.39em; color: #99a5b4">机器学习/时序</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.21em; color: #999da4">数学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.19em; color: #999da1">数据存储/Hadoop</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.34em; color: #99a3b0">数据分析</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.34em; color: #99a3b0">深度学习/工具</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999b9d">版本管理</a> <a href="/tags/indent/" style="font-size: 1.1em; color: #999">indent</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.43em; color: #99a6b9">图形图像</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a7bb">操作系统/Linux</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.34em; color: #99a3b0">语音</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.14em; color: #999b9d">编程语言/C</a> <a href="/tags/%E8%A7%84%E8%8C%83%E5%8C%96/" style="font-size: 1.1em; color: #999">规范化</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.12em; color: #999a9b">Python/图形图像</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.41em; color: #99a5b7">机器学习/算法</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">#随笔</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.39em; color: #99a5b4">深度学习</a> <a href="/tags/%E9%80%9A%E7%94%A8%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.1em; color: #999">通用人工智能</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2923/12/"><span class="card-archive-list-date">December 2923</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">22</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">14</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">569</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">682.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-12-28T01:03:45.685Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">573</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">572</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">58</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/ChatGPT/"><span class="card-category-list-name">ChatGPT</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/vscode/"><span class="card-category-list-name">vscode</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.18em; color: #999ca1">Python/少儿编程</a> <a href="/tags/Android/" style="font-size: 1.5em; color: #99a9bf">Android</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.26em; color: #999fa8">机器学习/XGBoost</a> <a href="/tags/Docker/" style="font-size: 1.22em; color: #999ea4">Docker</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.18em; color: #999ca1">深度学习/知识蒸馏</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.14em; color: #999b9d">版本管理</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.16em; color: #999b9f">自然语言处理/工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.18em; color: #999ca1">数据存储</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a7bb">操作系统/Linux</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.26em; color: #999fa8">自然语言处理/BERT</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.16em; color: #999b9f">机器学习/自动建模</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.36em; color: #99a3b2">编程语言/前端</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.18em; color: #999ca1">数据存储/Hadoop</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.3em; color: #99a1ac">数据分析</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.4em; color: #99a5b6">论文阅读</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.2em; color: #999da3">深度学习/图形图像</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.44em; color: #99a7b9">深度学习/模型结构</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" style="font-size: 1.2em; color: #999da3">知识图/知识表示</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.28em; color: #99a0aa">自然语言处理/大模型</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.32em; color: #99a2ae">知识图/图神经网络</a> <a href="/tags/Arduino/" style="font-size: 1.42em; color: #99a6b7">Arduino</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.16em; color: #999b9f">Python/数据</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.16em; color: #999b9f">模型解释</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.14em; color: #999b9d">编程语言/Java</a> <a href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96/" style="font-size: 1.1em; color: #999">格式化</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.38em; color: #99a4b4">机器学习/算法</a> <a href="/tags/%E8%A7%84%E8%8C%83%E5%8C%96/" style="font-size: 1.1em; color: #999">规范化</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.3em; color: #99a1ac">深度学习/工具</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.48em; color: #99a8bd">自然语言处理</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.12em; color: #999a9b">多模态</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.24em; color: #999fa6">Python/股票</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.34em; color: #99a3b0">深度学习</a> <a href="/tags/2024%E5%B9%B4/" style="font-size: 1.1em; color: #999">2024年</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.14em; color: #999b9d">AI绘画</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.28em; color: #99a0aa">生物医学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.14em; color: #999b9d">编程语言/C</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.16em; color: #999b9f">主题笔记</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">23</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">April 2023</span><span class="card-archive-list-count">15</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">577</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">717.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-01-08T09:54:46.069Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

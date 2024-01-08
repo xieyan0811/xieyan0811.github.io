@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python海量数据处理之_单机优化 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python 海量数据处理之 _ 单机优化 1. 说明   数据处理时，可能会遇到数千万以及上亿条数据的情况。一次处理所有数据，会遇到内存不够，计算时间太长等问题。一般的解法是：先拆分，再处理，最后将处理的结果合并（当然数据少的时候不需要这么麻烦）。本文将介绍在单机上，只使用 Python 如何处理大量数据。 2. 实例   本例是天池大数据竞赛中的“淘宝穿衣搭配”比赛，这是一个新人赛，只要注册参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python海量数据处理之_单机优化">
+<meta property="og:url" content="http://example.com/posts/14894/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Python 海量数据处理之 _ 单机优化 1. 说明   数据处理时，可能会遇到数千万以及上亿条数据的情况。一次处理所有数据，会遇到内存不够，计算时间太长等问题。一般的解法是：先拆分，再处理，最后将处理的结果合并（当然数据少的时候不需要这么麻烦）。本文将介绍在单机上，只使用 Python 如何处理大量数据。 2. 实例   本例是天池大数据竞赛中的“淘宝穿衣搭配”比赛，这是一个新人赛，只要注册参">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-12-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/14894/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python海量数据处理之_单机优化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python海量数据处理之_单机优化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-12-20T00:00:00.000Z" title="Created 2017-12-20 00:00:00">2017-12-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python海量数据处理之_单机优化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="python-海量数据处理之-_-单机优化">Python 海量数据处理之 _
+单机优化</h1>
+<h2 id="说明">1. 说明</h2>
+<p> 
+数据处理时，可能会遇到数千万以及上亿条数据的情况。一次处理所有数据，会遇到内存不够，计算时间太长等问题。一般的解法是：先拆分，再处理，最后将处理的结果合并（当然数据少的时候不需要这么麻烦）。本文将介绍在单机上，只使用
+Python 如何处理大量数据。</p>
+<h2 id="实例">2. 实例</h2>
+<p> 
+本例是天池大数据竞赛中的“淘宝穿衣搭配”比赛，这是一个新人赛，只要注册参赛，即可下载数据。目标是根据商品信息，专家推荐，用户购物信息，计算出最佳商品组合。</p>
+<p>  本例中处理的是用户购物信息“表 1”：每条记录包含用户号 uid，商品号
+mid，购物时间 time。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uid,mid,time</span><br><span class="line">4371603,8,20150418</span><br><span class="line">8034236,8,20150516</span><br><span class="line">6135829,8,20150405</span><br></pre></td></tr></table></figure>
+<p>需要统计每个用户都购买了什么物品，即生成“表 2”：记录包含用户号
+uid，商品组合 mids。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uid,mids</span><br><span class="line">15  &quot;1795974,1852545,98106,654166&quot;</span><br><span class="line">20  &quot;2639977,79267&quot;</span><br></pre></td></tr></table></figure>
+<p>  赛题提供了千万级的购物数据，其中含有百万级的用户，全部 load
+到内存再计算生成新的结构，虽然能运行，但内存占用让机器变得非常慢，普通计算只用到单
+CPU，我的机器用 10 个小时才处理了 200
+多万条数据，优化之后半小时以内处理完所有数据。下面看看具体实现。</p>
+<h2 id="切分数据">3. 切分数据</h2>
+<h4 id="目标">(1) 目标</h4>
+<p>  把数据切分成十份，分别存入文件</p>
+<h4 id="代码">(2) 代码</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">user = pd.read_csv(<span class="string">&quot;../../data/user_bought_history.txt&quot;</span>, sep=<span class="string">&quot; &quot;</span>)</span><br><span class="line">user.columns = [<span class="string">&#x27;uid&#x27;</span>,<span class="string">&#x27;mid&#x27;</span>,<span class="string">&#x27;time&#x27;</span>]</span><br><span class="line"></span><br><span class="line">dur = <span class="built_in">len</span>(user)/<span class="number">10</span></span><br><span class="line">ifrom = <span class="number">0</span></span><br><span class="line">idx = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> ifrom &lt; <span class="built_in">len</span>(user):</span><br><span class="line">    ito = ifrom + dur</span><br><span class="line">    data = user[ifrom:ito]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;from &quot;</span>, ifrom, <span class="string">&quot;to &quot;</span>, (ito-<span class="number">1</span>), <span class="string">&quot;total&quot;</span>, <span class="built_in">len</span>(data))</span><br><span class="line">    data.to_csv(<span class="string">&#x27;../../data/user_bought_&#x27;</span> + <span class="built_in">str</span>(idx) + <span class="string">&#x27;.csv&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line">    ifrom = ito</span><br><span class="line">idx += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="处理数据">4. 处理数据</h2>
+<h4 id="目标-1">(1) 目标</h4>
+<p>  用多线程方式处理切分后的数据，将表 1 转换成表 2 格式</p>
+<h4 id="代码-1">(1) 代码</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">do_conv</span>(<span class="params">index</span>):</span><br><span class="line">    path = <span class="string">&quot;../../data/user_bought_&quot;</span> + <span class="built_in">str</span>(index) + <span class="string">&quot;.csv&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    user = pd.read_csv(path)</span><br><span class="line">    user[<span class="string">&#x27;mid&#x27;</span>]=user[<span class="string">&#x27;mid&#x27;</span>].astype(<span class="built_in">str</span>)</span><br><span class="line">    grp=user.groupby(<span class="string">&#x27;uid&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(index, <span class="built_in">len</span>(grp))</span><br><span class="line"></span><br><span class="line">    user_buy_count_data = pd.DataFrame(columns=[<span class="string">&#x27;uid&#x27;</span>,<span class="string">&#x27;mids&#x27;</span>])</span><br><span class="line">    idx=<span class="number">0</span></span><br><span class="line">    arr_uid=[]</span><br><span class="line">    arr_mid=[]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> name, group <span class="keyword">in</span> grp:</span><br><span class="line">        mids = <span class="string">&quot;,&quot;</span>.join(group[<span class="string">&#x27;mid&#x27;</span>])</span><br><span class="line">        arr_uid.append(name)</span><br><span class="line">        arr_mid.append(mids)</span><br><span class="line">        <span class="keyword">if</span> idx % <span class="number">10000</span> == <span class="number">0</span>:</span><br><span class="line">            show_info.show_time(<span class="built_in">str</span>(index) + <span class="string">&quot; : &quot;</span> + <span class="built_in">str</span>(<span class="built_in">len</span>(arr_uid)))</span><br><span class="line">        idx+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    user_buy_count_data[<span class="string">&#x27;uid&#x27;</span>]=arr_uid</span><br><span class="line">    user_buy_count_data[<span class="string">&#x27;mids&#x27;</span>]=arr_mid</span><br><span class="line"></span><br><span class="line">    user_buy_count_data.to_csv(<span class="string">&quot;../../data/user_&quot;</span> + <span class="built_in">str</span>(index) + <span class="string">&quot;.csv&quot;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    param_list = <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">11</span>) <span class="comment"># 线程参数</span></span><br><span class="line">    pool = threadpool.ThreadPool(<span class="number">3</span>) <span class="comment"># 同时最多开3个线程</span></span><br><span class="line">    requests = threadpool.makeRequests(do_conv, param_list) </span><br><span class="line">    [pool.putRequest(req) <span class="keyword">for</span> req <span class="keyword">in</span> requests] </span><br><span class="line">    pool.wait() <span class="comment"># 等待所有线程结束</span></span><br></pre></td></tr></table></figure>
+<h4 id="技术点">(3) 技术点</h4>
+<ol type="i">
+<li>统一处理数据格式</li>
+</ol>
+<p>从文件中读出的数据默认为 int 型，用 astype 函数将整个数据表的 mid
+字段变为 str 型，相对于每次处理时再转换更节约时间。</p>
+<ol start="2" type="i">
+<li>使用 groupby</li>
+</ol>
+<p>groupby 函数将数据按不同的 uid 划分为成多个表格，groupby
+还带有多种统计功能，相对于用字典方式统计数据效率高得多。</p>
+<ol start="3" type="i">
+<li>多线程</li>
+</ol>
+<p>现在的机器都是多核的，能明显提高计算速度。python
+中提供了几种不同的多线程方式，这时使用了线程池，它可以控制线程的数量，以免本例中太多线程占用大量内存让机器变慢。使用之前需要安装
+threadpool 库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install threadpool</span><br></pre></td></tr></table></figure>
+<h2 id="合并数据">5. 合并数据</h2>
+<h4 id="目标-2">(1) 目标</h4>
+<p>  将转换完的数据合并，当同一个 user 在两个表中同时出现时，将 mids
+累加在一起。</p>
+<h4 id="代码-2">(2) 代码</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">do_add</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x.m == <span class="string">&#x27;nan&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> x.mids</span><br><span class="line">    <span class="keyword">if</span> x.mids == <span class="string">&#x27;nan&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> x.m</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>(x.mids) + <span class="string">&quot;,&quot;</span> + <span class="built_in">str</span>(x.m)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">do_merge</span>(<span class="params">data, path</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(path):</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    data.columns = [<span class="string">&#x27;uid&#x27;</span>,<span class="string">&#x27;m&#x27;</span>]</span><br><span class="line">    ex = pd.read_csv(path)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(data),<span class="built_in">len</span>(ex))</span><br><span class="line">    data = pd.merge(data, ex, how=<span class="string">&#x27;outer&#x27;</span>)</span><br><span class="line">    data[<span class="string">&#x27;m&#x27;</span>]=data[<span class="string">&#x27;m&#x27;</span>].astype(<span class="built_in">str</span>)</span><br><span class="line">    data[<span class="string">&#x27;mids&#x27;</span>]=data[<span class="string">&#x27;mids&#x27;</span>].astype(<span class="built_in">str</span>)</span><br><span class="line">    data[<span class="string">&#x27;mids&#x27;</span>]=data.apply(do_add, axis=<span class="number">1</span>)</span><br><span class="line">    data = data.drop(<span class="string">&#x27;m&#x27;</span>,axis=<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">print</span>(data.head()) </span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">data = pd.DataFrame(columns=[<span class="string">&#x27;uid&#x27;</span>,<span class="string">&#x27;mids&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">11</span>):</span><br><span class="line">    data = do_merge(data, <span class="string">&quot;../../data/user_&quot;</span> + <span class="built_in">str</span>(index) + <span class="string">&quot;.csv&quot;</span>)</span><br><span class="line">    show_info.show_time(<span class="string">&quot;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;after merge &quot;</span>, index, <span class="string">&quot;len&quot;</span>, <span class="built_in">len</span>(data))</span><br><span class="line">    data.to_csv(<span class="string">&#x27;../../data/user_all.csv&#x27;</span>,index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="相关工具">6. 相关工具</h2>
+<ol type="1">
+<li>top 命令</li>
+</ol>
+<p> top 是 linux
+系统中统计系统资源占用的工具，默认为每秒统计一次，打开后按 1
+键，可看到多核的占用情况。</p>
+<h2 id="总结">7. 总结</h2>
+<p> 
+在特征工程和算法的计算过程中，都可以使用先拆分再组合的方式，但前提是切分数据不会造成数据意义的变化。本文介绍了单机处理大数据的优化方式，下篇将介绍用
+Hadoop 集群方案处理海量数据。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/14894/">http://example.com/posts/14894/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/41367/" title="Python海量数据处理之_Hadoop（一）集群搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Python海量数据处理之_Hadoop（一）集群搭建</div></div></a></div><div class="next-post pull-right"><a href="/posts/6983/" title="Python之DataFrame数据处理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Python之DataFrame数据处理</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/14484/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-20</div><div class="title">SHAP解释模型</div></div></a></div><div><a href="/posts/56928/" title="SHAP解释模型二"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-21</div><div class="title">SHAP解释模型二</div></div></a></div><div><a href="/posts/14563/" title="自动机器学习框架之一_Auto-Sklearn"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-30</div><div class="title">自动机器学习框架之一_Auto-Sklearn</div></div></a></div><div><a href="/posts/50124/" title="NLTK中文词性自动标注"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-03-24</div><div class="title">NLTK中文词性自动标注</div></div></a></div><div><a href="/posts/59337/" title="全文搜索引擎ElasticSearch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-07-29</div><div class="title">全文搜索引擎ElasticSearch</div></div></a></div><div><a href="/posts/47044/" title="用Lucene构造垂直搜索引擎"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-30</div><div class="title">用Lucene构造垂直搜索引擎</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B9%8B-_-%E5%8D%95%E6%9C%BA%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">Python 海量数据处理之 _
+单机优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">1. 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2. 实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E5%88%86%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 切分数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">(1) 目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">(2) 代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.</span> <span class="toc-text">4. 处理数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87-1"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">(1) 目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">(1) 代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E7%82%B9"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">(3) 技术点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.5.</span> <span class="toc-text">5. 合并数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87-2"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">(1) 目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">(2) 代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7"><span class="toc-number">1.6.</span> <span class="toc-text">6. 相关工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.7.</span> <span class="toc-text">7. 总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

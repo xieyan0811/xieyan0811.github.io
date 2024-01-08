@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>20_少儿Python编程_第二十讲 ：编程技巧 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="少儿 Python 编程 _ 第二十讲：编程技巧 在学习编程的过程中，起初新手开发者对程序没有什么概念，先讲解习惯和注意事项，不但没什么效果，注意事项太多，反而提高了编程的难度；往往在自己遇到问题后，经过思考，印象更加深刻。之前在每一讲课后练习中，也加入了一些技巧说明，但比较分散。本讲将总结编写程序过程中遇到的各种问题和编程习惯。 20.1 编程习惯 写程序最重要的是实现功能，在实现功能的基础上，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20_少儿Python编程_第二十讲 ：编程技巧">
+<meta property="og:url" content="http://example.com/posts/30712/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="少儿 Python 编程 _ 第二十讲：编程技巧 在学习编程的过程中，起初新手开发者对程序没有什么概念，先讲解习惯和注意事项，不但没什么效果，注意事项太多，反而提高了编程的难度；往往在自己遇到问题后，经过思考，印象更加深刻。之前在每一讲课后练习中，也加入了一些技巧说明，但比较分散。本讲将总结编写程序过程中遇到的各种问题和编程习惯。 20.1 编程习惯 写程序最重要的是实现功能，在实现功能的基础上，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2020-10-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Python&#x2F;少儿编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/30712/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '20_少儿Python编程_第二十讲 ：编程技巧',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">20_少儿Python编程_第二十讲 ：编程技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-10-31T00:00:00.000Z" title="Created 2020-10-31 00:00:00">2020-10-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">少儿编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>17min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="20_少儿Python编程_第二十讲 ：编程技巧"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="少儿-python-编程-_-第二十讲编程技巧">少儿 Python 编程 _
+第二十讲：编程技巧</h1>
+<p>在学习编程的过程中，起初新手开发者对程序没有什么概念，先讲解习惯和注意事项，不但没什么效果，注意事项太多，反而提高了编程的难度；往往在自己遇到问题后，经过思考，印象更加深刻。之前在每一讲课后练习中，也加入了一些技巧说明，但比较分散。本讲将总结编写程序过程中遇到的各种问题和编程习惯。</p>
+<h2 id="编程习惯">20.1 编程习惯</h2>
+<p>写程序最重要的是实现功能，在实现功能的基础上，好的编程习惯，让代码更清晰，更容易理解，无论是过一段时间自己再看，还是给别人使用都能节约大量时间；同时，好的编程习惯让代码在不同运行环境和操作系统中也能稳定地运行。</p>
+<h3 id="缩进">20.1.1 缩进</h3>
+<p>缩进指代码与边界之间的距离，Python
+使用缩进组织代码块，一般用冒号和缩进区分代码之间的层次。代码块缩进常出现在：函数体、循环体、以及判断语句之后。</p>
+<p>对 Python
+编程来说，缩进是必不可少的；其它编程语言，也大都包括缩进，但有的不是必须缩进，比如
+C
+语言用大括号括住循环体内容，但一般程序员也会使用空格缩进，这样更容易看到代码的层次：直观地看到循环从哪里开始，到哪里结束，缩进也是一种良好的编程习惯。</p>
+<p><strong>1．缩进相关错误</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre style=&quot;tab-stops:21.75pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt&quot;&gt;  </span><br></pre></td></tr></table></figure>
+缩进的英文是 Indentation，在报错信息中看到相关的单词，如“unexpected
+indent”，就需要注意，可能是缩进错误。
+</pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre style=&quot;tab-stops:21.75pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt&quot;&gt;  </span><br></pre></td></tr></table></figure>
+有一种常见的错误是：缩进中间断开，如下例所示：
+</pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01 if x&gt;0:</span><br><span class="line">02     print(&quot;x&gt;0&quot;)</span><br><span class="line">03 print(x)</span><br><span class="line">04     print(&quot;ok&quot;)</span><br></pre></td></tr></table></figure>
+<p>编写这段语句的本意是：需要在 x 大于 0 时打印 02 和 04
+句，无论什么情况都打印第 03 句。但使用以上写法，第三句没有缩进，表示 if
+条件对应的代码块在 02 句之后已经结束，第 04 句的缩进出错。</p>
+<p>冒号表示一个新代码块的开始，行尾的冒号和新增的缩进一一对应，只有冒号没有新的缩进，或者没有冒号但有新的缩进都是错误的，代码块中间不能断开。</p>
+<p>正确的方法是调换第 03 句和 04 句的位置。</p>
+<p><strong>2．缩进的空格数</strong></p>
+<p>缩进使用的空格数是可变的，一般情况下，使用四格缩进，但也有人习惯两空格缩进或八空格缩进。在同一程序中必须使用一致的缩进规则，建议使用默认的四格缩进。</p>
+<p><strong>3．Tab 键生成缩进和空格生成缩进</strong></p>
+<p>Tab
+键输入制表符，用于文本对齐，制表符在不同软件中被显示成四个或者八个空格。在
+Jupyter Notebook 或者 Spyder 等编程工具中，使用 Tab
+键生成的制表符都被转换成了对应的空格，因此可以使用 Tab
+键生成缩进。但使用 Windows
+记事本这类纯文本编辑器时，不自动转换成空格，如果混用 Tab
+键输入的制表符和空格，程序运行时就会报错，由于制表符和空格看起来差不多，这种错误很难通过观察发现。</p>
+<h3 id="命名">20.1.2 命名</h3>
+<p>无论是编写程序还是使用文件都会遇到命名问题，比如函数名、类名、变量名、文件名、路径名、网址、数据库的字段名等等。计算机上的命名规则也大同小异。一般都支持英文字母、数字、下划线，有的命名也支持中文、特殊符号、空格等等，虽然有些命名规则支持上百个字符的命名长度，但习惯上一般都在
+20 字符以内，不应太长。</p>
+<p><strong>1．有意义的命名</strong></p>
+<p>命名最重要的是有意义，让自己和他人通过名字可以了解变量或者文件的作用。尽量不要使用
+a、b 这样的命名，很难查找，时间长了自己也会忘记用途。</p>
+<p><strong>2．中文和特殊符号</strong></p>
+<p>Python 3 之后的版本，支持用中文命名变量，Windows
+也支持用中文命名文件和目录。由于在计算机中支持多种中文编码，使用不同软件或者系统打开文件时，默认的编码方式如果不同，则可能出现乱码；另外，有些系统区分大小写字母，有的则视大小写为同一字母。</p>
+<p>在编写程序时，尽量使用小写英文字母数字和下划线命名，最好使用有意义的英文单词，其次是使用拼音，尽量少使用中文命名变量、函数和类，除了下划线“_”，命名时也尽量少使用其它的特殊符号和空格，如果想用一个以上的词命名变量，建议使用下划线分隔词，例如“get_width”相比“getwidth”更加直观。</p>
+<p>另外，还需要注意区分下划线“_”和减号“-”；中英文标点符号不同；一些字符看起来比较像，比如大写的
+i（I）和小写的 L（l），英文字母 O 和数字 0 比较容易混淆等等。</p>
+<p><strong>3．命名习惯</strong></p>
+<p>注意根据用途命名，例如：主要给老师、同学、家长（中国人）看的文件名、目录名可以用中文命名；给程序员看的代码文件名、代码中的内容、数据库字段使用英文字母命名；提供给别人调用的文件或者函数命名要有意义，只供自己使用的内部变量可相对随意一些。</p>
+<p>另外，还有一些约定俗成的用法，比如：一般使用字母 i，j
+表示循环中的记数变量。对于一些不变的值，通常使用大写字母命名，比如窗口的长宽常使用
+WIDTH 和 HEIGHT 命名。</p>
+<h3 id="注释">20.1.3 注释</h3>
+<p><strong>1．用途</strong></p>
+<p>注释是对代码的解释和说明，它的目的是让人能够更加轻松地理解代码。虽然使用有意义的命名可以描述程序文件、函数、变量的功能，但命名不能太长，一般通过注释进行更加详细的说明。注释有以下几种使用场景：</p>
+<ul>
+<li>在程序文件的开头介绍该程序的功能和用法。</li>
+<li>在函数之前介绍函数的功能和用法。</li>
+<li>在难以理解的语句前后，说明语句的功能。</li>
+<li>将暂时不用的代码注释掉。</li>
+</ul>
+<p>注释要尽量写得简洁而清楚，如果不熟悉英文，就用中文写，内容比形式更重要。不光自己看得懂，也要让别人能看懂。</p>
+<p><strong>2．用法</strong></p>
+<p>Python
+使用井号“#”实现单行注释，当前行中井号之后的内容都视为注释。使用三引号实现多行注释，形如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">01 print(&#x27;aaa&#x27;) # 打印信息</span><br><span class="line">02 &quot;&quot;&quot;</span><br><span class="line">03 注释第一行</span><br><span class="line">04 注释第二行</span><br><span class="line">05 &quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>三引号用于定义包含回车换行的字符串，可以是三个单引号，也可以是三个双引号。在程序中的字符串，不操作、不赋值，也不影响程序的运行，因此，常作为包含多行的注释使用。</p>
+<h2 id="调试程序">20.2 调试程序</h2>
+<p>学习自然语言时，除了记住词义以外，还要能组合成句子文章，才能正常使用。编程语言也是一种语言，学习时不仅要记住所学知识点，还要学习程序整体的构造和调试。在每一讲后面的习题可供读者练习编写各种程序。尤其是从第十五章之后，不再对课程中实例的简单修改，而是用完全不同的代码构造新的功能。</p>
+<p>如果读者按要求完成了练习，在练习过程中一定遇到了很多的程序错误，也从中学习了解决问题的方法。</p>
+<p>本小节将总结常见的问题和解法，并介绍简单有效的程序调试方法。</p>
+<h3 id="常见问题">20.2.1 常见问题</h3>
+<p>无论是使用命令行还是 Python
+集成开发环境，程序运行出错时都会显示错误提示。提示信息中最重要的是行号信息，开发者通过行号可以确定错误的大概位置。</p>
+<p><strong>1．语法错误</strong></p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-ddb4ab8e61e6e953.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图20.1 语法错误示例" />
+<figcaption aria-hidden="true">图20.1 语法错误示例</figcaption>
+</figure>
+<p>图 20.1 是一种常见的错误，“invalid
+syntax”意思是语法错误，提示错误出现在第二行（line
+2），实际上，错误的原因是第一行少了右括号，程序一直在等待右括号，而在第
+02 行却出现了 print 语句，所以提示为第 02
+行错误。由此可见，也有少量错误行提示，可能是由之前行的错误引起的。但至少可以通过行号确认大概位置。</p>
+<p><strong>2．缩进错误</strong></p>
+<p>图 20.2 是缩进错误，“unexpected indent”意思是意外的缩进，它由第 2
+行多了一个空格引起，也是常见的输入引起的错误。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-ab6a3a7eabeb7eaa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图20.2 缩进错误" />
+<figcaption aria-hidden="true">图20.2 缩进错误</figcaption>
+</figure>
+<p><strong>3．名字未定义错误</strong></p>
+<p>图 20.3 示例了未定义错误，程序在使用 y 之前，没有定义
+y，因此提示“name ‘y’ is not
+defined”（名字’y’没有被定义）。有时候，并不是使用变量或者函数前没有定义，也可能是没有引入函数所在的三方库、或者是输入时拼写错误引起的，比如：混淆字母
+O 和数字 0，逗号看成句号，冒号和分号写错等等。像大写 I(i) 和小写 l(L)
+混淆的错误很难被观察到，这时，可以使用查找功能，比如在 Jupyter Notebook
+中用 Ctrl+f 查找报错中提示的名字。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-cc5b06c00587736e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图20.3未定义错误" />
+<figcaption aria-hidden="true">图20.3未定义错误</figcaption>
+</figure>
+<p><strong>4．下标越界错误</strong></p>
+<p>图 20.4 示例了下标越界错误，报错为“list index out of
+range”（列表索引号超出范围），程序在第 1 行定义了含有三个元素的列表
+arr，在第 2 行试图访问数组的第 4 个元素（索引号为 3），数组元素索引号从
+0 开始，范围是 0,1,2，本例中访问的索引号超过了列表的最大索引号。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-24e2114463bb4d68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图20.4 下标越界错误" />
+<figcaption aria-hidden="true">图20.4 下标越界错误</figcaption>
+</figure>
+<p><strong>5．其它问题</strong></p>
+<p>程序可能出现的错误非常多，无法一一列举，而报错信息一般都是英文的，建议使用以下步骤查找错误原因：</p>
+<p>首先，查看错误提示中的行号，以及行号之前的程序，看是否能发现代码错误。</p>
+<p>如果未找到原因，查看是否为以上几种错误类型。</p>
+<p>如果不是以上问题，用翻译工具翻译错误提示，以定位问题。</p>
+<p>如果仍不能找到问题，在搜索引擎（如百度）中搜索错误提示，查看他人解决此类问题的方法。</p>
+<h3 id="调试方法">20.2.2 调试方法</h3>
+<p>在程序中间加入断点和打印信息都是标准的程序调试方法，特别是在运行他人编写的代码时，用这种方法可以了解每个阶段做了什么。</p>
+<p>我们写的程序都相对简单，类和函数并不多，当运行别人代码时，梳理互相调用关系很重要，最好能画出简单的调用关系图。</p>
+<p><strong>1．print 函数</strong></p>
+<p>Python 中的 print
+函数用于打印输出，它虽然不是专用的程序调试工具，但是如果养成使用 print
+跟踪程序运行的习惯，至少一半的问题都可以解决。</p>
+<p>学习使用 print
+调试程序不是学习函数的使用方法，而是在编写程序的过程中，要理解程序每一行做了什么工作，每一行程序执行之后当前环境中各个变量的状态是什么，尤其是在循环这样较为复杂的结构中，需要了解每一次循环中数据的变化。而使用
+print
+语句则是在开发者不太清楚当前状态的情况下，用程序输出所关注的变量或者数据。</p>
+<p>比如加载数据表文件之后，可以用 print
+语句显示加载后的内容以及数据格式，又如跟踪循环中数据的变化情况。如下例所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01 s = 0</span><br><span class="line">02 for i in [1,2,3]:</span><br><span class="line">03     s = s + i * 7</span><br><span class="line">04     print(s, i)</span><br></pre></td></tr></table></figure>
+<p>其中第四行用于显示每一次循环中的 s 值和 i
+值。当程序并未报错，但输出结果与想象中不同时，可以使用 print
+方法跟踪程序中数据的变化，以定位出错的位置。</p>
+<p>还有一种常用的调试方法是注释掉可能错误的程序段，然后运行程序，如果运行仍不正常，说明不是被注释掉语句的问题，继续注释更多的语句；如果注释后运行正常，则说明是该段问题，然后尝试注释掉较少的语句，直到定位到具体出错的行。</p>
+<p><strong>2. 调试工具 pdb</strong></p>
+<p>pdb 是 Python 的调试工具，由于 pdb 使用方法比较复杂，此处讲解 pdb
+只作为知识扩展，不要求读者掌握。</p>
+<p>在 Jupyter 中加入魔法命令%pdb，即可在程序出错时调用
+pdb，以便调试出错时的具体代码。例如，运行以下程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">01 %pdb</span><br><span class="line">02 arr = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br><span class="line">03 print(arr[3])</span><br></pre></td></tr></table></figure>
+<p>程序运行到第三行时，会报错，但并未退出，界面上将出现可交互的输入框，开发者可以在输入框中输入程序如：print(arr)，来进一步运行程序。请注意：调试完成之后需要在输入框中输入
+exit 退出调试模式。</p>
+<p>使用 pdb
+的另一种方法是在程序中加入断点，当程序运行到该行，会跳出可交互的输入框，开发者可以通过
+pdb 命令查看当前状态，或者逐步执行断点之后的程序。</p>
+<p>设置断点的方法是，在程序中加入 pdb.set_trace()，如以下程序所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">01 import pdb</span><br><span class="line">02 arr = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br><span class="line">03 pdb.set_trace()</span><br><span class="line">04 print(arr[3])</span><br></pre></td></tr></table></figure>
+<p>pdb 常用的调式命令如下：</p>
+<ul>
+<li>单步调试（进入函数）：s(tep)。</li>
+<li>单步调试（不进入函数）：n(ext)。</li>
+<li>继续往后执行，直到下个断点：c(ont(inue))。</li>
+<li>运行到函数结束：r(eturn)。</li>
+<li>运行到当前循环结束：unt(il)。</li>
+<li>设置断点：b(reak) 文件名: 行号（或行号，或函数名）。</li>
+<li>显示当前调用关系：w(here)。</li>
+<li>显示当前代码段：l(ist)。</li>
+<li>显示变量：p(rint) 变量名。</li>
+<li>显示当前函数的参数：a(rgs)。</li>
+<li>显示帮助信息：h(elp)。</li>
+<li>退出：q(uit)。</li>
+</ul>
+<h3 id="错误处理">20.2.3 错误处理</h3>
+<p>程序有时可能出现一些难以预料的错误，比如写客户端程序与服务器端交互，就可能遇到很多问题，如网络未连接，对三方库调用方法不对，与服务器数据交互格式不对，或者以前能正常运行，后来服务端修改了端口，找不到对应功能等等。</p>
+<p>这种情况下，程序员，尤其是写程序供他人调用的程序员，需要识别出程序中可能出现的错误，进行错误处理后，保证程序正常运行，而不会意外退出。</p>
+<p>当程序运行出错时会抛出异常，如果不做处理，则程序会异常退出，Python 用
+try/except 方式捕获异常，其语法规则如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">01 try:</span><br><span class="line">02     程序代码</span><br><span class="line">03 except &lt;异常类&gt; as &lt;变量&gt;:</span><br><span class="line">04 异常处理代码</span><br><span class="line">05 else:</span><br><span class="line">06     异常以外其它情况处理</span><br><span class="line">07 finally：</span><br><span class="line">08     无论是否异常，最终都要执行的代码</span><br></pre></td></tr></table></figure>
+<p>简单实例如下：以读方式打开文件
+test.txt，该文件不存在时将抛出异常，例程中捕获异常，并显示出具体的异常信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">01 try:</span><br><span class="line">02     f = open(&#x27;test.txt&#x27;, &#x27;r&#x27;)</span><br><span class="line">03 except Exception as e:</span><br><span class="line">04     print(&#x27;error&#x27;, e)</span><br><span class="line">05 print(&#x27;aaaa&#x27;)</span><br><span class="line">06 # 返回结果：</span><br><span class="line">07 # error [Errno 2] No such file or directory: &#x27;test.txt&#x27;</span><br><span class="line">08 # aaaa</span><br></pre></td></tr></table></figure>
+<p>从返回结果可以看到，捕捉到异常信息后，程序正常执行了之后的打印信息操作，而并未因为异常而崩溃。</p>
+<p><strong>课后练习：</strong>（练习答案见本讲最后的小结部分）</p>
+<p>练习一：尝试捕获越界的错误。</p>
+<h2 id="思维训练">20.3 思维训练</h2>
+<h3 id="学习编程的好处">20.3.1 学习编程的好处</h3>
+<p>如果读者从头到尾学习了所有例程，并做完了所有习题，可能发现以下变化：</p>
+<ul>
+<li>熟悉了程序、界面、网络、数据库、数据分析等概念。</li>
+<li>熟练使用 Python 编程环境。</li>
+<li>对大多数问题都能定位到关键点。</li>
+<li>写程序从修改变成了构建。</li>
+<li>不再抵触较长的程序段。</li>
+<li>变量命名更有章法。</li>
+<li>更喜欢使用工具和快捷键。</li>
+<li>能解决大多数语法方面的问题，至少有了解决思路。</li>
+</ul>
+<p>……</p>
+<p>12
+岁以下的学生，对于文中绝大多数的概念都是第一次接触，即使当时学会了，过一段时间也会淡忘，因此推荐整体看三遍以上，最终目标是能自如地编写练习中的每一个程序，并且能够将程序用于日常的数据处理。</p>
+<h3 id="防患于未然">20.3.2 防患于未然</h3>
+<p>之前提到学习常常分为两部分：一部分从经验中学习，即构建框架；另一部分从教训中学习。经验可以通过实践或者学习规则构造，而教训更多往往是自己犯了错误印象才深。</p>
+<p>教训又可再细分成两种情况：改正错误和防患于未然。发现问题及时改正可能导致处理过程的暂停和回退；而防患于未然则更多地源于之前的积累，它们在错误的行为之前就进行了阻止，而从表面看来，似乎非常平稳，未经波折。实际上是经验在毫无意识的情况下就发生了作用。比如我们不会在公共场景提到禁忌话题。</p>
+<p>因此，很多时候看起来运气比较好或者天生的灵感，实际上下意识的行为是源于之前的积累。对于一个严谨的人，很多思路在没有外显时可能就已经被过滤掉了，往往也显得没有幽默感，缺少想象力。严谨或者随意可能取决于个人经历和环境，也可能是遗传或者性格所致。</p>
+<p>人们不能要求小孩子对陌生人又友好，又有戒心，但是有些成年人却可以做到。我们在成长过程中不断打磨，逐渐学会了在两极之间取折中的方案，在不同的情况下使用不同的框架。</p>
+<h3 id="注意事项">20.3.3 注意事项</h3>
+<p>最后，整理了一些学习编程中的注意事项，与大家共同学习：</p>
+<ul>
+<li>任何老师都不可能列出所有可能出现的问题，要学会在试错中进步。</li>
+<li>基础知识非常重要，无论文科理科记和背都是必须的，对常用知识构建条件反射，才能有更多的脑力用于后续的学习和思考。</li>
+<li>完成功能后整理代码：从变量命名到代码顺序，都请严格要求自己。</li>
+<li>量的问题积累太多，就变成了质的问题：一个小问题，努力一下也许能解决，但是十个小问题堆叠起来，脑子就直接转不动了。</li>
+<li>代码重构比代码填空难度大得多，尽量多练习构建整体代码逻辑。</li>
+<li>分类和对比非常重要，如果不能直接找到答案，可以寻找类似的情况及处理方法。</li>
+<li>代码需要逐行读懂，长代码，很可能读到后面忘了前面，建议边读边记，最好能绘制流程图，有时候也需要反复阅读。</li>
+<li>初学者对例程往往知其然，不知其所以然，在看他人代码时尽量动手跟踪调试程序。</li>
+<li>写程序像弹琴一样需要不断练习，即使学一遍就会，后边不用也会很快忘记。</li>
+</ul>
+<h2 id="小结">20.4 小结</h2>
+<h3 id="单词">20.4.1 单词</h3>
+<p>本讲需要掌握的英文单词如表 20.1 所示。</p>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-a8881357a4a57246.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="表20.1本讲需要掌握的英文单词" />
+<figcaption aria-hidden="true">表20.1本讲需要掌握的英文单词</figcaption>
+</figure>
+<h3 id="习题答案">20.4.2 习题答案</h3>
+<ol type="1">
+<li>练习一：尝试捕获越界的错误。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">01 try:</span><br><span class="line">02     arr=[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]</span><br><span class="line">03     print(arr[3])</span><br><span class="line">04 except Exception as e:</span><br><span class="line">05     print(&#x27;error&#x27;,e)</span><br><span class="line">06 print(&#x27;aaaa&#x27;)</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/30712/">http://example.com/posts/30712/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">Python/少儿编程</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/33255/" title="论文阅读_BiLSTM-CRF实现序列标注"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_BiLSTM-CRF实现序列标注</div></div></a></div><div class="next-post pull-right"><a href="/posts/12414/" title="19_少儿Python编程_第十九讲： 数据分析网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">19_少儿Python编程_第十九讲： 数据分析网站</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/25309/" title="02_少儿Python编程_第二讲：开发环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-18</div><div class="title">02_少儿Python编程_第二讲：开发环境</div></div></a></div><div><a href="/posts/594/" title="16_少儿Python编程_第十六讲：图形界面开发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-18</div><div class="title">16_少儿Python编程_第十六讲：图形界面开发</div></div></a></div><div><a href="/posts/27572/" title="18_少儿Python编程_第十八讲：搭建网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-20</div><div class="title">18_少儿Python编程_第十八讲：搭建网站</div></div></a></div><div><a href="/posts/12414/" title="19_少儿Python编程_第十九讲： 数据分析网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-24</div><div class="title">19_少儿Python编程_第十九讲： 数据分析网站</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%91%E5%84%BF-python-%E7%BC%96%E7%A8%8B-_-%E7%AC%AC%E4%BA%8C%E5%8D%81%E8%AE%B2%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7"><span class="toc-number">1.</span> <span class="toc-text">少儿 Python 编程 _
+第二十讲：编程技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E4%B9%A0%E6%83%AF"><span class="toc-number">1.1.</span> <span class="toc-text">20.1 编程习惯</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E8%BF%9B"><span class="toc-number">1.1.1.</span> <span class="toc-text">20.1.1 缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D"><span class="toc-number">1.1.2.</span> <span class="toc-text">20.1.2 命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.3.</span> <span class="toc-text">20.1.3 注释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">20.2 调试程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.1.</span> <span class="toc-text">20.2.1 常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">20.2.2 调试方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-number">1.2.3.</span> <span class="toc-text">20.2.3 错误处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E8%AE%AD%E7%BB%83"><span class="toc-number">1.3.</span> <span class="toc-text">20.3 思维训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">20.3.1 学习编程的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%82%A3%E4%BA%8E%E6%9C%AA%E7%84%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">20.3.2 防患于未然</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.3.3.</span> <span class="toc-text">20.3.3 注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.4.</span> <span class="toc-text">20.4 小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%AF%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">20.4.1 单词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-number">1.4.2.</span> <span class="toc-text">20.4.2 习题答案</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>编译在N1(G5,Passion)上运行的姜饼（GingerBread,Android2 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="编译在 N1(G5, Passion) 上运行的姜饼（GingerBread,Android 2.3）代码 (转载请注明出处: [http:&#x2F;&#x2F;blog.csdn.net&#x2F;xieyan0811 ](http:&#x2F;&#x2F;blog.csdn.net&#x2F;xieyan0811)) 1. 修改效果  在 32 位系统上正常编译通过，N1 上能运行，带 root 权限 带 N1 原始的四色 X 开机动画，默认语言为简">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译在N1(G5,Passion)上运行的姜饼（GingerBread,Android2">
+<meta property="og:url" content="http://example.com/posts/29912/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="编译在 N1(G5, Passion) 上运行的姜饼（GingerBread,Android 2.3）代码 (转载请注明出处: [http:&#x2F;&#x2F;blog.csdn.net&#x2F;xieyan0811 ](http:&#x2F;&#x2F;blog.csdn.net&#x2F;xieyan0811)) 1. 修改效果  在 32 位系统上正常编译通过，N1 上能运行，带 root 权限 带 N1 原始的四色 X 开机动画，默认语言为简">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2010-12-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="移动开发">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/29912/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '编译在N1(G5,Passion)上运行的姜饼（GingerBread,Android2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">编译在N1(G5,Passion)上运行的姜饼（GingerBread,Android2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2010-12-31T00:00:00.000Z" title="Created 2010-12-31 00:00:00">2010-12-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="编译在N1(G5,Passion)上运行的姜饼（GingerBread,Android2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1
+id="编译在-n1g5-passion-上运行的姜饼gingerbreadandroid-2.3代码">编译在
+N1(G5, Passion) 上运行的姜饼（GingerBread,Android 2.3）代码</h1>
+<p>(转载请注明出处: [http://blog.csdn.net/xieyan0811</p>
+<p>](http://blog.csdn.net/xieyan0811))</p>
+<p>1. 修改效果</p>
+<ol type="1">
+<li><p>在 32 位系统上正常编译通过，N1 上能运行，带 root 权限</p></li>
+<li><p>带 N1 原始的四色 X 开机动画，默认语言为简体中文</p></li>
+<li><p>带 google
+market，文件管理器，百度中文手写输入法，金山词霸等常用软件</p></li>
+<li><p>打电话，收发短信，WIFI，移动网络，热点上网正常（APN
+已设）</p></li>
+<li><p>音频，视频，照像，摄像，Gps，Sensor 使用正常</p></li>
+<li><p>目前未测到不正常的功能</p></li>
+</ol>
+<p>2. 下载 android 2.2 或 2.3 的 sdk<br />
+刷机使用的 fastboot 和 adb 都需要从 sdk 中获得</p>
+<p>3. 对 N1 的处理</p>
+<ol type="1">
+<li>Bootloader 解锁</li>
+</ol>
+<ol type="a">
+<li><p>关机后，按 Power+ 音量减开机，按音量键选 fastboot，然后按 Power
+进入</p></li>
+<li><p>在 PC 端运行解锁命令如下（fastboot 命令可从 SDK/tools
+目录得到）</p></li>
+<li><p>_ # fastboot oem unlock _</p></li>
+<li><p>通过音量和 Power 键选
+Yes，重新启动，此时看到屏幕下面有一个解决锁标志</p></li>
+</ol>
+<ol start="2" type="1">
+<li>注意：解锁后手机里的用户数据全被清除了，所以解锁之前需要先备份</li>
+</ol>
+<p>4. 刷带 nandroid 的 recovery<br />
+recovery
+用于系统升级，通常情况下即使刷坏了，也不影响手机正常使用。它只对 boot,
+system, userdata</p>
+<p>三个分区做备份，有些版本的 recovery 带 nandroid
+功能，它用于备份和恢复当前手机系统</p>
+<ol type="1">
+<li>普通使用</li>
+</ol>
+<ol type="a">
+<li><p>关机后，按 Power+ 音量减开机，按音量键选 recovery，然后按 Power
+进入，此时看到叹号和小绿人</p></li>
+<li><p>按音量加减 +Power 进入菜单，此模式可以使用 update.zip</p></li>
+</ol>
+<p>升级，但不能备份当前系统，强烈建议升级前备份原系统，因为原生的一般都比后烧的稳定</p>
+<ol start="3" type="a">
+<li>按 Power+ 音量减 + 滚轮重启</li>
+</ol>
+<ol start="2" type="1">
+<li>替换带 nandroid 的 recovery，以备份原有系统</li>
+</ol>
+<ol type="a">
+<li><p>下载 recovery-RA-nexus-v1.7.0.img（见下面指定的地址）</p></li>
+<li><p>关机后，按 Power+ 音量减开机，按音量键选 fastboot，然后按 Power
+进入</p></li>
+<li><p>/ 在 PC 端运行烧写命令如下</p></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ fastboot flash recovery recovery-RA-nexts-v1.7.0.img</span><br></pre></td></tr></table></figure>
+<ol start="4" type="a">
+<li><p>在手机端菜单中选择进入 bootloader</p></li>
+<li><p>在 bootloader 中选 recovery，就可看到 recovery
+的新选项，用轨迹球可以操作</p></li>
+<li><p>备份数据和恢复选项<br />
+更新的 recovery 除正常备份外还可以备份 google 帐号数据，备份
+app2sd</p></li>
+</ol>
+<p>中扩展的数据，和恢复到选定的版本（早期版本只支持恢复到最后备份的版本）</p>
+<ol start="3" type="1">
+<li>注意<br />
+用以上方法烧写 recovery 分区，系统重启后 recovery
+又会恢复，这是由于开机时被 /data/recovery.img</li>
+</ol>
+<p>恢复了，如果不想被刷回，可将下载的 recovery.img 放到 /data/
+下即可（需要 root 权限）</p>
+<p>5. 编译 android 2.3（如不想编译请跳过此步，直接下载编好的 img
+烧写）</p>
+<ol type="1">
+<li>安装 jdk<br />
+android 之前的版本使用 jdk1.5 编译，而 android 2.3 默认要求使用
+jdk1.6</li>
+</ol>
+<ol type="a">
+<li>安装 jdk 1.6</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install sun-java6-jdk</span><br></pre></td></tr></table></figure>
+<ol start="2" type="a">
+<li>在同一台机器上同时编译 android 2.2 和 android
+2.3，用以下方法进行切换</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo update-java-alternatives -s java-1.5.0-sun</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><p>用 git 下载 2.3 源代码<br />
+配置 linux 环境，安装 git 及 repo 请参见相关文档</p></li>
+<li><p>解决只能在 64 位系统编译的问题<br />
+android 2.3 默认只能在 64 位系统中编译，为了不重装系统可以用以下方法在
+32 系统上编译</p></li>
+</ol>
+<ol type="a">
+<li>修改 main.mk</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi build/core/main.mk</span><br><span class="line">将  75  行左右判断  64  位的部分注释掉，或修改如下：</span><br><span class="line">ifneq (i686,$(findstring i686,$(build_arch)))</span><br></pre></td></tr></table></figure>
+<ol start="2" type="a">
+<li>修改 clearsilver 中的编译选项，将下面四个文件中的 -m64 改为
+-m32</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">external/clearsilver/cgi/Android.mk,  </span><br><span class="line">external/clearsilver/java-jni/Android.mk,  </span><br><span class="line">external/clearsilver/util/Android.mk,  </span><br><span class="line">external/clearsilver/cs/Android.mk</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>编译前的准备工作</li>
+</ol>
+<ol type="a">
+<li><p>连接手机和电脑</p></li>
+<li><p>将手机中的没有源码的库补丁到源码中（我的 N1 系统为 android
+2.2）</p></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd device/htc/passion/  </span><br><span class="line">$ ./extract-files.sh  此处需要的  adb  命令从  SDK  中获取  _</span><br></pre></td></tr></table></figure>
+<ol start="3" type="a">
+<li>修改源码</li>
+</ol>
+<ol type="i">
+<li><p>解决照像摄像问题（android 2.3
+支持了多摄像头之后接口改变），修改<br />
+frameworks/base/services/camera/libcameraservice/CameraService.cpp<br />
+frameworks/base/media/libstagefright/omx/OMXNodeInstance.cpp<br />
+frameworks/base/media/libstagefright/OMXCodec.cpp<br />
+frameworks/base/media/libstagefright/CameraSource.cpp</p></li>
+<li><p>解决进应用闪白问题，修改<br />
+frameworks/base/libs/ui/GraphicBuffer.cpp</p></li>
+</ol>
+<ol start="5" type="1">
+<li>编译</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ . build/envsetup.sh  </span><br><span class="line">$ lunch 3  #  此处选择硬件平台为  _ _ N1(Passion)  </span><br><span class="line">$ choosecombo 1 1 full_passion 3  # 3  为指定编译工程模式，即带  root  权限  _  </span><br><span class="line">$ make –j6</span><br></pre></td></tr></table></figure>
+<p>6. 下载 img</p>
+<ol type="1">
+<li>此版本为个人测试使用，在本人上周网购的自带 android 2.2 的港版 N1
+上正常使用，不能保证所有 N1</li>
+</ol>
+<p>都使用正常，烧机后果自负，建议大家自行编译。再次提醒：请在烧写前先用
+recovery nandroid 备份当前系统。以下为下载地址：
+[http://iask.sina.com.cn/u/ish?retcode=0</p>
+<p>](http://iask.sina.com.cn/u/ish?retcode=0)<br />
+（含 md5, system, userdata, boot, recovery）</p>
+<ol start="2" type="1">
+<li>下载后可通过 fastboot 烧写，方法如下</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fastboot flash system system.img  </span><br><span class="line">$ fastboot flash boot boot.img  </span><br><span class="line">$ fastboot flash userdata userdata.img</span><br></pre></td></tr></table></figure>
+<p>7. 参考</p>
+<ol type="1">
+<li>Android 2.3 使用的 google market 可从此处下载<br />
+[http://blog.csdn.net/silenceburn/archive/2010/12/24/6096822.aspx</li>
+</ol>
+<p>](http://blog.csdn.net/silenceburn/archive/2010/12/24/6096822.aspx)</p>
+<ol start="2" type="1">
+<li>设置 apn 的方法<br />
+[http://mobile.yesky.com/447/9288447.shtml</li>
+</ol>
+<p>](http://mobile.yesky.com/447/9288447.shtml)</p>
+<ol start="3" type="1">
+<li>Recovery 的使用请参考<br />
+[http://anriqing.blogbus.com/logs/77459519.html</li>
+</ol>
+<p>](http://anriqing.blogbus.com/logs/77459519.html)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/29912/">http://example.com/posts/29912/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="post-meta__tags" href="/tags/Android/">Android</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/27641/" title="简单的android中C库调试方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">简单的android中C库调试方法</div></div></a></div><div class="next-post pull-right"><a href="/posts/51400/" title="调试lib库的一些小技巧"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">调试lib库的一些小技巧</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/16225/" title="中文语音合成引擎_Easytts_易言语音合成中文优化版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-05-11</div><div class="title">中文语音合成引擎_Easytts_易言语音合成中文优化版</div></div></a></div><div><a href="/posts/60329/" title="安装和卸载Android应用程序_apk包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">安装和卸载Android应用程序_apk包</div></div></a></div><div><a href="/posts/29780/" title="Android常用命令及工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Android常用命令及工具</div></div></a></div><div><a href="/posts/794/" title="Android常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2009-11-03</div><div class="title">Android常用工具</div></div></a></div><div><a href="/posts/35729/" title="Eclipse编译带so库或jar包的android应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2011-12-28</div><div class="title">Eclipse编译带so库或jar包的android应用</div></div></a></div><div><a href="/posts/54377/" title="Ubuntu上安装和使用Android-Studio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-04-24</div><div class="title">Ubuntu上安装和使用Android-Studio</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%9C%A8-n1g5-passion-%E4%B8%8A%E8%BF%90%E8%A1%8C%E7%9A%84%E5%A7%9C%E9%A5%BCgingerbreadandroid-2.3%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">编译在
+N1(G5, Passion) 上运行的姜饼（GingerBread,Android 2.3）代码</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

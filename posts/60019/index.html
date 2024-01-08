@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_医疗知识图谱_GraphCare | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="123456英文名称: GraphCare: Enhancing Healthcare Predictions with Open-World Personalized Knowledge Graphs中文名称: GraphCare：通过开放世界的个性化知识图增强医疗保健预测文章: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2305.12788代码: https:&#x2F;&#x2F;github.com&#x2F;pat-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_医疗知识图谱_GraphCare">
+<meta property="og:url" content="http://example.com/posts/60019/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="123456英文名称: GraphCare: Enhancing Healthcare Predictions with Open-World Personalized Knowledge Graphs中文名称: GraphCare：通过开放世界的个性化知识图增强医疗保健预测文章: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2305.12788代码: https:&#x2F;&#x2F;github.com&#x2F;pat-">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-01-06T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-06T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="生物医学">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="知识图&#x2F;知识图谱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/60019/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_医疗知识图谱_GraphCare',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-06 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_医疗知识图谱_GraphCare</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-06T00:00:00.000Z" title="Updated 2024-01-06 00:00:00">2024-01-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_医疗知识图谱_GraphCare"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">英文名称: GraphCare: Enhancing Healthcare Predictions with Open-World Personalized Knowledge Graphs</span><br><span class="line">中文名称: GraphCare：通过开放世界的个性化知识图增强医疗保健预测</span><br><span class="line">文章: http://arxiv.org/abs/2305.12788</span><br><span class="line">代码: https://github.com/pat-jj/GraphCare</span><br><span class="line">作者: Pengcheng Jiang, Cao Xiao, Adam Cross, Jimeng Sun, 伊利诺伊大学</span><br><span class="line">日期: 2023-05-22</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>来自 230825 学习会 <a
+target="_blank" rel="noopener" href="https://ruiqingblog.github.io/2023/08/21/GraphCare/">小丁分享</a></p>
+<p>之前做医疗知识图谱和医疗预测时，最困难的问题包括：</p>
+<ul>
+<li>如何结合现有的数据和知识</li>
+<li>非结构化的文本类知识如何与数据结合</li>
+<li>知识图结构如何设计，如何使用</li>
+<li>如何引入时序的逻辑</li>
+<li>如何使用大模型的知识和常识</li>
+</ul>
+<p>不仅医疗领域，这些问题几乎存在于所有领域的建模。论文 GraphCare
+对此进行了探索。这里只展示了不同知识图的优化效果，实际工作中，知识图生成的患者描述特征还可以与患者的检查，检验信息结合，使模型达到更优的效果。</p>
+<h2 id="介绍">2 介绍</h2>
+<p>文章主要针对的问题是：如何结合 <strong>患者情况</strong> 与
+<strong>医疗知识</strong>
+做出医疗预测。这里的医疗知识来自知识图谱，文章提出的改进主要针对知识图谱部分。包括以下三点：</p>
+<ul>
+<li>使用大模型中的知识填充图谱中的知识盲区（题目中的 Open-world
+概念）。</li>
+<li>设计了针对个人的知识图谱结构。</li>
+<li>提出了双向注意力增强 (BAT) 图神经网络 (GNN)。</li>
+</ul>
+<p>数据使用 MIMIC 3/4，主要针对：死亡率、再入院、住院时间和药物建议
+进行预测，与 GNN 相比几种预测的 AUROC
+均有提升，且使用更少数据就能建模。</p>
+<h2 id="方法">3 方法</h2>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230830102129.png" /></p>
+<h3 id="生成特定概念的知识图">3.1 生成特定概念的知识图</h3>
+<p>这里的特定概念指的是医疗代码 e ∈ {c, p,
+d}，三个字母分别代表：诊断、治疗和药物。对每个医疗代码，提取其知识图 Ge
+= (Ve, Ee)，其中 V 是结点 E 是边。</p>
+<h4 id="建图">3.1.1 建图</h4>
+<p>使用两种方法建图：</p>
+<ul>
+<li><p>使用自然语言大模型构建</p>
+<p>调用大模型，主要技术是设计提示模板，解析模型的返回结果，以及填充图。模板由三部分组成：指令（让模型做什么）、示例（返回结果什么样）、提示词（具体见附录
+C.1）；返回得到头实体，关系，尾实体的三元组；对于每个医疗代码，运行χ次，构造其知识图。</p></li>
+<li><p>从现有知识图中取子图构建</p>
+<p>为更好利用现有知识和知识图，通过子图采样提取医学代码的特定概念图。先识别现有生物医学知识图谱中与医学代码
+e 对应的实体，然后随机采样源自实体的 κ 跳子图（具体见附录
+C.2）。</p></li>
+</ul>
+<h4 id="对点和边聚类">3.1.2 对点和边聚类</h4>
+<p>使用文本构建的图，常会出现同概念对应多个描述的问题，这里使用聚类方法，合并概念。通过大语言模型，可以得到文本的嵌入，使用嵌入分别对结点和边聚类。</p>
+<p>对全局图中相似的节点和边进行分组所有概念（如图 -1
+所示）。经过聚类后，将原始图 G 中的节点 V 和边 E 映射到新的节点 V′ 和边
+E′，获得新的全局图 G′ = (V′, E′)，并为每个医疗代码创建一个新的图 G′e =
+(V′e, E′e) ⊂ G′。节点嵌入和边嵌入由每个簇中的平均词嵌入初始化。</p>
+<h2 id="生成患者知识图">4 生成患者知识图</h2>
+<p>这里分两个维度描述患者：患者医疗代码（得了什么病，不只一种病），患者的多次就诊。</p>
+<p>针对每位患者，建立患者节点
+P，并将其连接到图中的直接医疗代码。患者的个性化 KG 可以表示为 Gpat =
+(Vpat, Epat)，其中 Vpat = P ∪ {V′e1, V′e2,..., V′eω
+}；由于患者可能多次就诊，将患者 i 的访问子图可以表示为 Gpat(i) = {Gi,1,
+Gi,2,..., Gi,J } = {(Vi,1, Ei,1), (Vi,2, Ei,2),..., (Vi,J, Ei,J)}。</p>
+<h3 id="双向注意力增强图神经网络">4.1 双向注意力增强图神经网络</h3>
+<p>图神经网络最终的输出一般是用向量 (数组)
+表征的结点，比如最终用数组描述每位患者的情况，然后将患者作为实例，数组作为特征
+X，以最终目标（如：是否死亡作）为 y
+代入模型训练。以此实现对不同任务的预测。如果在训练模型时加入患者的其它特征，如实验室检验等数值型数据，模型就同时支持了患者数据和知识。</p>
+<p>图神经网络的原理是聚合邻域节点信息来表示当前节点，从而学习图中的关系。相对于一般的
+GNN 神经网络，文中提出了双向注意力增强网络（Bi-attention Augmented (BAT)
+GNN）机制。具体方法如下：</p>
+<ul>
+<li>首先将词嵌入转换到隐藏嵌入减少节点和边嵌入的大小，以提高模型的效率并处理稀疏问题。</li>
+<li>两个注意力权重：一个关注子图，一个关注子图中的结点：</li>
+</ul>
+<p><span class="math display">\[
+\begin{array}{l}
+\alpha_{i, j, 1}, \ldots, \alpha_{i, j,
+M}=\operatorname{Softmax}\left(\mathbf{W}_{\alpha} \mathbf{g}_{i,
+j}+\mathbf{b}_{\alpha}\right), \\
+\beta_{i, 1}, \ldots, \beta_{i, N}=\lambda^{\top}
+\operatorname{Tanh}\left(\mathbf{w}_{\beta}^{\top}
+\mathbf{G}_{i}+\mathbf{b}_{\beta}\right), \quad \text { where } \quad
+\boldsymbol{\lambda}=\left[\lambda_{1}, \ldots, \lambda_{N}\right],
+\end{array}
+\]</span></p>
+<p>患者 i 第 j 个访问子图中第 k 个节点的节点级注意力权重为 αi,j,k，患者
+i 的第 j 次就诊，表示为 βi,j；g 描述 患者 i 第 j 次就诊是否涉及实体 k，M
+是全局中的结点数，N 是最大就诊次数；W 和 b
+是待学习的参数；λ是衰减系数，用于描述：就诊次数时间越接近，重要性越高。</p>
+<p>参数的初始化利用了大模型返回的词嵌入，Wα的初值根据节点嵌入与目标（如死亡）的
+cosine
+距离设定，即节点描述与目标词义越相近，权重越高。最终计算出各个节点的隐藏层表示
+h。</p>
+<p><span class="math display">\[
+\begin{array}{l}
+\mathbf{h}_{i}^{G_{\text {pat
+}}}=\operatorname{MEAN}\left(\sum_{j=1}^{J} \sum_{k=1}^{K_{j}}
+\mathbf{h}_{i, j, k}^{(L)}\right), \quad
+\mathbf{h}_{i}^{\mathcal{P}}=\operatorname{MEAN}\left(\sum_{j=1}^{J}
+\sum_{k=1}^{K_{j}} \mathbb{1}_{i, j, k}^{\Delta} \mathbf{h}_{i, j,
+k}^{(L)}\right), \\
+\mathbf{z}_{i}^{\text {graph
+}}=\operatorname{MLP}\left(\mathbf{h}_{i}^{G_{\text {pat }}}\right),
+\quad \mathbf{z}_{i}^{\text {node
+}}=\operatorname{MLP}\left(\mathbf{h}_{i}^{\mathcal{P}}\right) \quad
+\mathbf{z}_{i}^{\text {joint
+}}=\operatorname{MLP}\left(\mathbf{h}_{i}^{G_{\text {pat }}} \oplus
+\mathbf{h}_{i}^{\mathcal{P}}\right),
+\end{array}
+\]</span></p>
+<p>这里又针对每位患者计算 hiG 和 HiP，J 是就诊次数，K
+是访问的节点数，1iΔ,j,k ∈ {0, 1} 是一个二进制标签，指示结点 vi,j,k
+是否对应于患者 i
+的直接医疗代码。我理解：前者是对与患者相关的所有节点取平均，后者是对与患者直接相关的医疗代码取平均。最终通过组合，使用
+z 描述患者。</p>
+<h3 id="训练和预测">4.2 训练和预测</h3>
+<p>对于每位患者，考虑其 t 次就诊的数据：{(x1), (x1, x2),..., (x1,
+x2,..., xt)}</p>
+<ul>
+<li>死亡率预测：利用患者前几次就诊预测未来是否死亡。</li>
+<li>再入院预测：根据患者前几次住院情况预测患者 15 天以内的再入院。</li>
+<li>住 ICU 时长预测：将问题定义为多分类，类别为: 1 天内，1 天，2 天... 7
+天，一到两周，两周以上。根据本次及前几次就诊情况，判断住 ICU 时长。</li>
+<li>推荐药物：根据本次及前次就诊，预测本次用药，用药可能为多种，因此定义为多标签问题。</li>
+</ul>
+<h2 id="实验">5 实验</h2>
+<ul>
+<li>EHR 数据，并使用公开的 MIMIC-III / MIMIC-IV 数据集。</li>
+<li>构建知识图谱，使用 GPT-4 作为大模型，UMLS-KG
+作为现有的大型生物医学知识图。</li>
+<li>词嵌入，使用了 GPT-3 嵌入模型。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/60019/">http://example.com/posts/60019/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/">生物医学</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图/知识图谱</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/34353/" title="GPT应用_AutoGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">GPT应用_AutoGPT</div></div></a></div><div class="next-post pull-right"><a href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_AI生成检测_Ghostbuster</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/46387/" title="医学论文_ICU_强化学习_SEPSIS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">医学论文_ICU_强化学习_SEPSIS</div></div></a></div><div><a href="/posts/36040/" title="论文阅读_ICD编码_BERT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-20</div><div class="title">论文阅读_ICD编码_BERT</div></div></a></div><div><a href="/posts/21052/" title="论文阅读_ICD编码_MSATT-KG"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">论文阅读_ICD编码_MSATT-KG</div></div></a></div><div><a href="/posts/42915/" title="论文阅读_ICD编码_MSMN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-14</div><div class="title">论文阅读_ICD编码_MSMN</div></div></a></div><div><a href="/posts/15446/" title="论文阅读_ICD编码_TLSTM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-18</div><div class="title">论文阅读_ICD编码_TLSTM</div></div></a></div><div><a href="/posts/28943/" title="论文阅读_一对多的手术名称规范化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-04</div><div class="title">论文阅读_一对多的手术名称规范化</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">2 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">3 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E7%89%B9%E5%AE%9A%E6%A6%82%E5%BF%B5%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9B%BE"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 生成特定概念的知识图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E5%9B%BE"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1 建图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E7%82%B9%E5%92%8C%E8%BE%B9%E8%81%9A%E7%B1%BB"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2 对点和边聚类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%82%A3%E8%80%85%E7%9F%A5%E8%AF%86%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">4 生成患者知识图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%A2%9E%E5%BC%BA%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 双向注意力增强图神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E5%92%8C%E9%A2%84%E6%B5%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 训练和预测</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 实验</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

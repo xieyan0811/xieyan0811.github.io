@@ -1,0 +1,533 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_知识图对齐PRASE | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍 英文题目：Unsupervised Knowledge Graph Alignment by Probabilistic Reasoning and Semantic Embedding 中文题目：基于概率推理和语义嵌入的无监督知识图对齐 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2105.05596v1 领域：自然语言处理，知识图谱 发表时间：2021 作者：腾讯天衍实验室 出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_知识图对齐PRASE">
+<meta property="og:url" content="http://example.com/posts/61432/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="介绍 英文题目：Unsupervised Knowledge Graph Alignment by Probabilistic Reasoning and Semantic Embedding 中文题目：基于概率推理和语义嵌入的无监督知识图对齐 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2105.05596v1 领域：自然语言处理，知识图谱 发表时间：2021 作者：腾讯天衍实验室 出">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2022-04-09T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="知识图&#x2F;图神经网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/61432/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_知识图对齐PRASE',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_知识图对齐PRASE</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-04-09T00:00:00.000Z" title="Created 2022-04-09 00:00:00">2022-04-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>11min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_知识图对齐PRASE"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="介绍">介绍</h1>
+<p>英文题目：Unsupervised Knowledge Graph Alignment by Probabilistic
+Reasoning and Semantic Embedding</p>
+<p>中文题目：基于概率推理和语义嵌入的无监督知识图对齐</p>
+<p>论文地址：https://arxiv.org/abs/2105.05596v1</p>
+<p>领域：自然语言处理，知识图谱</p>
+<p>发表时间：2021</p>
+<p>作者：腾讯天衍实验室</p>
+<p>出处：IJCAI（国际人工智能联合会议）</p>
+<p>被引量：1</p>
+<p>代码和数据：</p>
+<p>https://github.com/qizhyuan/PRASE-Python</p>
+<p>https://github.com/dig-team/PARIS</p>
+<p>阅读时间：22.04.08</p>
+<h1 id="泛读">泛读</h1>
+<ul>
+<li>针对问题：实体对齐（不是本体对齐）</li>
+<li>结果：效果优于之前模型</li>
+<li>核心方法：提出
+PRASE，基于<strong>概率推理</strong>和<strong>语义嵌入</strong>，使用不断更新种子的方法迭代训练上述两个子模型。</li>
+<li>难点：先需要了解一下 PARIS 模型</li>
+<li>泛读后理解程度：70%</li>
+</ul>
+<p>（看完题目、摘要、结论、图表及小标题）</p>
+<h1 id="精读">精读</h1>
+<h2 id="摘要">摘要</h2>
+<p>目前常用的实体对齐方法包括：基于词嵌入的对齐、常识推理和字典匹配。前者的模型常常依赖有监督学习，缺乏恰当的推理，难以避免逻辑错误的映射；后者解决了推理问题，但较少使用图结构和实体上下文。本文致力于结合二者。</p>
+<h2 id="介绍-1">1. 介绍</h2>
+<p>实体对齐可用于把局部的知识图结合成更大的知识图，具体的工作是需要找到不同图中<strong>含义相同的实体</strong>、关系等。</p>
+<p><strong>图嵌入</strong>将图中实体关系等信息编码到低维空间，使其包含的语义信息作为进一步探索的工具。对齐问题的解决方法常常是：先将待对齐的知识图嵌入到一个向量空间中，然后通过计算向量距离或相似性来发现映射。</p>
+<p>这些基于嵌入的模型常常需要一定数量的知识映射（对齐种子）来进行训练，而种子标注需要大量人力。种子的数量和抽样分布对对准性能有很大影响。而且先编码后映射的方法可能忽略整体性，从而导致映射错误。</p>
+<p>使用<strong>逻辑推理或者字典映射</strong>，本体对齐方法是相对传统的技术，比如
+2012 年的 PARIS
+利用概率归因和字典映射方法，通过名字匹配一些初始特征之后，通过迭代概率推理来推断实体、关系的等价性。因此无需训练，不依赖种子，更高效和可扩展。但它在开发和利用图形结构和其他上下文信息方面较弱。</p>
+<p>本文致力于结合上述两种模型，提出了无监督的迭代框架 PRASE。其中的 PR
+是概率推理模块（probablistic reasoning），SE 是词嵌入（semantic
+embedding）模块。PR 基于之前 PARIS 模型，SE
+用于捕捉图结构和实体的上下文，PR 从 SE 处得到映射和实体嵌入。</p>
+<p>本文主要贡献如下：</p>
+<ul>
+<li>提出无监督的对齐框架 PRASE，用迭代方法结合了两种模型</li>
+<li>使用 PARIS 和不同的词嵌入模块实现模型</li>
+<li>在多个数据集上达到比之前更好的效果</li>
+</ul>
+<h2 id="预备知识">2. 预备知识</h2>
+<p>背景和相关工作</p>
+<h3 id="问题表述">2.1 问题表述</h3>
+<p>设符号：E 是实体，R 是关系，A 是属性，V 是属性值。将图定义为
+G=(E,R,A,V,TR,TA)，其中 TR 指关系三元组，TA 指属性三元组：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408093940.png"
+alt="Pasted image 20220408093940.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408093940.png</figcaption>
+</figure>
+<p>问题定义成对两个图 G 和 G' 中实体的对齐方法：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408094046.png"
+alt="Pasted image 20220408094046.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408094046.png</figcaption>
+</figure>
+<p>"≡" 指的是两个实体指向现实世界中的同一对象。</p>
+<h3 id="paris-方法">2.2 PARIS 方法</h3>
+<p>属性三元组和关系三元组类似，因此定义：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408094258.png"
+alt="Pasted image 20220408094258.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408094258.png</figcaption>
+</figure>
+<p>并且定义了关系的度量函数及其反向函数：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408094529.png"
+alt="Pasted image 20220408094529.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408094529.png</figcaption>
+</figure>
+<p>其中|.|表示集合的基数（集合中的元素数量），上述函数用于计算头实体和尾实体的唯一性。当
+F(r)=1 时，说明其头实体是唯一的，请注意：F 和 F-1
+具有不变性，因此，可提前计算。</p>
+<p>PARIS（2012
+年论文，用于对齐实例、关系、类，适用于大型图）可以交替计算实体映射和包含关系，不同图中的两个实体
+h 和 h' 相等的概率 P(h ≡h′)，计算如下：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408095328.png"
+alt="Pasted image 20220408095328.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408095328.png</figcaption>
+</figure>
+<p>其中 (h,r,t) 是图中的三元组，式 -2
+的大概意思是：在确定了尾实体相等的概率、关系 r 的逆函数 F-1，以及 r 与
+r' 包含关系的概率后，即可计算头实体 h 与 h' 是同一实体的概率。</p>
+<p>其中 P(r ⊆ r′) 表示 r 是 r' 子集的概率：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220408095418.png"
+alt="Pasted image 20220408095418.png" />
+<figcaption aria-hidden="true">Pasted image
+20220408095418.png</figcaption>
+</figure>
+<p>式 -3 假设已知头实体和尾实体分别指向同一实体的概率，分母计算所有
+h,t，分子计算包含 h,r,t 的三元组。</p>
+<p>可以看到计算 P(r ⊆ r′) 需要 P(h ≡h′)，而 P(h ≡h′) 又需要 P(r ⊆
+r′)，二者相互依赖，因此需要迭代优化。一开始，P(r ⊆ r′)
+可被设置为一个很小的值，比如
+0.1；或者，当实体是属性时，如果文字描述相同则设为 1，否则为
+0；更高级的方法是用实体间的编辑距离作为其评分。</p>
+<p>在每次迭代时，式 -2 计算出了实体相等的概率，式 -3
+又计算了关系的包含关系，迭代直至收敛。最终 PARIS 输出的是实体映射表记作
+̃YP，Po(e≡e‘)，(e，e’)∈Yp，上标 o 表示输出。</p>
+<h3 id="基于嵌入的知识图对齐">2.3 基于嵌入的知识图对齐</h3>
+<p>基于嵌入的知识图对齐一般分两步：先学习词嵌入（如使用 TransE
+或图神经网络），在不同图中使用同一向量空间编码，通过参数共享、参数互换、嵌入变换、嵌入校准等策略实现；然后，基于度量实体嵌入的相似性来预测实体映射。</p>
+<p>MTransE 是比较典型的嵌入方法，通过以下损失函数优化：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409114521.png"
+alt="Pasted image 20220409114521.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409114521.png</figcaption>
+</figure>
+<p>其中||.||计算欧几里得范数，h,r,t
+都是编码后的低维向量，处于同一向量空间。一般情况下需要种子训练模型：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409171156.png"
+alt="Pasted image 20220409171156.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409171156.png</figcaption>
+</figure>
+<p>最小化损失：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409171303.png"
+alt="Pasted image 20220409171303.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409171303.png</figcaption>
+</figure>
+<p>其中 e 和 e' 是实体嵌入，维度为 m，M 是大小 mxm 的转移矩阵。通过学习
+M，G 可被转换到 G' 所在的空间。最终实现实体映射记作 ̃YE，其相似度在[0,1]
+之间。记作: S(e ≡ e′),(e,e′) ∈ ̃YE。通过该方法可以进行近邻搜索。</p>
+<h2 id="框架">3. 框架</h2>
+<h3 id="prase-概览">3.1 PRASE 概览</h3>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409115343.png"
+alt="Pasted image 20220409115343.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409115343.png</figcaption>
+</figure>
+<p>模型框架如图 -1 所示，主要由概率模型 PR 和嵌入模型 SE 组成。PR
+用于计算实体映射 ̃YP 及其概率
+Po。然后将高置信度的映射作为种子，传入嵌入模型 SE，SE
+通过这些种子来训练模型，然后 SE 模型对于 PR 模型输出的未对齐的实体 ̃UP
+进行预测；之后，将 SE 预测结果实体映射表 ̃YE 和相似度得分 S(e ≡
+e′)，以及实体嵌入结果：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409171543.png"
+alt="Pasted image 20220409171543.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409171543.png</figcaption>
+</figure>
+<p>作为 PR 模块的输入，再进行下一次迭代。以上过程迭代 K 次，PR
+模型最终输出实体映射表 ̃YP。</p>
+<h3 id="概率推理模型">3.2 概率推理模型</h3>
+<p>PR 模块首先利用式 -1 计算出关系的函数 F 及其反向函数，然后利用式 2 式
+3 计算两个实体的相似概率。PR 与 SE 交替调用，在 k
+次迭代时（k&gt;0），将前次输出作为本次的输入</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409151718.png"
+alt="Pasted image 20220409151718.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409151718.png</figcaption>
+</figure>
+<p>i 指输入，o 指输出，每次迭代时 PR 的输入如下：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409151155.png"
+alt="Pasted image 20220409151155.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409151155.png</figcaption>
+</figure>
+<p>P 指的是 PR 模块的映射概率。当前一个 PR
+模型认为两实体对齐时，将其为同一实体的概率以权重 a1 代入；当 SE
+模型认为二者对齐且相似度大于阈值δ1（δ1,a1,a2 均为超参数，取值范围在 0-1
+之间），将其相似度以权重 a2 代入；否则设其概率初值为 0。</p>
+<p>为了更直接地利用 SE 输出的嵌入信息，在迭代过程中，将 PARIS 中的式 -2
+变为式 -5：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409152456.png"
+alt="Pasted image 20220409152456.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409152456.png</figcaption>
+</figure>
+<p>利用超参数β（取值 (0,1)）来平衡词向量相似度和 PARIS 计算的概率。sim()
+计算 cosine 距离，其取值在[0,1]。</p>
+<h3 id="语义嵌入模块">3.3 语义嵌入模块</h3>
+<p>在第 k 次迭代时，利用上一次 PR 产生的对齐数据集
+Yk-1，从中提取出置信度高（超参数δ2 作为阈值）的对齐数据作为种子 Sk
+来训练
+SE，尽管很多时候种子中包含不正确的数据，但是它也能带来大量的有用信息。用训练好的
+SE 代入未对齐的实体 U，它将输出与 U
+最相似的实体，以及词嵌入。任何词嵌入方法都可以用作 SE。</p>
+<p>PRASE 流程如算法 -1 所示：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409144900.png"
+alt="Pasted image 20220409144900.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409144900.png</figcaption>
+</figure>
+<p>对于两个图 G 和 G'，设置迭代次数 K。</p>
+<p>line 1：用式 -1 初始化 PR 模块（通过两图中三元组计算关系函数 F）</p>
+<p>line 2：PR 处理：用式 -2 和式 -3 依次计算实体相似概率和关系的包含</p>
+<p>line 3：产生了初始的对齐数据集 Y0 和未对齐数据集 U0。</p>
+<p>line 4：开始迭代</p>
+<p>line 5：基于前次对齐数据集 Yk-1 产生种子</p>
+<p>line 6：使用种子训练 SE 模型</p>
+<p>line 7：用 SE 模型对前次未对齐数据 Uk-1 预测</p>
+<p>line 8：产生了本次预测结果 YE 和嵌入结果 EEk</p>
+<p>line 9：使用式 -4 初始化 PR 模型</p>
+<p>line 10：PR 处理，计算式 -5 和式 -3</p>
+<p>line 11：产生了本次的对齐数据集 Yk 和未对齐数据集 Uk。</p>
+<p>line 12：继续迭代</p>
+<p>line 13：最终输出 Y</p>
+<h2 id="评价">4. 评价</h2>
+<h3 id="数据集">4.1 数据集</h3>
+<p>OpenEA 数据集：常用的用于评测图对齐的数据集。由 DBpedia, YAGO, and
+Wikidata 组成，文中评测使用其 V2
+版本，包含跨语言数据集和跨知识图谱数据集，另外，还使用了相对困难的数据集
+D-W-15K-V2。</p>
+<p>下载地址：https://github.com/nju-websoft/OpenEA</p>
+<p>工业数据集：MED-BBK-9K 是 Zhang 在 2020
+年提出的数据集，包含专业医学数据集和百度百科医学数据（中文），约几十万个三元组。形如：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220410114407.png"
+alt="Pasted image 20220410114407.png" />
+<figcaption aria-hidden="true">Pasted image
+20220410114407.png</figcaption>
+</figure>
+<p>下载地址：https://github.com/ZihengZZH/industry-eval-EA</p>
+<p>解压后即可看到三元组数据（<strong><em>又解锁一个中文的医学图谱数据及其对齐算法，开心</em></strong>）。</p>
+<h3 id="实验设置">4.2 实验设置</h3>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409162248.png"
+alt="Pasted image 20220409162248.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409162248.png</figcaption>
+</figure>
+<p>最上边部分是嵌入模型，第二部分是推理模型，STR-Match 和 EMB-Match
+计算实体间的相似度，最后一部分是 PRASE 模型分别使用 BootEA 和 MultiKE
+模型作为 SE。</p>
+<p>实验环境是：NVIDIATesla M40 GPU, and CentOS 7.2，128G 内存，2.4GHz
+CPU。对于 4 个 100K 的数据集的训练速度是平均 1697 秒，BootEA 和 MultiKE
+分别是 24727 和 3198。</p>
+<p>表 -3 和表 -4 分别展示了消融实验和不同嵌入模型的对比效果。</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409163238.png"
+alt="Pasted image 20220409163238.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409163238.png</figcaption>
+</figure>
+<p>图 -5 展示了不同迭代次数对模型的影响，更多的迭代可以提升模型效果，但
+K 也不用设得太大。</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220409164853.png"
+alt="Pasted image 20220409164853.png" />
+<figcaption aria-hidden="true">Pasted image
+20220409164853.png</figcaption>
+</figure>
+<h1 id="prase-python-代码解析">PRASE-Python 代码解析</h1>
+<h3 id="下载">下载</h3>
+<p>$ git clone git@github.com:qizhyuan/PRASE-Python.git</p>
+<h3 id="运行">运行</h3>
+<p>$ PRASE-Python/</p>
+<p>$ python test.py</p>
+<p>（程序在我笔记本 CPU 环境下运行时间约 2 分钟）</p>
+<h3 id="代码">代码</h3>
+<ul>
+<li>test.py 测试程序</li>
+<li>objects/KGs.py 最核心代码</li>
+<li>objects/KG.py 图数据结构支持</li>
+<li>objects/Entity.py 实体数据结构支持</li>
+<li>objects/Relation.py 关系数据结构支持</li>
+<li>model/PARIS.py 概率推理模型</li>
+</ul>
+<p>代码没有用什么特殊的库，在任何 Python 环境里都可以运行。</p>
+<h3 id="数据集-1">数据集</h3>
+<h4 id="介绍-2">介绍</h4>
+<p>论文中测试了多个数据集，代码中包含了对 Wikidata 和 dbpedia
+两个知识图的对齐，以便跑通测试程序。具体使用的是 D_W_15K_V2，包含 15K
+个实体的版本 2。</p>
+<h4 id="所需数据">所需数据</h4>
+<p>data/*</p>
+<ul>
+<li>三元组：
+<ul>
+<li>二个图的属性三元组 attr_triples_1, attr_triples_1</li>
+<li>二个图的关系三元组 rel_triples_1, rel_triples_1</li>
+</ul></li>
+<li>实体关系：ent_links</li>
+<li>嵌入模型结果：其中包含对齐结果，实体嵌入，关系嵌入等
+<ul>
+<li>BootEA/* 实体嵌入训练结果</li>
+<li>MultiKE/* 实体嵌入训练结果</li>
+</ul></li>
+</ul>
+<h3 id="分析">分析</h3>
+<p>结合论文再看数据集就非常真观，嵌入模型，比如 MultiEA
+输出由两部分组成：实体对齐结果&amp;实体嵌入。</p>
+<h3 id="代码细节">代码细节</h3>
+<p>针对 KGs.py 分析，代码包含两上类 KGs 和
+KGsUtil，前者保存图对齐过程中的数据和逻辑；后者为辅助工具，一方面用于存取数据，</p>
+<p>sub_, sup_ 分别是论文中提到的两个包容关系。</p>
+<p>ent_match, ent_prob 分别是实体匹配关系及其概率</p>
+<h3 id="注意">注意</h3>
+<p>代码中没有更新 SE 模块的部分，主要以实现 PARIS 的 Python
+版本为主，github 的 README 最后也提到（截至目前 2022.04.14），如果想更新
+SE，需要和其它工具配合，比如 OpenEA。</p>
+<h3 id="如何代入自己的数据">如何代入自己的数据</h3>
+<ul>
+<li>先用自已的数据训练词嵌入</li>
+<li>然后参考 data 下的数据格式做数据后，即可训练</li>
+</ul>
+<h3 id="收获">收获</h3>
+<p>这是一个非常好的示例，之前我们拿到各种格式的异构图都可以照葫芦画瓢地训练一波。</p>
+<p>目前为止，对图的认识是：</p>
+<ul>
+<li>无论原理还是算法都没那么复杂；</li>
+<li>能把支持各种无法统一的数据，转换成嵌入的数值；</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/61432/">http://example.com/posts/61432/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">知识图/图神经网络</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2039/" title="论文阅读_KnowPrompt知识抽取"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_KnowPrompt知识抽取</div></div></a></div><div class="next-post pull-right"><a href="/posts/27527/" title="markdown_LaTeX"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">markdown_LaTeX</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/37983/" title="论文阅读_GCN知识图对齐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-23</div><div class="title">论文阅读_GCN知识图对齐</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/5599/" title="论文阅读_卷积图神经网GCN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-13</div><div class="title">论文阅读_卷积图神经网GCN</div></div></a></div><div><a href="/posts/64655/" title="论文阅读_图注意力网络GAN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-02</div><div class="title">论文阅读_图注意力网络GAN</div></div></a></div><div><a href="/posts/65406/" title="论文阅读_图神经网络GIN"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-01</div><div class="title">论文阅读_图神经网络GIN</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E8%AF%BB"><span class="toc-number">2.</span> <span class="toc-text">泛读</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B2%BE%E8%AF%BB"><span class="toc-number">3.</span> <span class="toc-text">精读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">3.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">3.2.</span> <span class="toc-text">1. 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">3.3.</span> <span class="toc-text">2. 预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A1%A8%E8%BF%B0"><span class="toc-number">3.3.1.</span> <span class="toc-text">2.1 问题表述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paris-%E6%96%B9%E6%B3%95"><span class="toc-number">3.3.2.</span> <span class="toc-text">2.2 PARIS 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%B5%8C%E5%85%A5%E7%9A%84%E7%9F%A5%E8%AF%86%E5%9B%BE%E5%AF%B9%E9%BD%90"><span class="toc-number">3.3.3.</span> <span class="toc-text">2.3 基于嵌入的知识图对齐</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-number">3.4.</span> <span class="toc-text">3. 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#prase-%E6%A6%82%E8%A7%88"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.1 PRASE 概览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E6%8E%A8%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.2 概率推理模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E5%B5%8C%E5%85%A5%E6%A8%A1%E5%9D%97"><span class="toc-number">3.4.3.</span> <span class="toc-text">3.3 语义嵌入模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7"><span class="toc-number">3.5.</span> <span class="toc-text">4. 评价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">3.5.1.</span> <span class="toc-text">4.1 数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.5.2.</span> <span class="toc-text">4.2 实验设置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#prase-python-%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">PRASE-Python 代码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">4.0.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-number">4.0.2.</span> <span class="toc-text">运行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.0.3.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86-1"><span class="toc-number">4.0.4.</span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-2"><span class="toc-number">4.0.4.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E9%9C%80%E6%95%B0%E6%8D%AE"><span class="toc-number">4.0.4.2.</span> <span class="toc-text">所需数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">4.0.5.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%BB%86%E8%8A%82"><span class="toc-number">4.0.6.</span> <span class="toc-text">代码细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">4.0.7.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BB%A3%E5%85%A5%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">4.0.8.</span> <span class="toc-text">如何代入自己的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E8%8E%B7"><span class="toc-number">4.0.9.</span> <span class="toc-text">收获</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

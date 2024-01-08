@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AlphaGoZero与增强学习 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="AlphaGo Zero 与增强学习  2017 年 10 月 19 日凌晨，DeepMind 在《自然》杂志上发表了一篇论文，正式推出人工智能围棋程序的最新版本——AlphaGo Zero． AlphaGo Zero 成长史   最初 AlphaGo Zero 除了围棋的基本规则以外，没有任何关于围棋的知识；  3 个小时之后，它通过自学入门围棋，成为人类初学者水平；  19 个小时之后，它自已">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AlphaGoZero与增强学习">
+<meta property="og:url" content="http://example.com/posts/43751/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="AlphaGo Zero 与增强学习  2017 年 10 月 19 日凌晨，DeepMind 在《自然》杂志上发表了一篇论文，正式推出人工智能围棋程序的最新版本——AlphaGo Zero． AlphaGo Zero 成长史   最初 AlphaGo Zero 除了围棋的基本规则以外，没有任何关于围棋的知识；  3 个小时之后，它通过自学入门围棋，成为人类初学者水平；  19 个小时之后，它自已">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-11-08T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/43751/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AlphaGoZero与增强学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">AlphaGoZero与增强学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-08T00:00:00.000Z" title="Created 2017-11-08 00:00:00">2017-11-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">7_强化学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="AlphaGoZero与增强学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="alphago-zero-与增强学习">AlphaGo Zero 与增强学习</h1>
+<p> 2017 年 10 月 19 日凌晨，DeepMind
+在《自然》杂志上发表了一篇论文，正式推出人工智能围棋程序的最新版本——AlphaGo
+Zero．</p>
+<h2 id="alphago-zero-成长史">AlphaGo Zero 成长史</h2>
+<p>  最初 AlphaGo Zero
+除了围棋的基本规则以外，没有任何关于围棋的知识；</p>
+<p> 3 个小时之后，它通过自学入门围棋，成为人类初学者水平；</p>
+<p> 19
+个小时之后，它自已总结出了一些＂套路＂，比如死活，打劫，先占边角等等；</p>
+<p>  自学第三天后，它战胜了 AlphaGo Lee（当初击败李世石的 AlphaGo
+版本）；</p>
+<p>  自学第四十天后，它战胜了 AlphaGo Master（今年击败柯洁的 AlphaGo
+版本）</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-9ba906050c553df0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>  与之前的 AlphaGo 版本相对，它不但提高了水平，而且节约了算力．</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-d6c533dffe59463e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> 
+这还不是最重要的，最重要的是它只使用了增强学习，因此它的意义就不仅仅是赢得棋类比较这么简单了．</p>
+<h2 id="增强学习">增强学习</h2>
+<p>  先来看看什么是增强学习（Reinforcement
+Learning），我们知道机器学习分为有监督学习和无监督学习，增强学习介于它们两个之间，它关注的是智能体如何在环境中采取一系列行为，从而获得最大的累积回报。简单地说就是边干边学．</p>
+<p>  之前的 AlphaGo
+版本也用到了增强学习，它先使用人类专家下棋数据作为训练（有监督学习），然后再让机器自己和自己对弈（增强学习）并从中吸取经验．而
+AlphaGo Zero
+是完全不使用专家数据训练，只使用增强学习，并且成功了．它在几天之内进行了上百万盘自我对弈，达到了人类围棋巅峰水平，而且那些＂套路＂都是它自己总结出来的，看到学习过程图真的很震撼（具体图请见论文），感觉它把人类成百上千年的围棋技术发展史浓缩在几天之内了．</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-d687a0d4041ef858.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p> 
+如果用人类专家的方法训练机器，机器一般只能发展到和人类专家相似的水平．AlphaGo
+Zero
+证明了机器只不会鹦鹉学舌，它能自学，而且速度还挺快．从这个角度看，它确实具有里程碑的意义．</p>
+<h2 id="alphago-版本比较">AlphaGo 版本比较</h2>
+<p>  下面从技术角度看看 Zero 与 AlphaGo
+早期版本相比，到底有哪些进步．早期的 AlphaGo 使用的是卷积神经网络，Zero
+加入了残差网络；早期使用决策和价值两个网络，Zero
+将它们合二为一；早期是人工提取特征，Zero
+直接把棋子位置直接作为输入；早期是有监督学习与增强学习相结合，Zero
+只使用了增强学习．（具体请见论文）</p>
+<p>  同样它们都使用了神经网络，蒙特卡洛搜索树算法，而算力从原来的 48 个
+TPU 降到了 4 个
+TPU．总之，它的进步主要是采用新技术和化繁为简．有点像哥白尼的日心说，一下把复杂的事情变简单了．</p>
+<h2 id="机器自学能否超越人类">机器自学能否超越人类</h2>
+<p> 
+有人说，人的脑细胞不是更多，为什么让机器给超越了呢？机器把所有时间和运算力都放在训练棋局上，人的大脑虽然厉害，但是分块处理各种工作，每天工作时间也有限．并且神经网络算法里还加入了很多优化算法并不完全和人脑一样．</p>
+<p> 
+又有人说，原来说机器学习就是鹦鹉学舌，那么经过增强学习，机器是否就可以自学，跳出人类模型，创造模型，超越人类呢？</p>
+<p> 
+人是高级动物，把刚生出来的小孩扔到大森林里他活不了，反而一些低级动物一生出来就能自己生活．因为低级动物的生存的目标，规则，方法都比较简单，而基因中又刻画了一些先天的技能．就像棋类游戏，有确定的规则，可判定的结果．目标，价值，损失…由于人需要处理更复杂的问题，所以需要更多积淀和更灵活的框架．这也是目前算法欠缺的地方（个人观点，仅供参考）．人类还有一些明显有优势，比如：从少量的训练中积累经验（基于人的常识系统）；知识迁移（见
+Minsky 的框架理论）等等，这属于人工智能中的其它领域了．</p>
+<p> 
+棋类游戏比较容易定义和模拟场景，属于一个很抽象的领域，可以不断地试错．在真实的世界里，大多数事情都没机会多试，不可能让汽车在大街上去练自动驾驶，积累经验．这也局限了增强学习的使用范围．</p>
+<h2 id="论文原文">论文原文</h2>
+<p>  论文原文《Mastering the game of Go without human
+knowledge》请见：</p>
+<p>https://deepmind.com/documents/119/agz_unformatted_nature.pdf</p>
+<p>建议阅读原文，读起来确实激动人心，一共 40 多页，没空的话读前 14
+页即可．后面是 References，技术细节和图表数据．</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/43751/">http://example.com/posts/43751/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/13260/" title="百度自动驾驶系统Apollo源码分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">百度自动驾驶系统Apollo源码分析</div></div></a></div><div class="next-post pull-right"><a href="/posts/10682/" title="深度学习_总结篇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">深度学习_总结篇</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/46387/" title="医学论文_ICU_强化学习_SEPSIS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">医学论文_ICU_强化学习_SEPSIS</div></div></a></div><div><a href="/posts/36642/" title="论文阅读_AlphaGo_Zero"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-17</div><div class="title">论文阅读_AlphaGo_Zero</div></div></a></div><div><a href="/posts/27574/" title="论文阅读_深度强化学习综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-03</div><div class="title">论文阅读_深度强化学习综述</div></div></a></div><div><a href="/posts/48300/" title="论文阅读_近端策略优化_PPO"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-04</div><div class="title">论文阅读_近端策略优化_PPO</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#alphago-zero-%E4%B8%8E%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">AlphaGo Zero 与增强学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#alphago-zero-%E6%88%90%E9%95%BF%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">AlphaGo Zero 成长史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E%E5%BC%BA%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.2.</span> <span class="toc-text">增强学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#alphago-%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83"><span class="toc-number">1.3.</span> <span class="toc-text">AlphaGo 版本比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E8%87%AA%E5%AD%A6%E8%83%BD%E5%90%A6%E8%B6%85%E8%B6%8A%E4%BA%BA%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">机器自学能否超越人类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E5%8E%9F%E6%96%87"><span class="toc-number">1.5.</span> <span class="toc-text">论文原文</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

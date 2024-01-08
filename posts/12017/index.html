@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>调度工具Airflow | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="调度工具 Airflow 1. 什么是 Airflow  Airflow 是 Airbnb 开源的 data pipeline 调度和监控工作流的平台，用于用来创建、监控和调整 data pipeline(ETL)。 2. 简单的定时任务 cron   假设我们想要定时调用一个程序，比如说：每天定时从 Web 抓数据，我们可以使用 cron。cron 是一个 Linux 下的后台服务，用来定期的执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调度工具Airflow">
+<meta property="og:url" content="http://example.com/posts/12017/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="调度工具 Airflow 1. 什么是 Airflow  Airflow 是 Airbnb 开源的 data pipeline 调度和监控工作流的平台，用于用来创建、监控和调整 data pipeline(ETL)。 2. 简单的定时任务 cron   假设我们想要定时调用一个程序，比如说：每天定时从 Web 抓数据，我们可以使用 cron。cron 是一个 Linux 下的后台服务，用来定期的执">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2018-10-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/12017/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '调度工具Airflow',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">调度工具Airflow</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2018-10-27T00:00:00.000Z" title="Created 2018-10-27 00:00:00">2018-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="调度工具Airflow"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="调度工具-airflow">调度工具 Airflow</h1>
+<h4 id="什么是-airflow">1. 什么是 Airflow</h4>
+<p> Airflow 是 Airbnb 开源的 data pipeline
+调度和监控工作流的平台，用于用来创建、监控和调整 data
+pipeline(ETL)。</p>
+<h4 id="简单的定时任务-cron">2. 简单的定时任务 cron</h4>
+<p>  假设我们想要定时调用一个程序，比如说：每天定时从 Web
+抓数据，我们可以使用 cron。cron 是一个 Linux
+下的后台服务，用来定期的执行一些任务，在/etc/crontab
+中设置后即可，基本写法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 分钟 小时 日 月 周 用户  命令 </span><br><span class="line">17 * * * * root date &gt;&gt; /tmp/time.log </span><br></pre></td></tr></table></figure>
+<p>  它的意思是每个小时的第 18 分钟，将当前时间写入 log
+文件，注意各值的取值范围（分钟 0 - 59，小时 0 - 23，天 1 - 31，月 1 -
+12，星期 0 - 6，0 表示星期天）修改/etc/crontab 后，还需要用 $ sudo
+service cron restart 命令重启 crontab 任务，才能生效。</p>
+<h4 id="为什么要用-airflow">3. 为什么要用 Airflow</h4>
+<p>  有了 cron 为什么还需要 airflow？以抓取 web
+数据为例，可能在某天抓取数据时，网断或者关机了，当天的数据没抓进来，这种情况下，只能通过写日志定时分析日志，以及在程序中定时重连的方式保证数据完整，相对比较零碎和麻烦。另外，如果
+crontab 设置文件中有几十上百条任务时，就比较头疼了。</p>
+<p> Airflow
+支持图形界面和命令行两种方式，管理起来比较方便，另外，它可以把几个相互依赖的任务编成一组，并监督执行是否正常，如果不正常，调用程序重试等等。</p>
+<p>  当然，Airflow 也不全是优点，比如需要使用 python
+脚本来定义任务间的依赖关系，相对于手动编辑 crontab
+文件，相对难一些。因此，如果只调用简单的任务，使用 cron
+即可，复杂的再考虑 airflow。</p>
+<h4 id="airflow-的基础概念">4. Airflow 的基础概念</h4>
+<p> Airflow 中最基本的两个概念是：DAG 和 task。DAG 的全称是 Directed
+Acyclic Graph
+是所有你想执行的任务的集合，在这个集合中可以定义了他们的依赖关系，一个
+DAG object 可以用 Python 脚本中配置完成。每个 DAG object 代表了一个
+workflow，每个 workflow 都可以包含任意个 task，task 就是具体的任务。</p>
+<h4 id="airflow-安装和使用">5. Airflow 安装和使用</h4>
+<p><strong>(1) 安装 airflow</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install airflow </span><br></pre></td></tr></table></figure>
+<p>  可以通过环境变量 AIRFLOW_HOME 设置 airflow 的工作目录，默认为
+$HOME/airflow/</p>
+<p><strong>(2) Mysql 支持</strong></p>
+<p>  如果想使用 mysql 存储 airflow 内容，请按如下方法设置
+mysql；如果不设置，airflow 在其工作目录下建立 db 文件，以 sqlite
+方式存储。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br><span class="line"></span><br><span class="line">mysql&gt; create database airflow default charset utf8 collate utf8_general_ci;</span><br><span class="line">mysql&gt; create user airflow@&#x27;localhost&#x27; identified by &#x27;airflow&#x27;;</span><br><span class="line">mysql&gt; grant all on airflow.* to airflow@&#x27;localhost&#x27;;</span><br><span class="line">mysql&gt; flush privileges;</span><br></pre></td></tr></table></figure>
+<p>  修改配置文件 $AIRFLOW_HOME/airflow.cfg，把 sql_alchemy_conn
+对应语句替换成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql_alchemy_conn = mysql://airflow:airflow@localhost:3306/airflow</span><br></pre></td></tr></table></figure>
+<p><strong>(3) 运行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ airflow initdb</span><br><span class="line">$ airflow worker</span><br><span class="line">$ airflow webserver -p 8080 # 一直运行</span><br><span class="line">$ airflow scheduler # 一直运行  </span><br></pre></td></tr></table></figure>
+<p>  此时在浏览器中输入：http://localhost:8080，即可看到 airflow
+界面，其中有很多 demo 可以参考。</p>
+<p><strong>(4) 建立第一个 DAG：Hellow world</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir $AIRFLOW_HOME/dags/</span><br><span class="line">$ vi $AIRFLOW_HOME/dags/hello_word.py # 内容如下：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> # -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import airflow</span><br><span class="line">from airflow import DAG</span><br><span class="line">from airflow.operators.bash_operator import BashOperator</span><br><span class="line">from airflow.operators.python_operator import PythonOperator</span><br><span class="line">from datetime import timedelta</span><br><span class="line"></span><br><span class="line">default_args = &#123;</span><br><span class="line"> &#x27;owner&#x27;: &#x27;yan.xie&#x27;,</span><br><span class="line"> &#x27;depends_on_past&#x27;: False,</span><br><span class="line"> &#x27;start_date&#x27;: airflow.utils.dates.days_ago(2),</span><br><span class="line"> &#x27;retries&#x27;: 5, # 重试次数</span><br><span class="line"> &#x27;retry_delay&#x27;: timedelta(minutes=1), # 运行间隔时间</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dag = DAG(</span><br><span class="line"> &#x27;test_my_dag&#x27;, # DAG名字</span><br><span class="line"> default_args=default_args,</span><br><span class="line"> description=&#x27;my first DAG&#x27;,</span><br><span class="line"> schedule_interval=timedelta(days=1))</span><br><span class="line"></span><br><span class="line">task1 = BashOperator(</span><br><span class="line"> task_id=&#x27;task_1&#x27;, # TASK名</span><br><span class="line"> bash_command=&#x27;date&#x27;, # 运行命令</span><br><span class="line"> dag=dag)</span><br><span class="line"></span><br><span class="line">task2 = BashOperator(</span><br><span class="line"> task_id=&#x27;task_2&#x27;,</span><br><span class="line"> depends_on_past=False,</span><br><span class="line"> bash_command=&#x27;sleep 5&#x27;,</span><br><span class="line"> dag=dag)</span><br><span class="line"></span><br><span class="line">def print_hello():</span><br><span class="line"> return &#x27;Hello world!&#x27;</span><br><span class="line"></span><br><span class="line">test3 = PythonOperator(</span><br><span class="line"> task_id=&#x27;task_3&#x27;,</span><br><span class="line"> python_callable=print_hello, # 运行python程序</span><br><span class="line"> dag=dag)</span><br><span class="line"></span><br><span class="line">task2.set_upstream(task1) # 设置依赖关系</span><br><span class="line">test3.set_upstream(task1) </span><br></pre></td></tr></table></figure>
+<p>  保存之后，再浏览器刷新一下界面，即可在 list 中看到该 DAG，点 On
+后，即可运行。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-e418538c4abef008.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>  点开 DAG 可以看到各 Task 间的依赖关系</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-52fb9c6f85c1124a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>  以及树型关系</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-f9dd5df75e892bb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p><strong>(5) 调试</strong></p>
+<p>  有时候，怕不能一次写对，可以运行以下命令调试单个 Task</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ airflow test test_my_dag task_3 20181027</span><br></pre></td></tr></table></figure>
+<p><strong>(6) 清除全部 DAG 重置数据库</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ airflow resetdb </span><br></pre></td></tr></table></figure>
+<p>  并删除 $AIRFLOW_HOME/dags/ 下所有 DAG 文件，然后重启
+webserver。</p>
+<p>  在 Airflow 中，如果改了一个 DAG 的名字，它会新建一个
+DAG，而不仅是改名，所以旧的 DAG 还在数据库和列表中存在，可以用 “$
+airflow delete_dag DAG 名” 的方式删除它，但不是每个 airflow 版本都支持
+delete_dag 命令。此时可以只用 resetdb 不删除 dags
+目录下文件的方式，删除目录中没有对应文件的
+DAG（删除有风险，操作须谨慎）。</p>
+<h4 id="参考">6. 参考</h4>
+<p><strong>(1) Ubuntu 下 crontab 命令的用法</strong></p>
+<p>https://www.cnblogs.com/daxian2012/articles/2589894.html</p>
+<p><strong>(2) 使用 Airflow 替代你的 crontab</strong></p>
+<p>https://www.juhe.cn/news/index/id/2365</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/12017/">http://example.com/posts/12017/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/36879/" title="几种常见的数学分布"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">几种常见的数学分布</div></div></a></div><div class="next-post pull-right"><a href="/posts/18585/" title="机器学习之_逻辑回归"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">机器学习之_逻辑回归</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/52664/" title="MSN博客搬家工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2010-10-21</div><div class="title">MSN博客搬家工具</div></div></a></div><div><a href="/posts/49186/" title="UML工具_Jude（astah）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2012-10-10</div><div class="title">UML工具_Jude（astah）</div></div></a></div><div><a href="/posts/42892/" title="代码规则化工具 Black Formatter"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-29</div><div class="title">代码规则化工具 Black Formatter</div></div></a></div><div><a href="/posts/63031/" title="将DVD视频转成IPAD支持的格式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2013-01-04</div><div class="title">将DVD视频转成IPAD支持的格式</div></div></a></div><div><a href="/posts/21248/" title="蓝思指数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-08</div><div class="title">蓝思指数</div></div></a></div><div><a href="/posts/61092/" title="数据迁移工具Kettle"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-10</div><div class="title">数据迁移工具Kettle</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E5%BA%A6%E5%B7%A5%E5%85%B7-airflow"><span class="toc-number">1.</span> <span class="toc-text">调度工具 Airflow</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-airflow"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1. 什么是 Airflow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1-cron"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2. 简单的定时任务 cron</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-airflow"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3. 为什么要用 Airflow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#airflow-%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">4. Airflow 的基础概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#airflow-%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">5. Airflow 安装和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">6. 参考</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

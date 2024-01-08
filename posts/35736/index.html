@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>实战微博互动预测之三_xgboost答疑解惑 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="实战微博互动预测之三 _xgboost 答疑解惑 1. 说明   前两篇完成了特征工程的相关工作：加入用户的统计特征，分析文本信息内容，并作为新特征加入了数据集。 本篇我们来看看算法，实战微博互动预测（后简称本例）的评估算法如下：   公式中 f 代表转发，c 代表评论，l 代表赞，p 代表预测，r 代表真实值；deviation 是真实值与预测值的偏差，具体公式如下：  precision 是准">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实战微博互动预测之三_xgboost答疑解惑">
+<meta property="og:url" content="http://example.com/posts/35736/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="实战微博互动预测之三 _xgboost 答疑解惑 1. 说明   前两篇完成了特征工程的相关工作：加入用户的统计特征，分析文本信息内容，并作为新特征加入了数据集。 本篇我们来看看算法，实战微博互动预测（后简称本例）的评估算法如下：   公式中 f 代表转发，c 代表评论，l 代表赞，p 代表预测，r 代表真实值；deviation 是真实值与预测值的偏差，具体公式如下：  precision 是准">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-12-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="机器学习&#x2F;XGBoost">
+<meta property="article:tag" content="算法实战">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/35736/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '实战微博互动预测之三_xgboost答疑解惑',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">实战微博互动预测之三_xgboost答疑解惑</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-12-15T00:00:00.000Z" title="Created 2017-12-15 00:00:00">2017-12-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="实战微博互动预测之三_xgboost答疑解惑"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="实战微博互动预测之三-_xgboost-答疑解惑">实战微博互动预测之三
+_xgboost 答疑解惑</h1>
+<h2 id="说明">1. 说明</h2>
+<p> 
+前两篇完成了特征工程的相关工作：加入用户的统计特征，分析文本信息内容，并作为新特征加入了数据集。</p>
+<p>本篇我们来看看算法，实战微博互动预测（后简称本例）的评估算法如下：</p>
+<p>  公式中 f 代表转发，c 代表评论，l 代表赞，p 代表预测，r
+代表真实值；deviation 是真实值与预测值的偏差，具体公式如下：</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-c34387675e5e2a7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>precision 是准确率，根据偏差算出：</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-969ae68744069615.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>sig 为符号函数，当 x&gt;0 时 sig(x)=1，当 x&lt;=0 时，sig(x) 为
+0。Counti 为每篇的反馈总数，当 Counti&gt;100 时，以按 100 计算。</p>
+<p> 
+与大多数评估算法不同，本例中每个实例有不同权重，反馈越多实例权重越大。而我们常用的算法比如
+GBDT
+是根据误差迭代改进的，默认情况下各实例权重是一样的，这块儿需要单独处理一下。</p>
+<p>  具体算法还是使用 xgboost 库，之前看到的大多数关于 xgboost
+的文章，要么是讲数学原理，要么是参数的中文说明，xgboost
+似乎还是一个黑盒，下面就结合具体问题看看 xgboost 的使用。</p>
+<h2 id="xgboost-注意事项">2. xgboost 注意事项</h2>
+<p> xgboost 提供两种调用方式，一种是自身接口，一种是类似 sklearn
+的接口，建议使用自身接口，因为很多重要功能，如存取模型，评估功能都无法通过
+sklearn 接口调用。</p>
+<p>  在资料，示例和文档都不多的情况下，建议下载源码，学习其中的
+example,demo，test 中的使用方法，以及直接分析源码的调用流程。</p>
+<h2 id="xgboost-源码">3. xgboost 源码</h2>
+<p>  一般使用 xgboost 直接用 pip install
+安装即可，下载源码主要以学习为主。</p>
+<p>  下载使用命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/dmlc/xgboost</span><br></pre></td></tr></table></figure>
+<p> xgboost 主要是 c 语言实现的，本例中主要通过 python 接口调用，在 demo
+目录中可以看到示例。</p>
+<h2 id="xgboost-学习率与迭代次数">4. xgboost 学习率与迭代次数</h2>
+<p> xgboost
+是一种迭代改进的算法，它每次给错误分类的实例增加权重，并进入下一次迭代。因此需要指定迭代次数和每次权重改进的程度（学习率）。</p>
+<p>  迭代次数通过 num_boost_round 设置，次数越多，花费时间越长，xgboost
+除了可以设置固定迭代次数以外，还可以根据评估，判断如果 n
+次不再改进，则停止迭代（具体见 eval 部分）。</p>
+<p>  学习率通过 eta
+设置，它是每次迭代之后对原模型的改进程度，学习率越高收敛越快，但也可能因为粒度太大，错过极值点。</p>
+<p>调参方法是先粗调再细调：一开始将学习率设大一点，比如
+0.1-0.3；次数设少一点，比如 50
+次，即能快速改善模型又不花太长时间。后面细调时再变小学习率，增加迭代次数。</p>
+<h2 id="xgboost-的-eval-系列参数">5. xgboost 的 eval 系列参数</h2>
+<p> eval
+系列参数用于评估模型的状态，可以在每次迭代之后给模型打分，它本身与模型如何计算无关（无论它设成什么，最终模型都不变），只是评估当前模型好坏。这个功能非常重要，比如：有时候会看到在迭代过程中训练集评分提高，而测试集评分下降，一般就是过拟合了。使用它还可以控制当模型不再改进时，停止迭代（具体通过
+early_stopping_rounds 设置）。</p>
+<h4 id="evals-设置估计数据">1) evals 设置估计数据</h4>
+<p> evals
+可设置训练集和测试集，在每次迭代后用训练集和测试集代入模型，并给预测结果评分。</p>
+<h4 id="eval_metric-现成的评估函数">2) eval_metric 现成的评估函数</h4>
+<p>  可以设置 rmse,logloss,error,merror,mlogloss,auc,ndcg,map 等 xgb
+自带的评估函数。</p>
+<h4 id="feval-自定义评估函数">3) feval 自定义评估函数</h4>
+<p>  本例就需要自定义估伻函数，使用 feval
+方法实现。它和梯度下降算法无法，主要用于显示，并判断何时终止迭代。最好别写太复杂，否则会延长计算时间。</p>
+<h4 id="early_stopping_rounds-自动停止迭代">4) early_stopping_rounds
+自动停止迭代</h4>
+<p>  通过 early_stopping_rounds 设置，如果在 n
+轮内正确率没有提升，则退出迭代，具体根据 evals
+给出的数据判断，若其中包含多组数据，则取最后一个。</p>
+<p>  如果设置了
+early_stopping_rounds，模型会生成三个属性，best_score,　best_iteration,
+bst.best_ntree_limit，以便下次选择最合适的迭代次数。</p>
+<h4 id="verbose_eval-输出评估信息">5) verbose_eval 输出评估信息</h4>
+<p>  如果设置为 True 输出评估信息，设置为数字，如 5 则每 5
+次评估输出一次。</p>
+<h2 id="样本不均衡问题">6. 样本不均衡问题</h2>
+<h4 id="设置-scale_pos_weight">1) 设置 scale_pos_weight</h4>
+<p>  有时会遇到样本不均衡的问题，比如正例占 99%，反例占
+1%，那么如果预测为全正例或者随机抽机，正确率也占 99%。此时可使用
+scale_pos_weight 提高反例权重，默认为 1，不增加权重。</p>
+<h4 id="dmatrix-设置-weight">2) DMatrix 设置 weight</h4>
+<p>  使用 xgb 自带的调用接口 (非 sklearn 接口)，需要把数据转成 DMatrix
+格式，如果想给不同实例分配不同权重，可以转换时使用 weight
+参数，它传入与实例个数等长的数组，数组中每个数对应一个实例的权重，在 xgb
+每次迭代后调整权重时也会将它计算在内。</p>
+<h2 id="xgboost-自带的调参方法">7. Xgboost 自带的调参方法</h2>
+<p>  之前文章中说过 Xgboost 与 sklearn 的 GridSearchCV
+结合调参的方法。Xgboost 内部的 cv()
+函数提供了交叉验证的功能，也可用于调参。网上例程不多，具体可参见源码中的：demo/guide-python/cross_validation.py</p>
+<h2 id="xgboost-的误差函数">8. Xgboost 的误差函数</h2>
+<p> Xgboost
+可以处理二分类，多分类，回归问题。处理不同问题，主要的区别在于指定不同的误差函数，xgboost
+会根据不同误差函数计算的结果调整权重进行下一次迭代。通过参数 objective
+可设置 xgb 自带的误差函数：回归一般用 reg:xxx（如 reg:linear），二分类用
+binary:xxx（如 binary:logistic），多分类用 multi:xxx（如
+multi:softmax）。误差函数的功能是通过训练集的 label
+和预测值计算一阶梯度，二阶梯度，在源码中可以看到它们是如何实现的（C
+语言部分）。在调用 train() 训练时，也可以用参数 obj 自定义误差函数。</p>
+<h2 id="本例中-xgb-的使用">9. 本例中 xgb 的使用</h2>
+<h4 id="评估">1) 评估</h4>
+<p>  本例的评分算法和普通算法差别很大，因此使用 feval
+自定义了评估函数，效果还不错，就是计算时间比较长。所以有时会把它暂时注释掉。</p>
+<h4 id="误差函数">2) 误差函数</h4>
+<p>  本例是一个回归问题，因此使用了
+reg:linear，线性计算误差函数，它的实现非常简单，一阶梯度是预测值与标签值相减，二阶梯度是
+1.0。</p>
+<h4 id="关于权重">3) 关于权重</h4>
+<p> 
+本题要求反馈多的实例在计算结果时拥有更大的权重，一开始的想法是给这些实例加权，于是使用了在
+DMatrix 转换时设置
+weight，后来又自定义了误差函数。但效果都不好，正确率不升反降。我觉得可能由于这是一个回归问题，回归的权重算法是：偏差越大，权重越大，以促进快速收敛。一般反馈多的实例偏差都大，如果再把权重计算再内，就重复加权了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/35736/">http://example.com/posts/35736/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/">机器学习/XGBoost</a><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/">算法实战</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/6983/" title="Python之DataFrame数据处理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Python之DataFrame数据处理</div></div></a></div><div class="next-post pull-right"><a href="/posts/32847/" title="实战微博互动预测之二_中文分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">实战微博互动预测之二_中文分析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/37404/" title="实战人品预测之一_国内大数据竞赛平台"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-12-05</div><div class="title">实战人品预测之一_国内大数据竞赛平台</div></div></a></div><div><a href="/posts/10738/" title="实战人品预测之三_向高手学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-12-06</div><div class="title">实战人品预测之三_向高手学习</div></div></a></div><div><a href="/posts/33807/" title="实战人品预测之二_热门模型xgboost"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-12-06</div><div class="title">实战人品预测之二_热门模型xgboost</div></div></a></div><div><a href="/posts/27664/" title="实战天池精准医疗大赛——复赛之妊娠糖尿病与基因数据分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-03-01</div><div class="title">实战天池精准医疗大赛——复赛之妊娠糖尿病与基因数据分析</div></div></a></div><div><a href="/posts/39817/" title="实战量化投资大赛之二_GBDT模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-04-08</div><div class="title">实战量化投资大赛之二_GBDT模型</div></div></a></div><div><a href="/posts/14204/" title="XGBoost_原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-09-22</div><div class="title">XGBoost_原理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E5%BE%AE%E5%8D%9A%E4%BA%92%E5%8A%A8%E9%A2%84%E6%B5%8B%E4%B9%8B%E4%B8%89-_xgboost-%E7%AD%94%E7%96%91%E8%A7%A3%E6%83%91"><span class="toc-number">1.</span> <span class="toc-text">实战微博互动预测之三
+_xgboost 答疑解惑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">1. 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.2.</span> <span class="toc-text">2. xgboost 注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E6%BA%90%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">3. xgboost 源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E5%AD%A6%E4%B9%A0%E7%8E%87%E4%B8%8E%E8%BF%AD%E4%BB%A3%E6%AC%A1%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text">4. xgboost 学习率与迭代次数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E7%9A%84-eval-%E7%B3%BB%E5%88%97%E5%8F%82%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">5. xgboost 的 eval 系列参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#evals-%E8%AE%BE%E7%BD%AE%E4%BC%B0%E8%AE%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">1) evals 设置估计数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eval_metric-%E7%8E%B0%E6%88%90%E7%9A%84%E8%AF%84%E4%BC%B0%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">2) eval_metric 现成的评估函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#feval-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%84%E4%BC%B0%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">3) feval 自定义评估函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#early_stopping_rounds-%E8%87%AA%E5%8A%A8%E5%81%9C%E6%AD%A2%E8%BF%AD%E4%BB%A3"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">4) early_stopping_rounds
+自动停止迭代</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#verbose_eval-%E8%BE%93%E5%87%BA%E8%AF%84%E4%BC%B0%E4%BF%A1%E6%81%AF"><span class="toc-number">1.5.0.5.</span> <span class="toc-text">5) verbose_eval 输出评估信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E4%B8%8D%E5%9D%87%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">6. 样本不均衡问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE-scale_pos_weight"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">1) 设置 scale_pos_weight</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dmatrix-%E8%AE%BE%E7%BD%AE-weight"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">2) DMatrix 设置 weight</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E8%87%AA%E5%B8%A6%E7%9A%84%E8%B0%83%E5%8F%82%E6%96%B9%E6%B3%95"><span class="toc-number">1.7.</span> <span class="toc-text">7. Xgboost 自带的调参方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xgboost-%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">1.8.</span> <span class="toc-text">8. Xgboost 的误差函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E4%BE%8B%E4%B8%AD-xgb-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.9.</span> <span class="toc-text">9. 本例中 xgb 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0"><span class="toc-number">1.9.0.1.</span> <span class="toc-text">1) 评估</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0"><span class="toc-number">1.9.0.2.</span> <span class="toc-text">2) 误差函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%9D%83%E9%87%8D"><span class="toc-number">1.9.0.3.</span> <span class="toc-text">3) 关于权重</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

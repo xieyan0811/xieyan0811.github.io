@@ -1,0 +1,538 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>18_少儿Python编程_第十八讲：搭建网站 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="少儿 Python 编程 _ 第十八讲：搭建网站 上一讲学习了编写网页代码的方法，到目前为止，创建的网页文件只能用浏览器打开。如果需要用同一网络中的其它电脑或者手机访问该页面，则需要搭建 HTTP 服务。 普通电脑上也可以搭建 HTTP 服务，成为小型的 HTTP 服务器，使用 Python 搭建 HTTP 服务非常简单，不需要额外安装软件，只要安装 Python 的三方模块 Flask 即可实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18_少儿Python编程_第十八讲：搭建网站">
+<meta property="og:url" content="http://example.com/posts/27572/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="少儿 Python 编程 _ 第十八讲：搭建网站 上一讲学习了编写网页代码的方法，到目前为止，创建的网页文件只能用浏览器打开。如果需要用同一网络中的其它电脑或者手机访问该页面，则需要搭建 HTTP 服务。 普通电脑上也可以搭建 HTTP 服务，成为小型的 HTTP 服务器，使用 Python 搭建 HTTP 服务非常简单，不需要额外安装软件，只要安装 Python 的三方模块 Flask 即可实现">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2020-04-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Python&#x2F;少儿编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/27572/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '18_少儿Python编程_第十八讲：搭建网站',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">18_少儿Python编程_第十八讲：搭建网站</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-04-20T00:00:00.000Z" title="Created 2020-04-20 00:00:00">2020-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">少儿编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>18min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="18_少儿Python编程_第十八讲：搭建网站"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="少儿-python-编程-_-第十八讲搭建网站">少儿 Python 编程 _
+第十八讲：搭建网站</h1>
+<p>上一讲学习了编写网页代码的方法，到目前为止，创建的网页文件只能用浏览器打开。如果需要用同一网络中的其它电脑或者手机访问该页面，则需要搭建
+HTTP 服务。</p>
+<p>普通电脑上也可以搭建 HTTP 服务，成为小型的 HTTP 服务器，使用 Python
+搭建 HTTP 服务非常简单，不需要额外安装软件，只要安装 Python 的三方模块
+Flask 即可实现。</p>
+<p>使用 Python 开发网站，只需要加入少量代码，就可以将 Python
+的工作成果快速地展示给用户。</p>
+<h2 id="简单例程">18.1 简单例程</h2>
+<p>Flask 是一个轻量级的 Web
+应用框架，占用资源少，使用简单。本节将学习如何用 Flask
+创建一个最简单的网站。</p>
+<p>在 Anaconda 安装时已经安装了
+Flask，因此可以直接使用，程序代码如下：</p>
+<pre><code>01 from flask import Flask
+02  
+03 app = Flask(__name__)
+04  
+05 @app.route(&#39;/test.html&#39;)
+06 def hello_world():
+07     return &#39;&lt;h1&gt;Hello World! &lt;/h1&gt;&#39;
+08  
+09   app.run(host=&#39;0.0.0.0&#39;, port=8088)</code></pre>
+第 01 行引入了 flask 三方模块的 Flask 类。 第 03 行创建一个 flask
+对象，并赋值给 app，传入的参数
+<strong>name</strong>（注意：前后都是两条下划线）是当前模块的名字。 第
+05 行用于指定在访问网址的路径“/test.html”时调用的函数。 第 06-07
+行定义访问路径对应的函数 hello_word()，函数返回的字符串”
+<h1>
+<p>Hello</p>
+World!
+</h1>
+<p>”是 html 风格的简单网页数据，其作用是将字符串“Hello
+World!”作为标题显示。 此处是本节的重点，程序定义了 hello_word
+函数，但并没有看到调用它的代码，这是由于第 05
+行将其下面定义的函数关联到该网站的“/test.html”路径下，也就是说当用户访问该网址时，hello_world()
+函数被调用，其返回值被返回给浏览器显示。 第 09 行用 run 函数开启了 Web
+服务的主循环，它将一直运行，直到程序退出，参数将主机 host 设置为 IP
+地址’0.0.0.0’，启动程序的端口为 8088。’0.0.0.0’是一个特殊的 IP
+地址，设置之后，网络上的其它设备才能访问该服务，否则只有本机可以访问。</p>
+<p>在 Jupyter</p>
+<p>Notebook
+中运行服务后，程序将一直处于运行状态，如果想停止该服务，需要点击 Jupyter
+界面上的“中断服务”（“运行”图标右边的黑色矩形图标），</p>
+<p><strong>重启服务时也需要先中断，再开启，这点非常重要。</strong>
+否则修改可能不起作用。</p>
+<p>程序只使用了不到 10 行代码，在本机的 8088 端口启动了 HTTP
+服务，此时用浏览器打开网址：http://127.0.0.1:</p>
+<p>8088/test.html，即可看到本机启动的网络服务。其中 127.0.0.1
+是一个特殊的 IP 地址，它代表当前计算机。</p>
+<p>利用本机对外的 IP
+地址，可以让同一网络上的其他计算机或者手机访问当前的 HTTP
+服务，方法如下，先打开 Windows 命令行：开始菜单 -</p>
+<blockquote>
+<p>所有程序 -&gt;附件 -&gt;命令提示符，在其中输入 ipconfig
+命令，其结果中显示的 IPv4 地址（如：192.168.1.107），即本机的 IP
+地址。</p>
+</blockquote>
+<p>通过手机浏览器打开当前 HTTP 服务的效果如图 18.1 所示：</p>
+<p>![图 18.1</p>
+<p>手机打开 Web
+服务效果](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81MzU3ODkzLWQwZGY1OGUzZDk5YmNiOTQucG5n?x-oss-</p>
+<p>process=image/format,png)</p>
+<p>图 18.1 手机打开 Web 服务效果</p>
+<h2 id="地址和端口">18.2 地址和端口</h2>
+<h3 id="地址">18.2.1 地址</h3>
+<p>网页是使用上一讲介绍的工具制作的 HTML
+文件，可通过浏览器解析成图文格式。网站指的是互联网上特定内容相关网页的集合。</p>
+<p>浏览网页时，在浏览器上方的地址栏输入网址，一般用英文字母表示。此处的网址指的是
+URL 统一资源定位符，一般由三部分组成：第一部分是协议（如
+HTTP）；第二部分是存有该资源的主机地址，有时也包括端口号；第三部分是主机资源的具体路径。例如：</p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/xieyan0811">https://blog.csdn.net/xieyan0811</a></p>
+<p>其中 https 是协议，<a
+target="_blank" rel="noopener" href="http://blog.csdn.net">blog.csdn.net</a></p>
+<p>是主机地址，xieyan0811 是主机资源的具体路径。</p>
+<p>主机地址可以用 IP 地址表示，例如
+192.168.0.1，为了方便记忆，采用域名来代替 IP 地址标识站点地址，如
+blog.csdn.net，域名一般由有意义的字符串表示。域名解析就是域名到 IP
+地址的转换过程。域名的解析工作由 DNS 服务器完成。DNS
+服务器一般是由运营商负责维护的，它也是互联网的重要组成部分。</p>
+<p>打开 Windows 命令行：开始菜单 -&gt;所有程序 -&gt;附件
+-&gt;命令提示符，在其中输入 ipconfig 命令，其结果中显示的 IPv4
+地址，即本机的 IP 地址。</p>
+<h3 id="端口号">18.2.2 端口号</h3>
+<p>客户端可以通过 ip
+地址或者域名找到对应的服务器，服务器端则可以提供一种或者多种服务，比如
+Web
+服务、文件传输服务、邮件服务等等，不同的服务使用端口号区分，例如：邮件服务常用
+110 端口，文件传输常用 21 端口，HTTP 常用 80
+端口等等。端口号的取值范围是 1-65535，1-1023
+为系统端口，其中大多数端口号已经定义了对应的功能，如上面列出的常用端口；1024-5000
+为临时端口，5001-65535
+用于自定义端口，开发者开发的服务一般使用这一端口范围。</p>
+<p>上例中使用 Flask 建立的 Web 服务默认启动在 5000 端口，而程序用 port
+参数指定了 8088
+为服务启动的端口号。在浏览器的地址栏中输入网址时，用冒号分隔 IP
+地址和端口号，形如</p>
+<p><a
+target="_blank" rel="noopener" href="http://192.168.1.107:8088/test.html">http://192.168.1.107:8088/test.html</a>。</p>
+<h3 id="url-命名规则">18.2.3 URL 命名规则</h3>
+<p>URL
+请求允许使用小写字母，数字，部分特殊符号（非制表符）组成。其中的中文空格等特殊字符需要转码成特殊字符。因此，请尽量减少使用中文以及特殊符号，以使用字母、数字下划线为主。</p>
+<h2 id="动态网页">18.3 动态网页</h2>
+<h3 id="网页模板">18.3.1 网页模板</h3>
+<p>上例中服务端返回的简单网页是由程序生成的，网页内容被写在 Python
+代码文件之中，当网页内容较多时，一般存储在单独的文件之中。</p>
+<p>网页常常是由较多的静态内容和较少的动态内容共同构成的，使用模板用于组合静态内容和动态内容。</p>
+<p>模板是一个包含响应文本的文件，它通常是 html
+文件，该文件中允许包含“占位变量”来表示动态的内容，" 占位变量 "
+在程序中被真实的值所替换。Flask 内部使用</p>
+<p>Jinja2
+模板引擎实现模板功能。从模板文件中读出数据，用真实数据替代占位变量，并将文件中的数据转换成
+Python 字符串，这一过程称为渲染 render。</p>
+<p>Flask 中的模板文件保存在 templates
+目录下，该目录与源码存储在同一目录之中。</p>
+<p>模板中的“占位变量”用两个大括号{ {占位变量名}}表示，例如：</p>
+<pre><code>01 用户名：&#123;&#123;name&#125;&#125;</code></pre>
+<p>其中的 name 将在渲染时被程序中的真实值代替。</p>
+<h3 id="生成动态网页">18.3.2 生成动态网页</h3>
+<p>本例用于生成一个动态网页，网页中的大部分数据保存在 templates
+目录下，名为 demo.html 的 HTML 文件中。以 Jupyter</p>
+<p>Notebook 编辑器为例。</p>
+<p>首先，创建目录 templates：在文件列表界面的右上点击：New-&gt;Folder
+创建目录，选中该目录（在目录名前的方框中打勾），点左上角的 rename
+将目录名改为 templates。</p>
+<p>然后，创建网页文件：进入 templates 目录，点击右上：New-&gt;Text</p>
+<p>File 创建文本文件，写入以下 HTML
+格式文本，然后在列表界面，选中该文件，点左上角的 rename 将文件改名为
+demo.html。在 Jupyter 中，HTML 文件不能像 Python
+其它文件那样通过点击直接打开，需要先选中该文件，然后点击上方的编辑铵钮
+Edit，才能修改，直接点击 HTML 文件，会在浏览器中显示该网页效果。将
+demo.html 修改成以下内容：</p>
+<pre><code>01 &lt;html&gt;
+02     &lt;body&gt;
+03 用户名：&#123;&#123;name&#125;&#125;
+04         &lt;/br&gt;
+05 密码：&#123;&#123;password&#125;&#125;
+06     &lt;/body&gt;
+07 &lt;/html&gt;</code></pre>
+<p>第 03 和 05 行，分别使用了两个占位变量，用于插入动态数据。</p>
+<p>在与 templates 目录平级的位置（不在 templates 目录之中）创建 Python
+代码文件，输入以下代码：</p>
+<pre><code>01 from flask import Flask
+02 from flask import render_template
+03  
+04 app = Flask(__name__)
+05  
+06 @app.route(&#39;/show.html&#39;)
+07 def page2():
+08 return render_template(&#39;demo.html&#39;, name=&quot;张三&quot;, password=&quot;123456&quot;)
+09  
+10 app.run(host=&#39;0.0.0.0&#39;, port=8088)</code></pre>
+<p>第 02 行导入了用于渲染网页的三方库 render_template。 第 06
+行指定在访问网站的 show.html 路径时，调用 page2 函数。 第 07-08 行实现了
+page2 函数，使用 render_template 渲染上面编辑的网页 demo.html（程序在
+templates 目录下读取文件），然后设置了文件中的两个占位变量 name 和
+password。此处涉及的文件目录较为复杂，请读者在计算机上完成以上实验。</p>
+<p>程序运行结果如图 18.2
+所示，可以看到网页中的占位变量被程序中设置的参数所代替。</p>
+<figure>
+<img
+src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81MzU3ODkzLTI0Yzg4ZWI5OTBmMzZmZmIucG5n?x-oss-process=image/format,png"
+alt="图18.2利用模板生成网页效果" />
+<figcaption aria-hidden="true">图18.2利用模板生成网页效果</figcaption>
+</figure>
+<p>图 18.2 利用模板生成网页效果</p>
+<p><strong>课后练习：</strong>（练习答案见本讲最后的小结部分）
+练习一：将本节中的动态网页示例程序输入计算机，保证程序正常运行。
+（练习中涉及的内容较多，实现过程中需要不断在网页编辑界面、程序界面、浏览器测试效果的界面之间切换，它锻炼了切分问题，以及分步解决问题的能力。）</p>
+<h2 id="表单">18.4 表单</h2>
+<p>表单 form
+是一种网页的形式，一般用于收集用户信息，例如：网站的用户注册页面一般需要输入用户名、密码、联系方式、真实姓名等信息，此类网页一般由表单实现。</p>
+<h3 id="post-与-get-方式">18.4.1 POST 与 GET 方式</h3>
+<p>POST 和 GET 是 HTTP 请求的两种方式，上面学习的例程都是 GET
+方式，且客户端没有向服务端传送参数。POST 请求和 GET
+请求都支持客户端向服务端传送数据，但格式不同。</p>
+<p><strong>1．GET 方式</strong></p>
+<p>GET 方式传递参数时，名/值对是在 GET 请求的 URL 中发送的，例如：</p>
+<pre><code>01 http://192.168.1.104/login.html?user=a&amp;passwd=123</code></pre>
+<p>其中问号之后是客户端向服务端传递的参数，本例中共有两个参数，参数之间用“</p>
+<p>&amp;”符号分隔，参数是名/值对，如第一个参数的参数名是 user，值是
+a，名值之间用“=”连接。</p>
+<p><strong>2．POST 方式</strong></p>
+<p>POST 方式传递参数时，名/值对是在 HTTP 的消息体中发送的，从 URL
+中无法得知，POST 请求更加安全，例如用 POST
+方式传送的密码不会被显示在网页地址栏中，有更好的保密性。下面介绍的表单主要使用
+POST 方式传输数据。</p>
+<h3 id="表单-1">18.4.2 表单</h3>
+<p>表单是客户端提交给服务器端的一组数据，与之前学习过的软件界面一样，它可以包含输入框、单选框、密码框等等控件供用户输入，一般包含提交和重置两个按钮，当用户点击提交按钮时，浏览器将向服务端发起请求，将表单中用户输入的数据发送给服务器。因此使用表单一方面需要在
+HTML
+文件中添加表单，另一方面需要在服务端的程序中处理由表单传来的数据。</p>
+<p>首先，使用以下程序在模板目录下创建含有表单的 HTML 文件
+login_base.html：</p>
+<pre><code>01 &lt;html&gt;
+02     &lt;body&gt;
+03         &lt;form action=&quot;show.html&quot; method=&quot;post&quot;&gt;
+04             用户名：&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;zhangsan&quot;/&gt;
+05             密码：&lt;input type=&quot;password&quot; name=&quot;passwd&quot; /&gt;
+06             &lt;input type=&quot;submit&quot; value=&quot;登录&quot;/&gt;
+07         &lt;/form&gt;
+08     &lt;/body&gt;
+09 &lt;/html&gt;</code></pre>
+第 03 行标记了表单 form 元素的开始，并使用 action
+属性设置当用户点击提交时，跳转到网站的 show.html 路径，处理方式是 POST。
+第 04 行显示了文字“用户名”和普通输入框，表单中的元素由 input
+标签定义，标签的具体类型由其 type
+属性指定，普通输入框的类型是“text”，name
+设置了被提交数据的名字“name”，以便于服务端的程序读取不同的用户输入内容，属性
+value 指定了输入框的默认值为“zhangsan”。 第 05
+行显示了文字“密码”和密码输入框，它的类型为
+password，密码输入框中输入的任何字符都显示成“*”以便于保密，name
+设置了提交数据的名字“passwd”，供服务器读出数据时使用。 第 06
+行加入提交按钮，它的类型为 submit，意思是提交，value
+指定了铵钮上显示的文字是“登录”。 第 07 行的
+</form>
+<p>标签标记了表单结束。</p>
+<p>然后，编写 Python
+程序，该程序包含两个界面，一个是提供给用户输入用户名和密码的登录界面
+login.html，另一个是显示用户是否登录成功的提示界面 show.html。</p>
+<pre><code>01 from flask import Flask,request
+02 from flask import render_template
+03  
+04 app = Flask(__name__)
+05  
+06 @app.route(&quot;/login.html&quot;)
+07 def page1():
+08     return render_template(&#39;login_base.html&#39;)
+09                            
+10 @app.route(&#39;/show.html&#39;,methods=[&quot;POST&quot;])
+11 def page2():
+12     if request.method==&#39;POST&#39;:
+13         u=request.form[&#39;name&#39;]
+14         p=request.form[&#39;passwd&#39;]
+15         if u == &#39;zhangsan&#39; and p == &#39;123456&#39;:
+16             return render_template(&#39;demo.html&#39;, name=u, password=p)
+17         else:
+18             return &quot;用户名或密码错误&quot;
+19     else:
+20         return &quot;请求错误&quot;
+21  
+22 app.run(host=&#39;0.0.0.0&#39;, port=8088)</code></pre>
+<p>第 01 行引入了 flask 三方模块的 Flask 和 request，其中 request
+用于接收客户端传来的参数。 第 06 行关联了 login.html 与 page1
+函数，当用户在浏览器打开网络路径 login.html 时调用 page1 函数，route
+译为路由，它的含义是寻找从源地址到目标地址的最佳路径。 第 07-08 行实现了
+page1 函数，它从 templates 模板目录下加载了 login_base.html
+文件，并将其转换成字符串类型，作为 page1 函数的返回值。</p>
+<p>第 10 行关联了 show.html 与 page2 函数，并用参数 methods 指出接收
+POST 请求发来的数据。 第 11-18 行实现了 page2 函数。 第 12
+行判断用户请求是否为 POST 请求，如果不是 POST 请求，则跳转到 19-20
+行返回请求错误。 第 13 行从 post
+请求中取出名为“name”的数据并将该数据赋值给变量 u，关键字“name”在 HTML
+文件中定义。 第 14 行从 post
+请求中取出名为“passwd”的数据并将该数据赋值给变量 p。 第 15
+行判断用户名和密码，如果是 zhangsan 和 123456 则执行 16
+行，否则返回“用户名密码错误”。 第 16 行读取之前创建的模板文件
+demo.html，并用真实的用户名和密码替换 HTML 文件中的占位变量。</p>
+<p>程序运行结果如图 18.3 所示：</p>
+<figure>
+<img
+src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81MzU3ODkzLTA0YzMzNDg2ZDczMGZhZTQucG5n?x-oss-process=image/format,png"
+alt="图18.3登录界面效果图" />
+<figcaption aria-hidden="true">图18.3登录界面效果图</figcaption>
+</figure>
+<p>图 18.3 登录界面效果图</p>
+<p><strong>课后练习：</strong></p>
+<p>练习二：在 7777 端口打开 HTTP
+服务，实现用户注册界面，用户输入：姓名、用户名、密码、年龄，按确认后，显示注册成功界面其中包含用户注册信息。</p>
+<h2 id="思维训练">18.5 思维训练</h2>
+<h3 id="建立框架">18.5.1 建立框架</h3>
+<p>建立处理问题的统一框架，类似于前几讲提到过的抽象的处理问题，它几乎是最重要的学习方法，通过一次或几次学习，总结出处理一类问题的解决方法。以后再遇到类似问题，不需要重新学习具体处理方法，直接代入框架，即可解决问题。人工智能中的“训练机器学习模型”就是建立框架的过程；在程序中使用函数，也用到建立框架的思路，具体方法是：</p>
+<p>第一步：切分，将整体功能切分成小块。
+第二步：实现，将具体实现功能的代码封装到函数之中，建立最基本的结构，确定框架中的不变部分和可变部分。
+第三步：定义使用场景，在什么情况下可以使用，以及如何使用。
+第四步：包容，扩展其功能，增加适用范围，让该框架不仅可用于当前情况，之后还可以在更多的情况下使用。</p>
+<h3 id="积累">18.5.2 积累</h3>
+<p>如果找不到规律生成统一框架，就需要记忆具体实例，即积累。但是使用这些未经处理的数据代价很大，需要大量的记忆空间。此时可以考虑简化和分解。</p>
+<p>简化时需要区分和保留实例中的重要特征，去掉不重要的，以及常识性的知识。</p>
+<p>而分解则是化整为零。写程序也同样有一些约定俗成的要求，比如一个函数中的代码长度最好不要超过一屏，单个代码文件也不要太长，这并不是由于机器无法运行，而是让程序员阅读起来更加方便。因此，有时候即使多次调用，也会把大段代码拆成函数。</p>
+<p>积累的另一个使用场景是保存统一框架以外的特例。如果建立处理所有情况的统一框架，规律将非常复杂。此时，可积累一些特例作为统一框架的补充。需要注意的也是保持积累数据的简洁。</p>
+<h3 id="重构">18.5.3 重构</h3>
+<p>建立框架和积累实例是最常用的方法，如果试用了已有的框架和积累的实例仍无法解决问题，可以尝试重构，重构的核心是使用新的角度把简化问题，而不是改进具体的方法。重构的方法有很多，如：</p>
+<ul>
+<li>从思考问题的结构转为思考问题的功能，如果目标是出一本校刊，又实在无法画好其中的插画，是否可以使用其它途径，比如从网上下载模板……</li>
+<li>把问题划分成小块，然后区分其中重要和次要的成份。重组重要特征，尝试不同的划分方法，不同的边界可能预示着不同解决方法。</li>
+<li>调整看问题角度，从整体到部分，比如可以把大问题拆分成多个小问题，再逐一寻找解法；或者把问题放入一个更大的框架。</li>
+<li>使用类比，并借鉴类似问题的解决方法，比如将学习语文的方法代入英语学习之中，虽然细节有所不同，但其中一些技巧仍可以正常工作。</li>
+<li>头脑风暴，和小组的其他成员在不受任何限制的气氛中讨论、座谈，打破常规，积极思考，畅所欲言，充分发表看法，拼接扩展思路。</li>
+</ul>
+<h2 id="小结">18.6 小结</h2>
+<h3 id="单词">18.6.1 单词</h3>
+<p>本讲需要掌握的英文单词如表 18.1 所示。</p>
+<p>[表 18.1
+本讲需要掌握的英文单词](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy81MzU3ODkzLTcxYmQ0MWM1MDlmNDE2NDEucG5n?x-oss-</p>
+<p>process=image/format,png)</p>
+<p>表 18.1 本讲需要掌握的英文单词</p>
+<h3 id="习题答案">18.6.2 习题答案</h3>
+<ol type="1">
+<li>练习一：将本节中的动态网页示例程序输入计算机，保证程序正常运行。</li>
+<li>练习二：在 7777 端口打开 HTTP
+服务，实现用户注册界面，用户输入：姓名、用户名、密码、年龄，按确认后，显示注册成功界面其中包含用户注册信息。</li>
+</ol>
+<pre><code>01 from flask import Flask,request
+02 from flask import render_template
+03  
+04 app=Flask(__name__)
+05  
+06 @app.route(&quot;/login.html&quot;)
+07 def page1():
+08     return render_template(&#39;login.html&#39;)
+09  
+10 @app.route(&#39;/show.html&#39;,methods=[&quot;POST&quot;])
+11 def page2():
+12     if request.method==&#39;POST&#39;:
+13         u=request.form[&#39;name1&#39;]
+14         p=request.form[&#39;mima&#39;]
+15         l=request.form[&#39;name2&#39;]
+16         w=request.form[&#39;old&#39;]
+17         iiii=&quot;注册成功，用户名：&quot;+u+&quot;，密码：&quot;+p+&quot;, 姓名：&quot;+l+&quot;, 年龄：&quot;+w
+18         return iiii
+19     else:
+20         return &quot;不是post, 需要post&quot;
+21         
+22 app.run(host=&#39;0.0.0.0&#39;,port=7777)</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/27572/">http://example.com/posts/27572/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">Python/少儿编程</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/36904/" title="调节学习率"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">调节学习率</div></div></a></div><div class="next-post pull-right"><a href="/posts/17411/" title="用深度学习模型提取特征"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">用深度学习模型提取特征</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/25309/" title="02_少儿Python编程_第二讲：开发环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-09-18</div><div class="title">02_少儿Python编程_第二讲：开发环境</div></div></a></div><div><a href="/posts/594/" title="16_少儿Python编程_第十六讲：图形界面开发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-18</div><div class="title">16_少儿Python编程_第十六讲：图形界面开发</div></div></a></div><div><a href="/posts/12414/" title="19_少儿Python编程_第十九讲： 数据分析网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-24</div><div class="title">19_少儿Python编程_第十九讲： 数据分析网站</div></div></a></div><div><a href="/posts/30712/" title="20_少儿Python编程_第二十讲 ：编程技巧"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-31</div><div class="title">20_少儿Python编程_第二十讲 ：编程技巧</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%91%E5%84%BF-python-%E7%BC%96%E7%A8%8B-_-%E7%AC%AC%E5%8D%81%E5%85%AB%E8%AE%B2%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99"><span class="toc-number">1.</span> <span class="toc-text">少儿 Python 编程 _
+第十八讲：搭建网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BE%8B%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">18.1 简单例程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">
+Hello
+World!
+</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%92%8C%E7%AB%AF%E5%8F%A3"><span class="toc-number">2.1.</span> <span class="toc-text">18.2 地址和端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80"><span class="toc-number">2.1.1.</span> <span class="toc-text">18.2.1 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">2.1.2.</span> <span class="toc-text">18.2.2 端口号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#url-%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="toc-number">2.1.3.</span> <span class="toc-text">18.2.3 URL 命名规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5"><span class="toc-number">2.2.</span> <span class="toc-text">18.3 动态网页</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.2.1.</span> <span class="toc-text">18.3.1 网页模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5"><span class="toc-number">2.2.2.</span> <span class="toc-text">18.3.2 生成动态网页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95"><span class="toc-number">2.3.</span> <span class="toc-text">18.4 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#post-%E4%B8%8E-get-%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.1.</span> <span class="toc-text">18.4.1 POST 与 GET 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95-1"><span class="toc-number">2.3.2.</span> <span class="toc-text">18.4.2 表单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%BB%B4%E8%AE%AD%E7%BB%83"><span class="toc-number">2.4.</span> <span class="toc-text">18.5 思维训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E6%A1%86%E6%9E%B6"><span class="toc-number">2.4.1.</span> <span class="toc-text">18.5.1 建立框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%AF%E7%B4%AF"><span class="toc-number">2.4.2.</span> <span class="toc-text">18.5.2 积累</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%9E%84"><span class="toc-number">2.4.3.</span> <span class="toc-text">18.5.3 重构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">2.5.</span> <span class="toc-text">18.6 小结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E8%AF%8D"><span class="toc-number">2.5.1.</span> <span class="toc-text">18.6.1 单词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%A0%E9%A2%98%E7%AD%94%E6%A1%88"><span class="toc-number">2.5.2.</span> <span class="toc-text">18.6.2 习题答案</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

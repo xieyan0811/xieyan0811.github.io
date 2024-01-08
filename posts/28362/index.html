@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>比特币挖矿——区块链技术 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="比特币挖矿——区块链技术 #区块链 1. 说明 区块链具有数据运行公开、不可篡改、可溯源、跨国际、去中心化的特点。因此越来越多地被应用在各个领域。区块链主要技术包括：分布式数据存储、点对点传输、共识机制、加密算法，将在下面一一介绍。 2. 点对点传输 点对点技术（peer-to-peer，简称 P2P）又称对等互联网络技术，它依赖网络中参与者的计算能力和带宽，而不是把依赖都聚集在较少的几台服务器上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币挖矿——区块链技术">
+<meta property="og:url" content="http://example.com/posts/28362/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="比特币挖矿——区块链技术 #区块链 1. 说明 区块链具有数据运行公开、不可篡改、可溯源、跨国际、去中心化的特点。因此越来越多地被应用在各个领域。区块链主要技术包括：分布式数据存储、点对点传输、共识机制、加密算法，将在下面一一介绍。 2. 点对点传输 点对点技术（peer-to-peer，简称 P2P）又称对等互联网络技术，它依赖网络中参与者的计算能力和带宽，而不是把依赖都聚集在较少的几台服务器上">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-10-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="区块链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/28362/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '比特币挖矿——区块链技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">比特币挖矿——区块链技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-10-25T00:00:00.000Z" title="Created 2017-10-25 00:00:00">2017-10-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="比特币挖矿——区块链技术"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="比特币挖矿区块链技术">比特币挖矿——区块链技术</h1>
+<p>#区块链</p>
+<h2 id="说明">1. 说明</h2>
+<p>区块链具有数据运行公开、不可篡改、可溯源、跨国际、去中心化的特点。因此越来越多地被应用在各个领域。区块链主要技术包括：分布式数据存储、点对点传输、共识机制、加密算法，将在下面一一介绍。</p>
+<h2 id="点对点传输">2. 点对点传输</h2>
+<p>点对点技术（peer-to-peer，简称
+P2P）又称对等互联网络技术，它依赖网络中参与者的计算能力和带宽，而不是把依赖都聚集在较少的几台服务器上。最典型的应用就是电驴。在这里它提供了最底层的去中心化支持。</p>
+<h2 id="分布式数据存储">3. 分布式数据存储</h2>
+<p>先看看对区块链最直观的感觉：当第一次运行比特币钱包时，会下载很多数据，2017
+年 10 月有 150G 左右，且还在不断增加。数据存储在 data/blocks
+目录下，blk*.dat 这就是区块 block。</p>
+<p>第一个问题是：为什么建矿池需要下载这么多数据？区块链本质上是一个去中心化的数据库，我们下载的是比特币所有数据所组成的数据库，因此很大。去中心化的数据库，数据并不是保存在某一个服务器上，而且在
+P2P
+的每个节点上都需要保存一份。对于中心化的数据库，数据库可能被宿主或者黑客篡改，因而可靠性变差。而去中心化数据库就像一个公共帐本，所有人都能查看，但没人能私自修改以往数据，因为它不可能修改分散在其他人机器上的数据库。在某个数据与其它数据库不一致时，则以大多数一致的为准，这就是所谓的“共识机制”。</p>
+<p>随着交易增加，钱包还会不断变大。太大之后，会用到硬分叉技术。也就是启用一个全新的网络并让所有的用户大规模迁移。</p>
+<h2 id="区块链blockchain">4. 区块链（blockchain）</h2>
+<p>区块链是一串使用密码学方法相关联产生的数据块，每一个数据块（block）中包含了一次比特币网络交易的信息，用于验证其信息的有效性和生成下一个区块（根据一个生成下一生，构成链
+chain）。</p>
+<p>所谓挖矿就是计算出一个满足规则的随机数，从而获得本次记帐权，发出本轮需要记录的数据，然后向全网广播，每个节点都会将收到交易信息，并记录到一个区块中，然后链接到现有的区块链上。</p>
+<h2 id="算法">5. 算法</h2>
+<p>哈希算法是一个字符串到一个（有限位数的）数的映射。</p>
+<p>Block 的算法是根据上一个 block 的 hash 值，寻找满足某些 hash
+结果的字符串，简单的说就是不停地拼凑字符串，计算 SHA256
+哈希值（碰撞哈希值），直到找到产生合适的哈希的字符串，这个字符串就是解。具体公式如下：</p>
+<p>SHA256(SHA256(version + prev_hash + merkle_root + ntime + nbits + x))
+&lt; TARGET</p>
+<p>挖矿就是求解上述方程中的 x。</p>
+<p>其中，version 是 block 的版本，prev_hash 是上一个 block 的 hash
+值，merkle_root 是需要写入的交易记录的 merkle 树的值（merkle
+树被应用在了交易的存储上，其基本原理就是将叶子节点（每笔交易的
+hash）两两配对做哈希运算生成父节点，不断迭代这一过程最终生成唯一的根节点
+merkle root），ntime 是更新时间，nbits 是当前难度，TARGET
+根据当前难度求出。x 的范围是 0~2^32，这就是个求解 x 的问题，一旦你找到了
+x，你就可以广播一个新的 block。</p>
+<p>TARGET 越小，解出 x 的难度就越大，每产生 2016 个 block(约 14
+天)，网络会根据这段时间产生新 block 的平均间隔调整之后的
+TARGET，以保证每 10
+分钟产生一次的速度。因此，随着网上算力的不断增加，计算难度会越来越大，矿也越来越难挖了。</p>
+<p>如果两人同时挖到，block chain
+会出现分叉，客户端在众多分支中找到符合当前难度且最长的。</p>
+<h2 id="安全机制">6. 安全机制</h2>
+<h4 id="私钥">1) 私钥</h4>
+<p>私钥是形式如下的一段字符串：</p>
+<p>5KYZdUEo39z3FPrtuX2QbbwGnNP5zTd7yyr2SC1j299sBCnWjss。只要是正确支持比特币协议的应用都可以把这段字符串识别为私钥，转换成公钥，再转换为地址，如果对应的地址上面有比特币，就可以使用这个私钥花费上面的比特币。一般被盗指的都是私钥被盗。</p>
+<h4 id="公私">2) 公私</h4>
+<p>公钥是由私钥生成的，一个私钥经过椭圆曲线变换之后会生成一个 65 个 byte
+的数组，一般我们会看到这样形式的一个公钥：04a34b99f22c790c4e36b2b3c2c35a36db06226e41c692fc82b8b56ac1c540c5bd5b8dec5235a0fa8722476c7709c02559e3aa73aa03918ba2d492eea75abea235</p>
+<p>操作是用私钥签名的，只有对应的公钥才能解开，地址也是从公钥生成的，这样就可以验证操作是不是属于这个地址的。</p>
+<h4 id="地址">3) 地址</h4>
+<p>地址是由公钥产生的，生成的过程是，先对公钥做一次
+SHA256，对得到的结果做一次 RIPEMD160,再从结果中取 20 个 byte
+的数组，这个得到的数组就是得到的
+hash160，形如：9a1c78a507689f6f54b847ad1cef1e614ee23f1e</p>
+<h4 id="流程">4) 流程</h4>
+<p>从你这里发出的数据都是由私钥加密的（包括挖到矿的广播，转帐等等），传数据的时候也会传一个公钥，通过这个公钥解密。如果公/私钥能对上，就可以证明你的身份。公钥是大家可见的，而私钥被盗，那么别人就可以用你的身份交易了。具体加解密和密钥导入导出方法请见后续“钱包”篇。</p>
+<h2 id="挖矿与深度学习">7. 挖矿与深度学习</h2>
+<h4 id="组织算力">1) 组织算力</h4>
+<p>挖矿和深度学习都需要组织算力。在运算量大时都需要构建集群，拆分计算，集成结果等等。</p>
+<h4 id="硬件基础">2) 硬件基础</h4>
+<p>挖矿和深度学习都是数学模型计算，它们对于大规模学习的解决方案都是：显卡，FPGA，ASIC。当然功能并不完全相同，深度学习需要矩阵乘法，卷积等基本运算，而挖矿主要是
+hash
+碰撞。都需要并行性、多线程和高内存带宽等特性，虽然功能相近，但硬件还是有不少的差别。硬件说明详见后续“控制器与矿机”篇。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/28362/">http://example.com/posts/28362/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/8235/" title="比特币挖矿——钱包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">比特币挖矿——钱包</div></div></a></div><div class="next-post pull-right"><a href="/posts/5581/" title="比特币挖矿——介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">比特币挖矿——介绍</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/5581/" title="比特币挖矿——介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-24</div><div class="title">比特币挖矿——介绍</div></div></a></div><div><a href="/posts/4343/" title="比特币挖矿——建立Kafka&amp;ZooKeeper集群"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-29</div><div class="title">比特币挖矿——建立Kafka&amp;ZooKeeper集群</div></div></a></div><div><a href="/posts/27921/" title="比特币挖矿——控制器与矿机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-27</div><div class="title">比特币挖矿——控制器与矿机</div></div></a></div><div><a href="/posts/8235/" title="比特币挖矿——钱包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-26</div><div class="title">比特币挖矿——钱包</div></div></a></div><div><a href="/posts/55323/" title="比特币挖矿——集群矿池btcpool"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-30</div><div class="title">比特币挖矿——集群矿池btcpool</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E7%89%B9%E5%B8%81%E6%8C%96%E7%9F%BF%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">比特币挖矿——区块链技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.1.</span> <span class="toc-text">1. 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BC%A0%E8%BE%93"><span class="toc-number">1.2.</span> <span class="toc-text">2. 点对点传输</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3. 分布式数据存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BEblockchain"><span class="toc-number">1.4.</span> <span class="toc-text">4. 区块链（blockchain）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">5. 算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E6%9C%BA%E5%88%B6"><span class="toc-number">1.6.</span> <span class="toc-text">6. 安全机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%81%E9%92%A5"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">1) 私钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AC%E7%A7%81"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">2) 公私</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80"><span class="toc-number">1.6.0.3.</span> <span class="toc-text">3) 地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.0.4.</span> <span class="toc-text">4) 流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%96%E7%9F%BF%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.7.</span> <span class="toc-text">7. 挖矿与深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E7%BB%87%E7%AE%97%E5%8A%9B"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">1) 组织算力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80"><span class="toc-number">1.7.0.2.</span> <span class="toc-text">2) 硬件基础</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

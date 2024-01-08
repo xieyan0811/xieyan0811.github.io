@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Python股票处理之八_大数定律 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Python 股票处理之八 _ 大数定律 1. 引子 有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给 X 同学。结果人家说“70% 多，这准确率高么？瞎蒙的准确率也有 50%” 这准确率高么？只靠对技术形态的判断，好像也还行吧？如果有 70% 的正确率，到底怎么做赢的机会比较大？达到多少百分比，才能够满意？ 看《程序员的数学 2：概率统计》中有一道类似的习题：设结果甲出现概率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python股票处理之八_大数定律">
+<meta property="og:url" content="http://example.com/posts/35659/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="Python 股票处理之八 _ 大数定律 1. 引子 有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给 X 同学。结果人家说“70% 多，这准确率高么？瞎蒙的准确率也有 50%” 这准确率高么？只靠对技术形态的判断，好像也还行吧？如果有 70% 的正确率，到底怎么做赢的机会比较大？达到多少百分比，才能够满意？ 看《程序员的数学 2：概率统计》中有一道类似的习题：设结果甲出现概率">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-07-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Python&#x2F;股票">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/35659/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Python股票处理之八_大数定律',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Python股票处理之八_大数定律</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-07-31T00:00:00.000Z" title="Created 2017-07-31 00:00:00">2017-07-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Python股票处理之八_大数定律"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="python-股票处理之八-_-大数定律">Python 股票处理之八 _
+大数定律</h1>
+<h2 id="引子">1. 引子</h2>
+<p>有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给
+X 同学。结果人家说“70% 多，这准确率高么？瞎蒙的准确率也有 50%”</p>
+<p>这准确率高么？只靠对技术形态的判断，好像也还行吧？如果有 70%
+的正确率，到底怎么做赢的机会比较大？达到多少百分比，才能够满意？</p>
+<p>看《程序员的数学 2：概率统计》中有一道类似的习题：设结果甲出现概率为
+0.7，结果乙出现概述为
+0.3，且不论甲还是乙，只要猜中，就能获得下注同等的金额，猜不中则输掉赌资。显然选择甲是明智的做法。假设你每天都会参与这场赌博，你会将占总资产比例
+p 的金额投给甲，p 在整个过程中保持不变，请问应该如何设定 p
+值？（我把该题简化了，大概是这个意思）</p>
+<pre><code>如果只考虑一天，显然把所有资产都投给甲p=1是最佳选择，然而不断重复赌局时，总会出现没有中奖而失去所有财产的情况。下面写一个程序模拟这个赌局：</code></pre>
+<h2 id="程序">2.程序</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import random</span><br><span class="line">import math</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">TIMES = 50	# 赌博总数50次</span><br><span class="line">BASE_MONEY=100	# 本金100元</span><br><span class="line"></span><br><span class="line">def test(p):	# p是赌资占资产的比例，在0-1之间</span><br><span class="line">	money = BASE_MONEY	# 当前资产</span><br><span class="line">	for i in range(1,TIMES):</span><br><span class="line">		r = random.randint(1,10)	# 在1-10中取随机数r</span><br><span class="line">		val = money * p	# 计算本次赌资val</span><br><span class="line">		if r &gt; 3:	# 有70%的可能性r&gt;3</span><br><span class="line">			money += val	# 赢val元</span><br><span class="line">		else:</span><br><span class="line">			money -= val	# 亏val元</span><br><span class="line">		if money &lt;= 0:	# 如果输光，则提前出局</span><br><span class="line">			money = 0.000001 </span><br><span class="line">			break</span><br><span class="line">	return money / BASE_MONEY	# 此次操作的赢亏，&gt;1为赢</span><br><span class="line"></span><br><span class="line">for idx in range(0,9):</span><br><span class="line">	p = 0.1 * (idx + 1)	# 投资比例占总资产的比例为0.1,0.2...0.9</span><br><span class="line">	plt.subplot(331+idx)	# 设定做图位置</span><br><span class="line">	array = []</span><br><span class="line">	lose = 0</span><br><span class="line">	for i in range(1, 100):	# 每个p值试验100次</span><br><span class="line">		v = test(p)</span><br><span class="line">		if v &lt; 1:	# 亏本的次数</span><br><span class="line">			lose += 1</span><br><span class="line">		array.append(math.log10(v))	# 因数值跨度太大，以10底取对数</span><br><span class="line">	print &quot;percent &quot;, p, &quot;, lose &quot;, lose</span><br><span class="line">	plt.ylim(-1, 10)	# y轴坐标设定为-1到10做图</span><br><span class="line">	plt.plot(array)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="执行结果">3.执行结果</h2>
+<h4 id="原程序单次胜算为-70">(1) 原程序，单次胜算为 70%</h4>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-dc8e39121b48c96c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="pp.png" />
+<figcaption aria-hidden="true">pp.png</figcaption>
+</figure>
+<p>percent 0.1, lose 1</p>
+<p>percent 0.2, lose 1</p>
+<p>percent 0.3, lose 5</p>
+<p>percent 0.4, lose 6</p>
+<p>percent 0.5, lose 12</p>
+<p>percent 0.6, lose 30</p>
+<p>percent 0.7, lose 59</p>
+<p>percent 0.8, lose 64</p>
+<p>percent 0.9, lose 86</p>
+<p>(每次运行结果稍有差别，但差别不大)</p>
+<p>从结果可以看出，如果用少量的比例投资，亏的机会很小，但挣大钱的机会也小。同时投入资金比例超过
+0.7 之后，亏本的可能性 50% 以上。尽管单次胜算是
+70%（独立同分布）。从图上看，合理的配置是资产的 0.4-0.5 左右。</p>
+<h4 id="变化一个参数将单次胜算设为-50">(2) 变化一个参数，将单次胜算设为
+50%</h4>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-e683dd426226d1f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="p2.png" />
+<figcaption aria-hidden="true">p2.png</figcaption>
+</figure>
+<p>percent 0.1, lose 66</p>
+<p>percent 0.2, lose 72</p>
+<p>percent 0.3, lose 89</p>
+<p>percent 0.4, lose 94</p>
+<p>percent 0.5, lose 97</p>
+<p>percent 0.6, lose 98</p>
+<p>percent 0.7, lose 98</p>
+<p>percent 0.8, lose 99</p>
+<p>percent 0.9, lose 99</p>
+<p>可见，如果单次正确率为 50%，即瞎蒙，即使只投入全部资产的
+0.1，也会亏本，如果配置到资产的 0.4
+以上，从图上看，基本就是血本无归了。合理的选择是：别参与。</p>
+<h4 id="再变化一个参数将单次胜算设为-90">(3)
+再变化一个参数，将单次胜算设为 90%</h4>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-8d639a3a91895dc1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="p3.png" />
+<figcaption aria-hidden="true">p3.png</figcaption>
+</figure>
+<p>percent 0.1, lose 0</p>
+<p>percent 0.2, lose 0</p>
+<p>percent 0.3, lose 0</p>
+<p>percent 0.4, lose 0</p>
+<p>percent 0.5, lose 0</p>
+<p>percent 0.6, lose 0</p>
+<p>percent 0.7, lose 0</p>
+<p>percent 0.8, lose 0</p>
+<p>percent 0.9, lose 0</p>
+<p>把单次正确率设为 90%
+时，几乎没有亏本的可能性，投入越多，挣得越多，但是从图中可见，投入 0.9
+以上时也不是明智的选择。从图上看，合理的选择是 0.7-0.8。</p>
+<h2 id="分析">4.分析</h2>
+<p>在这种利滚利的环境下，单次胜算越大，越应该果断投入；反之，保证不了正确率千万别碰。与事先想象不同的是：</p>
+<ol type="1">
+<li><p>如果胜算在 50%
+左右，多次操作，结果并不是胜负各半，而是血本无归。</p></li>
+<li><p>根据胜算比例，可计算出最适合的资产配置比例。</p></li>
+<li><p>操作一次，结果是随机的，操作Ｎ多次，大量随机结果的平均值（以及分布）却相对恒定，这就是传说中的“大数定律”。因此，即使有较大胜算，也需要多次操作才能体现出来（即不怕一万，只怕万一）</p></li>
+</ol>
+<h2 id="联想">5. 联想</h2>
+<p>比如买股票，我们可以选择某个胜算较高（胜算比例可从历史数据中算出）的技术形态，然后计算出合适的资产配置比例（见上例），按这个比例多次地买卖。在Ｎ次操作之后，收益范围基本是确定的。这个假设可以用历史的股票数据测试，我还没试过，就是随便一想，呵呵。</p>
+<p>如果这个假设成立，在单次胜算 90%
+的情况下，怎么买基本都是赚钱的，只是赚多赚少的问题，在单次胜算 70%
+的情况下，也能找到一个利益和风险的平衡点。Ｘ同学，你怎么看？</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/35659/">http://example.com/posts/35659/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Python-%E8%82%A1%E7%A5%A8/">Python/股票</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5581/" title="比特币挖矿——介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">比特币挖矿——介绍</div></div></a></div><div class="next-post pull-right"><a href="/posts/2746/" title="Python数据分析常用工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Python数据分析常用工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/44664/" title="Python股票处理之一_获取国内股票数据"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-27</div><div class="title">Python股票处理之一_获取国内股票数据</div></div></a></div><div><a href="/posts/1048/" title="Python股票处理之七_数据库存储"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-21</div><div class="title">Python股票处理之七_数据库存储</div></div></a></div><div><a href="/posts/2875/" title="Python股票处理之三_实时监测"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-30</div><div class="title">Python股票处理之三_实时监测</div></div></a></div><div><a href="/posts/5596/" title="Python股票处理之二_数据存盘"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-30</div><div class="title">Python股票处理之二_数据存盘</div></div></a></div><div><a href="/posts/12093/" title="Python股票处理之五_直方图统计"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-04</div><div class="title">Python股票处理之五_直方图统计</div></div></a></div><div><a href="/posts/61622/" title="Python股票处理之六_数据预处理A"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-07-04</div><div class="title">Python股票处理之六_数据预处理A</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E8%82%A1%E7%A5%A8%E5%A4%84%E7%90%86%E4%B9%8B%E5%85%AB-_-%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">Python 股票处理之八 _
+大数定律</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%AD%90"><span class="toc-number">1.1.</span> <span class="toc-text">1. 引子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2.程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.</span> <span class="toc-text">3.执行结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A8%8B%E5%BA%8F%E5%8D%95%E6%AC%A1%E8%83%9C%E7%AE%97%E4%B8%BA-70"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">(1) 原程序，单次胜算为 70%</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%8C%96%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%B0%86%E5%8D%95%E6%AC%A1%E8%83%9C%E7%AE%97%E8%AE%BE%E4%B8%BA-50"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">(2) 变化一个参数，将单次胜算设为
+50%</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E5%8F%98%E5%8C%96%E4%B8%80%E4%B8%AA%E5%8F%82%E6%95%B0%E5%B0%86%E5%8D%95%E6%AC%A1%E8%83%9C%E7%AE%97%E8%AE%BE%E4%B8%BA-90"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">(3)
+再变化一个参数，将单次胜算设为 90%</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.4.</span> <span class="toc-text">4.分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E6%83%B3"><span class="toc-number">1.5.</span> <span class="toc-text">5. 联想</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

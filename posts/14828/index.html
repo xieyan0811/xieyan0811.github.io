@@ -1,0 +1,326 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_医疗NLP模型_EMBERT | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="英文题目：EMBERT: A Pre-trained Language Model for Chinese Medical Text Mining 中文题目：中文医学文本挖掘的预训练语言模型 论文地址：https:&#x2F;&#x2F;chywang.github.io&#x2F;papers&#x2F;apweb2021.pdf 领域：自然语言处理，知识图谱，生物医疗 发表时间：2021 作者：Zerui Cai 等，华东师范大学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_医疗NLP模型_EMBERT">
+<meta property="og:url" content="http://example.com/posts/14828/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="英文题目：EMBERT: A Pre-trained Language Model for Chinese Medical Text Mining 中文题目：中文医学文本挖掘的预训练语言模型 论文地址：https:&#x2F;&#x2F;chywang.github.io&#x2F;papers&#x2F;apweb2021.pdf 领域：自然语言处理，知识图谱，生物医疗 发表时间：2021 作者：Zerui Cai 等，华东师范大学">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/blog_logo.png">
+<meta property="article:published_time" content="2022-06-20T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理&#x2F;BERT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://example.com/posts/14828/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_医疗NLP模型_EMBERT',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_医疗NLP模型_EMBERT</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-20T00:00:00.000Z" title="Created 2022-06-20 00:00:00">2022-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%8C%BB%E5%AD%A6-%E6%8A%80%E6%9C%AF%E8%AE%BA%E6%96%87/">医学_技术论文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_医疗NLP模型_EMBERT"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>英文题目：EMBERT: A Pre-trained Language Model for Chinese Medical
+Text Mining</p>
+<p>中文题目：中文医学文本挖掘的预训练语言模型</p>
+<p>论文地址：https://chywang.github.io/papers/apweb2021.pdf</p>
+<p>领域：自然语言处理，知识图谱，生物医疗</p>
+<p>发表时间：2021</p>
+<p>作者：Zerui Cai 等，华东师范大学</p>
+<p>出处：APWEB/WAIM</p>
+<p>被引量：1</p>
+<p>阅读时间：22.06.22</p>
+<h1 id="读后感">读后感</h1>
+<p>针对医疗领域，利用<strong>知识图中的同义词</strong>（只使用了词典，未使用图计算方法），训练类似
+BERT
+的自然语言表示模型。优势在于代入了知识，具体设计了<strong>三种自监督学习方法</strong>来捕捉细粒度实体间的关系。实验效果略好于现有模型。没找到对应代码，具体的操作方法写的也不是特别细，主要领会精神。</p>
+<p>比较值得借鉴的是，其中用到的中文医疗知识图，其中同义词的使用方法，<strong>AutoPhrase</strong>自动识别短语，高频词边界的切分方法等。</p>
+<h2 id="介绍">介绍</h2>
+<p>文中方法致力于：更好地利用大量未标注数据和预训练模型；使用实体级的知识增强；捕捉细粒度的语义关系。与
+MC-BERT 相比，文中的模型更注重探索实体间的关系。</p>
+<p>作者主要针对三个问题：</p>
+<ul>
+<li><strong>同义不同词</strong>，比如：结核病 与 痨病
+指的是同一疾病，但文本描述不同。</li>
+<li><strong>实体嵌套</strong>，比如：新型冠状病毒肺炎，既包含肺炎实体，又包含新型冠状病毒实体，自身也是一个实体，之前方法只关注了整个实体。</li>
+<li><strong>长实体误读</strong>，比如：糖尿病酮酸，解析时需要关注主实体与其它实体的关系。</li>
+</ul>
+<p><strong>文章贡献如下：</strong></p>
+<ul>
+<li>提出了中文医疗预训练模型 EMBERT（Entity-rich Medical
+BERT），可学习医学术语的特征。</li>
+<li>提出三种自监督任务捕捉实体层面的语义相关性。</li>
+<li>使用六个中文医疗数据集评测，实验证明效果好于之前方法。</li>
+</ul>
+<h2 id="方法">方法</h2>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622142555.png"
+alt="Pasted image 20220622142555.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622142555.png</figcaption>
+</figure>
+<h4 id="实体上下文一致性预测">实体上下文一致性预测</h4>
+<p>利用从 http://www.openkg.cn/的知识图中取到的 <strong>SameAs</strong>
+关系建立词典，用同义词替换数据集中的词构造更多训练数据，再预测被替换的实体与上下文的一致性，以提升模型效果。原理上，被替换的实体和原有实体的上下文也应具有一致性。</p>
+<p>假设一个句子包含字 x1...xn，替换了其中的第 i 个实体 xsi,...xei，其中
+s 和 e 表示替换的起止位置，其上下文指的是位置在 si 之前和 si
+之后的内容，用 ci 表示。</p>
+<p>首先，将替换后的实体编码为向量 yi：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622133638.png"
+alt="Pasted image 20220622133638.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622133638.png</figcaption>
+</figure>
+<p>然后，利用 yi 来预测上下文 ci，并计算损失函数：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622133804.png"
+alt="Pasted image 20220622133804.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622133804.png</figcaption>
+</figure>
+<h4 id="实体切分">实体切分</h4>
+<p>使用基于规则的系统将长实体切分成几部分语义，并打标签，再用标注数据训练模型。</p>
+<p>具体方法是<strong>建立一个实体词表</strong>，从训练集中获得一批高质量的医疗领域实体，与知识图中实体结合。先用<strong>AutoPhrase</strong>生成原始切分结果，计算每个片段开始和结束位置的频率，对
+top-100 高频词手动检查，作为切分集。</p>
+<p>设<strong>长实体为 xsi,...,xei，将其进一步切分
+xeij,...,xeij，并将切分后小段的最后一个位置 xsij 作为切分点打标签为
+1</strong>，其它位置标签为
+0，训练模型来预测这个标签，将其定义为一个二分类问题。公式中的 y 是该位置
+token 的向量表示。</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622140146.png"
+alt="Pasted image 20220622140146.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622140146.png</figcaption>
+</figure>
+<p>损失函数计算如下：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622140307.png"
+alt="Pasted image 20220622140307.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622140307.png</figcaption>
+</figure>
+<h4 id="双向实体遮蔽">双向实体遮蔽</h4>
+<p>利用上一步方法，可把长实体分成形容词和元实体（主要的实体），遮蔽形容词，使用主实体预测它；相对的，也遮蔽主实体，用形容词预测它。</p>
+<p>以遮蔽元实体为例，利用形容词和相对位置 p 来计算元实体的表示：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622141023.png"
+alt="Pasted image 20220622141023.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622141023.png</figcaption>
+</figure>
+<p>然后利用 yj 来预测 xj，并计算交叉熵作为损失函数：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622141126.png"
+alt="Pasted image 20220622141126.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622141126.png</figcaption>
+</figure>
+<p>用元实体预测预测形容词也是同理，最后得到的损失函数 Lben
+是两种损失的加和。</p>
+<h4 id="损失函数">损失函数</h4>
+<p>最终的损失函数，包含 BERT 的损失 Lex
+和上述三种方法的损失，λ是超参数。</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622131930.png"
+alt="Pasted image 20220622131930.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622131930.png</figcaption>
+</figure>
+<h2 id="实验">实验</h2>
+<p>使用丁香园医疗社区问答及 BBS 数据训练模型，数据量
+5G，文中使用的训练数据明显少于 MC-BERT，但效果与之相似。</p>
+<p>主实验效果如下：</p>
+<figure>
+<img src="/support/attachments_2022/Pasted%20image%2020220622142451.png"
+alt="Pasted image 20220622142451.png" />
+<figcaption aria-hidden="true">Pasted image
+20220622142451.png</figcaption>
+</figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/posts/14828/">http://example.com/posts/14828/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/">自然语言处理/BERT</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/36040/" title="论文阅读_ICD编码_BERT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_ICD编码_BERT</div></div></a></div><div class="next-post pull-right"><a href="/posts/15539/" title="论文阅读_中文语言技术平台LTP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_中文语言技术平台LTP</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/51415/" title="论文阅读_中文医疗模型 eHealth"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-25</div><div class="title">论文阅读_中文医疗模型 eHealth</div></div></a></div><div><a href="/posts/23574/" title="NLP模型应用之二：BERT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-06</div><div class="title">NLP模型应用之二：BERT</div></div></a></div><div><a href="/posts/29265/" title="国产的自然语言处理框架ERNIE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-07</div><div class="title">国产的自然语言处理框架ERNIE</div></div></a></div><div><a href="/posts/3619/" title="论文阅读_BERT-wwm"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-15</div><div class="title">论文阅读_BERT-wwm</div></div></a></div><div><a href="/posts/12454/" title="论文阅读_字典提升基于BERT的NER"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-23</div><div class="title">论文阅读_字典提升基于BERT的NER</div></div></a></div><div><a href="/posts/38908/" title="论文阅读_BERT知识蒸馏"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-12</div><div class="title">论文阅读_BERT知识蒸馏</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">577</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">75</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">77</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%80%E8%87%B4%E6%80%A7%E9%A2%84%E6%B5%8B"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">实体上下文一致性预测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E5%88%87%E5%88%86"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">实体切分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E5%AE%9E%E4%BD%93%E9%81%AE%E8%94%BD"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">双向实体遮蔽</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">损失函数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.3.</span> <span class="toc-text">实验</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34353/" title="GPT应用_AutoGPT">GPT应用_AutoGPT</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare">论文阅读_医疗知识图谱_GraphCare</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/41229/" title="论文阅读_AI生成检测_Ghostbuster">论文阅读_AI生成检测_Ghostbuster</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/27516/" title="Supabase">Supabase</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21956/" title="用 github copilot 帐号和 GPT-4 聊天">用 github copilot 帐号和 GPT-4 聊天</a><time datetime="2024-01-06T00:00:00.000Z" title="Created 2024-01-06 00:00:00">2024-01-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
