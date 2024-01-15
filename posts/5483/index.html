@@ -199,7 +199,7 @@ Encoder 的输出。</li>
 Attention</strong>，它屏蔽了下文，只考虑上文对下文的影响。</li>
 </ul>
 <p>简单讲：主要差别就是单向/双向注意力的差别。</p>
-<p>详见：<a href="/posts/26789">Transformer框架</a></p>
+<p>详见：<a href="/posts/26789/">Transformer框架</a></p>
 <p>论文地址：<a
 target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Attention
 is All you Need</a></p>
@@ -212,7 +212,7 @@ is All you Need</a></p>
 <li>缺点：不能支持不确定长度文本的生成，而且依赖前后上下文，这样就非常限制下游任务的类型；一般只能在
 fine-tune
 后才能在下游任务中使用，这也将涉及大量人工操作和模型调参，模型也不能做得太大。</li>
-<li>详见：<a href="/posts/23574">NLP模型应用之二：BERT</a></li>
+<li>详见：<a href="/posts/23574/">NLP模型应用之二：BERT</a></li>
 <li>论文地址：[BERT: Pre-training of Deep Bidirectional Transformers
 for</li>
 </ul>
@@ -230,7 +230,7 @@ for</li>
 zzz"。这基本就是提示的原理，它让 Decoder 类模型可以在不 fine-tune
 的情况适应各种类型的下游任务，同时也拥有了 BERT
 的一些优势——虽然不是双向的，但应学习的知识都在前文里。</li>
-<li>详见：<a href="/posts/57041">论文阅读_自然语言模型GPT-3</a></li>
+<li>详见：<a href="/posts/57041/">论文阅读_自然语言模型GPT-3</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.14165">Language Models
 are Few-Shot Learners</a></li>
 </ul>
@@ -256,7 +256,7 @@ gut”。（对条件使用双向，对结果使用单向）。</li>
 </ul>
 <h4 id="glm">2.4.2 GLM</h4>
 <ul>
-<li><a href="/posts/36545">方法</a> 自回归的空白填充</li>
+<li><a href="/posts/36545/">方法</a> 自回归的空白填充</li>
 </ul>
 <p><img
 src="/support/attachments_2023/Pasted%20image%2020230324164415.png" /></p>
@@ -317,7 +317,7 @@ Transfer Learning with a Unified Text-to-Text Transformer</a></li>
 <li>模型结构：Decoder 结构。</li>
 <li>数据和模型规模：1.56T 词进行预训练，137B 参数。</li>
 <li>亮点：结合了自然语言模型和其它工具，功能有点像 newbing</li>
-<li>详见：<a href="/posts/27022">论文阅读_LaMDA</a></li>
+<li>详见：<a href="/posts/27022/">论文阅读_LaMDA</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2201.08239">LaMDA: Language
 Models for Dialog Applications</a></li>
 </ul>
@@ -334,7 +334,7 @@ Datasets 上公开可用的 62
 <li>数据结构：同 LaMDA</li>
 <li>数据和模型规模：预训练同 LaMDA，精调使用 62 个数据集数据。</li>
 <li>亮点：指令调优，见原理图</li>
-<li>详见：<a href="/posts/62402">论文阅读_用引导调优模型</a></li>
+<li>详见：<a href="/posts/62402/">论文阅读_用引导调优模型</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2109.01652">Finetuned
 Language Models Are Zero-Shot Learners</a></li>
 </ul>
@@ -351,7 +351,7 @@ Language Models Are Zero-Shot Learners</a></li>
 143B 个 token，而未过滤的网页包含大约 7T 个
 token，实验说明有些任务需要高质量数据训练。</li>
 <li>亮点：模型结构，见模型结构图</li>
-<li>详见：<a href="/posts/26003">论文阅读_GLaM</a></li>
+<li>详见：<a href="/posts/26003/">论文阅读_GLaM</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2112.06905">GLaM：Efficient
 Scaling of Language Models with Mixture-of-Experts</a></li>
 </ul>
@@ -368,7 +368,7 @@ PaLM-E 机器人行为规划奠定了基础。</li>
 的数据，除了自然语言，还包含多种编程语言的源代码。根据文件之间的
 Levenshtein 距离删除重复项。</li>
 <li>亮点：大模型&amp;推理部分&amp;模型解释（6.3 推理，9. 探索解释）</li>
-<li>详见：<a href="/posts/34843">论文阅读_PaLM</a></li>
+<li>详见：<a href="/posts/34843/">论文阅读_PaLM</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2204.02311">PaLM: Scaling
 Language Modeling with Pathways</a></li>
 </ul>
@@ -385,7 +385,7 @@ token。模型包含三部分：观测数据编码器，映射器和自然语言
 <li>数据和模型规模：训练的最大模型有 562B 参数，包含 540B 语言参数和 22B
 视觉参数。</li>
 <li>亮点：论文实验部分</li>
-<li>详见：<a href="/posts/13782">论文阅读_PaLM-E</a></li>
+<li>详见：<a href="/posts/13782/">论文阅读_PaLM-E</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2303.03378">PaLM-E: An
 Embodied Multimodal Language Model</a></li>
 </ul>
@@ -421,7 +421,7 @@ GPT-3 提升 33%，与 InstructGPT001 差不多的效果。</li>
 <li>数据和模型规模：以 GPT-3 作为基础，产生大约 52k 条指令，与大约 82k
 实例输入和目标输出配对。</li>
 <li>亮点：需要更少的人工标注数据</li>
-<li>详见：<a href="/posts/32757">论文阅读_Self_instruct</a></li>
+<li>详见：<a href="/posts/32757/">论文阅读_Self_instruct</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2212.10560">Self-Instruct:
 Aligning Language Model with Self Generated Instructions</a></li>
 </ul>
@@ -437,7 +437,7 @@ Aligning Language Model with Self Generated Instructions</a></li>
 <li>数据和模型规模：模型从 7B-65B 参数，使用 T 级别 token 训练。在训练
 65B 参数模型时，代码在具有 80GB RAM 的 2048 A100 GPU。对包含 1.4T
 令牌的数据集进行训练大约需要 21 天。</li>
-<li>详见：<a href="/posts/40000">论文阅读_LLaMA</a></li>
+<li>详见：<a href="/posts/40000/">论文阅读_LLaMA</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2302.13971">LLaMA: Open and
 Efficient Foundation Language Models</a></li>
 </ul>
@@ -502,7 +502,7 @@ GPT-4：一个大规模的多模态模型，可以接受图像和文本输入并
 <li>数据和模型规模：报告不包含关于架构
 (包括模型尺寸)、硬件、训练计算、数据集构建、训练方法或类似的更多细节。</li>
 <li>亮点：实验结果</li>
-<li>详见：<a href="/posts/9243">论文阅读_GPT-4</a></li>
+<li>详见：<a href="/posts/9243/">论文阅读_GPT-4</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.08774">GPT-4 Technical
 Report</a></li>
 </ul>
@@ -528,7 +528,7 @@ Report</a></li>
 token(自编码)，并训练模型以顺序重建删除的 token(自回归)。</li>
 <li>数据和模型规模：使用 BERT/RoBERT
 几种模型大小相同的数据训练模型，以保证对比的公平性。</li>
-<li>详见：<a href="/posts/36545">论文阅读_GLM</a></li>
+<li>详见：<a href="/posts/36545/">论文阅读_GLM</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="https://aclanthology.org/2022.acl-long.26">GLM:
 General Language Model Pretraining with Autoregressive Blank
 Infilling</a></li>
@@ -550,7 +550,7 @@ ERNIE TITAN 3.0。可在 4×RTX 3090 (24G) 或 8×RTX 2080 Ti (11G) GPUs
 的中文悟道语料库，以及从网络爬取的 250G 中文语料库
 (包括在线论坛、百科全书和 QA)，形成了平衡的英汉内容构成。</p></li>
 <li><p>亮点：搭建方法</p></li>
-<li><p>详见：<a href="/posts/9680">论文阅读_ChatGLM</a></p></li>
+<li><p>详见：<a href="/posts/9680/">论文阅读_ChatGLM</a></p></li>
 <li><p>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2210.02414">GLM-130B: AN
 OPEN BILINGUAL PRE-TRAINED</a></p></li>
 </ul>
@@ -586,7 +586,7 @@ token，能提升模型效果；大模型的参数量和性能之间存在幂律
 计算量基本一致。</li>
 <li>模型结构：同 Gopher</li>
 <li>数据和模型规模：10.5TB 语料库上进行训练，70B 模型参数。</li>
-<li>详见：<a href="/posts/59633">论文阅读_Chinchilla</a></li>
+<li>详见：<a href="/posts/59633/">论文阅读_Chinchilla</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2203.15556">Training
 Compute-Optimal Large Language Models</a></li>
 </ul>
@@ -608,7 +608,7 @@ ChatGPT 强化学习带来的能力，</li>
 22
 个不同的虚拟功能矩阵，并定义了它们之间的内部关联，以便更好地交互和组合。</li>
 <li>数据和模型规模：(OpenAI “text-davinci-003” version)</li>
-<li>详见：<a href="/posts/63317">论文阅读_Visual_ChatGPT</a></li>
+<li>详见：<a href="/posts/63317/">论文阅读_Visual_ChatGPT</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2303.04671">Visual ChatGPT:
 Talking, Drawing and Editing with Visual Foundation Models</a></li>
 </ul>
@@ -622,8 +622,8 @@ Talking, Drawing and Editing with Visual Foundation Models</a></li>
 <li>模型结构：包含单模态数据和多模态数据。使用单模态数据进行表示学习。例如，利用文本数据进行语言建模预训练指令跟随、语境学习、各种语言任务等。此外，用跨模态对和交错数据学习将一般模态的感知与语言模型对齐。</li>
 <li>数据和模型规模：1.3 B 的参数。</li>
 <li>亮点：应用场景：回答图片智力题，直接 OCR <a
-href="/posts/12957">论文阅读_Kosmos-1</a></li>
-<li>详见：<a href="/posts/12957">论文阅读_Kosmos-1</a></li>
+href="/posts/12957/">论文阅读_Kosmos-1</a></li>
+<li>详见：<a href="/posts/12957/">论文阅读_Kosmos-1</a></li>
 <li>论文地址：<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2302.14045">Language Is Not
 All You Need: Aligning Perception with Language Models</a></li>
 </ul>

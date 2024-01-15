@@ -211,9 +211,9 @@ src="/support/attachments_2023/Pasted%20image%2020230504170205.png" /></p>
 token 和声学 token</strong>。如图 -1
 所示。它们的产生被<strong>解耦</strong>；语义 token 需要时序依赖，声学
 token 需要保证高音质，且使用语义作为条件。</p>
-<p>使用 <a href="/posts/11939">SoundStream</a> 计算声学 token，它使用了
+<p>使用 <a href="/posts/11939/">SoundStream</a> 计算声学 token，它使用了
 RQV（残差向量量化）技术将嵌入降维和离散化，并映射到码表。</p>
-<p>使用 <a href="/posts/12999">w2v-BERT</a>
+<p>使用 <a href="/posts/12999/">w2v-BERT</a>
 计算语义标记。该模型可以自主学习音频表示，将输入的音频波形映射到一个富有语言特征的向量空间。通过使用两个自监督目标：掩码语言建模（MLM）损失和对比损失训练模型实现。选择
 w2v-BERT 模型的 MLM
 模块中的一个中间层并计算该层的嵌入，<strong>可以提取出语义标记。将这些标记进行聚类，并使用聚类中心索引作为语义标记</strong>。</p>

@@ -188,7 +188,7 @@ Agent，可以<strong>从实际经验、特征和情感</strong>中学习。</p>
 模型</strong>，并采用监督微调的策略来构建
 Character-LLM。为了避免出现诸如古代著名人物的角色扮演代理拥有现代世界知识等不合理的情况，还引入了“保护经验”的概念，以确保角色的一致性。</p>
 <p><img
-src="support/attachments_2024/Pasted%20image%2020240111142024.png" /></p>
+src="/support/attachments_2024/Pasted%20image%2020240111142024.png" /></p>
 <p>图 1：Character-LLM.
 首先从可靠的来源为这个角色策划了个人资料（以贝多芬为例）。然后，使用以下指令从这些配置文件中引出详细的体验
 LLM
@@ -209,7 +209,7 @@ LLMs。</li>
 <h2 id="方法">4 方法</h2>
 <p>根据过去的经历和事件培养个性的方式中汲取灵感。让大型语言模型模仿预定义角色的心理活动和身体行为，从重建的场景中，获得扮演他们的能力。</p>
 <p><img
-src="support/attachments_2024/Pasted%20image%2020240111142058.png" /></p>
+src="/support/attachments_2024/Pasted%20image%2020240111142058.png" /></p>
 <p>图 2：角色模拟专用基础模型的机制。</p>
 <h3 id="构建经验数据集">4.1 构建经验数据集</h3>
 <p>使用大型语言模型重建特定个体的体验。人类的经历是高度复杂的，包括许多重要的里程碑，其中穿插着琐碎和不相关的事件，通常跨越相当长的时期。文中提出了一个基于事实的体验重建管道，分为下面三部分。</p>
@@ -232,7 +232,7 @@ LLM
 <h2 id="实验">5 实验</h2>
 <h3 id="数据">5.1 数据</h3>
 <p><img
-src="support/attachments_2024/Pasted%20image%2020240111113457.png" /></p>
+src="/support/attachments_2024/Pasted%20image%2020240111113457.png" /></p>
 <p>表 1：角色及其对应的建构体验数据统计。</p>
 <h3 id="训练">5.2 训练</h3>
 <p>将 LLaMA 7B
@@ -247,12 +247,12 @@ C 中列出了一些培训示例。使用 8 个 × A100 80GB GPU
 根据角色的简介提出尖锐的问题。如果模型通过说一些没有太多细节的话来回避问题，ChatGPT
 面试官会提出后续问题，从而对模型的演技熟练程度进行更深入的评估。</p>
 <p><img
-src="support/attachments_2024/Pasted%20image%2020240111114254.png" /></p>
+src="/support/attachments_2024/Pasted%20image%2020240111114254.png" /></p>
 <p>表 2：单轮和多轮访谈收集的问题数量。</p>
 <p>基线：Alpaca 7B，Vicuna 7B 和 ChatGPT。</p>
 <h3 id="主要结果">5.4 主要结果</h3>
 <p><img
-src="support/attachments_2024/Pasted%20image%2020240111114549.png" /></p>
+src="/support/attachments_2024/Pasted%20image%2020240111114549.png" /></p>
 <p>图 4：性格、价值观、记忆、幻觉和稳定性 不同维度的评估结果。</p>
 <h2 id="分析">6 分析</h2>
 <h3 id="与角色的一致性">6.1 与角色的一致性</h3>

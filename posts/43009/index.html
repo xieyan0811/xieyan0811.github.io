@@ -246,9 +246,10 @@ yan _<br />
 <ol start="3" type="a">
 <li><p>看某个 apk 是否经过了签名<br />
 _ $ jarsigner -verify my_application.apk _</p></li>
-<li><p>优化（签名后需要做对齐优化处理） _ $ zipalign -v 4
-your_project_name-unaligned.apk your_project_name.apk _</p></li>
+<li><p>优化（签名后需要做对齐优化处理）</p></li>
 </ol>
+<p>_ $ zipalign -v 4 your_project_name-unaligned.apk
+your_project_name.apk _</p>
 <ol start="3" type="1">
 <li>在源码中编译的签名</li>
 </ol>
@@ -256,12 +257,13 @@ your_project_name-unaligned.apk your_project_name.apk _</p></li>
 <li>使用源码中的默认签名<br />
 在源码中编译一般都使用默认签名的，在某源码目录中用运行<br />
 _ $ mm showcommands _ 能看到签名命令<br />
-Android 提供了签名的程序 signapk.jar，用法如下： _ $ signapk
-publickey.x509[.pem] privatekey.pk8 input.jar output.jar _<br />
+Android 提供了签名的程序 signapk.jar，用法如下：</li>
+</ol>
+<p>_ $ signapk publickey.x509[.pem] privatekey.pk8 input.jar output.jar
+_<br />
 *.x509.pem 为 x509 格式公钥，pk8 为私钥<br />
 build/target/product/security 目录中有四组默认签名可选：testkey,
-platform, shared, media</li>
-</ol>
+platform, shared, media</p>
 <p>（具体见 README.txt），应用程序中 Android.mk 中有一个
 LOCAL_CERTIFICATE 字段，由它指定用哪个</p>
 <p>key 签名，未指定的默认用 testkey.</p>
@@ -279,9 +281,10 @@ LOCAL_CERTIFICATE 字段指名用哪个签名</p>
 <li><p>生成公钥<br />
 _ openssl genrsa -3 -out testkey.pem 2048 _<br />
 其中 -3 是算法的参数，2048 是密钥长度，testkey.pem 是输出的文件</p></li>
-<li><p>转成 x509 格式（含作者有效期等） _ openssl req -new -x509 -key
-testkey.pem -out testkey.x509.pem -days 10000</p></li>
+<li><p>转成 x509 格式（含作者有效期等）</p></li>
 </ol>
+<p>_ openssl req -new -x509 -key testkey.pem -out testkey.x509.pem -days
+10000</p>
 <p>-subj ‘/C=US/ST=California/L=Mountain [</p>
 <p>View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com</p>
 <p>](mailto:View/O=Android/OU=Android/CN=Android/emailAddress=android@android.com)</p>

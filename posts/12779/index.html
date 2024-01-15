@@ -185,13 +185,13 @@ Minimal Supervision</p>
 <h3 id="语义-token">3.1 语义 token</h3>
 <p>语义标记的作用是提供一个粗略的、高层级的条件来生成随后的声学标记。因此，应该提供一种表示，其中语言内容（从语音到语义）是显著的，同时不考虑说话人身份和声学细节等副语言信息。</p>
 <p>为了获得这样的表示，训练了一个基于 <a
-href="/posts/12999">w2v-BERT</a>
+href="/posts/12999/">w2v-BERT</a>
 的自监督语音表示模型。该模型结合了<strong>Mask
 语言建模</strong>和<strong>对比学习</strong>以获得语音表示。训练结束后，对特定层的均值方差归一化输出<strong>运行
 k 均值聚类。使用质心索引作为离散标记</strong>。</p>
 <h3 id="声学-token">3.2 声学 token</h3>
 <p>声学标记是离散的音频表示，可提供声学细节的高保真重建。训练了一个 <a
-href="/posts/11939">SoundStream</a>
+href="/posts/11939/">SoundStream</a>
 神经编解码器来<strong>重建语音</strong>，同时将其<strong>压缩成一些离散单元</strong>。SoundStream
 通过在<strong>卷积自编码器</strong>的瓶颈中添加一个<strong>残差量化器</strong>来实现这一目标。</p>
 <h2 id="spear-tts-概述">4 SPEAR-TTS 概述</h2>
