@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_大模型_用模型模拟记忆过程 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1234567英文名称: A generative model of memory construction and consolidation中文名称: 记忆构建和巩固的生成模型文章: https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41562-023-01799-z代码: https:&#x2F;&#x2F;github.com&#x2F;ellie-as&#x2F;generative-memory作者: Ele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_大模型_用模型模拟记忆过程">
+<meta property="og:url" content="http://xyan666.com/posts/18296/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1234567英文名称: A generative model of memory construction and consolidation中文名称: 记忆构建和巩固的生成模型文章: https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41562-023-01799-z代码: https:&#x2F;&#x2F;github.com&#x2F;ellie-as&#x2F;generative-memory作者: Ele">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-02-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-15T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/18296/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_大模型_用模型模拟记忆过程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-15 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">598</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_大模型_用模型模拟记忆过程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-15T00:00:00.000Z" title="Updated 2024-02-15 00:00:00">2024-02-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">5.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>17min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_大模型_用模型模拟记忆过程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">英文名称: A generative model of memory construction and consolidation</span><br><span class="line">中文名称: 记忆构建和巩固的生成模型</span><br><span class="line">文章: https://www.nature.com/articles/s41562-023-01799-z</span><br><span class="line">代码: https://github.com/ellie-as/generative-memory</span><br><span class="line">作者: Eleanor Spens, Neil Burgess，伦敦大学认知神经科学研究所，伦敦大学皇后广场神经病学研究所</span><br><span class="line">日期: 2024-01-19</span><br><span class="line">引用次数:  </span><br></pre></td></tr></table></figure>
+<h2 id="摘要">1 摘要</h2>
+<p>目标：用生成模型模拟记忆过程，还分析了语义记忆、想象力、情景未来思维、关系推理和基于图式的扭曲（包括边界扩展）的机制。</p>
+<p>方法：提出了一个计算模型，使用海马重放（自联想网络）训练生成模型（变分自编码器），以通过海马结构从内嗅、内侧前额叶和前外侧颞叶皮质中的潜在变量表征重新创建感觉体验。（<em>我第一次看时也很蒙，不过其实并不难，只是内容比较多</em>）</p>
+<p>结果：提供了记忆构建、想象力和巩固的全面说明。</p>
+<h2 id="引言">2 引言</h2>
+<p>"Episodic memory" 和 "Semantic memory"
+是记忆的两种不同类型。（<em>查自网络：Episodic memory
+情景记忆涉及到个人经历的特定事件或情景。这些记忆通常有时间和地点的标记，如你第一次骑自行车的记忆，或者你昨天晚餐吃的是什么。情景记忆是非常具体的，通常包含感官和情感的细节；Semantic
+memory
+语义记忆涉及到一般的世界知识，包括事实、概念、名字、类别、属性等。这些记忆与特定的个人经历无关</em>）。</p>
+<p>前者被认为可以通过海马体（HF）的长期增强来快速捕捉多模式体验，从而使后者能够学习新皮质中多种体验的统计规律。至关重要的是，情景记忆被认为是具有可建性的，<strong>回忆是对过去经验的（重新）构建，而不是检索副本</strong>。</p>
+<p>最初在海马体中编码的记忆最终会被存储在新皮质区域，这个想法被称为“系统巩固”，巩固还将信息转化为更抽象的表示，这个过程有时被称为语义化。另外，神经影像学证据表明回忆和想象力涉及相似的神经过程。</p>
+<p>记忆系统通过学习和存储模式来帮助我们预测和理解经验，其中<strong>熟悉的内容以概念形式存储，而新奇内容则详细记录</strong>。随着时间的推移和记忆的巩固，我们的大脑会更新这些模式，使得最初难以预测的细节最终不再需要额外存储。</p>
+<h3 id="巩固构建生成模型">2.1 巩固构建生成模型</h3>
+<p><strong>通过训练生成网络来重构记忆，使得记忆更加抽象化、有利于泛化和关系推理</strong>，但也更容易受到基于要点的扭曲的影响。生成网络可以用于重构记忆或构建想象，并支持语义记忆和关系推理。</p>
+<p>在记忆整合之前，海马<strong>自联想网络</strong>会对记忆进行编码。我们使用现代霍普菲尔德网络（MHN）来实现这个过程，它可以将事件激活的特征单元与一个记忆单元绑定在一起。通过<strong>教师
+-
+学生</strong>学习，将记忆从一个神经网络传输到另一个神经网络。因此，<strong>使用自联想网络的输出来训练生成网络</strong>，整合后，生成网络会对记忆中的信息进行编码。随着时间的推移，我们会<strong>越来越依赖生成网络（巩固）</strong>，因为它们学会了重构特定事件。</p>
+<p>生成网络以变分自编码器（VAE）的形式实现，通过压缩数据并将其表示为潜在变量，从而生成与训练数据集相似的新样本。VAE
+的编码器将感知经验转化为潜在变量，解码器将潜在变量转化回感知信息。</p>
+<p>生成网络捕捉事件或“模式”的概率分布，用于重建特定类型刺激的规则或预期概率分布。例如，办公室的模式预测了桌子和椅子等共同出现的物体，有助于生成情节。</p>
+<p>生成模型通过计算输入和输出之间的差异来判断事件的新颖性。一旦生成网络能够准确地重建输入，海马痕迹就不再需要。</p>
+<h3 id="在情景记忆中结合的概念和感觉特征">2.2
+在情景记忆中结合的概念和感觉特征</h3>
+<p>研究表明，将每个感觉细节都编码到海马体中是低效的，一个高效的系统应该利用记忆之间的共享结构，只编码必要的内容。因此，建议将可预测的元素编码为概念特征，而将不可预测的元素编码为感觉特征。</p>
+<p>假设有人在森林中看到一只动物，对于森林这个模型，树是可预测的，运动是不可预的。在扩展模型中（图
+2
+和“结合概念和不可预测的感知特征”部分），生成模型计算每个元素的重建误差，并将具有高重建误差的元素编码为感知特征（不可被预测），以及与生成模型的潜变量表示相关联的概念特征（可被预测）。</p>
+<h3 id="模型的神经机制">2.3 模型的神经机制</h3>
+<p>自联想网络模拟海马到新皮质的成分，生成网络涉及将新皮层的输入投射到更高级联皮层中的潜变量表示。嗅皮层
+(EC)、前额叶皮层 (mPFC) 和前外侧颞叶 (alTL)
+都是潜在变量表示的主要候选。</p>
+<p>内嗅皮质 EC
+是海马体和新皮质之间的主要路线（接收来自大脑的各个皮层区域的信息，然后将这些信息传输到海马体。海马体也将信息返回到
+EC，然后再传输回大脑的其他区域）；内侧前额叶皮层 mPFC
+在情景记忆处理中发挥着至关重要的作用，被认为对模式进行编码，涉及传递推理和记忆整合，并通过压缩不相关的特征来执行降维；与语义记忆和逆行性遗忘相关的内侧前额叶皮层
+alTL 可能包含捕获语义结构的潜在变量表征。</p>
+<p>可以同时训练多个生成网络，每个网络者利用回放，针对不同的任务进行优化，以减小误差，如一个主要的
+VAE 包含 EC 中的潜在变量，以及从更高级感觉皮层到 EC 的额外平行通路，包含
+mPFC 或 alTL 中的潜在变量。另外，通过 HF
+返回到感觉新皮质的投射是必需的，以将潜在变量解码为感觉体验。</p>
+<h2 id="方法结果">3 方法&amp;结果</h2>
+<p>在这个过程中，最终得到的是 VAE 的参数（VAE
+的结构可能是与生俱来的）。最终使用模型时，可能出现以下几种情况：</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215084040.png" /></p>
+<ul>
+<li>第一种情况：输入一个不太清楚的图像，通过压缩（抽象）再复原，产生一张清晰的图像，也就是说有时候用眼一扫就了解的情况，很大一部分是我们脑补出来的。</li>
+<li>第二种情况：想象，通过一些抽象的语义概念（可能是指定的，可能是从知识库里随机抽取的），直接生成具体的场景信息（有些写手能把虚构内容描述得惟妙惟肖，可能得益于他强大的解码器）。</li>
+<li>第三种情况：概念，输入是一个现实中的场景，输出语义概念，以便压缩后存储和进一步和推理。</li>
+</ul>
+<h3 id="数据">3.1 数据</h3>
+<p>实验使用了 Shapes3D，MINST 数据集，每个数据集使用一个
+MHN，且每个数据集根据相应的 MHN 输出训练一个生成模型。</p>
+<h3 id="基本网络">3.2 基本网络</h3>
+<h4 id="方法">3.2.1 方法</h4>
+<p>海马体快速编码一个事件，建模为自动联想网络（MHN）中的一次性记忆（图中红色），它被捕捉规律并记忆，无法用它捕捉的可视为噪声，不适合进一步训练其它模型，因此，使用它的输出训练其它模型，而不是原始数据。</p>
+<p>将巩固建模为师生学习，其中自联想网络是“老师”，生成网络是“学生”，使用
+VAE
+实现（图中蓝色），进行压缩和分解，它接受“老师”重放表示的训练，通过捕获经历事件的统计结构来学习重建记忆。以得到粗粒度的概念（如森林场景中的树，可预测）以及细粒度的感觉（如随机出现的动物，不可预测）。</p>
+<p>随着对森林场景的累积（巩固），模型进一步细化和扩充，直到 VAE 的输出与
+VAE 的输入差别足够小，即可认为学到了森林相关的足够知识；在这个过程中用
+VAE 逐步替换 MHN。在可直接使用 VAE
+后，海马轨迹被标记为可删除或可被覆盖。</p>
+<p>损失函数是重建误差和 KL
+散度两项之和；前者鼓励精确重建，而后者鼓励生成一个可以从中采样的潜在空间。</p>
+<p>模拟过程中，遗忘的主要原因是生成模型中新记忆的干扰；回忆的输入是编码刺激图像的噪声版本；模型支持多模型数据。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215131919.png" /></p>
+<h4 id="结果">3.2.2 结果</h4>
+<p>每个新事件都被编码为海马体中的自联想网络，训练
+MHN。该网络有两个重要的特性：只需要一次接触就能记住（编码）；网络可根据输入检索整个记忆集合中的存储记忆（模拟回放），将回忆视为根据部分输入中重新构建场景；然后用自联想网络的预测结果训练生成网络（注意不是用原始的感知信息训练）；然后将可预测部分用生成网络构建，不可预测的部分使用海马存储。</p>
+<h3 id="语义记忆建模">3.3 语义记忆建模</h3>
+<h4 id="方法-1">3.3.1 方法</h4>
+<p>研究者将语义记忆定义为将隐藏变量解码为语义信息的能力，通过训练支持向量机对网络的隐藏变量进行分类来衡量解码准确性，并发现利用压缩的“语义”表示进行少样本学习是可能的。</p>
+<h4 id="结果-1">3.3.2 结果</h4>
+<p>测试了如何在海马体和 EC
+等病变的情况下，以“语义形式”检索遥远的记忆。当 HF（包括
+EC）被移除时，模型仍然可以支持语义信息的检索（语义记忆与海马体无关）。</p>
+<h3 id="想象和推理建模">3.4 想象和推理建模</h3>
+<h4 id="方法-2">3.4.1 方法</h4>
+<p>在生成网络中，新的项目可以通过外部指定的或随机抽样的潜在变量生成，也可以通过转换特定事件的潜在变量表示生成。前者是通过从潜在空间中的类别进行抽样，然后解码结果来模拟。后者是通过在事件的潜在表示之间进行插值或在潜在空间中进行向量运算来模拟。（以此展示使用抽象思考的原理）</p>
+<h4 id="结果-2">3.4.2 结果</h4>
+<p>对生成网络的潜在变量，对尚未经历过的事件的生成进行建模。事件可以通过潜在变量的外部规范（想象力）或通过转换特定事件的潜在变量表示（关系推理）来生成。</p>
+<p>图 -3 的 b,c,d 分别示例了推理，插值，语义来重建场景的效果。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215142148.png" /></p>
+<h3 id="基于模式的扭曲建模">3.5 基于模式的扭曲建模</h3>
+<h4 id="方法-3">3.5.1 方法</h4>
+<p>基于模式的扭曲指的是：生成网络生成的内容将变得更加典型。研究使用
+MNIST
+数据集训练模型。实验结果表明，召回后的类内变异性较小，且在像素空间和潜在空间中都显示出更紧凑的聚类。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215143123.png" /></p>
+<h4 id="结果-3">3.5.2 结果</h4>
+<p>人类情景记忆会随着时间和睡眠而产生基于模式的扭曲，而生成网络的回忆会将记忆扭曲成更加典型的表示。</p>
+<h3 id="模拟边界延伸和收缩">3.6 模拟边界延伸和收缩</h3>
+<h4 id="方法-4">3.6.1 方法</h4>
+<p>边界扩展和边界收缩是记忆中的现象，取决于观察到的物体距离，近距离导致边界扩展，远距离导致边界收缩。使用的测试图像修改自训练期间未见过的
+Shapes3D 图像。</p>
+<h4 id="结果-4">3.6.2 结果</h4>
+<p>另一种扭曲是边界扩展和收缩是记忆中对观察到的视野进行扩大或收缩的倾向。如图
+4 的 e,f,g 所示，图 e
+中第一行为输入，第二行为输出；可以看到模型倾向于将过小的事调放大，而钭大的缩小。（<em>这有点像视觉的聚集效果</em>）</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215143427.png" /></p>
+<h3 id="扩展模型结合概念性和不可预测的感官特征">3.7
+扩展模型：结合概念性和不可预测的感官特征</h3>
+<h4 id="方法-5">3.7.1 方法</h4>
+<p>在扩展模型中，每个场景最初被编码为可预测和不可预测组件的组合。可预测的部分由生成网络的潜在变量捕获的概念组成，不可预测的部分由生成网络预测不佳的部分刺激组成。因此，MHN
+模型同时具有概念和感觉特征单元，分别存储记忆的可预测和不可预测的方面。</p>
+<p>对于一张新的图像，通过 VAE 计算每个像素的预测误差（即 VAE
+输入和输出之间的差异的大小）。那些重建误差超过阈值的像素构成了不可预测的组成部分，而
+VAE 的潜在变量构成了可预测的组成部分，这些组成部分被合并编码在 MHN
+中。</p>
+<p>将输入分解为可预测（概念）和不可预测（感觉）组成部分之后，通过解码存储的潜在变量，获得与概念组成部分对应的图像。然后，通过将初始的感觉新皮层中的原始重建用海马体中存储的（即非零）感觉特征覆盖，重新组合可预测和不可预测元素。如图
+-5 a,b 所示，低阈值时，MHN 记住了更多细节。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215145333.png" /></p>
+<p>随着生成网络的学习，潜在变量的表示并不稳定。作者认为从潜在变量衍生的概念比潜在变量本身更有可能被存储，从而促进海马表征的稳定性。如使用上述的语义模型。</p>
+<p>另外，使用生成效果和海马回放来训练生成网络，让它不仅学习新记忆，还学习自己生成的表示。如同：睡眠的某些阶段有助于保留远程记忆，而其他阶段则有助于巩固新记忆。以便减少新学习对生成网络中远程记忆的干扰，并使扩展模型中的海马回路表示更加稳定。</p>
+<h4 id="结果-5">3.7.2 结果</h4>
+<p>扩展模型能够利用生成网络从其潜在变量重建事件的可预测方面，仅存储那些在自联想网络中预测不佳的感官细节。同样，随着生成网络的改进，存储在海马体中的感觉特征可能不再与感觉新皮质中的初始示意性重建有显着差异，这表明不再需要海马体表示。</p>
+<h3 id="扩展模型中基于模式的扭曲">3.8 扩展模型中基于模式的扭曲</h3>
+<h4 id="方法-6">3.8.1 方法</h4>
+<p>我们通过操纵“事件”的概念组件，在扩展模型中展示了记忆的情境调制。将原始图像与给定概念（立方体或球体）的激活一起存储在自联想网络中。在回忆过程中，使用生成网络处理噪声输入，产生预测的概念特征和未被原型预测到的感觉特征。通过模型，可以恢复最初编码的感觉和概念特征，并将它们重新组合以产生最终输出。</p>
+<p>DRM 任务是一种用于衡量基于要点的记忆失真的经典方法。DRM
+任务是向参与者展示与一个“诱饵词”在意义上相关的单词列表，但该诱饵词并不在列表中。参与者往往会错误地辨认和回忆起这个诱饵词。</p>
+<h4 id="结果-6">3.8.2 结果</h4>
+<p>基本模型中显示的基于模式的扭曲是由生成网络引起的。在扩展模型中，即使是立即回忆也涉及概念和感官特征的组合，而概念特征的存在会在特定记忆巩固之前引起扭曲。总的来说，由于概念表示的影响，编码后的回忆偏向于类别的“平均值”。因为更多地依赖于“典型”表示。在较低的错误阈值下，会编码更多的感官细节，这导致较低的重构误差，表明扭曲较小，但效率较低。</p>
+<p>外部环境进一步扭曲了记忆。参考文献 95
+要求参与者复制模糊的草图。通过告诉参与者他们将看到某个类别的图像来建立上下文。从记忆中绘制的图像被扭曲成更像上下文类别的成员。模型回忆也会偏向于作为上下文提供的类别。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215153542.png" /></p>
+<p>在 DRM
+实验中，与人类数据一样，诱惑词经常但并不总是被记住。因为生成列表中单词的潜在变量表示也倾向于生成诱饵词。系统还会忘记一些单词并产生额外的语义干扰。此外，对于较长的列表，回忆起诱饵词的机会更高。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240215153253.png" /></p>
+<h3 id="脑损伤建模">3.9 脑损伤建模</h3>
+<p>略…… 没看太明白</p>
+<h2 id="读后感">4 读后感</h2>
+<p>两位作者研究领域是认知科学和神经病学。</p>
+<p>收稿日期（Received）2023.5.30，发表日期是 2024.01.29，发表在 Nature
+的 Human behaviour 子刊。并没有太多使用到大模型，主要使用了变化自编码器
+VAE，VAE 原理也是一种基于深度学习网络的生成模型。</p>
+<p>这种文章对我这样的认知科学，脑科学外行，真的很有难度。</p>
+<p>从认知角度看，作者把所有场景拆分成：概念和感觉，比如一个狗出现在森林里，森林被认为是不变的，狗认为是可变的。甚至提出了一些假设，将模型的不同组件与大脑中的各个结构对应。</p>
+<p>仅从技术角度，更容易理解，作者试图用深度学习模型来模拟人的记忆过程。具体方法是使用变分自编码器来模拟海马体工作。目标是解析记忆的过程，挖掘主要特征。还讨论了回忆，想象（如文学作品），对未来的憧憬。</p>
+<p>从技术角度看，变分自编码使用得很巧妙，用变分把认知拆解成了可重现的概念和不可重现的感受，从而实现了从具象到抽象的过程；巩固是如何起作用的；以及人脑如何在具象和抽象概念之间进行转换的。</p>
+<p>文章背后的逻辑是：人的记忆并不是如实记录客观实现，而是进行了处理和压缩；回忆也不是检索而是重构，这很像
+<a href="/posts/61260/">变分自编码器</a> 的原理，其中客观世界是
+x，记忆是 z（可进一步拆分），回忆是
+x-。（<em>好像是通过变分把粗粒度的概念和细粒度的感觉拆分开了</em>）</p>
+<p><img
+src="/support/attachments_2023/Pasted%20image%2020230901142322.png" /></p>
+<p>后面潜藏的逻辑是：人眼中的世界很大一部分是根据之前的记忆脑补出来的。</p>
+<p>我觉得这篇文章也试图理解和验证人脑是如何处理从具体到抽象的。网络一开始就有重建功能；随着巩固网络会更新其模式以更准确地重建事件，直到不再需要存储不可预测的细节。最终形成了可泛化的记忆。</p>
+<p>这一两年 AI
+发展太快了，这篇文章去年五月底投稿，今年一月中才发表，在这中间，多模态有很多发展，所以如果是最近几个月写的，方法可能完全不同了。</p>
+<p>这里也讨论了如何把人的感受和概念联系起来。作者用模型实现了他认为的概念和现实的结合方式。</p>
+<p>引发了我一些思考：</p>
+<ul>
+<li>那些记忆力过于好的人，他的编码器、解码器以及存储介质可能都高于正常水平，这样会不会影响<strong>统计规律的能力，从而影响推理和泛化</strong>？而因为记不住而被迫思考抽象也不是坏事？</li>
+<li>在对一些知识完全没概念的时候，会快速一种框架，随着对领域越来越熟悉，再进来的知识可能就是修修补补，这种固化能帮我们解决很多问题，但也会越来越重，越来越难以改变；钻牛角尖，形成某种扭曲。</li>
+<li>记不住那些细节，也不可惜，因为进化告诉你，那些对未来用处不大。</li>
+<li>我把事务抽象的过程中也不可避免地做了夸张处理。</li>
+<li>当我们允许自己犯错也，我们看到的可能性也变多了。</li>
+</ul>
+<p>实验设计也特别有意思，作者为了测试它设计的模型是否能很好模拟人脑的工作过程，对模型进行了一系列的测试，发现模型也会像人一样有夸张的倾向，也会被暗示，诱导；从而阐释了记忆失真，被误导，被欺骗的生物学解释。</p>
+<p>虽然 Nature 最牛，但在这个领域这审稿速度……</p>
+<p>因为一篇医学论文，作者可能觉得分析结论比方法更为重要，但是我觉得知道它的原理才能更好理解结论。所以下面我还是按：引言、方法&amp;结果的方式（方法和结果中细项几乎是一一对应的）做了简单整理，原文内容很丰富，且此篇免费下载。另外，论文以外，我加入的信息和想法用括号斜体标出。</p>
+<h3 id="我的一些思考">4.1 我的一些思考</h3>
+<ul>
+<li>原来我们以为左脑处理想象，左脑处理逻辑，这里提出实现想象力的方法：采样机制后再由潜空间转换到现实，那是不是知识信息的广度更为重要，包含不同的类型和转换方法？也是可以被习得的，这有点像
+AI
+绘画的机制：选择转换模式（模型）采样空间（提示词）采样灵活度（设置种子）</li>
+<li>如果真如作者推测那样，我们是不是也可以用上述方法管理我们的第二大脑：笔记。把重要的事项记下来（输入海马），对其中重要的提纯并进行抽象分类存储（皮质）；<strong>不重要的随着时间推移逐步遗忘</strong>。而收集、整理、抽象总结、按时顺遗忘（修改优先级）从目前的技术来看都可以借助模型和工程化半自动实现。另外，动作和存储应该是一体的，用得多的权重也大。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/18296/">http://xyan666.com/posts/18296/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/39791/" title="大模型爆款应用fabric_构建优雅的提示"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">大模型爆款应用fabric_构建优雅的提示</div></div></a></div><div class="next-post pull-right"><a href="/posts/30840/" title="Science重磅_让大模型像婴儿一样学习语言"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Science重磅_让大模型像婴儿一样学习语言</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">598</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">1 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.</span> <span class="toc-text">2 引言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A9%E5%9B%BA%E6%9E%84%E5%BB%BA%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 巩固构建生成模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%83%85%E6%99%AF%E8%AE%B0%E5%BF%86%E4%B8%AD%E7%BB%93%E5%90%88%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%84%9F%E8%A7%89%E7%89%B9%E5%BE%81"><span class="toc-number">2.2.</span> <span class="toc-text">2.2
+在情景记忆中结合的概念和感觉特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%A5%9E%E7%BB%8F%E6%9C%BA%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 模型的神经机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%9C"><span class="toc-number">3.</span> <span class="toc-text">3 方法&amp;结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 基本网络</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E8%AE%B0%E5%BF%86%E5%BB%BA%E6%A8%A1"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 语义记忆建模</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-1"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%B3%E8%B1%A1%E5%92%8C%E6%8E%A8%E7%90%86%E5%BB%BA%E6%A8%A1"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 想象和推理建模</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-2"><span class="toc-number">3.4.1.</span> <span class="toc-text">3.4.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-2"><span class="toc-number">3.4.2.</span> <span class="toc-text">3.4.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%89%AD%E6%9B%B2%E5%BB%BA%E6%A8%A1"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 基于模式的扭曲建模</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-3"><span class="toc-number">3.5.1.</span> <span class="toc-text">3.5.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-3"><span class="toc-number">3.5.2.</span> <span class="toc-text">3.5.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E8%BE%B9%E7%95%8C%E5%BB%B6%E4%BC%B8%E5%92%8C%E6%94%B6%E7%BC%A9"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 模拟边界延伸和收缩</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-4"><span class="toc-number">3.6.1.</span> <span class="toc-text">3.6.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-4"><span class="toc-number">3.6.2.</span> <span class="toc-text">3.6.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9E%8B%E7%BB%93%E5%90%88%E6%A6%82%E5%BF%B5%E6%80%A7%E5%92%8C%E4%B8%8D%E5%8F%AF%E9%A2%84%E6%B5%8B%E7%9A%84%E6%84%9F%E5%AE%98%E7%89%B9%E5%BE%81"><span class="toc-number">3.7.</span> <span class="toc-text">3.7
+扩展模型：结合概念性和不可预测的感官特征</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-5"><span class="toc-number">3.7.1.</span> <span class="toc-text">3.7.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-5"><span class="toc-number">3.7.2.</span> <span class="toc-text">3.7.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%9F%BA%E4%BA%8E%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%89%AD%E6%9B%B2"><span class="toc-number">3.8.</span> <span class="toc-text">3.8 扩展模型中基于模式的扭曲</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-6"><span class="toc-number">3.8.1.</span> <span class="toc-text">3.8.1 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C-6"><span class="toc-number">3.8.2.</span> <span class="toc-text">3.8.2 结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%91%E6%8D%9F%E4%BC%A4%E5%BB%BA%E6%A8%A1"><span class="toc-number">3.9.</span> <span class="toc-text">3.9 脑损伤建模</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">4.</span> <span class="toc-text">4 读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 我的一些思考</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/39791/" title="大模型爆款应用fabric_构建优雅的提示">大模型爆款应用fabric_构建优雅的提示</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/18296/" title="论文阅读_大模型_用模型模拟记忆过程">论文阅读_大模型_用模型模拟记忆过程</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/30840/" title="Science重磅_让大模型像婴儿一样学习语言">Science重磅_让大模型像婴儿一样学习语言</a><time datetime="2024-02-13T00:00:00.000Z" title="Created 2024-02-13 00:00:00">2024-02-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3681/" title="跨品牌智能家居控制_从原理到实现_HomeAssistant">跨品牌智能家居控制_从原理到实现_HomeAssistant</a><time datetime="2024-02-08T00:00:00.000Z" title="Created 2024-02-08 00:00:00">2024-02-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34983/" title="头悬梁锥刺股?没必要：复盘如何用工具提升效率">头悬梁锥刺股?没必要：复盘如何用工具提升效率</a><time datetime="2024-01-26T00:00:00.000Z" title="Created 2024-01-26 00:00:00">2024-01-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

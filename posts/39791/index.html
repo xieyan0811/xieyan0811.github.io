@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大模型爆款应用fabric_构建优雅的提示 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="项目地址：https:&#x2F;&#x2F;github.com&#x2F;danielmiessler&#x2F;fabric 1 引言 目前 fabric 已经获得了 5.3K Star，其中上周获得了 4.2K，成为了上周热榜的第二名（第一名是免费手机看电视的 Android 工具），可以算是爆款应用了。 其原因可能是 fabric 打到大家的痛点：不是工具不够好，是用起来这工作流太不顺畅了，比如想用一个提示，连找带贴弄了半天，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型爆款应用fabric_构建优雅的提示">
+<meta property="og:url" content="http://xyan666.com/posts/39791/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="项目地址：https:&#x2F;&#x2F;github.com&#x2F;danielmiessler&#x2F;fabric 1 引言 目前 fabric 已经获得了 5.3K Star，其中上周获得了 4.2K，成为了上周热榜的第二名（第一名是免费手机看电视的 Android 工具），可以算是爆款应用了。 其原因可能是 fabric 打到大家的痛点：不是工具不够好，是用起来这工作流太不顺畅了，比如想用一个提示，连找带贴弄了半天，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-02-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-15T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/39791/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '大模型爆款应用fabric_构建优雅的提示',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-15 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">598</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">大模型爆款应用fabric_构建优雅的提示</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-15T00:00:00.000Z" title="Updated 2024-02-15 00:00:00">2024-02-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="大模型爆款应用fabric_构建优雅的提示"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>项目地址：https://github.com/danielmiessler/fabric</p>
+<h2 id="引言">1 引言</h2>
+<p>目前 fabric 已经获得了 5.3K Star，其中上周获得了
+4.2K，成为了上周热榜的第二名（第一名是免费手机看电视的 Android
+工具），可以算是爆款应用了。</p>
+<p>其原因可能是 fabric
+打到大家的痛点：不是工具不够好，是用起来这工作流太不顺畅了，比如想用一个提示，连找带贴弄了半天，打断了当前思路……</p>
+<p>因为我多数时间是让大模型帮我解决具体问题，而不是聊天，好像也没听说谁每天都和它聊两小时的。所以，fabric
+可能是我用过的最舒服的大模型封装工具。虽然技术含量并不是特别高，但是使用起来非常方便。别人都在考虑如何做得大而全，这位作者却想着如何解决最核心、最常见的问题，思考问题的角度比较独特。</p>
+<p>它具有以下特点：</p>
+<ul>
+<li>命令行操作，几乎没有学习成本，便于安装，使用、集成。</li>
+<li>封装了最为常用的几个功能。</li>
+<li>把复杂问题分解为多步处理。</li>
+<li>配置文件和输出均使用 markdown 格式，易于阅读。</li>
+<li>设计结构，便于管理多种提示。</li>
+</ul>
+<h2 id="功能">2 功能</h2>
+<p>Fabric
+的核心功能是调用大型模型，并帮助人们收集和整合提示。它将解决一种问题对应的提示称为模式
+pattern。</p>
+<h2 id="代码分析">3 代码分析</h2>
+<p>项目非常简单，包含 370 行 Python 代码，外加 2072 行 Markdown
+Prompt。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> https://github.com/danielmiessler/fabric</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> fabric/client</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">pip install -r requirements.txt</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;export PATH=<span class="variable">$PATH</span>:<span class="subst">$(pwd)</span>&quot;</span> &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">./fabric --setup</span></span><br></pre></td></tr></table></figure>
+<p>输入 OPEN_API_KEY
+之后，会下载最新的提示文件到：$HOME/.config/fabric/patterns/</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;你是什么模型&quot;|fabric --pattern ai --stream</span><br></pre></td></tr></table></figure>
+<p>还可以使用剪切板内容提问，网站上给出的是 pbpaste 是 mac
+系统使用剪切板的方法，我在 linux 中使用以下方法读取剪切板内容。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="string">&quot;Hello, world!&quot;</span> | xsel --clipboard --input <span class="comment"># 复制</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">xclip -o -selection clipboard <span class="comment"># 粘贴</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="具体示例">4 具体示例</h2>
+<h3 id="创建常用提示">4.1 创建常用提示</h3>
+<p>编辑
+$HOME/.config/fabric/patterns/xy_sum_trans/system.md，示例如下：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># IDENTITY and PURPOSE</span></span><br><span class="line"></span><br><span class="line">You are an expert content summarizer and translator. You take content in and output a Markdown formatted summary using the format below.</span><br><span class="line"></span><br><span class="line"><span class="section"># OUTPUT SECTIONS</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 翻译成中文</span><br><span class="line"><span class="bullet">-</span> 将生涩的语言转换成浅显易懂</span><br><span class="line"><span class="bullet">-</span> 概括总结成两句话</span><br><span class="line"></span><br><span class="line"><span class="section"># OUTPUT INSTRUCTIONS</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Create the output using the formatting above.</span><br><span class="line"><span class="bullet">-</span> You only output human readable Markdown.</span><br><span class="line"><span class="bullet">-</span> Output numbered lists, not bullets.</span><br><span class="line"><span class="bullet">-</span> Do not output warnings or notes—just the requested sections.</span><br><span class="line"><span class="bullet">-</span> Do not start items with the same opening words.</span><br><span class="line"></span><br><span class="line"><span class="section"># INPUT:</span></span><br><span class="line"></span><br><span class="line">INPUT:</span><br></pre></td></tr></table></figure>
+<h3 id="使用常用提示">4.2 使用常用提示</h3>
+<p>我使用 Linux 系统，从剪切板读取内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">xclip -o -selection clipboard|fabric --pattern xy_sum_trans --stream</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意">4.3 注意</h3>
+<ul>
+<li>默认使用 gpt-4-1106-preview，相对 gpt3.5 要贵一些，可在代码
+client/utils.py 中替换成
+3.5；另外，也可以在这里替换成其它中转服务。</li>
+<li>输出可能英文，如果需要中文回答，需要修改 pattern
+或者在代码中指定用中文回答。</li>
+</ul>
+<h2 id="使用感受">5 使用感受</h2>
+<ul>
+<li>如果用聊天界面提问，会把之前的聊天记录也传给
+gpt，而翻译，润色这类功能不需要传入上下文，从而造成了浪费。使用fabric能很好地解决这一问题。</li>
+<li>该工具的底层逻辑是把相对复杂的工作拆成多步处理，像 gpt-4
+这类工具，一次调用，往往不能满足太多要求，拆成多步后效果会好得多；即使出问题，也知道问题出在哪步。用了才知真的好，确实是对大脑的减负。</li>
+<li>我一直不太习惯用图形聊天界面，感觉很受限制，常常拖来拖去地翻找，保存内容也比较麻烦，更别说从其它工具调用了。另外，想用一个提示，还要从其它工具搜索，再粘过来，非常麻烦。</li>
+<li>在学术论文方面，我试用 gpt-3.5 和 gpt-4，正常时效果差不多，但有时
+gpt3.5 常常生成完全不对的回答（我试验约占 1/4），gpt3.5 的费用 gpt4 是
+1/10，建议略改下代码交叉使用。</li>
+<li>可以把常用的 prompt 加入 pattern，或者与 awesome-chatgpt-prompts-zh
+这样的提示工程项目相结合，轻松实现更多功能。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/39791/">http://xyan666.com/posts/39791/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/18296/" title="论文阅读_大模型_用模型模拟记忆过程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_大模型_用模型模拟记忆过程</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">598</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">80</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">2.</span> <span class="toc-text">2 功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">3 代码分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">4 具体示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B8%B8%E7%94%A8%E6%8F%90%E7%A4%BA"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 创建常用提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B8%B8%E7%94%A8%E6%8F%90%E7%A4%BA"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 使用常用提示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 注意</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%84%9F%E5%8F%97"><span class="toc-number">5.</span> <span class="toc-text">5 使用感受</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/39791/" title="大模型爆款应用fabric_构建优雅的提示">大模型爆款应用fabric_构建优雅的提示</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/18296/" title="论文阅读_大模型_用模型模拟记忆过程">论文阅读_大模型_用模型模拟记忆过程</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/30840/" title="Science重磅_让大模型像婴儿一样学习语言">Science重磅_让大模型像婴儿一样学习语言</a><time datetime="2024-02-13T00:00:00.000Z" title="Created 2024-02-13 00:00:00">2024-02-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3681/" title="跨品牌智能家居控制_从原理到实现_HomeAssistant">跨品牌智能家居控制_从原理到实现_HomeAssistant</a><time datetime="2024-02-08T00:00:00.000Z" title="Created 2024-02-08 00:00:00">2024-02-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/34983/" title="头悬梁锥刺股?没必要：复盘如何用工具提升效率">头悬梁锥刺股?没必要：复盘如何用工具提升效率</a><time datetime="2024-01-26T00:00:00.000Z" title="Created 2024-01-26 00:00:00">2024-01-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
