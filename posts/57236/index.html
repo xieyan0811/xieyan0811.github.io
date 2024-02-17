@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_语音识别_Wisper | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="123456789英文名称: Robust Speech Recognition via Large-Scale Weak Supervision中文名称: 通过大规模弱监督实现鲁棒语音识别链接: https:&#x2F;&#x2F;proceedings.mlr.press&#x2F;v202&#x2F;radford23a.html代码: https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;whisper作者: Alec Radfo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_语音识别_Wisper">
+<meta property="og:url" content="http://xyan666.com/posts/57236/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="123456789英文名称: Robust Speech Recognition via Large-Scale Weak Supervision中文名称: 通过大规模弱监督实现鲁棒语音识别链接: https:&#x2F;&#x2F;proceedings.mlr.press&#x2F;v202&#x2F;radford23a.html代码: https:&#x2F;&#x2F;github.com&#x2F;openai&#x2F;whisper作者: Alec Radfo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-01-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-17T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="语音识别">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/57236/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_语音识别_Wisper',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-17 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">600</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_语音识别_Wisper</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-24T00:00:00.000Z" title="Created 2024-01-24 00:00:00">2024-01-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-17T00:00:00.000Z" title="Updated 2024-02-17 00:00:00">2024-02-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_语音识别_Wisper"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">英文名称: Robust Speech Recognition via Large-Scale Weak Supervision</span><br><span class="line">中文名称: 通过大规模弱监督实现鲁棒语音识别</span><br><span class="line">链接: https://proceedings.mlr.press/v202/radford23a.html</span><br><span class="line">代码: https://github.com/openai/whisper</span><br><span class="line">作者: Alec Radford, Jong Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, Ilya Sutskever</span><br><span class="line">机构: OpenAI</span><br><span class="line">日期: 2022-12-06</span><br><span class="line">引用次数: 1032</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>语音识别不仅用于语音输入、语音聊天，生成字幕，还在语音合成，视频分析等等领域作为工具使用，一方面需要识别不同语音，不同发音人的音频特征，还需要生成合理通顺的文本（选择多音字，标点）等等。</p>
+<p>Whisper 是 OPENAI 提供的语音转文字的引擎，它是一个开源工具，在自己的
+GPU 机器上也能搭建。Wisper
+是一个多语音识别引擎，简单用过，感觉对中文识别还是很好的。下面介绍
+Whisper 的实现原理。</p>
+<p>论文使用非常大量弱监督的标注数据训练模型，这里的弱监督包含大量多语言多任务的数据，以提升语音识别的准确性和稳健性，达到与有监督微调模型同等的识别效果。其底层逻辑是使用多任务训练能提升模型的鲁棒性。</p>
+<h2 id="摘要">2 摘要</h2>
+<p>目标：扩展弱监督语音识别的范围，减小弱监督和有监督学习的差距。使模型不再需要根据情境精调，就可以在广泛的环境中“开箱即用”可靠地工作。</p>
+<p>方法：通过大量多语言多任务的语音数据，利用弱监督方法，训练不需要精调的语音识别模型。</p>
+<p>结论：当扩展到 680,000
+小时的多语言和多任务监督时，生成的模型可以很好地推广到标准基准，无需任何数据集特定的微调，即可与有监督学习的结果竞争，达到了与人类接近的准确性和稳健性。</p>
+<h2 id="引言">3 引言</h2>
+<p>之前的方法是使用有监督数据训练模型，约需要 1000+ 小时标注数据；而
+Wav2Vec 2.0 的技术使用 1,000,000
+小时的无标注数据预训练模型，再用少量标注精调模型；它的表现已经超越了之前的最好水平，特别适用在标注数据较少的情况下。</p>
+<p>无监督数据主要训练编码器，能很好地实现音频表征，但缺乏将表征映射到可用输出的解码器，所以需要微调才能实现语音识别等任务。但在一个数据集上精调的模型往往难以泛化到其它数据集上，由此限制了模型的实用性和鲁棒性。</p>
+<p>实验证明，与在单个数据源上训练的模型相比，在多数据集/域中以监督方式进行预训练的语音识别系统表现出更高的鲁棒性，在图像领域的应用也证明了，更大的弱监督数据集显着提高了模型的鲁棒性和泛化性。</p>
+<p>文中提出的构建 Whisper
+模型工程中，将弱监督语音识别扩展了一个数量级，达到 680,000
+小时的标记音频数据。并展示了在这种规模上训练的模型可以很好地转移到现有数据集零样本，无需任何特定于数据集的微调即可获得高质量的结果。</p>
+<p>除了数据量，训练范围还从纯英语语音识别扩展到多语言和多任务，680,000
+小时的音频中，117,000 小时涵盖 96 种英语外的其他语言，以及 125,000
+小时的翻译数据；并证明联合多语言和多任务训练没有缺点，甚至有好处。另外，文中
+Whisper 没有使用自监督方法。</p>
+<h2 id="方法">4 方法</h2>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240217143601.png" /></p>
+<h3 id="数据预处理">4.1 数据预处理</h3>
+<p>利用 sequence-to-sequence
+模型在语音和对应的转录文本（音频转文本）之间进行映射，训练 Whisper
+模型来预测音频对应的原始文本，而无需任何显著的标准化或预处理。</p>
+<p>多样化的数据集，涵盖了来自许多不同环境、录音设置、扬声器和语言的广泛音频分布。虽然音频质量的多样性可以帮助训练模型变得稳健，但转录质量的多样性却没有好处，因此，使用过滤方法以得到高质量的转录。例如：检测并删除机器生成的转录本；使用音频语言检测器，保证音频和文本使用的语言一致，或者作为
+X-&gt;en
+翻译数据使用；还使用转录文本的模糊去重复来减少训练数据集中的重复量和自动生成的内容。</p>
+<p>将音频文件分成 30 秒的片段，并与该时间片段内发生的转录子集配对。</p>
+<h3 id="模型">4.2 模型</h3>
+<p>使用现成的架构来避免将文中验证与模型改进混淆。选择了具有“编码器 -
+解码器”结构的 Transformer 模型结果。</p>
+<p>音频被重新采样到 16,000 Hz，并且在 25 毫秒窗口上以 10 毫秒的步幅计算
+80 通道对数梅尔频谱图表示。对于特征归一化，将输入全局缩放到 -1 到 1
+之间，预训练数据集中的均值近似为零。</p>
+<p>网络结构如图 -1 所示，编码器和解码器具有相同的宽度和 block
+数量，音频数据转换成梅尔频谱图，再经过两个卷积层后送入 Transformer
+模型。</p>
+<p>使用 GPT-2 中的字节级 BPE
+文本标记器来处理英语模型，并为多语言模型重新调整词汇表，因此也适用于其他语言。</p>
+<h3 id="多任务">4.3 多任务</h3>
+<p>完整的语音处理系统除了语音识别之外还涉及许多组件，从而形成一个相对复杂的交互部件系统。</p>
+<p>由于可以对同一输入音频信号执行许多不同的任务：转录、翻译、语音活动检测、对齐和语言识别，将所有任务和条件信息指定为解码器的输入标记序列（见图
+-1
+右上的黄色块）。并以转录文本的历史为条件，希望它能够学习文本上下文来解决不明确的音频（Decoder
+模块以之前文本作为输入）。</p>
+<p>实际训练时，首先，使用 VoxLingua107
+模型预测音频的语言，写入输入标记，加入任务标记，再指定是否预测时间戳，然后是数据。图中灰色部分展示了有时间戳处理的差异。</p>
+<h3 id="训练">4.4 训练</h3>
+<p>训练了一套模型，以研究 Whisper 参数范围从 39M 到 1550M
+的扩展特性。模型具体参数见论文附录，对比效果见实验部分。不使用任何数据增强或正则化，而是依靠如此大的数据集中包含的多样性来鼓励泛化和鲁棒性。</p>
+<h2 id="实验">5 实验</h2>
+<p>Whisper
+的目标是开发一个单一的强大语音处理系统。因此，实验的目的是检查 Whisper
+是否能够很好地跨领域、任务和语言进行泛化。因此测试时不使用任何训练数据集，只在
+zero-shot 设置中评估 Whisper，以衡量其强大的泛化能力。</p>
+<p>语音识别研究通常根据词错误率（WER）指标评估系统。然而，WER
+惩罚模型输出与参考文本之间的所有差异，包括文本风格上的无害差异。这个问题对于像
+Whisper 这样的零样本模型尤为严重。在 WER
+计算之前通过文本标准化来解决这个问题，以尽量减少非语义差异的惩罚。</p>
+<p>人们常常需要在对所研究的特定数据几乎没有或完全没有了解的情况下完成任务。所以，人类的表现实际上是一种衡量如何在新的、未知的情况下进行推理和解决问题的能力。这就解释了为什么在特定测试中人类评分不如模型，但在实际环境中超过模型的问题。</p>
+<p>Whisper
+模型是在广泛和多样化的音频分布上进行训练并在零样本设置中进行评估的，能比现有系统更好地匹配人类行为。具有高有效鲁棒性的模型在分布外数据集上的表现优于预期，其表现取决于参考数据集上的表现，并接近于在所有数据集上表现相等的理想状态。</p>
+<p>零样本 Whisper 模型具有与监督 LibriSpeech
+模型非常不同的鲁棒性特性，并在其他数据集上远远超过所有基准 LibriSpeech
+模型。与图 2 中的人类相比，最佳的零样本 Whisper
+模型大致匹配其准确性和鲁棒性。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240217152849.png" /></p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240217152923.png" /></p>
+<h2 id="分析和消融">6 分析和消融</h2>
+<h3 id="数据规模">6.1 数据规模</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240217154122.png" /></p>
+<p>图 -4 展示了训练规模与效果之间的关系，如在英语语音识别方面，从 3,000
+小时到 13,000 小时，性能迅速提高，然后在 13,000 小时到 54,000
+小时之间明显放缓。对于多语言语音识别，WER 的改进在 54,000
+小时之前平稳增长，然后减少。对于 X→en 翻译，当训练 7,000
+小时或更少的音频时，性能几乎为零，然后在 54,000
+小时之前以大致对数线性的方式改善，之后再进一步扩展到完整数据集大小时也显示出收益递减。</p>
+<h3 id="模型规模">6.2 模型规模</h3>
+<p>除了英语语音识别之外，多语言语音识别、语音翻译和语言识别的性能随着模型大小的增加而不断提高。英语识别的回报递减可能是由于接近人类水平表现的饱和效应所致。</p>
+<h3 id="多任务和多语言迁移">6.3 多任务和多语言迁移</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240217154737.png" /></p>
+<p>对于使用适量计算资源训练的小型模型，任务和语言之间确实存在负迁移：然而，对于最大的模型来说，它们优于仅英语训练，展示了来自其他任务的正迁移。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/57236/">http://xyan666.com/posts/57236/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/">语音识别</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/34983/" title="头悬梁锥刺股?没必要：复盘如何用工具提升效率"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">头悬梁锥刺股?没必要：复盘如何用工具提升效率</div></div></a></div><div class="next-post pull-right"><a href="/posts/769/" title="论文阅读_语音合成_VITS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_语音合成_VITS</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/62410/" title="论文阅读_语音合成综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">论文阅读_语音合成综述</div></div></a></div><div><a href="/posts/55896/" title="论文阅读_CogTree_推理的认知树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-16</div><div class="title">论文阅读_CogTree_推理的认知树</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">600</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">83</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">3 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 数据预处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 多任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 训练</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%92%8C%E6%B6%88%E8%9E%8D"><span class="toc-number">6.</span> <span class="toc-text">6 分析和消融</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%A7%84%E6%A8%A1"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 数据规模</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%A7%84%E6%A8%A1"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 模型规模</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%A4%9A%E8%AF%AD%E8%A8%80%E8%BF%81%E7%A7%BB"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 多任务和多语言迁移</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/13266/" title="OpenAI发布视频生成模型Sora">OpenAI发布视频生成模型Sora</a><time datetime="2024-02-16T00:00:00.000Z" title="Created 2024-02-16 00:00:00">2024-02-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/6027/" title="大模型爆款应用fabric_构建优雅的提示">大模型爆款应用fabric_构建优雅的提示</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/28201/" title="论文阅读_用模型模拟记忆过程">论文阅读_用模型模拟记忆过程</a><time datetime="2024-02-15T00:00:00.000Z" title="Created 2024-02-15 00:00:00">2024-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/30840/" title="Science重磅_让大模型像婴儿一样学习语言">Science重磅_让大模型像婴儿一样学习语言</a><time datetime="2024-02-13T00:00:00.000Z" title="Created 2024-02-13 00:00:00">2024-02-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3681/" title="跨品牌智能家居控制_从原理到实现_HomeAssistant">跨品牌智能家居控制_从原理到实现_HomeAssistant</a><time datetime="2024-02-08T00:00:00.000Z" title="Created 2024-02-08 00:00:00">2024-02-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
