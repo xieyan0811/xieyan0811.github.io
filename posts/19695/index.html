@@ -1,0 +1,375 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>世界模型 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="12345678英文名称: World Models中文名称: 世界模型链接: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1803.10122示例: https:&#x2F;&#x2F;worldmodels.github.io&#x2F;作者: David Ha, J¨urgen Schmidhuber机构: Google Brain, NNAISENSE, Swiss AI Lab, IDSIA (USI &amp; S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="世界模型">
+<meta property="og:url" content="http://xyan666.com/posts/19695/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="12345678英文名称: World Models中文名称: 世界模型链接: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1803.10122示例: https:&#x2F;&#x2F;worldmodels.github.io&#x2F;作者: David Ha, J¨urgen Schmidhuber机构: Google Brain, NNAISENSE, Swiss AI Lab, IDSIA (USI &amp; S">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-03-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-04T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/19695/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '世界模型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-04 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">612</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">82</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">90</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">世界模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-01T00:00:00.000Z" title="Created 2024-03-01 00:00:00">2024-03-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-04T00:00:00.000Z" title="Updated 2024-03-04 00:00:00">2024-03-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="世界模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">英文名称: World Models</span><br><span class="line">中文名称: 世界模型</span><br><span class="line">链接: https://arxiv.org/abs/1803.10122</span><br><span class="line">示例: https://worldmodels.github.io/</span><br><span class="line">作者: David Ha, J¨urgen Schmidhuber</span><br><span class="line">机构: Google Brain, NNAISENSE, Swiss AI Lab, IDSIA (USI &amp; SUPSI)</span><br><span class="line">日期: 27 Mar 2018</span><br><span class="line">引用次数: 1033</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>不同于之前简单的强化学习方法，这篇论文将模型分为三部分：视觉 V、记忆
+M 和控制 C。视觉部分 V 将视觉信息压缩到潜空间，记忆部分 M
+学习物理空间的变化规律，控制部分 C
+则使用强化学习模型来学习智能体的最佳动作。</p>
+<p>这相当于将模型拆分为大脑的不同功能区域。复杂的世界信息保留在 V 和 M
+中，同时确保强化学习部分 C 足够小，以便快速训练。V 和 M
+可以分别看作对空间和时间的建模。</p>
+<p>文中还讨论了梦境和海马回放。由于有了时序预测模型
+M，我们可以在没有现实输入的情况下通过 M
+计算出后续状态，从而生成一个想象中的环境。还可以利用梦中产生的数据来训练控制模型，并通过调节梦的真实程度来构造更复杂的训练环境，以提升模型的性能。</p>
+<p>文章发表于 2018
+年，当时还没有太多可用的深度强化学习库。现在，我们可以利用更新的强化学习库和硬件以更快、更精确的方式建模。然而，我认为
+V+M+C 的结构仍然适用。如果将智能体（Agent）视为一个人，他们的视觉能力 V
+和对时间变化的预测能力 M 是通用的；而强化学习控制器 C
+则针对具体目标，如赛车或打球。因此，在实际应用中，可能会采用一个 V、一个
+M 和多个 C 的结构。这也要求 C 足够小，同时将通用知识提取到 V 和 M
+中。</p>
+<p>事实上，真实世界（模型输入）与我们理解的世界（M
+输出）之间存在很大差异。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240301215030.png" /></p>
+<p>图
+4：代理由三个紧密协作的组件组成：视觉（V）、内存（M）和控制器（C）</p>
+<h2 id="摘要">2 摘要</h2>
+<p>目标：建立世界模型，学习压缩空间内的时空表示。通过使用从世界模型中提取的特征作为智能体的输入，训练智能体完成具体任务。</p>
+<p>方法：以无监督的方式快速训练一个非常紧凑和简单的策略，可以解决具体问题。甚至可以完全在它自己的幻觉梦境中训练智能体，并将其中产生的世界模型，应用到实际环境中。</p>
+<p>结论：通过训练代理，表明使用文中的世界模型可以提高对世界的表征能力。</p>
+<h2 id="agent-模型">3 Agent 模型</h2>
+<p>文中提出了一个受自身认知系统启发的简单模型。该模型包括视觉感知组件
+V，能够将所见内容压缩为较小的表征空间；记忆组件
+M，能够根据历史信息预测未来行为；以及决策组件
+C，根据视觉和记忆组件的表示来确定行动。这个模型通过将输入信息处理和决策制定进行分离，可以实现更高效的智能体行为。</p>
+<h3 id="vae-v-模型">3.1 VAE (V) 模型</h3>
+<p>变分自编码器 VAE 将每个时间步的视觉层面将图像压缩到隐空间 z。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240301215410.png" /></p>
+<p>图 5：变分自编码器（VAE）的流程图。</p>
+<h3 id="mdn-rnn-m-模型">3.2 MDN-RNN (M) 模型</h3>
+<p>在时序层面使用 RNN
+来预测未来。由于许多复杂环境本质上是随机的，因此训练 RNN
+输出概率密度函数 p(z)，而不是确定性预测 z。简而言之，即预测下一步潜向量
+z 的概率分布。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240301215825.png" /></p>
+<p>图 6：具有混合密度网络输出层的 RNN。MDN 输出高斯分布混合的参数
+p(z)，用于对下一个潜在向量的预测进行采样 z 。</p>
+<p>P(zt+1|at,zt,ℎt) ，其中 at 是 time t 采取的动作， ℎt 是 RNN 在
+time t 的隐藏状态。根据温度参数来控制模型的不确定性。</p>
+<h3 id="控制器-c-模型">3.3 控制器 (C) 模型</h3>
+<p>控制器（C）模型负责确定在环境推进过程中代理能够获得的预期累积奖励最大化的行动过程。为了使
+C 更简单且更小，它与 V 和 M
+分开训练，因此智能体的大部分复杂性留在世界模型（V 和 M）中。</p>
+<p>C 是一个简单的单层线性模型，它将 z 映射到每个时间步的操作 a。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303165917.png" /></p>
+<h3 id="结合-vm-和-c">3.4 结合 V、M 和 C</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303170053.png" /></p>
+<p>图 8：Agent 模型流程图。原始观测值经过 V 处理得到潜在向量 z。C
+的输入是这个潜在向量 z，与 M 的隐藏状态 ℎ 在每个时间步长上连接。然后，C
+使用输出 a 控制动作向量，并对环境产生影响。接着，M 使用当前的状态 z
+和动作 a 更新自己的隐藏状态，生成下一个时间步 t+1 上要使用的 ℎ。</p>
+<p>V 和 M
+使用深度学习方法进行训练；并选择了协方差矩阵适应进化策略（CMA-ES）来优化
+C 的参数，它适用于解空间中具有多达几千个参数的情况。通过在一台拥有多个
+CPU 核心的单机上并行运行多个环境实例来训练模型 C 的参数。</p>
+<h2 id="赛车实验">4 赛车实验</h2>
+<h3 id="用于特征提取的世界模型">4.1 用于特征提取的世界模型</h3>
+<p>预测世界模型可以帮助我们提取有用的空间和时间表示。通过将这些功能作为控制器的输入使用。</p>
+<p>为了训练我们的 V 模型，首先收集了一个包含 10,000
+个随机推出的环境的数据集。让一个智能体随机行动多次来探索环境，并记录所采取的随机行动
+a 和由此产生的环境观察结果。使用这个数据集来训练 V
+以学习每一帧观察到的潜在空间。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303214514.png" /></p>
+<p>使用经过训练的 V 模型对每一帧进行预处理，生成 z，以便训练时序记忆 M
+模型。</p>
+<p>世界模型（V 和
+M）任务的目标是压缩和预测观察到的图像帧序列，但并不了解来自环境的实际奖励信号。只有控制器（C）模型能够获取来自环境的奖励信息。线性控制器模型只有
+867 个参数，因此 CMA-ES 等进化算法非常适合用于优化任务。</p>
+<h3 id="程序">4.2 程序</h3>
+<p>具体步骤如下：</p>
+<ul>
+<li>从随机策略中收集 10,000 轮数据。</li>
+<li>使用 VAE（V）训练模型，用于将帧编码为 z。</li>
+<li>使用 MDN-RNN（M）训练模型，对概率 P(z) 进行建模。</li>
+<li>将控制器（C）定义为 a。</li>
+<li>使用 CMA-ES 求解参数 w 和 b，以最大化预期的累积奖励。</li>
+</ul>
+<p>模型参数量如下：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303214909.png" /></p>
+<h3 id="结果">4.3 结果</h3>
+<p>首先测试使只能访问 V 而不能访问 M
+时，控制器的效果。实验证明，这会导致摇晃和不稳定的驾驶，并在更陡峭的弯道上错过赛道。在
+100 次随机试验中，它获得了平均分数 632 ± 251。</p>
+<p>M 用于预测环境的变化，因为ℎ包含有关未来概率分布的信息，所以 Agent
+可以查询 RNN 以指导其行动决策。加入 M 后，在 100 次随机试验中获得了 906
+± 21 分。报告排行榜上最佳解决方案在 100 次随机试验中获得了平均分数 838 ±
+11。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303215540.png" /></p>
+<h3 id="赛车之梦">4.4 赛车之梦</h3>
+<p>世界模型可以用来对未来进行建模，因此我们可以让它自己计算假设的赛车场景。可以要求它生成给定当前状态的
+zt+1 概率分布，并采样 a，zt+1 作为实际观察值。训练过的 C 可以应用于由 M
+产生的虚拟环境中。</p>
+<h2 id="vizdoom-实验">5 VizDoom 实验</h2>
+<h3 id="在梦中学习">5.1 在梦中学习</h3>
+<p>本部分研究了能否通过训练智能体在梦境中学习，并将其学到的策略应用于实际环境。</p>
+<p>智能体并不直接观察现实，而只是通过世界模型看到世界的映像。在这个实验中训练了一个智能体，在由世界模型生成的幻觉中进行训练。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303220504.png" /></p>
+<p>在这个游戏中，特工必须学会避开怪物从房间另一侧射出的火球。在这种环境中没有明确的奖励，累积奖励可以定义为代理保持存活的时间步数。环境的每次最多运行
+2100 个时间步长，如果连续 100 轮的平均生存时间大于 750
+个时间步长，则认为任务完成。</p>
+<h3 id="程序-1">5.2 程序</h3>
+<p>在这个任务中，M 模型除了预测下一步的 z
+外，还将预测智能体是否在下一帧中死亡。</p>
+<p>在梦境模拟中，不需要 V
+模型对任何真实像素帧进行编码，因此智能体将完全在潜在空间环境中进行训练。</p>
+<ul>
+<li>收集 10,000 轮数据的随机策略。</li>
+<li>使用 VAE（V）将每一帧编码为潜在向量 z，并使用 V
+将从第一步收集的图像转换为潜在空间表示。</li>
+<li>训练 MDN-RNN（M）进行时序建模。</li>
+<li>定义控制器（C）生成动作 a。</li>
+<li>使用 CMA-ES 求解生成动作 a 的参数
+W，以最大化虚拟环境中的预期生存时间。</li>
+<li>在实际环境中使用从虚拟环境中学到的策略。</li>
+</ul>
+<h3 id="在梦中训练">5.3 在梦中训练</h3>
+<p>这里的 RNN 学习了完整的游戏环境，包括游戏逻辑、敌人行为、物理和 3D
+图形渲染。</p>
+<p>与实际游戏环境不同的是，虚拟环境中可能增加额外的不确定性，使得梦境环境中的游戏更加具有挑战性。</p>
+<p>通过增加温度参数来增加不确定性，使得梦境变得更加困难。火球可能会在难以预测的路径上更随机地移动，代理可能因为纯粹的不幸而死亡。实验发现，在较高温度设置下表现良好的
+Agent 通常在正常设置下也表现更好。</p>
+<h3 id="将策略转移到实际环境中">5.4 将策略转移到实际环境中</h3>
+<p>让代理在虚拟环境中接受训练，并在原始的 VizDoom
+场景中测试其性能。经过超过 100 次随机连续试验，分数达到了约 1100
+个时间步长，远远超出了要求分数 750
+个时间步长，并且远高于在更困难的虚拟环境中获得的分数。</p>
+<h3 id="欺骗世界模式">5.5 欺骗世界模式</h3>
+<p>在游戏过程中，智能体也会寻找游戏中的漏洞以进行作弊，以最大化其预期的累积奖励。然而，如果学习的虚拟环境存在问题（即
+M
+模型有缺陷），代理就会找到在虚拟环境中看起来不错但在实际环境中会失败的策略。</p>
+<p>为了解决这个问题，可以通过调整温度参数来控制 M
+模型中的随机性。实验结果显示训练 C
+模型对具有不同不确定性水平的幻觉虚拟环境有影响。表 -2
+展示了在给定温度下训练代理后，在实际环境中进行 100
+次随机推演所得到的平均分数。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240303223219.png" /></p>
+<p>OpenAI Gym 排行榜（Paquette，2016 年）的最佳成绩是 820 ±
+58。加大温度会增加难度，从而使模型的分数更高。但是如果难度过高，反而会产生相反的效果。</p>
+<h2 id="迭代训练程序">6 迭代训练程序</h2>
+<p>对于更复杂的任务，需要进行迭代训练过程。</p>
+<ol type="1">
+<li>使用随机模型参数初始化 M 和 C。</li>
+<li>在实际环境中进行 N 次推演。将期间的所有操作 a 和观察结果 x
+保存到存储器中。</li>
+<li>训练模型 M 来建模 P(x)，同时通过优化 C 来改进 M
+的内部预期奖励。</li>
+<li>如果任务尚未完成，返回第 2 步继续进行。</li>
+</ol>
+<p>这类似于神经科学中的海马体回放，即：动物在休息或睡眠时如何回放最近的经历。回放最近的经历在记忆巩固中起着重要作用，它更像是思考而不是做梦。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/19695/">http://xyan666.com/posts/19695/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5852/" title="github以ssh方式连不通"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">github以ssh方式连不通</div></div></a></div><div class="next-post pull-right"><a href="/posts/2126/" title="评测本地部署的语音识别模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">评测本地部署的语音识别模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/54608/" title="论文阅读_语音识别_Wisper"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-24</div><div class="title">论文阅读_语音识别_Wisper</div></div></a></div><div><a href="/posts/62410/" title="论文阅读_语音合成综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-15</div><div class="title">论文阅读_语音合成综述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">612</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">82</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">90</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#agent-%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">3 Agent 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vae-v-%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 VAE (V) 模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mdn-rnn-m-%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 MDN-RNN (M) 模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8-c-%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 控制器 (C) 模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E5%90%88-vm-%E5%92%8C-c"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 结合 V、M 和 C</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9B%E8%BD%A6%E5%AE%9E%E9%AA%8C"><span class="toc-number">4.</span> <span class="toc-text">4 赛车实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E7%9A%84%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 用于特征提取的世界模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%9B%E8%BD%A6%E4%B9%8B%E6%A2%A6"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 赛车之梦</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vizdoom-%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 VizDoom 实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%A2%A6%E4%B8%AD%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 在梦中学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F-1"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%A2%A6%E4%B8%AD%E8%AE%AD%E7%BB%83"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 在梦中训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E7%AD%96%E7%95%A5%E8%BD%AC%E7%A7%BB%E5%88%B0%E5%AE%9E%E9%99%85%E7%8E%AF%E5%A2%83%E4%B8%AD"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 将策略转移到实际环境中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AC%BA%E9%AA%97%E4%B8%96%E7%95%8C%E6%A8%A1%E5%BC%8F"><span class="toc-number">5.5.</span> <span class="toc-text">5.5 欺骗世界模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E8%AE%AD%E7%BB%83%E7%A8%8B%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">6 迭代训练程序</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/368/" title="论文阅读_解释大模型_语言模型表示空间和时间">论文阅读_解释大模型_语言模型表示空间和时间</a><time datetime="2024-03-03T00:00:00.000Z" title="Created 2024-03-03 00:00:00">2024-03-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/5852/" title="github以ssh方式连不通">github以ssh方式连不通</a><time datetime="2024-03-02T00:00:00.000Z" title="Created 2024-03-02 00:00:00">2024-03-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/19695/" title="世界模型">世界模型</a><time datetime="2024-03-01T00:00:00.000Z" title="Created 2024-03-01 00:00:00">2024-03-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2126/" title="评测本地部署的语音识别模型">评测本地部署的语音识别模型</a><time datetime="2024-03-01T00:00:00.000Z" title="Created 2024-03-01 00:00:00">2024-03-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/23765/" title="Gemini 初体验">Gemini 初体验</a><time datetime="2024-03-01T00:00:00.000Z" title="Created 2024-03-01 00:00:00">2024-03-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
