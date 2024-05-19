@@ -1,0 +1,297 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_大模型优化_DeepSeek-V2 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1234567英文名称: DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model中文名称: DeepSeek-V2：强大、经济高效的专家混合语言模型链接: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2405.04434v2代码: https:&#x2F;&#x2F;github.com&#x2F;deepseek-ai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_大模型优化_DeepSeek-V2">
+<meta property="og:url" content="http://xyan666.com/posts/32931/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1234567英文名称: DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model中文名称: DeepSeek-V2：强大、经济高效的专家混合语言模型链接: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2405.04434v2代码: https:&#x2F;&#x2F;github.com&#x2F;deepseek-ai">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-05-16T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-19T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/32931/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_大模型优化_DeepSeek-V2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-19 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">663</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">84</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">99</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_大模型优化_DeepSeek-V2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-16T00:00:00.000Z" title="Created 2024-05-16 00:00:00">2024-05-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-19T00:00:00.000Z" title="Updated 2024-05-19 00:00:00">2024-05-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_大模型优化_DeepSeek-V2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">英文名称: DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model</span><br><span class="line">中文名称: DeepSeek-V2：强大、经济高效的专家混合语言模型</span><br><span class="line">链接: http://arxiv.org/abs/2405.04434v2</span><br><span class="line">代码: https://github.com/deepseek-ai/DeepSeek-V2</span><br><span class="line">作者: DeepSeek-AI</span><br><span class="line">机构: DeepSeek-AI 深度探索公司</span><br><span class="line">日期: 2024-05-07</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>DeepSeek 最近推出的 V2
+版本，无疑是当前性价比最高的选择。直观地讲：KIMI 的价格是 12 元/M
+tokens，Chat 的价格约为 3.5 元/M，GPT 4o 的价格约为 35
+元/M。然而，DeepSeek 的价格仅为 1
+元/M（这是按照输入计算的，输出通常是输入的两倍，美元兑换按 7
+计算）。</p>
+<p>我在之前调研代码模型的时候就注意到 DeepSeek
+的单模型在排名中很靠前。从论文和网站数据可以看到模型效果在开源领域，甚至在国内开源
++
+闭源领域都算是很能打了，因为是一家中文公司，对中文也更加友好。从实验结果来看，它是一种对中文，英文，编码各方面水平比较均衡的模型。</p>
+<p>DeepSeek 是一个开源模型，理论上可以在本地部署，但 MoE
+的方式虽然快速，却占用大量内存，硬件成本也高。比起这样，购买他们的服务可能更划算。</p>
+<p>本篇就来看看 DeepSeek 是如何实现降本增效的。</p>
+<h2 id="摘要">2 摘要</h2>
+<ul>
+<li>目标：DeepSeek-V2 是一个 MoE
+语言模型，其特点是经济高效的训练和推理。</li>
+<li>方法：DeepSeek-V2 采用了创新的架构，包括 Multi-head Latent
+Attention（MLA）和 DeepSeekMoE。MLA 通过将
+Key-Value（KV）缓存显著压缩为潜在向量，确保了高效的推理；而 DeepSeekMoE
+通过稀疏计算实现了经济高效的模型训练。</li>
+<li>结论：与 DeepSeek 67B 相比，DeepSeek-V2 表现更强，同时节省了 42.5%
+的训练成本，将 KV 缓存减少了 93.3%，并将最大生成吞吐量提升了 5.76
+倍。</li>
+</ul>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240516113037.png" /></p>
+<p>图 -1，左侧展示模型的理解能力，右侧展示成本和效率的改进。</p>
+<h2 id="方法">3 方法</h2>
+<h3 id="模型参数">3.1 模型参数</h3>
+<ul>
+<li>总共包含了 236B 参数</li>
+<li>其中每个 token 激活的参数为 21B</li>
+<li>支持 128K 个 token 的上下文长度</li>
+</ul>
+<h3 id="架构改进">3.2 架构改进</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240516120917.png" /></p>
+<ul>
+<li>对于前馈网络（FFN），采用细粒度的专家分割和共享的专家隔离，以提高专家专业化的潜力。<a
+href="/posts/23356/">论文阅读_MoE_Switch Transformers</a></li>
+<li>多头潜在注意力（MLA），配备低秩键值联合压缩的注意力机制。从而提高了推理效率，下面展开说明
+MLA。</li>
+</ul>
+<h4 id="multi-head-latent-attention-多头潜在注意力">3.2.1 Multi-Head
+Latent Attention 多头潜在注意力</h4>
+<p><a
+href="2_Note/0_Technic/2_算法/5_深度学习/Transformer/Attention的常见问题.md">Attention的常见问题</a></p>
+<p>多头注意力（MHA）的键值（KV）缓存（Vaswani et al.，2017）对推理 LLMs
+效率构成了重大障碍。为了减少 KV
+缓存，提出了多查询注意力（MQA）和分组查询注意力（GQA）。它们需要较小量级的
+KV 缓存，但它们的表现不如 MHA。</p>
+<p>这篇文章中提出了低秩键值结合压缩。</p>
+<p><span class="math display">\[
+\begin{align*}
+\mathbf{c}_{t}^{KV} &amp;= \mathbf{W}^{DKV} \mathbf{h}_{t}, \\
+\mathbf{k}_{t}^{C} &amp;= \mathbf{W}^{UK} \mathbf{c}_{t}^{KV}, \\
+\mathbf{v}_{t}^{C} &amp;= \mathbf{W}^{UV} \mathbf{c}_{t}^{KV},\\
+\\
+\mathbf{c}_{t}^{Q} &amp;= \mathbf{W}^{DQ} \mathbf{h}_{t}, \\
+\mathbf{q}_{t}^{C} &amp;= \mathbf{W}^{UQ} \mathbf{c}_{t}^{Q},
+\end{align*}
+\]</span></p>
+<p>简单地讲，就是先用矩阵 W^DKV 压缩，到 c 的维度，即潜空间，c
+的维度相比 h 维度小很多，𝑑𝑐′(≪𝑑ℎ⁢𝑛ℎ)，然后再计算 k,v 以及
+q，在推理过程中，MLA 只需要缓存 𝐜𝑡𝐾⁢𝑉。这和 LORA
+原理差不多，也使用了低秩分解，其背景的原理是注意力存在冗余，可被压缩，并且还有可能因为提纯而得到更好的效果。</p>
+<p>对比几种优化注意力机制：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240516122522.png" /></p>
+<h4 id="解耦旋转位置嵌入">3.2.2 解耦旋转位置嵌入</h4>
+<p>为配合 MLA，使用解耦旋转位置嵌入 RoPE 策略。</p>
+<h3 id="训练数据">3.3 训练数据</h3>
+<ul>
+<li>构建了一个由 8.1T token 组成的高质量、多源的预训练语料库。</li>
+<li>尤其强调了中文数据的收集，并确保了数据的高质。</li>
+<li>为了执行 DeepSeek-V2
+聊天的监督微调（SFT），我们收集了覆盖数学、代码、写作、推理、安全等各个领域的
+1.5M 会话。</li>
+<li>遵循 DeepSeekMath（Shao et
+al.，2024）的方法，采用了组相对策略优化（GRPO），旨在使我们的模型更好地符合人类的偏好。</li>
+</ul>
+<h2 id="实验结果">4 实验结果</h2>
+<p>主实验结果：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240516115611.png" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/32931/">http://xyan666.com/posts/32931/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/23670/" title="基于解码器的时间序列预测基础模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">基于解码器的时间序列预测基础模型</div></div></a></div><div class="next-post pull-right"><a href="/posts/28244/" title="论文阅读_大模型优化_YOCO架构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_大模型优化_YOCO架构</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/32310/" title="论文阅读_世界模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">论文阅读_世界模型</div></div></a></div><div><a href="/posts/54608/" title="论文阅读_语音识别_Wisper"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-24</div><div class="title">论文阅读_语音识别_Wisper</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">663</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">84</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">99</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">3 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 模型参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E6%94%B9%E8%BF%9B"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 架构改进</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#multi-head-latent-attention-%E5%A4%9A%E5%A4%B4%E6%BD%9C%E5%9C%A8%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 Multi-Head
+Latent Attention 多头潜在注意力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E8%80%A6%E6%97%8B%E8%BD%AC%E4%BD%8D%E7%BD%AE%E5%B5%8C%E5%85%A5"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 解耦旋转位置嵌入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 训练数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">4 实验结果</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/58877/" title="开源项目_edge tts">开源项目_edge tts</a><time datetime="2024-05-19T00:00:00.000Z" title="Created 2024-05-19 00:00:00">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/21904/" title="FreeGPT35">FreeGPT35</a><time datetime="2024-05-19T00:00:00.000Z" title="Created 2024-05-19 00:00:00">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/63600/" title="为啥现在用大模型这么便宜">为啥现在用大模型这么便宜</a><time datetime="2024-05-18T00:00:00.000Z" title="Created 2024-05-18 00:00:00">2024-05-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/23670/" title="基于解码器的时间序列预测基础模型">基于解码器的时间序列预测基础模型</a><time datetime="2024-05-16T00:00:00.000Z" title="Created 2024-05-16 00:00:00">2024-05-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/32931/" title="论文阅读_大模型优化_DeepSeek-V2">论文阅读_大模型优化_DeepSeek-V2</a><time datetime="2024-05-16T00:00:00.000Z" title="Created 2024-05-16 00:00:00">2024-05-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
