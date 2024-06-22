@@ -1,0 +1,453 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_嵌入_综述 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="12345678英文名：A Survey of Text Representation and Embedding Techniques in NLP中文名：NLP 中文本表示和嵌入技术的调查地址: https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;stamp&#x2F;stamp.jsp?arnumber&#x3D;10098736文章正文：24 页作者：RAJVARDHAN PATIL, SORIO BOI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_嵌入_综述">
+<meta property="og:url" content="http://xyan666.com/posts/1024543869/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="12345678英文名：A Survey of Text Representation and Embedding Techniques in NLP中文名：NLP 中文本表示和嵌入技术的调查地址: https:&#x2F;&#x2F;ieeexplore.ieee.org&#x2F;stamp&#x2F;stamp.jsp?arnumber&#x3D;10098736文章正文：24 页作者：RAJVARDHAN PATIL, SORIO BOI">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-06-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-22T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/1024543869/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_嵌入_综述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-22 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">671</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">84</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_嵌入_综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-06-22T00:00:00.000Z" title="Updated 2024-06-22 00:00:00">2024-06-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RAG/">RAG</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">6.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>19min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_嵌入_综述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">英文名：A Survey of Text Representation and Embedding Techniques in NLP</span><br><span class="line">中文名：NLP 中文本表示和嵌入技术的调查</span><br><span class="line">地址: https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10098736</span><br><span class="line">文章正文：24 页</span><br><span class="line">作者：RAJVARDHAN PATIL, SORIO BOIT, VENKAT GUDIVADA, JAGADEESH NANDIGAM</span><br><span class="line">机构：Grand Valley State University，East Carolina University</span><br><span class="line">出处：IEEE Access</span><br><span class="line">出版日期：网络出版日期 2023-02-22</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">读后感</h2>
+<p>这是一篇针对文本表示的综述性论文。相比之下，这篇论文的深浅度刚刚好，逻辑完整，详略得当，新旧技术兼具。文中提供了例子、表格和公式，但都很简单。我觉得作者有意避免晦涩难懂，试图用简单的语言把问题讲清楚。</p>
+<p>调查涵盖了 1970
+年代及以后的文本表示历史，从规则方法到统计方法，再到深度学习方法。列出了它们的表示形式、解决的问题、限制和应用，最后还涉及一些多模态技术。这篇论文不仅停留在理论层面。尤其是对于对
+NLP
+有所了解的读者，可以利用这篇论文将分散的知识统一起来，将书本上的公式和现实中的方法结合起来。</p>
+<p>模型并不是越新越好，需要考虑使用场景。例如，在聊天场景中，是讨论一个复杂的问题，还是只查找一个关键词；是否需要支持上下文；上下文是多轮对话还是一句话和一个文档；在什么情况下需要支持同义词。</p>
+<h2 id="摘要">摘要</h2>
+<p>目标:
+研究如何将输入文本（原始数据）表示为数值格式（向量或矩阵）。</p>
+<p>方法:
+通过回顾从<em>基于规则、统计方法到基于神经网络</em>表示的发展历程，对各种嵌入类型进行调查。</p>
+<p>结果: 论文展示了 NLP
+领域从仅能理解零散信息发展到能够<em>全面理解</em>文本各主要方面的演变过程。</p>
+<h2 id="i.-引言">I. 引言</h2>
+<p>文本表示主要基于下述三种方法：</p>
+<p>基于规则的方法，如 CFG（Context Free
+Grammar）上下文自由语法，常使用复杂嵌套的 if-then 规则实现。</p>
+<p>基于统计的方法，常与词频相关，如 OneHot、TF/IDF
+和词袋（BoW）。但由于维度和算力的限制，这种方法在大规模数据集上表现不佳。为了降维，常用
+DRT（Dimensionality Reduction Technique），具体方法包括特征选择（如
+top-K）和维度变换（线性/非线性）。这种方法不适用于生成任务。</p>
+<p>基于神经网络的方法，能更深入地理解多义词或识别类比、同义词、反义词等概念。它通过上下文确定语义；由于嵌入被映射到<em>连续向量空间</em>，可以比较语义间的关系（如相似度）。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240617160144.png" /></p>
+<p>如图 -1
+所示，作者把所有方法纳中到一张图中，读者可以了解每种技术在整体技术地图中的位置，以及和其它技术的关系。正文有
+24 页，内容比较多，这里给大家做个导读，太基本的 NLP
+技术不展开了，早期技术尽量说明白，主要集中在目前常用的技术上。章节号与论文正文一致。</p>
+<h2 id="ii.-正则表达式">II. 正则表达式</h2>
+<p>NLP
+领域的最初发展主要局限于与上下文无关的<em>搜索引擎和问答系统</em>。</p>
+<p>早期的方法依赖于硬编码的正则表达式和复杂的逻辑规则，如嵌套的 if-else
+语句。这些模式用于<em>在文档中搜索特定序列，并按频率对文档进行排名</em>。这种方法有严格的响应规则。为了克服以上限制，引入了模糊表达式，以执行近似匹配而非精确匹配。</p>
+<p>在正则表达式中，考虑了单词的顺序和匹配（精确/近似），但忽略了单词的含义、上下文和频率。因此，其深度理解能力有限，对于需要<em>语言语义理解</em>的应用程序（如文本摘要、机器翻译等）表现不佳。</p>
+<p>（小编说：以目前的技术来看，这是一种比较早期的方法，只适用于简单场景和垂直领域，虽然需要大量人工经验，但确实高效。）</p>
+<h2 id="iii.-离散向量空间">III. 离散向量空间</h2>
+<p>单词使用数字向量表示。将任意长度的文档简化为固定长度的数字列表。可以使用线性代数运算来操作向量并计算距离和相似性。</p>
+<p>统计方法大致可分为三部分：（1）离散向量空间，（2）稠密向量空间，（3）连续向量空间。</p>
+<p>这里的“离散”指的是矩阵中的值是不连续的，比如：0, 1, 计数值等。</p>
+<p>（小编说：基于统计的方法相对比较传统，但在很多领域还是够用的，甚至可以说还是主流技术。统计方法一般都基于一个数据集计算得来，扩展性和通用性不是很强，对于一词多义、一义多词及上下文支持都不是很好。但这种方法计算量相对较小。）</p>
+<h3 id="a.-onehot-嵌入ohe">A. OneHot 嵌入（OHE）</h3>
+<p>构建给定语料库的词汇词典，待编码的句子是：he started driving when he
+was 22 years old。词表是横轴，单词在词表中出现的位置置
+"1"。这种表示还保留了句子中单词的顺序，并且不会丢失原文中的任何信息。</p>
+<p>词向量间的距离只与字母顺序有关，与含义无关。存储也相对稀疏，占空间大，比规则好不了多少。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618165724.png" /></p>
+<p>（小编说：这是一种比较古老的方法，现在用得较少了）</p>
+<h3 id="b.-词袋-bow">B. 词袋 BOW</h3>
+<p>语料库由一个矩阵表示，其中每行代表一个句子，每列代表词汇表中的一个唯一单词。矩阵的行数等于语料库中的句子数，列数等于语料库的词汇量。矩阵中的值可以表示该词是否出现，也可以表示出现次数。</p>
+<p>与 OHE
+相比，它不考虑句中词序，矩阵的行大小要小得多，但同样是稀疏的，其中大多数值为
+0。此外，向量之间的距离与词义无关。优点在于，可以通过点积计算句子的相似性分数，从而查找句子或文档之间的相似度，但它不支持同义词。</p>
+<p>这种方法常用于垃圾邮件过滤器和情绪分析应用程序。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618165707.png" /></p>
+<p>（小编说：相对规则的好处是无需手动编写规则。单纯使用 BOW
+的情况很少，它更多地被视为后续算法的基础。）</p>
+<h3 id="c.-基于类别的嵌入cbe">C. 基于类别的嵌入（CBE）</h3>
+<p>与动态识别类别相比，这里预先对类别进行确定并硬编码。列数等于语料库中可能的类别数，矩阵的行数等于语料库中的句子或文档数。CBE
+的<em>维度显著降低</em>，因为类别数量远小于词汇表大小。因此，矩阵表示是密集的。然而，编纂这样的词典是劳动密集型的。</p>
+<p>遍历每个文档，通过查看用户定义的词典来找到每个单词的极性，并在矩阵中递增给定文档的相应极性或类别计数（统计某一词性相关词的计数）。</p>
+<p>这种方法主要用于处理短句。例如，评论情绪分析、垃圾邮件检测、查找喷子消息、测量聊天消息中的情绪或友善程度等。在短句中，词序的改变不会彻底改变意思。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618171610.png" /></p>
+<p>（小编说：也很常用的一种方法，就是给句子或者文章打标签。它能很好地提升检索效率，也是数据与知识结合的一种方法。可以说，贴标签和定性是非常增效的方法。）</p>
+<h3 id="d.-多词标记-n-gram">D. 多词标记 N-gram</h3>
+<p>添加一个窗口来捕获单词之间的顺序。这里的“n”表示窗口或上下文的大小。它可以用来捕捉一组特定单词的出现情况。例如，“不喜欢”可以被视为一个单词。当这些词一起出现时，它们的含义可能与单独出现时完全不同。</p>
+<p>N-gram
+不一定能够捕捉到完整的上下文信息，但它确实成功地捕捉到了单词之间的顺序。N-gram
+通常用于文档分类、聚类和情感分析等应用中，因为它们能够捕捉文档中<em>经常出现的重要词组</em>，也有以字符为单位的
+n-gram，用于模糊处理拼写错误和不同的词形。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618173358.png" /></p>
+<p>（小编说：考虑到词间顺序，理论上 N-gram 优于词袋。随着 N
+的增加，词表可能会变得很大；通过频率筛选出的高频组合也不一定是有意义的组合。由于这些限制，目前很少单独使用这种方法，常常作为后续路径中的一个步骤）。</p>
+<h3 id="e.-术语频率嵌入-tf-embedding">E. 术语频率嵌入 TF Embedding</h3>
+<p>计数的 BoW
+方法考虑了单词的频率，但它没有考虑单词在文档或语料库中相对于其他单词的重要性。计算方法是：一个特定词在文档中出现的次数除以文档中的总词数。得到的矩阵是文档术语矩阵，其中行表示句子或文档，列表示语料库中的唯一单词。</p>
+<p>通过查看各个向量之间的余弦角来计算查询与文档之间或文档之间的相似性分数。如果两个向量的余弦相似度接近
+1，则意味着这些文档按比例使用了相似的单词。同一组单词（完全匹配）需要以相似的比例出现，以提高它们的相似性分数。另外，它也不考虑同义词。</p>
+<p>（小编说：TF 一般与 IDF 结合使用）</p>
+<h3 id="f.-tf-idf-embedding">F. TF-IDF Embedding</h3>
+<p>在考虑词频（TF）与所在文档关系的基础上，还需要关注词在语料库中其他文档的重要性。例如，“的”这个词在所有文档中都很高频，但意义不大。我们更应该关注那些在特定文档中既高频又独特的单词。</p>
+<p>为减少常见词的影响，可以使用逆文档频率（IDF，Inverse Document
+Frequency）。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618182908.png" /></p>
+<p>其中 t 是特定的词语，D 是文档集合，N 是文档数，上述公式的分子是包含 t
+的文档数。</p>
+<p>（小编说，TF-IDF 也是目前常用的算法之一，优于 BOW 和 TF。BM25
+可以算是 TF-IDF 的进化版本，还考虑了词频饱和和文档长度。）</p>
+<h3 id="g.-语言的超空间模拟hal">G. 语言的超空间模拟（HAL）</h3>
+<p>这是一种基于共现的方法。它通过创建高维向量空间来捕捉词语之间的语义关系和上下文关联。</p>
+<p>HAL 中的共现矩阵是一个方阵，其中行和列等于词汇表大小
+|V|。上下文窗口跨越了几个单词。矩阵中的每个元素表示两个词在窗口内共同出现的次数或加权共现频率。HAL
+模型直观地捕捉了词语的上下文关系。</p>
+<p>缺点是它对窗口大小敏感，非常稀疏，且只能考虑窗口长度内的共现。</p>
+<p>（小编说：我觉得这种方法有点像 n-gram
+的扩展版本，相对于其它统计方法，它考虑到了上下文，但不如深度学习方法。现在实践中也没太见过直接使用，但可作为筛选关键字特征的方法）。</p>
+<h2 id="iv.-降维技术">IV. 降维技术</h2>
+<p>这一章介绍的是对离散向量空间的降维技术（Dimensionality Reduction
+Techniques），可以看作是对上一章内容的扩展。降维技术主要有两种类型：特征选择和特征转换。</p>
+<p>（小编说：这些方法一般都可以通过调用库来实现，只需大概了解其原理，具体细节请参见论文正文）</p>
+<h3 id="a.-特征选择">A. 特征选择</h3>
+<p>去掉了一些特征，主要有四种方法：文档频率（DF）、术语频率方差（TFV）、平均
+TF-IDF（TI）和信息增益（IG）。基本思路是排序后，选择前 k
+个或大于阈值的特征保留。</p>
+<p>（小编说：在机器学习中，经常需要从文本中提取一些重要的关键词作为特征。这里提供了多种提取和筛选方法，自己肯定想不出来，另外这些方法选出的特征具有实际意义。）</p>
+<h3 id="b.-特征变换">B. 特征变换</h3>
+<p>在特征变换中，将原来的高维空间投影到低维空间上。较低维度的每个维度都是原始空间中维度的线性或非线性组合。具体方法包括：</p>
+<ul>
+<li>潜在语义索引（LSI）：其核心思想是通过奇异值分解对词项 -
+文档矩阵进行降维。</li>
+<li>概率潜在语义索引（PLSI）：引入概率模型，尝试找到一些隐藏的主题。</li>
+<li>潜在狄利克雷分配（LDA）：使用贝叶斯推断方法，提供更严格和完善的概率模型。它允许文档在不同程度上展示多个主题，使用非线性统计算法对单词进行分组，更精确，但训练时间更长。</li>
+<li>独立成分分析（ICA）：将多变量信号分解为统计上独立的成分。</li>
+<li>随机索引（RI）：通过累积上下文中的词向量，构建词语或文档的语义向量。</li>
+</ul>
+<p>（小编说：这些方法可以看作是主成份分析的各种衍生。它们将文档抽象并投射到潜空间中，以更经济的方式描述，如多标签或多主题组合，只是这些标签无法用文字描述。）</p>
+<h2 id="v.-概念嵌入">V. 概念嵌入</h2>
+<p>概念嵌入也属于基于统计的方法。</p>
+<p>它将文本表示为一组预定的自然概念的加权混合。来自维基百科的概念有助于整合特定领域的世界知识，使语义表示更加细粒度。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618183014.png" /></p>
+<p>当文本被表示为概念的加权向量时，这些向量称为解释向量。每个单词被映射到其出现的概念列表中。语义解释器遍历给定文本中的单词，从索引中检索并合并它们相应的概念条目，将其组合成加权向量。该向量条目反映了相应概念与文本
+T 的相关性。</p>
+<p>特征生成过程通过对文档文本的上下文分析完成，文档被映射到维基百科或本体概念上以生成特征。</p>
+<p>（小编说：这个方法非常有启发性，虽然没有复杂的公式，但实用价值很高，对于大规模知识整合管理分类非常有效。此外，还可以与当前的大语言模型（LLM）结合，将复杂文档映射到人类能够理解的概念组合。这不仅让人更容易接受这些概念，还能将潜在空间中的概念与人类理解的概念联系起来。）</p>
+<h2 id="vi.-密度分布嵌入">VI. 密度分布嵌入</h2>
+<p>密度分布嵌入也是一种基于统计的方法。</p>
+<p>这种方法不是将单词投影到离散或连续向量空间中，而是使用基于密度的分布式嵌入来表示单词。通过从数据中学习均值和协方差矩阵，该方法能够捕获文本的细微特征。</p>
+<p>与仅基于词语出现频率的方法不同，密度分布嵌入通过计算局部密度分布来更精确地表示文本。密度通常是基于词语在其邻域（窗口）中的分布来计算的。通过平滑和降维技术，DDE
+可以生成更丰富和细致的文本嵌入向量。</p>
+<p>然而，由于是单峰的，这种方法类似于确定性方法，无法捕捉单词的多种含义。后来一些改进方法被提出，以解决这一问题。</p>
+<p>（小编说：这种方法相对复杂，sklearn
+中支持此方法，可直接调用。尽管与上下文相关，但由于它始终是一种统计方法，其理解力有限且相对复杂。我个人没太见过其具体应用）。</p>
+<h2 id="vii.-基于神经网络的嵌入">VII. 基于神经网络的嵌入</h2>
+<p>词嵌入将语言中单词或文本序列表示为实值数值向量。在基于神经网络的方法中，模型自动推导特征，这些特征隐式地表示语言的句法和语义。</p>
+<p>基于神经网络的技术大致分为基于特征的嵌入和基于微调的嵌入。基于特征的方法可以生成静态或动态嵌入。静态嵌入是非上下文的，无论上下文如何，嵌入都保持不变。这种嵌入使用浅层网络训练。动态嵌入中，同一单词的嵌入会根据上下文变化，从而解决单词多义性的问题。</p>
+<p>（小编说：并不是说新的复杂的一定比旧的简单的好，还是看应用场景）</p>
+<h3 id="a.-静态词嵌入">A. 静态词嵌入</h3>
+<p>先看看在不同任务中的效果。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618192618.png" /></p>
+<h4 id="word2vec">1) Word2Vec</h4>
+<p>参考文献《Efficient estimation of word representations in vector
+space》(2013)
+提出了两种使用前馈神经网络推导嵌入的方法。在连续词袋（CBOW）方法中，给定上下文，它预测目标单词。而在
+Skip-gram
+方法中，给定单词，它预测上下文。这两种架构都很简单，因为没有使用隐藏层，因此学习嵌入的计算复杂度要低得多。</p>
+<h4 id="glove">2) GloVe</h4>
+<p>GloVe
+是一个计数模型，通过全局词共现矩阵对整个词汇表进行统计，捕捉词与词之间的共现关系，并在此基础上进行优化。该方法结合了局部上下文窗口和全局矩阵分解技术，通过优化词共现矩阵的低秩近似来生成词向量。</p>
+<p>虽然构建全局词共现矩阵的计算量较大，但训练完成后，可以生成更稳定和一致的词向量。</p>
+<p>GloVe 模型还在单词相似性和命名实体识别 (NER)
+任务上进行了测试，其性能优于 SVD 和 CBOW。</p>
+<h4 id="fasttext">3) FastText</h4>
+<p>FastText 的核心原理与 Word2Vec
+类似，但它不仅考虑整个词语的表示，还会分析词语的子词（subword）。子词是字符级别的
+n-gram 组合，例如单个字符或连续字符二元组等。这种方法使 FastText
+能够更好地处理低频词汇，同时捕捉到词语内部的结构信息，如词缀和词根。因此，对于阿拉伯语、德语、英语等基于字母拼写的语言，效果更佳。</p>
+<h3 id="b.-动态嵌入">B. 动态嵌入</h3>
+<p>为解决单词在不同上下文中词义不同的问题，</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240618200827.png" /></p>
+<h4 id="context2vec-c2v">1) Context2Vec (C2V)</h4>
+<p>C2V 是一个无监督模型，利用双向 LSTM
+来学习目标词周围广泛感知上下文的通用（与任务无关）表示。<em>一个 LSTM
+从左到右处理输入，另一个从右到左处理。两个网络的参数是独立的，包括两组独立的从左到右和从右到左的词嵌入</em>。两个
+LSTM 的输出会被串联起来。</p>
+<h4 id="cove">2) CoVe</h4>
+<p>CoVe
+使用神经机器翻译编码器计算上下文化表示。它源自于为机器翻译任务训练的注意力
+seq-to-seq 模型的深度 LSTM
+编码器。<em>该方法先在机器翻译（MT）任务上训练一个 LSTM
+编码器，然后将其转移到 NLP 领域的其他任务中</em>。</p>
+<p>英语单词的 GloVe 嵌入被输入到 seq-to-seq 双向 LSTM 模型中。在训练完
+MT-LSTM 后，编码器的输出被视为 CoVe。与仅使用 GloVe 的模型相比，（CoVe +
+GloVe）在所有分类和问答任务上都实现了更高的验证性能。</p>
+<h4 id="通用语言微调模型-ulmfit">3) 通用语言微调模型 (ULMFiT)</h4>
+<p><em>使用语言建模（LM）任务进行预训练</em>。与机器翻译不同，LM
+的数据非常丰富。ULMFiT
+提出了一种称为判别微调的新颖微调方法，其中每一层都可以以不同的学习率进行调整，作者还提出了一种渐进解冻技术。这些方法使
+ULMFiT 方法能够在不同的数据集中表现良好。</p>
+<h4 id="来自语言模型的嵌入-elmo">4) 来自语言模型的嵌入 (ELMo)</h4>
+<p>使用双向 LSTM
+模型推导词嵌入。每个标记的上下文表示是从左到右和从右到左的串联。每个单词表示都是整个输入句子的函数。网络使用耦合语言模型（LM）目标进行训练。字符卷积作为内部网络状态的线性函数，从不同层次提取，每个层次都捕捉了不同粒度的语言信息。因此，ELMo
+学习的表示比传统词向量更深。较高级别的 LSTM
+状态捕获语义和上下文相关方面，而较低级别的 LSTM 状态侧重于句法方面。</p>
+<h4 id="生成预训练-gpt">5) 生成预训练 (GPT)</h4>
+<p>使用无监督预训练和监督微调的组合。每个 Transformer
+层都提供了更多的好处，因为它有助于提高精度。与 LSTM 相比，Transformer
+的注意力记忆有助于迁移。通过对具有长篇连续文本的多样化语料库进行预训练，GPT
+模型获得了重要的世界知识，并具备处理长程依赖关系的能力。</p>
+<h4 id="transformers-的双向编码器表示-bert">6) Transformers
+的双向编码器表示 (BERT)</h4>
+<p>BERT 框架主要有两个步骤——预训练和微调。它采用<em>双向 Transformer
+编码器</em>来融合左右上下文，以预测掩码词。随机屏蔽一些令牌，目的是根据这些令牌的上下文来预测其词汇
+ID。通过联合条件从左侧和右侧的上下文，预训练一个深度双向 Transformer
+编码器表示未标记文本。</p>
+<p>与 GPT 不同，GPT
+使用从左到右的架构，其中每个令牌只能关注自注意力层中的先前令牌。而在
+BERT 中，上下文从左到右都被考虑在内。与 ELMo 相比，ELMo
+完成的是独立学习嵌入的浅层串联，而 BERT 使用 MLM
+来实现深度双向表示。</p>
+<h4 id="统一预训练语言模型-unilm">7) 统一预训练语言模型 (UNILM)</h4>
+<p>BERT
+显著提高了各种自然语言理解任务的性能，但其双向性使其难以应用于自然语言生成任务。UNILM
+提供一个统一的框架来处理文本的理解、生成和推理。</p>
+<p>UNILM
+使用多任务学习的方法，通过共享模型参数和学习过程来提升模型的效率和泛化能力。多个任务使
+UNILM
+可以在不同的任务中共享和迁移知识，提高整体的性能和效果。可以同时用于自然语言理解
+NLU 和 自然语言生成 NLG 任务。</p>
+<p>（小编说：目前大家用得比较多的还是 BERT 和 GPT，GPT 更大更广，BERT
+更专，综合模型大小和对前后文的依赖，在词嵌入方面 BERT
+好像用得更多一些）</p>
+<h3 id="c.-基于微调的嵌入">C. 基于微调的嵌入</h3>
+<p>大多数关于词嵌入实现的研究通常集中在通用领域的文本生成上。而当模型应用于特定领域或任务时，微调效果更佳。</p>
+<p>（小编说：这里提到的模型不仅用于嵌入，还支持各种下游任务。模型微调的主要目标是针对特定任务，这也会改善嵌入效果。这里介绍几个与嵌入相关的主要方向。）</p>
+<h4 id="跨语言嵌入">1）跨语言嵌入</h4>
+<p>最近，跨语言方法激增，其中源语言（预训练）和目标语言（微调）是不同的。这种多语言方法导致了跨多种语言的嵌入。经过多语言训练的编码器可以将不同语言的句子编码到相同的嵌入（共享语义）空间中。</p>
+<p>这一节介绍了多个模型，它们通过不同的模型结构、选择训练任务以及优化训练策略等方法，提高了模型在多语言支持方面的性能。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240619085723.png" /></p>
+<h4 id="知识丰富的嵌入">2）知识丰富的嵌入</h4>
+<p>知识丰富嵌入（KEE）是包含来自外部来源（例如本体或<em>知识图谱</em>）的附加信息或知识的词嵌入。这有助于丰富嵌入，并在知识驱动的应用程序（例如实体类型和关系分类与提取）上获得更好的结果。</p>
+<p>本节介绍了知识图与大模型相结合的方法。使用知识图谱（KG）生成的知识嵌入（KE）有效地整合了实体及其关系信息。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240619090738.png" /></p>
+<h4 id="特定于域的嵌入">3）特定于域的嵌入</h4>
+<p>针对特定领域任务进行模型微调，例如将单词分布从通用领域转移到生物医学领域。在嵌入方面，使模型更好地理解术语和专业语境。以下介绍了如何针对医学领域对
+BERT 进行精调。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240619093755.png" /></p>
+<h4 id="多模态嵌入">4）多模态嵌入</h4>
+<p>通过深度神经网络，集成来自音频、视觉和文本模态的各种信息和特征，以创建更强大且增强的词嵌入。</p>
+<p>此节讨论了语音嵌入、图像嵌入和视频嵌入三个方向的模型实现。这不仅实现了语言与其他不同领域的对齐和映射，还考虑到了语言上下文的影响。这些模型多基于
+BERT 扩展。</p>
+<h4 id="特定于语言的嵌入">5）特定于语言的嵌入</h4>
+<p>特定语言的嵌入是在某种特定语言（如中文、法文、俄文）的庞大语料库上训练的单词嵌入。这些嵌入用于捕捉该语言中单词和短语之间的关系。一些实验表明，单一语言模型在自然语言理解（NLU）任务上表现更佳。</p>
+<p>（小编说：最直接的例子是我们看到一些中文大型语言模型在中文评测中得分很高。这得益于它们在大量中文标注数据上的训练。对于只需要处理中文的用户来说，这样的模型已经足够用了。）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/1024543869/">http://xyan666.com/posts/1024543869/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/58877/" title="开源项目_edge tts"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">开源项目_edge tts</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">671</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">84</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i.-%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">I. 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ii.-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">II. 正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iii.-%E7%A6%BB%E6%95%A3%E5%90%91%E9%87%8F%E7%A9%BA%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">III. 离散向量空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a.-onehot-%E5%B5%8C%E5%85%A5ohe"><span class="toc-number">5.1.</span> <span class="toc-text">A. OneHot 嵌入（OHE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b.-%E8%AF%8D%E8%A2%8B-bow"><span class="toc-number">5.2.</span> <span class="toc-text">B. 词袋 BOW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c.-%E5%9F%BA%E4%BA%8E%E7%B1%BB%E5%88%AB%E7%9A%84%E5%B5%8C%E5%85%A5cbe"><span class="toc-number">5.3.</span> <span class="toc-text">C. 基于类别的嵌入（CBE）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#d.-%E5%A4%9A%E8%AF%8D%E6%A0%87%E8%AE%B0-n-gram"><span class="toc-number">5.4.</span> <span class="toc-text">D. 多词标记 N-gram</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#e.-%E6%9C%AF%E8%AF%AD%E9%A2%91%E7%8E%87%E5%B5%8C%E5%85%A5-tf-embedding"><span class="toc-number">5.5.</span> <span class="toc-text">E. 术语频率嵌入 TF Embedding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#f.-tf-idf-embedding"><span class="toc-number">5.6.</span> <span class="toc-text">F. TF-IDF Embedding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#g.-%E8%AF%AD%E8%A8%80%E7%9A%84%E8%B6%85%E7%A9%BA%E9%97%B4%E6%A8%A1%E6%8B%9Fhal"><span class="toc-number">5.7.</span> <span class="toc-text">G. 语言的超空间模拟（HAL）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iv.-%E9%99%8D%E7%BB%B4%E6%8A%80%E6%9C%AF"><span class="toc-number">6.</span> <span class="toc-text">IV. 降维技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a.-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9"><span class="toc-number">6.1.</span> <span class="toc-text">A. 特征选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b.-%E7%89%B9%E5%BE%81%E5%8F%98%E6%8D%A2"><span class="toc-number">6.2.</span> <span class="toc-text">B. 特征变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v.-%E6%A6%82%E5%BF%B5%E5%B5%8C%E5%85%A5"><span class="toc-number">7.</span> <span class="toc-text">V. 概念嵌入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vi.-%E5%AF%86%E5%BA%A6%E5%88%86%E5%B8%83%E5%B5%8C%E5%85%A5"><span class="toc-number">8.</span> <span class="toc-text">VI. 密度分布嵌入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vii.-%E5%9F%BA%E4%BA%8E%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%B5%8C%E5%85%A5"><span class="toc-number">9.</span> <span class="toc-text">VII. 基于神经网络的嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#a.-%E9%9D%99%E6%80%81%E8%AF%8D%E5%B5%8C%E5%85%A5"><span class="toc-number">9.1.</span> <span class="toc-text">A. 静态词嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#word2vec"><span class="toc-number">9.1.1.</span> <span class="toc-text">1) Word2Vec</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#glove"><span class="toc-number">9.1.2.</span> <span class="toc-text">2) GloVe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fasttext"><span class="toc-number">9.1.3.</span> <span class="toc-text">3) FastText</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b.-%E5%8A%A8%E6%80%81%E5%B5%8C%E5%85%A5"><span class="toc-number">9.2.</span> <span class="toc-text">B. 动态嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#context2vec-c2v"><span class="toc-number">9.2.1.</span> <span class="toc-text">1) Context2Vec (C2V)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cove"><span class="toc-number">9.2.2.</span> <span class="toc-text">2) CoVe</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E8%AF%AD%E8%A8%80%E5%BE%AE%E8%B0%83%E6%A8%A1%E5%9E%8B-ulmfit"><span class="toc-number">9.2.3.</span> <span class="toc-text">3) 通用语言微调模型 (ULMFiT)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A5%E8%87%AA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B5%8C%E5%85%A5-elmo"><span class="toc-number">9.2.4.</span> <span class="toc-text">4) 来自语言模型的嵌入 (ELMo)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%A2%84%E8%AE%AD%E7%BB%83-gpt"><span class="toc-number">9.2.5.</span> <span class="toc-text">5) 生成预训练 (GPT)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transformers-%E7%9A%84%E5%8F%8C%E5%90%91%E7%BC%96%E7%A0%81%E5%99%A8%E8%A1%A8%E7%A4%BA-bert"><span class="toc-number">9.2.6.</span> <span class="toc-text">6) Transformers
+的双向编码器表示 (BERT)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B-unilm"><span class="toc-number">9.2.7.</span> <span class="toc-text">7) 统一预训练语言模型 (UNILM)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#c.-%E5%9F%BA%E4%BA%8E%E5%BE%AE%E8%B0%83%E7%9A%84%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.</span> <span class="toc-text">C. 基于微调的嵌入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%A8%E8%AF%AD%E8%A8%80%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.1.</span> <span class="toc-text">1）跨语言嵌入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E4%B8%B0%E5%AF%8C%E7%9A%84%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.2.</span> <span class="toc-text">2）知识丰富的嵌入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E4%BA%8E%E5%9F%9F%E7%9A%84%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.3.</span> <span class="toc-text">3）特定于域的嵌入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.4.</span> <span class="toc-text">4）多模态嵌入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%AE%9A%E4%BA%8E%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B5%8C%E5%85%A5"><span class="toc-number">9.3.5.</span> <span class="toc-text">5）特定于语言的嵌入</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1024543869/" title="论文阅读_嵌入_综述">论文阅读_嵌入_综述</a><time datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/58877/" title="开源项目_edge tts">开源项目_edge tts</a><time datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/39317/" title="试用_Claude3">试用_Claude3</a><time datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/197144014/" title="Obsidan插件开发">Obsidan插件开发</a><time datetime="2024-06-21T00:00:00.000Z" title="Created 2024-06-21 00:00:00">2024-06-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
