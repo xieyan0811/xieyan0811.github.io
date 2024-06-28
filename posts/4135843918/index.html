@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_基本于文本嵌入的信息提取 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1234567英文名：Embedding-based Retrieval with LLM for Effective Agriculture Information Extracting from Unstructured Data中文名：基于嵌入的检索，LLM 从非结构化数据中提取有效的农业信息地址: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2308.03107时间：2023-08-06">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_基本于文本嵌入的信息提取">
+<meta property="og:url" content="http://xyan666.com/posts/4135843918/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1234567英文名：Embedding-based Retrieval with LLM for Effective Agriculture Information Extracting from Unstructured Data中文名：基于嵌入的检索，LLM 从非结构化数据中提取有效的农业信息地址: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2308.03107时间：2023-08-06">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-06-28T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-28T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/4135843918/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_基本于文本嵌入的信息提取',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">676</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_基本于文本嵌入的信息提取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-28T00:00:00.000Z" title="Created 2024-06-28 00:00:00">2024-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-06-28T00:00:00.000Z" title="Updated 2024-06-28 00:00:00">2024-06-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RAG/">RAG</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_基本于文本嵌入的信息提取"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">英文名：Embedding-based Retrieval with LLM for Effective Agriculture Information Extracting from Unstructured Data</span><br><span class="line">中文名：基于嵌入的检索，LLM 从非结构化数据中提取有效的农业信息</span><br><span class="line">地址: https://arxiv.org/abs/2308.03107</span><br><span class="line">时间：2023-08-06 (v1)</span><br><span class="line">作者：Ruoling Peng,  Kang Liu, Po Yang, Zhipeng Yuan, Shunbao Li</span><br><span class="line">机构：谢菲尔德大学</span><br><span class="line">正文：4 页半</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>本文讨论了在将文本文件结构化过程中遇到的一类问题：如何规范化具有一定规律但又不完全符合定式的文档。这篇文章偏重应用，包含了大量具体的实验和设计过程，而不是纸上谈兵。文章内容巧妙结合了一些知识，同时保持了通用性。</p>
+<p>作者对相对通用的技术进行了限制优化，并应用于一个小的领域。此前需要复杂设计和编码才能完成的任务，现在全部由
+LLM 实现。具体方法包括编写一些行业相关的提示词和后处理步骤，然后调用 LLM
+将结构化文本转换为结构化文件。在这一过程中，嵌入技术起到了存储数据和通过含义提取特征（而非关键字硬匹配）的作用。</p>
+<p>其中比较有趣的一点是：对于一些难以设定的阈值，作者设计了与用户进行几轮交互以确定阈值。尽管这种方法看起来不高级，但确实实用。</p>
+<h2 id="摘要">2 摘要</h2>
+<p><strong>目标</strong>:
+解决农民难以准确识别害虫的问题。探索使用领域无关的通用预训练大型语言模型（LLM）从农业文档中提取结构化数据，以实现无人或最小干预。</p>
+<p><strong>方法</strong>: 提出了 FINDER
+系统，方法包括使用基于嵌入的检索进行文本检索和过滤，然后使用 LLM
+问答自动从文档中提取实体和属性，并将它们转换为结构化数据。</p>
+<p><strong>结果</strong>:
+与现有方法相比，该方法在基准测试中实现了更好的准确性，并保持了效率。</p>
+<h2 id="引言">3 引言</h2>
+<p>信息提取（IE）是从非结构化文本中提取信息并将其转换为结构化数据的过程。文档在原始形式下无法轻松分析或查询，因此需要进行信息提取才能在应用程序中使用。传统的
+IE 通常需要针对特定领域进行训练，并依赖手工规则进行提取。</p>
+<h2 id="finder">4 FINDER</h2>
+<p>IE 任务被分解成一个四阶段、多轮的问答过程，穿插 EBR
+来提取相关文本。这样可以避免 token 限制，降低成本。</p>
+<ul>
+<li>第一阶段：系统搜索用于描述文本中实体的单词。</li>
+<li>第二阶段：系统标识所有已描述的实体。</li>
+<li>第三阶段：系统提取描述性词所表示的属性。</li>
+<li>第四阶段：系统在文本中搜索描述这些属性的词，并将它们绑定到实体，形成结构化数据。</li>
+</ul>
+<p>最终，系统输出包含所有实体及其属性和描述的 JSON 文件集合。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620110018.png" /></p>
+<h3 id="ebr-过滤器">4.1 EBR 过滤器</h3>
+<p>输入的文档被分成小块，矢量化并存储在矢量数据库中。基于嵌入的检索（EBR）允许相似的文档在向量空间中更接近；可以通过计算文档和搜索内容之间的距离来确定相似性，从而完成检索任务。</p>
+<p>使用一些通用词查询数据库，例如：“外观、标识”。此查询应执行 k
+最近邻搜索，并返回多个最可能的结果及其与查询词的距离。然而，这些结果可能包含不相关的内容，因为没有标准距离来过滤它们。</p>
+<p>按距离从最小到最大进行排名，并应用类似于二进制搜索的过程（折半查找）。该列表根据距离的中位数分为两组：包含较短距离的集合称为集合
+A，另一组称为集合
+B。提取位于中间位置的结果，与用户交互。如果中位数位置的结果满足条件，则在集合
+B 中重复此过程；如果不满足，则在集合 A 中重复此过程。</p>
+<p>效果满意度取决于用户，一般重复两三次即可找到合理的阈值。</p>
+<h3 id="第一阶段">4.2 第一阶段</h3>
+<p>将 EBR 返回的过滤文件作为数据传给
+LLM，识别文本中的所有描述性单词，并以列表形式返回。</p>
+<h3 id="第二阶段">4.3 第二阶段</h3>
+<p>此阶段的目标是将从阶段 1 收集的描述性单词转换为属性。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620112833.png" /></p>
+<p>LLM
+可能会为相似的描述性词汇提供类似但不完全相同的属性。为了解决这个问题，可以汇总所有识别出的属性，并使用
+LLM
+进行过滤，保留意义相似的最常见属性。这种方法有助于避免冗余，同时尽量减少成本增加。</p>
+<h3 id="第三阶段">4.4 第三阶段</h3>
+<p>利用 LLM
+从文本中提取主题，这对应于自然语言处理（NLP）中的命名实体识别（NER）技术。FINDER
+在处理与农业和昆虫相关的信息时，只关注物理对象。即使存在许多实体，提取的唯一实体是成虫和幼虫，而其他如触角、腿、头部应被忽略。</p>
+<h3 id="第四阶段">4.5 第四阶段</h3>
+<p>EBR
+过滤器再次被使用。根据上述步骤获得的结果，可以识别原始数据中描述的可能属性和实体列表。然后，将包含被调查实体的所有句子以及我们旨在识别的属性提交给
+LLM。LLM 的作用是匹配实体和属性。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620113636.png" /></p>
+<h2 id="实验">5 实验</h2>
+<p>系统的流水线由六部分组成，其中两部分是 EBR
+滤波算法，最后一步是结果输出。第二阶段是属性提取，第三阶段是实体提取，第四阶段是最终属性
+- 实体匹配，这三个阶段都使用 LLM。实验将分别评估这三个部分的性能。</p>
+<p>LLM 使用的是 gpt-3.5-turbo，人工评估员将评估 LLM
+输出的“真”或“假”。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620114101.png" /></p>
+<p>Precision AC. 和 Recall AC.
+是具有可接受答案的精度/召回率。答案由人工检查，并与人工注释的答案进行比较</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/4135843918/">http://xyan666.com/posts/4135843918/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/2976575468/" title="论文阅读_优化RAG系统的检索"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_优化RAG系统的检索</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2976575468/" title="论文阅读_优化RAG系统的检索"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">论文阅读_优化RAG系统的检索</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/32310/" title="论文阅读_世界模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">论文阅读_世界模型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">676</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">3 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finder"><span class="toc-number">4.</span> <span class="toc-text">4 FINDER</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ebr-%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 EBR 过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 第一阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 第二阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%98%B6%E6%AE%B5"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 第三阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E9%98%B6%E6%AE%B5"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 第四阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 实验</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4135843918/" title="论文阅读_基本于文本嵌入的信息提取">论文阅读_基本于文本嵌入的信息提取</a><time datetime="2024-06-28T00:00:00.000Z" title="Created 2024-06-28 00:00:00">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2976575468/" title="论文阅读_优化RAG系统的检索">论文阅读_优化RAG系统的检索</a><time datetime="2024-06-27T00:00:00.000Z" title="Created 2024-06-27 00:00:00">2024-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/58877/" title="开源项目_edge tts">开源项目_edge tts</a><time datetime="2024-06-26T00:00:00.000Z" title="Created 2024-06-26 00:00:00">2024-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/39317/" title="试用_Claude3">试用_Claude3</a><time datetime="2024-06-26T00:00:00.000Z" title="Created 2024-06-26 00:00:00">2024-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-06-26T00:00:00.000Z" title="Created 2024-06-26 00:00:00">2024-06-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
