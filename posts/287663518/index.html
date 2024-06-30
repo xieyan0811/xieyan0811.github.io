@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_基于多模态嵌入的产品搜索 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="12345678英文名：Que2Engage: Embedding-based Retrieval for Relevant and Engaging Products at Facebook Marketplace中文名：Que2Engage：基于嵌入的检索功能，在 Facebook Marketplace 上搜索相关且引人入胜的产品地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2302.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_基于多模态嵌入的产品搜索">
+<meta property="og:url" content="http://xyan666.com/posts/287663518/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="12345678英文名：Que2Engage: Embedding-based Retrieval for Relevant and Engaging Products at Facebook Marketplace中文名：Que2Engage：基于嵌入的检索功能，在 Facebook Marketplace 上搜索相关且引人入胜的产品地址：https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2302.1">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-06-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-30T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/287663518/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_基于多模态嵌入的产品搜索',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-30 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">678</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_基于多模态嵌入的产品搜索</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-30T00:00:00.000Z" title="Created 2024-06-30 00:00:00">2024-06-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-06-30T00:00:00.000Z" title="Updated 2024-06-30 00:00:00">2024-06-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/RAG/">RAG</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_基于多模态嵌入的产品搜索"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">英文名：Que2Engage: Embedding-based Retrieval for Relevant and Engaging Products at Facebook Marketplace</span><br><span class="line">中文名：Que2Engage：基于嵌入的检索功能，在 Facebook Marketplace 上搜索相关且引人入胜的产品</span><br><span class="line">地址：https://arxiv.org/abs/2302.11052v1</span><br><span class="line">时间：21 Feb 2023（v1）</span><br><span class="line">作者：He Yunzhong and Tian Yuxin and Wang Mengjiao and Chen Feier and Yu Licheng and Tang Maolong and Chen Congcong and Zhang Ning and Kuang Bin and Prakash Arul</span><br><span class="line">机构：Meta，加州大学默塞德分校</span><br><span class="line">出处：会议：2023 年 ACM 网络会议的配套论文集</span><br><span class="line">正文：4 页</span><br></pre></td></tr></table></figure>
+<h1 id="读后感">1 读后感</h1>
+<p>论文优化了 Facebook Marketplace 中的搜索功能。Facebook Marketplace
+是一个电子商务平台，通过用户的个人资料和地理位置信息帮助买卖双方更便捷地联系。</p>
+<p>产品搜索是一个多段式操作。搜索检索系统通常侧重于查询与产品之间的语义相关性，而搜索排名则更强调对产品进行排序以提高用户参与度，也就是说：产品字面意思与搜索关键字一致的，但并不一定能提升用户参与度（点击、浏览、购买等行为）。这篇文章旨在弥合检索和排名之间的差距，并涉及对多模态数据（图像/文本）的编码。</p>
+<p>作者提出了许多在实际场景中才会被注意到的问题，使用双塔结构模型，在两侧分别使用不同方法优化。本文很好地展示了如何融合多种模型的学习和多种方法的编码。</p>
+<h1 id="摘要">2 摘要</h1>
+<p><strong>目标</strong>: 提出
+Que2Engage，一个旨在优化电子商务搜索系统中检索和排序之间整体搜索体验的嵌入式检索系统。</p>
+<p><strong>方法</strong>:
+采用多模态和多任务方法，将上下文信息融入检索阶段，并在不同业务目标之间取得平衡，通过多任务评估框架进行全面的基线比较和消融研究。</p>
+<p><strong>结果</strong>: Que2Engage 在部署到 Facebook Marketplace
+搜索引擎后，两周的 A/B 测试中显示出用户参与度的显著提升。</p>
+<h2 id="引言">1 引言</h2>
+<p>基于嵌入的搜索（EBR）侧重于学习搜索查询和文档的嵌入表示，以便通过近似近邻（ANN）搜索检索到语义上接近搜索查询的文档。然而，搜索引擎通常是针对多个业务目标进行优化的复杂多阶段系统，因此简单地优化语义相关性可能并不总是能带来最佳结果。需要考虑结合检索和排序两方面。其困难如下：</p>
+<ul>
+<li>基于对比学习的传统 EBR
+建模技术过分强调语义相关性，天真地应用上下文信息可能效果不佳。</li>
+<li>产品在语义上与查询相关并不意味着它对搜索者有吸引力，同时保持相关性和参与度具有挑战性。</li>
+</ul>
+<p>本文介绍了 Que2Engage，它扩展了 Que2Search
+以解决上述挑战。采用多模态方法，将上下文信号作为一种独特的模态整合到其
+Transformer
+融合主干中。该模型采用多任务学习进行训练，将对比学习与排名器式训练相结合，不仅可以检索语义相关的产品，还可以像重新排名模型一样提升更具吸引力的产品。</p>
+<h2 id="模型">2 模型</h2>
+<p>框架设计为双塔神经网络，由查询塔和文档塔组成，分别用于学习搜索查询和电子商务产品的嵌入表示。产品的多模态和上下文信息通过转换器融合方法构建文档塔，并通过多任务学习进行训练。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620175653.png" /></p>
+<h3 id="模型架构">2.1 2.1.模型架构</h3>
+<h4 id="查询塔">2.1.1  查询塔</h4>
+<p>采用一种多粒度的搜索查询表示方法，包括原始查询文本和查询的字符三元组（Trigrams，三个字符为一组的基于统计的方法）。原始查询文本通过一个两层的
+XLM 编码器进行编码，而字符三元组则使用 EmbeddingBag
+编码器进行处理。与之前的方法不同，使用了串联这两种表示方式，而不是通过注意力机制融合它们，随后将结果输入到最终的
+MLP 层。</p>
+<h4 id="背景信息作为一种模态">2.1.2 背景信息作为一种模态</h4>
+<p>在多模态框架中，上下文信息被视为一种独特的模态。对于候选产品列表，使用文档塔中的基于
+MLP
+的编码器来编码其上下文信息，例如价格、类别和创建时间。数值特征表示为单个神经元，分类特征使用单热编码表示。所有上下文要素都连接起来，然后送到
+BatchNorm 层，再传递到最终的
+MLP。这确保了固定的数值量度和固定的输出长度。</p>
+<h4 id="多模态融合">2.1.3 多模态融合</h4>
+<p>借用了在 transformer-fusion
+架构中使用的方法，将文本令牌（包括产品标题和描述）、图像令牌和上下文令牌串联后，输入到多模态融合编码器中。文本编码器和多模态融合编码器是从多语言模型
+XLM-R 的 6 层初始化的。文本编码器继承了前 K
+层，多模态融合模型继承了剩余的 M
+层。在多模态融合编码器的最后一层，提取标记的隐藏输出，并将其投影到所需维度，作为最终的文档嵌入。</p>
+<h4 id="模态-dropout">2.1.4  模态 dropout</h4>
+<p>为了确保模型不会过度依赖单一模态，并且在推理过程中能够处理缺失的信息，引入了模态丢弃机制。该机制随机屏蔽了上下文编码器、图像编码器和文本编码器的输出。</p>
+<h4 id="学习图像表示">2.1.5  学习图像表示</h4>
+<p>探索了两种图像编码器变体，以从产品图像中捕获视觉信息。测试了 GrokNet
+模型和 CommerceMM 模型，结果显示微调后的 CommerceMM 模型表现更佳。</p>
+<h3 id="多任务训练">2.2 多任务训练</h3>
+<h4 id="对比学习">2.2.1 对比学习</h4>
+<p>采用基于批量负采样的约束性学习方法，其中正样本为用户参与的“查询”，这些查询来自去标识化和聚合后的搜索日志中抽取的产品对。负样本通过在
+mini-batch 中随机组合查询和正样本中的产品生成。</p>
+<h4 id="学习情境信息">2.2.2 学习情境信息</h4>
+<p>上述负采样无法充分学习用户参与度的语境信息。例如，产品价格这样的因素是识别相关产品中引人注目的关键（如价格不合理）。因此，作者提出了一种辅助训练任务，直接优化模型以找出在相关产品中引人注目的产品。具体来说，我们将&lt;查询，产品&gt;对中的未获得搜索者参与的样本作为难负例加入到训练集中。</p>
+<h2 id="离线实验">3 离线实验</h2>
+<p>从 Facebook Marketplace 的搜索日志中，收集了 1.5
+亿次查询与产品的匹配记录。其中，7500
+万次记录作为正面样本，接收了下游互动；其余 7500
+万次记录作为负面样本，没有接收到互动。为了进行离线评估，收集了 26k
+条人工评定数据，用于相关性评估。这些人工评分数据集是通过让评分者决定结果是否与查询相关来生成的。</p>
+<p>所有模型均使用 PyTorch 多模态框架在 Nvidia A100 GPU 上开发。</p>
+<p>消融实验结果如下，其中选择 Que2Search
+问题作为基线模型。Relevance（相关性）评价的是查询与产品的相似度，engagement（参与度：点击、浏览、购买等行为）评价的是排序任务中的表现。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240620175944.png" /></p>
+<h2 id="在线实验">4 在线实验</h2>
+<p>在 Facebook Marketplace Search 上部署了
+Que2Engage，作为传统基于词汇的搜索检索的并行检索源。将 Que2Engage 与
+Que2Search 进行了比较。为期两周的在线 A/B 测试表明，Que2Engage
+将在线搜索者的参与度提高了 4.5%，同时保持 NDCG
+中立。这与我们的离线多任务评估结果一致。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/287663518/">http://xyan666.com/posts/287663518/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/1148300883/" title="论文阅读_基于嵌入的Facebook搜索"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_基于嵌入的Facebook搜索</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2976575468/" title="论文阅读_优化RAG系统的检索"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-27</div><div class="title">论文阅读_优化RAG系统的检索</div></div></a></div><div><a href="/posts/564731058/" title="使用OpenAI嵌入进行向量搜索：只需Lucene"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-26</div><div class="title">使用OpenAI嵌入进行向量搜索：只需Lucene</div></div></a></div><div><a href="/posts/4135843918/" title="论文阅读_基本于文本嵌入的信息提取"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-28</div><div class="title">论文阅读_基本于文本嵌入的信息提取</div></div></a></div><div><a href="/posts/1148300883/" title="论文阅读_基于嵌入的Facebook搜索"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-29</div><div class="title">论文阅读_基于嵌入的Facebook搜索</div></div></a></div><div><a href="/posts/23356/" title="论文阅读_MoE_Switch Transformers"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-11</div><div class="title">论文阅读_MoE_Switch Transformers</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">678</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">102</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 2.1.模型架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%A1%94"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">2.1.1  查询塔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E4%BF%A1%E6%81%AF%E4%BD%9C%E4%B8%BA%E4%B8%80%E7%A7%8D%E6%A8%A1%E6%80%81"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">2.1.2 背景信息作为一种模态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">2.1.3 多模态融合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E6%80%81-dropout"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">2.1.4  模态 dropout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">2.1.5  学习图像表示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E4%BB%BB%E5%8A%A1%E8%AE%AD%E7%BB%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 多任务训练</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">2.2.1 对比学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E6%83%85%E5%A2%83%E4%BF%A1%E6%81%AF"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">2.2.2 学习情境信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.3.</span> <span class="toc-text">3 离线实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.4.</span> <span class="toc-text">4 在线实验</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/287663518/" title="论文阅读_基于多模态嵌入的产品搜索">论文阅读_基于多模态嵌入的产品搜索</a><time datetime="2024-06-30T00:00:00.000Z" title="Created 2024-06-30 00:00:00">2024-06-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1148300883/" title="论文阅读_基于嵌入的Facebook搜索">论文阅读_基于嵌入的Facebook搜索</a><time datetime="2024-06-29T00:00:00.000Z" title="Created 2024-06-29 00:00:00">2024-06-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4135843918/" title="论文阅读_基本于文本嵌入的信息提取">论文阅读_基本于文本嵌入的信息提取</a><time datetime="2024-06-28T00:00:00.000Z" title="Created 2024-06-28 00:00:00">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/197144014/" title="Obsidan插件开发">Obsidan插件开发</a><time datetime="2024-06-28T00:00:00.000Z" title="Created 2024-06-28 00:00:00">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-06-28T00:00:00.000Z" title="Created 2024-06-28 00:00:00">2024-06-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
