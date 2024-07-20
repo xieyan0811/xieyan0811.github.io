@@ -1,0 +1,523 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_语音_FunAudioLLM_阿里的音频模型 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="123456789英文名称: FunAudioLLM: Voice Understanding and Generation Foundation Models for Natural Interaction Between Humans and LLMs中文名称: FunAudioLLM: 人与LLMs之间自然互动的语音理解和生成基础模型论文地址: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;24">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_语音_FunAudioLLM_阿里的音频模型">
+<meta property="og:url" content="http://xyan666.com/posts/4017659583/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="123456789英文名称: FunAudioLLM: Voice Understanding and Generation Foundation Models for Natural Interaction Between Humans and LLMs中文名称: FunAudioLLM: 人与LLMs之间自然互动的语音理解和生成基础模型论文地址: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;24">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-07-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-07-20T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/4017659583/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_语音_FunAudioLLM_阿里的音频模型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-20 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">686</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_语音_FunAudioLLM_阿里的音频模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-07-15T00:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-20T00:00:00.000Z" title="Updated 2024-07-20 00:00:00">2024-07-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>15min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_语音_FunAudioLLM_阿里的音频模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">英文名称: FunAudioLLM: Voice Understanding and Generation Foundation Models for Natural Interaction Between Humans and LLMs</span><br><span class="line">中文名称: FunAudioLLM: 人与LLMs之间自然互动的语音理解和生成基础模型</span><br><span class="line">论文地址: http://arxiv.org/abs/2407.04051v3</span><br><span class="line">相关论文：https://fun-audio-llm.github.io/pdf/CosyVoice_v1.pdf</span><br><span class="line">代码: https://github.com/FunAudioLLM</span><br><span class="line">官网介绍：https://fun-audio-llm.github.io/</span><br><span class="line">作者: Tongyi SpeechTeam</span><br><span class="line">机构: 阿里巴巴集团，通义Speech团队</span><br><span class="line">日期: 2024-07-04</span><br></pre></td></tr></table></figure>
+<h1 id="读后感">读后感</h1>
+<p>FunAudioLLM 工具集在 24 年 7
+月初开源，核心包含两个语音模型：SenseVoice 和 CosyVoice。</p>
+<p>模型（SenseVoice 和 CosyVoice）已在 Modelscope 和 Huggingface
+上开源，并且 GitHub
+上也发布了相应的训练、推理和微调代码。通过将这些模型与 LLMs
+集成，FunAudioLLM
+实现了多种应用，例如：语音到语音翻译、情感语音聊天、互动播客和富有表现力的有声书叙述。这些应用推动了语音交互技术的发展。</p>
+<p>从算法角度来看，作者巧妙地结合了语音合成和语音识别。通过利用中间结果来优化
+Speech Tokens，从而得到了效果更好的码表。</p>
+<p>从训练数据来看，这些模型主要针对中文进行了优化。</p>
+<h1 id="摘要">摘要</h1>
+<p><strong>目标</strong>：介绍 FunAudioLLM
+模型家族，旨在增强人类与大型语言模型（LLMs）之间的自然语音交互。</p>
+<p><strong>方法</strong>：引入两个创新模型：SenseVoice
+处理多语言语音识别、情感识别和音频事件检测；CosyVoice
+促进多语言语音生成，具有对多种语言、音色、说话风格和说话人身份的控制。</p>
+<p><strong>结论</strong>：SenseVoice-Small 为
+中文、英文、粤语、日文、韩文 5 种语言提供极低延迟的 ASR，性能比
+Whisper-small 快 5 倍以上；SenseVoice-Large 支持 50 余种语言的高精度
+ASR，在中文和粤语方面相较 Whisper 提升很大。CosyVoice
+支持五种语言：中文、英文、日文、粤语和韩文，在零次学习上下文、跨语言语音克隆和遵循指令等方面表现出色。</p>
+<h2 id="funaudiollm-模型">1 FunAudioLLM 模型</h2>
+<h3 id="funaudiollm-概述">1.1 FunAudioLLM 概述</h3>
+<p>SenseVoice 支持多语言语音识别，经过超过 300k 小时的训练。</p>
+<p>CosyVoice 可以生成多语言语音，经过超过 170k
+小时的训练，支持五种语言，包括中文（ZH）、英文（EN）、日语（JP）、粤语（Yue）和韩语（KO）。</p>
+<h3 id="语音理解模型sensevoice">1.2 语音理解模型：SenseVoice</h3>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715150050.png" /></p>
+<p>图 2：SenseVoice
+旨在执行各种语音理解任务，包括自动语音识别（ASR）、语言识别（LID）、语音情感识别（SER）和音频事件检测（AED）。SenseVoice-Small（上）：这是一款专为快速语音理解而优化的<em>仅编码器模型</em>。它提供高速处理，同时支持五种语言。SenseVoice-Large（下）：这是一种编码器
+- 解码器模型，旨在实现更广泛语言范围内更精确的语音理解。</p>
+<p><strong>SenseVoice-Small</strong>
+是一个非自回归的编码器模型，适用于多语言、多风格的语音识别以及多个语音理解任务。对于给定输入的音频波形，首先计算
+80 维的对数梅尔滤波器组特征，然后将连续帧堆叠并下采样 6
+倍。这些提取特征被映射到编码器的维度，记为𝑋speech∈ℝ𝑇×𝐷，其中𝑇是下采样特征的长度。<em>编码器是一个带有记忆功能的自注意力网络</em>。为了指定任务，在语音特征前添加四个嵌入，作为编码器的输入。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715152336.png" /></p>
+<p>𝑉′ 是词汇表，包括用于 ASR 和其他任务的令牌，e 是四个任务嵌入：</p>
+<ul>
+<li>LID：语音对应的语言，如：中/英文。</li>
+<li>SER：语音情感标签，如：高兴、悲伤、生气、害怕等。</li>
+<li>AEC：音频事件标签，如：音乐、掌声和笑声等。</li>
+<li>ITN/NoITN：将语音转换成带有或不带正确标点和格式的文字。</li>
+</ul>
+<p>在训练阶段，LID、SER 和 AEC 任务使用交叉熵损失进行优化。ASR 任务使用
+CTC 损失进行优化，它的输入输出均为序列数据，CTC
+损失的最大优点是能够处理输入和输出序列长度不一致的情况，并允许网络在输出序列中插入空白符号。</p>
+<p><strong>SenseVoice-Large</strong> 是一种自回归编码器 -
+解码器模型，专用于多语言语音识别（ASR）和多种语音理解任务。类似于
+Whisper，SenseVoice-Large 通过一系列输入令牌到解码器来指定任务。</p>
+<p>SenseVoice
+具有强大的富文本识别能力，不仅能识别情感，还支持声音事件检测功能。它可以检测到音乐、掌声、笑声、哭声、咳嗽和喷嚏等多种常见的人机交互事件。从表
+1 中可以看到，SenseVoice 识别到的情绪符号如下：</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715153839.png" /></p>
+<h3 id="语义语音分词器">1.3 语义语音分词器</h3>
+<p>语音标记器将语音信号转换为离散标记 (原理见 <a
+href="/posts/8566">论文阅读_语音表示_HuBERT</a>)，从而可以通过自回归转换器进行建模和预测以生成语音。无监督或自监督训练的分词器通常与语义内容的关联较弱，导致合成过程不稳定，并且对干净的训练数据需求量大。</p>
+<p>在 SenseVoice
+模型成功的基础上，作者引入了一种监督语义语音标记器，称为 S3。</p>
+<p>基于预训练的 SenseVoice-Large
+模型，在编码器的前六层后加入了一个向量量化器，如图 -3
+所示。量化后加入了额外的位置嵌入以增强时间信息。<em>Encoder1
+和向量量化器组合后作为语音分词器</em>，使用最接近码向量的索引作为语音标记。<em>此向量量化器使用一个包含
+4,096 个条目的大词典</em>。得到的标记序列频率为 50
+Hz，从而减少了语言模型中从文本到标记生成的计算负担。</p>
+<p>由于语音分词器经过端到端训练以减少文本识别错误，提取的标记与文本和副语言信息有很强的语义关系。此外，S3
+分词器通过监督训练，提高了对数据噪声的鲁棒性，减少了对高质量数据收集的依赖，因此可以使用更广泛的数据来训练模型。这优化了后续的语音合成模型。</p>
+<figure>
+<img src="support/attachments_2024/Pasted%20image%2020240715154747.png"
+alt="|500" />
+<figcaption aria-hidden="true">|500</figcaption>
+</figure>
+<h3 id="语音合成模型cosyvoice">1.4 语音合成模型：CosyVoice</h3>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715155637.png" /></p>
+<p>CosyVoice
+是一种语音生成模型，能够生成自然的语音，适用于多种应用场景。它可以处理多语言语音生成，<em>在没有训练的情况下适应新说话者</em>，跨语言复制声音，创建带有情感的语音，并通过指令文本对语音输出进行精细调整。CosyVoice
+支持五种语言，包括中文、英语、日语、粤语和韩语。</p>
+<p>我们推出了三个开源模型：第一个是
+CosyVoice-base-300M，它擅长准确代表说话者身份，无需微调即可适应不同上下文，还可以跨语言<em>克隆声音</em>。第二个是
+CosyVoice-instruct-300M，它擅长生成带有情感的语音，并允许通过<em>指令文本</em>进行精细调整。最后一个是
+CosyVoice-sft-300M，该模型在七个多语言说话者上进行了微调，可以立即使用。这些模型共享相同的架构和学习框架。</p>
+<h4 id="cosyvoice-原理">1.4.1 CosyVoice 原理</h4>
+<p>CosyVoice 结合了基于 Transformer
+的自回归语言模型（LM），为输入文本生成语音标记。出下内容来自 CosyVoice
+论文。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240708154835.png" /></p>
+<p>如图 1 所示，其中 b 为主图，a 和 c
+分别与绿色和黄色模块相关。CosyVoice
+由四个组件组成：文本编码器（红）、语音标记器（绿）、大型语言模型（白）和条件流匹配模型（黄）。</p>
+<h5 id="有监督语音的语义标记">1.4.1.1 有监督语音的语义标记</h5>
+<p>在 CosyVoice
+中，使用了一个有监督的自动语音识别（ASR）模型来生成语音的语义标记，如图
+1(a) 所示。这个模型是阿里自有的 SenseVoice ASR
+模型的微调版本。不同于原始的 ASR
+模型，这里将编码器分成两部分，并在中间插入一个矢量量化层。输入一个 Mel
+频谱图后，它会经过位置编码和第一个编码器，以获得上下文感知的表示：</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708172143.png"
+alt="|350" />
+<figcaption aria-hidden="true">|350</figcaption>
+</figure>
+<p>接下来，使用向量量化器（VQ）来获得离散的语音标记。在每个时间点，最近的嵌入索引作为语音标记。计算公式为：</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708172158.png"
+alt="|400" />
+<figcaption aria-hidden="true">|400</figcaption>
+</figure>
+<p>训练阶段，通过指数移动平均（EMA）更新码表嵌入：</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708172213.png"
+alt="|300" />
+<figcaption aria-hidden="true">|300</figcaption>
+</figure>
+<p>其中α是预设的衰减系数。这些更新后的代表嵌入作为量化后的隐藏表示，传递给剩余的编码器层进行处理：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240708172416.png"
+alt="|200" /><br />
+</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708172438.png"
+alt="300" />
+<figcaption aria-hidden="true">300</figcaption>
+</figure>
+<p>在后面的编码层之前，我们添加了一个额外的位置编码来增强时间信息。在
+Encoder2 之后，跟随一个基于 transformer 的 ASR
+解码器，预测文本标签的后验概率。</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708172733.png"
+alt="|300" />
+<figcaption aria-hidden="true">|300</figcaption>
+</figure>
+<p>小编说：与其它工具相比，在 ASR 过程中产出的 speech
+tokens，可将它看作是码表的调优。</p>
+<h5 id="tts-的大型语言模型">1.4.1.2 TTS 的大型语言模型</h5>
+<p>将 TTS 任务表示为使用大语言模型（LLM）的自回归语音生成问题。对于
+LLM，序列构建是最重要的，如下所示：</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708173853.png"
+alt="|300" />
+<figcaption aria-hidden="true">|300</figcaption>
+</figure>
+<p>开始 S 和结束 E 表示序列的起始和结束。v 是从语音 X
+中提取的说话人嵌入向量，通过预训练声纹模型获得。文本编码是通过将文本传递给字节对编码（BPE）分词器和文本编码器得到的：</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708173947.png"
+alt="|300" />
+<figcaption aria-hidden="true">|300</figcaption>
+</figure>
+<p>由于文本和语音标记在不同的语义层次上，因此使用文本编码器进行对齐。</p>
+<p>在训练阶段，使用教师强迫机制，即用左移的序列作为模型输入，原始序列作为期望输出。</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240708174222.png"
+alt="|300" />
+<figcaption aria-hidden="true">|300</figcaption>
+</figure>
+<h5 id="最优传输条件流匹配">1.4.1.3 最优传输条件流匹配</h5>
+<p>CosyVoice
+使用了一种称为最优传输条件流匹配模型（OT-CFM）的方法，来学习 Mel
+频谱图的分布，并根据生成的语音标记来生成样本。在连续时间规范化流（CNFs）中，它从一个初始分布到
+Mel 频谱图的数据分布之间构建了一条概率路径。如图 1(c) 所示。</p>
+<p>该方法通过一个随时间变化的矢量场来描述语音信号的变化，这个矢量场由一个神经网络来学习。通过解决一个特定的数学问题，即常微分方程，我们可以近似生成语音的分布，并从中采样生成语音。</p>
+<p>在训练阶段，自回归语言模型（LM）使用教师强制范式进行训练。此过程中，提供标记化文本和左移版本的语音令牌作为输入，以预测后续的语音令牌（Speech
+tokens）。</p>
+<h4 id="模型训练">1.4.2 模型训练</h4>
+<p>在训练阶段，自回归语言模型（LM）采用教师强制范式进行训练。在此过程中，输入的是左移版本的标记化文本和语音令牌，以预测后续的语音令牌（Speech
+tokens）。</p>
+<p>流匹配模型（The flow matching model）用于估计条件概率 P(S|X, v,
+Sref)。其中，X 和 v 分别表示语音片段和说话人嵌入，S 和 Sref
+分别表示目标和参考语音的梅尔频谱。该模型使用卷积 Transformer U-Net
+来确定最优传输 ODE
+中先验分布与目标分布之间的矢量场。在推理阶段，只需五到十次迭代即可生成令人满意的梅尔频谱图。此外，还采用无分类器指导技术，通过屏蔽
+70% 到 100% 的前置特征条件来增强上下文学习能力。</p>
+<p>在从预测的梅尔频谱图合成波形时，我们使用改进的 HiFTNet
+声码器，以支持流式生成。详细调整请参见代码发布。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715162745.png" /></p>
+<h4 id="零样本上下文学习">1.4.3 零样本上下文学习</h4>
+<p>CosyVoice
+模型具有零样本上下文学习能力，只需一个简短的语音样本就能复刻任意声音。在过程中，需要构建输入序列，如图
+5
+所示。对于同一语言的提示语音和输入文本，将它们合并成一个统一的输入，并将提示语音标记视为预生成内容。使用这个输入序列，自回归
+LM 会逐步预测下一个标记，直到遇到“序列结束”标记
+E。如果提示语音和输入文本是不同语言，会忽略与提示相关的文本和标记，<em>以防止原语言韵律特征影响目标语言</em>。提示文本（Prompt
+Text）可以通过人工注释或 ASR 模型（如
+SenseVoice）进行转录，而提示标记（Prompt Speech Token）是通过 S3
+分词器从提示语音中提取出来的。</p>
+<p>在生成语音标记后，将其附加在提示标记之后，形成一个复合条件以供流匹配模型使用。此外，还会结合说话人的嵌入（Spk
+Emb）和 Mel 频谱图，以进一步增强音色和环境的一致性。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715162810.png" /></p>
+<h4 id="指令微调">1.4.4 指令微调</h4>
+<p>为了提升 CosyVoice
+的可控性，我们进行了额外的指令微调实验。CosyVoice-instruct 在
+CosyVoice-base
+的基础上增强了指令跟随能力，支持对说话人身份（即说话者的特征）、说话风格（包括情感、性别、语速和音高）以及细粒度副语言特征的控制。这些特征包括插入笑声、呼吸声、边笑边说以及强调某些词。表
+3 展示了说话人身份、说话风格和细粒度副语言特征的一些例子。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715163647.png" /></p>
+<h2 id="数据集">2 数据集</h2>
+<h3 id="sensevoice-的训练集">2.1 SenseVoice 的训练集</h3>
+<p>SenseVoice-Small 模型在大约 30
+万小时的广泛音频数据语料上进行了训练，涵盖中文、粤语、英语、日语和韩语等五种语言。为进一步提升
+SenseVoice-Large 的多语种能力，训练语料库中额外整合了 10
+万小时的多语种数据。</p>
+<p>为了从语音数据中获得丰富的转录标签，我们利用开源的音频事件检测（AED）和语音情感识别（SER）模型来生成伪标签，从而产生广泛而丰富的转录数据集。具体来说，AED
+数据为 1.5 亿个条目，而 SER 数据为 3000 万个条目。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715174924.png" /></p>
+<h3 id="cosyvoice-的训练集">2.2 CosyVoice 的训练集</h3>
+<p>我们使用专门的内部工具进行语音检测、信噪比（SNR）估计、说话人分类和分离。随后，利用
+SenseVoice-Large 和 Paraformer
+生成伪文本标签。通过力对齐（FA）模型，这些标签得到了细化。这有助于消除低质量数据并提高标点符号的准确性。表
+4 提供了各种语言的训练数据持续时间的全面细分。</p>
+<figure>
+<img src="support/attachments_2024/Pasted%20image%2020240715175127.png"
+alt="|400" />
+<figcaption aria-hidden="true">|400</figcaption>
+</figure>
+<h2 id="实验">3 实验</h2>
+<h3 id="语音识别">3.1 语音识别</h3>
+<p>使用字符错误率（CER）评估五种语言的模型：中文、粤语、日语、韩语和泰语。使用单词错误率（WER）评估所有其他语言的模型。</p>
+<p>表 6 中的结果展示了 Whisper、SenseVoice 和 Paraformer 的比较。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715180002.png" /></p>
+<p>（小编说，之前使用阿里 FunASR
+工具集语音识别，在主观体验上，中文方面就已经优于 Whisper）</p>
+<p>模型参数比较如表 -7
+所示。其中，实时因子（RTF，即转录时间与音频长度的比率）和 10
+秒音频延迟（转录 10 秒音频时的平均时间成本）在 A800
+机器上进行了基准测试。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715180128.png" /></p>
+<p>其它实验的几个指标比较小众，就不在这里贴了。</p>
+<h3 id="语音合成">3.2 语音合成</h3>
+<h4 id="语音合成质量">3.2.1 语音合成质量</h4>
+<p>通过检查内容一致性和说话人相似性来评估 CosyVoice 语音合成的质量。</p>
+<p>表 10 和表 11
+分别列出了英文和中文的结果，对单词错误率（WER）和说话人相似度（SS）的比较。“±”连接每个评估指标的均值和标准差。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715181407.png" /></p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715181422.png" /></p>
+<h4 id="语音合成情感">3.2.2 语音合成情感</h4>
+<p>为六种情绪中的每一种生成并评估 100
+个英语话语：快乐、愤怒、悲伤、惊讶、恐惧和厌恶。合成文本的内容旨在匹配目标情感。对
+CosyVoice-base 和 CosyVoice-instruct 的情绪控制准确率比较。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715181823.png" /></p>
+<h2 id="应用">4 应用</h2>
+<p>通过集成 SenseVoice、CosyVoice 和 LLMs，FunAudioLLM
+提供了多种丰富的应用演示，包括语音到语音翻译、情感语音聊天、交互式播客和富有表现力的有声读物旁白。演示版本为
+https://fun-audio-llm.github.io。</p>
+<p>例如：通过利用 LLMs 的分析能力来识别书中的情感，并将其与 CosyVoice
+结合，我们实现了具有增强表现力的有声读物，如图 13 所示。LLMs
+用于叙述和对话分析、角色分析及细粒度情感分析，而 CosyVoice
+则以增强的表现力合成语音。</p>
+<p><img
+src="support/attachments_2024/Pasted%20image%2020240715175512.png" /></p>
+<h2 id="试用">5 试用</h2>
+<p>如果机器本身已经有了 PyTorch 2.0+
+的深度学习环境，那么配置环境会非常快。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git clone --recursive https://github.com/FunAudioLLM/CosyVoice.git</span><br><span class="line">$ cd CosyVoice</span><br><span class="line">$ pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com</span><br><span class="line">$ mkdir pretrained_models -p</span><br><span class="line">$ git clone https://www.modelscope.cn/iic/CosyVoice-300M.git pretrained_models/CosyVoice-300M</span><br><span class="line">$ git clone https://www.modelscope.cn/iic/CosyVoice-300M-SFT.git pretrained_models/CosyVoice-300M-SFT</span><br><span class="line">$ git clone https://www.modelscope.cn/iic/CosyVoice-300M-Instruct.git pretrained_models/CosyVoice-300M-Instruct</span><br><span class="line">$ python webui.py</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ul>
+<li>如果在 Docker 内部启动，请修改 webui.py 中的 server_name 为
+'0.0.0.0'，并且不要忘记映射端口号。</li>
+<li>如果需要使用 instruct 模型，请在运行时指定：--model_dir
+pretrained_models/CosyVoice-300M-Instruct/</li>
+<li>instruct 的提示词请参考其论文表 3
+中的示例，很多自己想到的内容可能不起作用。</li>
+</ul>
+<h2 id="参考">6 参考</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzU0NDUwNDE5OA==&amp;mid=2247485357&amp;idx=1&amp;sn=214af4a6d074e37465653031b45267db&amp;chksm=fb7a6744cc0dee52b1cfaf2a4ff7e4f3ad5bee560a9ac455468e339d59960ac4526c2c15552f&amp;mpshare=1&amp;scene=1&amp;srcid=0707u1oQAZ7JOaVFDFwvGGEi">阿里炸裂开源两个神级语音模型</a></li>
+<li><a
+target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzkxNTM5NTg2OA==&amp;mid=2247493491&amp;idx=1&amp;sn=2c51cabbcb8abecd3514781e5b0bc82e&amp;chksm=c15d6300f62aea1628da20ffbc0f1878f7f9e1c3b519700f2b1b1f860935baa445653013ce88&amp;mpshare=1&amp;scene=1&amp;srcid=0706eobLzRnTnjSW7mCk12JX">阿里通义音频生成大模型
+FunAudioLLM 开源</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/707780618">阿里语音生成大模型CosyVoice：开源模型效果测试</a></li>
+</ul>
+<h2 id="使用体验">7 使用体验</h2>
+<p>（仅代表我个人观点）</p>
+<ul>
+<li>资源和效能
+<ul>
+<li>模型非常小，仅 300M，资源占用方面非常友好。</li>
+<li>使用 1080ti GPU 的机器上，每秒处理 8 个字，对话基本够用。</li>
+<li>依赖 torch 代码，所以 image
+并不小，最好与其他深度学习模型共用库。</li>
+</ul></li>
+<li>使用体验
+<ul>
+<li>整体体验不错，但没有特别惊艳。官方示例效果很好，建议自己亲自试试。</li>
+<li>声音清晰度没问题，可以感觉到训练数据是高品质的。</li>
+<li>合成后的声效虽然不是标准播音腔，但相对自然。</li>
+<li>音色克隆效果尚可，不能期望录 3-6
+秒就能完全复刻韵律，韵律还通过文本设定。</li>
+<li>gradio
+界面设计良好，一键启动自动下载，关键元素清晰明了，学习成本低。还在
+gradio 中增加了录制功能，方便复刻自己的声音。</li>
+<li>论文中列出的提示词效果很好，用他示例的提示词唤出了我想要的声优效果；但其它自己写的不太行。不确定模型对哪些提示词更敏感。</li>
+<li>测试 sft 中七个声音的精调（设置 seed 无效），达不到声优效果。</li>
+<li>需要提示工程：找到合适的提示词和好的声音 seed
+组合可能会有很好的效果，但必须一个一个去尝试。</li>
+<li>可控度没有想象中那么好，用不同的 seed 也没有 ChatTTS
+生成的个性化程度高。</li>
+</ul></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/4017659583/">http://xyan666.com/posts/4017659583/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/58877/" title="开源项目_edge tts"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">开源项目_edge tts</div></div></a></div><div class="next-post pull-right"><a href="/posts/187124457/" title="ChatTTS"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">ChatTTS</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/1712394857/" title="论文阅读_VideoReTalking"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-28</div><div class="title">论文阅读_VideoReTalking</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/2812990717/" title="论文阅读_EMO_生成面部表情视频"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-28</div><div class="title">论文阅读_EMO_生成面部表情视频</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">686</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">摘要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#funaudiollm-%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">1 FunAudioLLM 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#funaudiollm-%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.1.</span> <span class="toc-text">1.1 FunAudioLLM 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E7%90%86%E8%A7%A3%E6%A8%A1%E5%9E%8Bsensevoice"><span class="toc-number">2.1.2.</span> <span class="toc-text">1.2 语音理解模型：SenseVoice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E8%AF%AD%E9%9F%B3%E5%88%86%E8%AF%8D%E5%99%A8"><span class="toc-number">2.1.3.</span> <span class="toc-text">1.3 语义语音分词器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E6%A8%A1%E5%9E%8Bcosyvoice"><span class="toc-number">2.1.4.</span> <span class="toc-text">1.4 语音合成模型：CosyVoice</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cosyvoice-%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.4.1.</span> <span class="toc-text">1.4.1 CosyVoice 原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E8%AF%AD%E9%9F%B3%E7%9A%84%E8%AF%AD%E4%B9%89%E6%A0%87%E8%AE%B0"><span class="toc-number">2.1.4.1.1.</span> <span class="toc-text">1.4.1.1 有监督语音的语义标记</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tts-%E7%9A%84%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.4.1.2.</span> <span class="toc-text">1.4.1.2 TTS 的大型语言模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E4%BC%A0%E8%BE%93%E6%9D%A1%E4%BB%B6%E6%B5%81%E5%8C%B9%E9%85%8D"><span class="toc-number">2.1.4.1.3.</span> <span class="toc-text">1.4.1.3 最优传输条件流匹配</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">2.1.4.2.</span> <span class="toc-text">1.4.2 模型训练</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E6%A0%B7%E6%9C%AC%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.1.4.3.</span> <span class="toc-text">1.4.3 零样本上下文学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%BE%AE%E8%B0%83"><span class="toc-number">2.1.4.4.</span> <span class="toc-text">1.4.4 指令微调</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.2.</span> <span class="toc-text">2 数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sensevoice-%E7%9A%84%E8%AE%AD%E7%BB%83%E9%9B%86"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 SenseVoice 的训练集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cosyvoice-%E7%9A%84%E8%AE%AD%E7%BB%83%E9%9B%86"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 CosyVoice 的训练集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.3.</span> <span class="toc-text">3 实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 语音识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 语音合成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E8%B4%A8%E9%87%8F"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">3.2.1 语音合成质量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90%E6%83%85%E6%84%9F"><span class="toc-number">2.3.2.2.</span> <span class="toc-text">3.2.2 语音合成情感</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">4 应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%95%E7%94%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5 试用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">2.6.</span> <span class="toc-text">6 参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">2.7.</span> <span class="toc-text">7 使用体验</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/58877/" title="开源项目_edge tts">开源项目_edge tts</a><time datetime="2024-07-19T00:00:00.000Z" title="Created 2024-07-19 00:00:00">2024-07-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4017659583/" title="论文阅读_语音_FunAudioLLM_阿里的音频模型">论文阅读_语音_FunAudioLLM_阿里的音频模型</a><time datetime="2024-07-15T00:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/187124457/" title="ChatTTS">ChatTTS</a><time datetime="2024-07-10T00:00:00.000Z" title="Created 2024-07-10 00:00:00">2024-07-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2596834775/" title="论文阅读_语义嵌入_电子商务搜索中的多阶段多粒度学习">论文阅读_语义嵌入_电子商务搜索中的多阶段多粒度学习</a><time datetime="2024-07-01T00:00:00.000Z" title="Created 2024-07-01 00:00:00">2024-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3983635151/" title="论文阅读_基于多模态嵌入的产品搜索">论文阅读_基于多模态嵌入的产品搜索</a><time datetime="2024-06-30T00:00:00.000Z" title="Created 2024-06-30 00:00:00">2024-06-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
