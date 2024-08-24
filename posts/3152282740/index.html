@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>图形化的Agent工具 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 图形化 Agent 工具 1.1 核心组件  机器人 Bot：一个 AI 应用，或称为 Agent 知识库：上传个人数据，机器人可根据其内容进行回复 工作流：将大问题拆解成多个小问题，通过路径实现，路径上的每个节点完成特定任务 插件：调用外部功能（Tools）  1.2 使用体验  大模型与其他元素结合，实现完整的目标功能。 功能：调用工具、设置工作流和本地数据（知识库）。 工具：有许多现成工">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图形化的Agent工具">
+<meta property="og:url" content="http://xyan666.com/posts/3152282740/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1 图形化 Agent 工具 1.1 核心组件  机器人 Bot：一个 AI 应用，或称为 Agent 知识库：上传个人数据，机器人可根据其内容进行回复 工作流：将大问题拆解成多个小问题，通过路径实现，路径上的每个节点完成特定任务 插件：调用外部功能（Tools）  1.2 使用体验  大模型与其他元素结合，实现完整的目标功能。 功能：调用工具、设置工作流和本地数据（知识库）。 工具：有许多现成工">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-08-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-24T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3152282740/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '图形化的Agent工具',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-24 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">691</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">图形化的Agent工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-08-24T00:00:00.000Z" title="Created 2024-08-24 00:00:00">2024-08-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-08-24T00:00:00.000Z" title="Updated 2024-08-24 00:00:00">2024-08-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">685</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>2min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图形化的Agent工具"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="图形化-agent-工具">1 图形化 Agent 工具</h2>
+<h3 id="核心组件">1.1 核心组件</h3>
+<ul>
+<li>机器人 Bot：一个 AI 应用，或称为 Agent</li>
+<li>知识库：上传个人数据，机器人可根据其内容进行回复</li>
+<li>工作流：将大问题拆解成多个小问题，通过路径实现，路径上的每个节点完成特定任务</li>
+<li>插件：调用外部功能（Tools）</li>
+</ul>
+<h3 id="使用体验">1.2 使用体验</h3>
+<ul>
+<li>大模型与其他元素结合，实现完整的目标功能。</li>
+<li>功能：调用工具、设置工作流和本地数据（知识库）。</li>
+<li>工具：有许多现成工具可供使用。</li>
+<li>工作流：前后关系非常直观，像搭积木一样。</li>
+</ul>
+<h2 id="coze">2 Coze</h2>
+<ul>
+<li>扣子是一个 AI 应用开发平台，由字节跳动推出。</li>
+<li>相对更 toC，无需编程即可实现 agent 的创建和发布，效果有点类似于 AI
+界的微信小程序。</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 52%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>区别</th>
+<th>海外版</th>
+<th>国内版</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>网址</td>
+<td>www.coze.com</td>
+<td>www.coze.cn</td>
+</tr>
+<tr class="even">
+<td>登陆方式</td>
+<td>需要魔法才能使用</td>
+<td>无使用的网络限制</td>
+</tr>
+<tr class="odd">
+<td>可用模型</td>
+<td>OpenAI GPT 系列</td>
+<td>字节自研模型/国内常用模型</td>
+</tr>
+<tr class="even">
+<td>发布平台</td>
+<td>Discord、Instagram、Slack</td>
+<td>飞书、微信客服、微信公众号&amp;订阅号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dify">3 Dify</h2>
+<ul>
+<li>支持本地搭建和使用本地模型。</li>
+<li>可部署到国外的社交媒体平台，也可以通过迂回方式接入 UI 或微信。</li>
+<li>提供类似于 OpenAPI 的接口，支持 ChatGPT 风格的 API HTTP
+访问方法。</li>
+</ul>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240822121936.png" /></p>
+<p>https://github.com/langgenius/dify</p>
+<p>目前：42.5k Star</p>
+<h3 id="安装">3.1 安装</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/langgenius/dify</span><br><span class="line">cd dify</span><br><span class="line">cd docker</span><br><span class="line">cp .env.example .env</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+<p>代码 TypeScript 50%，Python 50%（20 万行）</p>
+<h3 id="使用">3.2 使用</h3>
+<ul>
+<li>运行后，可以在浏览器上访问 <a
+target="_blank" rel="noopener" href="http://localhost/install">http://localhost/install</a></li>
+<li>第一次进入 Dify 控制台时，需要进行初始化安装操作。</li>
+<li>如果使用国外模型，请在 docker-compose.yml 文件的环境变量部分设置代理
+HTTP_PROXY 和 HTTPS_PROXY。</li>
+<li>在右上角的设置中配置模型。</li>
+<li>支持国内和国外主流大模型。</li>
+</ul>
+<h3 id="细节">3.3 细节</h3>
+<ul>
+<li>RAG 是怎么做的，有没有使用 embedding？
+<ul>
+<li>数据库支持 pgsql、oracle、milvus 等。</li>
+</ul></li>
+<li>是否把所有内容都打包成一个 image？
+<ul>
+<li>pgsql、redis、Weaviate、前端、后端和沙箱都分别拆成了
+image，总共会启动 9 个 image。</li>
+</ul></li>
+<li>有没有反思部分？
+<ul>
+<li>没找到，觉得在 workflow 逻辑中有点难做。</li>
+</ul></li>
+<li>plugins 自带工具有哪些？
+<ul>
+<li>Dify 为 AI Agent 提供了 50 多种内置工具，如谷歌搜索、DALL·E、Stable
+Diffusion 和 WolframAlpha 等。</li>
+<li>实现：dify/api/core/tools/provider/builtin，这里的 agent plugin 和
+langchain 中的 agent tool 差不多。</li>
+</ul></li>
+</ul>
+<h2 id="参考">4 参考</h2>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1kr42137bb/?spm_id_from=333.337.search-card.all.click&amp;vd_source=eef058f284e51ad4598d556801a9fc84">【AI提效，创意释放】使用Coze打造全能AI
+Agent，免费使用GPT4、全网</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://space.bilibili.com/3823944">B站UP主：在野在也</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11w4m1Y7zR/?spm_id_from=333.337.search-card.all.click&amp;vd_source=eef058f284e51ad4598d556801a9fc84">学习Agent，从dify开始</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://ai.aiking123.com/233.html">FastGPT、Dify、Coze产品功能对比分析</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3152282740/">http://xyan666.com/posts/3152282740/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4029182694/" title="Agent实战"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Agent实战</div></div></a></div><div class="next-post pull-right"><a href="/posts/3106172841/" title="论文阅读_大模型自主代理综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_大模型自主代理综述</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">691</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96-agent-%E5%B7%A5%E5%85%B7"><span class="toc-number">1.</span> <span class="toc-text">1 图形化 Agent 工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 核心组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 使用体验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coze"><span class="toc-number">2.</span> <span class="toc-text">2 Coze</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dify"><span class="toc-number">3.</span> <span class="toc-text">3 Dify</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 细节</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">4 参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4029182694/" title="Agent实战">Agent实战</a><time datetime="2024-08-24T00:00:00.000Z" title="Created 2024-08-24 00:00:00">2024-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3152282740/" title="图形化的Agent工具">图形化的Agent工具</a><time datetime="2024-08-24T00:00:00.000Z" title="Created 2024-08-24 00:00:00">2024-08-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3106172841/" title="论文阅读_大模型自主代理综述">论文阅读_大模型自主代理综述</a><time datetime="2024-08-21T00:00:00.000Z" title="Created 2024-08-21 00:00:00">2024-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3357917230/" title="Navicat 免费版_简单评测">Navicat 免费版_简单评测</a><time datetime="2024-08-07T00:00:00.000Z" title="Created 2024-08-07 00:00:00">2024-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-07-28T00:00:00.000Z" title="Created 2024-07-28 00:00:00">2024-07-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
