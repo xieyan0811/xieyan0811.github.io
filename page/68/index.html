@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-07-30 13:24:32'
+  postUpdate: '2024-08-24 01:53:31'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -183,52 +183,7 @@ $ sudo apt-get install sun-java6-jdk
 ](http://www.python.org/download/下载2.4) 以上版本
 $ tar xvzf python-2.4.5.tgz
 $ cd python-2.4.5/
-$. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25386/" title="修改android公共控件和后台服务">修改android公共控件和后台服务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">修改 android
-公共控件和后台服务
-#移动开发 #Android
-1．位置
-公共控件的代码在源码目录 android/frameworks/base/core/java/android/
-中
-后台服务的代码在源码目录
-android/frameworks/base/services/java/android/server 中
-2．修改
-修改其中代码并执行 mm 编译
-形如:
-** $ cd frameworks/base/services/java/com/android/server/
-$ vi IntentResolver.java
-$ mm **
-3．替换
-编译后用生成的包替换手机上 /system/framework/ 中相应的包
-编译后生成的文件见提示
-形如:
-** $ cd out/target/product/general/system/framework/
-$ adb push services.jar /system/framework/ **
-4．使新的包生效
-
-方法 1:
-重启手机后生效
-方法 2:
-杀死 system_server 进程，使系统重新启动， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25136/" title="动态改变Android控件大小">动态改变Android控件大小</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">动态改变 Android 控件大小
-一、方法
-使用 getLayoutParams() 和 setLayoutParams() 方法
-二、示例代码
-** LinearLayout.LayoutParams linearParams =
-(LinearLayout.LayoutParams)
-aaa.getLayoutParams(); ** // 取控件 aaa 当前的布局参数 **
-linearParams.height = 365; ** // 当控件的高强制设成 365 象素 **
-aaa.setLayoutParams(linearParams); ** // 使设置好的布局参数应用到控件
-aaa
-三、原理
-
-getLayoutParams() 和 setLayoutParams() 都是控件基类 view 的
-public
-
-方法，在外部也可以直接调用
-
-由于 LayoutParams
-
-一般是在加入容器中设置的，所以容易混淆我们所指定的布局属性究竟是保存在容器中，还是控件本身的属性，答案是控件本身。但是在设置时还是要注意布局属性与容器种类密切相关
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2451/" title="Android程序中使用定时器Timer">Android程序中使用定时器Timer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 程序中使用定时器
+$. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2451/" title="Android程序中使用定时器Timer">Android程序中使用定时器Timer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 程序中使用定时器
 Timer
 #移动开发 #Android
 一、重点
@@ -279,7 +234,52 @@ Application name: test_xy // 可执行程序名
 
 eclipse 左侧：test_xy-&gt;src-&gt;com.android.test 点右键
 New-&gt;class
-建立新控 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/19002/" title="android源码中常用于参考的代码">android源码中常用于参考的代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-06T00:00:00.000Z" title="Created 2009-11-06 00:00:00">2009-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android
+建立新控 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25386/" title="修改android公共控件和后台服务">修改android公共控件和后台服务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">修改 android
+公共控件和后台服务
+#移动开发 #Android
+1．位置
+公共控件的代码在源码目录 android/frameworks/base/core/java/android/
+中
+后台服务的代码在源码目录
+android/frameworks/base/services/java/android/server 中
+2．修改
+修改其中代码并执行 mm 编译
+形如:
+** $ cd frameworks/base/services/java/com/android/server/
+$ vi IntentResolver.java
+$ mm **
+3．替换
+编译后用生成的包替换手机上 /system/framework/ 中相应的包
+编译后生成的文件见提示
+形如:
+** $ cd out/target/product/general/system/framework/
+$ adb push services.jar /system/framework/ **
+4．使新的包生效
+
+方法 1:
+重启手机后生效
+方法 2:
+杀死 system_server 进程，使系统重新启动， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25136/" title="动态改变Android控件大小">动态改变Android控件大小</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-09T00:00:00.000Z" title="Created 2009-11-09 00:00:00">2009-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">动态改变 Android 控件大小
+一、方法
+使用 getLayoutParams() 和 setLayoutParams() 方法
+二、示例代码
+** LinearLayout.LayoutParams linearParams =
+(LinearLayout.LayoutParams)
+aaa.getLayoutParams(); ** // 取控件 aaa 当前的布局参数 **
+linearParams.height = 365; ** // 当控件的高强制设成 365 象素 **
+aaa.setLayoutParams(linearParams); ** // 使设置好的布局参数应用到控件
+aaa
+三、原理
+
+getLayoutParams() 和 setLayoutParams() 都是控件基类 view 的
+public
+
+方法，在外部也可以直接调用
+
+由于 LayoutParams
+
+一般是在加入容器中设置的，所以容易混淆我们所指定的布局属性究竟是保存在容器中，还是控件本身的属性，答案是控件本身。但是在设置时还是要注意布局属性与容器种类密切相关
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/19002/" title="android源码中常用于参考的代码">android源码中常用于参考的代码</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-06T00:00:00.000Z" title="Created 2009-11-06 00:00:00">2009-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android
 源码中常用于参考的代码
 #移动开发 #Android
 在应用开发时，常遇到有些功能不知是否能实现，不知如何实现的问题，在网上资料又不多的情况下，可以用参考已有源码的方式来解决这些问题，经常参考的目录如下
@@ -343,52 +343,55 @@ sdk 包 android-sdk-linux_x86-1.5_r3/tools/adb shell
 adb
 
 ，请尝试以下方法
-** $ killall adb * ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/18511/" title="Android基本组件及其交互">Android基本组件及其交互</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-03T00:00:00.000Z" title="Created 2009-11-03 00:00:00">2009-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Android 基本组件及其交互
+** $ killall adb * ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/11399/" title="Android模拟器调试与真机调试">Android模拟器调试与真机调试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-03T00:00:00.000Z" title="Created 2009-11-03 00:00:00">2009-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 模拟器调试与真机调试
 #移动开发 #Android
-一、Android 的基本组件
-1. Activity
-应用程序中每个屏幕显示都通过继承和扩展基类 Activity
-在一个应用程序中每个 Activity 都是独立的
-2. Service
-Service 是没有可见的用户界面，但可以长时间在后台运行
-3. Broadcast
-用户接受广播通知的组件，广播是一种同时通知多个对象的事件通知机制
-应用程序注册不同的 Broadcast Receiver，从而接收不同广播通知
-不实现图形界面
-4. Content Provider
-应用程序彼此间需要共享资源，数据通讯时，采用 content provider 机制
-它能将应用程序特写的数据提供给另一个应用程序使用
-二、组件间的通讯
-1. ContentProvider 用于提供，ContentResolver 用于调用
-2. Intent
-用于在不同组件间传递消息：Activity, Service, Broadcast
-Intent
-一般带有一个组件对另一组件的请求的动作名称，请求动作及相关数据
+一、模拟器调试与真机调试
+1. 模拟器调试
+运行源码或 SDK 中的 emulator，加参数
+2. 真机调试
 
-Activity 相互调用 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13687/" title="Android系统文件结构">Android系统文件结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-03T00:00:00.000Z" title="Created 2009-11-03 00:00:00">2009-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Android 系统文件结构
+用 usb 线连接 G1 硬件和 PC
+若是 windows 系统，则安装驱动
+用源码或 SDK 中的 adb 命令看硬件是否连接成功
+** $ adb devices ** 正常调试
+注意：
+
+
+在 Linux 连接真机时需使用 root 权限
+如果之前连接过模拟器，最好连接前先杀掉 adb 后台进程
+** $ killall adb **
+
+3. Eclipse 中调试
+若连接真机，未打开模拟器时，直接连接真机调试
+若未连接真机，已打开模拟器时，在当前模拟器中调试
+若未连接真机，也未打开模拟器时，打开模拟器调试
+若只开多个真机或多个模拟器时，同时有多个可连接的设备，弹出列表供用户选择
+4. 命令行中使用 adb 工具调试
+连接多个设备时，需要用命令行参数指示设备名或设备类型
+** $ adb–s ** ** 设备名 ** ** shell ** 设备名由 adb devices 列出
+** $ adb– ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/16189/" title="Android界面开发">Android界面开发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2009-11-03T00:00:00.000Z" title="Created 2009-11-03 00:00:00">2009-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 界面开发
 #移动开发 #Android
-一、镜像文件 image
-1. 如何得到镜像文件
+一、界面元素
+1. 窗口：Activity
+应用程序中每个屏幕显示都通过继承和扩展基类 Activity 实现
+分类：基本 Activity，带内容的 Activity（如 ListActivity）
+2. 对话框：Dialog
+一种显示于 Activity 之上的界面元素，由 Activity
+管理，用于显示一些临时信息和功能，它比 Activity 开销小
 
-编译 android 源码之后，在 out/target/product/generic 产生
-ramdisk.img、system.img、userdata.img
-SDK 的 platforms/android-*/images
-ramdisk.img、system.img、userdata.img
+常用对话框： AlertDialog：信息对话框
+DatePickerDialog，TimePickerDialog：时间日期选择对话框
+ProgressDialog：进度对话框
+还可以设置对话框内容为我们自定义的 View
+相关函数： onCreateDialog()：创建对话框的实现
+showDialog()：需要显示的时候调用
+onPrepareDialog()：更改已有对话框时调用
 
-2. 各镜像文件的含义
+3. 菜单：Menu
+一种显示于 Activity 之上的界面元素，由 Activity
+管理，用于提供用户一些额外的选项和设置
 
-system.img 是由 system
-目录打包压缩得到的，以只读方式挂载。
-userdata.img 是由 data
-目录打包压缩得到的，以读写方式挂载，用于存放用户数据，用户安装的软件包在被装在这里。
-ramdisk.img 是模拟器的文件系统，把 ramdisk.img
-解压出来可知道，ramdisk.img
-
-里的文件和根文件夹的文件基本一样。
-3. 镜像文件的挂载顺序
-模拟器装载 ramdisk.img 并解压到内存，接着分别把 system.img 和
-userdata.img 挂载到 ramdisk
-下的 system 和 data ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/67/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/#content-inner">69</a><a class="extend next" rel="next" href="/page/69/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3675468296/" title="中考3+1信息收集">中考3+1信息收集</a><time datetime="2024-07-30T00:00:00.000Z" title="Created 2024-07-30 00:00:00">2024-07-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-07-28T00:00:00.000Z" title="Created 2024-07-28 00:00:00">2024-07-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4266663193/" title="论文阅读_语音合成_Seed TTS">论文阅读_语音合成_Seed TTS</a><time datetime="2024-07-17T00:00:00.000Z" title="Created 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/689540919/" title="论文阅读_语音模型_FunAudioLLM_阿里的音频模型">论文阅读_语音模型_FunAudioLLM_阿里的音频模型</a><time datetime="2024-07-15T00:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2247284580/" title="开源项目_语音合成_ChatTTS">开源项目_语音合成_ChatTTS</a><time datetime="2024-07-10T00:00:00.000Z" title="Created 2024-07-10 00:00:00">2024-07-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+常用菜单： Options Menu：按 Menu ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/67/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="page-number current">68</span><a class="page-number" href="/page/69/#content-inner">69</a><a class="extend next" rel="next" href="/page/69/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">688</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3675468296/" title="中考3+1信息收集">中考3+1信息收集</a><time datetime="2024-07-30T00:00:00.000Z" title="Created 2024-07-30 00:00:00">2024-07-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-07-28T00:00:00.000Z" title="Created 2024-07-28 00:00:00">2024-07-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4266663193/" title="论文阅读_语音合成_Seed TTS">论文阅读_语音合成_Seed TTS</a><time datetime="2024-07-17T00:00:00.000Z" title="Created 2024-07-17 00:00:00">2024-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/689540919/" title="论文阅读_语音模型_FunAudioLLM_阿里的音频模型">论文阅读_语音模型_FunAudioLLM_阿里的音频模型</a><time datetime="2024-07-15T00:00:00.000Z" title="Created 2024-07-15 00:00:00">2024-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2247284580/" title="开源项目_语音合成_ChatTTS">开源项目_语音合成_ChatTTS</a><time datetime="2024-07-10T00:00:00.000Z" title="Created 2024-07-10 00:00:00">2024-07-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -396,8 +399,8 @@ userdata.img 挂载到 ramdisk
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">682</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">667</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">80</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><span class="card-category-list-name">大模型</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">浏览器工具</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.2em; color: #999da3">区块链</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">大模型</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.34em; color: #99a3b0">机器学习/时序</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.48em; color: #99a8bd">论文阅读</a> <a href="/tags/Android/" style="font-size: 1.5em; color: #99a9bf">Android</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.3em; color: #99a1ac">自然语言处理/大模型</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.12em; color: #999a9b">自然语言处理/统计方法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.3em; color: #99a1ac">数据分析</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.18em; color: #999ca1">数据存储/Hadoop</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">浏览器插件</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.18em; color: #999ca1">深度学习/知识蒸馏</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.26em; color: #999fa8">机器学习/XGBoost</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.28em; color: #99a0aa">生物医学</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.2em; color: #999da3">数学</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.14em; color: #999b9d">自动驾驶</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.32em; color: #99a2ae">笔记/Obsidian</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.26em; color: #999fa8">自然语言处理/BERT</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.2em; color: #999da3">特征工程</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.22em; color: #999ea4">数据存储</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.46em; color: #99a7bb">自然语言处理</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.36em; color: #99a3b2">开源项目</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.36em; color: #99a3b2">机器学习</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.14em; color: #999b9d">编程语言/C</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.32em; color: #99a2ae">知识图/图神经网络</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.42em; color: #99a6b7">算法实战</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.14em; color: #999b9d">知识图/知识图谱</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.44em; color: #99a7b9">操作系统/Linux</a> <a href="/tags/Arduino/" style="font-size: 1.38em; color: #99a4b4">Arduino</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.24em; color: #999fa6">Python/股票</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.34em; color: #99a3b0">深度学习</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.12em; color: #999a9b">Python/图形图像</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.12em; color: #999a9b">#后端</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.16em; color: #999b9f">自然语言处理/工具</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.3em; color: #99a1ac">语音</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">26</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">688</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">868.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-30T13:24:29.880Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.15em; color: #999b9e">版本管理</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.29em; color: #99a0ab">工具</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.21em; color: #999da3">深度学习/知识蒸馏</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.13em; color: #999a9c">公众号</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.47em; color: #99a8bc">论文阅读</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" style="font-size: 1.23em; color: #999ea6">知识图/知识表示</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/社会学</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.37em; color: #99a4b2">笔记/Obsidian</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.21em; color: #999da3">Python/少儿编程</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.18em; color: #999ca1">主题笔记</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.18em; color: #999ca1">AI绘画</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/心理学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.18em; color: #999ca1">机器学习/自动建模</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.31em; color: #99a2ad">生物医学</a> <a href="/tags/Arduino/" style="font-size: 1.42em; color: #99a6b7">Arduino</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.18em; color: #999ca1">模型解释</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.39em; color: #99a5b5">编程语言/前端</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.34em; color: #99a3b0">深度学习/工具</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.45em; color: #99a7ba">算法实战</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.18em; color: #999ca1">数据存储/MYSQL</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.15em; color: #999b9e">编程语言/C</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.23em; color: #999ea6">强化学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.23em; color: #999ea6">特征工程</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">#Python</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.34em; color: #99a3b0">语音</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.26em; color: #999fa8">编程语言</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.23em; color: #999ea6">区块链</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.37em; color: #99a4b2">大模型</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.1em; color: #999">语音识别</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">浏览器插件</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">26</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">688</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">868.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-24T01:53:28.835Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
