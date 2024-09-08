@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>训练智能体vs养娃 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 引言 这周我做了一些关于智能体的实现，也参加了幼儿园的家长会，有一些碰撞和感想。 2 什么重要什么不重要 2.1 不重要  数学学不好没关系，我们有推理工具。 语文学不好也没关系，工具可以帮助架构、润色和总结。 英语学不好也无所谓，现在英文文档和中文几乎没有区别。 副科只需要大概了解一点就行了。 音体美多数人都没有那个天赋。 记性不好，有第二大脑的加持。  2.2 重要  体力：身体是一切的本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="训练智能体vs养娃">
+<meta property="og:url" content="http://xyan666.com/posts/1552431531/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1 引言 这周我做了一些关于智能体的实现，也参加了幼儿园的家长会，有一些碰撞和感想。 2 什么重要什么不重要 2.1 不重要  数学学不好没关系，我们有推理工具。 语文学不好也没关系，工具可以帮助架构、润色和总结。 英语学不好也无所谓，现在英文文档和中文几乎没有区别。 副科只需要大概了解一点就行了。 音体美多数人都没有那个天赋。 记性不好，有第二大脑的加持。  2.2 重要  体力：身体是一切的本">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-09-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-01T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/1552431531/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '训练智能体vs养娃',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-01 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">695</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">训练智能体vs养娃</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-01T00:00:00.000Z" title="Created 2024-09-01 00:00:00">2024-09-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-01T00:00:00.000Z" title="Updated 2024-09-01 00:00:00">2024-09-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="训练智能体vs养娃"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h3 id="引言">1 引言</h3>
+<p>这周我做了一些关于智能体的实现，也参加了幼儿园的家长会，有一些碰撞和感想。</p>
+<h3 id="什么重要什么不重要">2 什么重要什么不重要</h3>
+<h4 id="不重要">2.1 不重要</h4>
+<ul>
+<li>数学学不好没关系，我们有推理工具。</li>
+<li>语文学不好也没关系，工具可以帮助架构、润色和总结。</li>
+<li>英语学不好也无所谓，现在英文文档和中文几乎没有区别。</li>
+<li>副科只需要大概了解一点就行了。</li>
+<li>音体美多数人都没有那个天赋。</li>
+<li>记性不好，有第二大脑的加持。</li>
+</ul>
+<h4 id="重要">2.2 重要</h4>
+<ul>
+<li>体力：身体是一切的本钱；具有自我保护的能力。</li>
+<li>心力：乐观，可以敏感，但不要太脆弱。</li>
+<li>自主力：拥有主体感和好奇心。</li>
+<li>平常心：虽然有智力和体力超人存在，但我们是普通人。</li>
+</ul>
+<h3 id="自发学习">3 自发学习</h3>
+<p>前两天去幼儿园开家长会时，看到了一张图片。以前，这种图片可能被视为反面教材，但现在老师们鼓励这种行为。说：“小朋友自己发现了一个游戏，叫爬树。”
+从幼儿园开始，他们就锻炼孩子的自主性。</p>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240901161141.png"
+alt="|200" />
+<figcaption aria-hidden="true">|200</figcaption>
+</figure>
+<p>在训练智能体时，有一个很高级的阶段叫自我进化。这是指智能体自己设计一系列活动，以提升某种技能。</p>
+<p>不能说给孩子买了个益智玩具，他玩这个就算学习。而如果他自己接了杯水，在几个容器里倒来倒去，弄得到处都是水，这就是捣乱吗？这可能反而是一种更为高级的自发学习。</p>
+<h3 id="为啥养娃">4 为啥养娃</h3>
+<p>思考一个问题：先天之才和后天之志。如果没有动因和动力，仅仅是按指示行事，是不是也不太行？或许得看养娃的目标是什么。是养个宠物呢？还是养儿防老？还是期待成才……</p>
+<p>就目标而言，父母养育一个孩子，希望他听话，少惹事固然很重要，少走弯路可能也是对的。甚至在孩子长大后，家长希望他们在爱好、择偶和工作等方面都能听从父母建议。有些人因此习惯了不做主，变成了一个螺丝钉，无论被拧到哪里都能好好干活，这也不失为一种好的人生。</p>
+<p>再来看智能体，遵从指令并以人的方式思考，肯定是衡量其智能的重要指标。但这不是唯一的指标，还得看想让机器人干什么。</p>
+<h3 id="几个维度">5 几个维度</h3>
+<p>想想打造一个自主智能体也和养育一个孩子差不多。无论是提供环境，还是塑造原始结构，作为引领者，我们都可以做点什么。如果设计不合理，不只是效果不好，自己执行时也会很有挫败感。有时候觉得，这真不是聪明与否的问题；学啥？学音乐？学书法？学运动？这些都重要，但也可能不那么重要……想到哪写到哪，罗列一下。</p>
+<h4 id="目标">5.1 目标</h4>
+<ul>
+<li>各种价值的优先级排序和占比
+<ul>
+<li>不要因为搞不成对象就崩溃了。</li>
+<li>有点像<em>强化学习里的价值函数</em>，学习评估价能力并不断进化很重要，初始值也同样重要。</li>
+<li>据说，越是均衡稳固的价值体系，越容易感到幸福。</li>
+</ul></li>
+<li>设定一个不容易崩塌的主体价值
+<ul>
+<li>比如：<em>成就众生清净愿</em>，或者这一生发挥出自己所有能量，这至少比“被我爸认可”要靠谱多了。</li>
+<li>除了吃喝等基本生存需求，其它如安全感、优越感、价值感和身份认同，都可以归入情绪价值。</li>
+</ul></li>
+</ul>
+<h4 id="思考方式模型">5.2 思考方式（模型）</h4>
+<ul>
+<li>质疑的习惯：不随波逐流。</li>
+<li>好奇心：不拘泥于舒适区，探索和锻炼本身就是有意思的（<em>强化学习中的探索与利用</em>）。</li>
+<li>反思：定时自省，又不仅是内省（<em>学习率</em>），不能遇到负反馈就总在自己身上找毛病，过于调整自己。</li>
+<li>主体性：不要活着活着就成了谁的谁（<em>价值排序中至少能设定初始规则</em>）</li>
+<li>能识别社会规范和自我利益，“应该”和“经验”的区别，理解囚徒困境带来的矛盾和自耗（<em>规则导向/数据导向</em>）</li>
+<li>接收信息：<em>信息过滤</em>，能理解别人输出的导向、利益站位，至少不能全信。（说果汁里没有一点
+VC，也不知道这是真是假，但我知道你是卖维生素片的）</li>
+</ul>
+<h4 id="具体能力">5.3 具体能力</h4>
+<ul>
+<li>能根据目标找到方法，并将所有工具和整体逻辑串起来。</li>
+<li>有快速学习的能力，掌握一定的工具：学习工具、分析工具、记录工具。</li>
+<li>掌握一些调节情绪的方法，比如：运动、念经、与好友聊天。</li>
+<li>能分层的抽象和考虑问题。</li>
+<li>对整个世界的理解，涵盖跨越时间和空间的知识，大历史观。
+<ul>
+<li>不一定要精通，但至少要知道有这些知识；具体某个方面不必深入了解。</li>
+<li>世界基本是连续的，不是一些各不相连的散点，最好是平滑的。</li>
+<li>知其然且知其所以然，在众多数据和规则上建立联系。</li>
+<li>不要设置太多规则凌驾于其它规则之上，否则世界会变得拧巴（训练/规则）。</li>
+<li>有相对强大的直觉。短时间内的判断力和决策力，需要大量知识和实践。</li>
+<li>底层逻辑自恰。</li>
+</ul></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/1552431531/">http://xyan666.com/posts/1552431531/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3926497060/" title="RAG综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">RAG综述</div></div></a></div><div class="next-post pull-right"><a href="/posts/3830746690/" title="Linux 安装绿能无线网卡"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Linux 安装绿能无线网卡</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">695</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">104</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E9%87%8D%E8%A6%81%E4%BB%80%E4%B9%88%E4%B8%8D%E9%87%8D%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 什么重要什么不重要</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E9%87%8D%E8%A6%81"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 不重要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E8%A6%81"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 重要</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8F%91%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">3 自发学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E5%85%BB%E5%A8%83"><span class="toc-number">4.</span> <span class="toc-text">4 为啥养娃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E7%BB%B4%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">5 几个维度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 目标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E6%96%B9%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 思考方式（模型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E8%83%BD%E5%8A%9B"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 具体能力</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3926497060/" title="RAG综述">RAG综述</a><time datetime="2024-09-06T00:00:00.000Z" title="Created 2024-09-06 00:00:00">2024-09-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1552431531/" title="训练智能体vs养娃">训练智能体vs养娃</a><time datetime="2024-09-01T00:00:00.000Z" title="Created 2024-09-01 00:00:00">2024-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3830746690/" title="Linux 安装绿能无线网卡">Linux 安装绿能无线网卡</a><time datetime="2024-09-01T00:00:00.000Z" title="Created 2024-09-01 00:00:00">2024-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/696284072/" title="VSCode调试">VSCode调试</a><time datetime="2024-09-01T00:00:00.000Z" title="Created 2024-09-01 00:00:00">2024-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4029182694/" title="Agent实战">Agent实战</a><time datetime="2024-08-24T00:00:00.000Z" title="Created 2024-08-24 00:00:00">2024-08-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
