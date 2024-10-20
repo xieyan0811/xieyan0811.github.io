@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-09-22 03:15:05'
+  postUpdate: '2024-10-20 08:04:54'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,31 +163,93 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">700</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">106</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/18994/" title="制作android的换肤包">制作android的换肤包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-23T00:00:00.000Z" title="Created 2010-06-23 00:00:00">2010-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">制作 android 的换肤包
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6670/" title="CTS的Signature规则">CTS的Signature规则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-06T00:00:00.000Z" title="Created 2010-07-06 00:00:00">2010-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">CTS 的 Signature 规则
+1. 说明
+主要是对公共控件的语法检查
+2. 测试方法
+_ $ make cts
+$ adb install -r
+out/target/product/qsd8250_surf/data/app/SignatureTest.apk
+$ adb shell am instrument -w
+android.tests.sigtest/.InstrumentationRunner _
+3. 原理
+系统生成了一些 xml，位置在：
+out/target/common/obj/APPS/SignatureTest_intermediates/genres/xml/*
+根据 xml 对类、方法、变量给出的规则对当前系统中的公共部分进行检测
+4. 举例
+
+用于检查的语法规则 xml 文件
+out/target/common/obj/APPS/SignatureTest_intermediates/genres/xml/app_widget.xml
+被检查的代码
+framework/base/core/java/android/widget/*
+检查步骤
+用循 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43009/" title="android应用程序的签名(Signature)">android应用程序的签名(Signature)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-06T00:00:00.000Z" title="Created 2010-07-06 00:00:00">2010-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 应用程序的签名
+(Signature)
+1. 为什么要签名
+
+发送者的身份认证
+由于开发商可能通过使用相同的 Package Name
+来混淆替换已经安装的程序，以此保证签名不同的包不被替换
+保证信息传输的完整性
+签名对于包中的每个文件进行处理，以此确保包中内容不被替换
+防止交易中的抵赖发生，Market 对软件的要求
+
+2. 签名的说明
+
+所有的应用程序都必须有数字证书，Android
+系统不会安装一个没有数字证书的应用程序
+Android
+程序包使用的数字证书可以是自签名的，不需要一个权威的数字证书机构签名认证
+如果要正式发布一个 Android
+应用，必须使用一个合适的私钥生成的数字证书来给程序签名，而不能使用 adt
+插件或者 ant
+
+工具生成的调试证书来发布
+
+数字证书都是有有效期的，Android
+
+只是在应用程序安装的时候才会检查证书的有效期。如果程序已经安装在系统中，即使证书过期也不会影响程序的正常功能
+
+签名后需使用 zipalign 优化程序
+Android
+将数字证书用来标识应用程序的作者和在应用程序之间建立信任关系，而不是用来决定最终用户可以安 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/40582/" title="编译在G1上运行的android2">编译在G1上运行的android2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-03T00:00:00.000Z" title="Created 2010-07-03 00:00:00">2010-07-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">编译在 G1
+上运行的 android 2.2(froyo) 代码 _ 山寨版
+一、说明
+1. 下载编译最基本的 android 源码，无法在真机上使用（不能生成
+boot.img
+），只能在模拟器上使用。这是因为没有编译相关机型的内核和硬件驱动。以下介绍的是用
+android 源码编译出对应 HTC G1
+的版本，和烧写的过程。编译生成的版本绝大部分功能都能正常使用（电话，短信，上网，音乐，软件安装等正常使用，SD
+卡还不能自动挂载，正在修改之中），在
+G1 上运行 2.2 版稳定性不错，也很顺畅。
+2. 本文主要参考编译 android 2.1 的日文文档 G1/G2
+烧机指南，感谢原文作者，原文地址：
+[http://code.google.com/p/android-development-
+environment/wiki/EclaironADP1andADP2](http://code.google.com/p/android-
+development-environment/wiki/EclaironADP1andADP2)
+同时加入中文系统的支持和 2.2 部分相关修改 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/59183/" title="android的测试工具CTS">android的测试工具CTS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-29T00:00:00.000Z" title="Created 2010-06-29 00:00:00">2010-06-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 的测试工具 CTS
 #移动开发 #Android
-1. 如何做换肤包
+1. 什么是 CTS
+兼容性测试，手机设备需要通过 Android 的兼容性测试 (CTS)，以确保在
+android 上开发的程序在手机设备上都能运行，才能使用
+android market
+2. 下载及安装
+git 下载的源码里包含 cts，位置在 $ANDROID/cts 目录下（android2.1
+以后版本） 如果没有也可以从此处下载
+git://android.git.kernel.org/platform/cts.git（源码 70M 左右）
+编译
+_ $ build/envsetup.sh
+$ make cts _ 
+此时生成测试计划，测试包，测试用例，和测试报告生成的目录
+3. 使用
 
-最简单的方法是替换源码中的资源，然后重新编译
-
-
-举例：修改系统公共资源——系统字体大小
-修改 framework/base/core/res/res/values*/style.xml 其中的 TexAppearance
-的
-
-Large,Medium,Small 的 textSize，它们分别对应大中小字的字号
-修改后，在 res 目录中重新编译 (使用 mm 命令)，然后将生成的
-framework-res.apk 拷到手机的
-/system/framework 目录中
-
-注意：源码中的资源必须和设备中资源相对应，因在生成 framework-res.apk
-的过程中生成了资源 ID 号，而各应用通过资源
-
-ID 号读取系统资源，所以如果 ID 号不一致，整个系统的资源就乱了
-
-有时候我们只想换包中的某个图片，不想重编整个包，或者从网上下载的应用程序，得不到源码不能重编，但也想对其换肤。
-由于 apk 是 zip
-格式的压缩包，最简单的方法是解包，替换图片，然后再打包
-_ $ mkdir tmp; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60270/" title="android系统支持app2sd（修改boot">android系统支持app2sd（修改boot</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-23T00:00:00.000Z" title="Created 2010-06-23 00:00:00">2010-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android 系统支持
+方法１：一般使用的方法
+_ $ cts _  _ 注意如果用手机设备调试，用 _
+ _ root _  _ 权限执行 _ 
+_
+cts_host &gt; ls --plan _  _ 列出所有 _ 
+_ plan
+_  out/host/linux-x86/cts/android-cts/repository/plan ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60270/" title="android系统支持app2sd（修改boot">android系统支持app2sd（修改boot</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-23T00:00:00.000Z" title="Created 2010-06-23 00:00:00">2010-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android 系统支持
 app2sd（修改 boot.img）
 #移动开发 #Android
 1. app2sd 是什么
@@ -213,31 +275,56 @@ SD 卡分区
 fdisk，它是命令行工具，很快很简单
 Windows 下的图形化工具
 具体步骤见
-[http://www.3haoweb.cn/a/digital/mobile/2010/060 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44757/" title="android代码中运行二进制程序或脚本">android代码中运行二进制程序或脚本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-18T00:00:00.000Z" title="Created 2010-06-18 00:00:00">2010-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android
-代码中运行二进制程序或脚本
+[http://www.3haoweb.cn/a/digital/mobile/2010/060 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/51558/" title="android的系统升级方法对比">android的系统升级方法对比</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-23T00:00:00.000Z" title="Created 2010-06-23 00:00:00">2010-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">android 的系统升级方法对比
 #移动开发 #Android
-1. 知识点
-在程序中执行 shell 脚本或程序（线程中执行），并显示进度条
-2. 示例
+1. 说明
+一般常用系统升级有两种方式 update.zip 和 fastboot,
+下面介绍它们的区别和联系
+2. update.zip
 
-功能
-实现在程序中运行命令”sleep 3”，在线程中进行，并显示进度条
-代码
-_ ……
-String commands = "sleep 3";
-sendshell(commands);
-……
+使用方法
+一般把 update.zip 放在 SD 卡上，按 home+power
+重启到烧机模式，通过在菜单中选择之后烧写
+编译源码时 update.zip 会生成在 out/target/product/xxxx/
 
-public void sendshell(final String commands) {
-String mymsg = "run " + commands;
-patience = ProgressDialog.show(this, "please wait", mymsg, true);
-Thread t = new Thread() {
-public void run() {
-try {
-Process process = Runtime.getRuntime().exec(commands);
-process.waitFor();
-} catch (Exception e) {
-e.printStackTrace(); ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7224/" title="AndroidDensity">AndroidDensity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-18T00:00:00.000Z" title="Created 2010-06-18 00:00:00">2010-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Android Density
+目录中（只有针对某硬件的才能生成，虚拟机版本没有，因为里面包含内核所在的
+boot.img，不针对硬件，不编内核），它是对整个系统的升级
+
+update.zip 可以更新整个系统，或更新系统的一部分，update.zip
+通常包含一个 update-script
+
+脚本，用以决定更新 zip 中的哪些部分到系统中，全部更换为更换 system,
+userdata, boot
+个分区的全部内容，部分更新可以更新单个或多个系统中的文件
+3. fastboot
+
+使用方法
+用数据线连接手机和电脑，按 camera+power 重启到工程模式，然后在 PC 端使用
+and ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/18994/" title="制作android的换肤包">制作android的换肤包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-23T00:00:00.000Z" title="Created 2010-06-23 00:00:00">2010-06-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">制作 android 的换肤包
+#移动开发 #Android
+1. 如何做换肤包
+
+最简单的方法是替换源码中的资源，然后重新编译
+
+
+举例：修改系统公共资源——系统字体大小
+修改 framework/base/core/res/res/values*/style.xml 其中的 TexAppearance
+的
+
+Large,Medium,Small 的 textSize，它们分别对应大中小字的字号
+修改后，在 res 目录中重新编译 (使用 mm 命令)，然后将生成的
+framework-res.apk 拷到手机的
+/system/framework 目录中
+
+注意：源码中的资源必须和设备中资源相对应，因在生成 framework-res.apk
+的过程中生成了资源 ID 号，而各应用通过资源
+
+ID 号读取系统资源，所以如果 ID 号不一致，整个系统的资源就乱了
+
+有时候我们只想换包中的某个图片，不想重编整个包，或者从网上下载的应用程序，得不到源码不能重编，但也想对其换肤。
+由于 apk 是 zip
+格式的压缩包，最简单的方法是解包，替换图片，然后再打包
+_ $ mkdir tmp; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7224/" title="AndroidDensity">AndroidDensity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-18T00:00:00.000Z" title="Created 2010-06-18 00:00:00">2010-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Android Density
 1. 什么是 density
 
 density
@@ -263,7 +350,31 @@ API Level 4 的应用默认值就是
 True
 
 资源目录名（android 2.0 以后） res/xxx-hdpi 当 density 为 240
-时，使用此目录下 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14670/" title="android的换肤(theme)">android的换肤(theme)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-12T00:00:00.000Z" title="Created 2010-06-12 00:00:00">2010-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">android 的换肤
+时，使用此目录下 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44757/" title="android代码中运行二进制程序或脚本">android代码中运行二进制程序或脚本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-18T00:00:00.000Z" title="Created 2010-06-18 00:00:00">2010-06-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android
+代码中运行二进制程序或脚本
+#移动开发 #Android
+1. 知识点
+在程序中执行 shell 脚本或程序（线程中执行），并显示进度条
+2. 示例
+
+功能
+实现在程序中运行命令”sleep 3”，在线程中进行，并显示进度条
+代码
+_ ……
+String commands = "sleep 3";
+sendshell(commands);
+……
+
+public void sendshell(final String commands) {
+String mymsg = "run " + commands;
+patience = ProgressDialog.show(this, "please wait", mymsg, true);
+Thread t = new Thread() {
+public void run() {
+try {
+Process process = Runtime.getRuntime().exec(commands);
+process.waitFor();
+} catch (Exception e) {
+e.printStackTrace(); ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14670/" title="android的换肤(theme)">android的换肤(theme)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-12T00:00:00.000Z" title="Created 2010-06-12 00:00:00">2010-06-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">android 的换肤
 #移动开发 #Android/theme
 1. 相关概念
 1) 换肤
@@ -284,113 +395,16 @@ resources.arsc，而自身内容也做相应变化（如：将 9patch 的 png �
 4) 换肤思路
 apk 是以 zip
 压缩格式打包的文件，把它解开，然后把其中的图片换成新图片，再打包，替换原系统中的
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/58652/" title="开发android的桌面小程序AppWidget">开发android的桌面小程序AppWidget</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-02T00:00:00.000Z" title="Created 2010-06-02 00:00:00">2010-06-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">开发 android 的桌面小程序
-AppWidget
-#移动开发 #Android
-1. 什么是 AppWidget
-Android
-系统允许某个应用把它自己的控件嵌入到其它的应用之中，这些被嵌入的控件就是”widget”，发布控件的应用是
-”:appwidget providers”，而合成控件并显示的应用是”AppWidget
-host”.
-widget 常被译作小应用，小控件，小部件。最常见的 widget
-是显示在桌面上时钟，日历，搜索，相框，音乐等，使用户不用进入应用，就可以方便地使用某种功能。桌面也是一个应用程序（
-packages/apps/Launcher），代码中实现了”AppWidget
-host”，而时钟，日历是分别实现了不同功能的
-”appwidget provider”（packages/apps/Calendar）
-2. 建立第一个 AppWidget
-长篇大论不如立竿见影地看到效果，用以下方法，建立你的第一个 widget
-_ $ cd $ANDROID_SRC/development
-$ cp
-$ANDROID_SRC/frameworks/base/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/45870/" title="浅析dalvik虚拟机JIT技术的实现">浅析dalvik虚拟机JIT技术的实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-06-01T00:00:00.000Z" title="Created 2010-06-01 00:00:00">2010-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">浅析 dalvik 虚拟机 JIT
-技术的实现
-#移动开发 #Android
-一、说明
-据说 Android 2.2 的虚拟机 dalvik 使用了 JIT 技术，使其运行 速度快了 5
-倍。dalvik
-解释并执行程序，JIT
-技术主要是对多次运行的代码进行编译，当再次调用时使用编译之后的机器码，而不是每次都解释，以节约时间。5
-倍是测试程序测出的值，并不是说程序运行速度也能达到 5
-倍，这是因为测试程序有很多的重复调用和循环，而一般程序主要是顺序执行的，而且它是一边运行，一边编译，一开始的时候提速不多，所以真正运行程序速度提高不是特别明显。
-二、JAVA 虚拟机主要的优化技术
-1. JIT（Just In Time）
-最开始指在执行前编译，但是到现在已经发展成为，一开始解释执行，只有被多次调用的程序段才被编译，编译后存放在内存中，下次直接执行编译后的机器码
-
-method 方式：以函数或方法为单位进行编译
-trace 方式：以 trace
-为单位进行编译（可以把循环中的内容作为单位编译），此方法也包含
-method
-
-2. AOT（Ahead Of Time）
-在程序下载到本地时就 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44125/" title="JDWP命令行调试">JDWP命令行调试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-05-27T00:00:00.000Z" title="Created 2010-05-27 00:00:00">2010-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">JDWP 命令行调试
-1. JDWP 调试
-JDWP 用于在 java 程序层面的调试,当然也可以在 eclipse 中使用,或利用 ddms
-调试
-
-在某一终端运行虚拟机
-
-1234$ adb forward tcp:8000 tcp:8000  $ adb shell  $ dalvikvm -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y-cp /sdcard/foo.jar Foo  _  
-此时挂起等待调试
-
-在另一终端开启调试
-
-12$ jdb -attach localhost:8000  [jdb  _ _ 提示符  _ _ ] run  
-此时程序继续运行
-
-jdb 常用命令
-
-12345[jdb  提示符  ] threads  看当前所有线程  [jdb  提示符  ] trace methods 0x12aac5a00  跟踪线程号为  0x12aac5a00  的线程  (  线程号从threads  得到  )  [jdb  提示符  ] next/step  下一步  [j ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/7715/" title="各个层面的android小例程">各个层面的android小例程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-05-27T00:00:00.000Z" title="Created 2010-05-27 00:00:00">2010-05-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">各个层面的 android 小例程
-1. 说明
-在问题定位时，通常使用一些非常简单的程序来测试，以简化逻辑。下面介绍
-android 各个层面的测试的编写：普通的 java 程序，加入
-android 类的 java 程序，带 android 界面的 java 程序和运行在 android
-平台上的 c/c++ 程序
-2. 配置环境
-123$ cd $ANDROID_SRC_  $ . build/envsetup.sh  $ cd development  
-3. 普通 java 程序
-
-建立 Foo.java，内容如下
-
-1234class Foo &#123;  public static void main(String[] args)  &#123;System.out.println(“Hello, world”);&#125;  &#125;
-
-编译
-
-12$ javac Foo.java  $ dx --dex --output=foo.jar Foo.class # _ _ 把一个或多个  class  编成一个  jar 
-
-运行
-
-12$ adb push foo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/57615/" title="android的调试工具集">android的调试工具集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-05-26T00:00:00.000Z" title="Created 2010-05-26 00:00:00">2010-05-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 的调试工具集
-#移动开发 #Android
-1. 查看当前堆栈
-
-功能：在程序中加入代码，使可以在 logcat
-中看到打印出的当前函数调用关系
-方法：
-
-1new Exception(“print trace”).printStackTrace();
-2. MethodTracing
-
-功能：用于热点分析和性能优化，分析每个函数占用的 CPU
-时间，调用次数，函数调用关系等
-方法：
-
-
-在程序代码中加入追踪开关
-
-123456import android.os.Debug;  ……  android.os.Debug.startMethodTracing(“/data/tmp/test”); //  _ _ 先建  _ _/data/tmp  _ _ 目录  _ _  …… //  _ _ 被追踪的程序段  _ _  android.os.Debug.stopMethodTracing();  _
-
-编译，运行后，设备端生成 /data/tmp/test.trace 文件
-把 trace 文件复制到 PC 端
-
-1$ adb pull /data/tmp/test.t ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/66/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/66/#content-inner">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/#content-inner">68</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/#content-inner">70</a><a class="extend next" rel="next" href="/page/68/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">700</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">106</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4290813283/" title="6_AutoGenStudio">6_AutoGenStudio</a><time datetime="2024-09-22T00:00:00.000Z" title="Created 2024-09-22 00:00:00">2024-09-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/70165893/" title="Agent实战_法律行业模型">Agent实战_法律行业模型</a><time datetime="2024-09-19T00:00:00.000Z" title="Created 2024-09-19 00:00:00">2024-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4252689525/" title="AutoGen：通过多 Agent 对话实现下一代 LLM 应用">AutoGen：通过多 Agent 对话实现下一代 LLM 应用</a><time datetime="2024-09-15T00:00:00.000Z" title="Created 2024-09-15 00:00:00">2024-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2882059162/" title="7_AutoGen_实战">7_AutoGen_实战</a><time datetime="2024-09-11T00:00:00.000Z" title="Created 2024-09-11 00:00:00">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4071630302/" title="8_Agent讨论">8_Agent讨论</a><time datetime="2024-09-11T00:00:00.000Z" title="Created 2024-09-11 00:00:00">2024-09-11</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/66/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/66/#content-inner">66</a><span class="page-number current">67</span><a class="page-number" href="/page/68/#content-inner">68</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/#content-inner">71</a><a class="extend next" rel="next" href="/page/68/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">690</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">675</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">81</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/"><span class="card-category-list-name">GPT应用</span><span class="card-category-list-count">17</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"><span class="card-category-list-name">大模型</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">浏览器工具</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.36em; color: #99a3b2">机器学习/时序</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.12em; color: #999a9b">#后端</a> <a href="/tags/Arduino/" style="font-size: 1.41em; color: #99a5b6">Arduino</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.1em; color: #999">浏览器插件</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.26em; color: #99a0a9">大模型/应用</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.34em; color: #99a2af">笔记/Obsidian</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.15em; color: #999b9d">编程语言/C</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.24em; color: #999fa6">数据存储</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.29em; color: #99a1ab">生物医学</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">#Python</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.22em; color: #999ea4">深度学习/图形图像</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/心理学</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.31em; color: #99a1ad">深度学习/工具</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.15em; color: #999b9d">自动驾驶</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.17em; color: #999ca0">机器学习/自动建模</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.34em; color: #99a2af">大模型</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.1em; color: #999">语音识别</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.19em; color: #999da2">深度学习/知识蒸馏</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.43em; color: #99a6b8">图形图像</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.19em; color: #999da2">数据存储/Hadoop</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.17em; color: #999ca0">数据存储/MYSQL</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.38em; color: #99a4b4">开源项目</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.17em; color: #999ca0">主题笔记</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.15em; color: #999b9d">多模态</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.22em; color: #999ea4">区块链</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.45em; color: #99a7bb">操作系统/Linux</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.22em; color: #999ea4">强化学习</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.15em; color: #999b9d">编程语言/Java</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.19em; color: #999da2">Python/少儿编程</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.22em; color: #999ea4">特征工程</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">700</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">889.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-22T03:15:02.537Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">421</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">406</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">46</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/"><span class="card-category-list-name">其它</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">浏览器工具</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/"><span class="card-category-list-name">版本管理</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">笔记工具</span><span class="card-category-list-count">10</span></a></li></ul></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.1em; color: #999">语音识别</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.45em; color: #99a7bb">操作系统/Linux</a> <a href="/tags/LLM/" style="font-size: 1.1em; color: #999">LLM</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.19em; color: #999da2">数学</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.19em; color: #999da2">区块链</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">代码模型</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.36em; color: #99a3b2">机器学习</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.12em; color: #999a9b">关系抽取</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.31em; color: #99a1ad">语音</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/Docker/" style="font-size: 1.22em; color: #999ea4">Docker</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.34em; color: #99a2af">大模型</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.17em; color: #999ca0">Python/数据</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.12em; color: #999a9b">公众号</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.29em; color: #99a1ab">生物医学</a> <a href="/tags/2023%E5%B9%B4/" style="font-size: 1.1em; color: #999">2023年</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.48em; color: #99a8bd">自然语言处理</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.31em; color: #99a1ad">自然语言处理/大模型</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.17em; color: #999ca0">数据存储/MYSQL</a> <a href="/tags/Arduino/" style="font-size: 1.41em; color: #99a5b6">Arduino</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.15em; color: #999b9d">异常检测</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.15em; color: #999b9d">自动驾驶</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.12em; color: #999a9b">自然语言处理/统计方法</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.15em; color: #999b9d">编程语言/Java</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.24em; color: #999fa6">Python/股票</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.15em; color: #999b9d">版本管理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.26em; color: #99a0a9">大模型/应用</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.1em; color: #999">笔记</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/社会学</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.5em; color: #99a9bf">论文阅读</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.38em; color: #99a4b4">机器学习/算法</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.26em; color: #99a0a9">工具</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.12em; color: #999a9b">#后端</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.43em; color: #99a6b8">图形图像</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">25</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">705</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">894.2k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-20T08:04:52.377Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

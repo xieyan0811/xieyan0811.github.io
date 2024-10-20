@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_训练大模型用于角色扮演 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1234567英文名称: Character-LLM: A Trainable Agent for Role-Playing中文名称: 角色-LLM：训练Agent用于角色扮演文章: [https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2310.10158](https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2310.10158)作者: Yunfan Shao,  Linyang Li,  Junqi Dai">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_训练大模型用于角色扮演">
+<meta property="og:url" content="http://xyan666.com/posts/1461154856/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1234567英文名称: Character-LLM: A Trainable Agent for Role-Playing中文名称: 角色-LLM：训练Agent用于角色扮演文章: [https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2310.10158](https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2310.10158)作者: Yunfan Shao,  Linyang Li,  Junqi Dai">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-01-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-11T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="自然语言处理&#x2F;大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/1461154856/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_训练大模型用于角色扮演',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-11 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_训练大模型用于角色扮演</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-11T00:00:00.000Z" title="Created 2024-01-11 00:00:00">2024-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-11T00:00:00.000Z" title="Updated 2024-01-11 00:00:00">2024-01-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_训练大模型用于角色扮演"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">英文名称: Character-LLM: A Trainable Agent for Role-Playing</span><br><span class="line">中文名称: 角色-LLM：训练Agent用于角色扮演</span><br><span class="line">文章: [https://arxiv.org/abs/2310.10158](https://arxiv.org/abs/2310.10158)</span><br><span class="line">作者: Yunfan Shao,  Linyang Li,  Junqi Dai,  Xipeng Qiu</span><br><span class="line">机构: 复旦大学计算机学院</span><br><span class="line">日期: 2023-11-16</span><br><span class="line">引用次数: 5</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>论文的目标是使用模型来模拟具体的人物角色，这个想法很有意思，有点类似于<strong>反思过程的逆向操作</strong>。反思的过程是从具体到抽象，我们根据生活中的具体场景和事件进行思考，通过层层抽象最终形成对一个人的理解。而角色扮演则相反，例如模拟一个历史人物，首先从维基百科获取这个人的信息，这些信息通常是抽象的，需要将这些抽象内容<strong>具体化，场景化，使其变成鲜活的经历，然后用这些经历来训练模型</strong>。</p>
+<p>在从具体到抽象的过程中，数据量逐渐减少，因此可以使用提示，有限的上下文就足够支持；而在文中提出的从抽象到具体的扩展过程中，<strong>数据量逐渐增多，使用提示就会比较困难</strong>，也需要更多的资源，因此作者考虑使用这些新数据来训练模型，通过精调模型的方式来解决问题。</p>
+<p>另一个有趣的点是，为了保持角色的完整性，需要让大模型忽略一些角色<strong>不应该拥有的知识</strong>，例如贝多芬不应该懂得编程。作者通过创建对话的方式来引导确定角色的知识范围，从而创建数据供大模型训练。这种攻防交替的过程有点像“左右互搏”。</p>
+<p>我认为，这种逆向思维非常有意思。另一个小发现是：我们可以考虑利用大模型进行一些<strong>细化和扩写的工作</strong>，比如<strong>根据贝多芬的简介写一本贝多芬的故事</strong>，文中有很多可以借鉴的方法。</p>
+<p>换一个角度看，如果我们能<strong>记录一个人的日常生活，可能就能训练出一个能够模拟他的机器人</strong>。</p>
+<h2 id="摘要">2 摘要</h2>
+<p>目的：利用大模型的理解能力和文本生成能力，来模拟一个人。</p>
+<p>方法：教大模型扮演特定的人，如贝多芬、凯撒大帝等。方法侧重于根据特定角色生成训练数据，训练模型模拟这个人。</p>
+<p>实验：对训练过的模型代理进行访谈，并评估代理是否记住了他们的角色和经历。</p>
+<h2 id="引言">3 引言</h2>
+<p>之前的实验提出了一个创新的想法，即使用语言模型来模拟人类的日常行为，如起床、做早餐、上班等。这个想法的核心是利用
+LLMs
+模拟人类的记忆、反思和行动，以生成多人的日常生活场景，实现这一目标的具体方法是通过<strong>提示工程</strong>。然而，当需要<strong>深入模拟</strong>一个人的思考和经验时，简单的提示可能就不再足够。一个更为理想的模拟方式是精细调整人工智能模型，让其能够<strong>体验事件、感受情绪，并记住与他人的互动</strong>。</p>
+<p>文中提出了 Character-LLM，一种可训练的角色扮演
+Agent，可以<strong>从实际经验、特征和情感</strong>中学习。</p>
+<p>首先，收集某个人物的经历；然后，根据收集到的个人经历提取出场景，作为记忆的闪回；接着，我们将这些闪回扩展成具体的场景，并为这些场景添加详细的元素，使模型能够从详细的经验中学习，从而形成特定的性格和情感。例如，在论文中，作者构建了描述贝多芬父亲的场景，他是一位音乐家，对年轻的贝多芬进行了严格的教育。</p>
+<p>最后，将这样的经验输入到特定的语言模型中，例如 <strong>LLaMA 7B
+模型</strong>，并采用监督微调的策略来构建
+Character-LLM。为了避免出现诸如古代著名人物的角色扮演代理拥有现代世界知识等不合理的情况，还引入了“保护经验”的概念，以确保角色的一致性。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240111142024.png" /></p>
+<p>图 1：Character-LLM.
+首先从可靠的来源为这个角色策划了个人资料（以贝多芬为例）。然后，使用以下指令从这些配置文件中引出详细的体验
+LLM
+作为闪回场景。通过使用体验上传从这些场景中学习，训练有素的模拟可以像贝多芬一样进行高度可信的互动。</p>
+<p>最后，通过新颖的面试流程测试这些角色模拟。来评估评角色扮演效果。结果表明，文中提出的
+Character-LLMs 是基于其训练数据的成功模拟。得出结论：</p>
+<ul>
+<li>可训练的智能体在<strong>记忆经验和保持宿主的个性</strong>方面很有前途;</li>
+<li>可训练的智能体仍然<strong>受到有限经验和全局知识的影响，可能会将他们的记忆与幻觉混淆</strong>。</li>
+</ul>
+<p>文章贡献如下：</p>
+<ul>
+<li>提出通过 Character-LLM 构建可训练智能体作为角色扮演的想法。</li>
+<li>提出一个训练框架，包括经验重建、上传和保护经验，以训练模拟使用
+LLMs。</li>
+<li>提出评试角色智能体的方法。</li>
+</ul>
+<h2 id="方法">4 方法</h2>
+<p>根据过去的经历和事件培养个性的方式中汲取灵感。让大型语言模型模仿预定义角色的心理活动和身体行为，从重建的场景中，获得扮演他们的能力。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240111142058.png" /></p>
+<p>图 2：角色模拟专用基础模型的机制。</p>
+<h3 id="构建经验数据集">4.1 构建经验数据集</h3>
+<p>使用大型语言模型重建特定个体的体验。人类的经历是高度复杂的，包括许多重要的里程碑，其中穿插着琐碎和不相关的事件，通常跨越相当长的时期。文中提出了一个基于事实的体验重建管道，分为下面三部分。</p>
+<h4 id="profile-简介">4.1.1 Profile 简介</h4>
+<p>组织一个描述人物各个方面的综合角色档案。描述全面介绍了角色的整体信息和重大事件，涵盖了从幼儿期到最后阶段。具体方法是：使用个人的相应维基百科页面作为个人资料。</p>
+<h4 id="scene-场景">4.1.2 Scene 场景</h4>
+<p>角色互动展开的特定场景，包括交互的时空背景以及所涉及的人物。具体方法是简要描述了角色在特定生命时期的经历之一，让
+LLM
+根据经历描述列举出几个极有可能发生的不同场景，输出限制为生成场景的简明描述。</p>
+<h4 id="interaction-互动">4.1.3 Interaction 互动</h4>
+<p>生成角色的认知过程、话语或动作。所有交互都以纯文本表示。将场景扩展到个人之间的详细交互体验，提示通过
+LLM
+结合角色之间的互动以及目标个人的想法来详细说明场景。生成的交互由一系列块表示，每个块代表特定角色的话语或目标个体的反映。这里仅关注角色的反应，而不是所有角色的反应，以免训练时产生混淆。</p>
+<h3 id="防护">4.2 防护</h3>
+<p>大型语言模型有跨越多个领域的广泛知识。而过多的知识会破坏表演的可信度，角色可能会无意中表达与角色身份和时代不符的知识。例如，古罗马人不应该会写程序，文中将这个问题称为性格幻觉。</p>
+<p>当面对超出角色内在能力界限的问题时，模型应学会避免提供答案。具体方法是：构建一个好奇的角色坚持不懈地向目标角色询问与角色固有身份相矛盾的知识，角色应该表现出无知和困惑。</p>
+<h3 id="上传经验">4.3 上传经验</h3>
+<p>对于每个角色，仅使用来自相应角色体验的数据来微调单独的模型。由于成本限制，只使用小规模的体验数据集（由大约
+1K 2K ∼ 场景组成）进行微调。</p>
+<h2 id="实验">5 实验</h2>
+<h3 id="数据">5.1 数据</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240111113457.png" /></p>
+<p>表 1：角色及其对应的建构体验数据统计。</p>
+<h3 id="训练">5.2 训练</h3>
+<p>将 LLaMA 7B
+作为基础模型，微调了每个角色。在每个示例的开头插入一个元提示。每个示例的提示中都会实例化简明描述，以提供场景的环境、时间、地点和相关人员的背景。附录
+C 中列出了一些培训示例。使用 8 个 × A100 80GB GPU
+训练一名代理大约需要一个小时。</p>
+<h3 id="面试评估">5.3 面试评估</h3>
+<p>利用模型建立面试场景，旨在探究他们在上述方面的表演能力和潜在缺陷。评估包括每个角色的
+100 多个多样的单轮面试和多轮面试。</p>
+<p>单轮面试：一次问模型一个问题，不包括前面问题的对话历史。</p>
+<p>多轮面试：多轮对话，利用 ChatGPT 作为面试官，引导 ChatGPT
+根据角色的简介提出尖锐的问题。如果模型通过说一些没有太多细节的话来回避问题，ChatGPT
+面试官会提出后续问题，从而对模型的演技熟练程度进行更深入的评估。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240111114254.png" /></p>
+<p>表 2：单轮和多轮访谈收集的问题数量。</p>
+<p>基线：Alpaca 7B，Vicuna 7B 和 ChatGPT。</p>
+<h3 id="主要结果">5.4 主要结果</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240111114549.png" /></p>
+<p>图 4：性格、价值观、记忆、幻觉和稳定性 不同维度的评估结果。</p>
+<h2 id="分析">6 分析</h2>
+<h3 id="与角色的一致性">6.1 与角色的一致性</h3>
+<p>相对于基线模型，角色模型会用他父亲如何教育他的记忆和情感来回答，这更接近于真正的人类。文中认为体验重建和上传过程有助于构建更接近的角色。</p>
+<h3 id="保护场景">6.2 保护场景</h3>
+<p>少量的保护场景（每个角色少于 100
+个场景）有效地缓解了幻觉，而不会对刻画的其他能力造成干扰。</p>
+<p>（文章最后还列出了具体数据示例）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/1461154856/">http://xyan666.com/posts/1461154856/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/">自然语言处理/大模型</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4169225429/" title="从复杂到简单：揭示小型语言模型推理的认知树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">从复杂到简单：揭示小型语言模型推理的认知树</div></div></a></div><div class="next-post pull-right"><a href="/posts/198194600/" title="在微信公众号中加入ChatGPT聊天的方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">在微信公众号中加入ChatGPT聊天的方法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2530393138/" title="论文阅读_GPT4_4V"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-04</div><div class="title">论文阅读_GPT4_4V</div></div></a></div><div><a href="/posts/2348202425/" title="论文阅读_GPT-4"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-29</div><div class="title">论文阅读_GPT-4</div></div></a></div><div><a href="/posts/4237840433/" title="论文阅读_自然语言模型GPT-3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-11</div><div class="title">论文阅读_自然语言模型GPT-3</div></div></a></div><div><a href="/posts/2178656736/" title="论文阅读_LLaMA"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">论文阅读_LLaMA</div></div></a></div><div><a href="/posts/2185184627/" title="论文阅读_大语言模型_Llama2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-11</div><div class="title">论文阅读_大语言模型_Llama2</div></div></a></div><div><a href="/posts/131578608/" title="论文阅读_ChatGLM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-23</div><div class="title">论文阅读_ChatGLM</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">3 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%BB%8F%E9%AA%8C%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 构建经验数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-%E7%AE%80%E4%BB%8B"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1 Profile 简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#scene-%E5%9C%BA%E6%99%AF"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2 Scene 场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#interaction-%E4%BA%92%E5%8A%A8"><span class="toc-number">4.1.3.</span> <span class="toc-text">4.1.3 Interaction 互动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%A4"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 防护</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%BB%8F%E9%AA%8C"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 上传经验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E8%AF%84%E4%BC%B0"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 面试评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%93%E6%9E%9C"><span class="toc-number">5.4.</span> <span class="toc-text">5.4 主要结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">6.</span> <span class="toc-text">6 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E8%A7%92%E8%89%B2%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 与角色的一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E6%8A%A4%E5%9C%BA%E6%99%AF"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 保护场景</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

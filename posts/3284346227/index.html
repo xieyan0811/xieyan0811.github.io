@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_深度森林 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文阅读：深度森林 论文主题：《Deep Forest》 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1702.08835.pdf 相关代码：https:&#x2F;&#x2F;github.com&#x2F;kingfengji&#x2F;gcForest 相关代码：https:&#x2F;&#x2F;github.com&#x2F;LAMDA-NJU&#x2F;Deep-Forest 深度森林是南大周志华老师前两年提出的一种基于随机森林的深度学习模型。 当前的深">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_深度森林">
+<meta property="og:url" content="http://xyan666.com/posts/3284346227/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="论文阅读：深度森林 论文主题：《Deep Forest》 论文地址：https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1702.08835.pdf 相关代码：https:&#x2F;&#x2F;github.com&#x2F;kingfengji&#x2F;gcForest 相关代码：https:&#x2F;&#x2F;github.com&#x2F;LAMDA-NJU&#x2F;Deep-Forest 深度森林是南大周志华老师前两年提出的一种基于随机森林的深度学习模型。 当前的深">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2021-04-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="深度学习&#x2F;模型结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3284346227/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_深度森林',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_深度森林</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-04-11T00:00:00.000Z" title="Created 2021-04-11 00:00:00">2021-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_深度森林"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="论文阅读深度森林">论文阅读：深度森林</h1>
+<p>论文主题：《Deep Forest》</p>
+<p>论文地址：<a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/1702.08835.pdf">https://arxiv.org/pdf/1702.08835.pdf</a></p>
+<p>相关代码：<a
+target="_blank" rel="noopener" href="https://github.com/kingfengji/gcForest">https://github.com/kingfengji/gcForest</a></p>
+<p>相关代码：<a
+target="_blank" rel="noopener" href="https://github.com/LAMDA-NJU/Deep-Forest">https://github.com/LAMDA-NJU/Deep-Forest</a></p>
+<p>深度森林是南大周志华老师前两年提出的一种基于随机森林的深度学习模型。</p>
+<p>当前的深度学习模型大多基于深度学习神经网络（DNN），其中每一层都是可微的，在训练过程中通过反向传播调参。而本篇介绍的深度森林算法基于不可微的子模型，该算法把多个随机森林串联起来组成了深度学习模型。</p>
+<p>作者认为深度模型的优越性主要在于：深度网络多层建构；模型特征变换；模型足够复杂。文中提出基于树模型的
+gcForest
+也可满足以上三点。相对于深度学习神经网络，它还有如下优势：使用较少的超参数；模型的复杂度可根据数据情况自动调整；使用模型的默认参数往往也能达到不错的学习效果。</p>
+<h2 id="dnn-的缺点">DNN 的缺点</h2>
+<ul>
+<li>DNN 超参数太多，调参难度大，需要大量技巧</li>
+<li>DNN
+一般在大数据集上训练效果好，在中小数据集上表现较差，标注成本大</li>
+<li>DNN 是难以解释的黑盒模型</li>
+<li>DNN 需要事先设计网络结构，它的设计往往比实际需要的复杂度更高</li>
+<li>在很多数据比赛中 GBDT 类模型效果往往更好</li>
+</ul>
+<h2 id="灵感">灵感</h2>
+<p>作者设计灵感主要来源于深度学习模型和集成模型。</p>
+<p>深度学习模型利用层层堆叠方法提升效果，因为即使给浅层网络设置很多单元，效果也不如深层网络；另外，决策树及
+GBDT 决策树算法虽然也是层层推进，但效果也不如 DNN
+的原因可能是它不能逐层提取更多特征，也就是说不支持模型内部特征转换（feature
+transformation），且这些机器学习模型只有有限的复杂度。</p>
+<p>集成模型中多模型集成比单模型有更好泛化效果。子模型需要兼顾准确性，多样性，互补性。比如森林中设置树模型多样性常常采用的方法有：数据采样方式不同，特征不同，模型参数不同，定义的输出不同等。</p>
+<h2 id="实现方法">实现方法</h2>
+<h4 id="森林堆叠">森林堆叠</h4>
+<p>gcForest 方法集成了多个森林，具体构建方法如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-5085cae56e625d74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>此例解决的是一个多分类问题，从左向右运行。模型输入是左侧的 Input
+Feature Vector，最终输出为输入 x 属于三种类别的概率；模型深度为 N
+层，每层包含两个完全随机树森林和两个随机森林；每一层的输入是前层的输出和基本特征（Input
+Feature Vector），输出为 12 个新特征（4 模型 x3
+类别）并传向后一层；使用验证集评价模型效果，当模型不再变好时停止继续训练。</p>
+<h4 id="多粒度扫锚">多粒度扫锚</h4>
+<p>DNN 的重要优点在于识别出特征相关性，gcForest
+使用给特征分组的方法加入对特征相关性的支持：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-c26357dbecd56eea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>假设输入 400 维特征，设置窗口宽度 100，可取到 301
+组特征，代入模型，产生 903 个输出（子模型输出 x 属于三个类别的概率
+301x3=903），如果使用两个森林 ForestA 和 ForestB，则经过一层之后，输出
+1806 个新特征。</p>
+<p>再延展到更加复杂的结构：使用不同大小的滑动窗口：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-50ee1b73864542c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>示例中分别使用了大小为 100、200、300 的滑动窗口，并使用不同的森林
+Forest A/B/C 分别处理，以达到更好效果（具体效果见实验部分）。</p>
+<h4 id="参数对比">参数对比</h4>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-7929f63ee527e320.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>从参数对比中可以看到，DNN 需要设计和尝试更多参数，而 gcForest
+参数少，并且使用默认参数往往也能达到不错的效果。</p>
+<h2 id="实验">实验</h2>
+<p>文中实验主要在 DNN
+擅长的领域，如图片、音频、自然语言处理等领域，使用中大规模数据对比多模型的使用效果。</p>
+<h4 id="实验结果">实验结果</h4>
+<p>图片分类：使用 MNIST 数据集，其中 train 60000，test
+10000，对比效果如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-f5095fd7a3aa03d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>人脸识别</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-e4c64b074f7cedf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>另外，文中还对比了音乐片断分类、手势识别、影评情感分类等，详见论文。</p>
+<h4 id="低维数据与高维数据">低维数据与高维数据</h4>
+<p>文中测试了模型在三种低维数据集上的表现 LETTER：16 个特征，训练集
+16000 测试集 4000；ADULT：14 个特征，训练集 32,561 测试集
+16,281，YEAST：8 个特征训练集 1038 测试集 446。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-13f32eba72e3d414.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>也测试了在高维数据集 CIFAR-10：训练集 50000 测试集 10000 图片，共 10
+个类别，8192 个特征。对比效果如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-c20bf7708127e755.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>可以看到优化的 DNN 方法 ResNet，AlexNet 明显优于 gcForest，而
+gcForest 在 DNN
+以外的其它方法中效果最优；并且可以看到经过多滑动窗口和将最后一层替换成
+gbdt 后，gcForest 方法也有明显改进。</p>
+<h4 id="运行时间">运行时间</h4>
+<p>当使用 25000 实例 5000 特征，一层用时 267.1
+秒。如果使用不同粒度，模型可以并行训练。</p>
+<h4 id="多粒度特征叠加">多粒度特征叠加</h4>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-ba2fc321fb6cc94f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>上图中使用多粒度特征时，将不同粒度提取的特征分别代入模型，此处实验将不同粒度提取的特征连接后统一代入模型，方法相对更简单，其效果与上述方法差别不大，模型效果对比如下：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-292b256bd54a479d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h2 id="使用方法">使用方法</h2>
+<p>从 github 开源项目的 demo 中可以看到 GCForest 使用方法非常简单，类似
+Sklearn 中的模型接口。</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-1b79f74ba7772b62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h2 id="总结">总结</h2>
+<p>文中讨论的 gcForest
+在目前很多深度学习领域表现也不错，并非想使用它去取代目前的 DNN
+模型，而是提出了另一种深度学习的实现方法和可能性。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3284346227/">http://xyan666.com/posts/3284346227/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">深度学习/模型结构</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2517934039/" title="论文阅读_用深度和宽度网络构建推荐系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_用深度和宽度网络构建推荐系统</div></div></a></div><div class="next-post pull-right"><a href="/posts/1993666954/" title="使用有向无环图实现分词"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">使用有向无环图实现分词</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2002526347/" title="论文阅读_GBDT能否被深度学习取代TabNet"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-17</div><div class="title">论文阅读_GBDT能否被深度学习取代TabNet</div></div></a></div><div><a href="/posts/23356/" title="论文阅读_MoE_Switch Transformers"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-11</div><div class="title">论文阅读_MoE_Switch Transformers</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E6%B7%B1%E5%BA%A6%E6%A3%AE%E6%9E%97"><span class="toc-number">1.</span> <span class="toc-text">论文阅读：深度森林</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#dnn-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">DNN 的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B5%E6%84%9F"><span class="toc-number">1.2.</span> <span class="toc-text">灵感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%AE%E6%9E%97%E5%A0%86%E5%8F%A0"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">森林堆叠</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%B2%92%E5%BA%A6%E6%89%AB%E9%94%9A"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">多粒度扫锚</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%AF%B9%E6%AF%94"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">参数对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.4.</span> <span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">实验结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8E%E7%BB%B4%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%AB%98%E7%BB%B4%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">低维数据与高维数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">运行时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%B2%92%E5%BA%A6%E7%89%B9%E5%BE%81%E5%8F%A0%E5%8A%A0"><span class="toc-number">1.4.0.4.</span> <span class="toc-text">多粒度特征叠加</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

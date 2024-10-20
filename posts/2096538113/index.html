@@ -1,0 +1,463 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2023年_大模型相关的热门开源工具 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 引言 在 OPENAI 发布 ChatGPT 后的一年里，整个人工智能领域经历了迅猛的演变，对写作、编程等多个领域的工作方式产生了深刻的影响。2023 年整个行业都将聚焦于自然语言处理大模型，进行了大量实验和尝试，积累了宝贵的经验，或许明年将是人工智能应用大规模落地，真正产生价值的时刻。 开源项目可以被视为一个广阔的实验场，实验展示了许多可能性和成果，以及关注的热点。虽然并非全部应用场景，但从">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023年_大模型相关的热门开源工具">
+<meta property="og:url" content="http://xyan666.com/posts/2096538113/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="1 引言 在 OPENAI 发布 ChatGPT 后的一年里，整个人工智能领域经历了迅猛的演变，对写作、编程等多个领域的工作方式产生了深刻的影响。2023 年整个行业都将聚焦于自然语言处理大模型，进行了大量实验和尝试，积累了宝贵的经验，或许明年将是人工智能应用大规模落地，真正产生价值的时刻。 开源项目可以被视为一个广阔的实验场，实验展示了许多可能性和成果，以及关注的热点。虽然并非全部应用场景，但从">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2023-12-27T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-28T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="开源项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2096538113/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2023年_大模型相关的热门开源工具',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">2023年_大模型相关的热门开源工具</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-12-28T00:00:00.000Z" title="Updated 2023-12-28 00:00:00">2023-12-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">4.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>14min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2023年_大模型相关的热门开源工具"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="引言">1 引言</h2>
+<p>在 OPENAI 发布 ChatGPT
+后的一年里，整个人工智能领域经历了迅猛的演变，对写作、编程等多个领域的工作方式产生了深刻的影响。2023
+年整个行业都将聚焦于自然语言处理大模型，进行了大量实验和尝试，积累了宝贵的经验，或许明年将是人工智能应用大规模落地，真正产生价值的时刻。</p>
+<p>开源项目可以被视为一个广阔的实验场，实验展示了许多可能性和成果，以及关注的热点。虽然并非全部应用场景，但从中我们可以窥见一二。</p>
+<p>本文以 GitHub
+上的开源项目为切入点，来看看大模型相关的高评分开源工具。旨在了解社区最关注的项目，这些工具实现了哪些功能，采用了什么样的技术，可能的盈利模式，以及它们当前仍然面临的挑战。</p>
+<h2 id="高星和热榜">2 高星和热榜</h2>
+<p>梳理热门榜单和热门关键字搜索中的 topN
+开源项目，深入了解社区对各个领域的关注、不同思路的探索，以及实现方法的多样性。</p>
+<h3 id="python-中文新秀榜">2.1 Python 中文新秀榜</h3>
+<p>GitHub-Chinese-Top-Charts（231204）中文新秀榜 -&gt;软件类 -&gt;Python
+榜</p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/GrowingGit/GitHub-Chinese-Top-Charts/blob/master/content/charts/new_repo/software/Python.md">地址</a></p>
+<ul>
+<li>binary-husky/gpt_academic 48.3k Star 学术 GPT</li>
+<li>THUDM/ChatGLM-6B 36k Star 开源中英双语 LLM</li>
+<li>acheong08/ChatGPT 27.5k Star ChatGPT
+反向工程，早期调用方法，已停更</li>
+<li>svc-develop-team/so-vits-svc 21k Star 唱歌合成引擎（与 LLM
+无关）</li>
+<li>chatchat-space/Langchain-Chatchat 19k Star 基于 Langchain 与 ChatGLM
+等模型的本地知识库问答</li>
+<li>OpenBMB/ChatDev 17k Star 利用大模型编写应用程序的框架</li>
+<li>ymcui/Chinese-LLaMA-Alpaca 15.5k Star 中文 LLaMA&amp;Alpaca
+大语言模型训练部署</li>
+<li>THUDM/ChatGLM2-6B 14k Star 开源中英双语 LLM</li>
+<li>GaiZhenbiao/ChuanhuChatGPT 13.4k Star 川虎 GPT Web
+应用聊天界面，解决了搜索，本地文件问答等问题，界面简捷好用</li>
+<li>lss233/chatgpt-mirai-qq-bot 10.3k Star
+聊天机器人，支持多种模型，以及多种聊天软件</li>
+</ul>
+<p>可以看到，Python 新秀榜中 top10 中 9 个都与自然语言大模型相关。</p>
+<h3 id="github-搜索-gpt">2.2 Github 搜索 GPT</h3>
+<p>Github 搜索 GPT，按 Star 排序，top10：<a
+target="_blank" rel="noopener" href="https://github.com/search?q=gpt&amp;type=repositories&amp;s=stars&amp;o=desc">地址</a></p>
+<ul>
+<li>Significant-Gravitas/AutoGPT 154k Star 将目标拆分成多步，并使用
+Agent 实现</li>
+<li>fighting41love/funNLP 59.5k Star 自然语言相关资源类项目，23.8
+已停更</li>
+<li>nomic-ai/gpt4all 55.5k Star 本地安装部署多个大模型</li>
+<li>Yidadaa/ChatGPT-Next-Web 52.3k Star GPT Web 应用聊天界面</li>
+<li>xtekky/gpt4free 49.9k Star GPT4 反向工程</li>
+<li>binary-husky/gpt_academic 48.3k Star 学术 GPT</li>
+<li>AntonOsika/gpt-engineer 46.3k Star 自动编程工具</li>
+<li>PlexPt/awesome-chatgpt-prompts-zh 46.1k Star ChatGPT 中文 Prompt
+指南，包含各种场景对应的提示</li>
+<li>imartinez/privateGPT 44.2k Star 本地知识库</li>
+<li>lencx/ChatGPT 43.7k Star Rust/ChatGPT 桌面应用，使用 Rust 编写</li>
+</ul>
+<h3 id="github-搜索-llm">2.3 Github 搜索 LLM</h3>
+<p>Github 搜索 LLM，按 Star 排序，top10：<a
+target="_blank" rel="noopener" href="https://github.com/search?q=llm&amp;type=repositories&amp;s=stars&amp;o=desc">地址</a></p>
+<ul>
+<li>langchain-ai/langchain 70k Star 构建 LLM 相关应用程序的工具集</li>
+<li>nomic-ai/gpt4all 55.5k Star 本地安装部署多个大模型</li>
+<li>binary-husky/gpt_academic 48.3k Star 学术 GPT</li>
+<li>geekan/MetaGPT 31k Star 多 Agent
+框架，通过构建不同的角色：工程师、产品经理、架构师和项目经理，最终共同构建一个软件项目</li>
+<li>StanGirard/quivr 25.7k Star 第二大脑框架，结合数据存储和 GPT
+的知识库架构</li>
+<li>run-llama/llama_index 24.6k Star LLM 应用程序的数据框架</li>
+<li>milvus-io/milvus 24.4k Star 矢量数据库</li>
+<li>microsoft/JARVIS 22.2k Star 微软开源的人工智能 AI
+助理系统，集成了多种模型，支持多模态</li>
+<li>JushBJJ/Mr.-Ranedeer-AI-Tutor 21.3k Star GPT-4 人工智能导师，可在
+OPENAI 界面中使用的 GPT 插件</li>
+<li>jmorganca/ollama 20.2k Star 本地搭建 Llama2 等大型语言模型</li>
+</ul>
+<p>搜索大模型，得到的结果更丰富，更具启发性。</p>
+<h2 id="分析方法">3 分析方法</h2>
+<p>下面将对热门的应用进行分类和讨论，并对其中十个项目进行具体分析，分析方法如下：</p>
+<ul>
+<li>功能
+<ul>
+<li>整体功能：解决了什么问题</li>
+<li>当前解决了哪些问题，未能解决的问题有哪些</li>
+<li>提供了哪些功能点，其中哪些是刚需</li>
+<li>用户使用难度：操作逻辑是否过于复杂</li>
+</ul></li>
+<li>技术栈
+<ul>
+<li>技术栈包括：前端、中间件、后端、数据库、底层功能</li>
+<li>现有底层工具消化了哪些常用功能</li>
+<li>代码分析</li>
+</ul></li>
+<li>可能产生的应用和盈利方向
+<ul>
+<li>开源软件与盈利之间的关系是一个复杂而多层次的话题，这里仅讨论具体技术盈利的方向和可能性。</li>
+</ul></li>
+</ul>
+<h2 id="典型应用分类">4 典型应用分类</h2>
+<p>上述热门应用可简单分为以下类别：</p>
+<h3 id="大模型本地化">4.1 大模型本地化</h3>
+<p>大模型本地化主要是指将大型模型部署到本地环境进行使用，通常需要<strong>本地有
+GPU 资源以提供支持</strong>；最小配置的模型需要 <strong>6-10GB
+的显存</strong>即可运行。如果需要进行个性化<strong>微调</strong>，则需要更强大的硬件资源。</p>
+<p>在考虑模型大小的同时，还需要考虑多语言支持。一般而言，我们首选至少支持<strong>中英文双语</strong>的模型，例如：Chinese-LLaMA-Alpaca、ChatGLM2-6B
+和 ChatGLM-6B。</p>
+<p>在本地搭建模型可能基于以下几个方面的需求：</p>
+<ul>
+<li>本地<strong>保密</strong>数据或者网络环境不适合将数据外传。</li>
+<li>调用外部模型需要支付一定<strong>费用</strong>，如果本地具备计算资源，可有效节约成本。</li>
+<li>需要根据具体<strong>行业数据</strong>微调模型，或者根据已有模型进一步研发。</li>
+</ul>
+<p>需要注意的是：本地模型的效果一般都不如主流模型，且两者之间存在<strong>较大差距</strong>；此外，如果使用量较大，也需要考虑<strong>硬件成本和等待时间</strong>等因素。</p>
+<p>主要模型如下：</p>
+<ul>
+<li>ChatGLM-6B/ChatGLM2-6B：目前公认好用的中文开源大模型，本地搭建很方便，又不是很大，一般
+GPU 都能跑。<a href="/posts/9680/">论文阅读_ChatGLM</a></li>
+<li>Chinese-LLaMA-Alpaca：中文 LLaMA &amp; Alpaca 大语言模型 + 本地
+CPU/GPU 训练部署</li>
+<li>ollama：在本地启动并运行大型语言模型，支持多种开源大模型，常与其它应用层工作配合使用。</li>
+<li>GPT4All：开源的聊天机器人，将模型部署在本地，其亮点是在 <strong>CPU
+机器上</strong>也可以运行大模型，但需要较长的等待时间。</li>
+</ul>
+<h3 id="框架类整体解决方案agent">4.2 框架类（整体解决方案/Agent）</h3>
+<p>用户仅通过 ChatGPT
+进行聊天通常只能解决一些<strong>简单的单步问题</strong>。要解决更为复杂的问题，通常需要进行多步人机交互。致力于解决这一问题的项目通常采用以下方法。</p>
+<p>常规的交互方式是：用户提供一个<strong>问题或主题</strong>，机器通过分析和推理，提供<strong>一系列实现步骤和具体方法</strong>，并且能够<strong>调用其他工具解决问题</strong>。这种方法主要依赖<strong>思维链技术</strong>和<strong>提示
+Prompt</strong> 来实现。其中，一种常见的应用是
+Agent，可以将其简单地看作“机器人”，通过协调完成一系列复合工作。</p>
+<p>典型应用如下：</p>
+<ul>
+<li>AutoGPT：建立和使用 AI
+Agent，将设定的目标自动拆解成<strong>多个子任务</strong>，并派出 Agent
+执行任务直到目标达成，整个过程无需编程。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_AutoGPT.md">GPT应用_AutoGPT</a></li>
+<li>MetaGPT：将软件开发拆解成前后多个步骤，调用模型完成各个步骤，通过提示以及对返回结果的解析，最终结合成完整的项目。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_MetaGPT.md">GPT应用_MetaGPT</a></li>
+<li>gpt-engineer：使用简单提示生成完整代码，<a
+target="_blank" rel="noopener" href="https://github.com/gpt-engineer-org/gpt-engineer">项目地址</a>，基于
+OPENAI 模型，由 Python 编写，代码约 3700 行（1/3 为测试用例）。</li>
+<li>ChatDev：生成可直接运行的应用程序。</li>
+</ul>
+<p>大型模型在解决问题的过程中扮演着重要的角色。然而，仅<strong>依赖机器自行解决复杂问题还难以实现</strong>，经常在过程中的某一步“跑偏”。因此，这类工具通常会设计一些<strong>交互功能</strong>，使用户通过交互在中间步骤引导
+Agent
+工作。此外，程序员对工具链和机器最为熟悉，因此<strong>开发领域</strong>也是最早进行实验和应用的领域。</p>
+<h3 id="辅助工具">4.3 辅助工具</h3>
+<p>辅助工具是大型模型基础建设中的重要组成部分，它<strong>本身并不构成完整的解决方案，而是通过安装包的方式提供逻辑或服务，供其他程序调用</strong>。</p>
+<p>一些常用的辅助工具包括：</p>
+<ul>
+<li>langchain：一个编程框架，旨在帮助在应用程序中使用大型语言模型（LLM）。<a
+href="/posts/436/">GPT应用_Langchain</a></li>
+<li>llama-index：提供了一个简单的接口，用于在 LLM
+和外部数据源之间进行交互，常用于构建本地知识库。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_llamaindex.md">GPT应用_llamaindex</a></li>
+<li>milvus：向量检索云服务（Milvus），它解耦了业务逻辑、模型和数据存储。</li>
+</ul>
+<h3 id="上层应用">4.4 上层应用</h3>
+<p>这类工具的功能主要依赖于大型模型的实现，此类工具种类繁多，更侧重于特定场景的应用，解决实际问题。相对而言，它们更加偏向前端，也存在前后端结合的解决方案，以下是针对不同方面的分开讨论：</p>
+<ul>
+<li>加强易用性：这一类工具注重提升用户体验，通过强化角色定义和提供常用功能，使其更加用户友好。一部分工具采用了套壳的方式，更好地包裹和整合相关功能。</li>
+<li>扩展性：针对本地知识库，致力于实现保密性、搜索性以及生成性的功能。</li>
+<li>与具体领域结合：一些工具专注于与具体领域结合，如学术研究领域，以满足相关行业的特定需求。</li>
+</ul>
+<h4 id="前端应用">4.4.1 前端应用</h4>
+<p>这里介绍的前端应用并非不包含后端服务，而是指主要设计和实现以<strong>前端功能为主</strong>，涉及较少复杂的数据存储和后台服务。</p>
+<ul>
+<li>gpt_academic 学术 GPT，不断更新的高星应用。gpt_academic
+的出现较早，专注于优化论文阅读、润色和写作体验，功能实用且充实，是在特定<strong>垂直领域</strong>应用
+GPT 的一个典型范例。<a href="/posts/42995/">GPT工具_学术ChatGPT</a></li>
+<li>ChatGPT-Next-Web：调用 ChatGPT
+的前端工具，即我们熟悉的浅蓝色界面，构成了许多国内用户使用 ChatGPT
+不可或缺的一部分。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_ChatGPT-Next-Web.md">GPT应用_ChatGPT-Next-Web</a></li>
+<li>ChuanhuChatGPT：也称为川虎 Chat，可调用 ChatGPT API
+和其他许多大型语言模型的 Web 界面。支持代理、基于文件的问答，GPT
+微调以及 GPT 结合网络搜索查询。用户界面简洁易用。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_chuanhu川虎.md">GPT应用_chuanhu川虎</a></li>
+<li>chatgpt-on-wechat/chatgpt-mirai-qq-bot：微信聊天机器人是另一类重要的应用。这些程序可以以公众号服务、企业号、普通微信聊天、飞书等多种方式将通讯工具与大型语言模型连接在一起，提供更为便捷的大模型使用方法。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_chatgpt-on-wechat.md">GPT应用_chatgpt-on-wechat</a></li>
+</ul>
+<h4 id="前后端结合">4.4.2 前后端结合</h4>
+<p>本部分展示了一些更为复杂的集成方案，主要致力于解决<strong>本地知识与大型模型结合</strong>的问题。综合利用了<strong>前端、后端、数据存储、大型模型</strong>等技术，构建了综合性的解决方案。</p>
+<ul>
+<li>FastGPT 在不需要编程的情况下，快速建立简单的本地知识库。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_FastGPT.md">GPT应用_FastGPT</a></li>
+<li>privateGPT 该方案搭建了完整的 RAG 系统，相比于
+FastGPT，其界面更为简单。底层支持相对丰富，可用于知识库的完全本地部署，包含大型模型和向量库。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_PrivateGPT.md">GPT应用_PrivateGPT</a></li>
+<li>JARVIS 微软开源的人工智能 AI
+助理系统，集成了多模态多种模型，需要较强硬件支持才能运行。</li>
+<li>quivr 提出了“第二大脑”概念，具体实现采用 RAG
+模型，针对不同用户和场景支持多个“大脑”并存。每个“大脑”存储一个或多个文件，用户可以使用指定的“大脑”进行搜索增强生成。<a
+href="2_Note/0_Technic/0_工具/GPT应用/增强工具/GPT应用_QUIVR.md">GPT应用_QUIVR</a></li>
+<li>langchain-Chatchat：结合 langchain 与 ChatGLM，实现了一个本地 RAG
+的后端。代码完全采用 Python 实现，可以与 FastGPT
+前端结合使用，是一个用于本地知识库的后端解决方案。</li>
+</ul>
+<h3 id="其它更外围">4.5 其它（更外围）</h3>
+<p>相对于程序和方法而言，这些项目更加注重资源的整合。主要包含两个方向：提示词方向和
+ChatGPT 反向工程（白嫖）。</p>
+<ul>
+<li>Mr-Ranedeer-AI-Turor
+个性化人工智能导师，封装了一套提示词，为用户提供定制的 AI
+学习指导服务。</li>
+<li>awesome-chatgpt-prompts-zh ChatGPT
+中文调教指南，提供一些常用的使用场景以及对应的 Prompt 提示。<a
+href="/posts/31698/">GPT应用_awesome-chatgpt-prompts-zh</a></li>
+<li>revChatGPT ChatGPT ChatGPT <strong>反向工程</strong>，在 OpenAI
+官方正式发布 ChatGPT 接口之前，可通过它调用 ChatGPT。从 2023 年 8
+月起不再更新。</li>
+<li>GPT4free GPT4 <strong>反向工程</strong>，使用 streamlit
+制作了一个简易的输入框和文本输出展示。通过 Python
+包开发，开发者也可以将其嵌入到自己的应用内部。<code>docker pull hlohaus789/g4f</code>
+2.65G 太大了</li>
+<li>funNLP <strong>NLP 资源汇总</strong>，包含 ChatGPT、LLM
+数据集、中文语料库、知识图谱、文本生成、关键字提取、文本匹配、文本可视化等多个方向的技术、项目、文献资料等。</li>
+</ul>
+<h2 id="盈利方向">5 盈利方向</h2>
+<h4 id="saas-服务">5.1.1 Saas 服务</h4>
+<p>为企业提供**整合服务，包括部署、使用、代码或数据托管。这也是许多成功商业化的开源系统的主要收入模式。</p>
+<h4 id="建立生态">5.1.2 建立生态</h4>
+<p>虽然前路漫长，未来充满不确定性，但建立生态系统可能会带来巨大的机遇。</p>
+<h4 id="套壳">5.1.3 套壳</h4>
+<p>大模型相关的服务通常是需要付费的，在用户不能直接使用的情况下，提供一下服务中转服务，<strong>只要加价不过分夸张</strong>，有需求的用户通常都能接受。</p>
+<h4 id="免费版与收费版">5.1.4 免费版与收费版</h4>
+<p>提供<strong>免费版并附加一些额外功能收费也是一种常见的商业策略</strong>。另外，有些工具像
+MySQL 也提供免费版和收费版，供用户选择。</p>
+<h2 id="讨论">6 讨论</h2>
+<h3 id="功能">6.1 功能</h3>
+<p>上述项目，从功能角度来看，并没有发现特别<strong>令人惊讶</strong>的功能。目前的方向相对明确，大量资源都在这些方向上集中。几乎没有你能想到而别人想不到的功能。或许需要更关注一些<strong>细分领域</strong>。</p>
+<h3 id="实现">6.2 实现</h3>
+<p>从实现的角度来看，开源软件在功能设计、交互、架构以及编码方面都提供了许多<strong>值得借鉴</strong>的内容，许多功能已经得到了很好的实现。</p>
+<p>从运维度度看，高星工具通常具有很强的服务意识，可以<strong>即开即用</strong>，工具链做的也非常好；许多应用对交互和前端进行了深入的优化，<strong>前端领域涉及的知识丰富且众多</strong>，百花齐放；相比之下，Python
+<strong>后端调用则相对较为统一</strong>。总体而言，大模型领域有点类似于直播带货，关键技术主要集中在几家大厂手中，<strong>普通人主要以应用为主</strong>。</p>
+<p>从开发的角度来看，<strong>更多的时间可能会用于考查而非实现，需要避免重复造轮子</strong>。上层工具是否最优可能并不是最重要的，<strong>敏捷开发</strong>可能更为关键。此外，剃刀原则也很重要：如无必要，勿增实体。</p>
+<h3 id="产品">6.3 产品</h3>
+<p>目前，大多数人使用的底层大型模型很可能<strong>仍然是 ChatGPT
+系列</strong>。</p>
+<p>然而，在过去的一年里，涌现了许多新的模型，尤其是中文模型。通过<strong>对底层的多种模型的支持</strong>，至少使得多数工具变得可公开使用，且在<strong>没有科学上网的环境下也有备用方案</strong>。</p>
+<p>就模型效果而言，大模型领域可能还会经历一个很长的发展阶段。首先，由于长尾效应，模型<strong>不可能成为可以回答所有问题的“全知”</strong>。因此，将其与应用和场景结合，还有很多工作要做。从业务角度来看，充分<strong>利用模型的理解能力，可以与许多领域结合，解决以前无法解决的问题</strong>。这个需求可能远远超过只是让
+AI 写文章或画图。</p>
+<h3 id="展望">6.4 展望</h3>
+<p>在 2023
+年，大型模型毫无疑问是最炙手可热的话题。在查找资料的过程中，有的标题真的太过辣眼：“跟不上时代的脚步”，"
+抢了 XXX 的饭碗 "……
+大家都太想寻找捷径了，结果导致这条路越走越拥挤，形成了一片红海。</p>
+<p>一旦打开潘多拉魔盒，后续的发展就变得无法预测。巨大的技术变革，也确实会打破一些看似平静的状态。未来可能会更加开放，也更为激烈。毕竟，有些组织在今天的发展中显得过于庞大和低效。</p>
+<p>产品往往有两种走向，一种是从需求
+-&gt;产品，解决具体的问题，一些自动化工具早就问世，比如自动客服，并不是大型模型出现后才有的。然而，随着大型模型的出现，这些工具至少变得更加高效易用。另一种是从数据/能力
+-&gt;产品，有时候会发明出一些产品让生活变得更好，比如外卖。但有时候也难免：拿着锤子的人看什么都像钉子。</p>
+<p>可能会有更多的内容整合在一起。例如，微信已经在管理多个方面，包括帐单、位置、运动，甚至移动设备。或许有一天，这些<strong>领域将被更加紧密地整合在一起。模型的理解能力将有助于更好地执行这些任务</strong>。</p>
+<h2 id="参考">7 参考</h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1723634401085419520">上述各开源工具的具体说明</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/skywalk8163/article/details/132245301">gpt4free
+0.0.1.4版本安装指南</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://feizhuke.com/sites/gpt4free.html">gpt4free官网,github,免费“白嫖”
+GPT-4 方法,使用教程</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2096538113/">http://xyan666.com/posts/2096538113/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/36029/" title="docker_compose"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">docker_compose</div></div></a></div><div class="next-post pull-right"><a href="/posts/39640/" title="优秀的绵羊"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">优秀的绵羊</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/32907/" title="插件_一键发布 markdown 到各个平台"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">插件_一键发布 markdown 到各个平台</div></div></a></div><div><a href="/posts/1640495068/" title="GPT应用_AutoGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-06</div><div class="title">GPT应用_AutoGPT</div></div></a></div><div><a href="/posts/1477217016/" title="GPT应用_ChatGPT-Next-Web"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-05</div><div class="title">GPT应用_ChatGPT-Next-Web</div></div></a></div><div><a href="/posts/153060689/" title="GPT应用_FastGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-13</div><div class="title">GPT应用_FastGPT</div></div></a></div><div><a href="/posts/1164896256/" title="GPT应用_MetaGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-10</div><div class="title">GPT应用_MetaGPT</div></div></a></div><div><a href="/posts/2459036769/" title="GPT应用_PrivateGPT"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-14</div><div class="title">GPT应用_PrivateGPT</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E6%98%9F%E5%92%8C%E7%83%AD%E6%A6%9C"><span class="toc-number">2.</span> <span class="toc-text">2 高星和热榜</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python-%E4%B8%AD%E6%96%87%E6%96%B0%E7%A7%80%E6%A6%9C"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Python 中文新秀榜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github-%E6%90%9C%E7%B4%A2-gpt"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Github 搜索 GPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github-%E6%90%9C%E7%B4%A2-llm"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Github 搜索 LLM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">3 分析方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%88%86%E7%B1%BB"><span class="toc-number">4.</span> <span class="toc-text">4 典型应用分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 大模型本地化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%B1%BB%E6%95%B4%E4%BD%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88agent"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 框架类（整体解决方案&#x2F;Agent）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 辅助工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E5%B1%82%E5%BA%94%E7%94%A8"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 上层应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8"><span class="toc-number">4.4.1.</span> <span class="toc-text">4.4.1 前端应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E7%AB%AF%E7%BB%93%E5%90%88"><span class="toc-number">4.4.2.</span> <span class="toc-text">4.4.2 前后端结合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E6%9B%B4%E5%A4%96%E5%9B%B4"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 其它（更外围）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%88%E5%88%A9%E6%96%B9%E5%90%91"><span class="toc-number">5.</span> <span class="toc-text">5 盈利方向</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#saas-%E6%9C%8D%E5%8A%A1"><span class="toc-number">5.0.1.</span> <span class="toc-text">5.1.1 Saas 服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E7%94%9F%E6%80%81"><span class="toc-number">5.0.2.</span> <span class="toc-text">5.1.2 建立生态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A5%97%E5%A3%B3"><span class="toc-number">5.0.3.</span> <span class="toc-text">5.1.3 套壳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%8D%E8%B4%B9%E7%89%88%E4%B8%8E%E6%94%B6%E8%B4%B9%E7%89%88"><span class="toc-number">5.0.4.</span> <span class="toc-text">5.1.4 免费版与收费版</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA"><span class="toc-number">6.</span> <span class="toc-text">6 讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E5%93%81"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 产品</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%95%E6%9C%9B"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 展望</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">7.</span> <span class="toc-text">7 参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大模型+强化学习_自我对弈偏好优化 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="123456英文名称: A Minimaximalist Approach to Reinforcement Learning from Human Feedback中文名称: 一种极简极大化的强化学习方法：来自人类反馈的学习链接: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2401.04056v1作者: Gokul Swamy, Christoph Dann, Rahul Kidambi, Zh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型+强化学习_自我对弈偏好优化">
+<meta property="og:url" content="http://xyan666.com/posts/788886816/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="123456英文名称: A Minimaximalist Approach to Reinforcement Learning from Human Feedback中文名称: 一种极简极大化的强化学习方法：来自人类反馈的学习链接: http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2401.04056v1作者: Gokul Swamy, Christoph Dann, Rahul Kidambi, Zh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-03-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-10T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/788886816/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '大模型+强化学习_自我对弈偏好优化',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-10 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">大模型+强化学习_自我对弈偏好优化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-19T00:00:00.000Z" title="Created 2024-03-19 00:00:00">2024-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-10T00:00:00.000Z" title="Updated 2024-10-10 00:00:00">2024-10-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="大模型+强化学习_自我对弈偏好优化"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">英文名称: A Minimaximalist Approach to Reinforcement Learning from Human Feedback</span><br><span class="line">中文名称: 一种极简极大化的强化学习方法：来自人类反馈的学习</span><br><span class="line">链接: http://arxiv.org/abs/2401.04056v1</span><br><span class="line">作者: Gokul Swamy, Christoph Dann, Rahul Kidambi, Zhiwei Steven Wu, Alekh Agarwal</span><br><span class="line">机构: Google Research</span><br><span class="line">日期: 2024-01-08</span><br></pre></td></tr></table></figure>
+<h2 id="读后感">1 读后感</h2>
+<p>"Minimax Winner"
+是博弈论中的一个概念，指的是在最坏情况下尽量最大化自己的收益。在这里将偏好学习视为一种零和博弈。</p>
+<p>我觉得它的原理是这样的：大型模型是通过大量数据进行训练得到的生成模型，因此在生成结果时<strong>可能存在不稳定性，有时会表现出某些数据特征，而有时则表现出其他特征</strong>。有时候它可能会产生幻觉或相互矛盾的结果。</p>
+<p>提出的方法相当于针对同一个问题生成多种答案，然后让模型选择最佳答案。选择过程实际上是让模型根据<strong>已有知识进行思考和推理</strong>，以反映大多数人的偏好，并选择更合逻辑，并使用获取到的数据对模型进行训练。</p>
+<p>从论文内容来看，我很喜欢引言部分的开拓思路分析，但方法部分使用了过多符号表达，推理较难理解。不过结果并不复杂。</p>
+<h2 id="摘要">2 摘要</h2>
+<p><strong>目标</strong>：提出一种基于模型自我对弈的强化学习算法。</p>
+<p><strong>方法</strong>：构建<strong>自我对弈偏好优化</strong>（SPO）算法，不需要训练奖励模型，也不需要不稳定的对抗训练，因此实施起来相当简单。通过单一代理自我对弈来计算最优策略，<strong>采样多条轨迹，让评价者比较并使用胜利比例作为奖励</strong>。</p>
+<p>结论：在连续控制任务中，SPO
+算法比基于奖励模型的方法学习更高效，同时对于实践中经常出现的不可传递和随机偏好具有鲁棒性。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020240319090205.png" /></p>
+<p>图 1：基于偏好的 RL/RLHF
+的标准管道（左）涉及基于成对偏好数据集训练奖励模型，然后通过强化学习方法
+RL 对优化模型策略 π。右图为文中 SPO
+方法，它是一种<strong>迭代方法</strong>，直接根据评估者或偏好模型提供的<strong>偏好反馈进行优化</strong>，<strong>每个轨迹的奖励基于其相对于其他在策略轨迹的优先级比例来获得</strong>。通过经验证明和验证，这种方法比以前的工作更能<strong>适应不传递、非马尔可夫和嘈杂的偏好</strong>。</p>
+<h2 id="引言">3 引言</h2>
+<p>RLHF
+认为<strong>有潜在的奖励函数</strong>，就等价于假设存在一个总的顺序，A≻B,B≻C⇒A≻C（传递）。然而，心理学告诉我们实际人类决策的内容是相互矛盾的（<strong><em>石头剪刀布</em></strong>）。即使人们认为一个人的偏好是可传递的，但在评估者群体中，很难满足传递性。此外，如果两个选项得分相似，则选择任一条都不能满足中一半评估者。</p>
+<p>作者提出了一种方法：从智能体中抽取多个轨迹，并要求评分者或偏好模型比较每对，并将奖励设置为<strong>轨迹的胜率</strong>。将这种方法称为
+SPO。</p>
+<h2 id="方法">4 方法</h2>
+<h3 id="社会选择理论">4.1 社会选择理论</h3>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240321075605.png"
+alt="|200" />
+<figcaption aria-hidden="true">|200</figcaption>
+</figure>
+<p>图 3：一个简单的偏好函数 P1 在（a, b, c, d）上。如果 x ≻ y，那么
+P1(x, y) = 1；如果 y ≻ x，那么 P1(x, y) = -1；如果 x ∼ y，那么 P1(x, y)
+= 0。</p>
+<p>最自然的想法可能是选择击败最多其他选项的那个选项。在上述矩阵中，这可能是选项
+a 或者 d，因为它们的行和最大。更正式地说，这种技术被称为 Copeland
+Winner。</p>
+<p>推理链在此问题中不成立，a≻c，c≻d，d≻a，这就意思着有一半的判断者无法被满足。</p>
+<h2 id="方法-1">5 方法</h2>
+<figure>
+<img src="/support/attachments_2024/Pasted%20image%2020240321082342.png"
+alt="|500" />
+<figcaption aria-hidden="true">|500</figcaption>
+</figure>
+<p>在每一轮中，算法会根据当前策略πt
+生成一个轨迹ξt，然后计算这个轨迹相对于其他轨迹的胜率
+rt(ξt)。这个胜率作为轨迹的奖励，用于更新策略。</p>
+<h3 id="相关概念">5.1 相关概念</h3>
+<ul>
+<li>No-regret
+algorithm（无遗憾算法）：力求在长期运行中保持较小的累积损失。每一轮中，算法都会根据当前的信息和历史决策来选择一个动作（action），同时跟踪如果选择了其他动作可能获得的收益。</li>
+<li>anti-symmetry（反对称性）：如果 a 和 b 是不同的元素，那么 a&gt;b 和
+b&gt;a 不能同时为真。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/788886816/">http://xyan666.com/posts/788886816/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1947511116/" title="大模型+强化学习_精典方法_RLHF"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">大模型+强化学习_精典方法_RLHF</div></div></a></div><div class="next-post pull-right"><a href="/posts/2336331053/" title="常用大模型API价格"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">常用大模型API价格</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/23356/" title="论文阅读_MoE_Switch Transformers"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-11</div><div class="title">论文阅读_MoE_Switch Transformers</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/32310/" title="论文阅读_世界模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">论文阅读_世界模型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">1.</span> <span class="toc-text">1 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">2 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">3 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">4 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BE%E4%BC%9A%E9%80%89%E6%8B%A9%E7%90%86%E8%AE%BA"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 社会选择理论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95-1"><span class="toc-number">5.</span> <span class="toc-text">5 方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 相关概念</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

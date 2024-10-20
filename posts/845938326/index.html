@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器学习_用SVD奇异值分解给数据降维 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器学习 _ 用 SVD 奇异值分解给数据降维   本想把 PCA 和 SVD 写在一起，可上篇 PCA 还没写清楚就已经 4 页 word 了。再把 SVD 和特征工程的内容加上，实在是太长了，一下说太多也记不住，于是重开一篇。  SVD 用到的原理和 PCA 非常相似，就不再此赘述了，如果对特征值、特征向量相关问题不清楚请参见前篇 《机器学习_用PCA主成分分析给数据降维》 1. 原理   先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习_用SVD奇异值分解给数据降维">
+<meta property="og:url" content="http://xyan666.com/posts/845938326/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="机器学习 _ 用 SVD 奇异值分解给数据降维   本想把 PCA 和 SVD 写在一起，可上篇 PCA 还没写清楚就已经 4 页 word 了。再把 SVD 和特征工程的内容加上，实在是太长了，一下说太多也记不住，于是重开一篇。  SVD 用到的原理和 PCA 非常相似，就不再此赘述了，如果对特征值、特征向量相关问题不清楚请参见前篇 《机器学习_用PCA主成分分析给数据降维》 1. 原理   先">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-11-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="机器学习&#x2F;算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/845938326/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '机器学习_用SVD奇异值分解给数据降维',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">机器学习_用SVD奇异值分解给数据降维</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-22T00:00:00.000Z" title="Created 2017-11-22 00:00:00">2017-11-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习_用SVD奇异值分解给数据降维"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="机器学习-_-用-svd-奇异值分解给数据降维">机器学习 _ 用 SVD
+奇异值分解给数据降维</h1>
+<p>  本想把 PCA 和 SVD 写在一起，可上篇 PCA 还没写清楚就已经 4 页 word
+了。再把 SVD
+和特征工程的内容加上，实在是太长了，一下说太多也记不住，于是重开一篇。</p>
+<p> SVD 用到的原理和 PCA
+非常相似，就不再此赘述了，如果对特征值、特征向量相关问题不清楚请参见前篇
+<a
+target="_blank" rel="noopener" href="http://www.jianshu.com/p/9a2b5279a021">《机器学习_用PCA主成分分析给数据降维》</a></p>
+<h2 id="原理">1. 原理</h2>
+<p>  先回忆一下特征值分解：把向量 x
+往特征向量方向上分解，然后每个方向上做伸缩，最后再把结果加起来即可。也可以理解为将向量
+x
+转到正交坐标系，在各个坐标轴的方向上缩放后，再转换回原来的坐标系。只有方阵才能做特征值分解，因此我们在
+PCA 中不是直接对数据做分解，而是对参数的协方差矩阵做分解。</p>
+<p>  我们知道，任何矩阵都可以分解为三个矩阵的乘积 A=U * Sigma *
+VT，也就是奇异值分解．其中 U 和 VT 均是酉阵 (正交阵在复数域的推广)，而
+Sigma 为增广对角阵。从直观上讲，U 和 VT 可视为旋转操作，Sigma
+可视为缩放操作。因此奇异值分解的含义就是说，若将矩阵看做一个变换，那么任何这样的变换可以看做是两个旋转和一个缩放变换的复合，这点和特征值分解基本一样。它也可以通过对
+Sigma 的调整实现降维，通过 U 和 VT
+在高维和低维间转换。相比特征值分解，奇异值分解可处理的不只是协方差矩阵（方阵），还可以直接处理数据。</p>
+<figure>
+<img
+src="http://upload-images.jianshu.io/upload_images/5357893-31453450a952f1f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片引自百度百科" />
+<figcaption aria-hidden="true">图片引自百度百科</figcaption>
+</figure>
+<p>  但 SVD
+也有一些问题，比如数据多的时候，奇异值分解的计算量会很大，不像 PCA
+做特征值分解时，矩阵的大小只和属性个数相关。</p>
+<h2 id="例程">2. 例程</h2>
+<h4 id="功能">(1) 功能</h4>
+<p>对矩阵 A 做 SVD
+分解；降维；原始数据转到低维度；降维后的数据恢复到原来维度，看数据损失。</p>
+<h4 id="代码">(2) 代码</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from numpy import linalg</span><br><span class="line">import array</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">A=np.mat([[1,2,3],[4,5,6]])  </span><br><span class="line">U,Sigma,VT=linalg.svd(A)  </span><br><span class="line">print(&quot;U&quot;,U)</span><br><span class="line">print(&quot;Sigma&quot;,Sigma)</span><br><span class="line">print(&quot;VT&quot;,VT)</span><br><span class="line">Sigma[1]=0 # 降维</span><br><span class="line">print(&quot;Sigma&quot;,Sigma)</span><br><span class="line"></span><br><span class="line">S = np.zeros((2,3))</span><br><span class="line">S[:2, :2] = np.diag(Sigma)</span><br><span class="line">print(&quot;A conv:&quot;, np.dot(np.dot(A.T, U), S)) # 原始数据转到低维</span><br><span class="line">print(&quot;A&#x27;:&quot;, np.dot(np.dot(U, S), VT)) # 恢复原始维度</span><br></pre></td></tr></table></figure>
+<h4 id="运行结果">(3) 运行结果</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(&#x27;U&#x27;, matrix([[-0.3863177 , -0.92236578],</span><br><span class="line">        [-0.92236578,  0.3863177 ]]))</span><br><span class="line">(&#x27;Sigma&#x27;, array([ 9.508032  ,  0.77286964]))</span><br><span class="line">(&#x27;VT&#x27;, matrix([[-0.42866713, -0.56630692, -0.7039467 ],</span><br><span class="line">        [ 0.80596391,  0.11238241, -0.58119908],</span><br><span class="line">        [ 0.40824829, -0.81649658,  0.40824829]]))</span><br><span class="line">(&#x27;Sigma&#x27;, array([ 9.508032,  0.      ]))</span><br><span class="line">(&#x27;A conv:&#x27;, matrix([[-38.7526545 ,   0.        ,   0.        ],</span><br><span class="line">        [-51.19565893,   0.        ,   0.        ],</span><br><span class="line">        [-63.63866337,   0.        ,   0.        ]]))</span><br><span class="line">(&quot;A&#x27;:&quot;, matrix([[ 1.57454629,  2.08011388,  2.58568148],</span><br><span class="line">        [ 3.75936076,  4.96644562,  6.17353048]]))</span><br></pre></td></tr></table></figure>
+<h4 id="分析">(4) 分析</h4>
+<p> SVD 分解矩阵 A，A 是一个 2x3（m<em>n，其中 m
+是行数）的矩阵，把它分解成三个矩阵的乘积：A=U </em> Sigma * VT，其中 U
+的大小是 2x2（m<em>m），VT 为 3</em>3（n<em>n），Sigma 为
+min(m,n)，从矩阵乘法的角度上看，Sigma 的大小应该是
+m</em>n，由于它是对角阵，为了简化，这里只取了对角线上元素。</p>
+<p> Sigma
+奇异值为（9.508032，0.77286964），两值差异很大，说明转换后特征主要集中在一个维度上，于是降维，Sigma
+调整 为（9.508032，0）。将原始矩阵 A 转置后乘 U 和调整后的
+Sigma，实现了对 A 的降维。最后，将调整后的 Sigma 与 U,VT
+相乘，映射回原始维度，变为矩阵 A’，对比之下，A’与 A
+的也差不太多。不过把两维降成一维还是挺夸张的，在此只为举例，大家领会精神吧。</p>
+<p>  这里比较重的是：观察 Sigma，决定保留前几项？svd()
+函数对求出的奇异值和奇异向量按大小做了排序，其中值明显大的前 N
+项，说明有 N 个“综合参数”最重要，因此，可以将数据降成 N
+维。可降维度的多少，主要还是看数据的相关性，相关性越大，越适合降维。</p>
+<h2 id="具体应用">3. 具体应用</h2>
+<h4 id="图片压缩">(1) 图片压缩</h4>
+<p>  把图片的像素放一个矩阵里，做 SVD 分解，只保留 Sigma 中值大的前 N
+项。则存储时只需保存三个矩阵，假设原图大小 100x100，N 为 5，则原图要
+10000 点存储，而拆分后 100x5+100x5+5=1005，图像大小变为原来的 1/10。</p>
+<h4 id="数据降维">(2) 数据降维</h4>
+<p>  矩阵中记 20 人试吃这 5 种套餐的评价（5x20），先对整体数据做 SVD
+分解，假设保留 Sigma 的前 3 项，把原矩阵转置并和 U,Sigma 相乘，矩阵就从
+5<em>20 维变成了 3</em>5
+维。再套用各种学习算法时，数据就大大缩减了（从高维到低维投影）。不过 20
+个维度变为 3 个维度后，属性意义也不像之前那么直观了，我们可以使用 VT
+矩阵把数据恢复到原来的维度。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/845938326/">http://xyan666.com/posts/845938326/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/">机器学习/算法</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2776179043/" title="机器学习_统计模型之（二）贝叶斯网络"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">机器学习_统计模型之（二）贝叶斯网络</div></div></a></div><div class="next-post pull-right"><a href="/posts/2617631432/" title="机器学习_用PCA主成分分析给数据降维"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">机器学习_用PCA主成分分析给数据降维</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/16237/" title="在机器学习中应用数学方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-28</div><div class="title">在机器学习中应用数学方法</div></div></a></div><div><a href="/posts/64312/" title="时间序列_用树回归方法画股票趋势线"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-20</div><div class="title">时间序列_用树回归方法画股票趋势线</div></div></a></div><div><a href="/posts/3517426469/" title="机器学习_SVM支持向量机"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-27</div><div class="title">机器学习_SVM支持向量机</div></div></a></div><div><a href="/posts/282609413/" title="机器学习_决策树与信息熵"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-16</div><div class="title">机器学习_决策树与信息熵</div></div></a></div><div><a href="/posts/1802336420/" title="机器学习_基于距离的算法KNN与K-Means"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-28</div><div class="title">机器学习_基于距离的算法KNN与K-Means</div></div></a></div><div><a href="/posts/3815399149/" title="机器学习_总结篇_十大经典算法与算法选择"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-30</div><div class="title">机器学习_总结篇_十大经典算法与算法选择</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-_-%E7%94%A8-svd-%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%E7%BB%99%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4"><span class="toc-number">1.</span> <span class="toc-text">机器学习 _ 用 SVD
+奇异值分解给数据降维</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1. 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2. 例程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">(1) 功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">(2) 代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">(3) 运行结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.2.0.4.</span> <span class="toc-text">(4) 分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3. 具体应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">(1) 图片压缩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">(2) 数据降维</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

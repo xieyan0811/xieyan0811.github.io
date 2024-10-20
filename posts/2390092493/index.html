@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器学习_规则与关联规则模型Apriori、FP-Growth | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器学习 _ 规则与关联规则模型 Apriori、FP-Growth #机器学习 #关系规则 1. 何时使用规则模型   机器学习时常遇到一个问题：当数据并不完全可分时，分类器得分不高。真实世界中的数据经常是这样：各种无意义数据和少量有意义数据混在一起，无意义数据又没什么规律，无法统一去除。比如说，对股票外汇市场受各种因素影响，预测次日涨跌一般各算法效果都不好。虽然找不到通用的规则，却能在数据中探">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习_规则与关联规则模型Apriori、FP-Growth">
+<meta property="og:url" content="http://xyan666.com/posts/2390092493/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="机器学习 _ 规则与关联规则模型 Apriori、FP-Growth #机器学习 #关系规则 1. 何时使用规则模型   机器学习时常遇到一个问题：当数据并不完全可分时，分类器得分不高。真实世界中的数据经常是这样：各种无意义数据和少量有意义数据混在一起，无意义数据又没什么规律，无法统一去除。比如说，对股票外汇市场受各种因素影响，预测次日涨跌一般各算法效果都不好。虽然找不到通用的规则，却能在数据中探">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2017-11-29T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="关系规则">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2390092493/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '机器学习_规则与关联规则模型Apriori、FP-Growth',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">机器学习_规则与关联规则模型Apriori、FP-Growth</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2017-11-29T00:00:00.000Z" title="Created 2017-11-29 00:00:00">2017-11-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习_规则与关联规则模型Apriori、FP-Growth"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="机器学习-_-规则与关联规则模型-apriorifp-growth">机器学习 _
+规则与关联规则模型 Apriori、FP-Growth</h1>
+<p>#机器学习 #关系规则</p>
+<h2 id="何时使用规则模型">1. 何时使用规则模型</h2>
+<p> 
+机器学习时常遇到一个问题：当数据并不完全可分时，分类器得分不高。真实世界中的数据经常是这样：各种无意义数据和少量有意义数据混在一起，无意义数据又没什么规律，无法统一去除。比如说，对股票外汇市场受各种因素影响，预测次日涨跌一般各算法效果都不好。虽然找不到通用的规则，却能在数据中探索到一些模式，比如十字星，孕线，三只乌鸦等组合还是具有一定的预测性。</p>
+<p> 
+之前使用决策树时，就遇到过这种情况，虽然整体得分不高，但某些叶节点上纯度高（全是正例或全是反例）并且实例多，可以把该分枝拿出来当规则使用。虽然不能用它预测任意数据，但可以作为一个过滤器使用。</p>
+<h2 id="规则模型是什么">2. 规则模型是什么</h2>
+<p> 
+规则模型和决策树同属逻辑模型，不同的是决策树对正例反例同样重视，而规则只重视正例/反例其中一项。因此决策树呈现的是互斥关系，而规则模型允许重叠，结果也相对零散的规则列表。规则更像是在大量数据中挑选有意义的数据。</p>
+<p> 
+如果说树是精确模型，规则模型则是启发式策略（虽然经过修改也能覆盖所有实例，但一般不这么用）。它可以找到数据集中的一个子集，相对于全部数据，该子集有明显的意义。</p>
+<p>规则模型多用于处理离散数据，如文本中查找频繁单词，提取摘要，分析购物信息等等。</p>
+<h2 id="具体实现">3. 具体实现</h2>
+<p> 
+在实现上，我们可以把规则当成树的变种，稍加修改，便是规则模型。具体有两种做法：一种是找规则，使其覆盖同质（全真或全假）的样本集（和树类似）；另一种是选定类别，找覆盖该类别实例样本的规则集。</p>
+<h2 id="关联规则">4. 关联规则</h2>
+<p> 
+规则是一个用途很多的算法，关于规则模型的文章不多，有的书把它归入逻辑推理中，而非机器学习。我们最常见的是关联规则，比如用
+Apriori 实现的频繁项集挖掘算法。</p>
+<p> 
+最经典的是购物篮分析中啤酒、尿布的故事，即通过对购物清单的分析，发现看似毫无关系的啤酒和尿布经常在用户的购物篮中一起出现，通过挖掘出啤酒、尿布这个频繁项集，则当一个用户买了啤酒的时候可以为他推荐尿布，从而达到组合营销的目的。</p>
+<p>  下面将介绍两种基于关联规则的无监督学习算算法 Apriori 和
+FP-growth</p>
+<h2 id="apriori">5. Apriori</h2>
+<h4 id="介绍">(1) 介绍</h4>
+<p> Apriori 这个单词在拉丁语中的意思是“来自以前”，也可拆开为 a
+priori，即一次先验。算法的目标是找到出现频率高的简单规则。</p>
+<h4 id="原理">(2) 原理</h4>
+<p> 
+如果某个项是频繁的，那么它的所有子集也是频繁的。反之，如果一个项集是非频繁的，那么它的超集也是非频的。比如啤酒和尿布常常同时出现，则啤酒单独出现的机率也很高；如果这个地区的人极少喝啤酒，啤酒和尿布的组合也不会常常出现。</p>
+<h4 id="算法">(3) 算法</h4>
+<p> 
+生成单个物品列表，去掉频率低于支持度的，再组合两个物品，去掉低于支持度的，以此类推，求出频繁项集，在频繁项集中抽取关联规则。</p>
+<p> 
+算法的输入是大量可能相关的数据组合，支持度，置信度。输出是频率项集或关联规则。</p>
+<h4 id="优缺点">(4) 优缺点</h4>
+<p> Apriori 的优点是易于理解，缺点是算得慢，如果共有 N 件物品，计算量是
+2^N-1。在属性过多，或属性的状态过多时都会导致大量计算。</p>
+<h4 id="相关概念">(5) 相关概念</h4>
+<p>  支持度：数据集中包含该项集的记录所占的比例</p>
+<p>  置信度：同时支持度/部分支持度（纯度）</p>
+<p>  频繁项集：经常同时出现的物品的集合</p>
+<p>  关联规则：两种物品间可能存在很强的关系，比如 A,B 同时出现，如果
+A-&gt;B，则 A 称为前件，B 称为后件。如果 A 发生概率 50%，而 AB 概率
+25%，则 A 不一定引发 B，但如果 AB 发生概率为 49%，则说明 A-&gt;B。</p>
+<h4 id="例程">(6) 例程</h4>
+<ol type="i">
+<li>功能</li>
+</ol>
+<p>从多次购物数据中取频率项集，并显示各组合的支持度</p>
+<ol start="2" type="i">
+<li>代码</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">loadDataSet</span>():</span><br><span class="line">    <span class="keyword">return</span> [[<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">5</span>]]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立所有单项的集合，如购物中的物品集合</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">createC1</span>(<span class="params">dataSet</span>):</span><br><span class="line">    C1 = []</span><br><span class="line">    <span class="keyword">for</span> transaction <span class="keyword">in</span> dataSet:</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> transaction:</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> [item] <span class="keyword">in</span> C1:</span><br><span class="line">                C1.append([item])                </span><br><span class="line">    C1.sort()</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">frozenset</span>, C1))</span><br><span class="line"></span><br><span class="line"><span class="comment"># D是数据，Ck是各个组的集合，返回满足支持率的组</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">scanD</span>(<span class="params">D, Ck, minSupport</span>):</span><br><span class="line">    ssCnt = &#123;&#125; <span class="comment"># 字典</span></span><br><span class="line">    <span class="keyword">for</span> tid <span class="keyword">in</span> D: <span class="comment"># 每条记录</span></span><br><span class="line">        <span class="keyword">for</span> can <span class="keyword">in</span> Ck: <span class="comment"># 每个组</span></span><br><span class="line">            <span class="keyword">if</span> can.issubset(tid):</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> can <span class="keyword">in</span> ssCnt: <span class="comment"># 把组放入字典</span></span><br><span class="line">                    ssCnt[can]=<span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>: </span><br><span class="line">                    ssCnt[can] += <span class="number">1</span></span><br><span class="line">    numItems = <span class="built_in">float</span>(<span class="built_in">len</span>(D))</span><br><span class="line">    retList = []</span><br><span class="line">    supportData = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> ssCnt:</span><br><span class="line">        support = ssCnt[key]/numItems</span><br><span class="line">        <span class="keyword">if</span> support &gt;= minSupport:</span><br><span class="line">            retList.insert(<span class="number">0</span>,key) <span class="comment"># 把字典中的该项加入list</span></span><br><span class="line">        supportData[key] = support</span><br><span class="line">    <span class="keyword">return</span> retList, supportData</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立各个层次的组, 只建立不判断, k是组里元素的个数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">aprioriGen</span>(<span class="params">Lk, k</span>): </span><br><span class="line">    retList = []</span><br><span class="line">    lenLk = <span class="built_in">len</span>(Lk)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(lenLk):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, lenLk): </span><br><span class="line">            L1 = <span class="built_in">list</span>(Lk[i])[:k-<span class="number">2</span>]; L2 = <span class="built_in">list</span>(Lk[j])[:k-<span class="number">2</span>]</span><br><span class="line">            L1.sort(); L2.sort()</span><br><span class="line">            <span class="keyword">if</span> L1==L2: <span class="comment">#if first k-2 elements are equal</span></span><br><span class="line">                retList.append(Lk[i] | Lk[j]) <span class="comment">#set union</span></span><br><span class="line">    <span class="keyword">return</span> retList</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">apriori</span>(<span class="params">dataSet, minSupport = <span class="number">0.5</span></span>):</span><br><span class="line">    C1 = createC1(dataSet)</span><br><span class="line">    D = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">set</span>, dataSet))</span><br><span class="line">    L1, supportData = scanD(D, C1, minSupport)</span><br><span class="line">    L = [L1]</span><br><span class="line">    k = <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">len</span>(L[k-<span class="number">2</span>]) &gt; <span class="number">0</span>):</span><br><span class="line">        Ck = aprioriGen(L[k-<span class="number">2</span>], k) <span class="comment"># 建立组</span></span><br><span class="line">        Lk, supK = scanD(D, Ck, minSupport) <span class="comment"># 判断新组是否适合支持率</span></span><br><span class="line">        supportData.update(supK)</span><br><span class="line">        L.append(Lk) <span class="comment"># 将本次结果加入整体</span></span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> L, supportData</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    dataSet = loadDataSet() <span class="comment"># 数据是二维数组，每项可看作如一次购物</span></span><br><span class="line">    L,suppData = apriori(dataSet, minSupport = <span class="number">0.7</span>)</span><br><span class="line">    <span class="built_in">print</span>(L)</span><br><span class="line">    <span class="built_in">print</span>(suppData)</span><br></pre></td></tr></table></figure>
+<ol start="3" type="i">
+<li>结果</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[frozenset([3]), frozenset([2]), frozenset([5])], [frozenset([2, 5])], []]</span><br><span class="line">&#123;frozenset([5]): 0.75, frozenset([3]): 0.75, frozenset([3, 5]): 0.5, frozenset([4]): 0.25, frozenset([2, 3]): 0.5, frozenset([2, 5]): 0.75, frozenset([1]): 0.5, frozenset([2]): 0.75&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="fp-growth">6. FP-growth</h2>
+<h4 id="介绍-1">(1) 介绍</h4>
+<p> FP 是 Frequent Pattern 的缩写，代表频繁模式。FP-growth 比 Apriori
+快，性能提高在两个数量级以上，在大数据集上表现更佳。</p>
+<p>  和 Apriori 多次扫描原始数据相比，FP-Growth
+算法则只需扫描原始数据两遍，把数据存储在 FP-Tree 结构中。</p>
+<h4 id="fp-tree">(2) FP-Tree</h4>
+<p>  与搜索树不同的是，一个元素项可以在 FP 树中出现多次，FP
+树会存储项集的出现频率。每个项集会以路径的方式存储在树中，存在相似元素的集合会共享树的一部分，只当集合之间完全不同时，树才会分叉。</p>
+<p>  除了树，还有个索引表（Header table），把所有含相同元素的组织起来
+(link list)，以便查找。</p>
+<h4 id="算法-1">(3) 算法</h4>
+<p>先构建 FP 树，然后从 FP 树中挖掘频繁项集</p>
+<ol type="i">
+<li>收集数据</li>
+</ol>
+<p>数据是五次购物的清单（记录），a,b,c,d…分别代表物品（item）</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-4a5da898aae5957e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<ol start="2" type="i">
+<li>去除非频繁项 l, i, o 等，并排序</li>
+</ol>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-232efc00fd5c89a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<ol start="3" type="i">
+<li>将记录依次加入树，并建立索引表（左侧框），粉色为添加第一次购物数据。</li>
+</ol>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-2ba74cfe09df3b39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<ol start="4" type="i">
+<li>从下往上构造每个 item 的条件模式基 CPB（conditional pattern
+base）</li>
+</ol>
+<p>  顺着 header table 中 item 的链表，找出所有包含该 item
+的前缀路径，这些前缀路径就是该 item 的条件模式基（CPB）</p>
+<p>  所有这些 CPB 的频繁度（计数）为该路径上 item 的频繁度（计数）</p>
+<p>  如包含 p 的其中一条路径是 fcamp，该路径中 p 的频繁度为 2，则该 CPB
+fcam 的频繁度为 2</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-6b5735746632bbc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<ol start="22" type="a">
+<li>构造条件 FP-tree（conditional FP-tree）</li>
+</ol>
+<p>  累加每个 CPB 上的 item 的频繁度（计数），过滤低于阈值的 item，构建
+FP-tree</p>
+<p><img
+src="http://upload-images.jianshu.io/upload_images/5357893-8e67106db7c81a79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>  如 m 的 CPB{<fca:2>, <fcab:1>}，f:3, c:3, a:3, b:1, 阈值假设为
+3，则过滤掉 b。</p>
+<p>  递归的挖掘每个条件 FP-tree，累加后缀频繁项集，直到找到 FP-tree
+为空或者 FP-tree 只有一条路径。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2390092493/">http://xyan666.com/posts/2390092493/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/">关系规则</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3815399149/" title="机器学习_总结篇_十大经典算法与算法选择"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">机器学习_总结篇_十大经典算法与算法选择</div></div></a></div><div class="next-post pull-right"><a href="/posts/1802336420/" title="机器学习_基于距离的算法KNN与K-Means"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">机器学习_基于距离的算法KNN与K-Means</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/30305/" title="streamlit构造Web应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-12</div><div class="title">streamlit构造Web应用</div></div></a></div><div><a href="/posts/6517/" title="算法之_欧拉公式"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-06-01</div><div class="title">算法之_欧拉公式</div></div></a></div><div><a href="/posts/14484/" title="SHAP解释模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-20</div><div class="title">SHAP解释模型</div></div></a></div><div><a href="/posts/56928/" title="SHAP解释模型二"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-21</div><div class="title">SHAP解释模型二</div></div></a></div><div><a href="/posts/28040/" title="分类模型的可解释性"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-26</div><div class="title">分类模型的可解释性</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-_-%E8%A7%84%E5%88%99%E4%B8%8E%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99%E6%A8%A1%E5%9E%8B-apriorifp-growth"><span class="toc-number">1.</span> <span class="toc-text">机器学习 _
+规则与关联规则模型 Apriori、FP-Growth</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1. 何时使用规则模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.2.</span> <span class="toc-text">2. 规则模型是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3. 具体实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99"><span class="toc-number">1.4.</span> <span class="toc-text">4. 关联规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apriori"><span class="toc-number">1.5.</span> <span class="toc-text">5. Apriori</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.5.0.1.</span> <span class="toc-text">(1) 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.5.0.2.</span> <span class="toc-text">(2) 原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.5.0.3.</span> <span class="toc-text">(3) 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.5.0.4.</span> <span class="toc-text">(4) 优缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.0.5.</span> <span class="toc-text">(5) 相关概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E7%A8%8B"><span class="toc-number">1.5.0.6.</span> <span class="toc-text">(6) 例程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fp-growth"><span class="toc-number">1.6.</span> <span class="toc-text">6. FP-growth</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">(1) 介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fp-tree"><span class="toc-number">1.6.0.2.</span> <span class="toc-text">(2) FP-Tree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-1"><span class="toc-number">1.6.0.3.</span> <span class="toc-text">(3) 算法</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

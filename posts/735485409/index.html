@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>论文阅读_大型语言模型增强强化学习调查 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="12345678中文标题：Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods中文名称: 大型语言模型增强强化学习调查：概念、分类和方法链接: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2404.00282作者: Yuji Cao, Huan Zhao, Yuh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读_大型语言模型增强强化学习调查">
+<meta property="og:url" content="http://xyan666.com/posts/735485409/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="12345678中文标题：Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods中文名称: 大型语言模型增强强化学习调查：概念、分类和方法链接: https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2404.00282作者: Yuji Cao, Huan Zhao, Yuh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-10-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-20T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/735485409/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读_大型语言模型增强强化学习调查',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-20 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">论文阅读_大型语言模型增强强化学习调查</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-20T00:00:00.000Z" title="Updated 2024-10-20 00:00:00">2024-10-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读_大型语言模型增强强化学习调查"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">中文标题：Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods</span><br><span class="line">中文名称: 大型语言模型增强强化学习调查：概念、分类和方法</span><br><span class="line">链接: https://arxiv.org/pdf/2404.00282</span><br><span class="line">作者: Yuji Cao, Huan Zhao, Yuheng Cheng, Ting Shu, Yue Chen, Guolong Liu, Gaoqi Liang, Junhua Zhao, Jinyue Yan, Yun Li,</span><br><span class="line">机构: 香港中文大学</span><br><span class="line">日期：2024-03-30</span><br><span class="line">引文数量：135</span><br><span class="line">长度：正文15页</span><br></pre></td></tr></table></figure>
+<p>来自：241011 哲明分享</p>
+<h1 id="摘要">摘要</h1>
+<p><strong>目标</strong>:
+提供对大型语言模型（LLMs）增强强化学习（RL）相关文献的全面综述，明确其与传统
+RL 方法的对比，澄清研究范围和未来研究方向。</p>
+<p><strong>方法</strong>: 基于经典的代理 -
+环境互动范式，提出结构化分类法，将 LLMs 在 RL
+中的功能系统地划分为<em>信息处理器、奖励设计者、决策者和生成器四个角色</em>。逐一总结方法、分析所缓解的
+RL 挑战，并提供未来研究的见解。</p>
+<p><strong>结果</strong>: 提出了一个用于分类 LLM 在 RL
+中角色的框架，讨论了各角色间的对比分析、潜在应用、未来机遇和挑战。期望能加速
+LLM 在复杂应用中的 RL 落地，如机器人技术、自动驾驶和能源系统。</p>
+<h1 id="读后感">读后感</h1>
+<p>这是一篇综述性论文，主要研究 LLM
+帮助训练和提升强化学习模型。这篇论文从四个方面讨论了 LLM 对 RL
+的加强。</p>
+<p>提出了将表示学习与 RL 解耦，从而拆分了 LLM 和 CV
+与控制决策模块；这里主要讨论使用 LLM 提升控制和决策能力，最终提升了 RL
+整体能力。这里的 LLM 是用于帮助训练模型，而非用于直接决策。</p>
+<h2 id="引入">1 引入</h2>
+<p>有论文提出结合语言和视觉能力的深度强化学习（RL）面临四大挑战：</p>
+<ul>
+<li>样本效率低下</li>
+<li>奖励函数设计复杂</li>
+<li>泛化问题</li>
+<li>自然语言理解难题</li>
+</ul>
+<h2 id="背景">2 背景</h2>
+<h3 id="强化学习">2.1 强化学习</h3>
+<h4 id="经典强化学习">2.1.1 经典强化学习</h4>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241020101402.png" /></p>
+<p>图 1：经典的强化学习范式。</p>
+<h4 id="强化学习的挑战">2.1.2 强化学习的挑战</h4>
+<ul>
+<li><strong>不可见环境中的泛化</strong>：实际环境很少是静态或完全可预测的。</li>
+<li><strong>奖励函数设计</strong>：尤其是在稀疏奖励环境和复杂场景中，大多数设计的奖励都是次优的，可能导致意外行为。</li>
+<li><strong>基于模型的规划中的复合误差</strong>：模型预测中的误差不断累积，导致与最佳轨迹出现重大偏差。</li>
+<li><strong>多任务学习</strong>：简单任务可能掩盖对更复杂任务的学习，导致负迁移。任务之间共享参数或数据可能导致单个任务性能不佳。</li>
+</ul>
+<h4 id="多模态强化学习">2.1.3 多模态强化学习</h4>
+<p>自然语言在强化学习中的使用可以分为以下两类：</p>
+<ul>
+<li><strong>语言条件强化学习</strong>：通过自然语言与环境交互。代理在解释指令后执行动作，也可将自然语言作为状态或动作空间的一部分，用于文字游戏、对话系统等任务中，直接指导代理操作与决策。</li>
+<li><strong>语言辅助强化学习</strong>：通过自然语言促进学习，但不直接用于问题制定。可传达领域知识，如任务相关文本帮助代理；通过语言构建策略，用抽象指令引导代理行为，间接增强强化学习任务的执行。</li>
+</ul>
+<h3 id="大语言模型">2.2 大语言模型</h3>
+<p>大模型在上下文学习、推理和泛化能力方面对强化学习有帮助。</p>
+<ul>
+<li><strong>上下文学习</strong>：将与任务相关的文本作为上下文信息包含在提示中，帮助大型语言模型（LLMs）理解情况并执行指令。</li>
+<li><strong>指令遵循</strong>：利用以自然语言描述格式化的各种特定数据集，使
+LLMs 能够理解新任务指令，并有效泛化到以前未遇到的任务。</li>
+<li><strong>循序渐进推理</strong>：将解决问题过程构建为顺序或分层步骤，从而促进更清晰易懂的推理路径。</li>
+</ul>
+<h2 id="大型语言模型-经典的强化学习范式">3 大型语言模型
+经典的强化学习范式</h2>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241011175746.png" /></p>
+<p>图 2：经典代理 - 环境交互中的 LLM 增强 RL 框架，LLM 在增强 RL
+中起着不同的作用。</p>
+<h2 id="信息处理者">4 信息处理者</h2>
+<p>预训练的 LLM
+或视觉语言模型（VLM）具备强大的表示能力和先验知识，可以作为强化学习（RL）的信息处理者。这提高了样本效率和零样本性能，使代理能够在不同且奖励稀疏的环境中有效泛化。</p>
+<h3 id="特征表示提取器">4.1 特征表示提取器</h3>
+<p>预训练的 LLM 或 VLM 模型可以凭借其强大的表示能力和先验知识，作为 RL
+的信息处理器，从而解耦信息处理任务和控制任务。</p>
+<h4 id="特征表示提取器-1">4.1.1 特征表示提取器</h4>
+<p>通过采用计算机视觉（CV）和自然语言处理（NLP）中的大型预训练模型，其学习到的特征表示可以作为下游网络学习的基础嵌入，提升样本效率。冻结或微调
+LLM 可以为下游 RL 网络提取有意义的表示。</p>
+<h4 id="语言翻译器">4.1.2 语言翻译器</h4>
+<p>LLM
+能将自然语言信息翻译成强化学习模型可以理解的形式，如特征表示或任务特定语言，从而辅助
+RL 代理进行学习。这包括指令信息翻译和环境信息翻译。</p>
+<h2 id="奖励设计者">5 奖励设计者</h2>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241020151734.png" /></p>
+<p>图 4：LLM 作为奖励设计者。（i）隐性奖励模型：LLM
+提供基于语言指令与视觉观察之间直接提示或对齐评分的奖励。（ii）显式奖励模型：LLM
+为奖励函数生成可执行代码，并通过评估循环进行自我优化。</p>
+<h2 id="决策者">6 决策者</h2>
+<p>基于 LLM 在决策问题中的潜力，LLM 可用于：</p>
+<ul>
+<li>动作生成；</li>
+<li>动作指导：
+<ul>
+<li>操作备选项：简化动作空间，LLM
+通过生成合理候选行动或专家行动来指导行动选择。</li>
+<li>专家操作：基于对人类行为和常识的理解，LLM 产生高质量专家行动以规范
+RL 代理解决问题。</li>
+</ul></li>
+</ul>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241020152412.png" /></p>
+<h2 id="生成器">7 生成器</h2>
+<p>LLMs 可以应用于环境模拟和行为解释。</p>
+<ul>
+<li>世界模型模拟器：LLM
+使用真实世界的数据和知识来模拟动态，生成模拟世界，并协助政策学习。</li>
+<li>策略解释器：LLM
+根据状态操作历史记录和提示生成代理行为的解释，这可能会导致可解释的
+RL。</li>
+</ul>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241020153141.png" /></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/735485409/">http://xyan666.com/posts/735485409/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1902711198/" title="github自动编译Release版本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">github自动编译Release版本</div></div></a></div><div class="next-post pull-right"><a href="/posts/3108099153/" title="使用辅助编程的一些思考"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">使用辅助编程的一些思考</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/23356/" title="论文阅读_MoE_Switch Transformers"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-11</div><div class="title">论文阅读_MoE_Switch Transformers</div></div></a></div><div><a href="/posts/40002/" title="论文阅读_关系表征的在线学习DeepWalk"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-04</div><div class="title">论文阅读_关系表征的在线学习DeepWalk</div></div></a></div><div><a href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-20</div><div class="title">论文阅读_可扩展特征学习Node2Vec</div></div></a></div><div><a href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-02-27</div><div class="title">论文阅读_基于动态搏弈的知识图推理</div></div></a></div><div><a href="/posts/64748/" title="论文阅读_解释黑盒模型方法综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-16</div><div class="title">论文阅读_解释黑盒模型方法综述</div></div></a></div><div><a href="/posts/32310/" title="论文阅读_世界模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-01</div><div class="title">论文阅读_世界模型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">2.</span> <span class="toc-text">读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">1 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.2.</span> <span class="toc-text">2 背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.1 强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">2.1.1 经典强化学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">2.1.2 强化学习的挑战</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">2.1.3 多模态强化学习</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2 大语言模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B-%E7%BB%8F%E5%85%B8%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E8%8C%83%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3 大型语言模型
+经典的强化学习范式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%A4%84%E7%90%86%E8%80%85"><span class="toc-number">2.4.</span> <span class="toc-text">4 信息处理者</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E8%A1%A8%E7%A4%BA%E6%8F%90%E5%8F%96%E5%99%A8"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 特征表示提取器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E5%BE%81%E8%A1%A8%E7%A4%BA%E6%8F%90%E5%8F%96%E5%99%A8-1"><span class="toc-number">2.4.1.1.</span> <span class="toc-text">4.1.1 特征表示提取器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91%E5%99%A8"><span class="toc-number">2.4.1.2.</span> <span class="toc-text">4.1.2 语言翻译器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%96%E5%8A%B1%E8%AE%BE%E8%AE%A1%E8%80%85"><span class="toc-number">2.5.</span> <span class="toc-text">5 奖励设计者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E8%80%85"><span class="toc-number">2.6.</span> <span class="toc-text">6 决策者</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">2.7.</span> <span class="toc-text">7 生成器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

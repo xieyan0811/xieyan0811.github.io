@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>调节学习率 | Yan 的杂物志</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="调节学习率 在深度学习和其它一些循环迭代算法中，学习率都非常重要。在效率上，它几乎是与算力同等重要的因素；在效果上，它也决定着模型的准确率。如果设置太小，则收敛缓慢，也有可能收敛到局部最优解；设置太大又导致上下摆动，甚至无法收敛。 设定学习率 下面总结了设置学习率的一些方法：  理论上，如果将学习率调大 10 倍，现在 10 次训练就可以达成之前 100 次的训练效果。 一般使用工具默认的学习率，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调节学习率">
+<meta property="og:url" content="http://xyan666.com/posts/3662399164/index.html">
+<meta property="og:site_name" content="Yan 的杂物志">
+<meta property="og:description" content="调节学习率 在深度学习和其它一些循环迭代算法中，学习率都非常重要。在效率上，它几乎是与算力同等重要的因素；在效果上，它也决定着模型的准确率。如果设置太小，则收敛缓慢，也有可能收敛到局部最优解；设置太大又导致上下摆动，甚至无法收敛。 设定学习率 下面总结了设置学习率的一些方法：  理论上，如果将学习率调大 10 倍，现在 10 次训练就可以达成之前 100 次的训练效果。 一般使用工具默认的学习率，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2020-04-25T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-27T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="深度学习&#x2F;工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3662399164/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '调节学习率',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-27 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志"><span class="site-name">Yan 的杂物志</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">调节学习率</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-04-25T00:00:00.000Z" title="Created 2020-04-25 00:00:00">2020-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-08-27T00:00:00.000Z" title="Updated 2023-08-27 00:00:00">2023-08-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="调节学习率"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="调节学习率">调节学习率</h1>
+<p>在深度学习和其它一些循环迭代算法中，学习率都非常重要。在效率上，它几乎是与算力同等重要的因素；在效果上，它也决定着模型的准确率。如果设置太小，则收敛缓慢，也有可能收敛到局部最优解；设置太大又导致上下摆动，甚至无法收敛。</p>
+<h3 id="设定学习率">设定学习率</h3>
+<p>下面总结了设置学习率的一些方法：</p>
+<ul>
+<li>理论上，如果将学习率调大 10 倍，现在 10 次训练就可以达成之前 100
+次的训练效果。</li>
+<li>一般使用工具默认的学习率，如果收敛太慢，比如训练了十几个小时，在训练集和验证集上仍在收敛，则可尝试将学习率加大几倍，不要一下调成太大。</li>
+<li>如果误差波动过大，无法收敛，则可考虑减小学习率，以便微调模型。</li>
+<li>在测试阶段建议使用较大的学习率，在短时间内测算过拟合位置，尤其好用。</li>
+<li>在预训练模型的基础上 fine-tune
+模型时，一般使用较小的学习率；反之，如果直接训练，则使用较大的学习率。</li>
+<li>对于不同层可使用不同学习率，比如可对新添加的层使用较大的学习率，或者“冻住”某些层。</li>
+<li>下图展示了不同学习率的误差变化曲线。</li>
+</ul>
+<figure>
+<img
+src="https://upload-images.jianshu.io/upload_images/5357893-5334e5009bd03bf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"
+alt="图片来自网络" />
+<figcaption aria-hidden="true">图片来自网络</figcaption>
+</figure>
+<h3 id="手动调节学习率">手动调节学习率</h3>
+<p>Pytorch
+提供在迭代过程中修改学习率的方法。最简单的方法是手动修改学习率的值。优化器
+optimizer 通过 param_group
+提供对不同层使用不同的优化方法，其中每组参数保存了各自的学习率、动量等，如果只设置了一种优化方法，修改其第
+0 组的 lr 即可，例如设置学习率加倍：optimizer.param_groups[0]['lr'] *=2
+在使用工具调整学习率的过程中，也可通过该值检测学习率的变化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(optimizer.state_dict()[&#x27;param_groups&#x27;][0][&#x27;lr&#x27;])</span><br></pre></td></tr></table></figure>
+<h3 id="使用库函数调节">使用库函数调节</h3>
+<p>更为简便的方法是使用 torch.optim.lr_scheduler
+工具，它支持三种调整方法：</p>
+<ul>
+<li><p>有序调整<br />
+按一定规则调整，比如使用余弦退火 (CosineAnnealing)，指数衰减
+(Exponential)，或者步长 (Step) 等事先定制的规则调整学习率。</p></li>
+<li><p>自适应调整<br />
+通过监测某个指标的变化情况
+(loss、accuracy)，当指标不再变好时，调整学习率
+(ReduceLROnPlateau);</p></li>
+<li><p>自定义调整<br />
+使用自定义的 lambda 函数调整学习率 (LambdaLR)</p></li>
+</ul>
+<h3 id="示例">示例</h3>
+<p>下面示例最简单的调整方法：每十次迭代，学习率减半</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line"># 构建一个简单的网络</span><br><span class="line">class simpleNet(nn.Module):</span><br><span class="line">    def __init__(self, in_dim, n_hidden, out_dim):</span><br><span class="line">        super(simpleNet, self).__init__()</span><br><span class="line">        self.layer1 = nn.Linear(in_dim, n_hidden)</span><br><span class="line">        self.layer2 = nn.Linear(n_hidden, out_dim)</span><br><span class="line">   def forward(self, x):</span><br><span class="line">         x = self.layer1(x)</span><br><span class="line">         x = self.layer2(x)</span><br><span class="line">         return x</span><br><span class="line"></span><br><span class="line">model = simpleNet(5, 10, 8)</span><br><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=0.1) # 学习率初值0.1</span><br><span class="line">scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.5) # 每十次迭代，学习率减半</span><br><span class="line"></span><br><span class="line">arr = [] # 用于做图</span><br><span class="line">for i in range(1,100):</span><br><span class="line">    scheduler.step() # 学习率迭代次数+1</span><br><span class="line">    arr.append(optimizer.state_dict()[&#x27;param_groups&#x27;][0][&#x27;lr&#x27;])</span><br><span class="line">    #arr.append(scheduler.get_lr())  # 与上一句功能相同</span><br><span class="line">plt.grid()</span><br><span class="line">plt.plot(arr)   </span><br></pre></td></tr></table></figure>
+<p>其运行结果如下图所示：</p>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-8cc6f69fea37a301.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>其它常用方法：</p>
+<p>多步长调整：在迭代到第 10,30,50
+次时调整学习率，其它情况学习率不变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, [10,30,50], gamma=0.5)</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-337be0844a00294b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>指数方式调整：每一次迭代，学习率呈指数方式变化 lr=base_lr *
+(gamma**epoch)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.95)</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-2743f552b6c60fd5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>余弦退火：设置每 T_max 次迭代后衰减到 eta_min
+设置的最小值，然后逐渐恢复其初值，后面依此类推，往复波动：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=20, eta_min=0.05)</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-3ac196781cad9914.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<p>自适应调整：当误差或准确率达变化很小时调整学习率</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.optim.lr_sheduler.ReduceLROnPlateau(optimizer, mode=&#x27;min&#x27;, factor=0.1, patience=10,</span><br></pre></td></tr></table></figure>
+<p>verbose=False, threshold=0.0001, threshold_mode='rel', cooldown=0,
+min_lr=0,
+eps=1e-08)（涉及环境较为复杂，此处不做示例）自定义函数调整（最常用）：每次增加迭代次数的百分之一</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lambdaf = lambda epoch: 0.05 + (epoch) / 100</span><br><span class="line">scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambdaf)</span><br></pre></td></tr></table></figure>
+<p><img
+src="https://upload-images.jianshu.io/upload_images/5357893-fdf4bda220545c82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" /></p>
+<h3 id="warmup">Warmup</h3>
+<p>深度学习网络往往非常庞大，有时候训练一次 epoch
+需要数小时。学习率设置不合理会浪费大量时间。设置学习率需要确定三个问题：初始时的学习率、终止时的学习率，以及如何变化。其中的变化方法一般有直线变化，曲线变化，或者跳变，只要足够细化，使用哪种方法问题都不大；终止学习率可视学习效果设定，比如当模型在验证集上不再变好，可尝试将学习率调到更低。</p>
+<p>初始学习率的设置方法可借鉴论文《Cyclical Learning Rates for Training
+Neural
+Networks》。文中介绍了估计最小学习率和最大学习率的方法，比如在首次训练时（第
+1 个 epoch），先设置一个非常小的初始学习率，在每个 batch
+之后都更新网络，同时增加学习率，统计每个 batch 计算出的
+loss，看增加到多大时，loss 开始变差（很容易看到，调大到一定程度，loss
+变大，甚至变成
+nan），从而得到初始学习率。其核心在于将学习率由小变大。</p>
+<p>Warmup
+预热是一种非常流行的对学习率先升后降（三角学习率）的调整方法，就效果而言，通常情况下：三角学习率&gt;
+按照 auc 逐步衰减&gt; 保持均值不变。</p>
+<p>尽管上述工具简化了调整学习率的工作，但暂时还未找到一种任何情况下都适用的方法，具体的学习率变化方法及其范围仍需要在具体数据集上实验。</p>
+<p>笔者的体验是在前期加了 lr
+变大收敛往往非常快，后期变小效果又非常好。过于手调可能降低模型的泛化能力，但针对具体问题，尤其是在数据量较大的情况下（如训练一次几十个小时），一定要精调。使用指数，步长调节方法虽然看起来整整齐齐，但是限制也多，还是建立自己写
+lambda 函数优化更到位，如果使用现成的工具，则根据其 example
+以微调为主。</p>
+<p>下面展示一些 warmup 相关代码：</p>
+<p>定义 warmup 函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def warmup_lr_scheduler(optimizer, warmup_iters, warmup_factor):</span><br><span class="line">    def f(x): # x是step次数</span><br><span class="line">        if x &gt;= warmup_iters:</span><br><span class="line">            return 1</span><br><span class="line">        alpha = float(x) / warmup_iters # 当前进度 0-1</span><br><span class="line">        return warmup_factor * (1 - alpha) + alpha</span><br><span class="line">return torch.optim.lr_scheduler.LambdaLR(optimizer, f)</span><br></pre></td></tr></table></figure>
+<p>训练前设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lr_scheduler = None</span><br><span class="line">if warmup:</span><br><span class="line">    warmup_factor = 1. / 1000</span><br><span class="line">    warmup_iters = min(1000, len(train_loader) - 1)</span><br><span class="line">    lr_scheduler = warmup_lr_scheduler(optimizer, warmup_iters, warmup_factor)</span><br></pre></td></tr></table></figure>
+<p>训练时每次优化后调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if lr_scheduler is not None:</span><br><span class="line">    lr_scheduler.step()</span><br><span class="line">    print(i, optimizer.state_dict()[&#x27;param_groups&#x27;][0][&#x27;lr&#x27;], np.mean(arr_loss))</span><br><span class="line">    arr_lr.append(lr_scheduler.get_lr()[0]) # 加入数组用于后期绘图</span><br><span class="line">    arr_loss_all.append(np.mean(arr_loss))</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3662399164/">http://xyan666.com/posts/3662399164/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/">深度学习/工具</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2632102027/" title="怎么看目标检测的效果"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">怎么看目标检测的效果</div></div></a></div><div class="next-post pull-right"><a href="/posts/27572/" title="18_少儿Python编程_第十八讲：搭建网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">18_少儿Python编程_第十八讲：搭建网站</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/25034/" title="Docker问题解决"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-01</div><div class="title">Docker问题解决</div></div></a></div><div><a href="/posts/2974/" title="搭建TensorFlow的GPUDocker环境"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-19</div><div class="title">搭建TensorFlow的GPUDocker环境</div></div></a></div><div><a href="/posts/3259247470/" title="归一化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-14</div><div class="title">归一化</div></div></a></div><div><a href="/posts/3024075974/" title="深度学习_简介及相关概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-10-31</div><div class="title">深度学习_简介及相关概念</div></div></a></div><div><a href="/posts/2291879896/" title="深度网络调参"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-14</div><div class="title">深度网络调参</div></div></a></div><div><a href="/posts/260491632/" title="激活函数"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-11</div><div class="title">激活函数</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">80</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E8%8A%82%E5%AD%A6%E4%B9%A0%E7%8E%87"><span class="toc-number">1.</span> <span class="toc-text">调节学习率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E5%AE%9A%E5%AD%A6%E4%B9%A0%E7%8E%87"><span class="toc-number">1.0.1.</span> <span class="toc-text">设定学习率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E8%B0%83%E8%8A%82%E5%AD%A6%E4%B9%A0%E7%8E%87"><span class="toc-number">1.0.2.</span> <span class="toc-text">手动调节学习率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BA%93%E5%87%BD%E6%95%B0%E8%B0%83%E8%8A%82"><span class="toc-number">1.0.3.</span> <span class="toc-text">使用库函数调节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.0.4.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#warmup"><span class="toc-number">1.0.5.</span> <span class="toc-text">Warmup</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-18T00:00:00.000Z" title="Created 2024-10-18 00:00:00">2024-10-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
