@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Obsidian插件开发 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 Obidian 开发 Obsidian 基于 Electron 框架开发，其前端主要使用了 HTML、CSS 和 JavaScript，而后端使用了 Node.js。Node.js 是基于 Chrome V8 引擎的 JavaScript 运行环境，使 JavaScript 能在服务器端运行。 在开发 Obsidian 插件时，将涉及 JavaScript 和 Node.js 的相关知识。如：">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Obsidian插件开发 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 Obidian 开发 Obsidian 基于 Electron 框架开发（开发者可以使用 Web 技术构建桌面应用，Google 的 Flutter 也是类似的框架），主要使用 HTML、CSS 和 JavaScript。后端则依赖 Node.js（Node.js 是基于 Chrome V8 引擎的 JavaScript 运行环境），使 JavaScript 能在服务器端运行。 开发 Obsi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Obsidian插件开发">
 <meta property="og:url" content="http://xyan666.com/posts/2535314872/index.html">
 <meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
-<meta property="og:description" content="1 Obidian 开发 Obsidian 基于 Electron 框架开发，其前端主要使用了 HTML、CSS 和 JavaScript，而后端使用了 Node.js。Node.js 是基于 Chrome V8 引擎的 JavaScript 运行环境，使 JavaScript 能在服务器端运行。 在开发 Obsidian 插件时，将涉及 JavaScript 和 Node.js 的相关知识。如：">
+<meta property="og:description" content="1 Obidian 开发 Obsidian 基于 Electron 框架开发（开发者可以使用 Web 技术构建桌面应用，Google 的 Flutter 也是类似的框架），主要使用 HTML、CSS 和 JavaScript。后端则依赖 Node.js（Node.js 是基于 Chrome V8 引擎的 JavaScript 运行环境），使 JavaScript 能在服务器端运行。 开发 Obsi">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
-<meta property="article:published_time" content="2024-10-22T00:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-22T00:00:00.000Z">
+<meta property="article:published_time" content="2024-11-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-10T00:00:00.000Z">
 <meta property="article:author" content="Yan.xie">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2535314872/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
@@ -57,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-10-22 00:00:00'
+  postUpdate: '2024-11-10 00:00:00'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -165,37 +165,40 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Obsidian插件开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-10-22T00:00:00.000Z" title="Created 2024-10-22 00:00:00">2024-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-22T00:00:00.000Z" title="Updated 2024-10-22 00:00:00">2024-10-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Obsidian插件开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="obidian-开发">1 Obidian 开发</h2>
-<p>Obsidian 基于 Electron 框架开发，其前端主要使用了 HTML、CSS 和
-JavaScript，而后端使用了 Node.js。Node.js 是基于 Chrome V8 引擎的
-JavaScript 运行环境，使 JavaScript 能在服务器端运行。</p>
-<p>在开发 Obsidian 插件时，将涉及 JavaScript 和 Node.js
-的相关知识。如：使用 Node.js 提供的模块和 API
-来进行文件操作、访问系统资源、处理网络请求等。</p>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">712</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Obsidian插件开发</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-11-10T00:00:00.000Z" title="Created 2024-11-10 00:00:00">2024-11-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-11-10T00:00:00.000Z" title="Updated 2024-11-10 00:00:00">2024-11-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Obsidian插件开发"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="obidian-开发">1 Obidian 开发</h2>
+<p>Obsidian 基于 Electron 框架开发（开发者可以使用 Web
+技术构建桌面应用，Google 的 Flutter 也是类似的框架），主要使用 HTML、CSS
+和 JavaScript。后端则依赖 Node.js（Node.js 是基于 Chrome V8 引擎的
+JavaScript 运行环境），使 JavaScript 能在服务器端运行。</p>
+<p>开发 Obsidian 插件时，需要掌握 JavaScript 和 Node.js。比如，利用
+Node.js 提供的模块和 API
+进行文件操作、访问系统资源、处理网络请求等。</p>
 <h2 id="开发环境">2 开发环境</h2>
-<p>我的开发环境为：VSCode + Node Docker+
-Copilot。这样既不影响我的宿主机环境，开发也比较舒服，还可以利用辅助编码工具。</p>
+<p>我的开发环境是：VSCode + Node Docker +
+Copilot。这样不仅不会影响我的宿主机环境，开发起来也很舒适，还可以利用辅助编码工具。</p>
 <p>如果想开发 Obsidian 插件，就需要安装 Node.js 环境。Node.js 提供了
-JavaScript 运行环境和许多内置模块；同时，安装 Node.js 也会安装
-npm，用来管理插件项目的依赖项。</p>
-<p>因为之前安装过 node 镜像，这次就直接使用了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">$ docker run --name obdev --<span class="built_in">rm</span> -v /exports:/exports -it node:16-alpine sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker run --name obdev --<span class="built_in">rm</span> -v /exports:/exports -it node:18 sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm -v <span class="comment"># 8.19.4</span></span></span><br></pre></td></tr></table></figure>
+JavaScript 的运行环境和许多内置模块；同时，安装 Node.js 也会安装
+npm，用于管理插件项目的依赖项。</p>
+<p>推荐使用 Node.js 的第 18 版：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker run --name obdev --<span class="built_in">rm</span> -v /exports:/exports -it node:18 sh</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm -v <span class="comment"># 8.19.4</span></span></span><br></pre></td></tr></table></figure>
+<p>我使用了 VSCode +
+Copilot，这样一来就不再需要频繁搜索各种代码用法，只需提供简单的文本描述即可自动生成代码。一旦环境搭建完成，编程过程就像写作文一样。现在看来，陌生技术已不再是难题，90%
+的时间都可用于处理业务逻辑。</p>
 <h2 id="最简单示例">3 最简单示例</h2>
 <h3 id="创建插件">3.1 创建插件</h3>
-<p>三方插件至少需要：<code>main.js</code> 、<code>manifest.json</code> 和  <code>styles.css</code>
-三个文件。</p>
-<p>官方推荐从最简单的示例代码开始，略做修改即可实现自己的插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># git clone https://github.com/obsidianmd/obsidian-sample-plugin</span><br><span class="line"># cd obsidian-sample-plugin</span><br><span class="line"># npm install</span><br><span class="line"># npm run dev # 开启热编译模式，修改时自动编译</span><br><span class="line"></span><br><span class="line">此时编译出 main.js</span><br><span class="line">将上述三个文件复制到plugins目录</span><br><span class="line"></span><br><span class="line"># cd obroot/.obsidian/plugins/</span><br><span class="line"># mkdir obsidian-sample-plugin</span><br><span class="line"># cp x/main.js x/manifest.json x/styles.css obsidian-sample-plugin/</span><br><span class="line"></span><br><span class="line">也可选择把代码放在 .obsidian/plugins下，则不需要复制，调试更方便</span><br></pre></td></tr></table></figure>
-<p>此后重启 Obsidian，在已安装的第三方插件列表中，将看到“Sample
-Plugin”。只需启用它即可。</p>
-<p>在示例代码中，可以看到一些 TypeScript 脚本。Node.js 不直接运行
-TypeScript 文件。通过编译器将 TypeScript 文件编译为 JavaScript
-文件后运行。可以在 package.json 文件中看到 tsc 的编译过程。</p>
-<p>TypeScript 是 JavaScript
-的一个超集（一个集合包含另一个集合的所有元素，还包含额外的元素），TypeScript
-包含了 JavaScript
-的所有特性和语法，同时还添加了静态类型系统等新功能。另外，还可以使用
-React，VUE，或者 Svelte 来实现插件。****</p>
+<p>三方插件至少需要以下三个文件：<code>main.js</code>、<code>manifest.json</code>
+和 <code>styles.css</code>。</p>
+<p>官方提供的示例代码 obsidian-sample-plugin
+是一个很好的起点，只需对其进行略微修改，就可以实现自己的插件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/obsidianmd/obsidian-sample-plugin</span><br><span class="line">cd obsidian-sample-plugin</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入 docker 开发环境</span></span><br><span class="line">npm install</span><br><span class="line">npm run dev # 开启热编译模式，修改时自动编译</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此时编译出 main.js</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将上述三个文件复制到 obsidian plugins 目录</span></span><br><span class="line"></span><br><span class="line">cd obroot/.obsidian/plugins/</span><br><span class="line">mkdir obsidian-sample-plugin</span><br><span class="line">cp x/main.js x/manifest.json x/styles.css obsidian-sample-plugin/</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">也可选择把代码放在 .obsidian/plugins下，或使用链接，这样不需要每次复制</span></span><br></pre></td></tr></table></figure>
+<p>重启 Obsidian 后，将在已安装的第三方插件列表中看到“Sample
+Plugin”，只需启用它即可。</p>
+<p>在示例代码中可以看到一些 TypeScript 脚本。Node.js 不能直接运行
+TypeScript 文件，需要使用编译器将 TypeScript 文件编译成 JavaScript
+文件后再运行。在 package.json 文件中可以看到 tsc 的编译过程。</p>
+<p>TypeScript 是 JavaScript 的一个超集（不仅具备 JavaScript
+的所有特性和语法，还添加了静态类型系统等新功能）。此外，也可以使用
+React、Vue 或 Svelte 来开发插件。</p>
 <h3 id="主要文件说明">3.2 主要文件说明</h3>
 <ul>
 <li>main.js # 编译后的程序</li>
@@ -212,59 +215,98 @@ React，VUE，或者 Svelte 来实现插件。****</p>
 <li>修改插件名 name</li>
 </ul>
 <h3 id="重新加载插件">3.4 重新加载插件</h3>
-<p>由于已在编译环境中设置了 npm run dev
-来进行热编译，所以一旦程序修改保存，就会立即编译成 js。</p>
+<p>由于在编译环境中已设置 npm run dev
+以进行热编译，因此每当程序修改并保存后，就会立即编译成 main.js。</p>
 <p>在 Obsidian
-的设置中，你可以通过禁用再启用该插件来重新加载它，以使用修改的功能；需要注意的是：每次禁用再启用设置都会丢失原有设置。</p>
+的设置中，可以通过禁用并重新启用插件来重新加载它，以便使用修改后的功能。需要注意的是，有时在禁用和重新启用过程中，原有的设置可能会丢失。</p>
 <h3 id="插件安装">3.5 插件安装</h3>
-<p>旧方法参见：DataView 的插件安装方法</p>
-<ul>
-<li>git clone git@github.com:blacksmithgu/obsidian-dataview.git</li>
-<li>scripts/*</li>
-</ul>
+<p>传统方法参见：DataView 的插件安装方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:blacksmithgu/obsidian-dataview.git</span><br><span class="line">ls scripts/*</span><br></pre></td></tr></table></figure>
 <p>新方法参见：<a
 href="/posts/1902711198/">github自动编译Release版本</a></p>
-<h2 id="常用功能">4 常用功能</h2>
-<p>以下是我们经常使用的一些插件功能：</p>
+<h2 id="版本升级">4 版本升级</h2>
+<p>在进行版本升级时，请确保修改以下内容：</p>
+<ul>
+<li>更新 <code>manifest.json</code> 文件。</li>
+<li>更新 <code>versions.json</code> 文件。</li>
+<li>更新 <code>CHANGELOG.md</code> 以记录更改和新增功能。</li>
+<li>创建新的标签（tag）。</li>
+<li>在 GitHub Release 中更新新版描述信息。</li>
+</ul>
+<h2 id="常用功能">5 常用功能</h2>
+<p>以下是我们常用的一些插件功能：</p>
 <ul>
 <li>使用 Ctrl+P 命令快速调用功能</li>
-<li>弹出对话框界面</li>
-<li>定时执行特定任务，如同步，上传和下载</li>
+<li>弹出对话框或提示框界面</li>
+<li>定时执行特定任务，例如同步、上传和下载</li>
 <li>在特定位置显示更多信息或界面，如图标、提示、选项卡和侧边栏</li>
-<li>修改文档内容</li>
-<li>读写和显示设置信息</li>
+<li>修改 Markdown 文档的内容</li>
+<li>读写设置信息并显示设置界面</li>
 </ul>
-<h2 id="readme">5 README</h2>
+<h2 id="readme">6 README</h2>
 <p>介绍文本展示在“第三方插件”-&gt;“社区插件市场”中。当点击具体插件时，右侧会显示其内容。通常是加载插件源码中
 README.md 文件的内容。</p>
 <p>详见：<a
-href="2_Note/0_Technic/0_工具/笔记工具/markdown/README写法.md">README写法</a></p>
-<h2 id="上传社区插件市场">6 上传社区插件市场</h2>
+href="2_Note/0_Technic/3_编程/软件开发/README_写法.md">README_写法</a></p>
+<p>注意：README 里最好写绝对路径，以方便在 Obsidian
+界面中跳转，如：https://github.com/mokeyish/obsidian-enhancing-export/</p>
+<h2 id="上传社区插件市场">7 上传社区插件市场</h2>
 <p>详见：<a href="/posts/821061946/">Obsidian_上传社区</a></p>
-<h2 id="使用体会">7 使用体会</h2>
-<p>我使用了
-VSCode+Copilot，这样就不再需要搜索各种代码用法，只需提供简单文本描述来自动生成代码。</p>
-<p>可能你觉得我说得有些夸张，但一旦环境搭建好，编程就和写作文差不多。目前看来，陌生的技术已经不再是难题，90%
-的时间都用于业务逻辑的处理。</p>
-<h2 id="参考资源">8 参考资源</h2>
-<h3 id="帮助文档">8.1 帮助文档</h3>
+<h2 id="注意事项">8 注意事项</h2>
+<h3 id="发布前需要检查">8.1 发布前需要检查</h3>
+<ul>
+<li>代码放 src 下面</li>
+<li>设置界面：不要使用 Setting,
+General，以及工具名作为一层标题，也不能没有一级标题</li>
+<li>多语言支持：英文字符串都用 Sentence 方式：Extract Tags-&gt;Extract
+tags</li>
+<li>README</li>
+<li>清除 console.log</li>
+<li>如果使用 action 自动编译，基本得把所有 warning 全部改掉，保证：
+<ul>
+<li>npm run dev 正常</li>
+<li>npm run build 正常</li>
+</ul></li>
+<li>Ctrl+P 命令的 id 和 name 都不要加自己工具名的前缀</li>
+<li>没用的代码不要加，比如重写了，但是没改内容的函数</li>
+<li>http 请求不要用 fetch，而用 obsidian 提供的
+requestURL，注意参数格式不同，传文件尤其不一样</li>
+<li>不要用 node.js 中的方法，否则就不能在手机端使用
+<code>import * as fs from 'fs';</code></li>
+<li>仓库名最好不要出现在文件名中，他认为分仓库不会重名</li>
+<li>要用 async/await 取代 then...catch 格式</li>
+</ul>
+<h3 id="设计技巧">8.2 设计技巧</h3>
+<ul>
+<li>安全防范：删除前提醒用户，失败提醒用户</li>
+<li>节约 token，明确告知，尤其是处理文本较长时</li>
+<li>加捐赠功能</li>
+<li>一些小 tips
+<ul>
+<li>tab 补全</li>
+<li>提示框</li>
+<li>记下用户操作</li>
+<li>善用快捷链</li>
+<li>善用 cMenu 快捷按钮</li>
+</ul></li>
+</ul>
+<h2 id="参考资源">9 参考资源</h2>
+<h3 id="帮助文档">9.1 帮助文档</h3>
 <p>https://docs.obsidian.md/Home</p>
 <p>更为推荐的方法是：直接到 node_modules/obsidian/中看源码</p>
-<h3 id="api-详解">8.2 api 详解</h3>
+<h3 id="api-详解">9.2 api 详解</h3>
 <p>https://github.com/obsidianmd/obsidian-api</p>
 <p>该项目详细阐述了如何编写各特定文件。</p>
-<h3 id="中文文档">8.3 中文文档</h3>
+<h3 id="中文文档">9.3 中文文档</h3>
 <p>https://luhaifeng666.github.io/obsidian-plugin-docs-zh/</p>
 <p>强烈推荐这个中文文档，它包含了 Obsidian
 插件常用的控件方法，并配有示例，只需复制即可使用。此外，这个帮助文档本身也是一个开源项目，之前大家可以参与编辑和提交。</p>
-<h3 id="官方文档">8.4 官方文档</h3>
-<p>https://docs.obsidian.md/Home</p>
-<h3 id="发布">8.5 发布</h3>
+<h3 id="发布">9.4 发布</h3>
 <ul>
 <li>整体示例：https://github.com/obsidianmd/obsidian-sample-plugin</li>
 <li>发布流程：https://docs.obsidian.md/Plugins/Releasing/Submit+your+plugin</li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2535314872/">http://xyan666.com/posts/2535314872/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/1902711198/" title="github自动编译Release版本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">github自动编译Release版本</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">705</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#obidian-%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">1 Obidian 开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">2 开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3 最简单示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 主要文件说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%8F%92%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 修改插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#manifest.json"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 manifest.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 重新加载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 插件安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">4.</span> <span class="toc-text">4 常用功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readme"><span class="toc-number">5.</span> <span class="toc-text">5 README</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%A4%BE%E5%8C%BA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">6 上传社区插件市场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E4%BC%9A"><span class="toc-number">7.</span> <span class="toc-text">7 使用体会</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="toc-number">8.</span> <span class="toc-text">8 参考资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#api-%E8%AF%A6%E8%A7%A3"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 api 详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="toc-number">8.3.</span> <span class="toc-text">8.3 中文文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">8.4.</span> <span class="toc-text">8.4 官方文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">8.5.</span> <span class="toc-text">8.5 发布</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2535314872/" title="Obsidian插件开发">Obsidian插件开发</a><time datetime="2024-10-22T00:00:00.000Z" title="Created 2024-10-22 00:00:00">2024-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1902711198/" title="github自动编译Release版本">github自动编译Release版本</a><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3108099153/" title="使用辅助编程的一些思考">使用辅助编程的一些思考</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/618727257/" title="开源项目_语音合成_edge tts">开源项目_语音合成_edge tts</a><time datetime="2024-10-10T00:00:00.000Z" title="Created 2024-10-10 00:00:00">2024-10-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2535314872/">http://xyan666.com/posts/2535314872/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3152282740/" title="图形化的Agent工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">图形化的Agent工具</div></div></a></div><div class="next-post pull-right"><a href="/posts/1902711198/" title="github自动编译Release版本"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">github自动编译Release版本</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">712</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#obidian-%E5%BC%80%E5%8F%91"><span class="toc-number">1.</span> <span class="toc-text">1 Obidian 开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">2 开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">3 最简单示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 主要文件说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%8F%92%E4%BB%B6"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 修改插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#manifest.json"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1 manifest.json</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 重新加载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 插件安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8D%87%E7%BA%A7"><span class="toc-number">4.</span> <span class="toc-text">4 版本升级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">5.</span> <span class="toc-text">5 常用功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#readme"><span class="toc-number">6.</span> <span class="toc-text">6 README</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E7%A4%BE%E5%8C%BA%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA"><span class="toc-number">7.</span> <span class="toc-text">7 上传社区插件市场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">8.</span> <span class="toc-text">8 注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83%E5%89%8D%E9%9C%80%E8%A6%81%E6%A3%80%E6%9F%A5"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 发布前需要检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%8A%80%E5%B7%A7"><span class="toc-number">8.2.</span> <span class="toc-text">8.2 设计技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="toc-number">9.</span> <span class="toc-text">9 参考资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#api-%E8%AF%A6%E8%A7%A3"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 api 详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3"><span class="toc-number">9.3.</span> <span class="toc-text">9.3 中文文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E5%B8%83"><span class="toc-number">9.4.</span> <span class="toc-text">9.4 发布</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3299970733/" title="论文分享_数字灵魂">论文分享_数字灵魂</a><time datetime="2024-12-02T00:00:00.000Z" title="Created 2024-12-02 00:00:00">2024-12-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/821061946/" title="Obsidian_上传社区">Obsidian_上传社区</a><time datetime="2024-12-02T00:00:00.000Z" title="Created 2024-12-02 00:00:00">2024-12-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2317564761/" title="生成代理模拟1000个真人">生成代理模拟1000个真人</a><time datetime="2024-11-26T00:00:00.000Z" title="Created 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4110512528/" title="12_TypeScript">12_TypeScript</a><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4241087167/" title="HP笔记本_BookPro14锐龙版">HP笔记本_BookPro14锐龙版</a><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

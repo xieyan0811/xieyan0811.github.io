@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>生成代理模拟1000个真人 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="研究提出生成代理架构，通过访谈模拟1000人行为，探讨其在政策制定和社会科学领域的应用，模拟准确率达85%。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="生成代理模拟1000个真人">
+<meta property="og:url" content="http://xyan666.com/posts/2317564761/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="研究提出生成代理架构，通过访谈模拟1000人行为，探讨其在政策制定和社会科学领域的应用，模拟准确率达85%。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-11-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-28T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2317564761/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '生成代理模拟1000个真人',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">712</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">生成代理模拟1000个真人</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-11-26T00:00:00.000Z" title="Created 2024-11-26 00:00:00">2024-11-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-11-28T00:00:00.000Z" title="Updated 2024-11-28 00:00:00">2024-11-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="生成代理模拟1000个真人"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">英文名称：Generative Agent Simulations of 1,000 People</span><br><span class="line">中文名称：生成代理模拟1000个真人</span><br><span class="line">链接: http://arxiv.org/pdf/2411.10109v1</span><br><span class="line">代码: https://github.com/joonspk-research/generative_agent</span><br><span class="line">作者: Joon Sung Park, Carolyn Q. Zou, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Robb Willer, Percy Liang, Michael S. Bernstein</span><br><span class="line">机构: 斯坦福大学，西北大学，华盛顿大学，Google DeepMind</span><br><span class="line">日期：2024-11-15</span><br><span class="line">正文：10页，附录资料比较多</span><br></pre></td></tr></table></figure>
+<h2 id="摘要">1 摘要</h2>
+<ul>
+<li>目标：探索<em>模拟人类行为</em>的通用计算代理在政策制定和社会科学中的应用潜力。</li>
+<li>方法：提出一种新的代理架构，<em>使用大语言模型对 1052
+名真实个体的生活访谈进行分析</em>，以模拟他们的态度和行为，并测量这些代理的模拟准确性。</li>
+<li>结论：生成代理在通用社会调查中的<em>准确率达到
+85%，与参与者自身答案两周后的一致性相当</em>，且能较好地预测人格特质和实验重复中的结果，减少了种族和意识形态群体间的准确性偏差。</li>
+</ul>
+<h2 id="读后感">2 读后感</h2>
+<p>设想你可以通过半小时的聊天来摸清某人的底细……其中很多话题都是我们经常和朋友们讨论的。</p>
+<p>这个研究进行了超过 1000 次采访，每次包含约 6000
+字的内容，持续两个小时。作者巧妙地运用了美国之声的 99
+个问题，涵盖个人历史、经济状况及观点等方面。通过数据分析，使智能代理模拟受访者填写问卷，结果与受访问的问卷结果高度一致。</p>
+<p>在这篇论文中，我对访谈数据的解读、存储和利用尤为关注。与传统方法相比，这种方法的效果如何？此外，将多学科知识融入提示的技巧也让我非常感兴趣。文中对这些问题都提供了详尽的解答。</p>
+<p>这篇论文的正文主要聚焦于整体框架和实验结果，具体实现细节则引用于文末，补充材料里都是干货。机器人专们家步步为营，从各专业角度分析受访问的每个回答，谁经得起这么分析？</p>
+<h2 id="引言">3 引言</h2>
+<p>当模拟个体组合成集体时，可以用于预测和解释许多社会现象，如经济学、社会学、组织和政治学中的跨领域机构和网络。LLM
+提供了一个独特的机会，让我们能够构建一个在多种环境中准确模拟行为的架构。然而，这种方法需谨慎，以避免将代理简化为人口刻板印象。</p>
+<h2 id="实现">4 实现</h2>
+<p>文章介绍了一种生成代理架构，它通过两个小时的定性访谈来模拟 1000
+多个真实个体的行为。该架构结合了访谈和大型语言模型，以再现个体的态度和行为特征。</p>
+<p>深入访谈采用预设问题和基于受访者回答的灵活后续提问，这种基础社会科学方法相较于更结构化的数据收集技术有多项优势。<em>半结构化访谈</em>最显著的优势是，它们给予受访者更多的自由去强调他们认为重要的内容，从而最终影响测量结果。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241126091135.png" /></p>
+<p>图 -1 展示了从招募至生成代理的流程。从美国招募了 1,052
+位参与者，采用分层抽样方法，依据年龄、人口普查分区、教育、种族、性别、收入、社区、政治意识形态和性别认同进行筛选。招募后，参与者
+AI
+面试官进行两小时的音频面试，并随后完成调查和实验。基于每位参与者的访谈数据，为其创建生成代理。为了评估这些代理的准确性，生成代理和参与者需完成相同的调查和实验（量表）。人类参与者在两周后再次完成调查和实验。通过将代理的反应与参与者的原始反应进行比较，并结合参与者两周后自身反应的一致性，来评估代理的准确性。</p>
+<p>每位参与者的访谈平均为 6,491 个单词（标准差为
+2,541）。为简化流程，我们开发了一款使用半结构化访谈协议的 AI
+访谈器。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241126101540.png" /></p>
+<p>我们采用了一套旨在广泛覆盖主题的现有访谈方案。我们选择了社会学家为“美国之声项目”设计的访谈方案，它涵盖了社会科学家感兴趣的多个话题。从参与者的生活故事（例如，“从你的童年、教育到家庭和人际关系，及重大生活事件”）到他们对当前社会问题的观点，该方案内容丰富。虽然某些问题主题与
+GSS（综合社会调查）有所重叠，但并不直接涉及特定问题或涵盖人格特质及经济行为。如果能高效使用，该方案将提升研究结果。在访谈时间有限的情况下，AI
+访谈员会根据每位参与者的回答动态生成后续问题。</p>
+<p>当查询代理时，整个访谈记录将被导入模型提示中，以便模型根据其访谈数据模拟受访者。</p>
+<h2 id="验证">5 验证</h2>
+<p>运用标准的社会科学测量方法对这些代理进行基准测试，评估包括四部分，参与者在访谈后完成：综合社会调查核心模块（GSS;
+20）、44
+项大五人格问卷（BFI-44）、五个经典行为经济学游戏（如独裁者游戏、信任游戏、公共产品游戏和囚徒困境）以及五项涉及控制和实验条件的社会科学实验。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241128140032.png" /></p>
+<p>图 -2 展示了生成代理在预测性能上的表现及其 95%
+置信区间。研究表明，通过访谈获取信息可显著提升代理对 GSS 和 Big Five
+的预测性能，优于文献中其他常用方法。</p>
+<p>对比基线包含人口统计学代理和基于角色的代理。对于基于人口统计的生成代理，提取其年龄、性别、种族和政治意识形态等人口统计属性，这些属性在此前的研究中应用广泛。对于基于角色的生成代理，要求参与者在访谈后撰写一段简短的自我描述，包括个人背景、性格特点和人口统计信息，方法类似于早期工作中用于生成角色代理的材料。</p>
+<p>即便在消融实验中随机删除了 80% 的访谈记录（相当于从 120 分钟中删除 96
+分钟），基于访谈的生成代理仍比复合代理表现更佳。</p>
+<p>通过使用 GPT-4
+的提示，将访谈记录转化为关键响应的要点摘要，可生成保留事实内容的“访谈摘要”，同时去除原始语言特征。这种方法在
+GSS 上的标准化准确率达到 0.83（标准差为 0.12），在 Big Five
+上也显示出类似的提升。研究显示，与基于调查的方法相比，访谈对语言模型提供人类行为信息更有效且高效。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241126094341.png" /></p>
+<p>表 1.人类参与者和生成代理的复制研究结果。我们报告效应大小的 p
+值（***：&lt; 0.001，**：&lt; 0.01，*：&lt; 0.05）。</p>
+<h2 id="补充材料">6 补充材料</h2>
+<p>采访脚本是一个精心设计的问题列表，每个问题都有预设的时间分配。在面试过程中，AI
+面试官会逐字提问脚本中的问题。当参与者作答时，AI
+面试官利用语言模型，在规定的时间内动态决定最佳的后续步骤。</p>
+<p>采访采用了美国之声项目中采访脚本的简化版本。该项目旨在招募具有代表性的美国人口样本，进行长达三个小时的深入访谈。在平均情况下，AI
+面试官在面试中说了约 5373 个词，提出了约 82
+个后续问题，而参与者则平均回答了约 6491 个词。</p>
+<p>面试官系统包括一个反思模块，能够实时综合对话内容，并生成总结性说明，以描述面试官对参与者的推断。</p>
+<h3 id="数据详情">6.1 数据详情</h3>
+<p>表 7 中列出了所有 99 个面试问题。</p>
+<p><strong>题目形如</strong></p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241128141548.png" /></p>
+<p>使用社会科学家专家（例如:
+心理学家、行为经济学家、政治学家和人口统计学家）的角色指导反思。</p>
+<p><strong>提示形如</strong></p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241128141742.png" /></p>
+<p><strong>反思结果形如</strong></p>
+<blockquote>
+<p>心理学家：“[已编辑]
+重视他的独立性，并表达了对自主性的明显偏好，特别是他喜欢出差打工，以及他对母亲过度保护的不满。这表明他们对个人自由和自决的强烈渴望。
+行为经济学家：“[已编辑]
+希望为轻松的假期存钱，并可能晋升到管理职位，这表明实际的财务目标与个人的休闲愿望相结合，强调平衡的生活满意度。
+政治学家：“[已编辑]
+自认为是共和党人，强烈支持该党的观点，尤其是在移民和毒品政策方面。然而，他也表达了对传统民主党在堕胎权和大麻合法化等问题上的立场的明确支持，这表明了意识形态的混合。
+人口统计学家：“[已编辑] 是一名库存专家，每月收入在 3,000 到 5,000
+美元之间，每月的家庭收入约为 7,000 美元。他主要在 Home Depots
+工作，但工作时间表多种多样，这表明他有一定的工作稳定性和灵活性。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2317564761/">http://xyan666.com/posts/2317564761/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/821061946/" title="Obsidian_上传社区"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Obsidian_上传社区</div></div></a></div><div class="next-post pull-right"><a href="/posts/4110512528/" title="12_TypeScript"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">12_TypeScript</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3299970733/" title="论文分享_数字灵魂"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-02</div><div class="title">论文分享_数字灵魂</div></div></a></div><div><a href="/posts/3506920859/" title="论文阅读_Self_instruct"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-16</div><div class="title">论文阅读_Self_instruct</div></div></a></div><div><a href="/posts/3327171372/" title="自然语言大模型介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-01</div><div class="title">自然语言大模型介绍</div></div></a></div><div><a href="/posts/62402/" title="论文阅读_用引导调优模型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-25</div><div class="title">论文阅读_用引导调优模型</div></div></a></div><div><a href="/posts/2684436077/" title="论文阅读_增强语言模型综述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-20</div><div class="title">论文阅读_增强语言模型综述</div></div></a></div><div><a href="/posts/612824978/" title="论文阅读_Kosmos-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-11</div><div class="title">论文阅读_Kosmos-1</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">712</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">132</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">1 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">2.</span> <span class="toc-text">2 读后感</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">3 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">4 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">5.</span> <span class="toc-text">5 验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E6%9D%90%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">6 补充材料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AF%A6%E6%83%85"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 数据详情</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3299970733/" title="论文分享_数字灵魂">论文分享_数字灵魂</a><time datetime="2024-12-02T00:00:00.000Z" title="Created 2024-12-02 00:00:00">2024-12-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/821061946/" title="Obsidian_上传社区">Obsidian_上传社区</a><time datetime="2024-12-02T00:00:00.000Z" title="Created 2024-12-02 00:00:00">2024-12-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2317564761/" title="生成代理模拟1000个真人">生成代理模拟1000个真人</a><time datetime="2024-11-26T00:00:00.000Z" title="Created 2024-11-26 00:00:00">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4110512528/" title="12_TypeScript">12_TypeScript</a><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4241087167/" title="HP笔记本_BookPro14锐龙版">HP笔记本_BookPro14锐龙版</a><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
