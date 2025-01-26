@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>使用大型语言模型预测中文咨询对话中的大五人格特质 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="研究大型语言模型在中文咨询对话中预测大五人格特质的有效性，提出一种结合角色扮演和问卷提示的框架，结果显示模型预测与实际人格特质具有显著相关性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用大型语言模型预测中文咨询对话中的大五人格特质">
+<meta property="og:url" content="http://xyan666.com/posts/734858388/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="研究大型语言模型在中文咨询对话中预测大五人格特质的有效性，提出一种结合角色扮演和问卷提示的框架，结果显示模型预测与实际人格特质具有显著相关性。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-11-22T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-25T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="论文阅读">
+<meta property="article:tag" content="自然语言处理">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/734858388/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '使用大型语言模型预测中文咨询对话中的大五人格特质',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-25 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">718</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">133</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">使用大型语言模型预测中文咨询对话中的大五人格特质</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-11-22T00:00:00.000Z" title="Created 2024-11-22 00:00:00">2024-11-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-11-25T00:00:00.000Z" title="Updated 2024-11-25 00:00:00">2024-11-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="使用大型语言模型预测中文咨询对话中的大五人格特质"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">英文名称：Predicting the Big Five Personality Traits in Chinese Counselling Dialogues Using Large Language Models</span><br><span class="line">中文名称：使用大型语言模型预测中文咨询对话中的大五人格特质</span><br><span class="line">链接: http://arxiv.org/pdf/2406.17287v1</span><br><span class="line">代码: https://github.com/kuri-leo/BigFive-LLM-Predictor</span><br><span class="line">作者: Yang Yan, Lizhi Ma, Anqi Li, Jingsong Ma, Zhenzhong Lan</span><br><span class="line">机构: 浙江大学，西湖大学，杭州职业技术学院</span><br><span class="line">日期：2024-06-25</span><br><span class="line">引用次数: </span><br></pre></td></tr></table></figure>
+<h1 id="摘要">1 摘要</h1>
+<ul>
+<li>目标：准确评估人格特征的传统方法耗时且有偏见，探讨<em>大型语言模型能否直接从咨询对话中预测大五人格特征</em>，并提出了一种创新框架来执行该任务。</li>
+<li>方法：框架通过角色扮演和<em>问卷提示</em>将大型语言模型应用于咨询会话，<em>模拟客户对大五人格量表的反应</em>。对
+853 个真实咨询会话进行了评估，并通过细化优化与<em>监督微调的 Llama3-8B
+模型提升预测精度</em>。</li>
+<li>结论：实验显示，模型预测的大五特征与实际特征具有显著相关性，验证了框架的有效性。改进的模型在人格预测有效性方面超越了现有的
+Qwen1.5-110B，提升了 36.94%。</li>
+</ul>
+<h1 id="读后感">读后感</h1>
+<p>通过直接使用用户与咨询师的对话来对大五人格特征的各个维度（OCEAN）进行评分的效果并不理想，因此采用了
+BFI 问题和角色扮演的方式，有效提升了 LLM 的评测效果。</p>
+<p>该方法能够通过历史对话深入了解一个人的性格特点并进行评分，所以这篇文章非常实用。我个人很欣赏作者的切入角度和数据组织方法，实验设计也很到位。</p>
+<h2 id="引言">1 引言</h2>
+<p>传统的自我报告问卷耗时且易受偏见影响（人们常常混淆现实自我和理想自我）。</p>
+<p>文中实现方式如下：</p>
+<ul>
+<li>收集被测试者的实际对话。</li>
+<li>利用大语言模型（LLM）预测被测试者在量表上的选择。</li>
+<li>根据量表结果进行评分。</li>
+</ul>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241122223347.png" /></p>
+<p>图 1：咨询对话中预测 OCEAN 特征的框架示例。</p>
+<p><em>主要贡献如下：</em></p>
+<ul>
+<li>提出了一个结合角色扮演和问卷提示的新框架，利用咨询对话预测 OCEAN
+特征。通过对 853 次咨询会议的评估，表明预测特征与实际特征高度相关。</li>
+<li>消融研究显示，将角色与任务精准对齐，并将复杂任务简化处理，能显著提升特质预测的准确性。值得注意的是，仅利用
+30% 的会话内容就取得了准确的 OCEAN 特征预测。</li>
+<li>通过直接偏好优化（DPO）和监督微调（SFT）调整 Llama3-8B
+模型，调优的轻量级微调模型预测效度提高了 130.95%，比 Qwen1.5-110B 高出
+36.94%，展现出卓越的效度和效率。</li>
+<li>公开了代码和模型，为未来研究提供有效工具，支持计算心理测量学领域的研究可重复性和进一步探索。</li>
+</ul>
+<h2 id="相关工作">2 相关工作</h2>
+<p><strong>自动性格评估</strong></p>
+<p>现有的 LLMs 核心关注 MBTI，然而 BFI
+在有效性和可靠性上更胜一筹。我们的目标是直接从咨询对话中预测 OCEAN
+特质。</p>
+<p><strong>提示策略</strong></p>
+<p>我们主要使用高级提示策略和角色扮演技术。</p>
+<p><strong>对齐策略</strong></p>
+<p>通过精调模型提升其效果，通常应用 DPO、RLHF 和 SFT
+方法对齐模型并增强生成质量。</p>
+<h2 id="框架">3 框架</h2>
+<p>框架由三大关键组成部分构成：1. 提示策略设计，2. 为 LLM 设置条件，3.
+评估指标。</p>
+<h3 id="提示策略设计">3.1 提示策略设计</h3>
+<p>提示策略结合了<em>角色扮演和问卷调查</em>。其中，角色扮演涉及三个角色：客户、顾问（主要参与者）和观察者（外部评估者）。调查利用
+BFI 的项目来简化预测任务。</p>
+<ul>
+<li>任务与角色介绍：任务描述明确了 LLM
+的角色、其处理的输入以及预期的操作。角色扮演明确了各角色，并概述了其功能和职责。</li>
+<li>咨询对话：顾问与客户间的对话为 LLM
+提供必要的上下文信息。这些真实对话被结构化为聊天历史，与 LLM
+的预训练模式相符，使其能够有效模拟客户的回应，从而提高对 OCEAN
+特征的预测准确性。</li>
+<li>预测目标：将 BFI 的问题作为预测目标，引导 LLM 回答问题。这种方法确保
+LLMs 与经过验证的心理评估保持一致。</li>
+</ul>
+<p>以下是具体方法示例：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125154748.png" /></p>
+<h3 id="llm-预测的条件">3.2 LLM 预测的条件</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125155817.png" /></p>
+<h3 id="评估指标">3.3 评估指标</h3>
+<p><strong>有效性</strong></p>
+<p>有效性衡量测试的准确性和相关性，主要包含两个方面：</p>
+<ul>
+<li>标准有效性：评估预测与基本事实的一致性。采用心理学标准 PCC
+来测量预测与实际 OCEAN 性状之间的关联强度和重要性，并通过 MAE
+进行预测误差的详细分析。</li>
+<li>内容有效性：审查预测背后的合理性。</li>
+</ul>
+<p><strong>可靠性</strong></p>
+<p>可靠性通过评估内部一致性和重测信度来确定。</p>
+<h2 id="实验">4 实验</h2>
+<p>我们收集了来自 82 名成年客户（其中 55 名女性，年龄范围 19 至 54
+岁，平均年龄 27.62 岁，标准差 5.94）和 9 名咨询师（其中 7
+名女性，年龄范围 25 至 45 岁，平均年龄 34.67 岁，标准差 7.45）的 853
+次咨询对话。其中约 30%（242 次）用于验证集，剩余 70%（611
+次）用于训练。实验结果显示，模型越大，PCC 性能越佳。</p>
+<h3 id="rq1-能否利用-llms-从咨询对话中预测-ocean-特征">4.1 RQ1: 能否利用
+LLMs 从咨询对话中预测 OCEAN 特征？</h3>
+<p>通过直接从对话中提取 OCEAN 特征来建立基线，不需使用额外策略。</p>
+<p><strong>角色扮演与问卷的影响</strong></p>
+<p>消融实验结果如下所示：</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125152511.png" /></p>
+<p>通过不同方法预测 OCEAN 特征的皮尔森相关系数（PCC）。我们对比了 LLMs
+在角色扮演、问卷及其结合下的基线与改进表现。结果表明，整合角色扮演和问卷提示显著提升了预测准确性。</p>
+<p><strong>角色邻近性对有效性的提升</strong></p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125154953.png" /></p>
+<p>图 2 显示，当 LLM 扮演不同角色时，PCC
+相关度不同，以客户和咨询师的角色表现最佳。更贴近角色有助于 LLM
+理解上下文，从而提升预测的准确性。</p>
+<p><strong>30% 的上下文足以进行预测</strong></p>
+<p>粒度指咨询会议中，对准确预测 OCEAN 特质所需的上下文信息量。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125155638.png" /></p>
+<p>结果显示，仅用 30% 的咨询内容便可有效预测
+OCEAN，增加信息量并无显著作用。</p>
+<p><strong>模型容量的影响</strong></p>
+<p>更高容量的模型展现出统计学上显著的预测相关性。</p>
+<h3 id="rq2什么因素影响预测的效度">4.2
+RQ2：什么因素影响预测的效度？</h3>
+<p><strong>识别异常值</strong></p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125170143.png" /></p>
+<p>图 4 显示了 OCEAN 维度的 MAE 箱线图。红线标识了重要误差阈值 <span
+class="math inline">\(error=1\)</span>，其中中位数和上四分位数均低于该阈值。</p>
+<p><strong>对话推理能力</strong></p>
+<p>研究表明，通过在预测过程中进行归因分析，可以提高预测的效度。</p>
+<p><strong>LLM 的局限性</strong></p>
+<p>我们分析了 GPT-4-turbo
+最不准确的预测，与其最准确的预测进行对比。尽管客户承认有时夸大其感受以显得更具影响力，但这导致了错误的推理，未能准确地反映客户真实的
+OCEAN 特征。另外，LLM 表现出的如“作为 AI
+模型，我没有个性”的安全拒绝影响了预测的效度。</p>
+<p><strong>客户偏差</strong></p>
+<p>我们探讨了客户层面的偏差，尤其是通过识别异常值来分析客户的自我表现与其自我报告性格的不一致之处，这可能会影响预测的效度。</p>
+<h3 id="rq3将-llm-与预测-ocean-性状任务对齐是否有效">4.3 RQ3：将 LLM
+与预测 OCEAN 性状任务对齐是否有效？</h3>
+<p>我们评估了微调模型 Llama-3-8b-BFI 的效度和效率。结果表明，在 PCC
+方面，微调模型的预测效度较基础模型提高了 130.95%，较先进模型
+Qwen1.5-110B-Chat 提高了 36.94%。</p>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241125155334.png" /></p>
+<p>表 -3 展示了不同模型的对比结果，可能与中文语料相关。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/734858388/">http://xyan666.com/posts/734858388/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a><a class="post-meta__tags" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2317564761/" title="生成代理模拟1000个真人"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">生成代理模拟1000个真人</div></div></a></div><div class="next-post pull-right"><a href="/posts/4110512528/" title="12_TypeScript"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">12_TypeScript</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3299970733/" title="论文分享_数字灵魂"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-04</div><div class="title">论文分享_数字灵魂</div></div></a></div><div><a href="/posts/2317564761/" title="生成代理模拟1000个真人"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-26</div><div class="title">生成代理模拟1000个真人</div></div></a></div><div><a href="/posts/50122/" title="论文阅读_对比学习_SimCSE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-18</div><div class="title">论文阅读_对比学习_SimCSE</div></div></a></div><div><a href="/posts/3004259633/" title="论文阅读_图像生成_unCLIP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">论文阅读_图像生成_unCLIP</div></div></a></div><div><a href="/posts/2192167811/" title="深度学习_循环神经网络RNN与LSTM"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2017-11-06</div><div class="title">深度学习_循环神经网络RNN与LSTM</div></div></a></div><div><a href="/posts/2559268045/" title="论文阅读_代码生成_CODEFUSE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-14</div><div class="title">论文阅读_代码生成_CODEFUSE</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">718</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">133</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">1 摘要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="toc-number">2.</span> <span class="toc-text">读后感</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.</span> <span class="toc-text">2 相关工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-number">2.3.</span> <span class="toc-text">3 框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E7%AD%96%E7%95%A5%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.3.1.</span> <span class="toc-text">3.1 提示策略设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#llm-%E9%A2%84%E6%B5%8B%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.3.2.</span> <span class="toc-text">3.2 LLM 预测的条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="toc-number">2.3.3.</span> <span class="toc-text">3.3 评估指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.4.</span> <span class="toc-text">4 实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rq1-%E8%83%BD%E5%90%A6%E5%88%A9%E7%94%A8-llms-%E4%BB%8E%E5%92%A8%E8%AF%A2%E5%AF%B9%E8%AF%9D%E4%B8%AD%E9%A2%84%E6%B5%8B-ocean-%E7%89%B9%E5%BE%81"><span class="toc-number">2.4.1.</span> <span class="toc-text">4.1 RQ1: 能否利用
+LLMs 从咨询对话中预测 OCEAN 特征？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rq2%E4%BB%80%E4%B9%88%E5%9B%A0%E7%B4%A0%E5%BD%B1%E5%93%8D%E9%A2%84%E6%B5%8B%E7%9A%84%E6%95%88%E5%BA%A6"><span class="toc-number">2.4.2.</span> <span class="toc-text">4.2
+RQ2：什么因素影响预测的效度？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rq3%E5%B0%86-llm-%E4%B8%8E%E9%A2%84%E6%B5%8B-ocean-%E6%80%A7%E7%8A%B6%E4%BB%BB%E5%8A%A1%E5%AF%B9%E9%BD%90%E6%98%AF%E5%90%A6%E6%9C%89%E6%95%88"><span class="toc-number">2.4.3.</span> <span class="toc-text">4.3 RQ3：将 LLM
+与预测 OCEAN 性状任务对齐是否有效？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4124187326/" title="chatgpt-on-wechat聊天机器人不能用了怎么办">chatgpt-on-wechat聊天机器人不能用了怎么办</a><time datetime="2025-01-13T00:00:00.000Z" title="Created 2025-01-13 00:00:00">2025-01-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/759762676/" title="Python 包索引服务_devpi">Python 包索引服务_devpi</a><time datetime="2025-01-13T00:00:00.000Z" title="Created 2025-01-13 00:00:00">2025-01-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/726430445/" title="ExmemoTools插件：结合Obsidian与大语言模型的新体验">ExmemoTools插件：结合Obsidian与大语言模型的新体验</a><time datetime="2024-12-25T00:00:00.000Z" title="Created 2024-12-25 00:00:00">2024-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/161988313/" title="github_copilot升级">github_copilot升级</a><time datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3152282740/" title="图形化的Agent工具">图形化的Agent工具</a><time datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

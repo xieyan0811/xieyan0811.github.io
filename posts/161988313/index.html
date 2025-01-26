@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>github_copilot升级 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="github copilot新版本提升了代码生成和编辑能力，推出多种大模型如gpt 4o和claude，改进了聊天和编辑界面，加强了和vscode的结合，大幅增强代码效率。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github_copilot升级">
+<meta property="og:url" content="http://xyan666.com/posts/161988313/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="github copilot新版本提升了代码生成和编辑能力，推出多种大模型如gpt 4o和claude，改进了聊天和编辑界面，加强了和vscode的结合，大幅增强代码效率。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2024-12-23T00:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-19T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="编程语言">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/161988313/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'github_copilot升级',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-19 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">718</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">133</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">github_copilot升级</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-11-19T00:00:00.000Z" title="Updated 2024-11-19 00:00:00">2024-11-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="github_copilot升级"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="引言">1 引言</h2>
+<p>GitHub Copilot
+的新版本发布已经有几个星期了，实际使用后才发现它确实非常出色，极大地提升了效率。</p>
+<h2 id="旧版的问题">2 旧版的问题</h2>
+<p>旧版包含的一些常用功能有：聊天、编辑时代码自动生成、选中代码块的编辑和解释。</p>
+<p>但有几个使用上的不便之处：</p>
+<ul>
+<li>聊天功能位于左侧栏，但通常左侧栏不会设置得很宽，这导致文字多次换行，查看时需要上下滚动，比起网页版的聊天界面要逊色不少。</li>
+<li>代码自动生成功能要求在生成函数前必须先写注释，完成后还需自行删除注释，这个过程显得有些繁琐。</li>
+<li>当选中代码块并点击右键以解释或编辑时，需要操作多步，修改只针对代码块本身，功能上会受到一些限制。</li>
+<li>背后的大模型在功能上不尽如人意，理解力和代码能力稍显不足。</li>
+<li>生成和修改代码时无法指定参考哪些文件。</li>
+</ul>
+<h2 id="新版的优势">3 新版的优势</h2>
+<p>新版针对上述问题进行了优化。</p>
+<h3 id="更多大模型可选">3.1 更多大模型可选</h3>
+<ul>
+<li>新版提供了 gpt-4o、o1 系列模型，以及 claude。</li>
+<li>不仅我这样认为，我的朋友和网友也一致发现，Claude
+在代码领域表现出色，代码能力非常强，甚至优于多步推理的 o1 系列模型。而
+gpt 则在综合能力上更胜一筹，因此在 Copilot
+的编辑和聊天功能上，我更推荐使用 claude。</li>
+</ul>
+<h3 id="聊天和编辑界面">3.2 聊天和编辑界面</h3>
+<p><img
+src="/support/attachments_2024/Pasted%20image%2020241120025827.png" /></p>
+<h4 id="聊天界面">3.2.1 聊天界面</h4>
+<ul>
+<li>聊天界面现在可以显示在右侧面板，尤其是在使用大显示器时，这种布局看起来非常舒适（左侧与代码树排列在一起，很少有人让左边栏占据半个屏幕，而右边栏更舒展）。</li>
+<li>每次聊天都会默认参考当前打开的代码，这样建议将更具针对性，示例代码也会更加贴合实际需求。</li>
+</ul>
+<h4 id="编辑界面">3.2.2 编辑界面</h4>
+<ul>
+<li>新增了编辑界面，大幅提升了修改代码的能力。只需输入修改需求，系统就能自动进行修改，同时展示其思考过程，并解释生成逻辑和理由。</li>
+<li>以文件为单位进行修改，而不是以单独代码块为单位。对整个文件进行修改，由于当前模型受制于生成时间，大文件修改较慢，这也客观上让我们避免写出过于庞大和复杂的文件。</li>
+<li>可以在当前打开的文件之外，指定其他参考文件和待修改文件，这样不仅可以修改代码，还可以进行更多的代码整合。</li>
+<li>在修改过程中，系统会逐层剖析工具链，对于不熟悉的 API
+可以自行查找如何使用，自动学习小众工具怎么用。</li>
+</ul>
+<h3 id="其它改进">3.3 其它改进</h3>
+<ul>
+<li>小星星功能：改版后常常在界面上看到一些小星星图标，这是 copilot
+的小功能，如：
+<ul>
+<li>根据当前修改，自动生成 GitHub commit 描述。</li>
+<li>在 Jupyter Notebook 中创建代码块时，主动询问生成什么代码。</li>
+</ul></li>
+<li>当运行出现 bug
+时，会自动标红代码段中的相关代码，并与报错信息关联，以提示 Copilot
+进行修改。虽然修改效果一般，但这个想法确实不错。</li>
+<li>在更多场合调出 Copilot
+<ul>
+<li>通过快捷键，可以在代码区、终端调用 copilot，以及调出编辑界面。</li>
+</ul></li>
+<li>聊天时的一些内置语法，使用 <code>/</code> 调出。</li>
+<li>自动生成 README 文档，描述代码树。</li>
+<li>根据功能描述，生成项目代码，比如一个多目录多文件的前端项目。</li>
+</ul>
+<h3 id="注意事项">3.4 注意事项</h3>
+<ul>
+<li>新插件与 VSCode 的结合更为紧密，因此需要将 VSCode 升级到 1.95
+及以上版本才能使用。</li>
+<li>注意小星星的提示，真的会带来很多惊喜。</li>
+</ul>
+<h2 id="总结">4 总结</h2>
+<ul>
+<li>新模型使代码能力有了明显提升。</li>
+<li>除了模型本身的改进，其他优化都集中在提升大模型与当前工具的结合易用性上，这可能是通过思考链/Agent/本地代码增强
+RAG 方法实现的，现有工具与大模型结合大有可为：
+<ul>
+<li>升级后，工作流更加流畅，无需频繁切换、复制粘贴或输入提示再删除。</li>
+<li>缩短了学习 API 用法的时间，它能够自行查找 API
+的使用方法，并结合当前代码和需求，直接安排参数和返回值。</li>
+<li>调试变得更加智能，同时考虑到报错信息和当前代码，还能在代码中标红，省去了很多人工。</li>
+<li>增加了基于代码的聊天功能，可以同时编辑多段代码，代码生成时优先推荐
+Copilot，<strong>将辅助工具从次要的辅助小工具角色转变为主要角色，并与代码深度绑定</strong>。</li>
+</ul></li>
+<li>个体体验
+<ul>
+<li>使用它的时间明显增多，过程中常常有惊喜。</li>
+<li>对新技术和陌生工具的上手速度更快。</li>
+<li>代码整理和升级变得非常容易，比如：底层库的替换，从 JS 到 TS，从 Vue2
+到 Vue3 风格转换等。</li>
+<li>基于当前代码的聊天显得更加针对性，不过有一些 general
+的问题还是会使用网页版的 GPT-4，以避免当前代码对整体方向的误导。</li>
+<li>通过聊天推荐一些新的工具，<strong>发现自己的技术栈，那些曾引以为傲的经验许多已经过时了</strong>。</li>
+</ul></li>
+<li>进化过程
+<ul>
+<li>起初，利用 Copilot
+工具来续写和补全代码，并生成相应的注释。随着使用的深入，开始让 Copilot
+修改代码，更加注重调整和优化，对它的融入感大大增强。</li>
+<li>早先，会询问 Copilot
+如何解决问题，这种方式略显抽象。如今，我则让它参考现有内容，思考调整和改进的具体步骤。</li>
+<li>Copilot
+的一个显著进步在于它能够通过函数调用关系，逐层深入分析代码。</li>
+<li>Copilot
+将原本知识密集型的工作转变为劳动密集型，可以通过简单定制，部署并销售服务，能够及时为客户解决问题。</li>
+</ul></li>
+<li>总之，感觉现在这包月的钱花得更值了。</li>
+</ul>
+<h2 id="文档">5 文档</h2>
+<p>https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-github</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/161988313/">http://xyan666.com/posts/161988313/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/726430445/" title="ExmemoTools插件：结合Obsidian与大语言模型的新体验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ExmemoTools插件：结合Obsidian与大语言模型的新体验</div></div></a></div><div class="next-post pull-right"><a href="/posts/3152282740/" title="图形化的Agent工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">图形化的Agent工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/726430445/" title="ExmemoTools插件：结合Obsidian与大语言模型的新体验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-25</div><div class="title">ExmemoTools插件：结合Obsidian与大语言模型的新体验</div></div></a></div><div><a href="/posts/3299970733/" title="论文分享_数字灵魂"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-04</div><div class="title">论文分享_数字灵魂</div></div></a></div><div><a href="/posts/2317564761/" title="生成代理模拟1000个真人"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-26</div><div class="title">生成代理模拟1000个真人</div></div></a></div><div><a href="/posts/34983/" title="头悬梁锥刺股?没必要：复盘如何用工具提升效率"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-26</div><div class="title">头悬梁锥刺股?没必要：复盘如何用工具提升效率</div></div></a></div><div><a href="/posts/60019/" title="论文阅读_医疗知识图谱_GraphCare"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-06</div><div class="title">论文阅读_医疗知识图谱_GraphCare</div></div></a></div><div><a href="/posts/3506920859/" title="论文阅读_Self_instruct"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-16</div><div class="title">论文阅读_Self_instruct</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">718</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">86</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">133</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A7%E7%89%88%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">2 旧版的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%89%88%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">3.</span> <span class="toc-text">3 新版的优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E9%80%89"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 更多大模型可选</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9%E5%92%8C%E7%BC%96%E8%BE%91%E7%95%8C%E9%9D%A2"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 聊天和编辑界面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9%E7%95%8C%E9%9D%A2"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1 聊天界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%95%8C%E9%9D%A2"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2 编辑界面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E6%94%B9%E8%BF%9B"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 其它改进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">4 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%A1%A3"><span class="toc-number">5.</span> <span class="toc-text">5 文档</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4124187326/" title="chatgpt-on-wechat聊天机器人不能用了怎么办">chatgpt-on-wechat聊天机器人不能用了怎么办</a><time datetime="2025-01-13T00:00:00.000Z" title="Created 2025-01-13 00:00:00">2025-01-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/759762676/" title="Python 包索引服务_devpi">Python 包索引服务_devpi</a><time datetime="2025-01-13T00:00:00.000Z" title="Created 2025-01-13 00:00:00">2025-01-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/726430445/" title="ExmemoTools插件：结合Obsidian与大语言模型的新体验">ExmemoTools插件：结合Obsidian与大语言模型的新体验</a><time datetime="2024-12-25T00:00:00.000Z" title="Created 2024-12-25 00:00:00">2024-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/161988313/" title="github_copilot升级">github_copilot升级</a><time datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3152282740/" title="图形化的Agent工具">图形化的Agent工具</a><time datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
