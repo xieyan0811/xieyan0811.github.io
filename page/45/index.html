@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-04-17 17:00:14'
+  postUpdate: '2025-04-18 10:17:56'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,134 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">763</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">182</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">151</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49219/" title="Pytorch提取不同层次图片的特征">Pytorch提取不同层次图片的特征</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-05-21T00:00:00.000Z" title="Created 2020-05-21 00:00:00">2020-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Pytorch/">Pytorch</a></span></div><div class="content">Pytorch
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">155</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1989145895/" title="设置BatchSize">设置BatchSize</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-14T00:00:00.000Z" title="Created 2020-06-14 00:00:00">2020-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">设置 BatchSize
+BatchSize
+是非常重要的超参数，它不仅影响训练速度，也影响模型精度。本篇来讨论如何选择
+BatchSize。
+BatchSize 是否越大越好？
+BatchSize 一般指同时代入训练模型的实例个数，最直接的经验是如果 GPU
+显存不大，又设置较大的 BatchSize 时直接报错“cuda runtime error(2): out
+of memory”。
+是不是只要机器性能允许，就要设置尽可能大的 Batch size
+呢？同时训练多个实例比逐个代入单个实例训练速度又能提高多少？
+下图为使用不同的 batchSize，在 LeNet 上训练 mnist
+数据的效果，使用的框架为 Theano。
+
+可以看到，使用较大的 batchSize 的确可以提速，但是 batchSize
+大到一定程度后，效果并不十分明显。
+
+从图中可以看到如果将所有数据全部代入一次迭代（左图），则在训练集上的代价函数下降比较平滑，如果切分成多个
+Batch，代价函数不一定是下降的。这是由于每一个 Batch
+中数据的难度不同，造成了代价函数忽大忽小。
+如何选择 batch 大 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3958830580/" title="避免过拟合">避免过拟合</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-14T00:00:00.000Z" title="Created 2020-06-14 00:00:00">2020-06-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">避免过拟合
+欠拟合和过拟合
+欠拟合是指在训练集和测试集（或验证集）上模型效果都不好，一般由于模型能力不足导致；过拟合是指模型在训练集上表现好，而在测试集上表现不好，一般由于模型过度拟合了训练集中的噪声导致。本文主要讨论解决过拟合问题的方法。
+L2 正则化
+无论机器学习还是深度学习，L2 正则化项都用于限制参数 W
+过大，它被累加在代价函数之中。
+
+代价函数Ｊ除了计算每个实例的误差Ｌ，还加入网络中每层参数Ｗ的 2
+范数的平方，并用λ作为参数，当λ较大时，就需要Ｗ接近０，才能得到较小的代价函数，这样一些无关紧要的参数就变成了０，从而减少了模型的复杂度，以及压缩后模型的规模。另外，较小的Ｗ也使层之间传递的数据变小，这样在使用
+sigmoid 和 tanh
+激活函数时，数据刚好集中在中间类似线性变换的一段，使非线性变换的结果类似线性变换。由于多个线性组合叠加相当于单个线性层，因此也倾向于简化模型。
+如果使用 L1 正则化，参数矩阵将变得稀疏，根据经验，一般 L2
+效果更好。L2
+正则化方法可用于简化决策，但不适用于需要复杂决策的问题。使用该方法时，需要尝试多个λ值。
+Dropout 方法
+Dr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3415328089/" title="初始化网络参数">初始化网络参数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-11T00:00:00.000Z" title="Created 2020-06-11 00:00:00">2020-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">初始化网络参数
+#深度学习
+为什么要给网络参数赋初值
+既然网络参数通过训练得到，那么其初值是否重要？设置初值不佳是否只影响收敛速度而不影响模型结果？网络参数是否可以设置为全
+0 或者全 1？
+假设网络的参数Ｗ初值都是０，如下图所示，无论输入任何Ｘ，第一层的输出Ａ将都为０，再向前传递到
+y 也是 0，使用误差函数调参时，每一层的梯度只与该层的输入和输出有关，由于
+a1,a2
+值相等，计算出的梯度调整的值，以及调整后的梯度也相等；第二次迭代也同理，由于
+a1,a2 相等，w[2]中各单元的值也相等。因此该层有 100 个单元与 1
+个单元没有差异，该问题被称为“对称性”问题。
+
+试想将 w 设置成全 1，则有 a1=x1+x2，a2=x1+x2，a1 与 a2
+值仍然相同，对称性问题依然存在。由此，一般将参数设置为随机值。
+设置成随机值还不够，还需要设置成较小的随机值，试想如果 w 的均值在 0.5
+附近，某一层的输入输出都为 500
+个元素，那么经过该层乘和加的运算，输出约是输入值的 250
+倍；如果存在多层，250x250x…，很快就爆炸了。如果在层后使用 Sigmoid
+函数，将值映 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/260491632/" title="激活函数">激活函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-11T00:00:00.000Z" title="Created 2020-06-11 00:00:00">2020-06-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">激活函数
+为什么使用激活函数
+如果没有激活函数，神经网络就变成了线性模型，输出是输入的线性组合，使用一层与使用多层没有区别。如下式所示，输入为
+x，经过线性层计算出 a1，将 a1 输入下个线性层得到
+a2，展开后可以看出，最终得到的仍然是 wx+b
+的线性组合，只是参数值不同。
+
+
+图片.png
+
+另外，线性层无法解决非线性问题，如在预测房价问题中，如果不使用激活函数，则房价可能计算成负值，这也与实际不符。理论上，加了激活函数后，模型可以逼近任意函数。
+激活函数又分线性激活函数和非线性激活函数，一般使用的都是非线性激活函数，线性激活函数与线性层类似，只在输出层偶尔使用，不在此展开讨论。
+何时使用激活函数
+激活函数一般放置在线性变换之后，在线性变换和激活函数之间，常常插入归一化层，用于解决饱和的非线性激活函数问题（下面
+Sigmoid 函数部分详细说明）。
+如何选择激活函数
+从一些当前流行的深度学习网络代码中，可以看到，当前使用的激活函数绝大部分是
+ReLU；在一些特殊情况下，也使用 Sigmoid，比如二分类问题的最后一层使用
+Sigmoid 将输出转换到 0-1 之间；又如使用注意 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1542199015/" title="浅析梯度迭代算法">浅析梯度迭代算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-07T00:00:00.000Z" title="Created 2020-06-07 00:00:00">2020-06-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">浅析梯度迭代算法
+梯度迭代类算法已成为目前各种领域的主流算法。各种现实中的问题分解抽象成机器可以处理的形式之后，基本都可归类为图像、自然语言处理、决策、时序、强化学习这几种类型，而当今解决这些问题的顶尖算法中，梯度迭代（梯度上升或梯度下降）都占据主流地位，比如决策类问题的比赛中，梯度下降决策树
+GBDT
+类算法是完全的主流，使用深度学习网络处理图片自然语言问题更毋庸置疑。
+那么，梯度迭代算法究竟是什么？简单地说，就是代入数据，预测结果，如果结果偏大就调小参数，结果偏小就调大参数。举一个简单的例子，分为三个小问题：
+
+问题一
+假设父亲的智商影响儿子的智商，设父亲的智商为ｘ，儿子的智商为ｙ，y=wx，训练一个参数
+w 学习二者之间的关系。目前有多个父子智商数据对，其中第一个数据：父亲智商
+x=100，儿子智商 w=110，将 w 初值设为 w=1.0；学习率设为
+0.00001，计算平均误差。
+如下程序用于学习 w。
+123456789101112131415161718192021import torch  import matplotlib.pyplot as plt  %matplo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/30577/" title="Pytorch常用函数之一_数据类型">Pytorch常用函数之一_数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-05T00:00:00.000Z" title="Created 2020-06-05 00:00:00">2020-06-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Pytorch/">Pytorch</a></span></div><div class="content">Pytorch 常用函数之一 _
+数据类型
+#Pytorch
+编程语言和自然语言一样，不理解的词越多，对全文的理解就越差。掌握必要的基础知识，让后期看代码更加流畅。
+机器学习需要掌握数据处理工具
+Pandas、Numpy，同理，深度学习也需要掌握相应的工具，在 Pytorch
+中数据存储在 Tensor
+之中，本篇将介绍它们的基本用法以及与之相关的常用函数。
+查看版本信息
+包含头文件
+11.	import torch  
+1．查看 torch 版本
+11.	print(torch.__version__)  
+2．查看 CUDA 版本
+11.	print(torch.version.cuda)  
+GPU 相关操作
+1. 查看当前是否支持 GPU
+11.	device = torch.device(&#x27;cuda&#x27; if torch.cuda.is_available() else &#x27;cpu&#x27;)  
+2．GPU 相关的数据转换
+123451.	a = torch.Tensor([5])  2.	b = a.to(&#x27;cuda&#x27;) # ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/480719959/" title="搭建深度学习的docker环境">搭建深度学习的docker环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-04T00:00:00.000Z" title="Created 2020-06-04 00:00:00">2020-06-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E7%8E%AF%E5%A2%83/">环境</a></span></div><div class="content">搭建深度学习的 docker 环境
+介绍
+深度学习一般依赖比较复杂的环境，每个项目需要的底层库各有不同，有时在
+github
+中下载的代码只能运行在版本较低的的工具链之上。想在一台机器上建立适合所有项目的环境非常困难，大多数情况下使用
+docker 维护不同项目针对的不同环境。
+CUDA 是 NVIDIA 推出的运算平台，一般通过它调用 GPU，CUDA 的主要版本有
+7.x, 8.x,9.x,10.x，目前最常用的是 9 和
+10，它们对接的上层软件版本也各不相同。如：
+1234torch 1.1.0/1.1.0 + torchvision 0.2.* + CUDA 9torch 1.2.0/1.3.0 + torchvision 0.3.* + CUDA 10torch 1.2.0/1.3.0 + torchvision 0.4.* + CUDA 10torch 1.4.0 + torchvision 0.5.* + CUDA 10
+除了 CUDA
+基础库以外，还需安装相关工具包。可以在同一个操作系统中安装多个 CUDA
+版本，使用时切换即可。
+在 Docker 中使用 GPU 除 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2205299714/" title="TorchVision">TorchVision</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-06-04T00:00:00.000Z" title="Created 2020-06-04 00:00:00">2020-06-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2/">目标检测与分割</a></span></div><div class="content">TorchVision
+#Pytorch #图形图像
+说明
+很多基于 Pytorch 的工具集都非常好用，比如处理自然语言的
+torchtext，处理音频的 torchaudio，以及处理图像视频的 torchvision。
+torchvision 包含一些常用的数据集、模型、转换函数等等。当前版本 0.5.0
+包括图片分类、语义切分、目标识别、实例分割、关键点检测、视频分类等工具，如
+mask-rcnn 功能也都包含在内了。mask-rcnn 的 pytorch 版本最高支持
+torchvision 0.2.*，0.3.0 之后就将 mask-rcnn 包含到 tensorvision
+之中了。
+安装
+torchvision 安装非常方便。$ pip install torchvision
+但需要注意版本匹配：
+1234torch 1.1.0/1.1.0 + vision 0.2.* + CUDA 9torch 1.2.0/1.3.0 + vision 0.3.* + CUDA 10torch 1.2.0/1.3.0 + vision 0.4.* + CUDA 10torch 1.4 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49219/" title="Pytorch提取不同层次图片的特征">Pytorch提取不同层次图片的特征</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-05-21T00:00:00.000Z" title="Created 2020-05-21 00:00:00">2020-05-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Pytorch/">Pytorch</a></span></div><div class="content">Pytorch
 提取不同层次图片的特征
 #图形图像 #Pytorch
 下例使用 torchvision 库提取了 resnet 最后一层的卷积特征；resnet 各
@@ -191,136 +318,7 @@ block 的卷积特性，以及金字塔特性。
 model.eval()，进入 eval 评估模型，它将改变 forward，如禁止
 dropout，并用统计数据做 batch norm。因此，有时 train 模式和 eval
 模式模型计算的结果不同。
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2632102027/" title="怎么看目标检测的效果">怎么看目标检测的效果</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-05-12T00:00:00.000Z" title="Created 2020-05-12 00:00:00">2020-05-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E4%B8%8E%E5%88%86%E5%89%B2/">目标检测与分割</a></span></div><div class="content">怎么看目标检测的效果
-怎么看目标检测的效果
-
-
-Recall&amp;Precision 引用一个知乎上的例子：某池塘有 1400
-条鲤鱼，300 只虾，300 只鳖。现在以捕鲤鱼为目的。撒一大网，逮着了 700
-条鲤鱼，200 只虾，100 只鳖。那么，这些指标分别如下：正确率 Precision =
-700 / (700 + 200 + 100) = 70% 召回率 Recall = 700 / 1400 = 50%
-（出处：https://www.zhihu.com/question/19645541/answer/39732647）
-IoU：预测区域和目标区域重合比例，即交集除并集
-
-
-IoU=0.50: 重合比例大于 0.5 的算正例。
-IoU=0.75: 重合比例大于 0.75 的算正例。
-IoU=0.50:0.95: 从 0.50 到 0.95 每隔 0.5
-计算一次，然后取均值。
-
-
-area：区域大小
-
-
-small：x&lt;32x32
-medium：32x32&lt;x&lt;96x96
-large：x&gt;96x96
-
-
-maxDets：最多取几个目标区域
-其 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3662399164/" title="调节学习率">调节学习率</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-04-25T00:00:00.000Z" title="Created 2020-04-25 00:00:00">2020-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">调节学习率
-在深度学习和其它一些循环迭代算法中，学习率都非常重要。在效率上，它几乎是与算力同等重要的因素；在效果上，它也决定着模型的准确率。如果设置太小，则收敛缓慢，也有可能收敛到局部最优解；设置太大又导致上下摆动，甚至无法收敛。
-设定学习率
-下面总结了设置学习率的一些方法：
-
-理论上，如果将学习率调大 10 倍，现在 10 次训练就可以达成之前 100
-次的训练效果。
-一般使用工具默认的学习率，如果收敛太慢，比如训练了十几个小时，在训练集和验证集上仍在收敛，则可尝试将学习率加大几倍，不要一下调成太大。
-如果误差波动过大，无法收敛，则可考虑减小学习率，以便微调模型。
-在测试阶段建议使用较大的学习率，在短时间内测算过拟合位置，尤其好用。
-在预训练模型的基础上 fine-tune
-模型时，一般使用较小的学习率；反之，如果直接训练，则使用较大的学习率。
-对于不同层可使用不同学习率，比如可对新添加的层使用较大的学习率，或者“冻住”某些层。
-下图展示了不同学习率的误差变化曲线。
-
-
-
-图片来自网络
-
-手动调节学习率
-Pytorch
-提供在迭代过程中修改学习率的方法。最简单的方法是手动修改学习率的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27572/" title="18_少儿Python编程_第十八讲：搭建网站">18_少儿Python编程_第十八讲：搭建网站</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-04-20T00:00:00.000Z" title="Created 2020-04-20 00:00:00">2020-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/">少儿编程</a></span></div><div class="content">少儿 Python 编程 _
-第十八讲：搭建网站
-上一讲学习了编写网页代码的方法，到目前为止，创建的网页文件只能用浏览器打开。如果需要用同一网络中的其它电脑或者手机访问该页面，则需要搭建
-HTTP 服务。
-普通电脑上也可以搭建 HTTP 服务，成为小型的 HTTP 服务器，使用 Python
-搭建 HTTP 服务非常简单，不需要额外安装软件，只要安装 Python 的三方模块
-Flask 即可实现。
-使用 Python 开发网站，只需要加入少量代码，就可以将 Python
-的工作成果快速地展示给用户。
-18.1 简单例程
-Flask 是一个轻量级的 Web
-应用框架，占用资源少，使用简单。本节将学习如何用 Flask
-创建一个最简单的网站。
-在 Anaconda 安装时已经安装了
-Flask，因此可以直接使用，程序代码如下：
-01 from flask import Flask
-02  
-03 app = Flask(__name__)
-04  
-05 @app.route(&#39;/test.html&#39;)
-06 def hello_world():
-07     retur ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3283094495/" title="用深度学习模型提取特征">用深度学习模型提取特征</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-04-17T00:00:00.000Z" title="Created 2020-04-17 00:00:00">2020-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84/">网络结构</a></span></div><div class="content">用深度学习模型提取特征
-用途
-有时候需要从图片（或文本）中提取出数值型特征，供各种模型使用。深度学习模型不仅可以用于分类回归，还能用于提取特征。通常使用训练好的模型，输入图片，输出为提取到的特征向量。
-加入特征之后，结果往往不尽如人意，大致有以下原因：
-
-深度学习模型一般有 N 层结构，不能确定求取哪一层输出更合适。
-深度学习模型很抽象——几十层的卷积、池化、信息被分散在网络参数之中。提取自然语言的特征时，常常提取词向量层的输出作为特征，有时也取最后一层用于描述句意；图像处理时往往提取最后一层输出向量；在图像目标识别问题中，常提取后两层子网络的输出作为组合向量。如何选择提取位置，取决于对模型的理解，后文将对图像处理层进行详细说明。
-针对不同问题训练出的模型，输出的特征也不同。 通常下载的
-ResNet，VGG，BERT
-预训练模型，虽然通用性高，但解决具体问题的能力比较弱。比如在自然语言处理中，用
-GPT-2 或者 BERT
-训练的模型只面对普通文章，如果从中提取特征用于判断辱骂，有些脏字可能有效，但是更多的“多义词”会被它的普通含义淹没。用自己的数据
-fine-tune 后往往更有针 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60977/" title="Pytorch_基于预训练的ResNet模型训练自己的分类器">Pytorch_基于预训练的ResNet模型训练自己的分类器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-04-11T00:00:00.000Z" title="Created 2020-04-11 00:00:00">2020-04-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Pytorch/">Pytorch</a></span></div><div class="content">Pytorch_
-基于预训练的 ResNet 模型训练自己的分类器
-
-加载数据
-
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586import osimport torch.utils.data as dataimport torchimport torch.optim as optimimport torch.nn as nnfrom torch.optim import lr_schedulerfrom torchvision import datasets, models, transformsfrom PIL import Imageimport timeimport copyimport pandas as pdimport matplotlib.pyplot as pltimport numpy as ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/34644/" title="论文检索">论文检索</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-03-23T00:00:00.000Z" title="Created 2020-03-23 00:00:00">2020-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E8%AE%BA%E6%96%87/">论文</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E8%AE%BA%E6%96%87/0-%E6%96%B9%E6%B3%95/">0_方法</a></span></div><div class="content">论文检索
-#工具 #论文阅读
-科学文献数据库：http://arxiv.org
-查找 arxiv 上论文的工具：http://www.arxiv-sanity.com/
-, 可查找关键字相关的论文，并按时间远近排序，列表中也显示了
-introduce。
-[](https://img-blog.csdnimg.cn/20200323101240784.png?x-oss-
-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpZXlhbjA4MTE=,size_16,color_FFFFFF,t_70)
-show similar 可查找与之类似的论文（内部使用 tf/idf 方法实现）
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/20662/" title="实战文本分类对抗攻击">实战文本分类对抗攻击</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-03-15T00:00:00.000Z" title="Created 2020-03-15 00:00:00">2020-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战文本分类对抗攻击
-#算法实战
-文章写得比较长，先列出大纲，以便读者直取重点。
-
-“文本分类对抗攻击”是清华大学和阿里安全 2020 年 2 月举办的一场 AI
-比赛，从开榜到比赛结束 20 天左右，内容是主办方在线提供 1000
-条辱骂样本，参赛者用算法逐条扰动，使线上模型将其判别为非辱骂样本，尽量让扰动较小同时又保留辱骂性质（辱骂性质前期由模型判定，最终由人工判定）。
-比赛规则
-线上模型和评测使用的 1000
-条样本不公开，选手根据赛方指定的接口实现算法，并用 docker
-方式提交以供线上评测，每天最多评测 15 次，单次运行时间需控制在 30
-分钟之内。
-（第一个知识点：熟悉 Docker，简单环境调试）
-其评价公式如下：
-
-共 1000 条评测样本（samples=1000 且全部为辱骂文本），vi
-为最终的人工评测结果，1 为辱骂，0
-为非辱骂在（只对最终入围数据作人工评测，前期提交都认为 vi=1）；ci
-是分类结果，由多个线上模型作出评判并取均值，攻击成功为 1，攻击失败为
-0；pi 是原始文本与扰动文本的差异，综合考虑了字符差异和语义差异，最终结果
-Sfinal 满 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2332064091/" title="Fasttext快速文本分类">Fasttext快速文本分类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-03-15T00:00:00.000Z" title="Created 2020-03-15 00:00:00">2020-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 简介
-Fasttext 源于 2016 年的论文《Bag of Tricks for Efficient Text
-Classification》，论文地址：https://arxiv.org/pdf/1607.01759.pdf。论文非常短，加上
-References 不过五页，Model architecture 只有一页。
-深度学习神经网络在自然语言处理中表现非常优秀，但动辄几十层，上亿参数的大型网络速度慢且需要大量算力支持，限制了使用场景。FastText
-是 Facebook 开源的一款简单而高效的文本分类器，它使用浅层的神经网络实现了
-word2vec
-以及文本分类功能，效果与深层网络差不多，节约资源，且有百倍的速度提升，可谓高效的工业级解决方案。本篇将介绍
-Fasttext 的相关概念、原理及用法。
-2 相关技术
-2.1 BOW
-BOW BOW 是词袋 Bag of Words 的简称，BOW
-是文本分类中常用的文本向量化的方法，它忽略了顺序和语法，将文本看成词汇的集合，且词汇间相互独立，如同把词放进了一个袋子。在分类任务中使用
-BOW
-时，就是根据各个词义综合分析文 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/44/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/#content-inner">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/#content-inner">46</a><span class="space">&hellip;</span><a class="page-number" href="/page/77/#content-inner">77</a><a class="extend next" rel="next" href="/page/46/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">763</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">182</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">151</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3465274542/" title="视频_后处理">视频_后处理</a><time datetime="2025-04-11T00:00:00.000Z" title="Created 2025-04-11 00:00:00">2025-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1442344863/" title="Obsidian使用大模型_ 插件ExMemoTools使用指南">Obsidian使用大模型_ 插件ExMemoTools使用指南</a><time datetime="2025-04-11T00:00:00.000Z" title="Created 2025-04-11 00:00:00">2025-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3436956813/" title="论文阅读_Citrus_在医学语言模型中利用专家认知路径以支持高级医疗决策">论文阅读_Citrus_在医学语言模型中利用专家认知路径以支持高级医疗决策</a><time datetime="2025-04-11T00:00:00.000Z" title="Created 2025-04-11 00:00:00">2025-04-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/932968997/" title="对谈_250322_责任与被动">对谈_250322_责任与被动</a><time datetime="2025-04-08T00:00:00.000Z" title="Created 2025-04-08 00:00:00">2025-04-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3947726553/" title="对谈_250408_激情驱动">对谈_250408_激情驱动</a><time datetime="2025-04-08T00:00:00.000Z" title="Created 2025-04-08 00:00:00">2025-04-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/44/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/44/#content-inner">44</a><span class="page-number current">45</span><a class="page-number" href="/page/46/#content-inner">46</a><span class="space">&hellip;</span><a class="page-number" href="/page/78/#content-inner">78</a><a class="extend next" rel="next" href="/page/46/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">155</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2179351878/" title="OpenRouter大语言模型接入平台">OpenRouter大语言模型接入平台</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2719735259/" title="模型兼容OpenAI API指南">模型兼容OpenAI API指南</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2930823974/" title="OpenAI 最新 gpt-4.1 使用对比">OpenAI 最新 gpt-4.1 使用对比</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3733161305/" title="面向对话式诊断人工智能">面向对话式诊断人工智能</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3615714017/" title="探索念念无住">探索念念无住</a><time datetime="2025-04-13T00:00:00.000Z" title="Created 2025-04-13 00:00:00">2025-04-13</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -328,8 +326,8 @@ BOW
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">26</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">25</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/%E5%85%AC%E5%BC%80/"><span class="card-category-list-name">公开</span><span class="card-category-list-count">25</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">726</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">710</span></a></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.16em; color: #999b9f">数据库</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.22em; color: #999ea5">模型解释</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" style="font-size: 1.13em; color: #999a9c">数据安全</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.41em; color: #99a5b6">阅读/心理学</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.16em; color: #999b9f">阅读/社会学</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">模型工具</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.13em; color: #999a9c">浏览器插件</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.1em; color: #999">情感</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.13em; color: #999a9c">插件开发</a> <a href="/tags/2023%E5%B9%B4/" style="font-size: 1.13em; color: #999a9c">2023年</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.44em; color: #99a7b9">操作系统/Linux</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.47em; color: #99a8bc">自然语言处理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.28em; color: #99a0ab">数据存储</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">数据管理</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.25em; color: #999fa8">特征工程</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.13em; color: #999a9c">Python/图形图像</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.41em; color: #99a5b6">数据分析</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ad">心理学</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">代码生成</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.35em; color: #99a3b0">生物医学</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.38em; color: #99a4b3">知识图/图神经网络</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.16em; color: #999b9f">编程语言/Java</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.19em; color: #999da2">机器学习/自动建模</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.16em; color: #999b9f">编程语言/C</a> <a href="/tags/writing/" style="font-size: 1.1em; color: #999">writing</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">36</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">12</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">763</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">998k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-04-17T17:00:12.300Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.26em; color: #999fa8">模型解释</a> <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">卷积神经网络</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.18em; color: #999ca1">异常检测</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.5em; color: #99a9bf">操作系统/Linux</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/API/" style="font-size: 1.1em; color: #999">API</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.22em; color: #999ea4">主题笔记</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.26em; color: #999fa8">AI绘画</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.46em; color: #99a7bb">人工智能</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">模型优化</a> <a href="/tags/Docker/" style="font-size: 1.42em; color: #99a6b7">Docker</a> <a href="/tags/Obsidian/" style="font-size: 1.14em; color: #999b9d">Obsidian</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.34em; color: #99a3b0">知识图/图神经网络</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.38em; color: #99a4b4">机器学习/时序</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">自然语言处理/统计方法</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.26em; color: #999fa8">深度学习/知识蒸馏</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.3em; color: #99a1ac">自然语言处理/大模型</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.1em; color: #999">艺术</a> <a href="/tags/SSH/" style="font-size: 1.1em; color: #999">SSH</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E9%87%8F%E5%8C%96%E5%9B%9E%E6%B5%8B/" style="font-size: 1.1em; color: #999">量化回测</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">44</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">12</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">771</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1011.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-04-18T10:17:53.840Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
