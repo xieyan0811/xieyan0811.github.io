@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-05-06 17:00:14'
+  postUpdate: '2025-05-07 02:54:45'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,189 +163,164 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">154</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/53544/" title="一些零碎的mathplotlib小技巧">一些零碎的mathplotlib小技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-19T00:00:00.000Z" title="Created 2018-12-19 00:00:00">2018-12-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">一些零碎的 mathplotlib
-小技巧
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">160</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/41010/" title="Fritzing画电路图">Fritzing画电路图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-07-21T00:00:00.000Z" title="Created 2019-07-21 00:00:00">2019-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Fritzing 画电路图
+#Arduino
+Fritzing 是一套设计 PCB (Printed Circuit Board) 印刷电路板的软件
+1. Ubuntu 系统安装方法
+$ sudo apt-get install fritzing
+$ Fritzing # 运行
+2. 其它平台软件下载地址： http://fritzing.org/download/
+3. 新建元件
+做图过程中难免有图库中没有的元件，需要新建元件。Fritzing
+1.7
+之后的版本不能直接创建元件，需要在相似元件的基础上修改，比较麻烦。我只想画一个连线示意图，操作越简单越好，故下载了
+Fritzing
+0.6.4b 版本，它的元件菜单中支持 " 新建 "。
+最终绘图效果如下图所示：
+[](https://img-blog.csdnimg.cn/20190721192642250.png?x-oss-
+process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpZXlhbj ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3706626297/" title="TF-IDF逆文本频率指数">TF-IDF逆文本频率指数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-05-03T00:00:00.000Z" title="Created 2019-05-03 00:00:00">2019-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">TF-IDF 逆文本频率指数
+1. 原理
+TF-IDF（term frequency–inverse document
+frequency）是信息处理和数据挖掘的重要算法，它属于统计类方法。最常见的用法是寻找一篇文章的关键词。
+其公式如下：
 
-说明
-一些零碎的 mathplotlib 小技巧
-怎么让图显得更高级 1.
-改字体大小：标题，子标题，标注分别不用同大小的字体，一遍文章中所有图都有相同的
-style。 2. 注意子图的间距 3. 注意对齐方向：居中，居左 4.
-注意配色：不使用红绿蓝等纯色 5. 柱图，线图，饼图使用至少两种以上 6.
-对一组图使用相同的 X,Y 轴范围 7. 注意线的粗细，点的大小
-线的粗细点的大小
-plt.plot(xx, linewidth=1.0)
-plt.plot(xx, 'o', markersize=1)
-横轴显示时间日期
-df['datetime'] = df['datestr'].apply(lambda x:
-datetime.datetime.strptime(x, "%Y-%m-%d"))
-字体大小
-figure.suptitle('xxxx', fontsize=15)
-plt.tick_params(labelsize=6)
-显示高分辨率
-figure = plt.figure(figsize=(8,6), dpi=300)
-其 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3190328272/" title="图像处理之_增强现实工具ARToolKit">图像处理之_增强现实工具ARToolKit</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-16T00:00:00.000Z" title="Created 2018-12-16 00:00:00">2018-12-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 增强现实工具
-ARToolKit
-#图形图像
-1. 增强现实
+TF（词频）是某个词在这篇文章中出现的频率，频率越高越可能是关键字。它具体的计算方法如上面公式所示：某关键在文章中出现的次数除以该文章中所有词的个数，其中的
+i 是词索引号，j 是文章的索引号，k 是文件中出现的所有词。
+
+IDF（逆向文档频率）是这个词出现在其它文章的频率，它具体的计算方法如上式所示：其中分子是文章总数，分母是包含该关键字的文章数目，如果包含该关键字的文件数为
+0，则分母为 0，为解决此问题，分母计算时常常加
+1。当关键字，如“的”，在大多数文章中都出现，计算出的 idf 值算小。
+词出现次数越多，idf
+为越大的负数，说明这词没什么用；出现少，则为正值；不多不少为 0
+
+把 TF 和 IDF 相乘，就是这个词在该文章中的重要程度。
+2. 使用 Sklearn 提供的 TF-IDF 方法
+Sklearn 是最常用的机器学习第三方 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3571601002/" title="自动机器学习框架之三_Auto-Keras">自动机器学习框架之三_Auto-Keras</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-04-14T00:00:00.000Z" title="Created 2019-04-14 00:00:00">2019-04-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">自动机器学习框架</a></span></div><div class="content">自动机器学习框架之三
+_Auto-Keras
  
-增强现实（AR）是将电脑虚拟的图像覆盖到真实世界画面中，这个技术在工业和理论研究方面都存在着极大的潜能。
-2. 相关概念
-(1) ARToolkit
- ARToolkit，是一个开源的 AR(增强现实)SDK。它是用 C/C++
-语言编写的库，通过它可以很容易地编写增强现实应用程序。增强现实中最困难的部分在于实时的将虚拟图像覆盖到用户视口，并且和真实世界中的对象精确对齐。ARToolKit
-使用电脑图像技术计算摄像机和标记卡之间的相对位置，从而使程序员能够将他们的虚拟对象覆盖到标记卡上面。ARToolKit
-提供的快速和准确的标记跟踪，能够让你快速的开发出许多更新更有趣的 AR
-程序。
-(2) OpenGL
- OpenGL 是 Open Graphics Library，用于渲染 2D、3D
-矢量图形的跨语言、跨平台的应用程序编程接口（API），可绘制从简单的图形到复杂的三维景象。
-(3) OpenCV
- OpenCV 是 Open Source Computer Vision
-Library。它提供图像 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2442373888/" title="Ubuntu支持Thinkpad无线网卡">Ubuntu支持Thinkpad无线网卡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-15T00:00:00.000Z" title="Created 2018-12-15 00:00:00">2018-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E9%A9%B1%E5%8A%A8/">驱动</a></span></div><div class="content">Ubuntu 支持 Thinkpad
-无线网卡
-#操作系统/Linux
-最近新入了一个 Thinkpad，安装 ubuntu16.04
-之后，不能识别无线网卡，解法如下：
-1.查看无线网卡型号
-1$ lspci
+对于训练深度学习，设计神经网络结构是其中技术含高最高的任务，优秀的网络架构往往依赖建构模型的经验，专业领域知识，以及大量的算力试错。实际应用中往往基于类似功能的神经网络微调生成新的网络结构。
+ Auto-Keras
+是一个离线使用的开源库，用于构建神经网络结构和搜索超参数，支持 RNN，CNN
+神经网络，它使用了高效神经网络搜索
+ENAS，利用迁移学习的原理将在前面任务中学到的权值应用于后期的模型中，效率相对较高。除了支持
+keras，它还提供 TensorFlow 他 PyTorch 的版本。
+1. 安装
+  由于需要把输出的神经网络结构保存成图片，使用了 pydot 和 graphviz
+图像工具支持，auto-keras 支持 torch
+等多种工具支持，因此，安装时会下载大量依赖软件。使用以下方法安装
+auto-keras：
+123$ apt install graphviz $ pip3 install pydot$ pip3 install autokeras
+  使用以下方法下载源码：
+1$ git clone https ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/751143490/" title="自动机器学习框架之二_AutoML">自动机器学习框架之二_AutoML</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-04-06T00:00:00.000Z" title="Created 2019-04-06 00:00:00">2019-04-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">自动机器学习框架</a></span></div><div class="content">自动机器学习框架之二 _AutoML
+ Auto ML（Auto Machine
+Learning）自动机器学习是个宽泛的概念，有不只一个软件以此命名，本篇介绍的
+Auto-ML 并非谷歌基于云平台的 AUTOML。本篇介绍的 Auto-ML
+也是一款开源的离线工具，它的优势在于简单快速，且输出信息比较丰富。它默认支持
+Keras、TensorFlow、XGBoost、LightGBM、CatBoost 和 Sklearn
+等机器学习模型，整体使用进化网格搜索的方法完成特征处理和模型优化。
+安装
+ Auto-ML 安装方法如下：
+1$ pip install auto-ml
+  为更多地了解 auto-ml 的功能和用法，建议下载其源码：
+1$ git clone https://github.com/ClimbsRocks/auto_ml
+举例
+  本例也使用 96 年美国大选数据，将”投票 vote”作为因变量，它有只 0/1
+两种取值，因此使用分类方法
+type_of_estimator=’classifier’，训练时需要用字典的方式指定各字段类型：其中包括：因变量
+outpu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2010250175/" title="自动机器学习框架之一_Auto-Sklearn">自动机器学习框架之一_Auto-Sklearn</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-03-30T00:00:00.000Z" title="Created 2019-03-30 00:00:00">2019-03-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E5%8A%A8%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/">自动机器学习框架</a></span></div><div class="content">自动机器学习框架之一
+_Auto-Sklearn
+ 
+当我们做完了特征工程之后，就可以代入模型训练和预测，对于模型的选择及调参，主要根据分析者的经验。在具体使用时，经常遇到同一批数据，同一种模型，不同的分析者得出的结果相差很多。
+ 
+前面学习了几种常用的机器学习方法原理以及适用场景，对于完全没有经验的开发者，只要有足够时间，尝试足够多的算法和参数组合，理论上也能达到最优的训练结果，同理程序也能实现该功能，并通过算法优化该过程，自动寻找最优的模型解决方案，即自动机器学习框架。
+ 
+我们将在未来的三周里分别为大家介绍三个常用的机器学习框架：auto-sklearn、auto-ml
+和 auto-keras。
+ Auto-Sklearn 主要基于 sklearn
+机器学习库，使用方法也与之类似，这让熟悉 sklearn 的开发者很容易切换到
+Auto-Sklearn。在模型方面，除了 sklearn 提供的机器学习模型，还加入了
+xgboost 算法支持；在框架整体调优方面，使用了贝叶斯优化。
+（转载请注明出处：https://www.jianshu.com/p/cd775730a1ec）
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/65495/" title="TableOne数据分析工具">TableOne数据分析工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-03-23T00:00:00.000Z" title="Created 2019-03-23 00:00:00">2019-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span></div><div class="content">TableOne 数据分析工具
+前面学习了统计描述和统计假设的 Python
+方法，分析数据表时，需要先确定因变量 Y，然后对自变量 X
+逐一分析，最后将结果组织成数据表作为输出，还是比较麻烦，使用 TableOne
+工具可以简化这一过程。
+TableOne 是生成统计表的工具，常用于生成论文中的表格，TableOne
+底层也基于 scipy 和 statsmodels
+模块实现，其代码主要实现了根据数据类型调用不同统计工具，以及组织统计结果的功能。它支持
+Python 和 R 两种语言，可使用以下方法安装:
+1$ pip install tableone
+TableOne 的核心代码只有 800 多行，建议下载其源码，阅读核心代码文件
+tableone.py，以了解其全部功能和工作流程，并从中借鉴统计分析的具体方法。
+1git clone https://github.com/tompollard/tableone
+下例中分析了 96 年美国大选数据，用 groupby
+参数指定了其因变量，categorical 参数指定了自变量中的分类型变量，使用
+pval=True 指定了需要计 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13632/" title="Stata中常用的数据分析命令">Stata中常用的数据分析命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-03-17T00:00:00.000Z" title="Created 2019-03-17 00:00:00">2019-03-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span></div><div class="content">Stata 中常用的数据分析命令
+1. 常用的数据分析工具
+ Stata、SPSS、SAS、R、Python，甚至 Excel 都可以做数据分析工作。R 和
+Python
+是程序员的首选，可以通过编写程序实现成整体的数据清洗、分析、挖掘，还可以增加扩展支持，把一套代码应用于类似的数据分析场景中。对于专业人士（如生物、医疗领域）来说，掌握编程语言的学习成本太高，他们更关注通过工具，方便快捷地得到分析结果，SPSS
+和 Stata
+主要是图形界面的软件操作，相对来说更为合适。很多专业领域，发论文时都使用了
+Stata 和 SPSS
+软件的分析结果，久而久之，也使该软件成为了该领域的数据分析标准工具。
+###2. Stata 安装和运行
+  我下载的是 Stata 15.1 Linux 版本，下载到本地解包后，可看到工具 stata
+和
+xstata，它们分别是命令行版本和图形界面版本，图形界面中也可以使用命令，运行
+xstata：
+1$ ./xstata
 
-我无线网卡的型号是 Realtek Semiconductor Co., Ltd. Device c821
-2.下载驱动程序，编译内核模块
-12345$ git clone https://github.com/tomaspinho/rtl8821ce$ cd rtl8821ce$ chmod +x dkms-install.sh$ chmod +x dkms-remove.sh$ sudo ./dkms-install.sh
-如果网卡型号和我的不同，可以试试 realtek 的其它驱动包: git clone
-https://github.com/lwfinger/rtlwifi_new
-3.加载网卡驱动
-查看驱动模块是否被加载
-1$ lspci -v
-这时看到 Device c821 设备下面有 Kernal modeles, 但是没有 Moder driver
-in u ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2891290823/" title="Ubuntu笔记本双屏的切换">Ubuntu笔记本双屏的切换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-15T00:00:00.000Z" title="Created 2018-12-15 00:00:00">2018-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Ubuntu 笔记本双屏的切换
-#操作系统/Linux
-同屏
-xrandr --output eDP-1 --same-as DP-2 --auto
-分屏
-xrandr --output eDP-1 --right-of DP-2 --auto
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/39882/" title="实战_瑞金医院MMC知识图谱大赛初赛">实战_瑞金医院MMC知识图谱大赛初赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-01T00:00:00.000Z" title="Created 2018-12-01 00:00:00">2018-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战 _ 瑞金医院 MMC
-知识图谱大赛初赛
+  可在其下方的框内输入 Stata
+命令回车运行，该软件中最常用的三个菜单是：Data（数据处理）、Graphic（画图）和
+Sta ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/57558/" title="Python写日志文件">Python写日志文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-03-09T00:00:00.000Z" title="Created 2019-03-09 00:00:00">2019-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python 写日志文件
+ 
+日志文件是记录程序操作及事件的记录文件或记录文件的集合。一般由程序开发人员编写，开发、运维人员共同使用，开发人员可以通过日志调试程序，运维人员通过日志检查程序近期是否正常运行，如果出现异常，则可通过日志快速定位问题。因此，用日志记录程序流程，事件，以及异常时的详细信息非常重要，尤其是对于部署在客户场地的程序。另外，日志有时也用于记录用户操作、程序运行地理位置等跟踪信息，用于后台的用户研究和数据挖掘。
+ 
+日志文件需要详细、清晰、且具有高可读性，以便减少开发与运维人员后期的沟通成本，有时候我们也使用程序来检测和分析日志，因此，定义关键字和格式也很重要。
+ Python 使用 logging
+工具管理日志，日志可以在终端显示，也可以记录成文件，每条日志都用级别号标志其严重程度，一般通过级别过滤选择性地记录和显示日志，级别定义如表
+5-1 所示：
+
+(谢彦技术博客)
+ 
+本例展示了以屏幕输出和文件输出两种方式记录日志信息，日志文件为当前目录下的
+log.txt，格式为文本文件。例程中设置了三次日志级别，第一次对程序中所有日志设置，级别为
+DEBUG，即显示全部日 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/23672/" title="Seaborn多图组合">Seaborn多图组合</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-03-02T00:00:00.000Z" title="Created 2019-03-02 00:00:00">2019-03-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Seaborn 多图组合
+1. jointplot 两变量图
+  数据分析中常用做图的方式实现相关性分析，即 X 轴设置为变量 A，Y
+轴设置为变量
+B，做散点图，由于散点图中点的叠加显示，往往还需要关注每个变量自身的分布情况，jointplot
+把描述变量的分布图和变量相关的散点图组合在一起，是相关性分析最常用的工具，图片上还能展示回归曲线，以及相关系数。
+123456import statsmodels.api as smimport seaborn as snssns.set(style=&quot;darkgrid&quot;)data = sm.datasets.ccard.load_pandas().datag = sns.jointplot(&#x27;AVGEXP&#x27;, &#x27;AGE&#x27;, data=data, kind=&quot;reg&quot;,                 xlim=(0, 1000), ylim=(0, 50), color=&quot;m&quot;)
+
+  本例中使用 statsmodels 库的 ccard
+数 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/39335/" title="半小时搞定Hadoop+Mysql+Hive+Python">半小时搞定Hadoop+Mysql+Hive+Python</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-02-23T00:00:00.000Z" title="Created 2019-02-23 00:00:00">2019-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">半小时搞定 Hadoop+Mysql+Hive
+#操作系统/Linux #数据存储/MYSQL
 1. 说明
- 《瑞金医院 MMC
-人工智能辅助构建知识图谱大赛》是一个天池的自然语言处理相关的比赛，初赛是命名实体识别（Named
-Entity Recognition，简称
-NER）。具体说，就是从医学文档里标注出药名，疾病，病因，临床表现，检查方法等十二种实体的类别和位置。这是一个有监督学习，它的训练集是标注好的医学文档。
- 
-还是延续以往比赛的思路，找一个类似的简单项目，在其上修修改改，于是找到了
-" 参考 1"
-中的例程，它是一个在中文文本中标注地名，人名，组织名的程序，使用工具是
-tensorflow，算法是 BiLSTM-CRF。
- 
-花了不到两天的时间，混进了复赛，虽说是在别人的代码上修修改改，但也不失为一个
-NLP 相关的深度学习入门，顺便熟悉一下如何使用
-tensorflow。我做的工作很简单：参考代码 2000 多行，修改了不到 200
-行，主要就是把那套代码对这个项目做一个适配，没啥可说的，本文主要梳理了深度学习如何应用于自然语言处理，算法原理，以及
-Tensorflow 的一些用法。
-2.
-深度学习能解决自然语言处理 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14607/" title="Dash入门">Dash入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-11-25T00:00:00.000Z" title="Created 2018-11-25 00:00:00">2018-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Dash 入门
-1. 说明
- 
-大数据开发过程中，我们常常需要向别人展示一些统计结果，有时候还是实时的统计结果。最好能以网页方式提供，让别人在他的机器上，使用浏览器也能访问。这时候统计工具往往使用
-Python，而把分析图表画出来使用 JavaScript，需要搭建 web
-服务，还涉及中间过程的数据衔接。而 Dash 能帮我们实现以上所有的工作。
- Dash 是 Python 的一个库，使用 pip 即可安装。用它可以启动一个 http
-server，python 调用它做图，而它内部将这些图置换成 JavaScript
-显示，进行数据分析和展示。
-2. 安装
-1234$ pip install dash$ pip install dash-renderer$ pip install dash-html-components$ pip install dash-core-components
-  其中 html 与网页相关，比如用它实现 Title
-显示及一些与用户的交互操作，core
-是绘图部分，像我们常用的柱图，饼图，箱图，线图，都可以用它实现。
-3. 简单 demo
-(1) 代 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/61092/" title="数据迁移工具Kettle">数据迁移工具Kettle</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-11-10T00:00:00.000Z" title="Created 2018-11-10 00:00:00">2018-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">数据迁移工具 Kettle
-1. 背景知识
-(1) 什么是 ETL
- ETL 是 Extract-Transform-Load
-的缩写，用来描述将数据从来源端经过抽取（extract）、交互转换（transform）、加载（load）至目的端的过程。
-(2) Kettle 简介
- Kettle 是一款国外开源的 ETL 工具，纯 java 编写，可以在
-Window、Linux、Unix 上运行，数据抽取高效稳定。Kettle
-中文名称叫水壶，该项目的主程序员 MATT
-希望把各种数据放到一个壶里，然后以一种指定的格式流出。我们常用它定时将一些库的数据稍做转换后存入其它库。
-(3) 工作机制
- Kettle 中有两种脚本文件，transformation 和 job，transformation
-完成针对数据的基础转换，job 则完成整个工作流的控制。
-2. 安装和运行
-(1) 安装
- kettle 的最新下载地址：http://community.pentaho.com/projects/data-integration/
-我在 linux 下安装，机器之前已装好 java
-环境，将 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36879/" title="几种常见的数学分布">几种常见的数学分布</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-11-03T00:00:00.000Z" title="Created 2018-11-03 00:00:00">2018-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/">分布</a></span></div><div class="content">几种常见的数学分布
-#数学
-1. 什么是数学期望
-  举个例子：某城市有 10 万个家庭，没有孩子的家庭有 1000
-个，有一个孩子的家庭有 9 万个，有两个孩子的家庭有 6000 个，有 3
-个孩子的家庭有 3000 个
-(0 * 1000 + 1 * 90000 + 2 * 6000 + 3 * 3000) / 100000 = 1.11
-  数学期望
-(mean)（或均值，亦简称期望）是试验中每次可能结果的概率乘以其结果的总和
-0 * 0.01 + 1 * 0.9 + 2 * 0.06 + 3 * 0.03 = 1.11
-
-2. 概率密度与累积分布
-  概率密度一般的写法是：P(X=a) = …，即 X 等于某个值 a 的可能性
-  累积分布一般的写法是：P(X&lt;=a) = …，即 X 小于等于某个值 a
-的所有可能性累加之和
- 
-这二者千万别弄混，否则就会被各种公式绕晕。下图是增量分布的概率密度图（橙色）和累积分布图（蓝色）。
-
-3. 常见的分布
-(1) 离散分布：
-伯努利分布（零一分布，两点分布），二项分布，几何分布，泊松分布（Poisson
-分布）
-(2) 连续分布： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/12017/" title="调度工具Airflow">调度工具Airflow</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-27T00:00:00.000Z" title="Created 2018-10-27 00:00:00">2018-10-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">调度工具 Airflow
-1. 什么是 Airflow
- Airflow 是 Airbnb 开源的 data pipeline
-调度和监控工作流的平台，用于用来创建、监控和调整 data
-pipeline(ETL)。
-2. 简单的定时任务 cron
-  假设我们想要定时调用一个程序，比如说：每天定时从 Web
-抓数据，我们可以使用 cron。cron 是一个 Linux
-下的后台服务，用来定期的执行一些任务，在/etc/crontab
-中设置后即可，基本写法如下：
-12# 分钟 小时 日 月 周 用户  命令 17 * * * * root date &gt;&gt; /tmp/time.log 
-  它的意思是每个小时的第 18 分钟，将当前时间写入 log
-文件，注意各值的取值范围（分钟 0 - 59，小时 0 - 23，天 1 - 31，月 1 -
-12，星期 0 - 6，0 表示星期天）修改/etc/crontab 后，还需要用 $ sudo
-service cron restart 命令重启 crontab 任务，才能生效。
-3. 为什么要用 Airflow
-  有了 cro ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4061270108/" title="机器学习之_逻辑回归">机器学习之_逻辑回归</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-13T00:00:00.000Z" title="Created 2018-10-13 00:00:00">2018-10-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习之 _ 逻辑回归
-逻辑回归又称 logistic
-回归，逻辑斯谛回归，是一种广义的线性回归分析模型。
-1. Sigmod 函数
- Sigmoid 函数也是神经网络中常用的函数，用于把 x
-从负无穷到正无穷压缩到 y 从 0 到 1 之间。画出来就是一条 S
-型曲线，如下图中的蓝色曲线：
-
-  它以 0 点为中心对称，公式如下：
-
-  当 x 值接近负无穷时，分母很大，S(x) 接近 0，当 x
-接近正无穷时，分母接近 1，S(x) 接近 1，当 x 为 0 时，S(x) 为 1/2
-在正中间。S 曲线的弯曲程度由 e 决定。它的导数是上图中的橙色曲线：
-
-  导数的意义是变化率，当 x 很大时或很小时，S’(x) 接近 0，而在 x 接近
-0 时，S’(x) 值最大，即 S 曲线在 0 点处变化剧烈，它勾勒出了 y 在 0 与 1
-之间模棱两可的区域。
-2. 逻辑斯谛分布
-  必须满足逻辑斯谛分布，才能用逻辑回归。那么什么是逻辑斯谛分布？
-逻辑斯谛分布即增长分布，增长分布的分布函数是“增长函数”，公式如下：
-
-  可以看到，它把 (x-μ)/γ代入 Sigmoid
-函数。其中μ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/51/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/#content-inner">51</a><span class="page-number current">52</span><a class="page-number" href="/page/53/#content-inner">53</a><span class="space">&hellip;</span><a class="page-number" href="/page/78/#content-inner">78</a><a class="extend next" rel="next" href="/page/53/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">154</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2179351878/" title="OpenRouter大语言模型接入平台">OpenRouter大语言模型接入平台</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2719735259/" title="模型兼容OpenAI API指南">模型兼容OpenAI API指南</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2930823974/" title="OpenAI 最新 gpt-4.1 使用对比">OpenAI 最新 gpt-4.1 使用对比</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3733161305/" title="面向对话式诊断人工智能">面向对话式诊断人工智能</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3615714017/" title="探索念念无住">探索念念无住</a><time datetime="2025-04-13T00:00:00.000Z" title="Created 2025-04-13 00:00:00">2025-04-13</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+  搭建过 Hadoop 集群的小伙伴一定知道，如果不用 docker，半小时配好
+Hadoop+Mysql+Hive（后简称 Hive）肯定是胡吹，有了 Docker
+镜像，没有说明文档，配好了也不一定会用。本文将介绍如何在半小时内，让
+Hive 在你的 Linux 系统上运行起来，并且可以通过 Python
+程序访问其中数据。
+2. 使用集群
+ Hadoop 需要安装 Java 虚拟机，创建 Hadoop 用户，下载安装 Hadoop
+软件，修改多个配置文件，启动服务等，有时由于操作系统不同还需要重编
+Hadoop 源码。没亲亲自搭建过可以参考这篇 Python海量数据处理之_Hadoop（一）集群搭建。整个
+Hadoop 系统就非常复杂，涉及各种类型 Node 的概念及原理。本文主要介绍对
+HIVE 的使用方法，只需要 Hadoop 可用，因此使用了 Hadoop，MySQL 及 Hive
+都正常安装和配置好的 dokcer image.
+  首先，查找可用的 Hive 的 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/51/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/51/#content-inner">51</a><span class="page-number current">52</span><a class="page-number" href="/page/53/#content-inner">53</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/#content-inner">80</a><a class="extend next" rel="next" href="/page/53/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">160</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2140472206/" title="对谈_250227_自我与他人谁更重要">对谈_250227_自我与他人谁更重要</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1398427745/" title="对谈_250304_礼物&amp;关系">对谈_250304_礼物&amp;关系</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3015950793/" title="对谈_250315_被动利他">对谈_250315_被动利他</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4054284220/" title="对谈_250402_白眼狼">对谈_250402_白眼狼</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1949782865/" title="舞台上的自我与社交">舞台上的自我与社交</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">30</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">28</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/%E5%85%AC%E5%BC%80/"><span class="card-category-list-name">公开</span><span class="card-category-list-count">28</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">728</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.2em; color: #999da3">数据存储/MYSQL</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.1em; color: #999">美食</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.33em; color: #99a2af">强化学习</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.37em; color: #99a4b2">笔记/Obsidian</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.17em; color: #999c9f">语音识别</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 1.1em; color: #999">股票</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.27em; color: #99a0a9">笔记</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.23em; color: #999ea6">AI绘画</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">代码模型</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.17em; color: #999c9f">编程语言/Java</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.43em; color: #99a6b9">编程语言/前端</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">哲学</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.47em; color: #99a8bc">开源项目</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.3em; color: #99a1ac">Python/股票</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">情绪表达</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.2em; color: #999da3">公众号</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.27em; color: #99a0a9">数学</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">情绪管理</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">数据管理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.13em; color: #999a9c">浏览器插件</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.1em; color: #999">价值观</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.43em; color: #99a6b9">编程语言</a> <a href="/tags/%E5%81%A5%E5%BA%B7/" style="font-size: 1.1em; color: #999">健康</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">44</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">12</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">771</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1011.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-06T17:00:12.066Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">727</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">711</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">117</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li></ul></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">阅读/社会学</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E9%A2%84%E6%B5%8B/" style="font-size: 1.1em; color: #999">股票预测</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.15em; color: #999b9e">思维整理</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.1em; color: #999">美食</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.15em; color: #999b9e">社会现象</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.15em; color: #999b9e">关系抽取</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.2em; color: #999da3">数据库</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.15em; color: #999b9e">个人成长</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E6%8A%80%E6%9C%AF/" style="font-size: 1.1em; color: #999">嵌入技术</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E9%87%8F%E5%8C%96%E5%9B%9E%E6%B5%8B/" style="font-size: 1.1em; color: #999">量化回测</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.25em; color: #999fa7">数据存储/MYSQL</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.2em; color: #999da3">知识图/知识图谱</a> <a href="/tags/%E4%BD%9B%E6%95%99/" style="font-size: 1.1em; color: #999">佛教</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.35em; color: #99a3b1">版本管理</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96/" style="font-size: 1.25em; color: #999fa7">社会文化</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.4em; color: #99a5b6">机器学习</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.2em; color: #999da3">异常检测</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.3em; color: #99a1ac">Python/少儿编程</a> <a href="/tags/%E8%81%8C%E5%9C%BA/" style="font-size: 1.1em; color: #999">职场</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.45em; color: #99a7ba">编程语言</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.15em; color: #999b9e">Python/图形图像</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">反思</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.15em; color: #999b9e">#后端</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">50</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">794</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1073.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-07T02:54:42.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

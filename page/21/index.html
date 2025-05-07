@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-05-06 17:00:14'
+  postUpdate: '2025-05-07 02:54:45'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,227 +163,128 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">154</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36029/" title="docker_compose">docker_compose</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-30T00:00:00.000Z" title="Created 2023-12-30 00:00:00">2023-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/">Docker</a></span></div><div class="content">1 引言
-Docker Compose 是一个简化 Docker 应用程序管理的工具，通过一个名为
-docker-compose.yml 的文件定义相关服务、网络和卷。使用 Docker
-Compose，你能方便地配置、启动和管理多个 Docker
-容器，构建完整的应用堆栈。
-2 使用方法
-在项目的根目录下创建一个 docker-compose.yml
-文件，定义你的服务、网络和卷。下面是一个简单的例子：
-2.1 配置 yml 文件
-123456789101112131415161718192021222324252627version: &#x27;3&#x27;services:  db:    image: postgres:14    container_name: postgres14    ports:      - &quot;5433:5432&quot;    environment:      POSTGRES_PASSWORD: 123456    volumes:      - /exports/project/knowjourney:/var/lib/post ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2096538113/" title="2023年_大模型相关的热门开源工具">2023年_大模型相关的热门开源工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">1 引言
-在 OPENAI 发布 ChatGPT
-后的一年里，整个人工智能领域经历了迅猛的演变，对写作、编程等多个领域的工作方式产生了深刻的影响。2023
-年整个行业都将聚焦于自然语言处理大模型，进行了大量实验和尝试，积累了宝贵的经验，或许明年将是人工智能应用大规模落地，真正产生价值的时刻。
-开源项目可以被视为一个广阔的实验场，实验展示了许多可能性和成果，以及关注的热点。虽然并非全部应用场景，但从中我们可以窥见一二。
-本文以 GitHub
-上的开源项目为切入点，来看看大模型相关的高评分开源工具。旨在了解社区最关注的项目，这些工具实现了哪些功能，采用了什么样的技术，可能的盈利模式，以及它们当前仍然面临的挑战。
-2 高星和热榜
-梳理热门榜单和热门关键字搜索中的 topN
-开源项目，深入了解社区对各个领域的关注、不同思路的探索，以及实现方法的多样性。
-2.1 Python 中文新秀榜
-GitHub-Chinese-Top-Charts（231204）中文新秀榜 -&gt;软件类 -&gt;Python
-榜
-地址
-
-binary-husky/gpt_academic 48.3k Star 学术 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" target="_blank" rel="noopener" href="https://book.douban.com/subject/26747208/" title="优秀的绵羊">优秀的绵羊</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-17T00:00:00.000Z" title="Created 2023-12-17 00:00:00">2023-12-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/1-Readings/">1_Readings</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/1-Readings/%E4%BA%BA%E6%96%87%E7%A4%BE%E4%BC%9A/">人文社会</a></span></div><div class="content">
-
-优秀的绵羊|300
-
-1 简介
-1.1 书籍简介
-2008 年，在常春藤盟校待了 24
-年之后，耶鲁大学教授威廉·德雷谢维奇决定辞去自己的终身教职，离开这所常春藤名校。之所以这么做，是因为他感觉当前的美国精英教育已经陷入了误区，这套系统下培养出来的学生大都聪明，有天分，斗志昂扬，但同时又充满焦虑、胆小怕事，对未来一片茫然，极度缺乏目标感：他们被包裹在一个巨大的特权泡泡里，所有人都在老实巴交地向着同一个方向前进。他们非常擅于解决手头的问题，却不知道为什么要解决这些问题。
-在即将辞去耶鲁教职之际，他发表了一篇文章《精英教育的劣势》来讨论这些问题。让他万万没想到的是，几周之内，它的阅读量就超过了
-10 万次（后来的累计阅读量超过了 100
-万次）。很明显，这篇文章触动了很多人的神经。
-从那之后，他开始应邀到美国各地的大学发表演讲，跟学生们交流，回答他们的问题，也向他们请教了许多问题，并倾听和了解了他们的答案。这本书就是他对这段经历的思考和总结。
-在本书当中，作者德雷谢维奇历数哈佛、耶鲁、普林斯顿等常春藤学校学生的“数宗罪”：过于自信却输不起；朋友圈同质化，固步自封；思维僵硬，与社会脱节， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2459036769/" title="GPT应用_PrivateGPT">GPT应用_PrivateGPT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">项目地址：https://github.com/imartinez/privateGPT
-
-1 功能
-1.1 整体功能，想解决什么问题
-搭建完整的 RAG 系统，与 FastGPT
-相比，界面比较简单。但是底层支持比较丰富，可用于知识库的完全本地部署，包含大模型和向量库。适用于保密级别比较高，或者完全不想使用收费模型和服务的情况。
-1.2
-当前解决了什么问题，哪些问题解决不了
-PrivateGPT
-提供了整体转换、入库、存储、匹配、合成答案，图形界面的解决方案，并提供图形界面用于检索操作。
-RAG
-所面对的问题，比如不够准确，多文档组合生成答案这些问题，需要进一步细化工具，似乎不能通过架构来解决。另外，由于多数本地部署的模型效果与
-ChatGPT
-差距比较大，这里只是看到了本地部署的架构和实现的可能性，部署后用户是否能接受其效果，还待验证。
-1.3
-提供哪些功能点，其中哪些是刚需
-核心功能是通过简单的操作，实现对本地文件的检索和问答，功能相对单一。
-1.4
-用户使用难度，操作逻辑是否过于复杂
-整体工具链使用了 poetry
-构建，安装相对方便。但由于包含了深度学习库，肯定比一般项目复杂 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/688527560/" title="开源项目_大模型应用_awesome-chatgpt-prompts-zh">开源项目_大模型应用_awesome-chatgpt-prompts-zh</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">https://github.com/PlexPt/awesome-chatgpt-prompts-zh
-1 功能
-
-整体功能，想解决什么问题
-
-ChatGPT 中文调教指南：提供一些常用的使用场景及对应的 Prompt
-提示
-
-当前解决了什么问题，哪些问题解决不了
-
-针对想解决实际问题，但不知道如何描述，以及不知道 AIGC
-可以解决什么问题的用户，进行很好的使用引导。
-项目主要提供数据，无代码；程序员可以参考其中的一些提示，普通用户无法直接拿来使用。
-
-提供哪些功能点，其中哪些是刚需
-
-提供丰富的场景与提示的对应关系
-
-用户使用难度，操作逻辑是否过于复杂
-
-作者团队除了提供该应用的网页版，他还提供了 Windows, Mac, Linux,
-Android，小程序入口。可通过试用和购买其附费服务使用。
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">160</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8566/" title="语音方向精典论文品读_HuBERT">语音方向精典论文品读_HuBERT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-24T00:00:00.000Z" title="Created 2024-01-24 00:00:00">2024-01-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/">3_Paper</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/">0_AI</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/%E8%AF%AD%E9%9F%B3/">语音</a></span></div><div class="content">12345678英文名称: HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units中文名称: HuBERT：通过隐藏单元的屏蔽预测进行自监督语音表示学习链接: http://arxiv.org/abs/2106.07447v1代码: https:// github.com/pytorch/fairseq/tree/master/examples/hubert作者: Wei-Ning Hsu, Benjamin Bolte, Yao-Hung Hubert Tsai, Kushal Lakhotia, Ruslan Salakhutdinov, Abdelrahman Mohamed机构: Wei-Ning Hsu, Benjamin Bolte, Yao-Hung Hubert Tsai, Kushal Lakhotia, Ruslan Salakhutdinov, Abdelrahman Mohamed日期: 2021-06-14引用次数: 1518
 
 
-2 技术栈
+| ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44532/" title="论文阅读_语音转换_SoftVC">论文阅读_语音转换_SoftVC</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-24T00:00:00.000Z" title="Created 2024-01-24 00:00:00">2024-01-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/">3_Paper</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/">0_AI</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/%E8%AF%AD%E9%9F%B3/">语音</a></span></div><div class="content">12345678英文名称: A COMPARISON OF DISCRETE AND SOFT SPEECH UNITS FOR IMPROVED VOICE CONVERSION中文名称: 离散和软语音单元的比较，以改善语音转换链接: http://dx.doi.org/10.1109/icassp43922.2022.9746484代码: https://github.com/bshall/hubert作者: Benjamin van Niekerk, Marc-Andr´e Carbonneau, Julian Za¨ıdi, Matthew Baas, Hugo Seut´e, Herman Kamper机构: 育碧拉福奇（Ubisoft La Forge），蒙特利尔，加拿大，E&amp;E工程，斯泰伦博斯大学，南非日期: 2021-11-03
+1 读后感
+语音转换的目标是在不改变内容的前提下，将任意说话人的声音转换为目标说话人的声音，论文的目标是通过自监督方法来实现这一功能。
+在这个任务中，无监督学习通常会比有监督学习产生更好的效果。以前的无监督学习方法通常是提取音频特征，对 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/53139/" title="目前见过效果最好的中文语音合成工具">目前见过效果最好的中文语音合成工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-23T00:00:00.000Z" title="Created 2024-01-23 00:00:00">2024-01-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/11-%E5%BA%94%E7%94%A8/">11_应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/11-%E5%BA%94%E7%94%A8/%E8%AF%AD%E9%9F%B3/">语音</a></span></div><div class="content">
+1 引言
+与大型语言模型（LLM）相比，语音模型相对较小，只需要本地有 GPU
+的机器就可以进行训练。我的机器是很久以前购买的 1080Ti，10G
+的显存，就可以正常训练。它在中文声音模拟方面的效果也相当不错。我下载了一段十几分钟评书音频，用这个模型进行训练只需
+5
+分钟就能完成。我觉得它模拟的音色和抑扬顿挫的效果都相当不错，虽然不能完全模拟真人的声音，但已经是我目前使用过的最好效果了。
+此外，作者评测显示用 1 分钟语音与 30
+分钟的效果相似。该项目目前只发布了 TTS 工具，变声工具还在开发中。
+2 安装
+2.1 环境
+建议在 docker
+环境下的安装。这样既可以与其他工具共存，也不会破坏宿主机当前环境。我下载了与
+install.sh 中指定的底层软件版本最相近的版本。基础镜像
+7.2G，全部安装完 10.5G，另外下载的模型和源码也在 5G 以内。
+12$ docker pull pytorch/pytorch:2.1.1-cuda12.1-cudnn8-runtime$ nvidia-docker run --network host --rm -v /exports ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32907/" title="Wechatsync插件介绍">Wechatsync插件介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-20T00:00:00.000Z" title="Created 2024-01-20 00:00:00">2024-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/">浏览器工具</a></span></div><div class="content">
+1 使用场景
+最近文章更新比较频繁，基本是日更。因此花费了相当多的时间在不同平台之间同步。时间主要消耗在：需要大致浏览一遍文章内容，另外某些平台需要手动上传图片，有时还需要调整排版。
+为了解决这个问题，我选择了以一个平台为中心，比如微信公众号，将文章精心排版后，再同步到其他平台。
+在 VSCode 中有插件可以实现这个功能（Markdown publisher for
+csdn…），在 Chrome
+浏览器中也有类似的插件。虽然不能说完美，但能提高效率。
+试用了几个，觉得这个最好用，本文将介绍 Chrome 插件 Wechatsync
+的使用方法，并分享一些实用体验。
+2 项目介绍
 
-技术栈是什么
+项目名称：Wechatsync
+项目地址：https://github.com/wechatsync/Wechatsync
+Star：2.7K
+功能：一键同步文章到多个内容平台，支持今日头条、WordPress、知乎、简书、掘金、CSDN、typecho
+等主要平台，实现一次发布，多平台同步发布，提高个人生产力。
+代码：项目主要使用 JavaScript 实现。
+安装：从 Chrome 插件商店直接安装 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/63737/" title="在没有图形界面的机器上给github配置代理的方法">在没有图形界面的机器上给github配置代理的方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-20T00:00:00.000Z" title="Created 2024-01-20 00:00:00">2024-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></span></div><div class="content">1 引言
+近期遇到了一个棘手的问题，我使用的云服务器无法直接连接到
+GitHub，使得我无法下载任何开源项目，包括之前维护的代码和下载新的项目。面对这种困扰，我选择了配置代理的方式来解决问题。然而，我很快发现，在一个没有图形用户界面（GUI）的服务器上配置代理，支持
+SSH 和 HTTP 两种方式，这个过程比我预想的要复杂很多。
+这个问题可能会影响到很多人，我决定写一篇详细的文章，介绍在 Linux
+环境下如何配置和使用网络代理连接
+github。下文将详细介绍如何使用环境变量来设置代理，如何在 Git
+中配置代理，以及一些常用的代理调试工具。
+2 配置代理
+123456export http_proxy=http://host:port/  export https_proxy=$http_proxy  export ftp_proxy=$http_proxy  export rsync_proxy=$http_proxy  export all_proxy=$http_proxy  export no_proxy=&quot;localhost,127.0.0.1,localadd ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46393/" title="配置免费SSL证书指南">配置免费SSL证书指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-20T00:00:00.000Z" title="Created 2024-01-20 00:00:00">2024-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">1 引言
+本文介绍了如何在 Linux 环境下使用免费的 Let's Encrypt 为你的网站配置
+SSL 证书的方法，以及如何在 Nginx 服务器中启用
+SSL。对于需要在自己的网站上启用 HTTPS 的用户来说非常实用。
+2 SSL 简介
+SSL，全称为 Secure Sockets
+Layer，是一种网络安全协议，主要用于在互联网上对数据进行加密传输。SSL
+通过使用加密算法对数据进行加密，确保数据在传输过程中的安全。同时，SSL
+还提供了身份验证机制，可以验证服务器的身份以防止中间人攻击。
+当你在浏览器的地址栏看到 http:// 变成
+https://，或者地址栏前面出现一个锁的图标时，就表示你正在使用
+SSL。"s" 即安全 "secure"。HTTPS 协议实际上就是在 HTTP 上加了一层 SSL/TLS
+协议，使得数据传输更加安全。
+SSL 证书是一种数字证书，它可以验证网站的身份，并提供 SSL
+加密。当一个网站使用了 SSL
+证书后，用户在访问这个网站时，浏览器会首先获取这个网站的 SSL
+证书，然后验证这个证书的有效性。如果证书有效，浏览器就会生成一个随机的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2188818793/" title="开源项目_智能的SQL客户端和报表工具_Chat2DB">开源项目_智能的SQL客户端和报表工具_Chat2DB</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-19T00:00:00.000Z" title="Created 2024-01-19 00:00:00">2024-01-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">1 基本信息
 
-这里没有什么代码，主要是场景及相关的提示的数据
+项目地址：https://github.com/chat2db/Chat2DB
+Star：10.7K
 
-现有底层工具消化了哪些常用功能
+2 功能
+Chat2DB 是一个智能且多功能的 SQL
+客户端和报表工具，适用于各种数据库。
+对于那些平时会用到数据库，但又不是数据库专家的程序员来说，Chat2DB
+可以说是一种福音。
+通过查看 README 中的视频，可以了解到 Chat2DB 的核心功能和用法。
+其功能可分为三个主要部分：
 
-源自项目：https://github.com/f/awesome-chatgpt-prompts (95.1K
-star)，可以看作是这个项目的中文版本，但比英 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2784054517/" title="GPT应用_chuanhu川虎">GPT应用_chuanhu川虎</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">https://github.com/GaiZhenbiao/ChuanhuChatGPT
+支持 Chat 功能，可以将文本描述转换成数据库命令
+连接各种数据库并执行操作，类似于 navicat
 
-1 功能
-1.1 整体功能，想解决什么问题
+可以作为一个简化版的 navicat 使用，用于查看数据库、表和内容
+除了关系型数据库，还支持 mongodb、hive 等其他类型的数据库
+可以在本地运行，跨平台，且免费
 
-官网说明：为 ChatGPT 等多种 LLM
-提供了一个轻快好用的 Web
-图形界面和众多附加功能
+可以对返回的数据进行分析并生成图表
 
-1.2
-当前解决了什么问题，哪些问题解决不了
 
-支持多种大模型（也可接入本地模型），简单的本地文档提问，可以连网查询实时数据，提供常用提示词，支持多个对话，小而美的界面。
-个人感觉：通用的功能都有，精细度一般。
+Redis 和 MongoDB
+得到部分支持，Hbase、Elasticsearch、openGauss、TiDB、InfluxDB
+将在未来得到支持。
+3 代码和原理
 
-1.3
-提供哪些功能点，其中哪些是刚需
-
-一般人可能主要使用 OPENAI
-聊天为主，附加的实时搜索和与文件对话可能偶尔使用。
-
-1.4
-用户使用难度，操作逻辑是否过于复杂
-
-基本属于简单配置一下，开箱即用，整体 Docker
-也比较轻量，容易部署。配置时有一些细节，还需要注意。
-
-2 技术栈
-2.1 技术栈是什么：
-
-代码主要由 Python 编写，前端由 Gradio 实现，中间层使用
-Langchain，词向量使用 faiss
-
-2.2
-现有底层工具消化了哪些常用功能
-
-使用 langchain 加强了对大模型的调用
-使用 grad ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6792/" title="数据库_mongoDB">数据库_mongoDB</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-13T00:00:00.000Z" title="Created 2023-12-13 00:00:00">2023-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">1 介绍
-MongoDB 是一种 NoSQL
-数据库，它将每个数据存储为一个文档，这里的文档类似于 JSON/BSON
-对象，具体数据结构由键值（key/value）对组成。字段值可以包含其他文档，数组及文档数组。其数据结构非常松散，常用于存储比较复杂灵活的数据结构。
-MongoDB
-基于分布式文件存储，介于关系数据库和非关系数据库之间；是非关系数据库当中功能最丰富，最像关系数据库的。
-2 基本概念
-
-数据库：数据库用于保存一组相关数据，由集合组成；相当于关系数据库中的库。
-集合：集合用来表示一个实体，如学生集合；集合由文档组成，相当于关系数据库中的表。
-文档：文档表示一条记录，比如一位同学可以是一个文档，相当于关系数据库中的记录。
-
-3 用法
-123456$ docker pull mongo:5.0.18$ docker run --rm -d -p 27017:27017 -v /宿主机目录:/data/db \  -e MONGO_INITDB_ROOT_USERNAME=adminUser \  -e MONGO_INITDB_ROOT_PASSWORD=adminPassw ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/153060689/" title="GPT应用_FastGPT">GPT应用_FastGPT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-13T00:00:00.000Z" title="Created 2023-12-13 00:00:00">2023-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">
-1 功能
-1.1 整体功能，想解决什么问题
-
-官方说明：FastGPT 是一个基于 LLM
-大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。同时可以通过
-Flow 可视化进行工作流编排，从而实现复杂的问答场景！
-个人体会：在不用编程的情况下，快速建立简单的本地知识库。
-
-1.2
-当前解决了什么问题，哪些问题解决不了
-
-作者团队可能是觉得大模型本身太单薄了，希望通过结合其它工具，做一个中间层的方案，用大模型解决更多问题。
-向下接入了多个大模型：GPT、Claude、Spark、ChatGLM 等；向上除了提供
-很好用的 Web 工具，还提供了类似 OpenAI 的 API
-供其它程序接入其功能，如：微信，飞书……；针对本地知识库，实现了数据的解析，存储，问答功能，并做了一些优化（评价本地知识库效果是一个非常复杂的问题，不在此讨论）。
-提供了工作流
-Flow，个人感觉对于想开箱即用的人来说有些复杂；对于深度使用者略显单薄。
-计算 Embedding 以及答案的合成都需要连网使用。
-
-1.3
-提供哪些功能点，其中哪些是刚需
-
-基本的与大模型聊天问答功能
-本地知识库支持， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5038/" title="项目包管理工具_poetry">项目包管理工具_poetry</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-11T00:00:00.000Z" title="Created 2023-12-11 00:00:00">2023-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 介绍
-Poetry 是一个用于 Python
-项目的包管理工具，它相对于传统的 pip 和 requirements.txt
-的优势在于：使得项目依赖管理更加方便，且结合了更多新工具，还提供命令行进一步配置。
-当在同一系统或在同一个 docker 中，使用多个 Python
-程序时，可能由于工具链冲突无法同时安装，poetry
-将每个项目所需要的资源都安装在它自己的虚拟环境中，很好地解决了冲突问题。
-使用此方法，可以把库挂在系统之外，也不需要总是重打 docker image
-了。
-2 用法
-2.1 配置文件
-设置文件是：pyproject.toml，其中包含包及对应版本，可配置选项等等。
-2.2 安装 python 包
-Poetry 默认会将 Python
-包安装在项目的虚拟环境中，而虚拟环境通常会创建在项目根目录的.venv
-文件夹内。
-
-查看安装信息：
-
-1$ poetry env info
-
-安装包
-
-1$ peotry install
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27833/" title="openstack插件">openstack插件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-08T00:00:00.000Z" title="Created 2023-12-08 00:00:00">2023-12-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">1 OpenStack
-1.1 功能和原理
-OpenStack
-是一组可用于扩展和增强的云计算平台功能的组件或模块的集合。包括计算、存储、网络、认证、镜像等。具有高度的可扩展性、灵活性和定制性，广泛应用于公有云、私有云、混合云等各种场景。
-OpenStack
-可以在任何地方快速部署和管理基础架构，而无需依赖云服务提供商。OpenStack
-模块被设计为可插拔的插件。
-1.2 架构
-
-用户层：用户可以通过各种方式访问 OpenStack 云环境，如 Web
-界面、API、CLI 等。
-应用层：应用层是 OpenStack
-云环境中运行的应用程序和服务，例如虚拟机、存储、网络、数据库等。
-控制层：控制层是 OpenStack
-云环境中的核心组件，用于管理和协调应用层的资源。
-
-1.3 我的理解
-（不一定对）
-OpenStack
-提供了一个框架，来构建云服务，包含整个系统的组织架构，设计各个组件之间的通讯协议，整体的控制管理等等。
-2 插件
-2.1 功能
-扩展功能通常被设计为可插拔的组件，允许用户根据其需求选择性地添加或拓展功能。
-2.2 语言
-OpenStack 生态系统中 Python  ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/20/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/#content-inner">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/78/#content-inner">78</a><a class="extend next" rel="next" href="/page/22/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">771</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">192</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">154</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2179351878/" title="OpenRouter大语言模型接入平台">OpenRouter大语言模型接入平台</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2719735259/" title="模型兼容OpenAI API指南">模型兼容OpenAI API指南</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2930823974/" title="OpenAI 最新 gpt-4.1 使用对比">OpenAI 最新 gpt-4.1 使用对比</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3733161305/" title="面向对话式诊断人工智能">面向对话式诊断人工智能</a><time datetime="2025-04-18T00:00:00.000Z" title="Created 2025-04-18 00:00:00">2025-04-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3615714017/" title="探索念念无住">探索念念无住</a><time datetime="2025-04-13T00:00:00.000Z" title="Created 2025-04-13 00:00:00">2025-04-13</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+后端使用 Java 实现（3.7 万行），前端使用 TypeScript 实现（2.7 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3324890236/" title="论文阅读_思维链_EoT_思想交流">论文阅读_思维链_EoT_思想交流</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-18T00:00:00.000Z" title="Created 2024-01-18 00:00:00">2024-01-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/">7_模型增强</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/%E6%80%9D%E7%BB%B4%E9%93%BE/">思维链</a></span></div><div class="content">12345678英文名称: Exchange-of-Thought: Enhancing Large Language Model Capabilities through Cross-Model Communication中文名称: 思想交流：通过跨模型通信增强大型语言模型的能力链接: http://arxiv.org/abs/2312.01823v1代码: 作者: Zhangyue Yin, Qiushi Sun, Cheng Chang, Qipeng Guo, Junqi Dai, Xuanjing Huang, Xipeng Qiu机构: 复旦大学计算机科学学院, 新加坡国立大学, 上海人工智能实验室日期: 2023-12-04引用次数: 
+读后感
+文章提出框架 EoT，可视为 CoT
+框架的进化版本。它利用多个模型提升模型的推理能力，其主要工作在于设计和实现跨模型通信，包括：模型之间通信，通信终止条件，最小化错误推理对结果的影响。该模型具有整合外部多方观点的能力，可通过引入丰富的知识来提升解决问题的能力。
+摘要
+目标：提出一种新的框架 Exchange-of-Thought ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/45503/" title="TinyLlama: 一个开源的小型语言模型">TinyLlama: 一个开源的小型语言模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-17T00:00:00.000Z" title="Created 2024-01-17 00:00:00">2024-01-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/">3_Paper</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/">0_AI</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/3-Paper/0-AI/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">语言模型</a></span></div><div class="content">123456789英文名称: &#x27;TinyLlama: An Open-Source Small Language Model&#x27;中文名称: &#x27;TinyLlama: 一个开源的小型语言模型链接: http://arxiv.org/abs/2401.02385v1代码: https://github.com/jzhang38/TinyLlama试用: https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v0.1作者: Peiyuan Zhang, Guangtao Zeng, Tianduo Wang, Wei Lu机构: 新加坡科技与设计大学日期: 2024-01-04引用次数: 
+1 读后感
+文中介绍了 TinyLlama
+一种开源的轻量级大语言模型。作者发布了所有相关信息，包括的预训练代码、所有中间模型检查点以及数据处理步骤的细节。TinyLlama
+可以在移动设备上支持最终用户应用程序，并作为测试语言模型的轻量级平台。
+TinyLlama 相对于
+Llama2，在架构和算法上都没有太多改进，但有一些微 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2842644000/" title="Python语音合成方法汇总">Python语音合成方法汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-17T00:00:00.000Z" title="Created 2024-01-17 00:00:00">2024-01-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 离线合成 pytts
+配置环境
+12345$ apt-get update$ apt-get install espeak$ pip install pyttsx3$ apt-get install ffmpeg$ apt-get install alsa-utils
+运行程序
+123456789101112import pyttsx3engine = pyttsx3.init()engine.setProperty(&#x27;rate&#x27;, 150)engine.setProperty(&#x27;volume&#x27;, 0.7)text = &quot;你好，欢迎使用 pyttsx3 中文语音合成！&quot;engine.say(text)engine.runAndWait()engine.save_to_file(text, &#x27;output.wav&#x27;)engine.runAndWait()
+描述：十几年前的老工具，用规则实现，虽然能用但效果不好
+优点：可以离线使用
+缺点：塑料声太严重，反正我接受不了
+2 google 语音合成
+配置环境
+1 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/20/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#content-inner">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/#content-inner">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/#content-inner">80</a><a class="extend next" rel="next" href="/page/22/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">160</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2140472206/" title="对谈_250227_自我与他人谁更重要">对谈_250227_自我与他人谁更重要</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1398427745/" title="对谈_250304_礼物&amp;关系">对谈_250304_礼物&amp;关系</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3015950793/" title="对谈_250315_被动利他">对谈_250315_被动利他</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4054284220/" title="对谈_250402_白眼狼">对谈_250402_白眼狼</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1949782865/" title="舞台上的自我与社交">舞台上的自我与社交</a><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">30</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">28</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/%E5%85%AC%E5%BC%80/"><span class="card-category-list-name">公开</span><span class="card-category-list-count">28</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">728</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.2em; color: #999da3">数据存储/MYSQL</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.1em; color: #999">美食</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.33em; color: #99a2af">强化学习</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.37em; color: #99a4b2">笔记/Obsidian</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.17em; color: #999c9f">语音识别</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 1.1em; color: #999">股票</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.27em; color: #99a0a9">笔记</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.23em; color: #999ea6">AI绘画</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">代码模型</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.17em; color: #999c9f">编程语言/Java</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.43em; color: #99a6b9">编程语言/前端</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">哲学</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.47em; color: #99a8bc">开源项目</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.3em; color: #99a1ac">Python/股票</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">情绪表达</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.2em; color: #999da3">公众号</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.27em; color: #99a0a9">数学</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">情绪管理</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">数据管理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.13em; color: #999a9c">浏览器插件</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.1em; color: #999">价值观</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.43em; color: #99a6b9">编程语言</a> <a href="/tags/%E5%81%A5%E5%BA%B7/" style="font-size: 1.1em; color: #999">健康</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">44</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">12</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">771</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1011.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-06T17:00:12.066Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">2</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/"><span class="card-category-list-name">2_Note</span><span class="card-category-list-count">727</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/"><span class="card-category-list-name">0_Technic</span><span class="card-category-list-count">711</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">0_工具</span><span class="card-category-list-count">117</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/"><span class="card-category-list-name">Docker</span><span class="card-category-list-count">6</span></a></li></ul></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">阅读/社会学</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E9%A2%84%E6%B5%8B/" style="font-size: 1.1em; color: #999">股票预测</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.15em; color: #999b9e">思维整理</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.1em; color: #999">美食</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.15em; color: #999b9e">社会现象</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.15em; color: #999b9e">关系抽取</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.2em; color: #999da3">数据库</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.15em; color: #999b9e">个人成长</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E6%8A%80%E6%9C%AF/" style="font-size: 1.1em; color: #999">嵌入技术</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E9%87%8F%E5%8C%96%E5%9B%9E%E6%B5%8B/" style="font-size: 1.1em; color: #999">量化回测</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.25em; color: #999fa7">数据存储/MYSQL</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.2em; color: #999da3">知识图/知识图谱</a> <a href="/tags/%E4%BD%9B%E6%95%99/" style="font-size: 1.1em; color: #999">佛教</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.35em; color: #99a3b1">版本管理</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96/" style="font-size: 1.25em; color: #999fa7">社会文化</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.4em; color: #99a5b6">机器学习</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.2em; color: #999da3">异常检测</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.3em; color: #99a1ac">Python/少儿编程</a> <a href="/tags/%E8%81%8C%E5%9C%BA/" style="font-size: 1.1em; color: #999">职场</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.45em; color: #99a7ba">编程语言</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.15em; color: #999b9e">Python/图形图像</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">反思</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.15em; color: #999b9e">#后端</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">50</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">794</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1073.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-07T02:54:42.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
