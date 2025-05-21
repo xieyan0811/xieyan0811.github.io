@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-05-20 17:00:15'
+  postUpdate: '2025-05-21 13:50:34'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,197 +163,188 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">158</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/42892/" title="代码规则化工具 Black Formatter">代码规则化工具 Black Formatter</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 说明
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">805</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">237</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">167</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/47686/" title="gitbook制作电子书">gitbook制作电子书</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-25T00:00:00.000Z" title="Created 2023-11-25 00:00:00">2023-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a></span></div><div class="content">1 引言
+GitBook
+是一个开源的文档编辑和托管平台，用于创建和维护文档、手册和电子书。它基于
+Markdown 和 Git 技术，帮助用户方便地编写、编辑和发布文档。
+GitBook 支持将文档输出为多种格式，包括网页、PDF、ePub
+等，适用于不同的阅读和分享场景。
+GitBook 还提供了团队协作的功能，可以方便多人共同编辑和维护文档。
+可以将其部署在 gitbook
+平台（https://legacy.gitbook.com/），由于需要科学上网，本文不做详细介绍，如果需要，请见最后的参考部分；也可以部署在本地或者自己的网站上。
+从功能角度，可以把 gitbook 看作网页版的 obsidian 或者 hexo。gitbook
+工具实现前端，用户只需要关心文档的内容，遵循 gitbook
+定义的规范，然后使用 gitbook 提供的命令行工具即可。
+从逻辑角度看，它以主题为中心，可以把一个系列的文章梳理集中在同一主题之下，更有章法，适合用来写书或者手册。
+利用 gitbook，很容易将一堆文档（比如团队 markdown
+文档，培训文档）生成类似 wiki
+的网页展示，风 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/879566839/" title="论文阅读_生成式Agent">论文阅读_生成式Agent</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-21T00:00:00.000Z" title="Created 2023-11-21 00:00:00">2023-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/">7_模型增强</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/Agent/">Agent</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/7-%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/Agent/Agent%E8%AE%BA%E6%96%87/">Agent论文</a></span></div><div class="content">12345678英文名称: Generative Agents: Interactive Simulacra of Human Behavior中文名称: 生成代理：人类行为的交互式模拟文章: http://arxiv.org/abs/2304.03442代码: https://github.com/joonspk-research/generative_agents作者: Joon Sung Park机构: 斯坦福大学日期: 2023-08-05 (预发表时间：2023.4)引用次数: 231
 
-用途：规范化代码格式
+读后感
+这篇文章非常具有启发性，很多点都可以引发进一步思考和研究，比如在产品设计方面：定制反映自己特点和经验的计划助手；在结构设计方面，提出三个组件：记忆、反思、计划
+的架构，用于存储、合成和应用相关记忆，根据这些原则，应对各种复杂的场景。在具体实现方面还在附录中给出了一些可用的提示信息。
+其中有两个实验结果很有意思，一个是：如果没有观察、计划和反思，仅有一般性的知识，模型性能将大打折扣；另一个是：”你会选择谁共度一小时“，如果不加反思，结果是最频繁交往的人，反思之后是深层价值观相似的人。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48969/" title="编程助手_代码审查机器人">编程助手_代码审查机器人</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-15T00:00:00.000Z" title="Created 2023-11-15 00:00:00">2023-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">ChatGPT-CodeReview 是一个开源项目，目前 (231115) 3.2k
+Star，它可以作为 github 的应用（类似插件），通过调用
+ChatGPT，在提交代码时，帮助审查代码中的错误。
+1 github 地址&amp;说明文档
+https://github.com/anc95/ChatGPT-CodeReview/blob/main/README.zh-CN.md
+2 安装
 
-2 VSCode
+https://github.com/apps/cr-gpt
+自己项目的 Settings-&gt;Security-&gt;Secrets and
+variables-&gt;Actions
+切换到 Variables 选项，创建一个新变量 OPENAI_API_KEY
 
-在 VSCode 中安装 Black Formatter 插件
-打开.py
-文件，在文件空白处右击，选择格式化文档，该文档自动完善格式。
-注意
+3 使用
 
-VSCode 有自己的格式化工具，所以用 VSCode
-写的代码格式都还行，主要处理其它不太规范的化码
-不支持 ipynb 文件
+使用 pull request 方式，在自己的项目中 Pull request 选项卡中 create
+pull request，选择要合并的分支。
+程序会自动触发代码审查，审查信息将显示在 file changes 中。
 
+4 注意
 
-3 命令行
+这是一个基于 github 的应用，无需本地部署，在 github
+上安 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27846/" title="Linux调试Android手机">Linux调试Android手机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-15T00:00:00.000Z" title="Created 2023-11-15 00:00:00">2023-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 安装工具
+1$ sudo apt-get install adb
+2 开启 USB 调试
+2.1 一般方法
 
-pip install black
-black xx.py
+打开 " 开发者选项 "：设置界面 -&gt;系统管理 -&gt;关于手机
+-&gt;版本信息，多次点击“软件版本号“，直到系统提示已经启用了开发者选项。
+设置界面 -&gt;系统管理 -&gt;开发者选项
+勾选”开发者选项“，勾选 "USB 调试
 
-4 说明
+2.2 我的手机
+我的手机 VIVO X50 Pro，具体操作如下：
 
-我个人更喜欢命令行方式
+关于手机 -&gt;版本信息 -&gt;多次点击软件版本号
+设置界面 -&gt;系统管理 -&gt;开发者选项（无法通过搜索功能找到）
+打开”开发者选项“和”USB 调试“
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27323/" title="Python在pdf中提取表格">Python在pdf中提取表格</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 Tabula-py
-1.1 开源项目
-https://github.com/chezou/tabula-py 1.9k star
-1.2 安装
-1pip install tabula-py
-1.3 使用
-12import tabuladfs = tabula.read_pdf(pdf_path, stream=True)
-1.4 评测
-它使用到 java 库，会使开发环境变得比较重
-2 camelot
-2.1 开源项目
-https://github.com/atlanhq/camelot 3.5k star
-https://github.com/camelot-dev/camelot 2.4k star
-2.2 安装
-1pip install camelot-py
-2.3 评测
-需要安装 opencv，opengl，安装起来比较麻烦，比较重。
-3 pdfplumber
-3.1 开源项目
-https://github.com/jsvine/pdfplumber 4.7k star
-3.2 安装
-1pip install pdfplumber
-3.3 评测
-这是一个 pdf
-解析库，不 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32614/" title="Python行对齐工具difflib">Python行对齐工具difflib</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-29T00:00:00.000Z" title="Created 2023-10-29 00:00:00">2023-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 用途
-1.1 功能
-对比两个字符串数组之间的差异，以第一个参数为基准，与第二个参数比较。
-1.2 使用场景
+3 连接手机
 
-一个原文件，一个改过的文件，对比差异；
-一个纯文本，一个带格式的，对比差异；
-比较不同方法生成的文本的差异。
+在命令行输入：
 
-1.3 使用体验
-实现的功能类似于 Linux 中的 diff
-命令；内容少看不出来好，内容一多，效果明显。这功能手写得疯了。
+1$ sudo adb shell
+
+在手机的弹出框中选”允许连接“
+此时至少可以访问 /sdcard 存储卡上的内容
+
+4 注意
+
+如果使用 Linux 环境，尽量在连接时关闭 Windows 虚拟机，否则 USB
+连接可能直接被映射到 Windows 系统中。
+打开开发模型后手机可能变慢，不使用时请酌情关闭。
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/466424658/" title="模型社区_Huggingface">模型社区_Huggingface</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-14T00:00:00.000Z" title="Created 2023-11-14 00:00:00">2023-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></span></div><div class="content">1 介绍
+Hugging Face 是一个开源模型社区。目前已经共享 300k+ 模型，100k+
+应用，50k+ 数据集（截至 231114 数据），可视为 AI 界的 github。
+2 官网
+https://huggingface.co/
+3 主要功能
+3.1 Models 模型
+大家都用过就不赘述了，用法和 github 差不多。
+3.2 Datasets 数据集
+大家都用过就不赘述了。
+3.3 Spaces 应用程序
+
+主要用于 Demo，可把 AI 应用部署到 Huggingface。
+构建 Space 方法见：Spaces
+Overview，请先看网页中的视频，相当简单。
+运行时使用 HuggingFace
+的资源，少量使用时免费，大量使用时付费。默认情况下，每个 Space
+环境限制为 16GB RAM、2 个 CPU 内核和
+50GB（非持久）磁盘空间，可免费使用。在免费硬件上，如果未使用，空间将“进入睡眠状态”，并在一段时间后停止执行。也可以在其上购买更多资源，详见：The simplest way to access compute
+for AI。
+国内使用的时候 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1396099296/" title="实测_GPT_Assistant">实测_GPT_Assistant</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-14T00:00:00.000Z" title="Created 2023-11-14 00:00:00">2023-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%A4%A7%E6%A8%A1%E5%9E%8B/OpenAI/">OpenAI</a></span></div><div class="content">1 资源
+
+openai 客户端源码：
+https://github.com/openai/openai-python/
+openai 各种 API 示例：
+https://platform.openai.com/examples
+assistant 示例：
+https://platform.openai.com/docs/assistants/overview
+
+2 Assistant 功能
+
+代码解释器
+检索功能
+函数调用
+
+3 操作步骤
+(较之前的 api 略复杂)
+
+升级 openai api
+
+1pip install --upgrade openai
+
+创建 Assistant，定义其 instruction
+并选择模型，如果需要，设置代码解释器、检索和函数调用功能。
+
+123456assistant = client.beta.assistants.create(    name=&quot;Math Tutor&quot;,    instructions=&quot;You are a personal math tutor. Write and run code t ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8442/" title="OPENAI的语音识别">OPENAI的语音识别</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-13T00:00:00.000Z" title="Created 2023-11-13 00:00:00">2023-11-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">1 使用感受
+效果还不错，价钱也不贵，少量使用时好过自己搭环境。
+尽管其底层模型 whisper
+是开源的，但自己搭个环境，如果不常用，还老得开着机器，也不划算。
 2 使用方法
-2.1 示例
-1234567891011121314151617import difflibdef compare_and_align(text1, text2):    # 创建 Differ 对象    d = difflib.Differ()    # 使用 Differ 对象比较文本    for x in d.compare(text1, text2):        print(x)        print(&#x27;----&#x27;)# 两个文本示例text1 = [&quot;This is a sample text for alignment.&quot;,&quot;a&quot;,&quot; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32400/" title="买域名">买域名</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-19T00:00:00.000Z" title="Created 2023-10-19 00:00:00">2023-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="content">最近 ip 快把我弄疯了，然后买了个域名，一个来小时就能用了。
-原因
+123456789from openai import OpenAIclient = OpenAI(api_key=API_KEY)audio_file= open(&quot;/opt/xieyan/share/date/231012/test5.m4a&quot;, &quot;rb&quot;)transcript = client.audio.transcriptions.create(  model=&quot;whisper-1&quot;,   file=audio_file)
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48474/" title="本地部署_ASR工具_Whisper">本地部署_ASR工具_Whisper</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-12T00:00:00.000Z" title="Created 2023-11-12 00:00:00">2023-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/">其它</a></span></div><div class="content">1 简介
+Whisper 是 OpenAI
+的语音识别系统（几乎是最先进），它是免费的开源模型，可供本地部署。
+2 docker
+https://hub.docker.com/r/onerahmet/openai-whisper-asr-webservice
+3 github
+https://github.com/ahmetoner/whisper-asr-webservice
+4 运行
+1nvidia-docker run -d --gpus all -p 9000:9000 -e ASR_MODEL=base -e ASR_ENGINE=openai_whisper onerahmet/openai-whisper-asr-webservice:latest-gpu
+image 大小：11.5G
+运行后，即可在 9000 端口通过 swagger
+调用，我先用手机录了一些简单的中文，识别效果还不错，除了第一次调用时可能是下载和加载模型时间比较长，后面再调用速度就很快。
+又用它识别了一个 25 分钟的 mp3（约 27M），是一位小哥哥 B
+站视频对应的音频文件，识别时间约为不到 1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/38129/" title="Python判断是哪种语言">Python判断是哪种语言</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-12T00:00:00.000Z" title="Created 2023-11-12 00:00:00">2023-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">12345678910111213from langdetect import detecttext = &quot;你好，世界&quot;#text = &quot;坐禅はツール&quot;text = &quot;[のか](part0018.html#_idParaDest-31)：身体感觉是真实的吗&quot;language = detect(text)if language == &#x27;zh-cn&#x27;:    print(&quot;这是中文文本&quot;)elif language == &#x27;ja&#x27;:    print(&quot;这是日文文本&quot;)else:    print(&quot;这不是中文或日文&quot;, language)
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1914529334/" title="OPENAI 开发者大会_观后感_231107">OPENAI 开发者大会_观后感_231107</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-07T00:00:00.000Z" title="Created 2023-11-07 00:00:00">2023-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/6-%E6%80%9D%E8%80%83/">6_思考</a></span></div><div class="content">GPT4 Turbo 功能
 
-做自己软件的后台服务
-给客户做演示
-做自己主页，以及被搜索引擎收录
-使用 vpn 隧道 / 内网穿透，需要设置地址
-科学上网需要设置中转服务地址
-ip 地址记不住
-租了多个云服务器，想统一入口
-需要固定的地址，而云服务器重启后 ip 有变化
+Token 更长
 
-问题及解决
+3.2W-&gt;12.8W 个 token
+很好，但影响不是很大，一次传那么多也很贵
 
-价格
+JSON 响应，对程序更友好
 
-一年几十块钱，新用户第一年比较便宜（一顿普通的午饭钱）
+GPT3.5 的 JSON 已明显好于其它模型，更进一步
 
-需要多长时间
+检索功能 + 分析资料 +2023.4 月知识库
 
-比如在某度买，需要实名认证（认证成功发短信），人工认证需要几个小时
-设置域名解析，一般 30 分钟内生效，最常不会超过 24 小时
+之前这些功能由外围提供，纳入外围
 
-我有多个云服务器，如何使用同一个域名
+多模态集成
 
-服务商可提供把不同功能指向不同服务器，比 www.aaa.com
-指向一个服务器，test.aaa.com 指向另一个，可在规则中设置。
-也可在其中主要服务器上做端口映射
+之前大家自行实现，降维打击，构建生态
 
-是否需要备案
+GPT-4 fine-tuning
 
-如果服务器在国内且做自己的网站（有网页或 Http
-服务），则需要备案，详见 备案
+不知道能做成什么样？如何收费？
 
+速度 x2, 版权问题，定价 1/3（真材实料）
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49969/" title="配置VPN">配置VPN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-17T00:00:00.000Z" title="Created 2023-10-17 00:00:00">2023-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="content">1 问题解析
-VPN 的使用前提是需要知道对方主机 ip 地址及开放的端口。
-我遇到的问题是，自用的机器 A 和服务器 B 都没有固定 IP，机器 A
-在局域网里，机器 B 使用物联网卡，本身没有对外的 IP
-地址，物联网厂商也不提供端口映射。
-这样 A 只能使用“向日葵”类的远程桌面软件连接服务器 B，它的问题是：
-
-同一时间只能供一个连接操作
-远程桌面传输屏幕变化，比只传输字符的 ssh 类工具慢很多
-向日葵在用户登录后才能启动，所以如果远程无人职守，重启后就连不上了
-不能复制粘贴，拷个东西费死劲，很多命令只能手敲，界面还反应慢
-
-我的解决方案是：
-
-使用 VPN 隧道，在一台有外部 IP 的云服务器 C 上搭建 VPN，然后用 A 和
-B 同时连接 C，此时它们在同一网络中，即可使用 A 访问 B。
-进一步简化：只在 B 和 C 上配置 VPN，然后把 B 的端口映射成到 C
-的端口，任意机器通过 C 来访问 B，这种做法的优点是不用配置
-A，缺点是所有需要暴露的端口都需要映射。选择哪一种方法，主要看需求。
-
-2 生成密钥
-2.1 Easy-RSA
-Easy-RSA 是一款用于生 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/328706758/" title="Obsidian_插件推荐231005">Obsidian_插件推荐231005</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-05T00:00:00.000Z" title="Created 2023-10-05 00:00:00">2023-10-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E6%8F%92%E4%BB%B6/">插件</a></span></div><div class="content">Obsidian 插件
-十一在家整理 OB 笔记，发现两个超好用的插件：Linter &amp; tag
-wrangler。
-起因
-前一阵把 Obsidian 笔记用 Hexo 转换成静态网页发到 github.io 做自己
-blog 网站。发现了笔记中的一些问题，比如 tag 过多、重复，markdown
-格式不规范，导致转换过程报错，转换后格式混乱…… 虽然用 Python
-解决了，但是过程非常别扭：需要穿叉调用 Python 和 Javascript
-环境，然后就想，要不学学
-TypeScript，自己写插件吧？再后来发现：原来这些都有人写过了，汗死……
-分享一下，希望也能提升亲们的笔记效率。
-tag wrangler
-tag wrangler 目前位居下载量排行榜第 16 位，是个热门插件。
-对于笔记多，标签复杂的用户非常实用。文章多了，修改标签，做层级标签，重做分类是非常常见的操作，很难想象手动修改上百个标签，tag
-wrangler 可以很好地解决这一问题。
-在三方插件界面安装 tag wrangler 后，在 Tags
-面板中的标签上点右键，即可看到新菜单，其中的 Ren ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2530393138/" title="论文阅读_GPT4_4V">论文阅读_GPT4_4V</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-04T00:00:00.000Z" title="Created 2023-10-04 00:00:00">2023-10-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%A4%9A%E6%A8%A1%E6%80%81/">多模态</a></span></div><div class="content">123456英文名称: The Dawn of LMMs: Preliminary Explorations with GPT-4V(ision)中文名称: LMM 的黎明：GPT-4V 的初步探索文章: http://arxiv.org/abs/2309.17421中文翻译：https://mp.weixin.qq.com/s/a8Y_yU5XYgJhQ2xMuTK13w作者: Zhengyuan Yang日期: 2023-09-29
-1 读后感
-GPT-4V 是基于 SOTA LLM
-并使用大量多模态数据训练的最先进的具有视觉能力的 LMM。
-论文是 2023 年 9 月 29 日微软发布
-GPT-4V（视觉）的研究报告。主要讨论了多模态及其在各场景中的应用。文章不涉及公式及具体实现方法，整体偏重经验和测试，看了之后可以少走一些弯路。文章
-166 页，近 3W 字，124
-张图片，乍一看觉得挺长的，不过实验挺丰富挺有意思的，有点像在飞机上翻杂志的感觉。
-整个文章看下来，感觉就像是培养一个机器 " 人
-"，从底层的视觉和文本能力，推理能力，智商情商，到后面的与物理世界交互，解决具体问 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2276/" title="沉浸式翻译">沉浸式翻译</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-29T00:00:00.000Z" title="Created 2023-09-29 00:00:00">2023-09-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/">浏览器工具</a></span></div><div class="content">1 介绍
-
-名称：沉浸式翻译（浏览器插件）
-地址：https://immersivetranslate.com/docs/installation/
-优势：
-
-中英文翻译对照
-支持 pdf 翻译
+输入 token 价格 0.01 美元 / 1000 token
+输出 token 价格 0.03 美元 / 1000 token
 
 
+开发
 
-2 使用方法
-方法 1：点击右上角翻译图标
-方法 2：在网页右键选“沉浸式翻译”
-3 快捷键
-Alt+W: 翻译整个页面。
-Alt+A: 翻译/切换原文（在 arxiv 上翻译论文非常好用）。
+与周边产品结合：执行程序
+Agent &amp; 定制
+GPT 应用，demo 一些应用场景
+更丰富的
+API，集成了之前的外围功能，可以和函数交互，和文档交互，历史记录
+新的交互的方式，像一个身边的助手，除了问答，还可以作为 agent
+执行操作，接入应用
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2123308019/" title="Ubuntu远程桌面_向日葵">Ubuntu远程桌面_向日葵</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 说明
+一些思考
 
-通过即时生成的序列号和验证码访问远程主机桌面
-各操作系统均可使用，可相互调用
-无需考虑 IP 问题
-
-2 安装方法
-2.1 下载
-https://sunlogin.oray.com/download/linux?type=personal
-注意：尽量下图形版，命行行版比较旧，Ubuntu 22.04 报错找不到库
-2.2 安装
-1$ sudo dpkg -i SunloginClient_11.0.1.44968_amd64.deb
-2.3 运行
-1$ /usr/local/sunlogin/bin/sunloginclient
-2.4 问题与解决
-2.4.1 缺少 libgconf-2-4
-24.04 无法在图形界面安装，在命令行安装时，报错没有 libgconf-2-4
-这个库比较早，需要切源到 22.04 的源之后安装，方法如下：
-在 24.04 中加入/etc/apt/sources.list.d/ubuntu.sources 中加入了 22.04
-的源
-123456789101112$ vi /etc/apt/sources.list.d/ubuntu.sourc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3224613762/" title="CentOS系统">CentOS系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-28T00:00:00.000Z" title="Created 2023-09-28 00:00:00">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">1 yum 简单用法
-12$ yum search 名称包含的关键字$ yum install -y xxx
-2 软件
-2.1 安装 docker 环境
-123456$ yum install -y yum-utils device-mapper-persistent-data lvm2$ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo$ yum makecache fast$ yum -y install docker-ce$ systemctl start docker$ systemctl enable docker
-3 安装 pgsql
-1$ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/25/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/#content-inner">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/#content-inner">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/#content-inner">80</a><a class="extend next" rel="next" href="/page/27/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">794</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">222</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">158</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/874842566/" title="对谈_250427_舞台与社交的自我察觉">对谈_250427_舞台与社交的自我察觉</a><time datetime="2025-05-07T00:00:00.000Z" title="Created 2025-05-07 00:00:00">2025-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1416539483/" title="对谈_250424_开源进化">对谈_250424_开源进化</a><time datetime="2025-05-07T00:00:00.000Z" title="Created 2025-05-07 00:00:00">2025-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-05-07T00:00:00.000Z" title="Created 2025-05-07 00:00:00">2025-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1786736143/" title="对谈_250326_强迫症和不甘心">对谈_250326_强迫症和不甘心</a><time datetime="2025-05-07T00:00:00.000Z" title="Created 2025-05-07 00:00:00">2025-05-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1991042728/" title="对谈_250401_高敏感是武器">对谈_250401_高敏感是武器</a><time datetime="2025-05-07T00:00:00.000Z" title="Created 2025-05-07 00:00:00">2025-05-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+看了两遍，第一遍挺震惊的；冷静下来又细看了一下
+作为 OPENAI，做到 GPT-4 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/25/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/#content-inner">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/#content-inner">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/81/#content-inner">81</a><a class="extend next" rel="next" href="/page/27/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">805</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">237</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">167</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4043951863/" title="最近发展区理论的教育启示">最近发展区理论的教育启示</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/422807122/" title="2505xx_对谈_情感的定性与分析">2505xx_对谈_情感的定性与分析</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/608780227/" title="250513_对谈_聊天与认知提升">250513_对谈_聊天与认知提升</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2747035957/" title="论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构">论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构</a><time datetime="2025-05-19T00:00:00.000Z" title="Created 2025-05-19 00:00:00">2025-05-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -361,8 +352,8 @@ https://sunlogin.oray.com/download/linux?type=personal
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">49</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">48</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">20</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">9</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/"><span class="card-category-list-name">03_关系互动</span><span class="card-category-list-count">5</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.2em; color: #999da3">模型解释</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a> <a href="/tags/%E9%AA%8C%E5%85%89/" style="font-size: 1.1em; color: #999">验光</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.27em; color: #99a0a9">Python/股票</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">编程</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.43em; color: #99a6b9">编程语言/前端</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.1em; color: #999">思考</a> <a href="/tags/Python/" style="font-size: 1.47em; color: #99a8bc">Python</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E8%82%A1%E7%A5%A8%E9%A2%84%E6%B5%8B/" style="font-size: 1.1em; color: #999">股票预测</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999c9f">多模态</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.13em; color: #999a9c">情感</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.2em; color: #999da3">情绪管理</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.23em; color: #999ea6">语音合成</a> <a href="/tags/%E4%BD%9B%E6%95%99/" style="font-size: 1.1em; color: #999">佛教</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.17em; color: #999c9f">语音识别</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/Pytorch/" style="font-size: 1.3em; color: #99a1ac">Pytorch</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.33em; color: #99a2af">机器学习</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.1em; color: #999">价值观</a> <a href="/tags/Docker/" style="font-size: 1.37em; color: #99a4b2">Docker</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/writing/" style="font-size: 1.1em; color: #999">writing</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.2em; color: #999da3">AI绘画</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">50</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">794</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1073.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-20T17:00:13.060Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">阅读/社会学</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.35em; color: #99a3b1">区块链</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.3em; color: #99a1ac">Python/少儿编程</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.15em; color: #999b9e">插件开发</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.15em; color: #999b9e">#后端</a> <a href="/tags/Arduino/" style="font-size: 1.5em; color: #99a9bf">Arduino</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E8%A1%A8%E7%A4%BA/" style="font-size: 1.1em; color: #999">嵌入表示</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.4em; color: #99a5b6">机器学习/XGBoost</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.25em; color: #999fa7">数据存储/MYSQL</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.45em; color: #99a7ba">生物医学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.2em; color: #999da3">编程语言/Java</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/API/" style="font-size: 1.1em; color: #999">API</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.2em; color: #999da3">自动驾驶</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">远程桌面</a> <a href="/tags/%E5%AF%B9%E8%B0%88/" style="font-size: 1.1em; color: #999">对谈</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">机器学习</a> <a href="/tags/AI%E7%BB%98%E7%94%BB/" style="font-size: 1.3em; color: #99a1ac">AI绘画</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.25em; color: #999fa7">深度学习/扩散模型</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/" style="font-size: 1.15em; color: #999b9e">模型增强</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.25em; color: #999fa7">公众号</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">64</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">805</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1093.7k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-05-21T13:50:32.004Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

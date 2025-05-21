@@ -1,0 +1,432 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>股票操作中的概率与心理 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨股票操作中的概率与心理策略，分析期望值与人性之间的互动。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="股票操作中的概率与心理">
+<meta property="og:url" content="http://xyan666.com/posts/1915194657/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨股票操作中的概率与心理策略，分析期望值与人性之间的互动。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-05-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-05-13T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="心理学">
+<meta property="article:tag" content="投资">
+<meta property="article:tag" content="概率">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/1915194657/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '股票操作中的概率与心理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-13 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">805</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">237</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">167</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">股票操作中的概率与心理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-05-19T00:00:00.000Z" title="Created 2025-05-19 00:00:00">2025-05-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-05-13T00:00:00.000Z" title="Updated 2025-05-13 00:00:00">2025-05-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>7min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="股票操作中的概率与心理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><blockquote>
+<p>[!abstract 投资策略与心理博弈]</p>
+<p>来源：对话中关于投资决策与心理博弈的深入探讨
+内容：讨论分账策略对投资行为的影响，以及赌博与投资中的一致性与错觉。 -
+保守型和激进型账户分开操作可以优化风险和收益的管理。 -
+行为经济学与概率游戏中的“止盈”策略在实际操作中常常表现出社会直觉上的合理性。
+- 赌博与投资行为中存在类似的心理误区，如“赌徒谬误”和“见好就收”。 -
+运用“愿亏清单”等方法可以帮助减少感性决策带来的负面影响。</p>
+<p>相关主题：投资决策、行为经济学、心理学 类别：03_关系互动 ## 总结</p>
+</blockquote>
+<p>后续体验：明显感觉到分账操作之后：</p>
+<ul>
+<li>保守账户操作比之前更保守，而激进账户比以往更激进。</li>
+<li>它俩的趋势常常是相反的，好像有更多操作空间。</li>
+<li>两边比例相同，让我对自己也产生了胜负欲。</li>
+</ul>
+<h2 id="对谈">对谈</h2>
+<h3 id="yan">Yan</h3>
+<p>从概率的角度看，玩老虎机，如果每一次赢钱就走，或者设置一个上限，到了就走，会不会总体上提升嬴率？</p>
+<h3 id="o">4o</h3>
+<p>从<strong>概率论和期望值</strong>的角度来看：🎰
+不管怎么走，长期期望都不会变——<strong>提升赢钱“概率”≠提升“长期收益”</strong></p>
+<p>这些是典型的“止盈”策略，有以下效果：</p>
+<ul>
+<li><strong>优点：</strong>
+<ul>
+<li>可以在<strong>短期</strong>内锁住小幅收益</li>
+<li>减少输钱的“心理损耗”</li>
+<li>让你<strong>不会一直玩到倾家荡产</strong>（这非常重要）</li>
+</ul></li>
+<li><strong>缺点（从概率角度）：</strong>
+<ul>
+<li>老虎机是一个<strong>负期望值</strong>游戏（比如投 1 元，期望只能拿回
+0.9 元）</li>
+<li>不论你怎么安排退出机制，<strong>单次游戏的期望是固定的</strong></li>
+<li>换句话说，你只是<strong>更快地止损</strong>或锁利，但<strong>总玩多了还是输</strong></li>
+</ul></li>
+</ul>
+<h3 id="yan-1">Yan</h3>
+<p>我可能想成是有放回的了，其实核心是：它是无放回的。</p>
+<h3 id="o-1">4o</h3>
+<p>为什么我们会误以为“是无放回”？因为大脑容易套用“线性叙事逻辑”来建模运气：</p>
+<ul>
+<li>“前面输了那么多，该轮到我赢了” → <strong>赌徒谬误</strong></li>
+<li>“我已经赢钱，感觉池子快空了，得赶紧走” →
+<strong>稀缺资源假象</strong></li>
+</ul>
+<h3 id="yan-2">Yan</h3>
+<p>那买卖股票，是有放回的吗？</p>
+<h3 id="o-2">4o</h3>
+<p>从概率上，大多数时候更接近“无放回”，但不是严格的无放回。</p>
+<table>
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>老虎机（有放回）</th>
+<th>股票市场（类无放回）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>每次试验是否独立</td>
+<td>是</td>
+<td>否，存在路径依赖和信息累积</td>
+</tr>
+<tr class="even">
+<td>系统状态是否改变</td>
+<td>否（概率恒定）</td>
+<td>是（受消息、交易量等影响）</td>
+</tr>
+<tr class="odd">
+<td>历史是否影响未来</td>
+<td>否</td>
+<td>是，市场记忆和反馈机制明显</td>
+</tr>
+<tr class="even">
+<td>是否存在“资源池”</td>
+<td>不存在</td>
+<td>存在，比如流动性、筹码分布</td>
+</tr>
+</tbody>
+</table>
+<h3 id="yan-3">Yan</h3>
+<p>我们看到的一个现象是：在操作股票的时候，多数人不会见好就收，而见好就收的更容易嬴，这是错觉吗？
+相反是：预测根据当前状态不断变化，且预测时上下文窗口长度有限，造成越来越偏离正轨？</p>
+<h3 id="o-3">4o</h3>
+<p>答案是：它不是错觉，而是在一个<strong>有限窗口 + 不完全信息 +
+路径依赖市场</strong>中，“见好就收”是行为经济学上能“实用赢多次”的策略，但不是数学上“收益最大化”的最优解。</p>
+<hr />
+<p><strong>它“不是错觉”的三大原因：</strong></p>
+<ol type="1">
+<li>市场不是独立系统，路径影响未来
+<ul>
+<li>上涨之后会回调，<strong>短期盈利的“均值回归”效应显著</strong>；</li>
+<li>越贪越容易遇到回撤，“见好就收”减少暴露，规避了反转损失。</li>
+</ul></li>
+<li>人脑预测窗口有限，错误评估长期概率
+<ul>
+<li>多数人预测只是几天甚至几小时视角；</li>
+<li>越长期持有，越依赖宏观判断/商业模式，而这些信息不透明或波动太大；</li>
+<li>所以<strong>能看清的就是那一段“可控利润”——拿到就跑反而更高效</strong>。</li>
+</ul></li>
+<li>行为偏差 + 损失厌恶放大回撤感受
+<ul>
+<li>赚 100→跌回 50，比从没赚过更痛；</li>
+<li>“见好就收”在心理体验上更连续更有正反馈，<strong>不容易爆仓、情绪崩溃</strong>；</li>
+<li>实际上就是减少心理负债。</li>
+</ul></li>
+</ol>
+<hr />
+<p><strong>但它并非“数学上最优策略”：</strong></p>
+<ul>
+<li>如果你能持有<strong>高胜率 +
+大赔率</strong>的仓位，“见好就收”反而会<strong>过早兑现</strong>，错过“复利放大”；</li>
+<li>对于<strong>系统性牛市、趋势性成长股</strong>，“拿得久”的长期收益更优；</li>
+<li>所以“见好就收”更像是一个<strong>风险控制优先</strong>的策略，而不是<strong>最大收益导向</strong>的策略。</li>
+</ul>
+<h3 id="yan-4">Yan</h3>
+<p>所以有一种方法是：分开最大收益优先/风险控制优先，在不同的账户采用不同策略。</p>
+<h3 id="o-4">4o</h3>
+<p>完全正确！这个思路在专业投资者中也非常常见，有一个术语叫：</p>
+<blockquote>
+<p>“资产/策略分层”或者“策略分帐”（Portfolio Segmentation / Mental
+Accounting）</p>
+</blockquote>
+<p>它的核心就是：</p>
+<p><strong>不要在同一个账户里，用一个脑子，试图同时最大收益又稳健抗波动。</strong></p>
+<h3 id="yan-5">Yan</h3>
+<p>操作股票是一个很有意思的场景，真金白银的操作，策略不行光会吹就很容易被打脸。</p>
+<p>没有什么知识储备听风就是雨容易被收割；但知识储备多了也有问题：同一个条件下，很多公式都能被代入，得到完全不同的结论，一个人再专业也不可能遇到过所有的情境。</p>
+<p>所有规则都只是概率，没有用之四海皆准的方法，但还是有概率的，比如说：有了一定知识储备，虽然不是买什么都能挣钱，但是跑赢
+2% 的利息应该没问题。</p>
+<p>但实际上一操作起来，股票一天 3-5% 的波动很正常，就不太会把 5%
+作为年化目标。而一旦操作多了长时间不抽身，就会输掉。如果赚了会觉得：我有能力为什么不继续，然后就可能玩到输光。然后又回到老虎机的逻辑。</p>
+<h3 id="o-5">4o</h3>
+<p>概率游戏 + 行为心理 + 策略适配</p>
+<p>你遇到的问题，其实是“短期盈利错觉 + 长期熵增风险”交汇。</p>
+<p><strong>短期盈利错觉</strong></p>
+<ul>
+<li>“这把我赢了”，大脑会不自觉推演成“我掌握了模式/技能”；</li>
+<li>但现实是：很多上涨来自<strong>噪声 + 宏观驱动 +
+群体博弈</strong>；</li>
+<li>所以<strong>当你继续用同样方式操作，环境变了，胜率就可能反转</strong>。</li>
+</ul>
+<p><strong>长期熵增风险</strong></p>
+<ul>
+<li>越频繁参与市场，<strong>暴露在不确定性下的时间越长</strong>；</li>
+<li>没有策略止盈/止损机制，就容易从<strong>“可控波动”滑入“情绪溃败”</strong>；</li>
+<li>这和赌博类似：<strong>赢钱是“波段”，输钱是“趋势”</strong>（没停下来，就会连续亏）。</li>
+</ul>
+<h4 id="股票操作的反直觉现实">股票操作的“反直觉现实”</h4>
+<ul>
+<li><strong>不是你赢了就说明你对了</strong>，很多“正确操作”是亏钱的；</li>
+<li><strong>也不是你输了就一定错</strong>，有时策略对但周期不对；</li>
+<li><strong>能赚钱≠你有预测能力</strong>，可能只是“踩在了大数法则的高点”；</li>
+<li><strong>你能赢的那一刻，反而是风险最大的时候</strong>（因为你会更贪）。</li>
+</ul>
+<h3 id="yan-6">Yan</h3>
+<p>有点难，比如说：如果最近都在赢，很可能是在上升周期，这时候直觉上是不能出的。</p>
+<p>上面说的，我用过几个，总结一下：</p>
+<ul>
+<li>把稳定低收益 A 的和波动大高收益的 B，分帐户操作 (比如：最近在涨，A
+即使半仓也不动，只在低处补仓；而 B
+可能是满仓，频繁换手，或者买最看好的股票)</li>
+<li>波动高的及时止赢（从 B 的盈利中划走一部分到 A）</li>
+<li>增长型我不太会看，但会保持一些高新科技的比例一直不变。</li>
+<li>保守型聚焦在红利 ETF、现金流 ETF，国债，可转债，再加一些定投。</li>
+<li>波段型最考验人，这块差不多就只做熟悉的领域。</li>
+<li>也有一些固定规则，比如：后次买价一定不高于前次卖……</li>
+</ul>
+<p>我也总结了自己的一些问题：</p>
+<ul>
+<li>我偏好止赢，如你所说，这不是利益最大策略，所以我做不了“增长型”。</li>
+<li>我不太愿意止损，尤其是一些看好的企业，结果就短期变成了长期操作。</li>
+<li>有时候看到合适的位置就忍不住买，买了太多支盯不过来。</li>
+<li>有时明明是中长期策略，但中间起伏大了就浮躁乱操作。</li>
+</ul>
+<p>破心中贼难：更多的是贪婪，不想认输，策略冲突，规则执行力差……</p>
+<h3 id="o-6">4o</h3>
+<p>你提到的这些问题，本质是<strong>策略与人性之间的张力</strong>，可按以下维度拆解：</p>
+<ul>
+<li>每次操作写出“操作类型”（波段/长持/试错）；</li>
+<li>设置“愿亏清单”降低止损内耗；</li>
+<li>为每支持仓提前写出“止盈/止损”条件；</li>
+<li>设置每月持仓数量上限，强迫精简；</li>
+<li>引入“最少操作窗口”，减少冲动干预。</li>
+</ul>
+<h3 id="yan-7">Yan</h3>
+<p>我的问题真的就是“没事就盯着”
+。其它几个我都明白，“愿亏清单”是什么意思？</p>
+<h3 id="o-7">4o</h3>
+<p>目的是：不给市场制造“我要一直对的压力”，而是允许逻辑犯错的空间，减轻你交易中的紧张感和后悔情绪。</p>
+<h3 id="怎么做愿亏清单">🛠️ 怎么做“愿亏清单”？</h3>
+<ol type="1">
+<li><strong>每季度选 2-3
+支你看好逻辑的股票</strong>，比如某些技术成长股、转型公司、低估板块等。</li>
+<li>给每一支写下：
+<ul>
+<li><strong>买入理由/核心逻辑</strong>（比如“AI 趋势 + 财报增长”）</li>
+<li><strong>愿意最多亏多少</strong>（比如“亏 20% 内我不动”）</li>
+<li><strong>判断错了要怎么处理</strong>（比如“季末复盘是否出清或调仓”）</li>
+</ul></li>
+</ol>
+<h4 id="为什么它有效">🧠 为什么它有效？</h4>
+<ul>
+<li>市场波动不可控，但你能控制的是“预期”；</li>
+<li>愿亏清单等于你告诉自己：<strong>“我已经接受这局可能会错，不要硬扛情绪。”</strong></li>
+<li>避免一边跌一边翻来覆去纠结：“要不要卖？是不是我傻？”等高频干扰。</li>
+</ul>
+<h3 id="yan-8">Yan</h3>
+<p>所以这是试错用的？相应于我开个一组逻辑或一个帐户，去做那些我把握小的。</p>
+<p>理论上，买任何一支股票的时候，都需要考虑：理由，止损/止损，长短线/后续处理。</p>
+<h3 id="o-8">4o</h3>
+<p><strong>愿亏实验仓：</strong> 看好但不确定性高。</p>
+<h5 id="愿亏清单补的是">愿亏清单补的是：</h5>
+<ul>
+<li>容错设计（允许逻辑犯错，避免震荡时频繁操作）</li>
+<li>情绪预案（“这个下跌在我接受范围内，我不慌”）</li>
+<li>执行缓冲（防止明明是中线逻辑却短线浮躁动手）</li>
+</ul>
+<h3 id="yan-9">Yan</h3>
+<p>所以可能我是整体偏保守？操作也是偏保守，心理也是偏保守，不太能接受自己错。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/1915194657/">http://xyan666.com/posts/1915194657/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/">心理学</a><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84/">投资</a><a class="post-meta__tags" href="/tags/%E6%A6%82%E7%8E%87/">概率</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2747035957/" title="论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构</div></div></a></div><div class="next-post pull-right"><a href="/posts/1976768816/" title="港式奶茶_简易版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">港式奶茶_简易版</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3335525170/" title="血糖变化与减肥研究"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-29</div><div class="title">血糖变化与减肥研究</div></div></a></div><div><a href="/posts/4054284220/" title="对谈_250402_白眼狼"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-05</div><div class="title">对谈_250402_白眼狼</div></div></a></div><div><a href="/posts/2596569319/" title="对谈_250305_虚伪"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-05</div><div class="title">对谈_250305_虚伪</div></div></a></div><div><a href="/posts/1786736143/" title="对谈_250326_强迫症和不甘心"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-07</div><div class="title">对谈_250326_强迫症和不甘心</div></div></a></div><div><a href="/posts/1991042728/" title="对谈_250401_高敏感是武器"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-07</div><div class="title">对谈_250401_高敏感是武器</div></div></a></div><div><a href="/posts/3947726553/" title="对谈_250408_激情驱动"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-05</div><div class="title">对谈_250408_激情驱动</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">805</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">237</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">167</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B0%88"><span class="toc-number">1.</span> <span class="toc-text">对谈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yan"><span class="toc-number">1.1.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o"><span class="toc-number">1.2.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-1"><span class="toc-number">1.3.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-1"><span class="toc-number">1.4.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-2"><span class="toc-number">1.5.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-2"><span class="toc-number">1.6.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-3"><span class="toc-number">1.7.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-3"><span class="toc-number">1.8.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-4"><span class="toc-number">1.9.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-4"><span class="toc-number">1.10.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-5"><span class="toc-number">1.11.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-5"><span class="toc-number">1.12.</span> <span class="toc-text">4o</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%82%A1%E7%A5%A8%E6%93%8D%E4%BD%9C%E7%9A%84%E5%8F%8D%E7%9B%B4%E8%A7%89%E7%8E%B0%E5%AE%9E"><span class="toc-number">1.12.1.</span> <span class="toc-text">股票操作的“反直觉现实”</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-6"><span class="toc-number">1.13.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-6"><span class="toc-number">1.14.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-7"><span class="toc-number">1.15.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-7"><span class="toc-number">1.16.</span> <span class="toc-text">4o</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A%E6%84%BF%E4%BA%8F%E6%B8%85%E5%8D%95"><span class="toc-number">1.17.</span> <span class="toc-text">🛠️ 怎么做“愿亏清单”？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%83%E6%9C%89%E6%95%88"><span class="toc-number">1.17.1.</span> <span class="toc-text">🧠 为什么它有效？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-8"><span class="toc-number">1.18.</span> <span class="toc-text">Yan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#o-8"><span class="toc-number">1.19.</span> <span class="toc-text">4o</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%84%BF%E4%BA%8F%E6%B8%85%E5%8D%95%E8%A1%A5%E7%9A%84%E6%98%AF"><span class="toc-number">1.19.0.1.</span> <span class="toc-text">愿亏清单补的是：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#yan-9"><span class="toc-number">1.20.</span> <span class="toc-text">Yan</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4043951863/" title="最近发展区理论的教育启示">最近发展区理论的教育启示</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/422807122/" title="2505xx_对谈_情感的定性与分析">2505xx_对谈_情感的定性与分析</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/608780227/" title="250513_对谈_聊天与认知提升">250513_对谈_聊天与认知提升</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2747035957/" title="论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构">论文阅读_I-JEPA_从图像中进行自监督学习的联合嵌入预测架构</a><time datetime="2025-05-19T00:00:00.000Z" title="Created 2025-05-19 00:00:00">2025-05-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
