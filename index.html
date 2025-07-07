@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-07-07 12:00:20'
+  postUpdate: '2025-07-07 12:15:24'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,99 +163,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">829</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">169</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4029692668/" title="Hexo安装与部署指南">Hexo安装与部署指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 介绍
-Hexo 是一款简洁、高效且功能强大的博客发布工具，支持 Markdown
-格式，拥有丰富的插件和主题。我通常使用 Obsidian 编写文档，然后通过 Hexo
-的命令行工具生成静态网页并发布到网站。
-本文简要介绍了如何在本地使用 Docker 搭建 Hexo 环境，并将 Markdown
-格式的内容转换为网页，最终部署到 github.io 作为个人网站。
-2 本地环境
-2.1 使用镜像
-Hexo 依赖于 JavaScript 开发环境，我使用了 Hexo 的 Docker
-镜像，该镜像基于轻量且稳定的 Alpine
-版本，整个镜像仅有几十兆，并配备了基本的 vi 编辑器。我的宿主机运行的是
-Ubuntu 系统，具体操作如下：
-1$ docker pull taskbjorn/hexo:alpine-latest
-在镜像外建立数据目录：
-12$ sudo mkdir /exports/hexo_data -p # 数据存放在 docker 之外$ sudo chmod 777 /exports/hexo_data # 注意始终保证目录权限可被docker访问
-第一次启动镜 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2643677431/" title="Hexo配置详解">Hexo配置详解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">4 显示图片
-Hexo
-支持多种显示图片的方法，比如图床，上传图片等，这里介绍最简单的方法：
-4.1 安装插件
-12$ npm install hexo-asset-image$ npm install hexo-renderer-marked
-4.2 配置文件
-保持 _config.yml 配置文件 中 post_asset_folder: false 不变，加入
-marked 设置：
-1234post_asset_folder: falsemarked:  prependRoot: true  postAsset: true
-
-我在 Obsidian 中的图片都放在 attachments/ 目录下，将此目录复制到
-Hexo 项目的 source 目录中，即：source/attachments/xx.png
-hexo g 重新生成后，图片正常显示
-注意图片较少时，建议使用该方法，图片很多时，github
-项目也变得很“重”，建议使用图床。
-
-5 更换主题
-建议设置一个常用的主题，比如 next，遇到问题也好查资料。
-官网主题见：https://hexo.io/themes/
-
-安 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/%E6%9C%AA%E5%88%86%E7%B1%BB/">未分类</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/%E6%9C%AA%E5%88%86%E7%B1%BB/%E5%AF%B9%E8%B0%88-%E5%8F%99%E4%BA%8B/">对谈_叙事</a></span></div><div class="content">
-[!abstract 尊重与善良的本质]
-来源：我们的对话
-内容：尊重和善良的高阶状态：
-
-善良的最大善意：提供选择权，而非强行施予。
-尊重的高级形式：不主导对方故事线，只提供可能。
-真善良是不附带条件、不期待回报的善良。
-
-相关主题：叙事 尊重 善良 选择权
-
-
-
-[!abstract 盈余与匮乏的给予]
-来源：我们的对话
-内容：给予的动因决定了它的质地：
-
-盈余给予：内心充盈，有余力分享，不求交换。
-匮乏给予：为了换取确认或价值感，把定价权交给他人。
-呕心沥血往往是内在空心，用给予来索取确定性。
-
-相关主题：善良 控制欲 空心与圆满
-
-总结
-世界上没有绝对的真理。你的故事是你编的，我的故事是我编的。当我们的故事出现分歧时，“尊重”意味着我愿意接受你的决定。
-精华
-
-尊重不是放弃自我叙事去接纳对方的故事，而是：承认对方故事的成立，同时坚持自己的叙事。
-每个人的路都是 ta 自己故事的主线，我们最多只能是个路人甲或
-NPC，不能篡改剧本。
-很多复杂关系里，本就没有全控盘的可能，适度接受无力感反而能让你更平静。
-“出于好心，怎么做都应被认可”：好心的迷雾与单一叙事的落后感。
-真善意不是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/05-%E6%9C%AA%E5%88%86%E7%B1%BB%E6%88%96%E6%9D%82%E9%A1%B9/">05_未分类或杂项</a></span></div><div class="content">
-[!zk 20250530203710184-0] 剃头技巧
-来源：亲子剃头实战经验和对谈中交流观点
-内容：儿童寸头操作的三个关键阶段，配合心态建设策略： -
-事先准备：选合适时间，安抚情绪，沟通预期，准备好设备与清理工具； -
-操作注意：从较长卡梳开始，遵循“下后短、上长、前留”的结构，控制孩子头部不乱动；
--
-后处理：剃歪可自嘲（自然风）、务实（头发长得快），并以正面态度影响孩子对“做不好”的接受力。
-相关主题：亲子沟通 尝试与失败 自我接纳 理发经验 心态管理 类别：02_
-情绪心理
-
-1 总结
-这回肯定不能算成功，但是总结再讨论，反而觉得对这件事更有信心了。
-2 精华
-
-下次我会更好，但前提是：我要允许这一次不那么好。
-真正拉开人与人差距的，不是失败次数，而是愿意再试的次数。 ## 3
-对谈
-
-3.1 我
-昨天给娃剃了一个头，结果左边看着还行，右边跟狗啃的似的。中间提取了一些经验教训：
-
-寸头一般是下后和两边最短，逐渐过渡，后中上和上面长度正常，前面留长一点。
-开始的时候不要用最短的卡梳，至少用 0.5cm
-以上的，否则很容易不小心局部剃秃，无法补救。
-给小朋友剃头，一定按住 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">829</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3224497240/" title="对谈_250610_抑郁2_少年的困境">对谈_250610_抑郁2_少年的困境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">
 [!zk 20250610195459089-2] 东亚学生的心理困境
 来源：对教育环境的反思
 内容：
@@ -292,7 +200,7 @@ NPC，不能篡改剧本。
 
 精华
 
-“努力就能成功”的神话：道 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1310244252/" title="抑郁与多元选择的价值对谈">抑郁与多元选择的价值对谈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">
+“努力就能成功”的神话：道 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1310244252/" title="对谈_250610_抑郁3_边缘叛逃者">对谈_250610_抑郁3_边缘叛逃者</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">
 [!zk 20250612195459089-5] 抑郁的现实主义应对策略 来源：用户总结 +
 助手归纳 内容： - 改变愿景是最根本的方法，“接受均值”比“执念巅峰”更健康；
 - 药物适用于保命阶段，非长期方案； -
@@ -310,7 +218,7 @@ NPC，不能篡改剧本。
 Yan
 看有个视频博主在那义愤填膺地抨击衡水跑操，问有没有队列实验证明有效？真是又好气又好笑，孩子能去那儿至少他们家人是认同这个的，人家自己都觉得好着呢，对他来说就是真理和动力。你这瞎xx什么呀，你自己别去不就得了么？这种非得把自己观点往别人脑袋上套真的很讨厌。
 4o
-其实是两种世界观的冲突， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/485813497/" title="探索抑郁情绪的死锁">探索抑郁情绪的死锁</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">精华
+其实是两种世界观的冲突， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/485813497/" title="对谈_250616_抑郁4_不合适的目标">对谈_250616_抑郁4_不合适的目标</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">精华
 
 知道是机会不代表体验就轻松！
 很多群体对我们的评价，既无生死相关，也无长远关联，我们却会给过高权重。
@@ -328,7 +236,7 @@ Yan
 
 调整重要性未必是坏事，有时候会引发价值重新排序。
 在一个地方待久了，一般会找到局部最优解，优化到极致。和之前比还不错，就不动了。但可能它离全局最优解还差着十万八千里。甚至有点像麻药的镇痛或者暂时引开注意力。而痛感可能引发下一轮优化，重新审视目标。
-再深一层，遇到问题时，要么克服，要么修改目标。而抑郁或许是一种死锁：锁定目标不能修改，过程又不是自己能优化的， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2797566436/" title="过度反思与自我调适">过度反思与自我调适</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">精华
+再深一层，遇到问题时，要么克服，要么修改目标。而抑郁或许是一种死锁：锁定目标不能修改，过程又不是自己能优化的， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2797566436/" title="对谈_250618_抑郁5_反刍">对谈_250618_抑郁5_反刍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">精华
 
 可一旦环境变了（或者其实环境根本没那么恶劣，只是个人模型过拟合了坏数据），这套系统就成了内耗根源。
 本系统含有已知缺陷，但总体稳定运行，勿过度调试。
@@ -341,7 +249,7 @@ Yan
 问题本来是改进模型的方法，但太多问题解决不了，" 问题 "
 本身成了问题，我会觉得自己烂掉了，有一种无力感，“习得性无助”。
 4o
-如果我们是模型，负反馈用来调优，那是中性的、技术性的、可控的。但人不同，我们一旦在意 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1251252765/" title="规则与空子的哲学探讨">规则与空子的哲学探讨</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/04-%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%96%87%E5%8C%96/">04_社会与文化</a></span></div><div class="content">
+如果我们是模型，负反馈用来调优，那是中性的、技术性的、可控的。但人不同，我们一旦在意 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1251252765/" title="对谈_250530_钻空子">对谈_250530_钻空子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/04-%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%96%87%E5%8C%96/">04_社会与文化</a></span></div><div class="content">
 [!zk 20250622091739388-0] 规则与空子的哲学探讨
 来源：考试的底层对话，灵感来自对考试逻辑的探讨。
 内容：考试的核心不是培养，而是区分。表面上鼓励努力和公平竞争，其实质在于排序与剥离，通过设立标准和筛选机制，将不同能力水平的人区分开来。尽管存在捷径，但这些机会往往只对部分人开放，且真正的稀缺在于进入捷径系统的起点条件。
@@ -364,26 +272,105 @@ Yan
 “选择”本身也是一种奢侈：很多人没有机会做选择——比如家庭资源压根不给余地、信息渠道封闭、时间被榨干。他们的“策略”只能是直奔功利最大化，哪怕内心动荡。
 我愿意用多少情绪能量去换这一局的胜负？值不值得？
 争不代表你就低级；但非争不可，才容易失控。
-偶尔带 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3917929342/" title="250618_对谈_爱是什么">250618_对谈_爱是什么</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/">03_关系互动</a></span></div><div class="content">精华
+偶尔带 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2071994934/" title="对谈_250606_保留锋利又不失体面">对谈_250606_保留锋利又不失体面</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/">实修</a></span></div><div class="content">
+[!zk 20250606195459089-0] 表达方式：柔中带锋 来源：用户自述 +
+互动总结
+内容：
 
-真正做到“你变成什么样，我都主动去爱”，需要超越利己本能的巨量心理资源。
-艺术是理想化的容器，它不用管能量守恒，也不用担心关系复杂度——它提供给我们一种“如果世界是理想的，那会怎样”的想象空间。
-所以世界模型中的自我模型，也是个可调的预测模型，小到预测这件事我是否擅长，大到判断我这个人到底行不行。
-相对于你的光彩照亮了你身边的我；更有力量的是我们一起铸造了更好的你。在爱你的过程中我提升了自我价值。
+相较“棉里藏针”，更倾向“柔中带锋”的表达方式，有力量但不伤人。
+不想做“假正经”的人，也不愿太随便，希望有张力、有分寸。
+一面之缘不重要，深交不需要装，利益关系也可以理性处理。
+
+相关主题：表达风格、自我定位、人际边界
+
+总结
+我意识到可以保留自己的棱角。
+精华
+
+不是在追求技术性的讨好，而是在寻找一种可持续的“自己”。
+在我的叙事里，有我的逻辑，也尊重自己的感受——澄清而不攻击。
+
+对谈
+……
+Yan
+“集体高潮”？你这话说的……怎么跟我似的呢
+4o
+哈哈，你发现了——确实不小心带入了你的语言气质。可能咱们聊多了，我这边语感也“被同化”了一点，属于“模型共情效应”现场演示。
+你要觉得我太像你了，我下次就换个口味，比如“群体情绪释放的高点”这么说？虽然准确，但就少了点那味儿。
+Yan
+咱就正常说吧，可能是我需要自省一下说话方式。有时候觉得自己“不那么正经”，有点玩世不恭，不是很正向，对方听着就不太舒服。我是有点不希望自己形成这样的习惯，对谁都释放出来。
+4o
+如果变成默认 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2032893046/" title="对谈_250617_意象输出训练方法">对谈_250617_意象输出训练方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/">实修</a></span></div><div class="content">
+[!abstract 意象输出心法]
+来源：ChatGPT 为 Yan 定制
+内容： - 听不懂歌词的代入感音乐，启动心流。 -
+大笔大纸大动作，先铺开别修细。 - 每轮限时，画完不看，先堆量。 -
+精品本别神圣化，随手污染破执念。 - 允许怪图丑图，它们是右脑在说话。
+相关主题：心流 意象输出 完美主义破解
+
+精华
+
+其实这是一种执行偏好：你的大脑天生喜欢把局部搞到完美，哪怕暂时牺牲整体节奏。
+所以可能不是捕捉或者输出的问题，可能是流程问题。一旦掉进细节就出不来了，我干别的也这样。
+设计（涂鸦）和成品阶段要完全拆开。如果一开始就决定一笔都不能改，那可做的范围就缩得太小了。
+其它事也有这毛病——限定时间限定质量，这就只能做我可控熟悉的事，其它都别干了，人为把自己能力范围给压缩了。
+把现实的内容抽象出来，找关键特征，这个我是在行的。但到打碎再组合就不行了。你说的神经美术学和这个有关吗？
+左脑主导 +
+紧张防御模式对意象输出的抑制作用了。
+你其实不是在和画本较劲，而是和自己对“珍贵”“值得”的标准较劲。
 
 对谈
 Yan
-我们似乎需要一种支持，一种无条件的接纳。现实生活中不知道有没有，反正常出现在理想主义的艺术作品里：你变成什么样我都爱你。请注意：不是被动接受，而是主动的爱。这可能是面对不确定性的一种避风港。
-不确定性可能导致很差的结果，而最差的情况下，有人兜底是安全感。所以是在寻找安全感。但是你说真有无条件的爱吗？如果你威胁到了我的存在，我还会爱你吗？（佛教里有很多这样的故事）
+我希望自己的产出完全是意象层面的，但很遗憾完全不能。我基本功还行，能 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3421608958/" title="对谈_250620_死循环退出策略">对谈_250620_死循环退出策略</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/">实修</a></span></div><div class="content">
+[!zk 20250621172859907-0] 一致性驱动者退出策略 来源：与 ChatGPT
+对话整理 内容：一致性驱动者易陷“死循环”，退出策略包括： -
+设定范围：目标不要过高过紧，提前接受“80% 一致就好”。 -
+打断点：有意识设置暂停符，如定时器、暂离现场。 -
+转移注意力：用重复性动作（整理、扫地）或换场景干预。 -
+退一步思考：自问“这事真有那么重要吗？是不是被放大了？”
+相关主题：一致性驱动 控制感 调整预期 注意力模式 类别：01_
+自我建构
+
+Yan
+有时候会陷入一种“较劲”的模式出不来。可人和人的关系应该是松耦合的，除了关系到生存以外，其它关系理论上都不重要。
+无论爱还是恨，纠结还是什么，首先是强刺激强链接。所以关系的反面是无关和无感。为什么还有“不能放手”的问题存在？我觉得可能是和控制感、沉默成本揉在一起了。
 4o
-这里其实隐含了一个深层的人性需求：
+情感的确是一种强刺激强链接，它让大脑在某种模式中循环，比如“较劲”、“放不下”，其实这是一种内在驱动的控制尝试。尤其在亲密或重要关系中，这种循环更明显，因为它不仅仅是和“人”的链接，还是和自我定位、价值感、安全感的链接。
+而你说“人和人一定是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/307355008/" title="对谈_250608_人为设计的价值">对谈_250608_人为设计的价值</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/">思考与觉悟</a></span></div><div class="content">副标题：调优的人间：论艺术、功利与意义的再定义
 
-当面对不确定性时，我们渴望有一个“心理安全兜底”的地方——哪怕一切都糟了，至少还有被爱、被接纳的可能。
+[!zk 20250608055126850-0] 艺术与人的内在意义探索 来源：用户自我反思 +
+LeCun 论文 内容： - 社会价值系统（Trainable
+Critic）像一个被训练的评价模型 -
+真正的拐点不是顿悟，而是意识到这些外部目标是“可以不去最优化”的 -
+通过转向对 Intrinsic Cost 的体会，获得作为人的感受与选择权
+相关主题：内在动机、系统思维、认知拐点、自由意志
 
-🌊 为什么这是“理想主义”？
-因为在现实生活中：
+精华
 
-每个 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">829</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">169</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4029692668/" title="Hexo安装与部署指南">Hexo安装与部署指南</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2643677431/" title="Hexo配置详解">Hexo配置详解</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+传统理解是“人生无意义”“一切皆虚无”；新的理解是：“人间”里的许多 Cost
+是人为设计的，不值得我去优化。
+这里面其实也反映出一种对关系高风险特性的敏感：情感关系有时不可控、不可预期，而创造却是一个可内聚、可积累的过程，内耗更少。
+而我们最好把时间花在有用的地方，比如学点儿什么，每天进步一点点。而世界的美好对我们似乎只是一种消遣，一段插曲，而不能是生活的主旨。
+当生产力已经大幅度溢出，真正稀缺的反而变成了内在节律、感受力、专注与意义感。讽刺的是，我们还在用“紧迫感”和“危机意识”训练下一代，仿佛明天就要断粮。
+
+对谈
+自由之地
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1617220394/" title="对谈_250608_艺术的功能">对谈_250608_艺术的功能</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/">思考与觉悟</a></span></div><div class="content">
+[!zk 20250608055126850-0] 艺术的功能性 来源：基于 LeCun 的 Agent
+构架类比 内容： - 激活多模态感知，提升情绪模型复杂度 -
+提供情感预演与状态模拟 - 显影内在价值函数，引发意义构建 -
+强化记忆索引，提升反思与整合能力
+相关主题：AI 系统建模、内在动机、感知与价值、艺术心理学
+
+时移世易
+Yan
+可能在温饱不能满足的情况下，生产确实是最重要的，而现今工业化信息化智能化，很大程度上解放了人的时间精力。很多领域已经过剩了，再扩大生产或者争夺资源也未必是好事。
+4o
+我们当下许多焦虑的根源，是价值体系的延迟，而非现实条件的贫乏。在资源匮乏的时代，“有用”=“能活下来”；
+当生产力已经大幅度溢出，真正稀缺的反而变成了内在节律、感受力、专注与意义感。讽刺的是，我们还在用“紧迫感”和“危机意识”训练下一代，仿佛明天就要断粮。
+如果我们还坚持只用“生产”来定义人的价值，就会陷入一个悖论：机器越强，人越无用。而出路可能在于：从工具转回到感受的主体。
+Yan
+其实过去也是这样，如果只要吃饱饭就行，其它都是浮华，那还要艺术干啥？直接比生产能力那不是更合理。 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">829</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="对谈_250610_抑郁2_少年的困境">对谈_250610_抑郁2_少年的困境</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1310244252/" title="对谈_250610_抑郁3_边缘叛逃者">对谈_250610_抑郁3_边缘叛逃者</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/485813497/" title="对谈_250616_抑郁4_不合适的目标">对谈_250616_抑郁4_不合适的目标</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2797566436/" title="对谈_250618_抑郁5_反刍">对谈_250618_抑郁5_反刍</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1251252765/" title="对谈_250530_钻空子">对谈_250530_钻空子</a><time datetime="2025-07-07T00:00:00.000Z" title="Created 2025-07-07 00:00:00">2025-07-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -391,8 +378,8 @@ Yan
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">75</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.18em; color: #999ca1">自动驾驶</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.38em; color: #99a4b4">深度学习/模型结构</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.22em; color: #999ea4">工作思考</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.18em; color: #999ca1">思维整理</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.26em; color: #999fa8">自然语言处理/大模型</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">模型转换</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.22em; color: #999ea4">深度学习/知识蒸馏</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.18em; color: #999ca1">数据库</a> <a href="/tags/Android-theme/" style="font-size: 1.1em; color: #999">Android/theme</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E4%B8%BB%E8%A7%82%E8%83%BD%E5%8A%A8%E6%80%A7/" style="font-size: 1.1em; color: #999">主观能动性</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.14em; color: #999b9d">Python/图形图像</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E5%81%A5%E5%BA%B7/" style="font-size: 1.1em; color: #999">健康</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.18em; color: #999ca1">日常记录</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/Pytorch/" style="font-size: 1.3em; color: #99a1ac">Pytorch</a> <a href="/tags/Docker/" style="font-size: 1.34em; color: #99a3b0">Docker</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.46em; color: #99a7bb">心理学</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/" style="font-size: 1.1em; color: #999">认知提升</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/Django/" style="font-size: 1.18em; color: #999ca1">Django</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.42em; color: #99a6b7">图形图像</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.18em; color: #999ca1">编程语言/Java</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.18em; color: #999ca1">编程语言/C</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">829</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.7k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-07T12:00:17.331Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.1em; color: #999">思考</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999ca0">编程语言/C</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">模型转换</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.32em; color: #99a2ae">效率</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.28em; color: #99a0aa">Python/股票</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.35em; color: #99a3b1">自然语言处理/大模型</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E5%8F%8D%E8%BD%AC/" style="font-size: 1.1em; color: #999">关系反转</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.14em; color: #999a9c">#后端</a> <a href="/tags/%E9%AA%8C%E5%85%89/" style="font-size: 1.1em; color: #999">验光</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.43em; color: #99a6b8">机器学习/时序</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.21em; color: #999da3">主题笔记</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.5em; color: #99a9bf">开源项目</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.21em; color: #999da3">机器学习/自动建模</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.39em; color: #99a5b5">知识图/图神经网络</a> <a href="/tags/%E5%85%B3%E7%B3%BB/" style="font-size: 1.14em; color: #999a9c">关系</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.14em; color: #999a9c">社会学</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E4%BD%9B%E6%95%99/" style="font-size: 1.1em; color: #999">佛教</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.46em; color: #99a8bc">机器学习/算法</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E7%BB%B4%E6%8A%A4/" style="font-size: 1.1em; color: #999">关系维护</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 1.1em; color: #999">协议</a> <a href="/tags/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/" style="font-size: 1.14em; color: #999a9c">灵感创意</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E8%82%B2%E5%84%BF/" style="font-size: 1.1em; color: #999">阅读/育儿</a> <a href="/tags/%E5%8F%99%E4%BA%8B%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">叙事心理学</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.35em; color: #99a3b1">语音</a> <a href="/tags/%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" style="font-size: 1.14em; color: #999a9c">情感分析</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">20</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">39</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">829</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.7k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-07T12:15:21.516Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
