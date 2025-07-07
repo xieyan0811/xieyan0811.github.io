@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-06-12 17:00:15'
+  postUpdate: '2025-06-27 15:38:15'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,154 +163,295 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/12779/" title="论文阅读_语音合成_Spear-TTS">论文阅读_语音合成_Spear-TTS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 说话、阅读和提示：少量监督实现高保真文本转语音
-name_en: Speak, Read and Prompt：High-Fidelity Text-to-Speech with
-Minimal Supervision
-paper_addr: http://arxiv.org/abs/2302.03540
-code: https://google-research.github.io/seanet/speartts/examples/
-date_publish: 2023-02-07
-1 读后感
-这是一个完整的 TTS 系统，可视为 AudioLM 的延展。
-2 摘要
-多语言的语音合成系统，使用大量无监督数据，少量有监督数据训练，结合了两种类型的离散语音表示，解耦了：从文本生成语义标记（读），由语义标记再生成声音标记（说）两部分，用大量纯音频数据训练“说模块”，减少“读模块”对并行数据（并行数据指：文本语音数据对）的需求。
-为控制说话人，使用提示方法，只需要 3
-秒音频即可合成在训练集中未见过的说话人的语音。
-实验表明，SPEAR-TTS 仅使用 15
-分钟的并行数据 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/38219/" title="论文阅读_语音合成_VALL-E">论文阅读_语音合成_VALL-E</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 神经网络编解码器语言模型实现零样本 TTS
-name_en: Neural Codec Language Models are Zero-Shot Text to Speech
-Synthesizers
-date_publish: 2023-01-05
-paper_addr: http://arxiv.org/abs/2301.02111
-code: https://github.com/microsoft/unilm/tree/master/valle
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
 
-1 读后感
-语音合成模型，输入是待合成的文本，3
-秒的录音，输出为与录音一致的合成后的语音内容。
-2 与传统 TTS 的差异
-之前的语音模型是：音素 -&gt;梅尔倒谱 -&gt;音频；VALL-E 是：音素
--&gt;离散编码 -&gt;音频。
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
 
-3 主要贡献
-• 我们提出了 VALL-E，有效使用上下文学习能力的 TTS
-框架，音频编解码器代码作为中间表示，以取代传统的梅尔声谱图。
-•
-通过利用大量的半监督数据在说话者维度构建了一个通用的
-TTS 系统。
-• VALL-E
-能够以相同的输入文本提供不同的输出，并 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/53626/" title="论文阅读_语音合成_VALLE-X">论文阅读_语音合成_VALLE-X</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 用你自己的声音说外语：跨语言神经编解码器语言建模
-name_en: Speak Foreign Languages with Your Own Voice：Cross-Lingual
-Neural Codec Language Modeling
-paper_addr: http://arxiv.org/abs/2303.03926
-date_publish: 2023-03-07
-1 读后感
-对 VALL-E
-的扩展，以源语言语音和目标语言文本为提示，预测目标语言语音的声学标记序列，可用于从语音到语音的翻译任务。它可以生成目标语言的高质量语音，同时保留看不见的说话者的声音、情感和声学环境。有效缓解了外国口音问题，可以通过语言
-ID 来控制。
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
 
-以从源文本和目标文本中导出的音素序列，以及从音频编解码器模型中导出的源声学标记作为提示，生成目标语音。
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
 
-2 介绍
-主要贡献
-• 提出 VALL-E X
-条件跨语言语言模型，以源语言语音和目标语言文本为提示，预测目标语言声学标记。
-•
-多语言上下文学习框架，能保持看不见的说话者的声音、情感和语音背景，仅依赖源语言中的一个句子提示 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/10468/" title="论文阅读_音频生成_AudioLM">论文阅读_音频生成_AudioLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: AudioLM：一种音频生成的语言建模方法
-name_en: AudioLM：a Language Modeling Approach to Audio
-Generation
-date_publish: 2022-09-07
-paper_addr: http://arxiv.org/abs/2209.03143
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/674032194/" title="AI绘画_SD_界面操作">AI绘画_SD_界面操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-25T00:00:00.000Z" title="Created 2023-08-25 00:00:00">2023-08-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">1 介绍
+本文将介绍 Stable Diffusion
+的具体使用方法。首先，介绍界面中的重要元素，如图所示：
+1.
+基础模型：基础模型是最重要的设置项
+
+文生图：选项卡列出了各大功能，文生图指通过文字生成图片
+图生图：图生图指通过图片和文字生成图片
+修复照片：用于优化图片，提升精度，常用来修复旧照片
+设置：软件设置，VAE 模型可在此设置
+插件：用于安装和管理插件，注意命令行启动时应允许安装插件
+提示词：提示词分为正向提示和负向提示，负向提示用于限制可能的问题
+采样方式：常用 Euler a，DPM2++2M Karras
+提示词相关性：设置画面与提示词的相关性，一般设为
+5-10，如果太高，色彩会过于饱和
+扩展模型：设置基础模型的附加模型，Embedding 和 LoRA
+模型就在此设置（换了模型后，要刷新一下 LoRA，才能显示对应版本的
+LoRA）
+生成按钮：按此按钮生成图片
+
+2 提示词
+2.1 提示词格式
+
+提示词用于描述待生成的图像内容
+提示词可支持中文，但不如英文理解的好
+多个提示词可用逗号隔开，无需符合英文语法
+对提示词加权重：
+
+用小括号把关键词括起来（curly  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4025379850/" title="论文阅读_扩散模型_LDM">论文阅读_扩散模型_LDM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-25T00:00:00.000Z" title="Created 2023-08-25 00:00:00">2023-08-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">1234567英文名称: High-Resolution Image Synthesis with Latent Diffusion Models中文名称: 使用潜空间扩散模型合成高分辨率图像地址: https://ieeexplore.ieee.org/document/9878449/代码: https://github.com/CompVis/latent-diffusion作者：Robin Rombach日期: 2022-06-01引用: 2275
 1 读后感
-主要解决生成语音的两个问题：一致性和高质量。
-2 摘要
-这是一个利用长期一致性生成高质量音频的框架，它先将音频输入转成一系列离散的
-token，然后将生成音频作为表示空间的语言建模。提出了一种混合的分词方案来平衡重建质量和长依赖的结构。
-使用Mask
-方法捕获长距离的关系，最终使用离散编码生成高品质的合成效果。它可以通过简短的提示，来生成自然连贯延续语音。利用大量无监督数据训练，在没有任何文字标注或注释的情况下，AudioLM
-会生成句法和语义上合理的语音延续，同时还保持说话人身份和不可见的说话人的韵律。另外，还可以生成钢琴音乐。
-3 介绍
-在数据都是无监督的情况下，基于 Transformer
-架构。具体使用的技术包括：对抗性神经音频压缩，自监督 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3799564753/" title="论文阅读_MAE">论文阅读_MAE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-18T00:00:00.000Z" title="Created 2023-04-18 00:00:00">2023-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E4%B8%8E%E6%A3%80%E7%B4%A2/">图像表示与检索</a></span></div><div class="content">123456name_ch: 带遮蔽的自编码器是大规模的视觉学习者name_en: Masked Autoencoders Are Scalable Vision Learnersothers: MAE 论文逐段精读 https://www.bilibili.com/video/BV1sq4y1q77t/?spm_id_from=333.337.search-card.all.click&amp;vd_source=eef058f284e51ad4598d556801a9fc84paper_addr: https://ieeexplore.ieee.org/document/9879206/journal: 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)date_publish: 2022-06-01
+Latent Diffusion
+Models（LDMs）基于潜空间的扩散模型，是目前主流的基础模型，Stable
+diffusion 就是基于 LDMs
+原理工作的。之前的扩散模型运算都在像素层面，优化通常会消耗数百个 GPU
+天，且评估和推理成本也很高。LDMs
+大量自编码器的运算基于潜空间数据，降低了计算复杂度，从而大幅节省了算力，并保持了图像质量和灵活度，它让更多人可以训练模型。其应用场景包含有条件（根据文本或图像生成图像）和无条件（去噪/着色/根据涂鸦合成）的图像生成。
+研究背景和动机
+扩散模型是由逐层去噪的自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3957097476/" title="论文阅读_生成模型_VAE">论文阅读_生成模型_VAE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-24T00:00:00.000Z" title="Created 2023-08-24 00:00:00">2023-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Auto-Encoding Variational Bayes
+中文名称: 自编码变分贝叶斯
+论文地址: http://arxiv.org/abs/1312.6114
+时间: 2013
+作者: Diederik P. Kingma, 阿姆斯特丹大学
+引用量: 24840
 1 读后感
-图像领域的无监督学习，延续 ViT 使用 Transformer 结构
-论文阅读_ViT，学习 BERT
-遮蔽图片块，然后预测被遮蔽的块实现自我学习 autoencoder。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46387/" title="医学论文_ICU_强化学习_SEPSIS">医学论文_ICU_强化学习_SEPSIS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%85%B6%E5%AE%83/">其它</a></span></div><div class="content">读后感
-一般跨领域论文，方法优点在于在 RL 应用于 ICU，缺点在于 RL
-方法比较老，处理不了连续数据，所以试了很多离散方法，我觉得用深度学习可能就解决了，另外，奖励只使用了患者是否死亡，比较粗。
-目标
-其目的不是进行脓毒症诊断，而是利用分布式 RL 学习和评估治疗策略。
-算法为每个状态 - 动作对的奖励分布建模，而不仅仅是期望值。
-还设计了一种新的脓毒症模拟器 (见 2.4 节)，该模拟器可以近似模拟患者在
-ICU
-接受治疗时的脓毒症过程。分成两部分数据，分别跑，然后对比其一致性。
-数据
-使用 MIMIC 数据，用 SEPSIS-3.0 标注 SEPSIS。使用 kNN
-基于距离的方法进入数据插补（由于有些数据不测量可能是因为医学觉得不需要）。
-方法
-用聚类方式离散化数据，使用 Q-Learning 实现决策。
-拆分训练和测试集，好像是用训练数据训练模型，然后用测试数据测试医生操作和模型决策。
-定义行为：静脉输液量和血管升压药剂量表示。血管升压药包括血管加压素、多巴胺、肾上腺素、去甲肾上腺素和去氧肾上腺素，而静脉输液包括血液制品、晶体液、胶体液和团注液。
-定义状态：对用53 个特 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3777/" title="论文阅读_模型鲁棒性的量化指标">论文阅读_模型鲁棒性的量化指标</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/">11_优化</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/11-%E4%BC%98%E5%8C%96/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/">模型优化</a></span></div><div class="content">读后感
-建立一个框架，用于计算和量化模型鲁棒性。使用者应根据情境，风险偏好，以及分布等角度选择不同的衡量方法。更抽象地讲，它是对不确定性的决策原则。选择不同鲁棒性评价方法会影响决策，尽量使用多个指标结合的方式。
-介绍
-根据经济学中的不确定型决策原则。在深度不确定性下，存在多种不确定因素共同影响决策的后果。在这样的系统中，系统性能通常使用鲁棒性指标来衡量。
-具体方法介绍
-Maximin
-悲观原则：有若干种结果，选择每个系列中最坏结果中的最好结果
-\[
-Maximin = max(min_1, min_2, ..., min_n)
-\] ### Maximax
-乐观原则：有若干种结果，选择每个系列中最好结果中的最好结果
-\[
-Maximax = max(max_1, max_2, ..., max_n)
-\]
-Hurwicz optimism-pessimism
-rule
-折衷原则：按比例结合乐观和悲观原则
-\[
-HOR = αMaxmin + (1 − α)Maximax
-\] ### Laplace's principle of insufficient reason
-不充分理由原则： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3004259633/" title="论文阅读_图像生成_unCLIP">论文阅读_图像生成_unCLIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%A4%9A%E6%A8%A1%E6%80%81/">多模态</a></span></div><div class="content">读后感
-OpenAI 出品，应用于 DALL-E
-2。主要实现了以文本为条件生成图像。它在图像的还原和生成过程中，利用了图像与文本间的映射关系，文本可以看作是人对图片内容的抽象，它让模型从人的视角“看”图片，识别了其中人觉得最重要的内容；在图片内容和人类概念之间建立联系，并能通过文本描述的概念来生成和编辑图片。
-从技术层面看，它主要基于 CLIP，Diffusion 模型，并在 GLIDE
-的方法之上进行了改进（之前 GLIDE 尝试了有分类的 CLIP，本文尝试了无分类的
-CLIP；GLIDE 对 Diffusion 中加噪图片训练 CLIP
-对齐嵌入，本文用不加噪图片做 CLIP）。
-介绍
-CLIP
-模型在图片和文本之间建立映射关系，能很好的获取图片的含义和风格。本文基于
-CLIP，提出了两阶段模型（如图）：首先，生成给定文本描述对应的 CLIP
-图像嵌入，然后，用解码器生成以图像嵌入为条件的图像。其解码器尝试了自回归和扩散两种方法，发现扩散模型效率更高。
-其核心逻辑如图所示：虚线上结合了文本和图像的表示空间；虚线下是生成图片的过程，用文本嵌入产生一个图像嵌入，然后利用这个嵌入在条 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1439050843/" title="论文阅读_图像生成文本_CLIP">论文阅读_图像生成文本_CLIP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%A4%9A%E6%A8%A1%E6%80%81/">多模态</a></span></div><div class="content">读后感
-使用大量数据的对比学习，基于对齐图片和文本嵌入的原理，实现了根据图像生成描述文本的功能，为后续根据文本生成图像奠定了基础。
-介绍
-文中提出 CLIP（Contrastive Language-Image
-Pre-training）方法，即：对比式语言 -
-图像预训练。它的先进性在于：之前模型只能判断图片是否属于固定类别，而它可以根据一张图片内容，生成文本描述，或者利用文本描述的新类别匹配图片，而无需根据新类别调优模型，即零样本学习。
-具体实现方法利用少量有标注数据和大量无标注数据（4
-亿个图片文本对）方法建模，利用对比学习训练模型，对齐文本和图像的嵌入。通过在
-30
-多个不同的现有视觉数据集上进行基准测试，证明该模型能很好地应用到大多数任务中。
-它为后面一系列的图像生成模型（利用文本生成图片）奠定了基础。比如：用
-DALL-E(unCLIP) 用“小狗吹喇叭”自动生成对应的图片。
-方法
-数据
-虽然 MS - COCO 和 Visual Genome
-是高质量的人工标记数据集，但按现代标准它们都很小。YFCC100M，在 1
-亿张照片中，保留带有自然语言标题和/或英文描述的图片， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3320185624/" title="论文阅读_ViT">论文阅读_ViT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-08T00:00:00.000Z" title="Created 2023-04-08 00:00:00">2023-04-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E4%B8%8E%E6%A3%80%E7%B4%A2/">图像表示与检索</a></span></div><div class="content">123456name_ch: 将 16x16 的块看作词：用 Transformers 实现大规模图像识别name_en: An Image is Worth 16x16 Words：Transformers for Image Recognition at Scalepaper_addr: http://arxiv.org/abs/2010.11929code: https://github.com/google-research/vision_transformerdate_publish: 2021-06-03other src: ViT 论文逐段精读：https://www.bilibili.com/video/BV15P4y137jb/?spm_id_from=333.999.0.0
+VAE 变分自编码（Variational
+Autoencoder）是一种生成模型，它结合了自编码器和概率图模型的思想。它的目标是：解决对复杂性高，且量大的数据难以拟合的问题。具体方法是：使用基于变分推理的原理，以变分下界作为目标函数，用梯度方法求取模型参数。
+2 通俗理解
+
+听起来非常抽象，简单地说：变分自编码器是自编码器的改进版。
+2.1 自编码器
+自编码器通常由编码器和解码器两部分组成，其中编码器将原始数据映射到低维表示，解码器则将低维表示映射回原始数据空间。即：原始数据为
+x，将其输入编码器降维后，变成数据 z，再经过编码器还原成数据
+x'。它常用于高维数据的低维表示和从低维表示中生成高维数据。比如：图像去噪，修复图片，生成高分辨率图片等。
+2.2 变分自编码器
+变分自编码器在中间加了一 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1922909337/" title="论文阅读_扩散模型_SDXL">论文阅读_扩散模型_SDXL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-23T00:00:00.000Z" title="Created 2023-08-23 00:00:00">2023-08-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">123456英文名称: SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis中文名称: SDXL：改进潜在扩散模型的高分辨率图像合成论文地址: http://arxiv.org/abs/2307.01952代码: https://github.com/Stability-AI/generative-models时间: 2023-07-04作者: Dustin Podell
+1 读后感
+SD 是语言引导的扩散模型。SDXL 是 2023 年 7 月 Stable Diffusion
+新发的大模型框架，它是潜在扩散模型（LDM）扩展。其主要效果是：加强了画面细腻度，优化了构图，以及对语言的理解能力。
+我对比了 SD 1.5 和 SDXL
+模型，感觉速度差不太多，个人感觉：图片质量，对文字的理解略有提升，可能因为目前
+SDXL 的基模比较少，用的还不太多。个人理解，目前阶段，无论是 AI
+写作，绘画还是编程，都需要与人和其它工具深度结合，远不到可以独立解决问题，自动生成最终成果的阶段，但确实能提 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/9277729/" title="论文阅读_扩散模型_DDPM">论文阅读_扩散模型_DDPM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-22T00:00:00.000Z" title="Created 2023-08-22 00:00:00">2023-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">12345678英文名称: Denoising Diffusion Probabilistic Models中文名称: 去噪扩散概率模型论文地址: http://arxiv.org/abs/2006.11239代码地址 1: https://github.com/hojonathanho/diffusion（论文对应代码 tensorflow）代码地址 2: https://github.com/AUTOMATIC1111/stable-diffusion-webui stable-diffusion-webui/modules/models/diffusion/ddpm_edit.py (推荐 pytorch)时间: 2020-12-16作者: Jonathan Ho, 加州大学伯克利分校引用量: 3286
+论文阅读_生成模型_VAE
 读后感
-ViT 是 Vision Transformer 的缩写，是 2020 年 Google 团队提出的将
-Transformer 应用在图像分类的模型。ViT 将输入图片分为多个 patch，再将每个
-patch 投影为固定长度的向量送入 Transformer，后续 encoder 的操 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/31/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/#content-inner">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/#content-inner">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/81/#content-inner">81</a><a class="extend next" rel="next" href="/page/33/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2675048602/" title="250523_对谈_用叙事打磨世界观">250523_对谈_用叙事打磨世界观</a><time datetime="2025-05-23T00:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3007110203/" title="250512_对谈_股票操作中的概率与心理">250512_对谈_股票操作中的概率与心理</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/245303860/" title="250520_对谈_最近发展区理论与实践">250520_对谈_最近发展区理论与实践</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2397073581/" title="论文阅读_现实的叙事构建">论文阅读_现实的叙事构建</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+论文优化了扩散模型的具体实现，并证明了扩散模型可生成高质量的图像。具体方法是结合扩散概率模型和朗之万动力学去噪的加权变分训练模型。
+学习路径
+论文中公式很多，有些依赖 DM 论文，VAE
+论文，还有跳步，虽然方法部分不长，但是很难读明白。至今看 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2232640132/" title="论文阅读_扩散模型_DM">论文阅读_扩散模型_DM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-22T00:00:00.000Z" title="Created 2023-08-22 00:00:00">2023-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Deep Unsupervised Learning using Nonequilibrium
+Thermodynamics
+中文名称: 使用非平衡热力学原理的深度无监督学习
+论文地址: http://arxiv.org/abs/1503.03585
+代码地址:
+https://github.com/Sohl-Dickstein/Diffusion-Probabilistic-Models
+时间: 2015-11-18
+作者: Jascha Sohl-Dickstein, 斯坦福大学
+引用量: 1813
+1 读后感
+论文目标是建立灵活且易用的数据生成模型。它利用非平衡统计物理学原理：通过扩散过程（少量加噪）系统地、缓慢地破坏数据分布中的结构；然后，学习反向扩散过程，恢复数据结构。
+2 介绍
+2.1 扩散模型与变分模型
+扩散模型与变分模型原理类似，都是将图片拆成一系列高斯分布的均值和方差，而扩散模型是一个逐步变化的过程，主要差别如下：
+
+原理不同：扩散模型使用物理学、准静态过程和退火采样的思想。由于任何平滑目标分布都存在扩散过程，因此理论上该方法可以捕获任意形式的数据分布。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/262990645/" title="论文阅读_模型结构_ControlNet">论文阅读_模型结构_ControlNet</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-17T00:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: Adding Conditional Control to Text-to-Image Diffusion
+Models
+中文名称: 向文本到图像的扩散模型添加条件控制
+论文地址: http://arxiv.org/abs/2302.05543
+代码: https://github.com/lllyasviel/ControlNet
+时间: 2023-02-10
+作者: Lvmin Zhang
+
+1 读后感
+ControlNet 几乎是 Stable Diffusion
+中最重要的功能插件，利用它可对画面内容进入精准控制。本文介绍了
+ControlNet 的原理和具体功能。
+ControlNet 是一种对文本生成图像的优化方法。比如：生成 AI
+画作时，画面中人体的形态，面部表情都难以精准控制，ControlNet
+基于图生图的操作方式，从另一图中提取对应元素，用于新图像的生成，大幅提升了人对大模型的控制力。
+具体方法是调整网络结构，基于预训练的扩散模型，根据新输入的描述和指定任务对应的条件进一步训练模型。使模型既可以在小数据量（&lt;50K）时在个人设备上训练，也可以在 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1273206586/" title="论文阅读_模型结构_LoRA">论文阅读_模型结构_LoRA</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-17T00:00:00.000Z" title="Created 2023-08-17 00:00:00">2023-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/AI%E7%BB%98%E7%94%BB/">AI绘画</a></span></div><div class="content">英文名称: LoRA: Low-Rank Adaptation of Large Language Models
+中文名称: LORA：大语言模型的低阶自适应
+论文地址: http://arxiv.org/abs/2106.09685
+代码: https://github.com/microsoft/LoRA pytorch，风格简捷
+时间: 2021-10-16
+作者: Edward J. Hu
+引用量: 657
+1 读后感
+LoRA 是 Low-Rank
+的缩写，它是一种大模型微调技术。一开始用于优化自然语言模型，但是后来自然语言模型后来选择了
+Prompt 的道路；而该技术在图像领域得到了广泛的应用，比如 Stable Diffusion
+的一众 LoRA 模型，从背景风格到人物形像，不用精调 2-8 G
+的基础模型，通过训练 只有几十到几百兆 LoRA 模型，就可以实现建模。
+它针对的问题是：当模型大到一定程度，比如 GPT-3 有 175B
+参数，精调变得费时而昂贵。其解决方法是：它修改了 fine-tune
+过程，提出低阶自适应技术，冻结了预训练的模型权重，并将可训练的秩分 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28340/" title="编程助手_CodeGeeX">编程助手_CodeGeeX</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-15T00:00:00.000Z" title="Created 2023-08-15 00:00:00">2023-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 介绍
+CodeGeeX 是清华系列国产工具，底层基于 ChatGLM2 模型，开源免费。
+2 VSCode 使用方法
+
+安装插件：codegeex
+安装之后，在右侧看到说明文档，内容比较全也比较长。
+主要功能分成两部分，同 copilot，都封装在一个插件中。
+正常安装后，左侧边栏和界面右下会出现类似菱形的图标。
+按提示 login，微信登录即可用。
+生成后续程序
+基本用法同 Copilot 一致，AI 生成的代码浅灰色，按 Tab
+链后变正常。
+点击左侧图标可调出 Chat 栏
+Chat
+栏支持提问和代码翻译等功能；智能问答含三个基本功能：/explain，/comment，/fixbug（在左下角输入框输入
+"/"
+可调出），在右边选代码，左边点功能即可。也可以在框中输入需要操作的文本描述。
+
+3 总结
+3.1 优点
+
+开源免费
+无需“科学”，直接使用
+无需复杂配置
+
+3.2 缺点
+
+功能相对偏少，可看作低配版的 Copilot
+在聊天中，输入自已描述的功能效果不太好，它不太能看懂需求
+我测试了两个时段，其中有一次提问时不太稳定，一直 wait timeout
+(也可能是巧合) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49995/" title="编程助手_Copilot">编程助手_Copilot</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-08-15T00:00:00.000Z" title="Created 2023-08-15 00:00:00">2023-08-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 介绍
+Copilot 由 Github 和 OpenAI 合作推出，底层基于的 Codex 模型，通过
+GPT-3 继续训练得到。
+Copilot
+可以先免费试用一个月。所以大家可以先试试，如果觉得必需，再购买或者在某宝以便宜的方式购买。
+每次他帮我写注释，或者补全代码的时候，我都觉得钱花得值。
+2 VSCode 使用方法
+
+安装插件：github copilot, github copilot lab, github copilot
+chat
+主要功能分成两部分：一部分是生成后续程序 (github
+copilot)，另一部分通过与 copilot 对话实现更丰富的功能支持 (github
+copilot chat)。
+正常安装后，左侧边栏和界面右下会出现小机器人图标
+右下角提示 copilot 需要 github
+帐号登录，按提示操作即可一个月免费使用（或者申请个比较便宜的学生号）。
+
+
+
+|600
+
+
+生成后续程序
+例如：编写一行注释，回车后等几秒，自动生成的代码以灰色呈现；按 Tab
+键接受推荐；Alt+ 左/右中括号可切换不同的推荐；Ctrl+Enter：打开一个 Tab ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/31/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/#content-inner">31</a><span class="page-number current">32</span><a class="page-number" href="/page/33/#content-inner">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/33/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1310244252/" title="抑郁与多元选择的价值对谈">抑郁与多元选择的价值对谈</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/485813497/" title="探索抑郁情绪的死锁">探索抑郁情绪的死锁</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">54</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">53</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">21</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/"><span class="card-category-list-name">03_关系互动</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.17em; color: #999ca0">异常检测</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.21em; color: #999da3">公众号</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.17em; color: #999ca0">心情</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">卷积神经网络</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">笔记工具</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.21em; color: #999da3">工作思考</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.14em; color: #999a9c">社会学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.28em; color: #99a0aa">数据存储</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">自然语言处理/大模型</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Docker/" style="font-size: 1.39em; color: #99a5b5">Docker</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">编程工具</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.25em; color: #999fa7">数据存储/Hadoop</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/Pytorch/" style="font-size: 1.35em; color: #99a3b1">Pytorch</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">目标管理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.46em; color: #99a8bc">编程语言/前端</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.43em; color: #99a6b8">深度学习/模型结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">65</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">806</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1095.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T17:00:12.675Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">75</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ae">数学</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.17em; color: #999ca0">情绪表达</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.46em; color: #99a8bc">笔记/Obsidian</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.39em; color: #99a5b5">自然语言处理/大模型</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.35em; color: #99a3b1">效率</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Django/" style="font-size: 1.17em; color: #999ca0">Django</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999ca0">编程语言/C</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.14em; color: #999a9c">艺术</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.28em; color: #99a0aa">深度学习/图形图像</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">深度学习/模型结构</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999ca0">多模态</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.28em; color: #99a0aa">区块链</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.17em; color: #999ca0">数据管理</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">828</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-27T15:38:12.890Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

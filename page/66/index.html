@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-06-12 17:00:15'
+  postUpdate: '2025-06-27 15:38:15'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,248 +163,171 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/903074083/" title="图像处理之_仿射变换与透视变换">图像处理之_仿射变换与透视变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T00:00:00.000Z" title="Created 2017-05-03 00:00:00">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _
-仿射变换与透视变换
-1. 仿射变换
-1) 用途
-旋转 (线性变换)，平移 (向量加)．缩放 (线性变换)，错切，反转
-2) 方法
-仿射变换是一种二维坐标到二维坐标之间的线性变换，它保持了二维图形的“平直性”（直线经过变换之后依然是直线）和“平行性”（二维图形之间的相对位置关系保持不变，平行线依然是平行线，且直线上点的位置顺序不变）。任意的仿射变换都能表示为乘以一个矩阵
-(线性变换)，再加上一个向量 (平移) 的形式．
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3024075974/" title="深度学习_简介及相关概念">深度学习_简介及相关概念</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-31T00:00:00.000Z" title="Created 2017-10-31 00:00:00">2017-10-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">深度学习 _ 简介及相关概念
+1. 传说
+传说深度神经非常神奇，把那些浅层学习都给甩出十万八千里去了！还需要什么特征工程？卷积神经网络的特征都是自动识别的！只要用正确的条件和结果训练得足够多，以后给条件就能自动出结果了，比教人还简单！它模拟的可是人类的大脑，现在的运算量已经赶上猫狗的脑了，只要运算足够大足够快，机器人分分钟就消灭人类！
+这些只是传说，它夸大的事实的一部分，而故意忽略了另一部分．不过，树立的典型不都这样么？看
+2010 年以来最热门的卷积神经网络（CNN）的发展，从 AlexNet 到
+RssNet，就可以看到，它主要解决了什么问题，具体怎么用，离强人工智能还有多远。
+其实，神经网络就是机器学习的一种，机器学习又是人工智能的一种。现在一说人工智能就说深度学习，不懂这个就太
+out
+了。环境就是这样，也只好花时间来了解一下了，此专题大致分为：简介，入门工具，BP
+实现，CNN，RNN，技巧这几部分来介绍一下。
+2. 引入
+简单地举个例子：有一家玩具工厂，想通过试生产的方式培养员工的生产玩具的能力．具体过程是提供
+3 种材料（输入），和 1
+种成品（输出），让工人们练手（此例 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/55323/" title="比特币挖矿——集群矿池btcpool">比特币挖矿——集群矿池btcpool</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-30T00:00:00.000Z" title="Created 2017-10-30 00:00:00">2017-10-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——集群矿池 btcpool
+#区块链
+1. 介绍
+btcpool 一个集群的解决方案，它使用了 mysql 数据库，web
+服务，kafka，zooKeeper，据说可以控制 100000
+矿机。代码中逻辑和安装说明都比较完整，但还需要一些编写一些 web 界面做 UI
+支持。配好之后就和其它大矿池差不多了。
+挖矿的哈希碰撞需要大量计算，由矿机实现。而拆分集成运算量，分配任务，在矿机多的情况下也需要大量的算力支持。Btcpool
+是一个去中心化集群的解决方案（矿池内部去中心，对外自成体系）。N
+个矿机连一个控制板，控制板接入网络，通过端口连服务器，服务器再把拆分运算量的工作分担给矿池内的多台服务器同时计算。
+它的主旨就是整套系统切分成功能块，块与块之间用使用 kafka
+传递数据和信息，后台由 zooKeeper
+负载均衡，从而使不同的功能块运行在不同的服务器上。像钱包和 mysql
+这种频率使用的公用数据放在另外的服务器上，各功能块通过 rpc，zmp
+等方式访问它们。
+其中最核心的程序是 sserver，矿机控制板连接的就是该程序。它支持
+Stratum
+协议。现在一般 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4343/" title="比特币挖矿——建立Kafka&amp;ZooKeeper集群">比特币挖矿——建立Kafka&amp;ZooKeeper集群</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-29T00:00:00.000Z" title="Created 2017-10-29 00:00:00">2017-10-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——建立
+Kafka&amp;ZooKeeper 集群
+#区块链
+1. 介绍
+采用 ZooKeeper+Kafka
+的方式建立集群，主要支持了消息传递和负载均衡，常见的一些文档，有的是概念较多，没有实际操作；有的只有命令，不知其原理。这里就结合集群矿池来说说它的具体应用场景，原理，以及具体实现。
 
 
 图片.png
 
-以上公式将点 (x,y) 映射到 (x’,y’)，在 OpenCV 中通过指定一个 2x3
-矩阵实现此功能（公式中的 m 矩阵，是线性变换和平移的组合，m11,m12,m21,m22
-为线性变化参数，m13,m23 为平移参数，其最后一行固定为 0,0,1，因此，将 3x3
-矩阵简化为 2x3）
-3) 举例
-
-以原点为中心旋转，2x3 矩阵为：
-
-12345[ cos(theta), -sin(theta), 0 ],[ sin(theta), cos(theta), 0 ]则x’ = x * cos(theta) - sin(thet ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/129941654/" title="图像处理之_聚焦效果LogPolar">图像处理之_聚焦效果LogPolar</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T00:00:00.000Z" title="Created 2017-05-03 00:00:00">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 聚焦效果
-LogPolar
-#图形图像 #数学
-1. LogPolar
-LogPolar 是将笛卡尔坐标到对数极坐标的变换．即：将 (x,y) 映射到
-(log(ρ),θ)
-2. 笛卡尔空间＆笛卡尔坐标
-笛卡尔坐标系 (Cartesiancoordinates)
-就是直角坐标系和斜角坐标系的统称．本文中用到的是平面直角坐标系．
-
-
-图片.png
-
-3. 极坐标
-在平面上取一定点 o，称为极点，由 o 出发的一条射线
-ox，称为极轴。再取定一个长度单位，通常规定角度取逆时针方向为正。这样，平面上任一点
-P 的位置就可以用线段 OP 的长度ρ以及从 Ox 到 OP
-的角度θ来确定，有序数对（ρ，θ）就称为 P 点的极坐标，记为
-P（ρ，θ）；ρ称为 P 点的极径，θ称为 P 点的极角。
+2. 举例
+先举个例子，比如一个理发店：
+一开始只有一个理发师，洗剪吹都由他一个人负责，那么只能一个客人做完全套（同一台机器上操作各个步骤），再给下一个客人服务。
+之后,
+又来了几个理发师，每个人负责接待一个客人（多台服务器，每台负责单个流程）。
+再后来理发店又扩大，人多了（多台不同用途的机器），老板发现如果把工作细分为：洗
+(A) 剪 (B) 吹 (C)
+三部分，这三部分的工作量和难度都不同，可以安排专人专职，以节约人力成本。三个模块工作量不同，需要的人数也不同，如上图所示，洗
+2 人 (2 台机器)，剪 3 人 (3 台机器)，吹 2 人 (2 台机器)。Data 为库房
+(数据服务器)，每个人都可能去库房存取工具。
+显然，A 与 B
+并不是一一对应的关系。洗 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27921/" title="比特币挖矿——控制器与矿机">比特币挖矿——控制器与矿机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-27T00:00:00.000Z" title="Created 2017-10-27 00:00:00">2017-10-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——控制器与矿机
+#区块链
+1. 介绍
+只要把矿机插电、插网, 开启电源,它就可以 24
+小时源源不断的生产虚拟货币。听起来热血沸腾吧！下面就来看看矿机怎么连网和挖矿的．矿机有很多种，有的集成很多显卡．有的看起来像台电脑，有的像个Ｕ盘．
 
 
 图片.png
 
-4. 笛卡尔坐标到极坐标变换
-
-
-图片.png
-
-在 OpenCV 中使用函数 CartToPolar() 实现．
-5. 自然常数 e（欧拉数）
-自然常数 e（约为 2.71828）其是公式为
-
-
-图片.png
-
-6. 对数定义
-若 a^n=b(a&gt;0 且 a≠1) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1532307261/" title="图像处理之_导数微分">图像处理之_导数微分</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-28T00:00:00.000Z" title="Created 2017-04-28 00:00:00">2017-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 导数微分
-#图形图像 #数学
-1. 一阶导数应用：图像的梯度
-1) 用途:
-在图像处理中, 常用梯度求取图像的边缘, 这是一个很基础的应用. 下图为在
-OpenCV 中使用 cvSobel() 函数的具体效果. 四张图分别为: 原图, 在 x
-方向上的梯度, y 方向上的梯度, xy 方向上的梯度.
-
-
-图片.png
-
-2) 二元函数
-这里我们只讨论二元函数 z=f(x,y) 的导数, 通常把二元函数想像成一个曲面,
-公式中的 x,y,z 分别映射到坐标系中的 x,y,z 轴.
-于是我们看到了很多像山坡一样的三维图, 切线, 切面,
-很看来很复杂．我觉得从图像处理的角度看二元函数似乎更容易理解, 为了简化,
-我们以一张黑白图为例. x,y 轴分别对应成图像的宽和高, 颜色的灰度对应 z 值:
-z = f(x,y)，每个像素点的颜色值是其坐标 (x,y) 的函数．
-
-
-图片.png
-
-3) 梯度的定义
-函数 z = f(x,y) 在区域 D 内具有一阶连续偏导数，则对于每一个属于 D
-的点 P(x,y)，都可定出一个向量，这个向量称为函数 z = f(x,y) 在点 P
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/50000695/" title="图像处理之_霍夫（Hough）变换">图像处理之_霍夫（Hough）变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-28T00:00:00.000Z" title="Created 2017-04-28 00:00:00">2017-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 霍夫（Hough）变换
-#图形图像
-1. 用途
-Hough
-变换是一种在图像中寻找直线，圆及其它简单形状的方法．当我们对图像进行边缘检测之后，可用
-Hough
-变换识别图像中的简单形状．该转换也是对图像的一种抽象（由繁到简）．下面介绍最基本
-Hough 变换：寻找直线算法．
-2. 思路
-Hough
-变换通过从直角坐标系到极坐标系的转换，将直角坐标系中的一条＂直线＂，转换为极坐标系上的一个＂点＂，落在这条＂直线＂上的像素点越多，这个极坐标中＂点＂的权越重，最终通过分析各个＂点＂的权重（局部最大值），获取重要线段．为区别直角坐标系中的点和极坐标系中的点，下面我们将直角坐标系中的点称为像素点．
-3. 具体实现
-
-
-图片.png
-
-如图所示，假设我们有一个桃心图形，由多个红色像素点组成（红色为其有意义的像素点，即轮廓值），想提取出其中的直线．如果将各个像素点连成直线，直线将会有很多条，有些有意义，有些没意义．一般认为像素点足够多的直线更具意义，比如图中的绿色和蓝色的直线．在直角坐标系中，可以用斜截式
-y=kx+b 来表示一条直线（k 是斜率，b 是 y 轴上的截距）．转换到极坐 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1608403112/" title="Android开发_精准排布控件位置">Android开发_精准排布控件位置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a></span></div><div class="content">1. 简述
-在Android系统上开发程序，很多时候需要精准的排布控件的位置和大小．并且适合各种比例的屏幕（4:3，16:9…），下面分别介绍在高版本和低版本的Android中的实现方法．
-## 2. Android Studio／高版本Android实现 1) 说明
-使用高版本android内置的android-support-percent-lib库，通过设置百分比的方法，实现了该功能，
-Demo一般都是android
-studio，Eclipse下需要下载支持库：http://download.csdn.net/detail/sbsujjbcy/8857747
-在Layout中设置百分比：PercentRelativeLayout/PercentFrameLayout/PercentLinearLayout
-2) Layout文件 1234567891011121314151617&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;android.support.percent.PercentFr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/54377/" title="Ubuntu上安装和使用Android-Studio">Ubuntu上安装和使用Android-Studio</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Ubuntu 上安装和使用 Android
-Studio
-1．对比 Eclipse 与 Android
-Studio 开发
-
-
-
-
-
-
-
-
-
-Eclipse 开发
-Android Studio 开发
-
-
-
-
-Java 开发工具
-JDK (可通用)
-JDK (可通用)
-
-
-Android 开发工具
-Android SDK
-Android SDK
-
-
-集成开发环境
-Eclipse
-Android Studio
-
-
-命令行编译工具
-Ant
-Gradle
-
-
-结构
-Android Studio 的 Project 类于 Eclipse
-的 Workspace
-Android Studio 的 module 类似于 Eclipse
-的 Project
-
-
-优点
-Eclipse 支持 C/C++/Java/Python
-起初大家都有它做 Android 开发，熟悉度高
-针对 Android 安装使用方便一些，5.0
-以后的有些功能只能在 Android Studio 上使用
-
-
-
-2．说明
-
-        本文的安装环境是Ubuntu 16.10，其它Ubuntu版本也可以，强烈建议使用64位系 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/15497/" title="Android开发_精准排布控件位置">Android开发_精准排布控件位置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 开发 _
-精准排布控件位置
-#移动开发 #Android
-1. 简述
-在 Android
-系统上开发程序，很多时候需要精准的排布控件的位置和大小．并且适合各种比例的屏幕（4:3，16:9…），下面分别介绍在高版本和低版本的
-Android 中的实现方法．
-2. Android Studio／高版本
-Android 实现
-
-说明
-使用高版本 android 内置的 android-support-percent-lib
-库，通过设置百分比的方法，实现了该功能，Demo 一般都是 android
-
-studio，Eclipse
-下需要下载支持库：[http://download.csdn.net/detail/sbsujjbcy/8857747
-](http://download.csdn.net/detail/sbsujjbcy/8857747)
-在 Layout
-中设置百分比：PercentRelativeLayout/PercentFrameLayout/PercentLinearLayout
-
-Layout 文件
-
-&lt;android.support.perce ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/23723/" title="Python设置三方库路径">Python设置三方库路径</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-31T00:00:00.000Z" title="Created 2017-03-31 00:00:00">2017-03-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python 设置三方库路径
-一般安装 Python 的三方库，直接使用 Python 的包管理工具
-pip，或者下载源码包后，使用其中的 setup.py 安装，就可以直接安装在 Python
-的系统库目录中了．
-如果想使用一个三方库，又不想安装在 Python
-的默认库目录中，可以程序中使用”sys.path.append(" 具体路径 ")”
-将三方库路径暂时加入库路径．如果想操作一次，之后任何程序都可以直接使用，比如自己写的库，以
-Ubuntu 系统为例，示例如下：
-1. 建立自己的库
-1234$ mkdir /tmp/8888  # 建自己的库目录，此处只是试验，/tmp目录一重启就清除了$ vi /tmp/8888/x888.py   # 编写库文件，内容如下def testme():    print &#x27;hahahaha&#x27;
-2. 看一下 python 的默认库路径
-123$ python&gt;&gt;&gt; import sys&gt;&gt;&gt; sys.path # 此时会显示python的库路径，一般有很多个，在ubuntu下一般包括/u ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/858065074/" title="NLTK中文词性自动标注">NLTK中文词性自动标注</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-24T00:00:00.000Z" title="Created 2017-03-24 00:00:00">2017-03-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">NLTK 中文词性自动标注
-#自然语言处理
-1 说明
-学习自然语言处理，一定会参考 NLTK,主要是学习它的思路,
-从设计地角度看看能做什么.
-其本质就是把语言看成字符串，字符串组，字符串集，寻找其间规律．
-NLTK 是多语言支持的, 但目前网上的例程几乎没有用 NLTK
-处理中文的，其实可以做。比如标注功能, 它自身提供了带标注的中文语库
-(繁体语料库 sinica_treebank).
-下面来看看怎样通过数据训练来实现中文词性自动标注.
-可以利用它来标注中本，也可以寻找和验证一些隐性的规律.
-2 相关知识
-2.1.1 词性标注
-词汇按它们的词性 (parts-of-speech,POS) 分类以及相应的标注它们的过程,
-词性包括: 名词、动词、形容词, 副词等.
-2.1.2 中文字符的显示
-Python 内部编码是 unicode, 所以输出中文常常像这样＂ebade5＂, 用 print
-函数输出时, 将自动转换成本地字符集, 也可以使用 encode(‘utf-8’)
-函数转换．
-2.1.3 数据集,训练集,评估
-有监督的机器学习一般都是把数据分成两个部分, 一部分用于训练,
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2277242930/" title="用WordNet实现中文情感分析">用WordNet实现中文情感分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-14T00:00:00.000Z" title="Created 2017-03-14 00:00:00">2017-03-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">用 WordNet 实现中文情感分析
-#自然语言处理
-1. 分析
-中文的情感分析可以用词林做，词林有一大类（Ｇ类）对应心理活动，但是相对于
-wordnet 还是太简单了．因此使用 nltk+wordnet 的方案，如下：
-
-中文分词：结巴分词
-中英文翻译：wordnet 汉语开放词网，可从以下网址下载：
-
-http://compling.hss.ntu.edu.sg/cow/
-
-情感分析：wordnet 的 sentiwordnet 组件
-停用词：参考以下网页，另外加入常用标点符号
-[http://blog.csdn.net/u010533386/article/details/51458591
-
-](http://blog.csdn.net/u010533386/article/details/51458591)
-2. 代码
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/65/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="page-number current">66</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="space">&hellip;</span><a class="page-number" href="/page/81/#content-inner">81</a><a class="extend next" rel="next" href="/page/67/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2675048602/" title="250523_对谈_用叙事打磨世界观">250523_对谈_用叙事打磨世界观</a><time datetime="2025-05-23T00:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3007110203/" title="250512_对谈_股票操作中的概率与心理">250512_对谈_股票操作中的概率与心理</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/245303860/" title="250520_对谈_最近发展区理论与实践">250520_对谈_最近发展区理论与实践</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2397073581/" title="论文阅读_现实的叙事构建">论文阅读_现实的叙事构建</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+无论哪种矿机，至少都包含连网和计算两个部分．连网部分负责收发计算数据和证明挖矿者身份，计算部分负责具体的挖矿．这里我们来考虑最常见的一个控制板带多个矿机，连接他人矿池的情况．矿工只在设置的时候需要电脑或者手机连接到控制器的
+web
+界面，其余时候只要启动控制板和矿机即可挖矿（有些矿机和控制板是一体的）。当然这里指的是连他人的矿池，如果自己做矿池，矿池也是需要机器的．
+2. 控制器（与网络相连部分）
+下面以树莓派控制板为例分析，控制内部如何运作，以及如何与上下层交互。一般树莓派都自带再
+dhcp 客户端，连上网线就能自动获取 IP 地址，其上运行一个 WebServer，外加
+miner-web 工具，即可支持矿机的 Web
+设置界面。矿工通过路由器看找到分给控制器的 IP 地址，然后用 http
+连接的方式来设置它，此时需 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8235/" title="比特币挖矿——钱包">比特币挖矿——钱包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-26T00:00:00.000Z" title="Created 2017-10-26 00:00:00">2017-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——钱包
+#区块链
+1. BitCoin 钱包
+BitCoin 是钱包的一种，目前它需要下载上百 G
+的数据，且之后还会不断增加，其它钱包也有数据比较少的，但是做矿池一般用
+bitcoin，可以把它看成实时更新的矿池数据库。
+如果想做矿池的话，必须把钱包数据下到本地，而且后台进程要一直开着更新数据。还需要给钱包加密。
+2. 安装配置钱包
+1) 安装
+1$ apt-get install bitcoind
+2) 修改配置文件
+12345678$ vi bitcoin.conf # 内容如下rpcuser=abcrpcpassword=123server=1rpcallowip=127.0.0.1addnode=14.111.41.235addnode=180.109.106.68addnode=119.129.41.15
+注意，这里的 user 和 password 是 RPC
+的用户名密码，它和钱包地址没关系，随便设什么都可以，只要和挖矿服务（如：p2pool
+或 btcpool）设的一致即可。
+3) 运行
+i. 本机上执行
+1$ bitcoin-qt
+ii.
+服务端执行（远 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28362/" title="比特币挖矿——区块链技术">比特币挖矿——区块链技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-25T00:00:00.000Z" title="Created 2017-10-25 00:00:00">2017-10-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——区块链技术
+#区块链
+1. 说明
+区块链具有数据运行公开、不可篡改、可溯源、跨国际、去中心化的特点。因此越来越多地被应用在各个领域。区块链主要技术包括：分布式数据存储、点对点传输、共识机制、加密算法，将在下面一一介绍。
+2. 点对点传输
+点对点技术（peer-to-peer，简称
+P2P）又称对等互联网络技术，它依赖网络中参与者的计算能力和带宽，而不是把依赖都聚集在较少的几台服务器上。最典型的应用就是电驴。在这里它提供了最底层的去中心化支持。
+3. 分布式数据存储
+先看看对区块链最直观的感觉：当第一次运行比特币钱包时，会下载很多数据，2017
+年 10 月有 150G 左右，且还在不断增加。数据存储在 data/blocks
+目录下，blk*.dat 这就是区块 block。
+第一个问题是：为什么建矿池需要下载这么多数据？区块链本质上是一个去中心化的数据库，我们下载的是比特币所有数据所组成的数据库，因此很大。去中心化的数据库，数据并不是保存在某一个服务器上，而且在
+P2P
+的每个节点上都需要保存一份。对于中心化的数据库，数据库可能被宿主或者黑客篡改，因而可靠性变差。而去中 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5581/" title="比特币挖矿——介绍">比特币挖矿——介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-10-24T00:00:00.000Z" title="Created 2017-10-24 00:00:00">2017-10-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a></span></div><div class="content">比特币挖矿——入门
+#区块链
+说比特币之前，先来说说虚拟货币，以及虚拟币的价值。比如说，百度文库文下载章需要付点数，自己上传文件被别人下载可以得到点数，点数就是虚拟货币，如果没有点数，又能想下文档，可以用钱兑换，这就是虚拟货币与真实货币的关系。至于一个点数研究值多少钱，又怎么给一篇文档定价，一般会借鉴类似资源的定价，使用的人多了，虚拟货币的价值也逐渐趋于稳定。
+比特币是最流行的虚拟货币，它是基于 P2P 的数字货币，在互联网的某处，每
+10 分钟产生 13
+个币，至于新产生的币归谁，就看谁挖到了（也就是挖矿，具体算法后面说明）。一般大家最大的疑问是：算法产生的一串数就能对应真金白银吗？来看看货币的价值：钱是一张纸，印这张纸花多少钱是它的自然属性，它能当多少钱花是它的社会属性，我们更关注它能当多少钱花。钱的使用价值是以发行方的信用作担保的，也就是说有国家在，就不用担心你的钱明天变成废纸。那谁给比特币谁作担保呢？上学的时候学：说一个事物，要么是主观的，要么是客观的，现在说，介于主观和客观之间叫互为主体
+(intersubjective)，即：相信的人多了，它就存在了。随着比特币越来越多的被 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/35659/" title="Python股票处理之八_大数定律">Python股票处理之八_大数定律</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-31T00:00:00.000Z" title="Created 2017-07-31 00:00:00">2017-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之八 _
+大数定律
+1. 引子
+有一天，我看见一个预测日涨跌的程序，成功率在百分之七十几，于是分享给
+X 同学。结果人家说“70% 多，这准确率高么？瞎蒙的准确率也有 50%”
+这准确率高么？只靠对技术形态的判断，好像也还行吧？如果有 70%
+的正确率，到底怎么做赢的机会比较大？达到多少百分比，才能够满意？
+看《程序员的数学 2：概率统计》中有一道类似的习题：设结果甲出现概率为
+0.7，结果乙出现概述为
+0.3，且不论甲还是乙，只要猜中，就能获得下注同等的金额，猜不中则输掉赌资。显然选择甲是明智的做法。假设你每天都会参与这场赌博，你会将占总资产比例
+p 的金额投给甲，p 在整个过程中保持不变，请问应该如何设定 p
+值？（我把该题简化了，大概是这个意思）
+如果只考虑一天，显然把所有资产都投给甲p=1是最佳选择，然而不断重复赌局时，总会出现没有中奖而失去所有财产的情况。下面写一个程序模拟这个赌局：
+2.程序
+12345678910111213141516171819202122232425262728293031323334353637# -*- coding: ut ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1048/" title="Python股票处理之七_数据库存储">Python股票处理之七_数据库存储</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-21T00:00:00.000Z" title="Created 2017-07-21 00:00:00">2017-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之七 _
+数据库存储
+1. 说明
+股票数据无需每次都从网上下载，像日线级别的历史数据会常常用到，使用多线程下载一般也需要几个小时，最好存储到本地，除了已有的特征值，还有清洗后的数据，和计算出的新特征值，以及需要与其它程序共享数据。相对于数据文件，使用数据库更合适。
+本文介绍 pandas（数据结构支持）通过 sqlalchemy 与数据库连接，存储
+tushare 下载的日线数据，用一套代码操作不同数据库（Mysql/sqlite）。
+2. 安装数据库
+1) Sqlalchemy 工具
+1$ pip install sqlalchemy
+2) Mysql 数据库
+12345$ sudo apt-get install mysql-server$ sudo apt-get install mysql-client$ mysql -u root –pmysql&gt; create database stock	# 建立名为stock的数据库，之后程序中会用到mysql&gt; show databases;	# 显示已有的数据库
+3) Sqlite 数据库
+1234 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2746/" title="Python数据分析常用工具">Python数据分析常用工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-07-21T00:00:00.000Z" title="Created 2017-07-21 00:00:00">2017-07-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span></div><div class="content">Python 数据分析常用工具
+1．Numpy：
+科学计算基础包, 提供矩阵数据类型、矢量处理，以及精密的运算库。
+1$ pip install numpy
+2．Pandas：
+基于
+Numpy，最初被作为金融数据分析工具而开发出来，一般用于处理结构化数据。
+1$ pip install pandas
+3．Matplotlib：
+绘制数据图表
+1$ pip install matplotlib
+4．Seaborn：
+在 Matplotlib 的基础上进行了更高级的 API
+封装，从而使得作图更加容易。
+1$ pip install seaborn
+5．IPython：
+Python 的交互式 shell，比默认的 python shell
+好用，支持变量自动补全，自动缩进，支持 bash shell
+命令，内置了许多很有用的功能和函数。
+1$ sudo apt-get install ipython
+6．Scipy：
+科学计算中标准问题，包括统计，优化，整合，线性代数模块，傅里叶变换，信号和图像处理，常微分方程求解器等等.
+1$ pip install scipy
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/65/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="page-number current">66</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/67/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1310244252/" title="抑郁与多元选择的价值对谈">抑郁与多元选择的价值对谈</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/485813497/" title="探索抑郁情绪的死锁">探索抑郁情绪的死锁</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">54</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">53</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">21</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/"><span class="card-category-list-name">03_关系互动</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.17em; color: #999ca0">异常检测</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.21em; color: #999da3">公众号</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.17em; color: #999ca0">心情</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">卷积神经网络</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">笔记工具</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.21em; color: #999da3">工作思考</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.14em; color: #999a9c">社会学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.28em; color: #99a0aa">数据存储</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">自然语言处理/大模型</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Docker/" style="font-size: 1.39em; color: #99a5b5">Docker</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">编程工具</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.25em; color: #999fa7">数据存储/Hadoop</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/Pytorch/" style="font-size: 1.35em; color: #99a3b1">Pytorch</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">目标管理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.46em; color: #99a8bc">编程语言/前端</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.43em; color: #99a6b8">深度学习/模型结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">65</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">806</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1095.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T17:00:12.675Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">75</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ae">数学</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.17em; color: #999ca0">情绪表达</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.46em; color: #99a8bc">笔记/Obsidian</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.39em; color: #99a5b5">自然语言处理/大模型</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.35em; color: #99a3b1">效率</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Django/" style="font-size: 1.17em; color: #999ca0">Django</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999ca0">编程语言/C</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.14em; color: #999a9c">艺术</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.28em; color: #99a0aa">深度学习/图形图像</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">深度学习/模型结构</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999ca0">多模态</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.28em; color: #99a0aa">区块链</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.17em; color: #999ca0">数据管理</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">828</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-27T15:38:12.890Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-06-12 17:00:15'
+  postUpdate: '2025-06-27 15:38:15'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,181 +163,202 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2875/" title="Python股票处理之三_实时监测">Python股票处理之三_实时监测</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T00:00:00.000Z" title="Created 2017-06-30 00:00:00">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之三 _
-实时监测
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43004/" title="时间序列_隐马尔可夫模型HMM">时间序列_隐马尔可夫模型HMM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-15T00:00:00.000Z" title="Created 2017-11-15 00:00:00">2017-11-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/9-%E6%97%B6%E5%BA%8F/">9_时序</a></span></div><div class="content">机器学习 _ 隐马尔可夫模型
+HMM
+1. 马尔可夫链
+马尔可夫链是满足马尔可夫性质的随机过程。马尔可夫性质是无记忆性。
+也就是说，这一时刻的状态，受且只受前一时刻的影响，而不受更往前时刻的状态的影响。我们下面说的隐藏状态序列就马尔可夫链。
+2. 隐马尔可夫模型
+隐马尔可夫模型（Hidden Markov
+Model，HMM）是统计模型，用它处理的问题一般有两个特征：
+第一：问题是基于序列的，比如时间序列，或者状态序列。
+第二：问题中有两类数据，一类序列数据是可以观测到的，即观测序列；而另一类数据是不能观测到的，即隐藏状态序列，简称状态序列，该序列是马尔可夫链，由于该链不能直观观测，所以叫“隐”马尔可夫模型。
+简单地说，状态序列前项能算出后项，但观测不到，观测序列前项算不出后项，但能观测到，观测序列可由状态序列算出。
+HMM 模型的主要参数是λ=(A,B,Π)，数据的流程是通过初始状态 Pi
+生成第一个隐藏状态 h1，h1 结合生成矩阵 B 生成观测状态 o1，h1
+根据转移矩阵 A 生成 h2，h2 和 B 再生成
+o2，以此类推，生成一系列的观测值。
+
+
+HMM
+
+3. 举例
+1) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/476352061/" title="机器学习_集成算法">机器学习_集成算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-14T00:00:00.000Z" title="Created 2017-11-14 00:00:00">2017-11-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _ 集成算法
+为什么使用集成算法
+ 
+简单算法一般复杂度低，速度快，易展示结果，但预测效果往往不是特别好。每种算法好像一种专家，集成就是把简单的算法（后文称基算法/基模型）组织起来，即多个专家共同决定结果。
+如何组织算法和数据
+ 
+这里我们的着眼点不是某个算法，某个函数，而是对数据和算法整体的规划。
+  从数据拆分的角度看：可以按行拆分数据，也可以按列给属性分组。
+ 
+从算法组合的成份看：可以集成不同算法，也可以集成同一算法不同参数，还可以集成同一算法使用不同数据集（结合数据拆分）。
+ 
+从组合的方式看：可以选择少数服从多数，或加权求合（可根据正确率分配权重）。
+  从组合的结构看：可以是并行，串行，树型或者更复杂。
+ 
+综上，我们看到了各种构造集成的方法，这里面可选的组合太多，不可能一一尝试，目前拼的还是人的经验：对数据的理解，对算法的组织，以及对工具的驾驶能力。在使用集成算法的过程中，除了调库，调参，更重要的是领会精神。也可以自己编写一些集成算法。
+三个臭皮匠顶个诸葛亮
+ 
+三个臭皮匠是否能顶诸葛亮，这还得具体问题，具体分析。如果基算法选错了，即使再怎么组合，再怎么调参也 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49731/" title="实战大数据竞赛平台——Kaggle入门">实战大数据竞赛平台——Kaggle入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-13T00:00:00.000Z" title="Created 2017-11-13 00:00:00">2017-11-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">大数据竞赛平台——Kaggle 入门
+#算法实战
+ 
+在学习了一些数据挖掘和机器学习的算法之后，需要积累实际开发经验。在实践的过程中不仅需要自己摸索，还需要向牛人学习和请教。Kaggle
+就提供这样的数据平台，企业或者研究者可以将数据、问题描述、期望的指标发布到
+Kaggle 上，开发者其数据下载到本地，分析，处理后将结果上传，Kaggle
+将结果排名显示，有的比赛设有资金。Kaggle
+还有活跃的讨论区，供大家交流。
+如何使用 Kaggle
+  我们先来看看，Kaggle 的具体使用方法。在竞赛界面中
+https://www.kaggle.com/competitions，可看到比赛分类：Getting
+Start，Playground，Featured，Research 等（用不同颜色区分）．建议初学者从
+Getting Start
+级别开始，在这个级别上可以看到更多的教程和代码分享，题目也比较简单，适合入门．
+
+
+competitions
+
+  以参赛队最多的 Tinanic
+沉船问题为例．https://www.kaggle.com/c/titanic．它的目标是预测乘客是否幸 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2741869082/" title="百度自动驾驶系统Apollo源码分析">百度自动驾驶系统Apollo源码分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-09T00:00:00.000Z" title="Created 2017-11-09 00:00:00">2017-11-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/">自动驾驶</a></span></div><div class="content">百度自动驾驶系统 Apollo
+源码分析
+ Apollo（阿波罗）是百度今年发布的汽车自动驾驶系统，它是不是可以无人驾驶？安全性又如何保证？下面我们就来看看自动驾驶指的是什么，以及它是如何实现的．
+##自动驾驶评级
+  先来看看什么是自动驾驶，2014 年，SAE
+International（国际汽车工程师协会）制订了一套自动驾驶汽车分级标准，其对自动化的描述分为
+5 个等级。
+
+
+自动驾驶评级
+
+ 
+从辅助驾驶到全自动驾驶，都属于自动驾驶，只是级别不同，现在有很多车已经配置了定速巡航，自动泊车，这是从
+L1 走向 L2 阶段；而 L3
+是说人可以不进行主动驾驶，但需要时刻保持注意力；据说 Google 的 Waymo
+自动驾驶系统已达到 L4
+水平，它能在特定地理区域和条件下，完成整个动态驾驶任务．大家离 L5
+还都有一段很长的路要走．百度的目标是 2019 年量产 L3 的汽车．
+  同样是自动，但是程度不同，具体要看：设计运行范围（operational
+design domain，简称
+ODD），它包括地理位置、道路类型、速度范围、天气、时间、国家和地方性交通法律法规等等．
+硬 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43751/" title="AlphaGoZero与增强学习">AlphaGoZero与增强学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-08T00:00:00.000Z" title="Created 2017-11-08 00:00:00">2017-11-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">AlphaGo Zero 与增强学习
+ 2017 年 10 月 19 日凌晨，DeepMind
+在《自然》杂志上发表了一篇论文，正式推出人工智能围棋程序的最新版本——AlphaGo
+Zero．
+AlphaGo Zero 成长史
+  最初 AlphaGo Zero
+除了围棋的基本规则以外，没有任何关于围棋的知识；
+ 3 个小时之后，它通过自学入门围棋，成为人类初学者水平；
+ 19
+个小时之后，它自已总结出了一些＂套路＂，比如死活，打劫，先占边角等等；
+  自学第三天后，它战胜了 AlphaGo Lee（当初击败李世石的 AlphaGo
+版本）；
+  自学第四十天后，它战胜了 AlphaGo Master（今年击败柯洁的 AlphaGo
+版本）
+
+  与之前的 AlphaGo 版本相对，它不但提高了水平，而且节约了算力．
+
+ 
+这还不是最重要的，最重要的是它只使用了增强学习，因此它的意义就不仅仅是赢得棋类比较这么简单了．
+增强学习
+  先来看看什么是增强学习（Reinforcement
+Learning），我们知道机器学习分为有监督学习和无监督学习，增强学习介于它们两个之间，它关注的是智能 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/929494841/" title="深度学习_总结篇">深度学习_总结篇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-07T00:00:00.000Z" title="Created 2017-11-07 00:00:00">2017-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">深度学习 _ 总结篇
+前篇总结
+
+深度学习 _ 简介及相关概念
+http://blog.csdn.net/xieyan0811/article/details/78401473
+深度学习 _ 工具
+http://blog.csdn.net/xieyan0811/article/details/78411882
+深度学习 _BP 神经网络
+http://blog.csdn.net/xieyan0811/article/details/78425453
+深度学习 _ 卷积神经网络 CNN
+http://blog.csdn.net/xieyan0811/article/details/78438329
+深度学习 _ 循环神经网络 RNN 与 LSTM
+http://blog.csdn.net/xieyan0811/article/details/78462982
+
+朋友反馈说，看不懂 CNN 和 RNN
+篇．文章确实因为篇幅原因，有点跳步了．不过我觉得主要原因还是跳过了前面的基础部分．我们很多时候喜欢直击重点，跳过过程，但是有的过程确实跳不过去．
+数据挖掘，机器学习，机器视觉，语言处理这些背 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2192167811/" title="深度学习_循环神经网络RNN与LSTM">深度学习_循环神经网络RNN与LSTM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-06T00:00:00.000Z" title="Created 2017-11-06 00:00:00">2017-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84/">网络结构</a></span></div><div class="content">深度学习 _ 循环神经网络 RNN
+与 LSTM
+1. 循环神经网络 RNN
+1) 什么是 RNN？
+循环神经网络（RNN）是一种节点定向连接成环的人工神经网络。具体应用有语音识别，手写识别，翻译等．
+2) 什么时候使用 RNN？
+FNN（前馈神经网络，如 BP，CNN 等）效果已经不错了，RNN
+还需要更大量的计算，为什么要用 RNN 呢？如果训练 N
+次，每次和每次都没什么关系，那就不需要
+RNN，但如果每个后一次都可能和前一次训练相关，比如说翻译：一个句子里面Ｎ个词，一个词为一次训练（train
+instance），一个词的意思很可能依赖它的上下文，也就是其前次或后次训练，这个时候就需要
+RNN．
+3) RNN 与 FNN 有何不同？
+
+如图所示，左边的是前馈神经网络，数据按黑箭头方向从输入层经过隐藏层流入输出层，向前流动，因此叫做前馈网络．右图中，隐藏层中的数据除了传向输出层，还和下次输入一起训练后续的隐藏层，不再是单向，而是包含了循环，则构成了循环神经网络．下图是将各个时间点画在同一图上，左边前馈
+FNN 的展开图，右边是 RNN 的展开图．
+
+简单地说，它只是在隐藏层处加了 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3345254120/" title="深度学习_卷积神经网络CNN">深度学习_卷积神经网络CNN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-03T00:00:00.000Z" title="Created 2017-11-03 00:00:00">2017-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84/">网络结构</a></span></div><div class="content">深度学习 _ 卷积神经网络 CNN
+1. 引入
+卷积神经网络（CNN）是一种专门用来处理具有网格结构数据的神经网络．它属于前馈神经网络，它被定义为：至少在某一层用卷积代替了矩阵乘法的神经网络．最常见的应用场景是图像识别．
+前篇我们自己动手，用 Python 实现了一个 BP 神经网络，本篇我们在 Keras
+框架之下实现卷积神经网络（Keras 框架详见《深度学习 _ 工具》篇）．Keras
+几乎是搭建 CNN
+最简单的工具了，然而原理并不简单：除了基本的神经网络中用的误差函数，激活函数等概念以外（具体详见《深度学习
+_BP 神经网络》），CNN 还用到了卷积，池化，DropOut
+等方法．将在本文中逐一介绍．
+2. 原理
+1) 图像识别
+先来看看图形学中的图像识别是如何实现的．
+
+
+图片.png
+
+我们拿到了原图（图上左），一般先将其转换成灰度图（图上中）．然后进行边缘检测，图像处理中常使用计算梯度方法（判断某像素与它相邻像素的差值）检测边缘．在
+CNN 中我们用卷积来检测：先设计一个卷积核计算相邻像素的差值，然后用
+ReLU(f(x)=max(0,x)) 激活函数将那些差值小的置为 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2592344041/" title="深度学习_BP神经网络">深度学习_BP神经网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-02T00:00:00.000Z" title="Created 2017-11-02 00:00:00">2017-11-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">深度学习 _BP 神经网络
 1. 说明
-写个脚本帮你每天盯着某几支股票，达到预设值时响铃提醒。这是最简单的股票应用，虽然谈不上智能，但是自动化――老盯着就容易冲动操作。
-本例中实现了每 5 秒取一次股票数据，并在上证指数高于 3200 点，或
-601318 低于 49 元时响提醒。
-2. 程序
-1234567891011121314151617181920import osimport timeimport tushare as tsimport pandas as pddef check(code, low, high):	df = ts.get_realtime_quotes(code)	e = df[[&#x27;code&#x27;,&#x27;name&#x27;,&#x27;price&#x27;,&#x27;time&#x27;]]	p = df[u&#x27;price&#x27;]	print e 	if float(p[0]) &gt; low and float(p[0]) &lt; high:		return True	else :		return ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5596/" title="Python股票处理之二_数据存盘">Python股票处理之二_数据存盘</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T00:00:00.000Z" title="Created 2017-06-30 00:00:00">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之二 _
-数据存盘
-1. 说明
-有些历史数据不用每次下载，可以存储到本地。尤其在调试阶段，省去了每测一遍都要下载数据的时间和流量。
-Python
-存储数据非常方便，完全不用考虑数据库的格式，存进去是那个结构，取出来还是那个结构，屏蔽了所有细节。
-具体使用 HDF
-格式，该格式可以存储不同类型的图像和数码数据的文件格式。
-2. 安装相关库
-123$ sudo apt-get install libhdf5-dev$ sudo pip install h5py$ sudo pip install --upgrade tables
-3. 程序
-1) 存储
-12345678import tushare as tsimport pandas as pde = ts.get_today_all()print eh5 = pd.HDFStore(&#x27;data/tmp.h5&#x27;,&#x27;w&#x27;)h5[&#x27;data&#x27;] = e h5.close()
-2) 读取
-123456import pandas as pdh5 = pd.HDFSt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3806/" title="Python股票处理之四_股票筛选">Python股票处理之四_股票筛选</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T00:00:00.000Z" title="Created 2017-06-30 00:00:00">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之四 _
-股票筛选
-一、说明
-本例实现了股票筛选功能。
-前一半是过滤出市盈率在 0-30 倍之间，且今日换手率&gt;1%，涨幅超 2%
-的股票。
-后一半统计今日涨停和接近涨停的股票。
-二、程序
-1234567891011121314151617181920212223242526272829303132#! usr/bin/python #coding=utf-8import pandas as pdimport tushare as tse = ts.get_today_all()code = e[u&#x27;code&#x27;]name = e[u&#x27;name&#x27;]per = e[u&#x27;per&#x27;] # 市盈率tt = e[u&#x27;turnoverratio&#x27;]	# 换手率cc = e[u&#x27;changepercent&#x27;]	# 涨跌幅mm = e[u&#x27;mktcap&#x27;]	# 总市值idx = len(name)total = 0while idx &gt; 0:	idx  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44664/" title="Python股票处理之一_获取国内股票数据">Python股票处理之一_获取国内股票数据</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-27T00:00:00.000Z" title="Created 2017-06-27 00:00:00">2017-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 获取国内股票数据
-1 安装支持库
-12$ pip install panda$ pip install tushare
-2 说明
-Pandas 是数据分析工具包
-TuShare
-是国内股票数据抓取工具，除了股票的实时和历史数据，还有基本面数据，加上自然语言处理（比如情绪分析），或者机器学习，就比较有趣了。
-3 程序
-3.1 代码
-123456import tushare as tsd = ts.get_tick_data(&#x27;601318&#x27;,date=&#x27;2017-06-26&#x27;)print de = ts.get_hist_data(&#x27;601318&#x27;,start=&#x27;2017-06-23&#x27;,end=&#x27;2017-06-26&#x27;)print e
-3.2 执行结果
-1234567891011…4758  09:30:01  50.02  0.03    1044   5226339  买盘4759  09:28:45  49.99    --       0         0  卖盘4 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6517/" title="算法之_欧拉公式">算法之_欧拉公式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-01T00:00:00.000Z" title="Created 2017-06-01 00:00:00">2017-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/0-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">0_基础知识</a></span></div><div class="content">算法之 _ 欧拉公式
-#数学
-##１. 引子
-看傅立叶变换的时候，一直奇怪，幂指数是怎么映射成三角函数的？学习了一下欧拉公式，果然很神奇，用到了自然常数
-e，圆周率π，虚数 i，三角函数
-sin/cos，指数，还有泰勒展开．不是算法有多难，只是涉及基础太多，经常被卡住，总结如下．
-##２. 泰勒展开
-泰勒展开是用多项式逼近原函数，这么做是因为像 sin(x)
-这样的函数，如果代入 x=4 很难算出结果，但是将 x 的值代入形如
-f(x)=a0+a1x+a2x2+a3x3…的多项式就很容易计算。具体是用原函数的导数实现的，把函数展开成多项式，公式如下：
+现在使用深度学习算法都以调库为主，但在使用库之前，先用 python
+写一个最基本的神经网络的程序，也非常必要，它让我们对一些关键参数：学习率，批尺寸，激活函数，代价函数的功能和用法有一个直观的了解。
+2. 原理
+1) BP 神经网络
+BP
+神经网络是一种按照误差逆向传播算法训练的多层前馈神经网络．这又前馈又逆向的把人绕晕了．先看看什么是前馈神经网络，回顾一下《深度学习
+_ 简介》中的图示：
 
 
 图片.png
 
-其中 Rn(x) 是余项
-##３. 自然常数 e
-e 是自然常数 (欧拉数)，它是一个约等于 2.718 的无理数，定义是
+这是一个典型的前馈神经网络，数据按箭头方向数据从输入层经过隐藏层流入输出层，因此叫做前馈．前馈网络在模型的输出和模型之间没有反馈，如果也包含反馈，则是循环神经网络，将在后续的
+RNN 部分介绍．
+前向网络和循环网络的用途不同，举个例子，比如做玩具狗，前馈是用不同材料和规格训练Ｎ次，各次训练之间都没什么关系，只是随着训练，工人越来越熟练．而循环网络中，要求每次做出来的狗都是前次的加强版，因此前次的结果也作为一种输入参与到本次的训练之中．可把循环网络理解成前馈网络的升级版．本篇讲到的
+BP
+神经网络，以及处理图像常用的卷积神经网络都是前馈网络 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/152350132/" title="深度学习_工具">深度学习_工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-01T00:00:00.000Z" title="Created 2017-11-01 00:00:00">2017-11-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/">5_模型结构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/5-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/%E7%8E%AF%E5%A2%83/">环境</a></span></div><div class="content">深度学习 _ 工具
+1. 引入
+深度学习的工具有很多 Tensorflow, Theano, Caffe, Keras, MXNet,
+Scikit-learn…有用 c++ 写的，有用 Python 写的，还有Ｒ的，Java
+的，从哪里入手呢？
+先看看最热门的
+Tensorflow，它是谷歌研发的人工智能学习系统，主要优点是分布式计算，特别是在多
+GPU 的环境中。Theano
+也是比较低级的库，一般单机使用．什么是低级库？就像炒回锅肉不用从杀猪开始，杀猪就是比较低级的工作，已经有人帮你做好了，像
+Keras 这种较上层的工具，它把 Theano 和 TensorFlow 包装成了更具人性化的
+API。至于是选择低级工具，还是上层工具，主要取决于您的目标是开肉联厂还是开饭馆．
 
 
 图片.png
 
-它的含义可以通过复利来理解，假设你有 1 块钱，年利息是 1
-块钱（100%），一年后可拿到两块钱
-(1+1/1)^1=2；按利滚利计算，如果半年付一次利息
-(1+1/2)2=2.25；一个月付一次息，(1+1/12)12=2.61；每天付一次息，(1+1/365)^365=2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2464053752/" title="图像处理之_OpenCV入门">图像处理之_OpenCV入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-01T00:00:00.000Z" title="Created 2017-06-01 00:00:00">2017-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _OpenCV 入门
-1. 带着问题看 OpenCV
-1) 实现了哪些功能，如何调用？
-OpenCV 实现了图像处理（类似
-PhotoShop），校正，分割前景背景，视频监控，运动跟踪，人脸识别，手势识别等功能，并支持机器学习算法。和很多开源工具一样，它提供的是很基础的功能。程序开发者利用基本函数的组合，适配场景，实现具体功能。它本身只是一个工具集，不是具体问题的解决方案。
-只在应用层面调用的话，知道基本的数据结构，函数接口，就可以了。
-2) 如何应用数学知识？
-可以把学习 OpenCV
-看做应用“数学”的过程，空间，矩阵，微积分，统计等工具都在其中使用。图像处理是应用数学较多的领域，具体实现可以通过源码看到，更重要的是了解数学方法的具体用途，才能举一反三。
-了解其中的数学方法，是较深入的层面，如果大学数学都已经忘记了，就很容易卡住，或者似乎明白了，又似乎不明白。不妨把它作为一个切入点，带着这些问题去看数学书，然后会发现数学很有用。OpenCV
-还有一个好处是，它能很直观地看到操作之后的效果，用实例理解抽象的概念。
-3) 如何组织和处理视觉信息？
-OpenCV
-在数据存储， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1138690426/" title="图像处理之_卡尔曼滤波">图像处理之_卡尔曼滤波</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-19T00:00:00.000Z" title="Created 2017-05-19 00:00:00">2017-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 卡尔曼滤波
-1. 用途
-根据一些已知的量来预测未知的量。常用于运动预测。
-2. 定义
-卡尔曼滤波（Kalman
-filtering）一种利用线性系统状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。
-由于观测数据中包括系统中的噪声和干扰的影响，最优估计也可看作是滤波过程，因此叫作卡尔曼滤波。
-3. 原理分析
-1) 第一部分：预测值与误差
-
-假设你和我两个人每天给同一头猪测体重，但两个称都不准。你测 x1
-斤，正负误差在σ1
-斤左右（假设预测成高斯分布，标准差反映了测量值好坏程度的不确定性），我测
-x2 斤，正负误差在σ2 斤左右。结合两个人的预测，简单计算猪的体重是 x1 和
-x2 的平均值。
-
-
-
-图片.png
-
-
-假如我的称更准，即误差更小，σ2&lt;σ1，结合两个人的测量，应该以我为主，因此根据误差加权组合。
-
-
-
-图片.png
-
-（通过概率函数导数的最大值推出上述公式，不在此详述）
-由公式可知：如果你的不确定性σ1 越大，我的测量值 x2
-在新均值中占的比例越大（权值更大）。
-
-后来你走了，用上一次的加权平均（x1,σ1）替代你的测量，我的测量 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/40514/" title="Python函数绘图">Python函数绘图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-19T00:00:00.000Z" title="Created 2017-05-19 00:00:00">2017-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 函数绘图
-最近看数学，发现有时候画个图还真管用，对理解和展示效果都不错。尤其是三维空间和一些复杂函数，相当直观，也有助于解题。
-本来想用 mathlab，下载安装都太费事，杀鸡不用牛刀，Python
-基本就能实现，三维图还可以拖动图像来回旋转。
-下面分别在二维三维举例说明。
-1. 二维绘图
-
-   描述：
-
-绘制极坐标系中 r=1 和 r=2cosθ的相交部分（没画的时候，确实没看出
-r=2cosθ也是正圆）
-
-  程序
-
-123456789101112131415import numpy as npimport matplotlib.pyplot as pltplt.figure(1)ax = plt.subplot(111)x = np.linspace(0, np.pi * 2, 200)  # 在0到2pi之间，均匀产生200点的数组 # r = 2cosθr = 2 * np.cos(x)  # 半径ax.plot(r * np.cos(x), r * np.sin(x))# r = 1r = 1ax.plot(r * np.cos(x), r * np.sin ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2646931276/" title="图像处理之_傅立叶变换">图像处理之_傅立叶变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T00:00:00.000Z" title="Created 2017-05-09 00:00:00">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 傅立叶变换
-#图形图像
-1. 图像处理中的傅立叶变换
-将一幅图像从其空间域（spatial domain）转换为频域（frequency
-domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier
-Transform），下文中简称 DFT。
-
-
-图片.png
-
-如上图所示，左边是原始图像（左白右黑），中间是 DFT
-变换，右侧为变换后生成的频谱图（幅度相位共同决定了图中点亮度）。
-上图展示了红色点 (x,y) 的变换，在纵轴方向，它所在的列颜色值都为
-0（黑色），因此组成它的波形也能量也都为
-0，在横轴方向，如中间图所示，左则为 255（白色），右则为
-0（黑色），将其拆分成正弦波的组合，再利用拆分后的各个波的幅度（亮度）相位（亮度）以及频率大小（位置）生成频谱图（上图中简化了相位）。
-原始图中的每个像素点，是由不同频率波投射在该点的能量叠加而成的，而频谱图中的每个点是原始图中每个像素点在该频率上的能量叠加而成的。它们之间都是一对多的关系，不存在一一对应。
-2. 如何理解公式
-
-
-图片.png
-
-以上公式分别是一维和二维 DFT 的定义（摘自《 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/106348493/" title="图像处理之_轮廓匹配">图像处理之_轮廓匹配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T00:00:00.000Z" title="Created 2017-05-09 00:00:00">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 轮廓匹配
-1. 引子
-图像识别可通过轮廓，直方图等方式实现，像人脸识别这种复杂应用，实现它的方法很多，通常是基础方法的改进版与机器学习组合。
-基于轮廓的识别，需要把图像拆分通道，寻找边缘，转换为轮廓（多边形逼近，特性概括等），然后进行轮廓匹配（图像与图像匹配，图像与模板匹配）。
-程序员根据不同情境，选择适合图像抽象方法和匹配方法。
-轮廓的匹配主要是解决大小，位置，旋转角度，精度不同图像间的匹配问题。方法包括轮廓矩，成对几何直方图，凸包和凸缺陷，等级匹配等等，下面以轮廓矩为例，看看它是如何实现的，同时也了解一下矩在图像处理中的应用（基于统计的方法）。
-2. 是什么矩（moment）
-数学定义：实函数相对于值 c 的 n 阶矩为
-
-
-图片.png
-
-从上述公式可以看到，它就是一个加了权重的积分，而权重是 (x-c)^n，其中
-n 是阶数（n 阶矩），如果把它想成一个平面直角系中，c 是 x
-轴上的一点，(x-c)^n 是各个 x 点相对于 c 点值的 n
-次方。以下是个积分的图示，只要想象一下，它的每个小方块再乘上权重：(xi-c)^n
-即可得到矩。
-
-
-图片.png
-
-轮 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/64/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/64/#content-inner">64</a><span class="page-number current">65</span><a class="page-number" href="/page/66/#content-inner">66</a><span class="space">&hellip;</span><a class="page-number" href="/page/81/#content-inner">81</a><a class="extend next" rel="next" href="/page/66/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2675048602/" title="250523_对谈_用叙事打磨世界观">250523_对谈_用叙事打磨世界观</a><time datetime="2025-05-23T00:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3007110203/" title="250512_对谈_股票操作中的概率与心理">250512_对谈_股票操作中的概率与心理</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/245303860/" title="250520_对谈_最近发展区理论与实践">250520_对谈_最近发展区理论与实践</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2397073581/" title="论文阅读_现实的叙事构建">论文阅读_现实的叙事构建</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+2. 工具简介
+Caffe 是 c++
+写的库，是较低层级的库，它是个老牌的工具，工作稳定，性能也好，还提供绑定到
+Python 上的编程语言，但相对没有 Python 类工具灵活．
+Theano 是一个低级库，透明地使用 GPU
+来完成数学计算．也是一个老牌的工具，工作比较稳定，只支持单机 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/64/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/64/#content-inner">64</a><span class="page-number current">65</span><a class="page-number" href="/page/66/#content-inner">66</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/66/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1310244252/" title="抑郁与多元选择的价值对谈">抑郁与多元选择的价值对谈</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/485813497/" title="探索抑郁情绪的死锁">探索抑郁情绪的死锁</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">54</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">53</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">21</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/"><span class="card-category-list-name">03_关系互动</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.17em; color: #999ca0">异常检测</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.21em; color: #999da3">公众号</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.17em; color: #999ca0">心情</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">卷积神经网络</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">笔记工具</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.21em; color: #999da3">工作思考</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.14em; color: #999a9c">社会学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.28em; color: #99a0aa">数据存储</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">自然语言处理/大模型</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Docker/" style="font-size: 1.39em; color: #99a5b5">Docker</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">编程工具</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.25em; color: #999fa7">数据存储/Hadoop</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/Pytorch/" style="font-size: 1.35em; color: #99a3b1">Pytorch</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">目标管理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.46em; color: #99a8bc">编程语言/前端</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.43em; color: #99a6b8">深度学习/模型结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">65</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">806</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1095.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T17:00:12.675Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">75</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ae">数学</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.17em; color: #999ca0">情绪表达</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.46em; color: #99a8bc">笔记/Obsidian</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.39em; color: #99a5b5">自然语言处理/大模型</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.35em; color: #99a3b1">效率</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Django/" style="font-size: 1.17em; color: #999ca0">Django</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999ca0">编程语言/C</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.14em; color: #999a9c">艺术</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.28em; color: #99a0aa">深度学习/图形图像</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">深度学习/模型结构</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999ca0">多模态</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.28em; color: #99a0aa">区块链</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.17em; color: #999ca0">数据管理</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">828</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-27T15:38:12.890Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

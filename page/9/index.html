@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-06-12 17:00:15'
+  postUpdate: '2025-06-27 15:38:15'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,189 +163,164 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1830129810/" title="Obsidian插件开发指南">Obsidian插件开发指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-04T00:00:00.000Z" title="Created 2025-04-04 00:00:00">2025-04-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="content">1 Obidian 开发
-Obsidian 基于 Electron 框架开发（开发者可以使用 Web
-技术构建桌面应用，Google 的 Flutter 也是类似的框架），主要使用 HTML、CSS
-和 JavaScript。后端则依赖 Node.js（Node.js 是基于 Chrome V8 引擎的
-JavaScript 运行环境），使 JavaScript 能在服务器端运行。
-开发 Obsidian 插件时，需要掌握 JavaScript 和 Node.js。比如，利用
-Node.js 提供的模块和 API
-进行文件操作、访问系统资源、处理网络请求等。
-2 开发环境
-我的开发环境是：VSCode + Node Docker +
-Copilot。这样不仅不会影响我的宿主机环境，开发起来也很舒适，还可以利用辅助编码工具。
-如果想开发 Obsidian 插件，就需要安装 Node.js 环境。Node.js 提供了
-JavaScript 的运行环境和许多内置模块；同时，安装 Node.js 也会安装
-npm，用于管理插件项目的依赖项。
-推荐使用 Node.js 的第 18 版：
-12$ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-28T00:00:00.000Z" title="Created 2025-03-28 00:00:00">2025-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/Agent%E5%B7%A5%E5%85%B7/">Agent工具</a></span></div><div class="content">2025 年 1 月 24 日，OpenAI 发布了其首款 AI 智能体
-Operator。这是一款能够在浏览器上执行简单在线任务的网络应用，例如预订音乐会门票和在线购买杂货。
-Operator 由新模型 Computer-Using Agent（CUA）驱动，该模型基于 GPT-4o
-构建。目前，该应用仅面向订阅每月 200 美元 ChatGPT Pro
-服务的美国用户开放，未来将逐步向其他用户推广。
-官方介绍: https://openai.com/index/computer-using-agent/
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1069893724/" title="对谈_250321_公平与谦让">对谈_250321_公平与谦让</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/04-%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%96%87%E5%8C%96/">04_社会与文化</a></span></div><div class="content">1 对谈
+我：想聊聊先人后己这个逻辑他是怎么来的。其实他是以集体主义和社会和谐为出发点的对吧。
+4o：是的，“先人后己”的理念确实植根于集体主义和社会和谐等传统价值观。这个逻辑强调将他人或集体的利益置于个人利益之上，追求整体的和谐与共同繁荣。
+比如：儒家文化强调人与人之间的关系和社会责任，通过历史文化、社会结构和经济政治因素，倡导集体主义和团队合作，以实现发展生产、社会稳定和伦理公正。
+当然，在现代社会，随着个人主义的兴起和多元价值观的出现，先人后己的理念也受到了一些挑战和重新评估。现代社会注重个人的权利、自由和自主性，因此在追求社会和谐和个人发展之间需要寻找一个平衡。
+我：我现在遇到的问题是，假设一件事情出了错，我和对方各有 50%
+的责任，如果我基于温良恭俭让的原则，从内在就觉得我应该承担更多，更习惯反省。久而久之，老是把责任往自己身上揽，这会造成一种对自己偏负面的评价和关系的扭曲。
+4o：你的处境反映了一种普遍的心理倾向，就是在问题中过多地归咎于自己，这可能源于对和谐美德的追求。然而，长期持有这样的责任分配习惯确实可能导致对自己负面的评价和人际关系的紧张。
+我：我觉得对外界怎么表 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1962772472/" title="对谈_250330_面子">对谈_250330_面子</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/04-%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%96%87%E5%8C%96/">04_社会与文化</a></span></div><div class="content">对谈
+我：我发现之前提到的故作强硬以及不够好的方面不敢示人好像都和面子有关，你觉得面子是啥？
+4o：“面子”包含两个部分：外部认可（别人怎么看我）和自我评价（我希望别人怎么看我）。当这两者对齐，我们会感到自洽；当它们矛盾，就可能感到焦虑、挣扎，甚至伪装自己。
+你之前提到的“故作强硬”和“隐藏不够好的部分”，其实都是在保护自己的面子，避免暴露弱点、显得脆弱或被看低。这个机制很多时候是一种社会化的产物——我们从小就学会了维护面子，因为失去面子往往伴随着社交压力、评价下降，甚至被排斥的风险。
+如果它变成了一种束缚，让我们不能真实表达、无法面对自己的局限，那可能就值得重新审视：我是在维护自己的核心价值，还是只是害怕被否定？
+我：之前也是隐隐觉得面子和别人的评价相关，内部评价也取决于在所在群体里的位置。有时候会为此而美化自己，刻意展现和隐藏自己的某些部分，然后又觉得有点装；不敢面对真实的自己；怕被人发现导致焦虑；怕不够好的一面被人看到。
+4o：当真实自我和“被展现的自我”差距过大时，就会感到虚假、焦虑，甚至害怕被拆穿。这种焦虑的来源，除了害怕被人看低、失去认可，也有一部分是对自我评价的冲突。因为 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4034385098/" title="对谈_250319上_有的人更需要价值观">对谈_250319上_有的人更需要价值观</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/">思考与觉悟</a></span></div><div class="content">总结
+人生而不同，这一点无法回避。我们所处的环境总是向所有人灌输“只要努力就能怎样怎样”的理念，让我们觉得一旦停下来就错了，一旦不如别人就错了。很多焦虑来自于“为什么我不如别人？”、“为什么我不是理想中的那个人？”因为本来就不是，即使再努力，也无法成为理想中的样子。有时候接受和臣服也是一种选择。
+精华
+多数人更像是“乘客”，按照已有的规则和路径旅行，不太会去改动“奖励函数”或者“游戏规则”。……
+愿不愿意当司机，或者能不能成为司机，也和经历、能力、资源、性格有很大关系。
+对谈
+我：今天想聊聊价值观，人的养成和大模型训练很相似，都是神经网络对吧。
+
+基本素质：最开始是
+pretrain，给一堆数据，有对有错，照猫画虎盲目拟合，训练出最基本的能力；环境数据不一样，模型参数也不一样，这时候就有差别了。
+一技之常：然后
+finetune，就像是上学，把专业知识喂给你，解决具体的问题；成为一个有技能的人；不同的基础模型
+finetune 之后差异很明显。
+锻炼情商：再之后是
+RLHF，精细地磨练人际交往技巧，成为一个有情商的人；这是一个锦上添花的技能，练肯定比不练强，但只有情商也不行。完成这一步 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/632283583/" title="对谈_250225_建立主动性">对谈_250225_建立主动性</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/">行动与进化</a></span></div><div class="content">我：在敏感和不确定，没有安全感时，要么选择屈从于更有力的存在，要么选择离群索居。还有其它选择吗？
+G：当然有其他选择。屈从和孤立都是短期内减少痛苦的策略，但长期来看，可能会带来新的问题。关键是找到一个能让自己既保持自主性，又能在环境中运作的方式。
+我：确实，这两种被动操作都有点背刺自己的意思。
+G：是的，屈从意味着放弃一部分自我，而孤立则是切断外部资源，最终都会让自己在某种程度上受损。看似是保护自己的方式，实际上可能会让自己陷入更深的不安或无力感。找到自己的立足点——无论是增强自我、建立支持系统，还是调整与外界的互动方式。有时候，改变的第一步就是意识到：我其实还有别的选择。
+我：但是你看，在现在的社会结构和合作关系中，大部分人是下位者，下位者没办法控场啊？
+G：确实，大多数人都处于某种“下位者”的位置，尤其是在组织、社会结构或资源分配的体系中。既然不能控场，那是不是就只能被控？未必。即使在无法掌控大局的情况下，仍然有一些策略可以让自己不至于完全被动：影响局部，而非控场全局；迂回策略，而非直接对抗；改变规则的适应方式；自主定义“安全感”……——掌控局势的不是唯一的生存方式，找到自己的生存 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/287686935/" title="对谈_250311_上进心&amp;享受当下">对谈_250311_上进心&amp;享受当下</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/">行动与进化</a></span></div><div class="content">总结：上进心是当代重要的美德，它背后隐含着：在同等条件下，愿意多付出的人可能会过上更好的生活。而过多的付出也可能影响到日常生活的质量。所以，需要在追求进步与享受当下之间找到平衡。
+对谈中最喜欢的内容：努力本身并不总是有价值的，尤其是当它不匹配方向、不符合现实、不顾自身代价的时候。过度强调努力，可能会让人忽略休息的正当性、调整的必要性，以及个体的差异性。
+我：今天想聊聊期待和预测，你说它俩有啥差别？
+G:
+期待更偏向于主观情绪，带有愿望或希望的成分；预测更偏向于客观推测，基于已有的信息和逻辑推理。如果现实与期待不符，就容易失望，而如果预测不准，就只是判断失误。
+我：那我们说预期吧，以预测为主，也包含一点希望变得更好的倾向。是这样的，娃说：他觉得考得好让他压力更大，甚至比考的一般体验更差。因为别人就会期待他更好，带来更大压力。但我觉得这有一部分是臆想出来的，或者是他把别人的想法内化了。好了又期待更好，我觉得也包含了一部分客观的预测，如果每次都考得一般，那无论谁预测下一次都会是一般，如果变更好，那下次可能也会预测更好一点。
+G：嗯，他的感受挺真实的，但可能混杂了几个因素。
+
+外部期待的压力： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/159990412/" title="对谈_250323_合理的目标">对谈_250323_合理的目标</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/">行动与进化</a></span></div><div class="content">精华
+
+“做更好的自已”，这作为愿景还行，但不能作为目标。它没有清晰的终点，就会陷入无尽的追逐，最终既得不到满足，也可能失去动力。
+我们从小被教育永不放弃，如果选择退而求其次，还是挺难的。不过分步走，我觉得这个真的可以。
+怎么判断目标是否合理？
+
+是否有清晰的完成标准？（而不是“还要更好”）
+是否符合自己的核心需求？（而不是被外界评价驱动）
+是否可行，是否能在一定时间内完成？（避免陷入无限优化）
+
+自己想要的生活
+
+什么样的日常让我感觉充实？
+哪些状态下最有能量？
+过去的哪些体验让我真正满足，而不是短暂兴奋？
 
 
-原理：
+对谈
+我：前几天我录了一个视频，因为录的不够好，感觉有一种非常强烈的羞耻感，我把感觉写出来，就觉得说的好像有点重了，一个小东西你做不好可以有自卑感，但是羞耻感是对整个人的否定，理性上讲不至于，但那个感觉确实有点：恨不得找个地方钻进去。
+4o：这种情绪与自尊、自我认同密切相关。自卑感通常与特定行为或表现有关，而羞耻感则涉及到对整个自我的负面评价，仿佛这个失败定义了你这个人。
+这种羞耻感可能源自几种心理机制。首先，我们往往对自己抱有过高的期望，尤其是在表现型任务中。出现未达预期的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1523029379/" title="对谈_250331_精力调度">对谈_250331_精力调度</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-05-05T00:00:00.000Z" title="Created 2025-05-05 00:00:00">2025-05-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/">行动与进化</a></span></div><div class="content">精华
 
-将 GPT-4
-的推理能力结合视觉功能，用于操作电脑桌面（类似于操作浏览器）。
-基于桌面解析和文字识别技术，可以控制键盘和鼠标，并在沙箱环境中进行操作。
+就像模型多数时间不需要用“推理”效果也不错。
+仅仅知道“正确答案”不会自动改变行为。
+可能资源整体并没有变化，只是此消彼长？
+让大脑从高算力模式切换到低算力模式。
+转化思维模式：从“完美选择”到“可逆决策”。
 
-问题：
+对谈
+我：今天想聊“理都懂 "，但实际遇见问题的时候还是重复习惯的模式。
+是不是：概念、逻辑只是思维的一小部分。还有一些更为低层的动物性的，社会性的，一些没被揭示的东西；也会产生一些影响，也会被人有意无意地利用，诱导，成为一种特殊的”工具“。
+4o：概念、逻辑只是思维的一部分，并不能直接驱动行为。你提到的低层影响——动物性、社会性以及那些未被揭示的机制——的确深刻地塑造了我们的反应方式。
+可以从几个角度来看：
 
-安全问题：适合操作商场中机器人，对于个人数据/公司数据可能涉及安全问题。
-目标用户是谁：像 Dify，扣子也有此问题。
+本能层面（动物性）
+很多行为模式是进化的产物，比如趋利避害、情绪驱动、群体归属感。这些往往比逻辑快，甚至绕过理性分析，比如面对压力时回避或攻击，而不是冷静分析。
+社会性影响
+规则、文化、权力结构塑造了人的行为习惯。即使逻辑上意识到问题，社会环境仍可能诱导我们按照习惯的方式行动，比如害怕破坏和谐、被评价、被孤立。
+隐性机制与诱导
+一些行为是被设计、强化的，比如广告 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3472056756/" title="Django的异步任务队列管理_Celery">Django的异步任务队列管理_Celery</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-28T00:00:00.000Z" title="Created 2025-04-28 00:00:00">2025-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/">后端</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/django/">django</a></span></div><div class="content">1 基本原理
+Celery
+是一个异步任务队列，能够将耗时操作（如发邮件、处理图片、网络爬虫等）从
+Django 主线程中分离出来，由后台的 worker 处理，避免阻塞请求。Celery
+作为独立运行的后台进程（Worker），持续监听消息队列（Broker），接收并处理任务，而
+Django 主线程用于发布任务。
+Celery 是一种独立于 Django 的程序，通常需手动启动。它通过 Redis
+等工具与主线程进行通信，并将任务进度和结果写入数据库，方便后续追溯。
+基本流如下：
+123456789graph TD;    A[用户请求] --&gt; B[Django Backend]    B --&gt; C&#123;是否耗时任务?&#125;    C --&gt;|否| D[直接处理]    C --&gt;|是| E[Celery Task]    E --&gt; F[Redis/RabbitMQ]    F --&gt; G[Celery Workers]    G --&gt; H[数据库]    B --&gt; H
+1.1 消息中间件 Broker
+Djan ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2041605046/" title="Obsidian高亮卡片">Obsidian高亮卡片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-27T00:00:00.000Z" title="Created 2025-04-27 00:00:00">2025-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a></span></div><div class="content">用 Obsidian 的 callout 语法来高亮重点段落
 
-应用场景：
-
-浏览器使用：语法检查、退款总计、更新许可证、客户查询。
-电脑使用：下载讲座、合并 PDF、压缩图像、计算价格、导出图像。
-
-其它：
-
-要 200 刀的 pro 才能用，而 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1390951199/" title="MCP协议解析">MCP协议解析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-28T00:00:00.000Z" title="Created 2025-03-28 00:00:00">2025-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/Agent%E5%B7%A5%E5%85%B7/">Agent工具</a></span></div><div class="content">1 简介
-MCP（Model Context Protocol，模型上下文协议）是 Anthropic 在 2024
-年底推出的一种开放协议，旨在实现大语言模型（LLM）与外部数据源、工具和应用程序之间的安全、高效互动。
-MCP 使得不同 AI
-模型能够轻松连接到外部工具和数据源，而无需单独整合多个
-API。传统上，整合外部工具需要处理各个 API
-的代码、文档、认证方式、错误处理以及后续维护，增加了开发复杂度。MCP
-的特点在于其“即插即用”功能，工具只需封装一次，即可与多种大模型 API
-组合使用。
-2 现有方法的问题
-常用方法：
-
-方法一：将数据上传到服务器
-
-将数据存储在他人服务器中，存在安全风险。
-上传过程中，数据大小和类型受到严格限制。
-
-方法二：给予大模型本地管理员权限，自动处理本地数据。
-
-同样存在安全隐患。
-例如：Open Interpreter、CUA。
+[!quote] 感悟 妒忌不是软弱，而是“想赢却输”的复杂情绪。
 
 
-MCP 的优势：
-
-统一协议：MCP 作为统一接口，只需一次集成即可连接多个服务。
-动态发现：AI
-模型能够自动识别并使用可用工具，无需提前固定每个接口。
-双向通信：支持数据拉取和操作触发。
-安全性：确保只有授 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2057065052/" title="MCP服务器与客户端指南">MCP服务器与客户端指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-28T00:00:00.000Z" title="Created 2025-03-28 00:00:00">2025-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/Agent%E5%B7%A5%E5%85%B7/">Agent工具</a></span></div><div class="content">1 MCP Server
-1.1 准备
-12pip install mcp# 安装后就可运行 mcp 命令
-1.1.1 提供本地服务
-12345678910111213141516171819202122# server.pyfrom mcp.server.fastmcp import FastMCP# Create an MCP servermcp = FastMCP(&quot;Demo&quot;)# Add an addition tool@mcp.tool()def add(a: int, b: int) -&gt; int:	&quot;&quot;&quot;Add two numbers&quot;&quot;&quot;	return a + b# Add a dynamic greeting resource@mcp.resource(&quot;greeting://&#123;name&#125;&quot;)def get_greeting(name: str) -&gt; str:	&quot;&quot;&quot;Get a personalized g ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/483577457/" title="MCP服务配置指南">MCP服务配置指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-28T00:00:00.000Z" title="Created 2025-03-28 00:00:00">2025-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/Agent%E5%B7%A5%E5%85%B7/">Agent工具</a></span></div><div class="content">1 资源分类
-MCP 服务主要包括以下几种：
-
-搜索：搜索和爬虫功能
-数据：本地文件、GitHub
-工具：为已有工具提供 MCP 调用方法
-
-2 mcp.so
-收集了大量 MCP Servers，可在 mcp.so
-上使用，而无需本地安装，只需简单配置（如配置 API Key），即可通过 URL
-访问各种 MCP Server。
-截至目前，http://mcp.so/ 已提供超过 4000 项服务（250328）。
-3 tavily
-
-功能：网络搜索 &amp; 智能提取
-申请 apikey：https://tavily.com/
-
-3.1 SSE 方式
-
-使用 host 方式访问，需要设置 https://mcp.so/server/tavily-mcp
-
-3.2 本地方式
-123456apt install npmgit clone https://github.com/tavily-ai/tavily-mcp.gitcd tavily-mcpnpm installnpm run buildnpx build/index.js # 运行试试
-3.3 注意事项
-在本地调用时，请勿将  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-28T00:00:00.000Z" title="Created 2025-03-28 00:00:00">2025-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/Agent%E5%B7%A5%E5%85%B7/">Agent工具</a></span></div><div class="content">1 Manus
-1.1 概述
-官网： https://manus.im/usecases
-根据 Manus 发布会的数据，Manus 的功能覆盖了 76% 的垂直类 Agent
-项目。其官网展示了 50
-多个用例，主要应用于数据分析、调查研究和效率提升。工程方面，Manus
-付出了大量努力，整体交互比其他产品优化了许多。
-从个人体验来看，Manus
-的推广和设计非常出色，与浏览器的整合也令人印象深刻。它有效填补了市场空白，市面上虽有众多开源的
-agent 工具，但普遍缺乏易用性；即便是 coze
-的图形化界面模块拼接，也存在一定的使用门槛。
-Manus
-的另一大优势在于其示例表现。一句简单提问，即能获得优质输出。在国内，类似体验的产品有
-kimi（检索）和 deepseek-R1（推理），但它们通常只处理单个简单问题。而
-Manus
-不仅可以在线搜索数据，还能够进行多步操作，解决复杂问题。这一特点似乎填补了市场空白。不过，其实际效果及成本如何，尚需进一步观察和讨论。
-1.2 用户交互
-界面：打开网站上的实例，可以清晰看到工作过程，左侧展示模型思考，右侧展示工具调用，左右分区的交互流畅。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1044892266/" title="LLM 中的 role">LLM 中的 role</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-25T00:00:00.000Z" title="Created 2025-03-25 00:00:00">2025-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a></span></div><div class="content">1 取值
-role 有 3 个取值：
-
-system: 设置 AI 助手的行为指南和身份定位
-user: 用户输入的内容
-assistant: AI 的回复内容
-
-2 示例
-123456messages = [	&#123;&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;你是AI助手&quot;&#125;,	&#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;你好&quot;&#125;,	&#123;&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;你好，我能帮你什么?&quot;&#125;,	&#123;&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;解释下Python&quot;&#125;]
-3 说明
-
-system 消息设定 AI 的行为规范和专 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/978649631/" title="论文阅读_Search-R1：大模型+搜索引擎">论文阅读_Search-R1：大模型+搜索引擎</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-21T00:00:00.000Z" title="Created 2025-03-21 00:00:00">2025-03-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">1234567英文名称：Search-R1: Training LLMs to Reason and Leverage Search Engines with Reinforcement Learning中文名称：Search-R1：训练大型语言模型进行推理并利用搜索引擎的强化学习链接: http://arxiv.org/pdf/2503.09516v2代码: https://github.com/PeterGriffinJin/Search-R1 (1.4K Star)作者: Bowen Jin, Hansi Zeng, Zhenrui Yue, Dong Wang, Hamed Zamani, Jiawei Han机构: 伊利诺伊大学厄巴纳-香槟分校，马萨诸塞大学阿默斯特分校日期：2025-03-12
-1 读后感
-由于大语言模型（LLM）的知识更新不够迅速，LLM
-结合搜索的应用场景变得非常普遍。未来的发展趋势可能会是“小而美”的 LLM
-与强大的 Agent、工具、搜索、RAG 等结合，而不是追求“大而全”的 LLM
-来解决所有问题。
-这篇文章主要探讨大模型与搜索的结合策略：如何 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2531255041/" title="录视频有感_聊聊一种技不如人的羞愧感">录视频有感_聊聊一种技不如人的羞愧感</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-19T00:00:00.000Z" title="Created 2025-03-19 00:00:00">2025-03-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%8F%91%E8%B4%B4/">发贴</a></span></div><div class="content">1 录制实感
-今天想分享一些录视频过程的感受：一种技不如人的“羞愧感”。
-录几个视频介绍我开源工具的用法，这个任务已经列在我的周计划里，可能都有十周以上了，但一直没有录。一方面是因为界面一直在更改，一方面是我对录视频这件事非常抵触。别提把人录上了，哪怕只是录个声音，我都感到很有压力。
-可能是平时看视频的时候，给我推荐的都是一些顶尖 UP
-主的视频，质量很高，我就觉得别人的水平都很高。录的时候会不自觉地预测别人的反馈，注意力没办法集中在内容上，就更加磕磕绊绊的；要么就是需要录很多次，或者花费大量精力来调整自己的注意力。
-每一次对自己录的效果都不满意，这种纠结和负面情绪对之后再做这件事来说，又是一个减分项。
-可能很多刚开始录视频的小伙伴都有这种感觉。
-这次更新之后，界面的操作确实有些复杂，还包含了很多细节，录视频确实是最直观的方法。只好咬牙又重新开始录制。但仍然有磕巴，停顿，口头语，声音忽大忽小的问题……
-忽然想起去年年底开发了一个视频编辑工具，当时因为忙其他事情，也没怎么用。这次才真正开始用上。
-2 借助工具
-流程如下：
+[!info] 提示信息（Info） 这是一般性的提示或说明。
 
 
-使用视频会议录屏并导出 mp4
+[!note] 笔记（Note） 一些补充信息或作者笔记。
 
-也可以用其他方法进行录屏
 
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1213931667/" title="TabPFN">TabPFN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-19T00:00:00.000Z" title="Created 2025-03-19 00:00:00">2025-03-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a></span></div><div class="content">1 简介
-TabPFN（Tabular Prior-Data Fitted Network）是由 Meta AI
-团队开发的针对表格数据的神经网络分类器。
-1.1 主要特点是
+[!tip] 小技巧（Tip） 实用的小建议或窍门。
 
-无需超参数调优：TabPFN 与 XGBoost、LightGBM
-等传统树模型不同，它即插即用，不需调整超参数。
-极快的推理速度：TabPFN
-训练和预测时间不到一秒，远超深度学习模型。
-基于
-Transformer：尽管规模小，它在预训练时利用大量合成数据，实现对新数据集的良好泛化能力。
-适合小型数据集（&lt;10K 样本）：TabPFN
-在小数据集上表现出色，但对大规模数据暂不是最佳。
 
-1.2 适用场景
+[!important] 重要内容（Important） 请务必注意的信息。
 
-对于小型表格数据集，希望能够快速获得高质量的分类结果。
-不希望投入太多时间在参数调优上，需要一个即插即用的分类器。
 
-2 原理
-TabPFN 通过元学习（Meta-Learning）预训练一个
-Transformer，让其学习各种合成数据的模式，从而可以在新数据集上实现零训练和极速推理。对于小型表格数据分类任务，它是一个开箱即用且无需调参的强力工具。
-3 阶段
+[!warning] 警告（Warning） 潜在问题或风险提示。
 
-预训练阶段（Offline Lear ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/81/#content-inner">81</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">806</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">240</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">164</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2675048602/" title="250523_对谈_用叙事打磨世界观">250523_对谈_用叙事打磨世界观</a><time datetime="2025-05-23T00:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3007110203/" title="250512_对谈_股票操作中的概率与心理">250512_对谈_股票操作中的概率与心理</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/245303860/" title="250520_对谈_最近发展区理论与实践">250520_对谈_最近发展区理论与实践</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2397073581/" title="论文阅读_现实的叙事构建">论文阅读_现实的叙事构建</a><time datetime="2025-05-21T00:00:00.000Z" title="Created 2025-05-21 00:00:00">2025-05-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1938549082/" title="2505xx_对谈_家长的角色2">2505xx_对谈_家长的角色2</a><time datetime="2025-05-20T00:00:00.000Z" title="Created 2025-05-20 00:00:00">2025-05-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+[!caution] 小心（Caution） 更温和一点的警告。
+
+
+[!quote] 引用（Quote） 引用名人、书籍、对话等。
+
+
+[!question] 问题（Question） 一个值得深入思考的问题。
+
+
+[!check] 检查清单（Check） ✅ 适合做复盘或回顾。
+
+
+[!abstract] 摘要（Abstract） 用于总结内容。
+
+
+[!example] 示例（Example） 一个具体的例子说明。
+
+
+[!success] 成功（Success） 表示正面的结果或状态。
+
+推荐
+
+[!que ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2930823974/" title="OpenAI 最新 gpt-4.1 使用对比">OpenAI 最新 gpt-4.1 使用对比</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-04-20T00:00:00.000Z" title="Created 2025-04-20 00:00:00">2025-04-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/">模型工具</a></span></div><div class="content">
+250414 更新 OpenAI 更新 gpt-4.1
+查看价格详情：价格信息
+
+性价比之王：gpt-4.1
+最实惠价格：gpt-4.1-nano 
+
+性能官方对比：查看链接
+
+gpt-4.1 相较 gpt-4o：提升了能力、增加了窗口，且价格更低
+gpt-4.1-nano 相较
+gpt-4o-mini：性能相当，但速度更快、窗口更大，价格更低 
+
+使用体验：在 openrouter 上，gpt-4.1 运行速度还挺快的
+
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/#content-inner">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#content-inner">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/83/#content-inner">83</a><a class="extend next" rel="next" href="/page/10/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">828</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">252</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">168</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3827618521/" title="尊重与善良的叙事艺术">尊重与善良的叙事艺术</a><time datetime="2025-06-25T00:00:00.000Z" title="Created 2025-06-25 00:00:00">2025-06-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-06-24T00:00:00.000Z" title="Created 2025-06-24 00:00:00">2025-06-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3224497240/" title="东亚学生的心理困境与教育反思">东亚学生的心理困境与教育反思</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1310244252/" title="抑郁与多元选择的价值对谈">抑郁与多元选择的价值对谈</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/485813497/" title="探索抑郁情绪的死锁">探索抑郁情绪的死锁</a><time datetime="2025-06-22T00:00:00.000Z" title="Created 2025-06-22 00:00:00">2025-06-22</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">54</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">53</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">21</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/03-%E5%85%B3%E7%B3%BB%E4%BA%92%E5%8A%A8/"><span class="card-category-list-name">03_关系互动</span><span class="card-category-list-count">9</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.17em; color: #999ca0">异常检测</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.21em; color: #999da3">公众号</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.17em; color: #999ca0">心情</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a> <a href="/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">卷积神经网络</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">笔记工具</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.21em; color: #999da3">工作思考</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.14em; color: #999a9c">社会学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/" style="font-size: 1.28em; color: #99a0aa">数据存储</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.32em; color: #99a2ae">自然语言处理/大模型</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Docker/" style="font-size: 1.39em; color: #99a5b5">Docker</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">编程工具</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.25em; color: #999fa7">数据存储/Hadoop</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/Pytorch/" style="font-size: 1.35em; color: #99a3b1">Pytorch</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">目标管理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.46em; color: #99a8bc">编程语言/前端</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.43em; color: #99a6b8">深度学习/模型结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">65</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">806</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1095.3k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-12T17:00:12.675Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">75</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E8%A1%8C%E5%8A%A8%E4%B8%8E%E8%BF%9B%E5%8C%96/"><span class="card-category-list-name">行动与进化</span><span class="card-category-list-count">12</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/"><span class="card-category-list-name">02_情绪心理</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ae">数学</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.17em; color: #999ca0">情绪表达</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.46em; color: #99a8bc">笔记/Obsidian</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.39em; color: #99a5b5">自然语言处理/大模型</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.35em; color: #99a3b1">效率</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/Django/" style="font-size: 1.17em; color: #999ca0">Django</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999ca0">编程语言/C</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.14em; color: #999a9c">艺术</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.28em; color: #99a0aa">深度学习/图形图像</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">深度学习/模型结构</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999a9c">插件开发</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999ca0">多模态</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.17em; color: #999ca0">自动驾驶</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.28em; color: #99a0aa">区块链</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.17em; color: #999ca0">数据管理</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">57</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">828</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1147.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-06-27T15:38:12.890Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
