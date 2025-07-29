@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-07-29 03:58:21'
+  postUpdate: '2025-07-29 08:49:14'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,191 +163,168 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">834</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">257</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">173</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/161988313/" title="github_copilot升级">github_copilot升级</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-12-23T00:00:00.000Z" title="Created 2024-12-23 00:00:00">2024-12-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 引言
-GitHub Copilot
-的新版本发布已经有几个星期了，实际使用后才发现它确实非常出色，极大地提升了效率。
-2 旧版的问题
-旧版包含的一些常用功能有：聊天、编辑时代码自动生成、选中代码块的编辑和解释。
-但有几个使用上的不便之处：
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">844</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1213931667/" title="TabPFN">TabPFN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-19T00:00:00.000Z" title="Created 2025-03-19 00:00:00">2025-03-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a></span></div><div class="content">1 简介
+TabPFN（Tabular Prior-Data Fitted Network）是由 Meta AI
+团队开发的针对表格数据的神经网络分类器。
+1.1 主要特点是
 
-聊天功能位于左侧栏，但通常左侧栏不会设置得很宽，这导致文字多次换行，查看时需要上下滚动，比起网页版的聊天界面要逊色不少。
-代码自动生成功能要求在生成函数前必须先写注释，完成后还需自行删除注释，这个过程显得有些繁琐。
-当选中代码块并点击右键以解释或编辑时，需要操作多步，修改只针对代码块本身，功能上会受到一些限制。
-背后的大模型在功能上不尽如人意，理解力和代码能力稍显不足。
-生成和修改代码时无法指定参考哪些文件。
+无需超参数调优：TabPFN 与 XGBoost、LightGBM
+等传统树模型不同，它即插即用，不需调整超参数。
+极快的推理速度：TabPFN
+训练和预测时间不到一秒，远超深度学习模型。
+基于
+Transformer：尽管规模小，它在预训练时利用大量合成数据，实现对新数据集的良好泛化能力。
+适合小型数据集（&lt;10K 样本）：TabPFN
+在小数据集上表现出色，但对大规模数据暂不是最佳。
 
-3 新版的优势
-新版针对上述问题进行了优化。
-3.1 更多大模型可选
+1.2 适用场景
 
-新版提供了 gpt-4o、o1 系列模型，以及 claude。
-不仅我这样认为，我的朋友和网友也一致发现，Claude
-在代码领域表现出色，代码能力非常强，甚至优于多步推理的 o1 系列模型。而
-gpt 则在综合能力上更胜一筹，因此在 Copilot
-的编辑和聊天功 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/821061946/" title="Obsidian_上传社区">Obsidian_上传社区</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-12-03T00:00:00.000Z" title="Created 2024-12-03 00:00:00">2024-12-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E5%BC%80%E5%8F%91/">开发</a></span></div><div class="content">1 说明
-做完 Github Actions -&gt; Release
-后，通过以下项目添加到社区插件市场。
-2 操作
-2.1 fork 项目
-https://github.com/obsidianmd/obsidian-releases
-2.2 修改
-community-plugins.json
-2.3 pull request
+对于小型表格数据集，希望能够快速获得高质量的分类结果。
+不希望投入太多时间在参数调优上，需要一个即插即用的分类器。
 
-在 Fork 的项目中提交 Pull Request:
+2 原理
+TabPFN 通过元学习（Meta-Learning）预训练一个
+Transformer，让其学习各种合成数据的模式，从而可以在新数据集上实现零训练和极速推理。对于小型表格数据分类任务，它是一个开箱即用且无需调参的强力工具。
+3 阶段
 
-打开 Fork 的项目后，在 Pull Request 选项卡，点击 "Create Pull
-Request" 以提交请求。
-上传皮肤和插件时，请选择相应的模板并在预览中填写必要的内容 (如：add
-description-&gt;preview-&gt;community plugin，界面切换后再点 Create Pull
-Request，模板内容自动出现在 Add a description 的 Write
-框中，按实际情况打勾)。
-新增插件和更新插件时需使用不同的标题和描述。
+预训练阶段（Offline Lear ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3101595484/" title="doocs-md">doocs-md</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-18T00:00:00.000Z" title="Created 2025-03-18 00:00:00">2025-03-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/markdown/">markdown</a></span></div><div class="content">doocs-md 是一个开源的公众号 Markdown 编辑器，能实时将 md
+语法渲染成公众号图文，其亮点在于：提供多种 CSS 风格。
 
-错误提示（关注红色反馈）:
+目前在 Github 上有 6.9K star
+主要语言：Vue3, TypeScript，JavaScript
+在线使用：https://doocs.github.io/md/
+项目地址：https://github.com/doocs/md
+用法：
 
-若提交的格式或编译问题未通过审核，将收到提示信息：“validation
-fai ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2317564761/" title="生成代理模拟1000个真人">生成代理模拟1000个真人</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-26T00:00:00.000Z" title="Created 2024-11-26 00:00:00">2024-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/">2_认知科学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/%E6%95%B0%E5%AD%97%E7%81%B5%E9%AD%82/">数字灵魂</a></span></div><div class="content">123456789英文名称：Generative Agent Simulations of 1,000 People中文名称：生成代理模拟1000个真人链接: http://arxiv.org/pdf/2411.10109v1代码: https://github.com/joonspk-research/generative_agent作者: Joon Sung Park, Carolyn Q. Zou, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Robb Willer, Percy Liang, Michael S. Bernstein机构: 斯坦福大学，西北大学，华盛顿大学，Google DeepMind日期：2024-11-15正文：10页，附录资料比较多
-1 摘要
+将 md
+文档导入编辑器，选择合适的公众号风格和格式，如果有图片且为本地图，默认需手动依次上传
+复制 -&gt;内容粘贴到公众号后台。
+doocs-md
+的发布功能需要配合浏览器插件“微信公众号同步助手”使用，可将文章发布到多个平台。
+支持本地图片转换成线上图片。
 
-目标：探索模拟人类行为的通用计算代理在政策制定和社会科学中的应用潜力。
-方法：提出一种新的代理架构，使用大语言模型对 1052
-名真实个体的生活访谈进行分析，以模拟他们的态度和行为，并测量这些代理的模拟准确性。
-结论：生成 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/734858388/" title="使用大型语言模型预测中文咨询对话中的大五人格特质">使用大型语言模型预测中文咨询对话中的大五人格特质</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-22T00:00:00.000Z" title="Created 2024-11-22 00:00:00">2024-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/">2_认知科学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/%E6%95%B0%E5%AD%97%E7%81%B5%E9%AD%82/">数字灵魂</a></span></div><div class="content">12345678英文名称：Predicting the Big Five Personality Traits in Chinese Counselling Dialogues Using Large Language Models中文名称：使用大型语言模型预测中文咨询对话中的大五人格特质链接: http://arxiv.org/pdf/2406.17287v1代码: https://github.com/kuri-leo/BigFive-LLM-Predictor作者: Yang Yan, Lizhi Ma, Anqi Li, Jingsong Ma, Zhenzhong Lan机构: 浙江大学，西湖大学，杭州职业技术学院日期：2024-06-25引用次数: 
-1 摘要
+问题：
 
-目标：准确评估人格特征的传统方法耗时且有偏见，探讨大型语言模型能否直接从咨询对话中预测大五人格特征，并提出了一种创新框架来执行该任务。
-方法：框架通过角色扮演和问卷提示将大型语言模型应用于咨询会话，模拟客户对大五人格量表的反应。对
-853 个真实咨询会话进行了评估，并通过细化优化与监督微调的 Llama3-8B
-模 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4110512528/" title="12_TypeScript">12_TypeScript</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">1 ts 与 vue3
+不如 ob 插件上传图片那么方便
 
-ts 与 vue3 的关系
+优点：
 
-Vue 3 是用 TypeScript 重写的，因此原生支持 TypeScript。
-Vue 3 提供了完整的 TypeScript 类型定义，提升了开发体验。
-TypeScript 在 Vue 3
-中是可选的，开发者可以根据需要选择是否使用。
-
-在当前项目中添加 TypeScript
-
-需要将 *.vue 文件的 &lt;script&gt;
-标签修改为 &lt;script lang="ts"&gt;。
-安装所需的依赖：使用
-npm install -D typescript @vue/tsconfig。
+可传多个平台
+标题，margin，字体大小都很合适，有一些可选格式
 
 
-2 js 与 ts
-2.1 TypeScript 语法更为严谨
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/348463136/" title="Obsidian文章发布到公众号时的排版方法">Obsidian文章发布到公众号时的排版方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-03-18T00:00:00.000Z" title="Created 2025-03-18 00:00:00">2025-03-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E6%8F%92%E4%BB%B6/">插件</a></span></div><div class="content">1 引言
+我们常常使用 obsidian
+写文章，发布到公众号和其他公共平台，其中有两个比较麻烦的问题：一个是将
+markdown
+转换成合适的网页格式，另一个是上传图片。这往往会花费很多时间，尤其是当文章较长，包含各层标题、引用、代码和公式时，需要花费更多的时间。此外，由于公众号文章需要有封面图，文章中也需要一些插图，因此就需要将图从
+ob 中复制出来，再上传到公众号平台。
+所以一直在找一键发布的方案。找到几个工具可以简化上述操作，但也都有各自问题。比如：
 
-必须为变量声明类型
-函数的参数和返回值需要添加类型注解
-对象的属性必须符合接口定义
+使用壹伴工具进行公众号排版，其中预设了很多风格排版，还可以以插件方式在公众号网页中使用；但是它是收费的，且将
+markdown 转为 HTML，以及处理图片的问题仍不可避免。
+使用开源工具 doocs-md 直接将 markdown 转成公众号格式的 HTML
+也不错。它支持直接输入 markdown
+格式，但也无法解决图片上传的问题，且风格相对有限。
+安装 Obsidian 插件
+obsidian-wechat-public-platform，它可以自动上传图片，将 markdown 转换为
+HTML，并保存到公众号草稿箱；但 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/216015303/" title="旅行_2025">旅行_2025</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-02-23T00:00:00.000Z" title="Created 2025-02-23 00:00:00">2025-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/">4_Others</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/%E6%97%85%E8%A1%8C/">旅行</a></span></div><div class="content">1 思考一
+去旅行，发现最近的旅程越来越像我之前独自旅行的某些时刻：去没去过的地方，有独处思考的时间和空间，观察周围的人，回顾和反思这段时间的工作和生活态度。
+最喜欢的是在后半夜进行机场转机，也有那没素质的人强行占座挤来挤去，但也有互不打扰的安静时刻。后半夜，大家都放松下来、有些迷糊的状态，有点像微醺的感觉。在大厅里溜达溜达，刷了一些平时可能不会点开的视频，就像打开了一扇窗。
+对我而言，和平时不一样的心理体验有时候比风景更为重要，就像是加入一波新数据训练模型——在陌生的不稳态里，寻找自己相对的稳态。
+跳出生活，打断”自动驾驶“模式，能更加清晰地感到自己是怎样的人，自己的舒适区在哪儿。我一个人独处或是处于陌生人当中，不必顾虑人际关系，完全没有内耗。如果非要在安全感和自主性之间二选一，我肯定是选择后者。
+2 思考二
+旅行回来后，感到活力和行动力大增，表现出来是更多的购物和计划。以前很多事情只是想想一放弃了，现在会在第一时间行动。这可能是因为在旅行途中不断遇到的分岔口和决策点，内心的冲突与达成目标的兴奋以及未达成目标的遗憾。这一切，让人意识到天气的变化如何影响风景的不同，时间的差异也会导致价 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1832880413/" title="obsidian插件_文章上传微信公众号">obsidian插件_文章上传微信公众号</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-02-23T00:00:00.000Z" title="Created 2025-02-23 00:00:00">2025-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E6%8F%92%E4%BB%B6/">插件</a></span></div><div class="content">1 方法一: obsidian wechat
+public plugin
 
-2.2 类的区别
+1.1 信息概述
 
-JavaScript 没有类型声明
-JavaScript 没有访问修饰符（private/public）
-JavaScript 无法检查参数类型
-JavaScript 只能在运行时发现类型错误
+插件名称: obsidian-wechat-public-platform
+主要功能: 一键将 Obsidian 中的文章上传到微信公众号
+项目地址:
+https://github.com/ai-chen2050/obsidian-wechat-public-platform
+介绍视频:
+https://www.bilibili.com/video/BV1re411z7Ey/?t=13.4&amp;vd_source=eef058f284e51ad4598d556801a9fc84
+代码量: 超过 2000 行 TypeScript
+核心代码位置: api.ts
+
+1.2 使用体验
+
+可上传含图片的文章、封面、素材，且支持 CSS 风格。
+更新频率不高，但代码简洁，便于自定义。
+我主要使用的功能是上传到草稿箱。
+换了位置后，IP 老得重设。
+
+1.3 设置步骤
+
+安装插件。
+在设置界面输入 appid 和 secret，点击 connect 获取
+token，取自公众号开发平台：
 
 
 
+在待 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2345637894/" title="browser-use">browser-use</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-01-30T00:00:00.000Z" title="Created 2025-01-30 00:00:00">2025-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7/">浏览器工具</a></span></div><div class="content">1 介绍
 
+原理：基于 Langchain 开发
+方法：可以在 Python 程序中调用，或通过脚本使用
+运行：运行后，会自动打开浏览器，并进行搜索等操作获得结果
+用途：适用于获取实时信息，例如股价、天气等
+源码地址: https://github.com/browser-use/browser-use
+代码分析：以 Python 为主，目前 5000+ 代码
 
+2 用法
+2.1 使用 venv 虚拟环境
+1234sudo apt install python3.12-venvmkdir /exports/env_broswer-usepython3 -m venv /exports/env_broswer-usesource /exports/env_broswer-use/bin/activate
+2.2 安装 browser-use
+12pip install browser-useplaywright install
+2.3 运行 demo
+123456789101112131415161718192021222324252627# test_browser_use.pyfro ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1558552630/" title="本地npm包的缓存与管理">本地npm包的缓存与管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-01-30T00:00:00.000Z" title="Created 2025-01-30 00:00:00">2025-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 介绍
+功能：加速 npm 安装
+2 安装服务
+1234$ docker pull verdaccio/verdaccio$ docker run --rm -d --name verdaccio -p 4873:4873 -v /exports/verdaccio:/verdaccio/storage verdaccio/verdaccio  #注意将本地映射目录的权限# 调试用$ docker exec -it verdaccio sh
+3 使用
+设置环境变量
+1$ echo &quot;registry = http://localhost:4873/&quot; &gt;&gt; $HOME/.npmrc
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/850780974/" title="用访谈勾勒人心的99个问题">用访谈勾勒人心的99个问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-01-30T00:00:00.000Z" title="Created 2025-01-30 00:00:00">2025-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/">2_认知科学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/%E6%95%B0%E5%AD%97%E7%81%B5%E9%AD%82/">数字灵魂</a></span></div><div class="content">看了 2024 年 11 月斯坦福的论文《Generative Agent Simulations of 1,000
+People》，通过机器对人的访谈模拟 1000
+多个真人。很好奇：究竟要问哪些问题才能全面描绘一个人的画像？通过对这些问题的文本分析，可以预测出一个人的性格，以及他们在经济和社会生活中的选择，机器分析效果几乎与直接填写量表相当；甚至随机删除答案的
+80%，得到的结果仍高于其它方法。
+在《直觉泵和其他思考工具》一书中提到：“要了解一个人，仅仅询问他们的理想、希望、英雄主义或者过错就已足够。”
+而这里的 99
+个问题更加有血有肉，它们充满了生活的细节，揭示了一个人过去和现在正在经历的塑造过程。理想固然重要，但实际生活中需要权衡更多。
+简单机翻了一下，内容如下，原文请见论文
+https://arxiv.org/pdf/2411.10109 表 -7。
 
+请告诉我你的生活故事。从头说起——从你的童年、教育、家庭和人际关系，以及你经历过的任何重大事件。
+有些人告诉我们，他们在生活的某些时刻到达了十字路口，有多条道路可供选择，而他们当时的选择对定义他们是谁产生了重大影响。你呢？有 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3299970733/" title="论文分享_数字灵魂">论文分享_数字灵魂</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-01-30T00:00:00.000Z" title="Created 2025-01-30 00:00:00">2025-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/">2_认知科学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/2-%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6/%E6%95%B0%E5%AD%97%E7%81%B5%E9%AD%82/">数字灵魂</a></span></div><div class="content">1 探索与分享
+在探索价值观和个性的过程中，看到了我执和因果。
+这周轮到我知识分享，因为最近整理了很多网页收藏、聊天记录、摘抄、知识文档、日记、随笔和随手记录。想看看从中能挖掘沉淀点什么，于是找了一些相关的论文：
 
+能从这些文字中提取出什么信息，哪些信息无法获取，缺少了什么？
+是否可以进一步抽象这些信息，化繁为简，代入模型？
+利用这些信息可以做什么？
 
+于是，我找了几篇论文，从获取和分析角度包括：从 Twitter
+的内容中提取个性；通过真人访谈提取人格特征、经济学特征、社会学特征；从心理咨询对话中提取人格特征；探索道德困境的基本原理（不同价值观的冲突）；大五人格与大型模型的实验；以及每个
+BFI
+问题对大五人格各维度的贡献度。从使用角度：用大模型实现角色扮演，模拟投资策略，利用根据不同性格进行劝说，甚至分析欺骗背后的心理逻辑。
+坦白讲，分享的有点稀松，因为要在一个来小时内串讲十篇论文，只能简单触及表面。其实每篇论文我都进行了认真的梳理，并明确了它们在整个思维地图中的位置，后面会陆续发到我的网站和公众号上。
+其中，让我最有感触的两篇文章：
+第一篇来自华盛顿大学，艾伦人工智能研究所，20 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4124187326/" title="chatgpt-on-wechat聊天机器人不能用了怎么办">chatgpt-on-wechat聊天机器人不能用了怎么办</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-01-13T00:00:00.000Z" title="Created 2025-01-13 00:00:00">2025-01-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">1 chatgpt-on-wechat 无法登录
+最近几天，chatgpt-on-wechat
+微信聊天使用了（以下简称 COW）。这个项目目前已经获得了 32.5K 的
+Star。现在只要用微信登录，扫码后就会出现错误提示：
+123Start auto replying.Unexpected sync check result: window.synccheck=&#123;retcode:&quot;1102&quot;,selector:&quot;0&quot;&#125;LOG OUT!
+在 GitHub 的 issue
+中发现，昨天（240110）很多人也遇到了同样的问题，一些用户甚至在线等解决方案。
+更麻烦的是，扫码的微信号也需要重新登录，并且显示：
 
-特性
-JavaScript
-TypeSc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4241087167/" title="HP笔记本_BookPro14锐龙版">HP笔记本_BookPro14锐龙版</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-17T00:00:00.000Z" title="Created 2024-11-17 00:00:00">2024-11-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">1 具体型号
-惠普HP
-星Book Pro 14 锐龙版 2024 14英寸轻薄笔记本电脑(R7-8845H 32G 1T
-2.8K
-2 使用体验
+该账号违反了《微信个人帐号使用规范》……
 
-手感更好：键盘有点胶感，键帽稍大
-显示器色彩亮丽
-16:10 的屏幕比例更容易放进包里
-14 寸相较 15 寸更轻盈
-
-3 系统选择
-
-如果电脑是新款，建议使用较新的 Ubuntu
-版本，否则可能缺少硬件驱动
-相较于 22.04 版本，24.04 的安装体验更加顺畅
-
-4 装机
-4.1.1 设置 BIOS
-按 F10 进入 BIOS
-进入启动选项 -&gt; 安全启动模式 -&gt; 禁用
-
-如果未禁用，无法从 USB 启动
-如果禁用了，可能无法从本机 Windows 启动
-因此在安装过程中需先关闭后重新开启
-
-4.1.2 选择启动盘
-按 Esc -&gt; F9 -&gt; 选择从 USB 启动
-5 问题与解答
-
-拖尾问题
-
-在 Ubuntu 下拖动窗口时会出现拖影，将显示刷新率从 120Hz 调整为 96Hz
-即可。
-也可以选择关闭窗口动画：gsettings set org.gnome.desktop.interface enabl ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2969912271/" title="git_个人本地开发分支">git_个人本地开发分支</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-10T00:00:00.000Z" title="Created 2024-11-10 00:00:00">2024-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></span></div><div class="content">1 前提条件
-
-由于 Pull Request 流程的限制，我无法直接 push 到主分支
-master。因此，每次提交代码时，我需要将更改 push 到远程的
-xieyan 分支，由他人 review 后再 merge 到主分支。
-我在本地通常使用 VS Code 操作 Git。如果本地分支为
-master，远程推送时只能选择 xieyan 分支，每次
-commit 和 push 时都会提示我创建分支。
-
-2 操作
-2.1 操作分支
-在本地创建并切换到个人分支进行开发，然后将更改 push
-到远程个人分支，具体步骤如下：
-12345git checkout -b xieyan # 创建并切换到 xieyan 分支，当前所有 commit 也将保留在 xieyan 分支上# 进行代码修改git add &lt;文件名&gt;       # 添加修改的文件git commit -m &#x27;提交说明&#x27; # 提交更改git push origin xieyan  # 将更改推送到远程 xieyan 分支
-2.2 更新本地开发分支
-若远程主分支 master 上有了新的更改， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3215716404/" title="CHANGELOG_写法">CHANGELOG_写法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-11-10T00:00:00.000Z" title="Created 2024-11-10 00:00:00">2024-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a></span></div><div class="content">1 说明
-更新说明，GitHub 社区和开源项目中也普遍采用这种方式。
-2 创建 CHANGELOG.md
-在项目根目录下创建一个 CHANGELOG.md
-文件，用于记录所有版本的更新信息。
-3 推荐的格式
-CHANGELOG.md 的格式可以参考以下模板：
-12345678910111213141516171819202122# Changelog## [Unreleased]### Added- 新增的功能或模块### Changed- 对现有功能的改进或变更### Fixed- 修复的 Bug 或问题## [1.0.1] - 2024-11-08### Added- 添加了用户自定义的 `emptyStateText` 支持。### Fixed- 修复了 `SuggestModal` 无法显示自定义消息的问题。## [1.0.0] - 2024-10-01### Added- 初始版本发布，包含核心功能。
-4 版本说明规范
-
-版本号：每次更新都在新版本号下添加变更说明，遵循语义化版本规范（SemVer）（例如
-1.0.1）。
-日期：在版本号旁注明发布日期，方便追溯。
-分类：将变 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1902711198/" title="GitHub 自动发布教程">GitHub 自动发布教程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-12T00:00:00.000Z" title="Created 2024-10-12 00:00:00">2024-10-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></span></div><div class="content">1 原理
-GitHub Actions
-是一个强大的自动化工具，可以帮助你简化开发流程的各种操作。从测试代码到部署应用，它几乎可以自动化开发中的任何任务。
-这里使用它来自动发布 Obsidian 插件。当打 TAG
-时，它会触发编译并发布新版本。
-2 操作
-2.1 设置工作流
-在 github 项目中创建一个工作流配置文件
-12345mkdir .github/workflows/vi .github/workflows/release.ymlgit add .github/workflows/release.ymlgit commit -m &#x27;xxx&#x27;git push
-yml 中具体内容见：ob
-自动发布教程
-2.2 本地测试
-在本地安装一个与 yml
-文件中类似的环境（node-version）。测试无误后，再上传 GitHub
-进行编译。请确保 JSON 配置文件完整。
-2.3 打标签即可触发工作流
-12git tag -a 1.0.0 -m &quot;1.0.0&quot;git push origin 1.0.0
-如果标签错误，需要先删除原有标签，然后重 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/735485409/" title="论文阅读_大型语言模型增强强化学习调查">论文阅读_大型语言模型增强强化学习调查</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-10-11T00:00:00.000Z" title="Created 2024-10-11 00:00:00">2024-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">12345678中文标题：Survey on Large Language Model-Enhanced Reinforcement Learning: Concept, Taxonomy, and Methods中文名称: 大型语言模型增强强化学习调查：概念、分类和方法链接: https://arxiv.org/pdf/2404.00282作者: Yuji Cao, Huan Zhao, Yuheng Cheng, Ting Shu, Yue Chen, Guolong Liu, Gaoqi Liang, Junhua Zhao, Jinyue Yan, Yun Li,机构: 香港中文大学日期：2024-03-30引文数量：135长度：正文15页
-来自：241011 哲明分享
-摘要
-目标:
-提供对大型语言模型（LLMs）增强强化学习（RL）相关文献的全面综述，明确其与传统
-RL 方法的对比，澄清研究范围和未来研究方向。
-方法: 基于经典的代理 -
-环境互动范式，提出结构化分类法，将 LLMs 在 RL
-中的功能系统地划分为信息处理器、奖励设计者、决策者和生成器四个角色。逐一总结方法、 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/13/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/#content-inner">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/84/#content-inner">84</a><a class="extend next" rel="next" href="/page/15/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">834</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">257</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">173</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/380526573/" title="优化阅读过程">优化阅读过程</a><time datetime="2025-07-14T00:00:00.000Z" title="Created 2025-07-14 00:00:00">2025-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3872536713/" title="对谈_250706_关系中的尊严">对谈_250706_关系中的尊严</a><time datetime="2025-07-14T00:00:00.000Z" title="Created 2025-07-14 00:00:00">2025-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2458025667/" title="稳定币">稳定币</a><time datetime="2025-07-14T00:00:00.000Z" title="Created 2025-07-14 00:00:00">2025-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1249841320/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2025-07-14T00:00:00.000Z" title="Created 2025-07-14 00:00:00">2025-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3874387324/" title="国内外云主机价格对比">国内外云主机价格对比</a><time datetime="2025-07-12T00:00:00.000Z" title="Created 2025-07-12 00:00:00">2025-07-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+需要签署承诺书才能继续使用。这可视为一种警告：你如果继续这样使用，小心微信账号被封。在现在这个坐车、支付都要扫码的世界里，这还真挺可怕的。
+2 为什么要整治
+这一点其实很容易理解。推销诈骗在引入大型语言模型（LLM）后，如果不考虑开发成本，人工成本至少降低了不止
+100 倍。其实 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/13/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#content-inner">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/#content-inner">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/#content-inner">85</a><a class="extend next" rel="next" href="/page/15/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">844</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2121245533/" title="基金交易量预测比赛_基金交易量与净值讨论">基金交易量预测比赛_基金交易量与净值讨论</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1386420736/" title="以色列一个民族的重生_读后感">以色列一个民族的重生_读后感</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2153589382/" title="以色列一个民族的重生_背景知识">以色列一个民族的重生_背景知识</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2540585731/" title="250711_对谈_主人道德vs奴隶道德">250711_对谈_主人道德vs奴隶道德</a><time datetime="2025-07-21T00:00:00.000Z" title="Created 2025-07-21 00:00:00">2025-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3329624164/" title="高敏感与自我修正的思考">高敏感与自我修正的思考</a><time datetime="2025-07-21T00:00:00.000Z" title="Created 2025-07-21 00:00:00">2025-07-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -355,8 +332,8 @@ RL 方法的对比，澄清研究范围和未来研究方向。
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">78</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">76</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">29</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">14</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.13em; color: #999a9c">社会现象</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E6%8F%90%E5%8D%87/" style="font-size: 1.1em; color: #999">认知提升</a> <a href="/tags/%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.43em; color: #99a6b9">大型语言模型</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.33em; color: #99a2af">生物医学</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.3em; color: #99a1ac">自然语言处理/BERT</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E8%81%8C%E5%9C%BA/" style="font-size: 1.1em; color: #999">职场</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.13em; color: #999a9c">情感</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/" style="font-size: 1.1em; color: #999">加密货币</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.13em; color: #999a9c">艺术</a> <a href="/tags/%E8%87%AA%E6%88%91%E6%9E%84%E5%BB%BA/" style="font-size: 1.1em; color: #999">自我构建</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.37em; color: #99a4b2">自然语言处理/大模型</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.3em; color: #99a1ac">版本管理</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.47em; color: #99a8bc">算法实战</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">远程桌面</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.17em; color: #999c9f">情绪表达</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.13em; color: #999a9c">#后端</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.23em; color: #999ea6">情绪管理</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">目标管理</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%93%B2%E5%AD%A6/" style="font-size: 1.2em; color: #999da3">阅读/哲学</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.4em; color: #99a5b6">知识图/图神经网络</a> <a href="/tags/Python-%E8%82%A1%E7%A5%A8/" style="font-size: 1.27em; color: #99a0a9">Python/股票</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" style="font-size: 1.17em; color: #999c9f">多模态</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.17em; color: #999c9f">知识图/知识图谱</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 1.1em; color: #999">沟通</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.1em; color: #999">价值观</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.5em; color: #99a9bf">心理学</a> <a href="/tags/%E7%A4%BE%E4%BA%A4/" style="font-size: 1.1em; color: #999">社交</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">28</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">39</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">834</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1154.1k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-29T03:58:18.950Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.17em; color: #999ca0">编程语言/Java</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.21em; color: #999da3">思维整理</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.28em; color: #99a0aa">机器学习/时序</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98/" style="font-size: 1.43em; color: #99a6b8">算法实战</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/writing/" style="font-size: 1.1em; color: #999">writing</a> <a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/" style="font-size: 1.1em; color: #999">商业化</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">编程工具</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/2023%E5%B9%B4/" style="font-size: 1.14em; color: #999a9c">2023年</a> <a href="/tags/%E5%8F%99%E4%BA%8B%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">叙事心理学</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">远程桌面</a> <a href="/tags/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/" style="font-size: 1.14em; color: #999a9c">灵感创意</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.25em; color: #999fa7">区块链</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.35em; color: #99a3b1">自我反思</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.25em; color: #999fa7">个人成长</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.39em; color: #99a5b5">深度学习/模型结构</a> <a href="/tags/%E8%81%8C%E5%9C%BA/" style="font-size: 1.1em; color: #999">职场</a> <a href="/tags/%E8%87%AA%E4%BF%A1/" style="font-size: 1.1em; color: #999">自信</a> <a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7/" style="font-size: 1.21em; color: #999da3">公众号</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.32em; color: #99a2ae">笔记/Obsidian</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.1em; color: #999">后端</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">Web服务</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.46em; color: #99a8bc">生活</a> <a href="/tags/Arduino/" style="font-size: 1.35em; color: #99a3b1">Arduino</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">反思</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">41</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">30</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/12/"><span class="card-archive-list-date">December 2024</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">844</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1174.1k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-29T08:49:11.863Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
