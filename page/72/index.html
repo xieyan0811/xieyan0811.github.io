@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-08-07 17:00:15'
+  postUpdate: '2025-08-08 10:19:23'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,139 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">845</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">177</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/936/" title="08＿Arduino简单实例之八_蓝牙模块">08＿Arduino简单实例之八_蓝牙模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之八 _
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25462/" title="02＿Arduino简单实例之二_光敏传感器">02＿Arduino简单实例之二_光敏传感器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之二 _
+光敏传感器
+#Arduino
+1) 说明：
+光敏传感器是把光信号变成电信号的一种传感器，它利用半导体的光电效应制成的一种电阻值随入射光的强弱而改变的电阻器;
+入射光强,电阻减小,入射光弱,电阻增大。
+可用电位器（螺丝）调节亮度阀值，亮度大于设定值时 DO
+输出低电平，反之输出高电平。AO
+输出具体的亮度值。建议购买四脚的（三脚的没有 AO）
+2) 硬件：
+光敏传感器模块，Arduinouno，杜邦线
+3) 连接：
+VCC 接 arduino 的 3.3 或 5V
+GND 接 arduino 的 GND
+DO 接 arduino 的 Digital 2
+AO 接 arduino 的 Analog 0
+[](https://img-
+blog.csdn.net/20170220125150050?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Cente ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/22040/" title="03＿Arduino简单实例之三_土壤湿度传感器">03＿Arduino简单实例之三_土壤湿度传感器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之三 _
+土壤湿度传感器
+#Arduino
+1) 说明：
+用于土壤的湿度检测。
+可通过电位器调节土壤湿度的阀值，顺时针调节，控制的湿度会越大，逆时针越小；湿度低于设定值时，DO
+输出高电平，模块提示灯亮；湿度高于设定值时，DO
+输出低电平，模块提示灯灭。 工作电压 3.3V-5V。3V 时，在空气中 AO
+读取的值最大为 695，浸泡在水里的 最小值 245；5V 时，在空气中 AO
+读取的值最大为 1023
+，浸泡在水里的最小值 245。
+2) 硬件：
+土壤湿度传感器，Arduinouno，杜邦线
+3) 连接：
+VCC 接 Arduino 3.3V 或 5V
+GND 接 Arduino GND
+AO 接 ArduinoAnalog
+DO 接 Arduino Digital 4
+[](https://img-
+blog.csdn.net/20170220130149517?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/38480/" title="04＿Arduino简单实例之四_PS2游戏摇杆">04＿Arduino简单实例之四_PS2游戏摇杆</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之四 _PS2
+游戏摇杆
+#Arduino
+1) 说明：
+PS2 游戏双轴摇杆传感器模块由采用金属 PS2 摇杆电位器制作，具有 (X,Y)2
+轴模拟输出，(Z) 1 路按钮数字输出。可制作遥控器等互动作品。 SW
+引脚按下去时输出低电平，反之输出高电平
+2) 硬件：
+PS2 游戏摇杆 joystick，Arduino uno，杜邦线
+3) 连接：
+5V 接 Arduino 5V
+GND 接 Arduino GND
+URx 接 Analog 0
+URy 接 Analog 1
+SW 接 Digital 2
+[](https://img-
+blog.csdn.net/20170220130702165?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+4) 代码
+#define PIN_X 0  
+#define PIN_Y 1  
+#define  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/57879/" title="05＿Arduino简单实例之五_红外避障传感器模块">05＿Arduino简单实例之五_红外避障传感器模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之五
+_ 红外避障传感器模块
+#Arduino
+1) 说明：
+红外避障传感器具有一对红外线发射与接收管，发射管发射出一定频率的红外线，当检测方向遇到障碍物（反射面）时，红外线反射回来被接收管接收。它常用于安装在小车上，判断前方是否有障碍物。可通过电位器设置阀值。正前方有障碍时绿灯亮起，OUT
+引脚为低电平，反之为高电平。
+由于日光是也含红外线，所以大多数便宜红外模块在户外使用就会遇到问题。
+2) 硬件：
+红外避障模块，arduinouno，杜邦线
+3) 连接:：
+VCC 连接: Arduino 5V(说明书上写 3.3V-5V，我的硬件只在 5V
+下正常工作)
+GND 连接: Arduino GND
+OUT 连接: Digital 13
+[](https://img-
+blog.csdn.net/20170220131517981?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/7 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/41496/" title="06＿Arduino简单实例之六_超声测距离传感器">06＿Arduino简单实例之六_超声测距离传感器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之六 _
+超声测距离传感器
+#Arduino
+1) 说明：
+超声波测距离传感器常用于小车的障碍物检测。它采用超声波回波测距原理，运用精确的时差测量技术，检测传感器与目标物之间的距离。
+Trig
+触发控制信号输入，Echo 回响信号输出。写程序给 Trig
+发送一个低高低的短时间脉冲,触发测距；pulseIn 函数会等待引脚变为
+HIGH,开始计算时间,再等待变为 LOW 并停止计时。 声速是:340m/1s 换算成
+34000cm/ 1000000μs =&gt; 34 /1000。因为发送到接收,实际是相同距离走了 2
+回,所以要除以 2。 距离 (厘米) = (回波时间 * (34 / 1000)) /
+2，简化后的计算公式为 (回波时间 * 17)/ 1000
+2) 硬件：
+超声距离传感器 HC-SR04，Arduino uno 板，杜邦线
+3) 连接：
+VCC 接 Arduino 5V
+GND 接 Arduino GND
+TRIG 接 ArduinoDigital 12
+ECHO 接 Arduino Digital 11
+[](https://img-
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/25236/" title="07＿Arduino简单实例之七_红外遥控接收">07＿Arduino简单实例之七_红外遥控接收</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之七 _
+红外遥控接收
+#Arduino
+1) 说明：
+红外接收模块适用于红外线遥控和红外线数据传输。对于不同的遥控器，区别只是接到的数字不同。
+注意要买三脚的红外接收头，而不是直接购买红外对管。当然也可以买电子积木的红外接收模块，它还多了一块小板和小灯，质量也相对好一些，容易固定，价钱稍贵。
+因为日光中有红外线，所以在室外使用可能受到影响。
+2) 硬件：
+TL1838 万能接收头，Arduinouno，杜邦线
+3) 连接：
+VCC 接 Arduino 3.3V 或 5.5V
+GND 接 Arduino GND  OUT 接 Digital 11
+[](https://img-
+blog.csdn.net/20170220133058312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+4) 代码
+#include &lt;IRremote. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/57864/" title="09＿Arduino简单实例之九_温湿度传感器模块">09＿Arduino简单实例之九_温湿度传感器模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之九 _
+温湿度传感器模块
+#Arduino
+1) 说明：
+DHT11
+数字温湿度传感器是一款含有已校准数字信号输出的温湿度复合传感器。
+2) 硬件：
+DTH11 温湿度传感器电子积木模块，Arduinouno，杜邦线
+3) 连接：
+VCC 接 Arduino 3.3V 或 5V
+GND 接 Arduino GND
+OUT 接 Digital 2
+[](https://img-
+blog.csdn.net/20170220134021152?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+4) 代码
+#include &lt;dht11.h&gt;
+
+dht11 DHT11;
+#define PIN_DHT11 2
+
+void setup()
+&#123;
+  Serial.begin(9600);
+&#125;
+
+void loop()
+&# ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/936/" title="08＿Arduino简单实例之八_蓝牙模块">08＿Arduino简单实例之八_蓝牙模块</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之八 _
 蓝牙模块
 #Arduino
 1) 说明：
@@ -220,177 +352,7 @@ LED 灯可通过的最大电流为 30mA，如电压为 5V，加一个 220 欧电
 blog.csdn.net/20170220134950307?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
 4) 代码
 int led1 = 9;
-int led2 = ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/42115/" title="12＿Arduino简单实例十二_蜂鸣器播放生日快乐">12＿Arduino简单实例十二_蜂鸣器播放生日快乐</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例十二
-_ 蜂鸣器播放生日快乐
-#Arduino
-1) 说明：
-蜂鸣器是一种一体化结构的电子讯响器，采用直流电压供电，广泛应用于计算电子玩具、定时器等电子产品中作发声器件。
-蜂鸣器分有源和无源。如果是有源的，单片机只要输出高低电平就可以，如果是无源的，单片机就要输出
-PWM 波才可以让蜂鸣器发声。
-2) 硬件：
-5V 有源蜂鸣器，Arduinouno，杜邦线
-3) 连接：
-正极连 ArduinoDigital 4
-负极连 Arduino GND
-[](https://img-
-blog.csdn.net/20170220135301780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-4) ­­代码：
-int PIN_SPEAKER = 4;
-int length = 25;
-char notes[] = &quot;ggagCbggagDCg ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/56521/" title="13＿Arduino简单实例十三_四位数码管">13＿Arduino简单实例十三_四位数码管</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例十三 _
-四位数码管
-#Arduino
-1) 说明：
-数码管是一种半导体发光器件，其基本单元是发光二极管。因此也需要串联电阻，以防电流过大。每个数字由
-7 条线组成，用 a-
-g 控制，同时用 A1-A4 控制当前设置的四个数字中的哪一个。
-2) 硬件：
-5461AS 四位共阴数码管，Arduinouno，220 欧电阻四个，线若干
-3) 连接：
-限流电阻（4 个）串联在阴极。A1，A2，A3，A4
-用于选择显示哪个字符，也是阴极。
-[](https://img-
-blog.csdn.net/20170220135802330?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-4) 代码
-#define d_a 2  
-#define d_b 3  
-#define d_c 4  
-#define d_d 5   
-#define d_e 6   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8131/" title="14＿Arduino简单实例十四_小车">14＿Arduino简单实例十四_小车</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例十四 _ 小车
-#Arduino
-1) 说明：
-a)
-L298N/直流电机驱动模块 (控制两项步进电机)
-IN1-IN4 控制转动的方向，IN1 为低电平, IN2 为高电平, 电机反转；IN1
-为高电平,IN2 为低电平,电机正转；IN3 和 IN4 控制另一轮。 为了方便，把 EN
-使动端与跳线连接（高电平），然后使用 IN 的状态控制走停
-ENA
-
-IN1
-
-IN2
-
-运行状态
----|---|---|---
-0
-
-任意
-
-任意
-
-停止
-1
-
-0
-
-1
-
-正转
-1
-
-1
-
-0
-
-反转
-1
-
-1
-
-1
-
-刹停
-1
-
-0
-
-0
-
-停止
-b) 供电
-使用了航模专用的锂电池，主要考虑到它可以充电，标示为
-7.2V，充电后测量为 8.4V，电池接电机控制模块的
-VCC，然后用电机控制模块输出的 5V 给 Arduino 板供电。输入电压在 6V
-以下时，它就不能给 Arduino 板供电了。
-2) 硬件：
-直流电机驱动模块，Arduino
-uno，杜邦线，电池，智能小车套装（含车架，车轮，电动机等）
-3) 连接：
-电机驱动模块 IN1-IN4 接单片机: IN1-D ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48096/" title="Arduino介绍_硬件">Arduino介绍_硬件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 介绍 _ 硬件
-#Arduino
-1 初学者都要买什么？
-一块 Arduino 板（推荐 Arduino uno，买时带线）
-杜邦线（公对公，公对母，母对母都要一些） 一块面包板
-一些发光二极管
-一些电阻（几块钱一包的组合装）
-以上硬件就可以做最简单的实验，加上运费五十块钱也够了，比小孩玩的电子积木还便宜。也可以顺便买上几个便宜的传感器，无需一次买全，也许过两天就不玩了呢？最好等掌握了基本的再补货。
-如果没有万用表，最好花几块钱买个小电压表（比如：在户外测试小车时，经常遇到气温影响电压的问题）。我用的是：两线，量程是
-3.2-30V
-的数显电压表 (D3B3)。焊上了两上公头。 [](https://img-
-blog.csdn.net/20170220115906926?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-2 几种常用的 Arduino  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4702/" title="Arduino介绍_软件（以ubuntu系统上安装为例）">Arduino介绍_软件（以ubuntu系统上安装为例）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 介绍 _
-软件（以 ubuntu 系统上安装为例）
-#Arduino
-Arduino 是一款便捷灵活、方便上手的开源电子原型平台，包含硬件（Arduino
-板）和软件（Arduino
-IDE）。它的价格便宜（板子十来块钱），编程简单（类似 C
-语言），相关资料也多。
-1 Arduino IDE
-Arduino IDE 是 Arduino
-的集成开发环境，一般使用它编程，并将程序下载到开发板。
-1) 安装
-$ sudo apt-get install arduino
-$ sudo arduino
-运行 Arduino 需要较高权限，为了方便，暂使用 root
-权限运行（比较正规的方法是将用户加入高权限的组）。 如果觉得自动安装的
-IDE 版本不够新，请下载安装源码包（一般不用）。
-2) 最简单程序
-void setup() &#123;
-  Serial.begin(9600);
-&#125;
-
-void loop() &#123;
-  Serial.println(&quot;hello world&quot;);
-&#125;
-
-setup() 在程序开始执行时运行一 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/51845/" title="用Ant打Android的三方jar包_可包含各种资源">用Ant打Android的三方jar包_可包含各种资源</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2014-09-12T00:00:00.000Z" title="Created 2014-09-12 00:00:00">2014-09-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">用 Ant 打
-Android 的三方 jar 包 _ 可包含各种资源
-#移动开发 #Android
-有时候需要把部分功能编成 Jar 包，以便多个工程共用。
-一般情况下，用 ant 生成的 jar 包只能带编译后的 class
-文件，而其中用到的 res 资源，assets, libs 下的资源都编不进去。
-使用 eclipse 的 exports 可以导出 jar
-包，但是每次都要取消一些不用的文件，生成一次操作半天。
-用以下脚本可以实现该功能，其原理是：Jar 文件本来就是一个 zip
-格式的压缩包，把你需要的东西都放里面，然后打包即可，而 Ant
-就帮我们做了这件事.
-1234567891011121314151617181920212223242526272829303132333435363738394041424344&lt;project default=&quot;build&quot; &gt;    &lt;property        name=&quot;project.dir&quot;        value=&quot;.&quot; /&gt;   ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/54324/" title="使用Ant编译Android">使用Ant编译Android</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2014-09-05T00:00:00.000Z" title="Created 2014-09-05 00:00:00">2014-09-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">使用 Ant 编译 Android
-#移动开发 #Android
-（转载请注明出处: http://blog.csdn.net/xieyan0811）
-使用 Ant 编译 Android 应用程序很方便，在 Window 和 Linux
-下均可使用。尤其是将一个软件打成稍有差异的多个包时，非常实用。最近积累了一些小经验，下面分享一下：
-1. 如何在 Linux/Window 上安装
-Ant|
-
-在 Linux 下直接用 ant 安装即可)
-1$ sudo apt-get install ant
-在 Windows 下安装设置步骤如下（在 XP 及 Win7
-可正常使用）
-
-
-下载 ant 最新版本的二进制包
-[http://ant.apache.org/bindownload.cgi
-
-](http://ant.apache.org/bindownload.cgi)
-此包为压缩包，解包即可直接使用。
-
-设置环境变量
-
-
-我的电脑 -&gt;右键 -&gt;属性 -&gt;高级 -&gt;环境变量（Win7
-类似）
-在系统变量中加入 ANT_HOME，设置为 ant 解压的目录，形如：
- ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/71/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/#content-inner">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/#content-inner">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/#content-inner">85</a><a class="extend next" rel="next" href="/page/73/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">845</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">177</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3832182783/" title="基金交易量预测比赛_1_数据分析">基金交易量预测比赛_1_数据分析</a><time datetime="2025-08-03T00:00:00.000Z" title="Created 2025-08-03 00:00:00">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2121245533/" title="基金交易量预测比赛_基金交易量与净值讨论">基金交易量预测比赛_基金交易量与净值讨论</a><time datetime="2025-08-03T00:00:00.000Z" title="Created 2025-08-03 00:00:00">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3465274542/" title="视频_后处理">视频_后处理</a><time datetime="2025-08-01T00:00:00.000Z" title="Created 2025-08-01 00:00:00">2025-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1386420736/" title="以色列一个民族的重生_读后感">以色列一个民族的重生_读后感</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2153589382/" title="以色列一个民族的重生_背景知识">以色列一个民族的重生_背景知识</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+int led2 = ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/71/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/71/#content-inner">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/#content-inner">73</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/#content-inner">86</a><a class="extend next" rel="next" href="/page/73/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1840901021/" title="基金交易量预测比赛_5_背景知识2">基金交易量预测比赛_5_背景知识2</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2921938404/" title="两阶段股票价格预测研究">两阶段股票价格预测研究</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1832597661/" title="TradingAgents项目源码解析">TradingAgents项目源码解析</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3614201567/" title="基金交易量预测比赛_3_反思">基金交易量预测比赛_3_反思</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -398,8 +360,8 @@ Ant|
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">84</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">82</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">32</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/" style="font-size: 1.1em; color: #999">商业化</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.45em; color: #99a7ba">技术</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.3em; color: #99a1ac">深度学习/图形图像</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.2em; color: #999da3">日常记录</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF/" style="font-size: 1.1em; color: #999">开源许可</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.2em; color: #999da3">知识图/知识图谱</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">#Python</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/Obsidian/" style="font-size: 1.15em; color: #999b9e">Obsidian</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%93%B2%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">阅读/哲学</a> <a href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/" style="font-size: 1.1em; color: #999">理财规划</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E7%BB%B4%E6%8A%A4/" style="font-size: 1.1em; color: #999">关系维护</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.2em; color: #999da3">自动驾驶</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 1.1em; color: #999">沟通</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b1">强化学习</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E8%A1%A8%E7%A4%BA/" style="font-size: 1.1em; color: #999">嵌入表示</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.15em; color: #999b9e">社会现象</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/LLM/" style="font-size: 1.15em; color: #999b9e">LLM</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">40</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">845</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1176.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-07T17:00:13.110Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF/" style="font-size: 1.1em; color: #999">开源许可</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.3em; color: #99a1ac">思维整理</a> <a href="/tags/%E7%8E%B0%E5%AE%9E%E8%AE%A4%E7%9F%A5/" style="font-size: 1.1em; color: #999">现实认知</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.37em; color: #99a4b2">情绪管理</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.17em; color: #999c9f">自然语言处理/统计方法</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/LLM/" style="font-size: 1.17em; color: #999c9f">LLM</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.43em; color: #99a6b9">自然语言处理/BERT</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.23em; color: #999ea6">数据管理</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.23em; color: #999ea6">知识图/知识图谱</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.17em; color: #999c9f">社会现象</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.17em; color: #999c9f">历史</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E7%88%B6%E6%AF%8D%E6%95%99%E8%82%B2/" style="font-size: 1.1em; color: #999">父母教育</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">知识管理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.5em; color: #99a9bf">编程语言</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.17em; color: #999c9f">浏览器插件</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">模型优化</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/" style="font-size: 1.17em; color: #999c9f">模型增强</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E5%9F%BA%E9%87%91%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">基金交易</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.23em; color: #999ea6">艺术</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.3em; color: #99a1ac">数据存储/MYSQL</a> <a href="/tags/%E9%A5%AE%E9%A3%9F/" style="font-size: 1.1em; color: #999">饮食</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.43em; color: #99a6b9">版本管理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">40</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">852</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1188.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-08T10:19:20.364Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

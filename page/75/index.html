@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-08-07 17:00:15'
+  postUpdate: '2025-08-08 10:19:23'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,165 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">845</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">177</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48698/" title="MacOS入门之二：多操作系统并存">MacOS入门之二：多操作系统并存</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-10T00:00:00.000Z" title="Created 2012-10-10 00:00:00">2012-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/MacOS/">MacOS</a></span></div><div class="content">MacOS
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/26351/" title="MYSQL入门之三_将本地MySQL数据导入SAE数据库">MYSQL入门之三_将本地MySQL数据导入SAE数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-11-21T00:00:00.000Z" title="Created 2012-11-21 00:00:00">2012-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">MYSQL
+入门之三 _ 将本地 MySQL 数据导入 SAE 数据库
+1. MySQL 字符集
+MySQL 的默认字符集是 latin1，将本地 MySQL 库导出成 sql，再导入到 SAE 的
+MySQL 时中文字符出现乱码，解决方法是将本地 mysql 默认字符集也设成
+utf8
+查看当前 MySQL 字符集
+** mysql &gt; show variables like 'character_set_%'; **
+更改 MySQL 默认字符集
+$ vi /etc/mysql/my.cnf
+在client和mysqld中加参数
+** [client]
+default-character-set=utf8
+[mysqld]
+character-set-server=utf8
+init_connect='SET NAMES utf8'
+** 重启MySQL后台服务
+** $ service mysqld restart **
+2. 导入/导出数据
+一般导入导出数据通过 sql 文件进行，sql 文件包括一系列 sql
+命令，包含建表，插入数据等等
+3. 从 MySQL 导出数据 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/64121/" title="MYSQL入门之二_PHP操作MYSQL">MYSQL入门之二_PHP操作MYSQL</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-11-21T00:00:00.000Z" title="Created 2012-11-21 00:00:00">2012-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">MYSQL 入门之二 _PHP 操作
+MYSQL
+1. 本地连接 MySQL
+** $con= mysql_connect("localhost", "root", "xxxxxx"); **
+** if(!$con) { **
+** die('Could not connect: '.mysql_error()); **
+** }else { **
+** echo"Connect success "; **
+** } **
+2. SAE 连接 MySQL
+** $con =mysql_connect(SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT, **
+** SAE_MYSQL_USER,SAE_MYSQL_PASS); **
+** if (!$con) { **
+** die('Could not connect: '.mysql_error()); **
+** } else { **
+** echo"Connect success "; **
+** } **
+** mysql_select_db(SAE_MYSQL_DB,$con); **
+3. 断开  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32344/" title="建站之一：平台选择和环境搭建（SAE）">建站之一：平台选择和环境搭建（SAE）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-19T00:00:00.000Z" title="Created 2012-10-19 00:00:00">2012-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">建站之一：平台选择和环境搭建（SAE）
+一、为什么选择 SAE 建站
+1. CS/BS 架构的选择
+
+CS（Client/Server）的服务器端通常都是由程序实现服务，并且一直在后台运行，客户端是一个程序。
+
+
+BS（Browser/Server）的服务器端是 Web 服务器在后台运行（如
+apache），只需要写一些程序（如 PHP）被 Web
+服务器调用即可，而客户端可以是浏览器也可以是程序。
+
+就实现而言，无论协议的设计，编码，还是调试，BS 都相对简单。
+
+2. GAE 与 SAE 的选择
+SAE（Sina App Engine）是新浪开发的 用于 WEB
+应用程序的开发和托管的平台
+，它提供了 Web
+服务器，存储空间，数据库，负载均衡，数据备份等等，开发者只需要实现应用相关编码即可使用。
+GAE（Google App Engine）是谷歌开发的 WEB 应用程序开发和托管的平台。 GAE
+和 SAE 各有优势，考虑到主要面对国内用户，而 GAE
+时常被封，无法保证稳定性，故选择 SAE（参考《GAE 与 SAE 对比》）
+3. 费用
+SAE 以云豆计费，对流量，CPU
+时 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8529/" title="建站之三：PHP网页实现">建站之三：PHP网页实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-19T00:00:00.000Z" title="Created 2012-10-19 00:00:00">2012-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">建站之三：PHP 网页实现
+一、相关概念
+1. Php 与 Html 关系
+Html: 前端、静态、客户端执行
+Php: 后端、动态、服务器执行
+Html 可以包含 Php，Php 可以生成 html
+2. Php 与 Javascript 关系
+Php 是服务器端脚本，Javascript
+是客户端脚本，功能不同，可以配合使用
+如在 Form 中 button 的 onclick 可以调 Javascript 函数，但不能调 php
+函数
+而 Javascript 不能处理服务器端数据
+3. 网页术语
+Css：控制网页内容如何显示
+Div：Div 标签用于定义一个区域的显示方式（如背景，字体，对齐方式等）
+Style：Style 标签用来设置 css 格式表
+Meta：Meta 标签包含一些网页的隐藏信息
+二、网页实现
+1. 建议使用 DreamWeaver 设计网页，然后再手动编辑
+设置页面属性（背景，屏幕宽度，链接显示等），加入文字图片等
+一般网站，需要设计页头，页脚（可单写文件，被多个页网包含）
+2. 网页适应浏览器分析率
+用百分比设置宽度：width:100%
+设置最大宽度： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/19570/" title="建站之二：本地调试环境LAMP的搭建">建站之二：本地调试环境LAMP的搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-19T00:00:00.000Z" title="Created 2012-10-19 00:00:00">2012-10-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">建站之二：本地调试环境 LAMP
+的搭建
+#操作系统/Linux #数据存储
+一、说明
+用 SAE 建站时需要调试，总不能改一下，上传一下 SVN，在 Ubuntu
+中仅安装几个软件，进行简单配置即可建立本地调试环境，即
+LAMP（Linux+Apache+Mysql+Php）
+二、实现
+1. 安装 Web 服务器 Apache
+$ sudo apt-get install apache2
+安装后在浏览器中打开 http://localhost/或者 http://127.0.0.1
+如正常显示 It works!，则说明 Web 服务器已正常运行
+2. 安装 Php 解释器对应的 apache 工具
+$ sudo apt-get install php5
+$ sudo apt-get install libapache2-mod-php5
+重启 apache
+$ sudo /etc/init.d/apache2 restart
+测试php是否正常
+$ vi /var/www/testphp.php
+编辑内容如下
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49186/" title="UML工具_Jude（astah）">UML工具_Jude（astah）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-10T00:00:00.000Z" title="Created 2012-10-10 00:00:00">2012-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E5%85%B6%E5%AE%83/">其它</a></span></div><div class="content">1 用途
+跨平台的 UML 工具——Jude（astah），用 JAVA 实现的 UML 工具，可导出 UML
+图片。
+2 软件
+Jude 现更名为 astah
+3 安装
+从
+[http://jude.change-vision.com/jude-web/index.html](http://jude.change-
+vision.com/jude-web/index.html)，可下载相应的 Windows，Mac OS，Linux
+版本，新版安装包，包含 Java 运行环境
+4 参考
+一个不错的免费UML工具：JUDE
+community
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/50440/" title="MacOS入门之一：基本操作">MacOS入门之一：基本操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-10T00:00:00.000Z" title="Created 2012-10-10 00:00:00">2012-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/MacOS/">MacOS</a></span></div><div class="content">MacOS 入门之一：基本操作
+1．说明
+本文简述了 Macbook 的一般使用方法，以及 Iphone
+开发环境的配置，参考资料和注意事项，希望对初学者有所帮助。
+2．基本操作（与非苹果系统差异）
+
+切换操作系统，开机时按 Option 键
+如何查看系统信息：菜单 -&gt;前往 -&gt;实用工具
+-&gt;系统信息
+鼠标操作
+
+
+按下左键：单指按下触摸板，触摸板实际是个大按钮
+按下右键：两指按下触摸板
+滚轮：两指划动
+
+
+如何弹出光盘：按键盘右上角弹出键，有些光盘正在使用中时，需要右键操作光盘图标，选择推出
+应用退出全屏：全屏时，鼠标放在屏幕顶端，顶端工具条会显示出来，点击工具条最右侧蓝色按钮
+文件管理器：Finder-&gt;设备
+修改默认操作系统：菜单 -&gt;苹果图标 -&gt;系统偏好设置
+-&gt;启动磁盘
+如何切换输入法：Command+ 空格
+
+3．应用程序
+
+Mac OS 中的常用软件
+
+
+播放多媒体工具：mplayer
+聊天工具：QQ
+网络电视：PPTV
+游戏
+常用工具：FlashPlayer
+虚拟机工具：VirtualBox
+
+
+如何安装软件：
+
+
+下载 d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/48698/" title="MacOS入门之二：多操作系统并存">MacOS入门之二：多操作系统并存</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-10-10T00:00:00.000Z" title="Created 2012-10-10 00:00:00">2012-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/MacOS/">MacOS</a></span></div><div class="content">MacOS
 入门之二：多操作系统并存
 #操作系统
 1．说明
@@ -249,201 +407,7 @@ http://space.itpub.net/94384/viewspace-604806
 3.4 设置静态 IP
 系统 -&gt;首选项 -&gt;网络连接，除设置 IP，子网掩码，网关外，还需要设
 DNS，可参考 DHCP 时自动生成的/etc/resolv.conf
-3.5 设置 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1772008702/" title="建立垂直搜索引擎&amp;中文分词">建立垂直搜索引擎&amp;中文分词</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-05-03T00:00:00.000Z" title="Created 2012-05-03 00:00:00">2012-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%88%86%E8%AF%8D/">分词</a></span></div><div class="content">建立垂直搜索引擎&amp;中文分词
-关键字：垂直搜索引擎中文分词 nutch tomcat linux
-1．说明
-建立简单的垂直搜索引擎。
-通过实际操作信息搜索软件，环境配置，了解主要模块的构成，及交互方式。通过修改搜索软件，了解软件架构，接口及插件等运作方式。
-通过对分词部分的修改，了解了分词原理及主流的中文分词技术及其应用。
-2．目标
-利用信息检索工具，搜索 http://beijing.cncn.com/
-网站中的景点介绍网页，对其进行索引，使用户可通过关键字查询，快速定位感兴趣的景点。
-3．软件介绍
-由于搜索引擎是多个软件协作完成的，软件之间版本相互依赖，以下选择了
-nutch1.2 及相关版本软件。
-
-软件环境：Ubuntu 10.04，JDK-1.6
-信息检索工具：Nutch 1.2 源码
-当前 nutch 版本 1.4，此版本不直接支持 tomcat，需要通过 solr，因而选择
-nutch 1.2，该版本可以通过
-
-svn 标签下载
-
-Web 服务器：tomcat
-Apache-tomcat-6.0.26 安装包
-辅助工具（用于查看搜索结果）：luke
-lukeall- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4014168402/" title="设置Ubuntu终端支持GB2312字符集">设置Ubuntu终端支持GB2312字符集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-05-03T00:00:00.000Z" title="Created 2012-05-03 00:00:00">2012-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">设置 Ubuntu 终端支持 GB2312
-字符集
-1. 安装所需软件
-$ sudo apt-get install zh-autoconvert
-$ sudo apt-get install zhcon
-2. 配置系统
-$ vi /var/lib/locales/supported.d/local 加入
-zh_CN.GBK GBK
-zh_CN.GB2312 GB2312
-$ sudo local-gen
-3. 终端设置
-终端 -&gt;菜单 -&gt;终端 -&gt;设定字符编码 -&gt;添加或删除, 添加
-GB18030
-终端 -&gt;菜单 -&gt;终端 -&gt;设定字符编码 -&gt;简体中文
-4. 设置当前用户使用的字符集
-export LANG=zh_CN.GBK
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3946/" title="使用Ant编译Android工程（Linux系统）">使用Ant编译Android工程（Linux系统）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-03-27T00:00:00.000Z" title="Created 2012-03-27 00:00:00">2012-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">使用 Ant 编译 Android
-工程（Linux 系统）
-#移动开发 #Android
-一、问题
-同一套 Android 代码，希望通过配置文件的形式，制作成不同包名的多个
-package（多包名，多版本号，多市场 logo，多广告商）。
-二、解决方法
-使用 Ant 编译
-三、Ant 安装和使用
-1. 环境：Ubuntu 10.04
-2. 安装工具
-
-安装 jdk 1.6 及 android-sdk-linux-r15（见 android sdk
-相关文档）
-安装 ant 1.83 版本
-由于 android-sdk-linux-r15 需要 ant 1.8.0 以上版本，在 ubuntu 10.04
-上使用 apt-
-
-get 自动安装的版本太低，所以使用源码包安装方法
-
-下载
-ant 最新版（当前为 1.8.3） 下载 junit-4.9.jar 包，ant
-编译时需要此包
-安装
-** $ tar xvzf../tgz/apache-ant-1.8.3-src.tar.gz
-$ cd apache-ant-1.8.3
-$ cp /usr/lib/jvm/java-6-sun/l ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2646435207/" title="Lucene在Linux下环境的搭建和运行">Lucene在Linux下环境的搭建和运行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-03-23T00:00:00.000Z" title="Created 2012-03-23 00:00:00">2012-03-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Lucene 在 Linux
-下环境的搭建和运行
-1. 介绍
-_ Lucene _
-是一个用 Java
-写的全文索引引擎工具包，软件包中包括一些简单的例程，可以直接试用。本例将测试对一个目录中的
-txt 文件进行索引，并通过索引找到相应的文件。
-2. 原理
-反向搜索机制，维护了一个词/短语表，对于这个表中的每个词/短语，都有一个链表描述了有哪些文档包含了这个词/短语。
-Lucene 软件包的发布形式是一个 JAR 文件，包说明
-org.apache.lucene.analysis 用于分词
-org.apache.lucene.index 用于建立索引
-org.apache.lucene.search 用于搜索
-3. 安装
-
-下载：
-[http://xiexiejiao.cn/java/lucene-3-0-2-release-download.html
-
-](http://xiexiejiao.cn/java/lucene-3-0-2-release-download.html)
-本文以 lucene-3.0.3-src.tar.gz 为例，在 Linux 中安装运行
-
-安装相关工具
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/58485/" title="CVS_打标签">CVS_打标签</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-03-08T00:00:00.000Z" title="Created 2012-03-08 00:00:00">2012-03-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">版本管理</a></span></div><div class="content">#版本管理
-关键字：CVS，TAG，标签，查看，取出
-1. TAG
-
-TAG 是什么
-TAG
-一般被译为标签，常见的用法是在软件发布到一定程度时（如发布阶段性版本时），对其所有文件打标签。
-TAG 如何命名
-标签名称必须以大写或者小写字母开始，可以包括大小写字母、数字、-' 和_'。两个标签名
-BASE 和 HEAD 是保留为 cvs 使用
-
-2. 常用命令
-
-对单个文件打标签
-
-1$ cvs tag 标签名 文件名
-
-对当前目标下所有文件打标签（含子目录）
-
-1$ cvs tag 标签名
-
-对某个目录打标签
-
-1$ cvs tag 标签名 目录名
-
-查看单个文件的版本信息
-
-1$ cvs status –v 文件名
-
-取出标签对应的版本
-
-1$ cvs checkout –r 标签名 模块名
-3. 参考:
-[http://oss.org.cn/man/develop/cvsdoc_zh/Tags.html
-](http://oss.org.cn/man/develop/cvsdoc_zh/Tags.html)
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1658/" title="Android使用DOM方式解析XML">Android使用DOM方式解析XML</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-03-06T00:00:00.000Z" title="Created 2012-03-06 00:00:00">2012-03-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 使用 DOM 方式解析
-XML
-#移动开发 #Android
-1．介绍
-在 Android 系统中很多信息及配置文件都是以 xml 格式存储的，Android
-系统也提供 SAX 和 DOM 两种方式来解析 XML 文件，下面介绍其中比较简单的
-DOM 方式。
-2．例程
-
-功能
-解析 xml 文件内容，并显示在程序界面上
-关键字
-Android, xml, dom, 解析
-可从此处下载可独立运行的代码
-[http://download.csdn.net/detail/xieyan0811/4117455
-
-](http://download.csdn.net/detail/xieyan0811/4117455)
-
-核心代码及说明
-
-package com.demo.xml;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.TextView;
-import android.widget.LinearLayout;
-import android.util.Log;
-
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1479/" title="Android游戏中动画的实现">Android游戏中动画的实现</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2012-03-06T00:00:00.000Z" title="Created 2012-03-06 00:00:00">2012-03-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 游戏中动画的实现
-#移动开发 #Android
-1．介绍
-对于游戏等对界面要求较高的程序，一般需要控制 View
-中的具体图像显示（如动画功能）下面介绍实现此功能常用的 SurfaceView
-控制。
-
-常用的绘制图像的方法
-
-
-View 的 invalidate()
-直接调用 onDraw() 绘图
-View 的 postInvalidate()
-通过消息调用 onDraw() 绘图
-SurfaceView
-画布的重绘是由一个单独的线程处理，所以不会阻塞，专门为游戏而实现的。
-
-
-SurfaceView
-
-
-说明
-
-
-它支持 OpenGL ES，2D 和 3D 效果都能实现
-在游戏线程中画图（而非主线程）：冻结画布 -&gt;在画布上绘图
--&gt;解冻画布 -&gt;次画布内容绘制到屏幕上
-采用双缓存，避免屏幕闪烁
-
-
-实现
-
-
-需要实现 Callback 接口，它可以用来监听 SurfaceView
-的状态，而从开启和销毁游戏主线程
-需要实现 Runnable 接口, 它实现了游戏绘图线程
-
-
-常见问题
-
-
-双缓存问题
-
-
-原理：由于内存中存在着两个绘图区，每绘一 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/74/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/74/#content-inner">74</a><span class="page-number current">75</span><a class="page-number" href="/page/76/#content-inner">76</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/#content-inner">85</a><a class="extend next" rel="next" href="/page/76/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">845</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">265</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">177</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3832182783/" title="基金交易量预测比赛_1_数据分析">基金交易量预测比赛_1_数据分析</a><time datetime="2025-08-03T00:00:00.000Z" title="Created 2025-08-03 00:00:00">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2121245533/" title="基金交易量预测比赛_基金交易量与净值讨论">基金交易量预测比赛_基金交易量与净值讨论</a><time datetime="2025-08-03T00:00:00.000Z" title="Created 2025-08-03 00:00:00">2025-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3465274542/" title="视频_后处理">视频_后处理</a><time datetime="2025-08-01T00:00:00.000Z" title="Created 2025-08-01 00:00:00">2025-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1386420736/" title="以色列一个民族的重生_读后感">以色列一个民族的重生_读后感</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2153589382/" title="以色列一个民族的重生_背景知识">以色列一个民族的重生_背景知识</a><time datetime="2025-07-29T00:00:00.000Z" title="Created 2025-07-29 00:00:00">2025-07-29</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+3.5 设置 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/74/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/74/#content-inner">74</a><span class="page-number current">75</span><a class="page-number" href="/page/76/#content-inner">76</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/#content-inner">86</a><a class="extend next" rel="next" href="/page/76/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1840901021/" title="基金交易量预测比赛_5_背景知识2">基金交易量预测比赛_5_背景知识2</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2921938404/" title="两阶段股票价格预测研究">两阶段股票价格预测研究</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1832597661/" title="TradingAgents项目源码解析">TradingAgents项目源码解析</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3614201567/" title="基金交易量预测比赛_3_反思">基金交易量预测比赛_3_反思</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -451,8 +415,8 @@ SurfaceView
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">84</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">82</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">32</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/" style="font-size: 1.1em; color: #999">商业化</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.45em; color: #99a7ba">技术</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.3em; color: #99a1ac">深度学习/图形图像</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.2em; color: #999da3">日常记录</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF/" style="font-size: 1.1em; color: #999">开源许可</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.2em; color: #999da3">知识图/知识图谱</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">#Python</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.4em; color: #99a5b6">深度学习/模型结构</a> <a href="/tags/Obsidian/" style="font-size: 1.15em; color: #999b9e">Obsidian</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%93%B2%E5%AD%A6/" style="font-size: 1.25em; color: #999fa7">阅读/哲学</a> <a href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/" style="font-size: 1.1em; color: #999">理财规划</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E7%BB%B4%E6%8A%A4/" style="font-size: 1.1em; color: #999">关系维护</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.2em; color: #999da3">自动驾驶</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 1.1em; color: #999">沟通</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.35em; color: #99a3b1">强化学习</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E8%A1%A8%E7%A4%BA/" style="font-size: 1.1em; color: #999">嵌入表示</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.15em; color: #999b9e">社会现象</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.25em; color: #999fa7">工作思考</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/LLM/" style="font-size: 1.15em; color: #999b9e">LLM</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">40</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">845</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1176.6k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-07T17:00:13.110Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%AE%B8%E5%8F%AF/" style="font-size: 1.1em; color: #999">开源许可</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.3em; color: #99a1ac">思维整理</a> <a href="/tags/%E7%8E%B0%E5%AE%9E%E8%AE%A4%E7%9F%A5/" style="font-size: 1.1em; color: #999">现实认知</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.37em; color: #99a4b2">情绪管理</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.17em; color: #999c9f">自然语言处理/统计方法</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/LLM/" style="font-size: 1.17em; color: #999c9f">LLM</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.43em; color: #99a6b9">自然语言处理/BERT</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.23em; color: #999ea6">数据管理</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.23em; color: #999ea6">知识图/知识图谱</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.17em; color: #999c9f">社会现象</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.17em; color: #999c9f">历史</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E7%88%B6%E6%AF%8D%E6%95%99%E8%82%B2/" style="font-size: 1.1em; color: #999">父母教育</a> <a href="/tags/markdown/" style="font-size: 1.1em; color: #999">markdown</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">知识管理</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.5em; color: #99a9bf">编程语言</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.17em; color: #999c9f">浏览器插件</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">模型优化</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/" style="font-size: 1.17em; color: #999c9f">模型增强</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E5%9F%BA%E9%87%91%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">基金交易</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.23em; color: #999ea6">艺术</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.3em; color: #99a1ac">数据存储/MYSQL</a> <a href="/tags/%E9%A5%AE%E9%A3%9F/" style="font-size: 1.1em; color: #999">饮食</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.43em; color: #99a6b9">版本管理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">40</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">852</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1188.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-08T10:19:20.364Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

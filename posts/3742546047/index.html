@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>国外API获取金融数据指南 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨获取金融数据的国外API工具，包括yfinance、Finnhub和Simfin等，以及其应用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国外API获取金融数据指南">
+<meta property="og:url" content="http://xyan666.com/posts/3742546047/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨获取金融数据的国外API工具，包括yfinance、Finnhub和Simfin等，以及其应用方法。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-08-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-08-07T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="编程">
+<meta property="article:tag" content="金融">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3742546047/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '国外API获取金融数据指南',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-07 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">国外API获取金融数据指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-07T00:00:00.000Z" title="Updated 2025-08-07 00:00:00">2025-08-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="国外API获取金融数据指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="国外-api">1 国外 API</h2>
+<h3 id="yfinancepython-库">1.1 yfinance：python 库</h3>
+<p>yfinance 之所以能够免费提供服务，是因为它通过模拟浏览器访问 Yahoo
+Finance 来抓取数据，类似于 " 网页爬虫 "。Yahoo 的反爬机制会限制甚至封禁
+IP，导致 429 错误。此外，yfinance 需要解析 JSON 端点并处理 HTML
+页面，任何对 Yahoo Finance 网站的改动都可能影响 yfinance
+的正常运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install yfinance</span><br></pre></td></tr></table></figure>
+<h3 id="finnhub">1.2 Finnhub</h3>
+<p>Finnhub 是专为开发者打造的金融数据
+API，全球化的实时数据专家。涵盖美股及全球 60
+多个市场，提供实时股价、外汇、加密货币、公司基本面、新闻和 AI
+驱动的情感分析。免费版每分钟支持 60 次 API 调用，每秒最多 30
+次，足以满足大多数个人项目和基础回测需求。免费版主要提供美股的实时和静态数据，访问
+A 股、港股以及历史蜡烛图需要更高权限。此外，Finnhub 好像还支持 MCP。</p>
+<ul>
+<li>注册：https://finnhub.io/register</li>
+<li>文档：https://finnhub.io/docs/api，内容很全且精细</li>
+<li>python 库：https://github.com/Finnhub-Stock-API/finnhub-python，demo
+里有的 api 有的需要权限</li>
+</ul>
+<p>示例如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install finnhub-python</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> finnhub</span><br><span class="line"></span><br><span class="line">finnhub_client = finnhub.Client(api_key=<span class="string">&quot;xx&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取苹果公司(AAPL)的实时股票报价</span></span><br><span class="line">quote = finnhub_client.quote(<span class="string">&#x27;AAPL&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;AAPL 实时报价：&quot;</span>, quote)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取苹果公司(AAPL)的公司基本信息</span></span><br><span class="line">profile = finnhub_client.company_profile2(symbol=<span class="string">&#x27;AAPL&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;AAPL 公司信息：&quot;</span>, profile)</span><br></pre></td></tr></table></figure>
+<h3 id="simfin">1.3 simfin</h3>
+<p>SimFin 是一个便捷的财务数据 Python
+库，提供包括收入报表、资产负债表和现金流量表在内的多种财务数据。使用前需申请
+API 密钥。</p>
+<p>官网：https://www.simfin.com/<br />
+使用指南：https://github.com/SimFin/simfin-turtorials.git</p>
+<h3 id="financial-modeling-prepfmp">1.4 Financial Modeling
+Prep(FMP)</h3>
+<p>通过 API 直接筛选股票，无需下载所有数据再用 pandas
+处理，简化基本面分析。免费版每日可调用 API 250 次。</p>
+<h2 id="国内数据">2 国内数据</h2>
+<h3 id="adata-推荐">2.1 adata <strong>推荐</strong></h3>
+<p>这是一个用于下载金融数据的 Python 库，目前已经获得了 2.6K
+颗星，最近增长速度较快。专注股票行情数据,为了保证数据的高可用性,采用多数据源融合切换。在
+GitHub 页面上有详细的使用介绍。</p>
+<p>项目地址：https://github.com/1nchaos/adata</p>
+<p>该工具的核心是通过解析网页实现数据抓取。adata
+支持下载来源于东方财富、百度股市通、新浪财经、腾讯理财、同花顺等平台的数据。我试了两个接口：虽然
+adata.stock.info.all_code()，adata.stock.market.get_market(stock_code='000001',
+k_type=1,
+start_date='2025-08-01')，数据量少时速度较快。财务数据和分红数据均能成功提取。</p>
+<h3 id="东方财富-api">2.2 东方财富 API</h3>
+<p>免费的信息有限，但你可以从网页上获取更多内容，懂的都懂。</p>
+<h3 id="wind-api">2.3 Wind API</h3>
+<p>该服务不支持网页版，只能安装应用程序使用，并且提供的信息有限免费。</p>
+<h3 id="tushare">2.4 tushare</h3>
+<p>第一年免费</p>
+<p>见之前文档：<a
+href="/posts/3799/">Python量化交易之一_获取数据</a></p>
+<h3 id="akshare-推荐">2.5 akshare <strong>推荐</strong></h3>
+<p>API 丰富且稳定</p>
+<p>见之前文档：<a
+href="/posts/3799/">Python量化交易之一_获取数据</a></p>
+<h2 id="框架工具">3 框架工具</h2>
+<h3 id="go-stock">3.1 go-stock</h3>
+<p>Go-Stock 是一款前端采用 NaiveUI 和 Vue 框架,后端使用 Go 语言开发的 AI
+股票分析工具,支持 A
+股、港股、美股的数据分析，包含一些利用大模型进行数据分析的功能。目前
+2.2K star，我对 go 语言不熟，也没细看。</p>
+<ul>
+<li>地址：https://github.com/ArvinLovegood/go-stock</li>
+<li>技术：可配置多种大模型，本地知识库使用 AnythingLLM</li>
+<li>数据：来自 Tushare 等，可参考其信息获取部分</li>
+</ul>
+<h2 id="tradingagents-推荐">4 TradingAgents
+<strong>（推荐）</strong></h2>
+<p>多智能开源项目，为中文用户打造的多智能体大语言模型金融交易决策框架。</p>
+<ul>
+<li>相关论文：<a
+href="分享_250807/相关论文/论文阅读_TradingAgents多智能体金融交易框架.md">论文阅读_TradingAgents多智能体金融交易框架</a></li>
+<li>项目介绍：<a
+href="分享_250807/股票数据/开源项目_TradingAgents.md">开源项目_TradingAgents</a></li>
+</ul>
+<h2 id="数据打包下载">5 数据打包下载</h2>
+<h3 id="kaggle-股票相关新闻数据下载">5.1 Kaggle
+股票相关新闻数据下载</h3>
+<p>包含 2009 年至 2020 年关于 6000 只股票的 400
+万篇英文文章，数据包含日期、标题、出处、相关股票等信息，登录 kaggle
+即可下载，压缩包约 220M，解包后包含 3 个 csv 文件，每个都有上百 M。</p>
+<ul>
+<li>下载地址：https://www.kaggle.com/datasets/miguelaenlle/massive-stock-news-analysis-db-for-nlpbacktests，</li>
+<li>相关工具：实时数据抓取：https://github.com/miguelaenlle/Scraping-Tools-Benzinga（五年前更新）</li>
+</ul>
+<h3 id="天池比赛预测基金申赎数据">5.2 天池比赛：预测基金申赎数据</h3>
+<p>包含 20 支基金，从 2024.4.8-2025.7.24 申赎数据</p>
+<ul>
+<li>下载地址：https://github.com/AFAC-2025/AFAC2025_train_data</li>
+</ul>
+<h2 id="大模型和编程工具">6 大模型和编程工具</h2>
+<h3 id="在-vscode-中自动编码">6.1 在 vscode 中自动编码</h3>
+<p>还可以使用 vscode 中包含的 mcp 方式获取，例如：</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725190542.png" /></p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725190557.png" /></p>
+<h3 id="用大模型-联网方式获取">6.2 用大模型 + 联网方式获取</h3>
+<p>以下为懒人数据提取方法（通过 deepseek 网页版的联网模式获取）：</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725161613.png" /></p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725161627.png" /></p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725161728.png" /></p>
+<p>获取大规模真实数据难以通过大模型实现。在此，deepseek
+返回的数值仅包含截至 2024 年 7
+月的数据（模型是基于此前的数据训练的）。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020250725162249.png" /></p>
+<h3 id="总结">6.3 总结</h3>
+<ul>
+<li>从 deepseek
+获取交易的<strong>具体数据时幻觉严重</strong>，因为抓数据可能涉及爬虫问题，有些询问直接被拒绝。</li>
+<li>不同的模型效果差异巨大。demo 中给出的是调用一个 1.5B
+模型的方法，且不连网搜索，所以返回信息多数是错的。最后我使用的基金相关数据基本来自
+deepseek 联网模式，基本是对的。</li>
+<li>对于文本数据，直接给让大模型分析效果最好</li>
+<li>对于数值型数据，让 Agent+MCP 自行分析数据格式和
+API，自行写程序，抓取和转换效果更好。</li>
+<li>在 vscode 中使用 copilot，国内信息使用的是 akshare 和
+东方财富，可以把它们整合成自己的工具集</li>
+</ul>
+<h3 id="总结-1">6.4 总结</h3>
+<ul>
+<li>从 deepseek
+获取交易的具体数据时存在显著问题，特别是由于涉及爬虫相关问题，一些请求可能被直接拒绝。</li>
+<li>使用不同模型效果差异明显。例程中不联网且调用 1.5B
+模型，导致返回信息多有错误。最终，我选择的基金相关数据主要依赖于
+deepseek 的联网模式，相对准确。</li>
+<li>大模型更善于分析文本数据。</li>
+<li>对于数值性数据，通过 Agent+MCP 分析数据格式和 查找
+API，自行编程抓取和转换效果更佳。</li>
+<li>在 vscode 中使用 copilot，写出的代码国内金融信息来源是：akshare
+和东方财富，可将它们整合成自己的工具套件。</li>
+</ul>
+<h2 id="思考和建议">7 思考和建议</h2>
+<ul>
+<li>使用本地的数据库存储数据，不要每次都下载</li>
+<li>许多时候只有在得到完整数据后才开始处理，结果花费了大量时间在数据收集和处理上</li>
+<li>需要提取的数据主要包括：K 线数据、基本信息数据、新闻数据</li>
+<li>无论用哪种方法，获取少量数据都还算顺利，但获取大量数据较为困难，新闻数据尤其困难</li>
+<li>关于国内股票信息，建议询问 DeepSeek</li>
+<li>推荐的工具组合是：adata/akshare+TradingAgents</li>
+</ul>
+<h2 id="参考文章">8 参考文章</h2>
+<p><a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxMjUyNDQ5OA==&amp;mid=2653585782&amp;idx=1&amp;sn=16f4466c34ccfa78b11635039b594d2e&amp;chksm=8135ba116ca394ba7c44866a09b772ef229bac67fa33388b634b9ccf343f628a55237fca8e50&amp;scene=27&amp;poc_token=HDnDkmijsIDKUyTBACQjINgIPMhd0fqMQpXakgtp">yfinance总是崩溃？这些API让你的策略稳如老狗</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3742546047/">http://xyan666.com/posts/3742546047/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a><a class="post-meta__tags" href="/tags/%E9%87%91%E8%9E%8D/">金融</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3655162895/" title="基金交易量预测比赛_4_背景知识讨论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">基金交易量预测比赛_4_背景知识讨论</div></div></a></div><div class="next-post pull-right"><a href="/posts/1673074570/" title="论文阅读_多智能体LLM金融交易框架TradingAgents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">论文阅读_多智能体LLM金融交易框架TradingAgents</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/578618082/" title="大模型代理框架AutoGen_实战篇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-22</div><div class="title">大模型代理框架AutoGen_实战篇</div></div></a></div><div><a href="/posts/3322575348/" title="Manus和OpenManus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-28</div><div class="title">Manus和OpenManus</div></div></a></div><div><a href="/posts/34734/" title="从正态分布到T检验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-12-22</div><div class="title">从正态分布到T检验</div></div></a></div><div><a href="/posts/35170/" title="Bland-Altman图"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-18</div><div class="title">Bland-Altman图</div></div></a></div><div><a href="/posts/36879/" title="几种常见的数学分布"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2018-11-03</div><div class="title">几种常见的数学分布</div></div></a></div><div><a href="/posts/53001/" title="熵_相对熵_散度"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-03-19</div><div class="title">熵_相对熵_散度</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">180</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E5%A4%96-api"><span class="toc-number">1.</span> <span class="toc-text">1 国外 API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#yfinancepython-%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 yfinance：python 库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finnhub"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Finnhub</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#simfin"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 simfin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#financial-modeling-prepfmp"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 Financial Modeling
+Prep(FMP)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E5%86%85%E6%95%B0%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">2 国内数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#adata-%E6%8E%A8%E8%8D%90"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 adata 推荐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9C%E6%96%B9%E8%B4%A2%E5%AF%8C-api"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 东方财富 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wind-api"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Wind API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tushare"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 tushare</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#akshare-%E6%8E%A8%E8%8D%90"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 akshare 推荐</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E5%B7%A5%E5%85%B7"><span class="toc-number">3.</span> <span class="toc-text">3 框架工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#go-stock"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 go-stock</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tradingagents-%E6%8E%A8%E8%8D%90"><span class="toc-number">4.</span> <span class="toc-text">4 TradingAgents
+（推荐）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%89%93%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.</span> <span class="toc-text">5 数据打包下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#kaggle-%E8%82%A1%E7%A5%A8%E7%9B%B8%E5%85%B3%E6%96%B0%E9%97%BB%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 Kaggle
+股票相关新闻数据下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A9%E6%B1%A0%E6%AF%94%E8%B5%9B%E9%A2%84%E6%B5%8B%E5%9F%BA%E9%87%91%E7%94%B3%E8%B5%8E%E6%95%B0%E6%8D%AE"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 天池比赛：预测基金申赎数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%92%8C%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7"><span class="toc-number">6.</span> <span class="toc-text">6 大模型和编程工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-vscode-%E4%B8%AD%E8%87%AA%E5%8A%A8%E7%BC%96%E7%A0%81"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 在 vscode 中自动编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E8%81%94%E7%BD%91%E6%96%B9%E5%BC%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 用大模型 + 联网方式获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.3.</span> <span class="toc-text">6.3 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">6.4.</span> <span class="toc-text">6.4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E5%92%8C%E5%BB%BA%E8%AE%AE"><span class="toc-number">7.</span> <span class="toc-text">7 思考和建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-number">8.</span> <span class="toc-text">8 参考文章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1840901021/" title="基金交易量预测比赛_5_背景知识2">基金交易量预测比赛_5_背景知识2</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2921938404/" title="两阶段股票价格预测研究">两阶段股票价格预测研究</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1832597661/" title="TradingAgents项目源码解析">TradingAgents项目源码解析</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3614201567/" title="基金交易量预测比赛_3_反思">基金交易量预测比赛_3_反思</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
