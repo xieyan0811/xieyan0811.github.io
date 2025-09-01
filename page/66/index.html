@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-08-31 17:00:15'
+  postUpdate: '2025-09-01 06:00:09'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,203 +163,179 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">179</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/33807/" title="实战人品预测之二_热门模型xgboost">实战人品预测之二_热门模型xgboost</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-06T00:00:00.000Z" title="Created 2017-12-06 00:00:00">2017-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战人品预测之二 _ 热门模型
-xgboost
-1. 介绍
-有人戏称数据挖掘比赛为 GBDT 调参大赛，因为在很多比赛后期，大家都使用
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">864</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">184</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1055400106/" title="TF-IDF算法">TF-IDF算法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-30T00:00:00.000Z" title="Created 2017-12-30 00:00:00">2017-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">随笔 _ 从《芳华》影评到 TF/IDF
+算法
+ 
+前两天看好多《芳华》的影评说：为什么好人没好报？于是感叹一堆世态炎凉，人性丑陋什么的。我觉得这问题是：为什么中央空调（对谁都温暖）往往不被看好。
+
+  先说说 TF/IDF
+算法，这是一种信息处理和数据挖掘的重要算法，属于统计类方法。比如说，找一篇文章的关键词，TF（词频）是某个词在这篇文章中出现的频率，频率越高越可能是关键字。IDF（逆向文件频率）是这个词出现在其它文章的频率，比如“的”字，它在任何文章都出现，因为必然不是关键字。把
+TF 和 IDF 乘在一起，就是这个词在这篇文章中的重要程度。
+  我们对一个人的态度也往往取决于：他对大家的态度 IDF，和他对我的态度
+TF。刘峰对谁都很好，因此 IDF
+是一个固定值，他对所有人都好这是个加分项吗？很遗憾，看公式：
+
+其中分子是所有人，分母是刘峰给几个人送过温暖。也就是说他送温暖的人越多，分母越大，IDF
+值越低。不过也请注意 log，它把这个值影响力给降低了。比如说，他给 5
+个人送过温暖，再给第 6 个人送温暖时，分母变大，IDF 降低，导致前 5
+个人对他的好感度降低，不对呀 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46809/" title="Python海量数据处理之_Hadoop家族">Python海量数据处理之_Hadoop家族</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-27T00:00:00.000Z" title="Created 2017-12-27 00:00:00">2017-12-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之
+_Hadoop 家族
+  本篇是 hadoop 部分的最后一篇，主要介绍 Hadoop
+家族的常用工具。以及解答学习过程中的一些疑问。
+hadoop 家族
+
+ Pig 是上层封装了的数据流处理工具。
+ Mahout 是基于集群的数据挖掘工具。
+ Zookeeper
+是集群管理工具，比如配置一些备用服务器，当重要的服务宕机时，及时补救。
+  其中黄色部分是 hadoop 安装包中自带的，HDFS
+是文件系统支持，MapReduce 是计算支持。
+  绿色部分都是向上层提供类似数据库的数据访问，但方式不同。Hive 是基于
+MapReduce 的封装，它向上层提供了类似 SQL 语言的 HQL，向下通过 MapReduce
+方式访问数据。HBase 在对 HDFS 层的封装，它本质上是一种 key/value
+系统，主要负责数据存储，解决的是 HDFS 随机存储方面的问题。
+有了 mysql 为什么还要 Hadoop?
+  我们之前介绍搭建比特币矿池的时候，使用 zookeeper+kafka+mysql
+建立集群，其中用 mysql 建构数据服务器，集群中其 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/11107/" title="Python海量数据处理之_Hadoop&amp;Spark">Python海量数据处理之_Hadoop&amp;Spark</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-26T00:00:00.000Z" title="Created 2017-12-26 00:00:00">2017-12-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之
+_Hadoop&amp;Spark
+1. 说明
+  前篇介绍了安装和使用 Hadoop，本篇将介绍 Hadoop+Spark
+的安装配置及如何用 Python 调用 Spark。
+  当数据以 TB,PB 计量时，用单机处理数据变得非常困难，于是使用 Hadoop
+建立计算集群处理海量数据，Hadoop 分为两部分，一部分是数据存储
+HDFS，另一部分是数据计算 MapReduce。MapReduce 框架将数据处理分成
+map,reduce
+两段，使用起来比较麻烦，并且有一些限制，如：数据都是流式的，且必须所有
+Map 结束后才能开始 Reduce。我们可以引入 Spark 加以改进。
+ Spark 的优点在于它的中间结果保存在内存中，而非 HDFS
+文件系统中，所以速度很快。用 Scala
+语言可以像操作本地集合对象一样轻松地操作分布式数据集。虽然它支持中间结果保存在内存，但集群中的多台机器仍然需要读写数据集，所以它经常与
+HDFS 共同使用。因此，它并非完全替代 Hadoop。
+ Spark 的框架是使用 Scala 语言编写的，Spark
+的开发可 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13294/" title="Python海量数据处理之_Hadoop（三）程序调用">Python海量数据处理之_Hadoop（三）程序调用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-25T00:00:00.000Z" title="Created 2017-12-25 00:00:00">2017-12-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之
+_Hadoop（三）程序调用
+1. 说明
+  前两篇分别介绍了 Hadoop
+的配置方法和基本原理，本篇将介绍如何让程序借助 Hadoop
+调用服务器集群中的算力。Hadoop 是 Java 语言实现的，它不仅支持
+Java，还支持 C++，Python 等程序的分布计算。下面以 Python
+为例介绍如何使用 Hadoop 的 MapReduce 功能。
+2. 工作过程
+  在原理部分介绍过，Hadoop
+分为两部分，一部分是存储，一部分是运算，而各个部分又可分为主控和局部实现。这里忽略细节，主要说明运算的主控部分是如何运作的。
+  从程序调用的角度看，程序员首先需要把待处理的文件复制到 HDFS
+文件系统之中，然后调 Hadoop 提供的 java 程序执行分布计算，具体需要执行的
+python 代码用参数的形式提供；最后在 HDFS
+生成输出文件，程序员再将其拷回本地即可。
+  这里的分布计算主要指 MapReduce，MapReduce
+框架将输入数据分割成数据块，传给 Mapper，然后 Map
+任务在各个服务器上以完全并行的方式处理，接着 Ma ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28428/" title="Python海量数据处理之_Hadoop（二）概念和原理">Python海量数据处理之_Hadoop（二）概念和原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-22T00:00:00.000Z" title="Created 2017-12-22 00:00:00">2017-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之
+_Hadoop（二）概念和原理
+1. 说明
+ Hadoop
+是个分布式的架构，它将海量数据处理工作分配到集群中的多个机器上运行。前篇介绍了
+Hadoop 的安装，在安装过程中会产生一些疑问，比如 NameNode
+是什么东西？本篇就以问题&amp;解答的方式介绍 Hadoop
+的相关概念及其原理。
+2.
+NameNode，DataNode，以及 Secondary NameNode
+  把 Hadoop 分为 HDFS 和 MapReduce。HDFS 为数据提供了存储，MapReduce
+为数据提供了计算。
+ NameNode，DataNode 以及 Secondary NameNode
+都是属于存储部分，NameNode
+主要负责管理元信息，如文件名，目录结构，属性，数据块存储位置等等。DataNode
+负责数据块的具体存取。SecondaryNameNode 是 NameNode
+的辅助工具，有两个作用，一是镜像备份，二是日志与镜像的定期合并，注意：它并不是
+NameNode 的备份。
+3. ResourceManager 与
+NodeManager ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/41367/" title="Python海量数据处理之_Hadoop（一）集群搭建">Python海量数据处理之_Hadoop（一）集群搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-21T00:00:00.000Z" title="Created 2017-12-21 00:00:00">2017-12-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之
+_Hadoop（一）集群搭建
+1. 说明
+ 
+数据处理时，可能会遇到数千万以及上亿条数据的情况。如果一次性处理所有数据，就会遇到内存不够，计算时间太长等问题。上篇《Python
+海量数据处理之 _
+单机优化》讲述了单机的处理大数据的解决方案。下面将讲述如何利用服务器集群处理大数据，这里使用的工具是
+Hadoop，内容太多，分为三部分介绍，本篇是第一部分集群搭建，后两部分分别是原理和
+python 调用。
+2. Hadoop 简介
+  如果有多台用于数据计算的机器，可以使用 Hadoop
+框架建立集群，统一分配布属。Hadoop 是由 Apache
+基金会所开发的分布式系统基础架构，最核心的设计是：HDFS 和
+MapReduce。HDFS 为数据提供了存储，MapReduce 为数据提供了计算，其中
+Mapper 指的就是拆分处理，Reducer
+指的就是将结果合并。和单机一样，核心也是拆分，处理，再合并。
+ 
+多台机器同时处理数据，相对更复杂，需要考虑：数据共享，同步，冲突，资源分析，计算顺序，以及主控宕机等等问题。
+3. Hadoop 安装
+  首先， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14894/" title="Python海量数据处理之_单机优化">Python海量数据处理之_单机优化</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-20T00:00:00.000Z" title="Created 2017-12-20 00:00:00">2017-12-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 海量数据处理之 _
+单机优化
+1. 说明
+ 
+数据处理时，可能会遇到数千万以及上亿条数据的情况。一次处理所有数据，会遇到内存不够，计算时间太长等问题。一般的解法是：先拆分，再处理，最后将处理的结果合并（当然数据少的时候不需要这么麻烦）。本文将介绍在单机上，只使用
+Python 如何处理大量数据。
+2. 实例
+ 
+本例是天池大数据竞赛中的“淘宝穿衣搭配”比赛，这是一个新人赛，只要注册参赛，即可下载数据。目标是根据商品信息，专家推荐，用户购物信息，计算出最佳商品组合。
+  本例中处理的是用户购物信息“表 1”：每条记录包含用户号 uid，商品号
+mid，购物时间 time。
+1234uid,mid,time4371603,8,201504188034236,8,201505166135829,8,20150405
+需要统计每个用户都购买了什么物品，即生成“表 2”：记录包含用户号
+uid，商品组合 mids。
+123uid,mids15  &quot;1795974,1852545,98106,654166&quot;20  &quot;2639977,79267&quot; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6983/" title="Python之DataFrame数据处理">Python之DataFrame数据处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-18T00:00:00.000Z" title="Created 2017-12-18 00:00:00">2017-12-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 之 DataFrame 数据处理
+1. 说明
+ DataFrame 是 Pandas 库中处理表的数据结构，可看作是 python
+中的类似数据库的操作，是 Python 数据挖掘中最常用的工具。下面介绍
+DataFrame 的一些常用方法。
+2. 遍历
+1) 代码
+12345678import pandas as pdimport mathdf=pd.DataFrame(&#123;&#x27;key&#x27;:[&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;],&#x27;data1&#x27;:[1,2,3],&#x27;data2&#x27;:[4,5,6]&#125;)  print(df)for idx,item in df.iterrows():    print(idx)    print(item)
+2) 结果
+12345678910   data1  data2 key0      1      4   a1      2      5   b2      3      6   c0data1    1data2  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/35736/" title="实战微博互动预测之三_xgboost答疑解惑">实战微博互动预测之三_xgboost答疑解惑</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-15T00:00:00.000Z" title="Created 2017-12-15 00:00:00">2017-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战微博互动预测之三
+_xgboost 答疑解惑
+1. 说明
+ 
+前两篇完成了特征工程的相关工作：加入用户的统计特征，分析文本信息内容，并作为新特征加入了数据集。
+本篇我们来看看算法，实战微博互动预测（后简称本例）的评估算法如下：
+  公式中 f 代表转发，c 代表评论，l 代表赞，p 代表预测，r
+代表真实值；deviation 是真实值与预测值的偏差，具体公式如下：
+
+precision 是准确率，根据偏差算出：
+
+sig 为符号函数，当 x&gt;0 时 sig(x)=1，当 x&lt;=0 时，sig(x) 为
+0。Counti 为每篇的反馈总数，当 Counti&gt;100 时，以按 100 计算。
+ 
+与大多数评估算法不同，本例中每个实例有不同权重，反馈越多实例权重越大。而我们常用的算法比如
 GBDT
-类的算法，特征类似，只有模型参数不同，模型集成方法不同，最终大家的成绩差别也很小。
-上篇《实战人品预测之一 _ 国内大数据竞赛平台》，介绍 DataCastle
-平台的“微额借款用户人品预测大赛”比赛规则，以及一些初步的尝试。本篇说说最终获胜的，也是
-GDBT 类算法中使用频率最高的 xgboost 算法的使用和调参方法。
-2. xgboost 原理
-之前在《机器学习 _
-集成算法》篇（http://www.jianshu.com/p/3c8cca3e1ca2）中介绍过 GBDT
-类的算法，简单回顾一下：
- Boosting
-算法不断地使用同一算法（比如决策树）建立新模型，而新模型分配给上一次错分样本更大的权重，最终根据按成功度加权组合得到结果。由于引入了逐步改进的思想，重要属性会被加权。
-Gradient Boosting
-Machine（GBM）梯度提升算法是目前比较流行的数据挖掘模型，它通过求损失函数在梯度方向下降的方法，层层改进，是泛 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/37404/" title="实战人品预测之一_国内大数据竞赛平台">实战人品预测之一_国内大数据竞赛平台</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-05T00:00:00.000Z" title="Created 2017-12-05 00:00:00">2017-12-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战人品预测之一 _
-国内大数据竞赛平台
-1. 竞赛平台哪家强
- Kaggle
-是一个很好的竞赛平台，上面大牛很多，代码分享和思路讲解也很棒，但是它的用户信息和数据全都存在
-google
-服务器上，虽然网页能看到，但上传下载数据需要连外网，从当前的网络情况看来，只能用
-VPN，用起来实在太麻烦了。
-  国内的大数据竞赛平台，DataCastle
-和天池也不错，也有奖金。比赛结果后，排名靠前参加答辩的选手会将答辩 PPT
-分享出来，有时也会分享代码。相对来说天池的数据包含丰富的业务场景，更粘近现实情况，有的比赛还提供在计算平台。
-  天池和 Kaggle 都有数据科学家的排行榜，以提供展示实力的途径。
-2. 选择竞赛
+是根据误差迭代改进的，默认情况下各实例权重是一样的，这块儿需要单独处理一下。
+  具体算法还是使用 xgboost 库，之前看到的大多数关于 xgboost
+的文章，要么是讲数学原理，要么是参数的中文说明，xgboost
+似乎还是一个黑盒，下面就结合具体问题看看 xgboo ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32847/" title="实战微博互动预测之二_中文分析">实战微博互动预测之二_中文分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-12-12T00:00:00.000Z" title="Created 2017-12-12 00:00:00">2017-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战微博互动预测之二 _
+中文分析
+#算法实战 #自然语言处理
+1. 说明
+  前篇《实战微博互动预测之一 _
+问题分析》中，已经对微博的整体反馈情况，以及单个用户的反馈做了初步的分析。本篇将从微博的信息内容中提取更多特征。
  
-从时效来看，建议一开始先选择参赛队多的往期题目，最好是获胜者提供了源代的。很多比赛在结束之后仍开放提交代码并提供线上评分（没有奖金），这样边做边学，速度更快，也不会陷入某个比赛无法自拔。
+文本分析是数据分析中的常用技术，使用范围很广，比如：信息搜索，内容推荐，文章分类，内容提取等等。其核心是分析连续的文本，抽取关键数据，再进行下一步分析。
+2. 文本分析
+1) TF-IDF 算法
+ TF-IDF 是一种统计方法，TF 指词频，IDF 是逆向文件频率。TF
+好理解，就是词在文章中出现的频率，出现频率高的词更可能是文章的关键词。但有些词如：“是”，“的”，“了”（即停用词）在任何文章出现频率都高，于是使用
+IDF。IDF
+通过总文件数目除以包含该词语之文件的数目，再将商取对数得到，它弱化了常用词的权重。TF-IDF
+倾向于过滤掉常见的词语，保留重要的词语。
+2) 中文分词
  
-从难易来看，建议从简单的开始，如果影响因素太多，难以判别哪里出了问题。最好一开始选择纯数据的。
-3. 典型问题
-  我觉得在实践的过程中，有几类典型问题是需要常试的：
-
-以 xgb ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3815399149/" title="机器学习_总结篇_十大经典算法与算法选择">机器学习_总结篇_十大经典算法与算法选择</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-30T00:00:00.000Z" title="Created 2017-11-30 00:00:00">2017-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _ 总结篇 _
-十大经典算法与算法选择
-一、数据挖掘十大经典算法
-最近写了一些机器学习的文档，对应数据挖掘经典算法，列表如下：
-1. 聚类 K-Means
-《机器学习_基于距离的算法KNN与K-Means》
-2. 关联 Apriori
-《机器学习_规则与关联规则模型Apriori、FP-Growth》
-3. 最大期望 EM
-《机器学习_隐马尔可夫模型HMM》
-4. 决策树 DTree
-《机器学习_决策树与信息熵》
-5. CART: 分类与回归树
-《机器学习_用树回归方法画股票趋势线》
-6. 贝叶斯 Bayes
-《机器学习_统计模型之（一）贝叶斯公式》
-《机器学习_统计模型之（二）贝叶斯网络》
-《机器学习_统计模型之（三）朴素贝叶斯》
-7. 线性回归 logistic
-《机器学习_最小二乘法，线性回归与逻辑回归》
-8. 集成算法 adaBoost
-《机器学习_集成算法》
-####9. 支持向量机 SVM
-《机器学习_SVM支持向量机》
-10. PageRank
-（没写）
-11. 其它（特征工程）
-《机器学习_用SVD奇异值分解给数据降维》
-《机器学习_用PCA主成分分析给数据降 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2390092493/" title="机器学习_规则与关联规则模型Apriori、FP-Growth">机器学习_规则与关联规则模型Apriori、FP-Growth</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-29T00:00:00.000Z" title="Created 2017-11-29 00:00:00">2017-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _
-规则与关联规则模型 Apriori、FP-Growth
-#机器学习 #关系规则
-1. 何时使用规则模型
- 
-机器学习时常遇到一个问题：当数据并不完全可分时，分类器得分不高。真实世界中的数据经常是这样：各种无意义数据和少量有意义数据混在一起，无意义数据又没什么规律，无法统一去除。比如说，对股票外汇市场受各种因素影响，预测次日涨跌一般各算法效果都不好。虽然找不到通用的规则，却能在数据中探索到一些模式，比如十字星，孕线，三只乌鸦等组合还是具有一定的预测性。
- 
-之前使用决策树时，就遇到过这种情况，虽然整体得分不高，但某些叶节点上纯度高（全是正例或全是反例）并且实例多，可以把该分枝拿出来当规则使用。虽然不能用它预测任意数据，但可以作为一个过滤器使用。
-2. 规则模型是什么
- 
-规则模型和决策树同属逻辑模型，不同的是决策树对正例反例同样重视，而规则只重视正例/反例其中一项。因此决策树呈现的是互斥关系，而规则模型允许重叠，结果也相对零散的规则列表。规则更像是在大量数据中挑选有意义的数据。
- 
-如果说树是精确模型，规则模型则是启发式策略（虽然经过修改也能覆盖所有实例，但一般不这么用）。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1802336420/" title="机器学习_基于距离的算法KNN与K-Means">机器学习_基于距离的算法KNN与K-Means</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-28T00:00:00.000Z" title="Created 2017-11-28 00:00:00">2017-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _
-基于距离的算法 KNN 与 K-Means
-1. 距离的量度
-1) 距离
-距离的定义是一个宽泛的概念：只要满足非负、自反、三角不等式就可以称之为距离。其中非负是指任意两个相异点的距离为正；自反是
-Dis(y,x)=Dis(x,y)；三角不等式是 Dis(x,z)&lt;=Dis(x,y)+Dis(y,z)
-2) 马氏距离（闵可夫斯基距离）
-
-其中 d 是维数，p 是阶数，也称为 p 范数。
-当 p=1 时，是曼哈顿距离
-当 p=2 时，是欧氏距离
-当 p→∞时，是切比雪夫距离
-当 p=0 时，是海明距离
-3) 欧氏距离
-两点间的直线距离（一般用两条竖线||w||代表 w 的 2 范数）代入公式：
-
-4) 曼哈顿距离（城市街区距离）
-各坐标数值差的和，就像汽车只能行驶在横平竖直的街道上，代入公式：
-
-5) 切比雪夫距离
-各坐标数值差的最大值，当马氏距离的
-p→∞时，最终的结果取决于距离最大的维度上的距离：
-Dis∞=maxj|xj-yj|
-在二维的情况下：c=max(a,b)
-6) 海明距离
-L0
-范数并不是一个真正的范数，它主要被用来度量向量中非零元素的个数。
-
-7) 总 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3517426469/" title="机器学习_SVM支持向量机">机器学习_SVM支持向量机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-27T00:00:00.000Z" title="Created 2017-11-27 00:00:00">2017-11-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _SVM 支持向量机
-1. 介绍
-SVM
-支持向量机属于广义的线性模型，先回忆一下线性模型：可依据平面（多维）或直线（一维/二维）来理解模型。简单地说，可用一条线将两类分开，如下图所示。
-
-能将两类分开的直线不止一条（左图），我们希望找到离两组数据都最远的那条线（正中间那条线），以便更好地泛化。这就是右图中所示的极大边距分类器，一般把中间的直线称为决策面，把离决策面最近的那些点（训练实例）称为支持向量，也就是右图中紫圈中的点。
-
-有时会遇到无法用直线分类的情况，如左图所示，但可以用圆环划分，右图展示了同样的数据，各个特征值取原始值的平方，变换到新的特征空间后，数据变成了线性可分。将数据从线性不可分转成线性可分的函数称为核函数，转换的方法称为核技巧（这里是取平方的操作，核函数一般将低维数据映射到高维）。由于需要把原始模型转换成线性模型，再进一步操作，我们叫它“广义线性模型”。
-这就是一般意义上的支持向量机
-SVM，它有两个重点：一个是考虑分类时的最大边距，另一个是使用核函数把线性不可分的变成线性可分的。
-原理并不难，但具体实现涉及数学较多，如果嫌麻烦，请跳过“求解线性方程”部分 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2581411535/" title="机器学习_统计模型之（一）贝叶斯公式">机器学习_统计模型之（一）贝叶斯公式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-24T00:00:00.000Z" title="Created 2017-11-24 00:00:00">2017-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _
-统计模型之（一）贝叶斯公式
-1. 贝叶斯法则
-  先举个例子：比如事件 X 是努力，事件 Y
-是成功，能成功的基本都努力了（条件Ｙ成立时，Ｘ必然成立）；但是努力不一定都能成功（条件
-X 成立时，Y 不是一定成立）。也就是说，X 与 Y 之间的关系不对等，但 X 和 Y
-又确实有关系。贝叶斯法则就是用来描述这种关系的。
- 
-所有要是有人说“成功源于努力，所以努力必能成功”，那是心灵鸡汤。正确的说法是努力能把成功的可能性提高一点。
-2. 贝叶斯公式
-  事件Ｘ发生的概率，称为边缘概率，记作 P(X)。
-  事件 Y 在事件 X 已经发生条件下的发生概率，称为条件概率，记为
-P(Y|X)。
-  事件 X,Y 共同发生的概率称为联合概率，记为 P(XY) 或者 P(X,Y)。
-有公式：
- P(XY) = P(Y)P(X|Y)=P(X)P(Y|X)
- P(Y|X)=P(XY)/P(X)=P(Y) P(X|Y)/P(X)
-  还用上面的例子，稍作调整：假设有 50% 的人努力了，即 P(X)=50%；有
-20% 的人成功了 P(Y)=20%；且知道成功的人 75% 都努力了
-P(X| ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3267477725/" title="机器学习_统计模型之（三）朴素贝叶斯">机器学习_统计模型之（三）朴素贝叶斯</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-24T00:00:00.000Z" title="Created 2017-11-24 00:00:00">2017-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _
-统计模型之（三）朴素贝叶斯
-1. 条件独立假设
-条件独立假设简单的说就是特征 x1 和 x2
-没有关系，比如说兔子的特征中，尾巴短和爱吃萝卜这两个特征它们分别和兔子相关，但两特征彼此之间无关，不是说尾巴短的都爱吃萝卜。所以有
-p(x2|x1)=p(x2)，即无论 x1 是什么，x2
-的概率都不变。朴素贝叶斯就是以条件独立假设为基础的。
-2. 概率的乘法
-两个独立事件都发生的联合概率等于两个事件发生概率的乘积。
-当 P(A) 与 P(B) 无关时，P(B)=P(B|A)，所以
-P(A,B)=P(A)|P(B|A)=P(A)P(B)
-比如：目标是判断该动物是不是兔子，有三个属性：长耳朵 P(A)=70%，短尾巴
-P(B)=50%，爱吃萝卜 P(C)=60%，当三个条件都为真时:
-P(A,B,C)=P(A) * P(B) * P(C)=70% * 50% * 60% = 21%，
-奇怪，三个条件都为真，结果概率却小了？概率小不小主要看跟谁比，再看看三个条件都不成立时：
-(1-P(A)) * (1-P(B)) * (1-P(C))=30% * 50% * 40%=6%，
-对比这两 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2776179043/" title="机器学习_统计模型之（二）贝叶斯网络">机器学习_统计模型之（二）贝叶斯网络</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-24T00:00:00.000Z" title="Created 2017-11-24 00:00:00">2017-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _
-统计模型之（二）贝叶斯网络
-1. 贝叶斯网络
-  贝叶斯网络 (Bayesian network)，又称信念网络 (Belief
-Network)，或有向无环图模型。它用网络结构代表领域的基本因果知识。
- 
-贝叶斯网络中的节点表示命题（或随机变量），认为有依赖关系（或非条件独立）的命题用箭头来连接。
-  令 G = (I,E) 表示一个有向无环图 (DAG)，其中 I
-代表图形中所有的节点的集合，而 E 代表有向连接线段的集合，且令 X =
-(Xi)，i ∈ I 为其有向无环图中的某一节点 i 所代表的命题，则节点 X
-的联合概率可以表示成：
-
-  其中 Pa(i) 是 i 的父结点，是 i
-的因。联合概率可由各自的局部条件概率分布相乘得出：
- p(x1,…,xk)=p(xk|x1,….,xk-1)…p(x2|x1)p(x1)
-  这里顺便说一下朴素贝叶斯，由于其中各个变量 x 相互独立
-p(x2|x1)=p(x2)，得出：
- p(x1,…,xk)=p(xk)…p(x2)p(x1)
-  因此说朴素贝叶斯是贝叶斯网络的一种特殊情况。
-2. 例程
-(1) 功能
- eBay 的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/845938326/" title="机器学习_用SVD奇异值分解给数据降维">机器学习_用SVD奇异值分解给数据降维</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-11-22T00:00:00.000Z" title="Created 2017-11-22 00:00:00">2017-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习 _ 用 SVD
-奇异值分解给数据降维
-  本想把 PCA 和 SVD 写在一起，可上篇 PCA 还没写清楚就已经 4 页 word
-了。再把 SVD
-和特征工程的内容加上，实在是太长了，一下说太多也记不住，于是重开一篇。
- SVD 用到的原理和 PCA
-非常相似，就不再此赘述了，如果对特征值、特征向量相关问题不清楚请参见前篇
-《机器学习_用PCA主成分分析给数据降维》
-1. 原理
-  先回忆一下特征值分解：把向量 x
-往特征向量方向上分解，然后每个方向上做伸缩，最后再把结果加起来即可。也可以理解为将向量
-x
-转到正交坐标系，在各个坐标轴的方向上缩放后，再转换回原来的坐标系。只有方阵才能做特征值分解，因此我们在
-PCA 中不是直接对数据做分解，而是对参数的协方差矩阵做分解。
-  我们知道，任何矩阵都可以分解为三个矩阵的乘积 A=U * Sigma *
-VT，也就是奇异值分解．其中 U 和 VT 均是酉阵 (正交阵在复数域的推广)，而
-Sigma 为增广对角阵。从直观上讲，U 和 VT 可视为旋转操作，Sigma
-可视为缩放操作。因此奇异值分解的含义就是说，若将矩阵看做一个变换， ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/65/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="page-number current">66</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/#content-inner">86</a><a class="extend next" rel="next" href="/page/67/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">852</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">268</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">179</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1840901021/" title="基金交易量预测比赛_5_背景知识2">基金交易量预测比赛_5_背景知识2</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2921938404/" title="两阶段股票价格预测研究">两阶段股票价格预测研究</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1832597661/" title="TradingAgents项目源码解析">TradingAgents项目源码解析</a><time datetime="2025-08-08T00:00:00.000Z" title="Created 2025-08-08 00:00:00">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3614201567/" title="基金交易量预测比赛_3_反思">基金交易量预测比赛_3_反思</a><time datetime="2025-08-07T00:00:00.000Z" title="Created 2025-08-07 00:00:00">2025-08-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+中文分析一般以词为单位，与英文不同的是中文的词与词之间没有空格划分，所以处理时，首先要分词。简单的方法是把所有词放在一个词典中，通过正向匹配，逆向匹配，双向匹配等方式分词，这 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/65/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="page-number current">66</span><a class="page-number" href="/page/67/#content-inner">67</a><span class="space">&hellip;</span><a class="page-number" href="/page/87/#content-inner">87</a><a class="extend next" rel="next" href="/page/67/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">864</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">184</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/793460316/" title="AI在股票决策中的应用">AI在股票决策中的应用</a><time datetime="2025-08-29T00:00:00.000Z" title="Created 2025-08-29 00:00:00">2025-08-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3159095718/" title="股票相关知识解析">股票相关知识解析</a><time datetime="2025-08-25T00:00:00.000Z" title="Created 2025-08-25 00:00:00">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1608121491/" title="对谈_25042x_剃头技巧">对谈_25042x_剃头技巧</a><time datetime="2025-08-23T00:00:00.000Z" title="Created 2025-08-23 00:00:00">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><time datetime="2025-08-20T00:00:00.000Z" title="Created 2025-08-20 00:00:00">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2921938404/" title="两阶段股票价格预测研究">两阶段股票价格预测研究</a><time datetime="2025-08-20T00:00:00.000Z" title="Created 2025-08-20 00:00:00">2025-08-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">84</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">82</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">32</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.45em; color: #99a7ba">编程语言</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 1.15em; color: #999b9e">艺术</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.23em; color: #999ea6">数学</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA/" style="font-size: 1.21em; color: #999da3">知识图/知识表示</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.18em; color: #999ca1">美食</a> <a href="/tags/VPN/" style="font-size: 1.1em; color: #999">VPN</a> <a href="/tags/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/" style="font-size: 1.13em; color: #999a9c">人际关系</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.18em; color: #999ca1">阅读/社会学</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.31em; color: #99a2ad">自然语言处理/大模型</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.15em; color: #999b9e">教育</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96/" style="font-size: 1.37em; color: #99a4b2">社会文化</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.39em; color: #99a5b5">阅读/心理学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.15em; color: #999b9e">编程语言/C</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音视频处理</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E4%B8%96%E7%95%8C%E8%A7%82/" style="font-size: 1.1em; color: #999">世界观</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.29em; color: #99a0ab">生物医学</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">模型工具</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 1.1em; color: #999">沟通</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" style="font-size: 1.13em; color: #999a9c">数据安全</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.18em; color: #999ca1">主题笔记</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">知识管理</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.47em; color: #99a8bc">大模型</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84/" style="font-size: 1.42em; color: #99a6b7">深度学习/模型结构</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/GitHub-Actions/" style="font-size: 1.1em; color: #999">GitHub Actions</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.34em; color: #99a3b0">机器学习/时序</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.26em; color: #999fa8">大模型/应用</a> <a href="/tags/%E6%96%87%E5%8C%96%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">文化反思</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.23em; color: #999ea6">编程</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.5em; color: #99a9bf">技术</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">40</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">852</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1188.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-31T17:00:12.694Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">83</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">81</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">32</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">16</span></a></li></ul></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/" style="font-size: 1.1em; color: #999">加密货币</a> <a href="/tags/%E8%BF%9C%E8%A7%86%E9%95%9C/" style="font-size: 1.1em; color: #999">远视镜</a> <a href="/tags/Docker/" style="font-size: 1.38em; color: #99a4b3">Docker</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.28em; color: #99a0ab">情绪管理</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.19em; color: #999da2">美食</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.44em; color: #99a7b9">自我反思</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.13em; color: #999a9c">#后端</a> <a href="/tags/%E9%87%91%E8%9E%8D/" style="font-size: 1.1em; color: #999">金融</a> <a href="/tags/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">笔记工具</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.32em; color: #99a2ad">版本管理</a> <a href="/tags/%E9%AA%8C%E5%85%89/" style="font-size: 1.1em; color: #999">验光</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.16em; color: #999b9f">心情</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">模型转换</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.13em; color: #999a9c">社会现象</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E6%96%87%E5%8C%96%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">文化反思</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.28em; color: #99a0ab">笔记</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E8%A7%84%E5%88%99/" style="font-size: 1.1em; color: #999">关系规则</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.25em; color: #999fa8">特征工程</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.35em; color: #99a3b0">机器学习/时序</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.16em; color: #999b9f">方法论</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">模型工具</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.16em; color: #999b9f">日常记录</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.32em; color: #99a2ad">大模型/应用</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.5em; color: #99a9bf">图形图像</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.41em; color: #99a5b6">编程语言</a> <a href="/tags/%E5%A5%96%E5%8A%B1%E6%9C%BA%E5%88%B6/" style="font-size: 1.1em; color: #999">奖励机制</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.47em; color: #99a8bc">操作系统/Linux</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.22em; color: #999ea5">深度学习/知识蒸馏</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/Paper/" style="font-size: 1.1em; color: #999">Paper</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">24</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">39</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">January 2025</span><span class="card-archive-list-count">6</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">864</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1211.1k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-01T06:00:06.535Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
