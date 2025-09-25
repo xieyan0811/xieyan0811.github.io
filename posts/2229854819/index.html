@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>量化交易入门 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨量化交易的目的、技术和人在其中的角色，分析量化与人工交易的优缺点及适用场景。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="量化交易入门">
+<meta property="og:url" content="http://xyan666.com/posts/2229854819/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨量化交易的目的、技术和人在其中的角色，分析量化与人工交易的优缺点及适用场景。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-09-14T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-14T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="投资">
+<meta property="article:tag" content="量化">
+<meta property="article:tag" content="金融市场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2229854819/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '量化交易入门',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-14 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">871</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">281</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">187</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">量化交易入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-14T00:00:00.000Z" title="Updated 2025-09-14 00:00:00">2025-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="量化交易入门"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>据私募排排网数据显示，截至 2025 年 8 月底，管理规模在 100
+亿元以上的私募基金（“百亿私募”）数量增至 91 家。其中，量化私募 45
+家，占比约 49.45%；主观私募 39 家，占比约 42.86%；混合型（主观＋量化）6
+家，占比约 6.59%。在年内收益超过 20% 的 40 家百亿私募中，量化私募占据 31
+席。</p>
+<p>来源：财联社报道，私募排排网数据（<a
+target="_blank" rel="noopener" href="https://www.cls.cn/detail/2143203?utm_source=chatgpt.com">cls.cn</a>）。</p>
+<p>量化私募一般是指采用量化投资方法的私募基金管理公司。量化投资：指利用数学模型、计算机技术和海量数据来发现投资规律、制定投资策略并执行交易的投资方式。它依赖数据、算法和程序，目的在于减少主观判断和情绪干扰。</p>
+<p>量化与人工交易的对比如下表所示：</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>对比维度</th>
+<th>人工交易</th>
+<th>量化交易</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>决策方式</td>
+<td>依赖经验、直觉、新闻、主观判断</td>
+<td>预设规则或模型，由程序自动执行</td>
+</tr>
+<tr class="even">
+<td>执行一致性</td>
+<td>易受情绪和偏差影响，操作不一致</td>
+<td>稳定一致，按既定规则执行</td>
+</tr>
+<tr class="odd">
+<td>情绪干扰</td>
+<td>高：贪婪、恐惧、冲动</td>
+<td>较低：程序不具备情绪，但模型假设可能隐含人为偏见</td>
+</tr>
+<tr class="even">
+<td>速度</td>
+<td>慢，依赖人工下单</td>
+<td>快，能在毫秒级别响应信号</td>
+</tr>
+<tr class="odd">
+<td>回测 &amp; 验证性</td>
+<td>难以全面复盘</td>
+<td>可回测、可优化、可验证策略</td>
+</tr>
+<tr class="even">
+<td>适合场景</td>
+<td>主观判断强、突发事件、质性分析</td>
+<td>大数据、规则性或统计性信号明显的场景</td>
+</tr>
+<tr class="odd">
+<td>优点</td>
+<td>灵活、可处理复杂突发情况</td>
+<td>可控、可重复、可规模化</td>
+</tr>
+<tr class="even">
+<td>缺点</td>
+<td>容易受情绪影响，难以复制与扩展</td>
+<td>开发与维护成本高，依赖数据与算力，策略可能因市场变化失效</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="人的问题">1 人的问题</h2>
+<p>量化的目的不是“一定赚更多钱”，而是让交易变得
+<strong>可重复、可控制、可测量</strong>，剔除不稳定的人为因素。</p>
+<p>除了贪婪与恐惧等情绪，人类在交易中还有一些深层的认知偏差：</p>
+<p>比如认知惯性：人倾向沿既定路径推进，以节省能量、快速决策。“坚持”在生活中是优势，但在股票等高频决策场景下，可能导致“一条道走到黑”，错失调整时机；机器则严格按策略执行，<strong>不会因心理负担或固执而偏离</strong>。</p>
+<p>再如处置效应（Disposition
+Effect）：比如持有两支股票，一涨一跌，投资者往往卖掉涨的股票以确认自己“判断正确”，却长期持有亏损股以避免确认损失。这导致“汰强留弱”，错失良机。量化可通过规则设定止损止盈，减少此类偏差。</p>
+<p>在这个角度看，机器不仅能为我们提供信息和方法，还能帮我们纠正很多问题。</p>
+<h2 id="具体技术">2 具体技术</h2>
+<p>量化并不是指一定要用机器学习、深度学习或大模型，它也可以是一些简单的规则策略。关键是
+<strong>策略能被计算、能重复执行、能验证效果</strong>。</p>
+<h3 id="使用规则量化-简单程序化">2.1 使用规则：量化 ≠ 简单程序化</h3>
+<p>很多人把量化和程序化混为一谈，但其实有很大区别。程序化只是把规则写到电脑里自动执行，问题是：</p>
+<ul>
+<li>很难写出在上涨、下跌和平盘三种行情都稳妥的规则，一回测就能看到漏洞。</li>
+<li>人脑很难考虑所有复杂情况，容易疏漏或者逻辑冲突。</li>
+<li>规则是“死的”，价格稍微差一点就可能触发不了操作。</li>
+</ul>
+<p>举个例子：“当天收盘低于前一日最低价，且价格在五日均线下方时卖出；收盘高于前一日最高价且价格在五日均线上方时买入。”
+这里基于假设：市场有趋势，并且趋势会延续。但问题是：牛市中可能有效，但熊市里多假突破，容易频繁买入被套。改进方法是：通过加入市场状态特征（如长期均线、波动率）判断牛熊市，让策略更稳。</p>
+<p>量化方法的优势是：不仅能把规则自动化执行，还能
+<strong>发现盲点、评估策略稳定性、用软件辅助优化</strong>。通过回测、模拟交易等手段，可以让策略在不同市场环境下更可靠。</p>
+<hr />
+<h3 id="算法与模型">2.2 算法与模型</h3>
+<p>更高级的方法是：增加更多特征，用历史数据训练模型。训练出来后会有一个准确率指标。高准确率不能保证每次操作一定赚钱，但如果交易次数够多，同时加上风险控制（比如回撤保护），长期获利概率会提高。</p>
+<p>需要注意的是模型可解释性不同：线性回归、多因子模型、决策树容易理解；深度学习和复杂黑箱模型则不容易解释，有时给出的推荐看起来不合理，也无法直接理解原因，信任度较低。</p>
+<p>特征构造也有局限：一些信息（比如历史新闻、非结构化数据）难以量化，有些数据缺失或不完整（例如
+2012
+年前的新闻），但这些事件可能仍影响市场。因此，模型输出通常只能作为技术参考，而不是绝对指引。</p>
+<p>另外，大语言模型也可以辅助决策，但成本高。通常更稳妥的做法是让大模型提取特征，再结合其他量化方法，而不是直接让它做全部决策。</p>
+<hr />
+<h3 id="人机结合">2.3 人机结合</h3>
+<p>量化不是完全替代人，而是
+<strong>人和机器各取所长</strong>。主要体现在两方面：</p>
+<h4 id="人向机器提供信息">2.3.1 人向机器提供信息</h4>
+<p>并非所有市场信息都能通过数据和 API
+获取。人可以捕捉新闻、舆情、突发事件、政策信号等，为策略调整和特征构造提供参考。人的经验和直觉还能发现模型难以覆盖的特殊情境，从而丰富策略输入。</p>
+<h4 id="机器辅助人决策">2.3.2 机器辅助人决策</h4>
+<p>机器能提供
+参照点和冷静的时机，减少盲目和情绪化操作。例如，市场急涨急跌时，人容易冲动买卖。量化系统可以快速给出统计趋势或概率信号，即使不直接下单，也能让人冷静几分钟，同时提供更全面的视角。</p>
+<p>系统输出通常是概率优势或统计期望，而不是确定性预测。人可以据此调整操作策略，而不是盲目依赖机器。</p>
+<blockquote>
+<p>总结：量化是一种方法和工具，而不是目的本身。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2229854819/">http://xyan666.com/posts/2229854819/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84/">投资</a><a class="post-meta__tags" href="/tags/%E9%87%8F%E5%8C%96/">量化</a><a class="post-meta__tags" href="/tags/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA/">金融市场</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/769430095/" title="股票_相关知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">股票_相关知识</div></div></a></div><div class="next-post pull-right"><a href="/posts/560063512/" title="量化工具简介"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">量化工具简介</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3007110203/" title="250512_对谈_股票操作中的概率与心理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-04</div><div class="title">250512_对谈_股票操作中的概率与心理</div></div></a></div><div><a href="/posts/3874387324/" title="国内外云主机价格对比"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-12</div><div class="title">国内外云主机价格对比</div></div></a></div><div><a href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-01</div><div class="title">AI在股票决策中的应用_开源项目XYStock</div></div></a></div><div><a href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="title">基金交易量预测比赛_1_我的方案</div></div></a></div><div><a href="/posts/2550878756/" title="基金交易量预测比赛_2_数据分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-16</div><div class="title">基金交易量预测比赛_2_数据分析</div></div></a></div><div><a href="/posts/3655162895/" title="基金交易量预测比赛_4_背景知识讨论"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-16</div><div class="title">基金交易量预测比赛_4_背景知识讨论</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">871</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">281</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">187</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">1 人的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%8A%80%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text">2 具体技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%A7%84%E5%88%99%E9%87%8F%E5%8C%96-%E7%AE%80%E5%8D%95%E7%A8%8B%E5%BA%8F%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用规则：量化 ≠ 简单程序化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 算法与模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%9C%BA%E7%BB%93%E5%90%88"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 人机结合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%BA%E5%90%91%E6%9C%BA%E5%99%A8%E6%8F%90%E4%BE%9B%E4%BF%A1%E6%81%AF"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1 人向机器提供信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E8%BE%85%E5%8A%A9%E4%BA%BA%E5%86%B3%E7%AD%96"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2 机器辅助人决策</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2713512099/" title="赣锋锂业公司分析">赣锋锂业公司分析</a><time datetime="2025-09-25T00:00:00.000Z" title="Created 2025-09-25 00:00:00">2025-09-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3794960982/" title="七日阿勒泰喀纳斯旅行指南">七日阿勒泰喀纳斯旅行指南</a><time datetime="2025-09-24T00:00:00.000Z" title="Created 2025-09-24 00:00:00">2025-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3079809770/" title="采棉产业的科技变革">采棉产业的科技变革</a><time datetime="2025-09-24T00:00:00.000Z" title="Created 2025-09-24 00:00:00">2025-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2229854819/" title="量化交易入门">量化交易入门</a><time datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

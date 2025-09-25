@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-09-24 17:00:15'
+  postUpdate: '2025-09-25 01:45:50'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,177 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">864</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">182</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec">论文阅读_可扩展特征学习Node2Vec</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-20T00:00:00.000Z" title="Created 2022-02-20 00:00:00">2022-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">871</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">281</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">187</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/22974/" title="Python强制杀死线程">Python强制杀死线程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-27T00:00:00.000Z" title="Created 2022-03-27 00:00:00">2022-03-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">123456789101112131415161718192021222324252627282930313233343536373839import ctypesimport inspectimport timefrom threading import Threaddef _async_raise(tid, exctype):    tid = ctypes.c_long(tid)    if not inspect.isclass(exctype):        exctype = type(exctype)    res = ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, ctypes.py_object(exctype))    if res == 0:        raise ValueError(&quot;invalid thread id&quot;)    elif res != 1:        ctypes.pythonapi.PyThreadState_SetAsyncExc(tid, None)      ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/51561/" title="论文阅读_基于知识图谱的约束性问答">论文阅读_基于知识图谱的约束性问答</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-20T00:00:00.000Z" title="Created 2022-03-20 00:00:00">2022-03-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">读后感
+
+针对问题：利用当前的知识库 (KB)，回答用自然语言提出的问题。
+目标：一方面开发用于评价约束性问答的数据集；另一方面开发针对约束性问答的解决方法。
+结果：产出评测数据集；提出的多约束查询图算法提升了对复杂问题的解答能力。
+核心方法：
+
+复杂问题的分类和处理机制，抽象出六种约束类型，以及对应各类问题的解决方法。
+方法
+
+找到问题相关实体节点
+找到满足约束的所有路径
+将与问题语义相似度最高的作为答案
+
+
+难点：整个过程中约束到底如何产生作用。
+泛读后理解程度：直接精读
+
+（看完题目、摘要、结论、图表及小标题）
+介绍
+英文题目：Constraint-Based Question Answering with Knowledge
+Graph
+中文题目：基于知识图谱的约束性问答
+论文地址：https://readpaper.com/paper/2572289264
+领域：图神经网络、问答系统
+发表时间：2016
+出处：acl
+被引量：142
+代码和数据：https://github.com/JunweiBao/MulCQA/tree/ComplexQuestions
+阅读时间：202 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3005516018/" title="4_Obsidian_图床">4_Obsidian_图床</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-15T00:00:00.000Z" title="Created 2022-03-15 00:00:00">2022-03-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E6%8F%92%E4%BB%B6/">插件</a></span></div><div class="content">1 目标
+Obsidian 文档可以本地存储，文档主要由 markdown 和图片组成。markdown
+是纯文本，格式简单占空间也小，在存储和分享的过程中，插在文档中的图片就比较麻烦。所以希望把文本和图片分开存储，并且能简单快速地分享给别人，比如发布博客时，不用一张一张贴图。
+图床是一个比较简单的解决方案，它是一种在线图片存储服务，可以用来上传、存储、管理和分享图片。通常，图床会提供图片的
+URL
+地址，可以在网页、博客、社交媒体等平台中使用。一般使用腾讯云、阿里云的存储服务实现，也可以使用
+Github，Gitee 代码托管服务实现。主要看图多不多，访问量大不大。
+本文将介绍在 Ubuntu 系统下，用 Obsidian+PicGo+Gitee
+的方式做个免费图床，适用于图片不多，访问量不大的场景，同时讨论了扩展性。
+2 原理
+2.1 Obsidian
+离线的文档管理工具，可以通过 Obsidian QuickShare, Obsidian to Notion
+等插件进行网页共享，个人觉得通过图床，把文档和图片分开更加方便。
+2.2 PicGo
+PicGo
+是一款用于上传、管理和分 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5599/" title="论文阅读_卷积图神经网GCN">论文阅读_卷积图神经网GCN</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-13T00:00:00.000Z" title="Created 2022-03-13 00:00:00">2022-03-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
+英文题目：Semi-Supervised Classification with Graph Convolutional
+Networks
+中文题目：使用卷积图神经网络实现半监督分类器
+论文地址：https://arxiv.org/abs/1609.02907
+领域：自然语言处理，知识图谱，图神经网络
+上传时间：2016
+出处：ICLR 2017
+被引量：10671
+代码和数据：
+
+https://github.com/tkipf/gcn
+https://github.com/kaize0409/pygcn/
+
+阅读时间：22-03-11
+泛读
+
+针对问题：图节点多分类，半监督学习
+结果：在知识图和引文图数据集中，有效提升了精度和效率
+核心方法：基于频谱图，卷积神经网络，编码时考虑到图结构和节点的特征
+难点：几乎全是公式推导，先验知识太多，单看公式看不懂
+泛读后理解程度：30%
+
+（看完题目、摘要、结论、图表及小标题）
+精读
+摘要
+论文提出了基于图的，使用类似卷积神经网络的半监督学习方法。选择卷积结构让我们在建模时更注重邻近的节点。模型隐藏层编码同时考虑了局部结构和节点特征。相较 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60207/" title="1_Obsidian_安装">1_Obsidian_安装</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-03-13T00:00:00.000Z" title="Created 2022-03-13 00:00:00">2022-03-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a></span></div><div class="content">#笔记/Obsidian
+1 安卓版
+
+下载地址
+https://www.05sun.com/downinfo/380645.html
+特点
+
+和电脑版用法几乎完全一致
+也可以更换皮肤
+
+
+2 Linux 版
+在官网可下载较新版本，看着和 Windows 版完全一样，对习惯用 Linux
+的人来说，绝对是福音
+2.1 方法一：建议下载 deb 安装包
+安装后可执行文件位置在/opt/Obsidian/obsidian，需要向 bin
+下做个链接
+2.2 方法二：直接安装应用程序
+
+下载 AppImage（Linux 下推荐安装）
+将其权限设置为可执行，复制到想要安装的目录
+
+1234$ sudo mkdir /opt/obsidian$ sudo mv ~/Downloads/Obsidian-0.12.19.AppImage /opt/obsidian/Obsidian-0.12.19.AppImage$ chmod 777 /opt/obsidian/Obsidian-0.12.19.AppImage$ sudo ln -s /opt/obsidian/Obsidian-0.12. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/10037/" title="Python日志工具loguru">Python日志工具loguru</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-28T00:00:00.000Z" title="Created 2022-02-28 00:00:00">2022-02-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python 日志工具 loguru
+错误级别
+
+
+
+level name
+Severity value
+Logger method
+
+
+
+
+TRACE
+5
+logger.trace()
+
+
+DEBUG
+10
+logger.debug()
+
+
+INFO
+20
+logger.info()
+
+
+SUCCESS
+25
+logger.success()
+
+
+WARNING
+30
+logger.warning()
+
+
+ERROR
+40
+logger.error()
+
+
+CRITICAL
+50
+logger.critical()
+
+
+
+代码
+12345678910from loguru import logger# 设置输出级别, 只显示 INFO 及以上级别logger.remove()handler_id = logger.add(sys.stderr, level=&quot;INFO&quot;)# 日志输出logger.debug(&quot;xxxxx&quot;)logger.info(&quot;xxxxx&quot;)logger.warning(&quot;xxxxx&quot ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/58/" title="论文阅读_基于动态搏弈的知识图推理">论文阅读_基于动态搏弈的知识图推理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-27T00:00:00.000Z" title="Created 2022-02-27 00:00:00">2022-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
+英文题目：Reasoning on Knowledge Graphs with Debate
+Dynamics（R2D2）
+中文题目：基于动态辩论的知识图推理
+论文地址：https://arxiv.org/pdf/2001.00461.pdf
+领域：图神经网络, 知识推理
+发表时间：2020
+出处：AAAI 2020
+被引量：6
+代码和数据：https://github.com/m-hildebrandt/R2D2
+读后感
+
+针对问题：基于图的自动知识推理
+目标：提升对真命题和伪命题的识别，提升可解释性
+结果：对于分类和链接预测任务均有良好表现，且实现了一些归因。
+核心方法：
+
+利用动态辩论的强化学习算法。
+这是一个相对白盒的方法
+采用两个 agent
+的对抗，一个找真命题相关路径，一个找假命题相关路径，使用知识图中的路径作为参数生成特征，最终由判别器做出判断推理的真伪。
+
+具体模型：深度学习模型，两个 Agent 使用 LSTM，判断使用 MLP
+难点：对抗学习应用于图论和知识推理。
+泛读后理解程度：60%
+
+（看完题目、摘要、结论、图表及小标题）
+精读
+（只翻译了实现部分）
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/28516/" title="论文阅读_可扩展特征学习Node2Vec">论文阅读_可扩展特征学习Node2Vec</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-20T00:00:00.000Z" title="Created 2022-02-20 00:00:00">2022-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/12-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">12_图神经网络</a></span></div><div class="content">介绍
 英文题目：node2vec: Scalable Feature Learning for Networks
 中文题目：node2vec：面向网络的可扩展特征学习
 论文地址：https://arxiv.org/abs/1607.00653
@@ -249,225 +419,7 @@ RDF 图数据库（不支持属性，比较古老，已经不怎么用了）
 原生图数据库：使用图模型进行数据存储，可以针对图数据做优化，从而带来更好的性能，例如
 Neo4j。
 非原生图数据库：底层存储使用非图模型，在存储之上封装图的语义，适合与其它数据应用配合使用，例如
-Titan、JanusGraph 底层 采用 KV 存储非图模 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36110/" title="VSCode+Docker构建Python开发环境">VSCode+Docker构建Python开发环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-08T00:00:00.000Z" title="Created 2022-02-08 00:00:00">2022-02-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/vscode/">vscode</a></span></div><div class="content">VSCode+Docker 构建 Python
-开发环境
-1 优缺点
-1.1 优点
-
-写代码和调试更方便
-带语法提示且反应快
-支持直接在命令行敲命令运行
-一个工具同时开发调试 Python+JS+HTML....
-方便在各代码文件间跳转
-生态丰富
-查找替换方便：可以指定文本或文件夹
-可对比文件差异
-……
-
-1.2 缺点
-
-配置有点麻烦
-需要一些学习成本
-
-2 方法
-2.1 前提
-假设 vscode 已正常安装，并且已有支持 Python 的 docker 环境
-2.2 在 Docker 内安装 ssh 服务
-2.2.1 进入 docker
-123456789101112$ apt-get install openssh-server$ passwd 输入密码，后面登录时输入$ vim /etc/ssh/sshd_config加入以下三行：PubkeyAuthentication yes #启用公钥私钥配对认证方式 PermitRootLogin yes #允许root用户使用ssh登录 PasswordAuthentication yes$ /etc/init.d/ssh restar ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3010594325/" title="3_Obsidian_用Git同步笔记">3_Obsidian_用Git同步笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-02-06T00:00:00.000Z" title="Created 2022-02-06 00:00:00">2022-02-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/">笔记工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/">Obsidian</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7/Obsidian/%E5%90%8C%E6%AD%A5/">同步</a></span></div><div class="content">#笔记/Obsidian
-问题
-Obsidian 需要家里和单位电脑同步，以及定时备份，之前试过使用百度网盘和
-Github 备份数据。百度网盘提供了一些 API 上传和下载数据，搭配 Linux 的
-crontab 定时任务，能实现基本备份功能，但速度太慢。Github
-效果不错，但是常常连不通。
-这次选择了 Obsidian 的三方插件 +Gitee
-结合的方式，设置半小时备份一次，比较完美地解决了备份问题。
-原理
-Obsidian 中的插件只是简单地执行 git pull/commit/pull
-等命令，需要先在本机配置好 git 环境，然后与 Obsidian 的定时任务配合实现
-push 和 pull 功能。
-Gitee 是国内的 Git 服务器，用法和 Github
-基本相同，速度比较快，私有数据也免费。
-方法
-配置 git 环境
-
-注册 gitee，并创建自己的私有仓库
-https://gitee.com/
-生成公钥：
-
-1$ ssh-keygen -t rsa -C &quot;xxx@xxx.com&quot;
-按提示输入地址为 $HOME/.ssh/id_rsa_g ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/13902/" title="01_环境">01_环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">#编程语言/前端 #编程语言/前端
-搭建环境
-我在 Ubuntu 下用 VSCODE 搭建前端开发环境，用 Windows 也差不多。
-1 VSCode
-VSCode 是微软推出的可运行于 Mac OS X、Windows 和 Linux
-多平台上的源码编辑器，前端开发一般都用它。
-1.1 安装
-
-下载：https://code.visualstudio.com
-下载 deb 包，然后用命令安装
-
-1sudo dpkg -i code_1.63.2-1639562499_amd64.deb
-1.2 运行
-
-在启动器里输入 code，然后选择 Visual Studio Code
-根据提示下载安装中文环境
-安装两个插件（通过左侧扩展按钮调出）
-
-Code Runner
-HTML CSS Support
-
-打开文件夹（点左侧的资源管理器按钮）
-创建一个 html 文件，加入简单代码
-
-12345&lt;html&gt;	&lt;body&gt;		&lt;script&gt;alert(&#x27;Hello World&#x27;)&lt;/script&gt;	&lt;/body&gt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/34440/" title="02_HTML5">02_HTML5</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">#编程语言/前端 #编程语言/前端
-HTML
-1 元素
-1.1 原理
-作为一个操作单位，如被 JS 操作，或者其中的数据都使用同种 CSS
-风格……
-1.2 自定义元素
-定义块元素
-1&lt;div&gt; ... &lt;/div&gt;
-注意：div 中可包含多个元素，即将多个元素分成一组。
-定义行内元素
-1&lt;span&gt; ... &lt;/span&gt;
-注意：只能把 span 放在其它元素的内部。
-1.3 元素属性：id 和 class
-id 和 class 是元素的属性，不只是自定义元素，所有元素都可以设置 id 和
-class，以设置操作和风格。
-id
-id 是元素的字名，应该是独一无二的，
-class
-class
-是元素它所属类别，多个元素可属于同一类别，它们可以拥有同样的显示风格，同样的操作……
-一个元素还可以属于多个类别形如：
-1&lt;div id=&quot;ISBN0321127307&quot; class=&quot;listing book&quot;&gt;
-1.4 通过 id 访问控件
-(好像是 JQuery 用法)
-1$(&quot;#i ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60179/" title="04_JQuery和Ajax">04_JQuery和Ajax</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">JQuery 和 Ajax
-#编程语言/前端
-1 原理
-
-Ajax（阿甲克斯）提供了异步更新的机制，使用客户端与服务器间交换数据而非整个页面文档，实现页面的局部更新。
-jQuery 是一个框架（可以当成一个库），封装了一些常用方法，使得 JS 与
-Ajax 更方便使用。
-
-2 JQuery
-JQuery 是一个非常常用的 JS 库，可以直接使用网上的
-js，也可以下载到自己的服务端。
-2.1.1 直接下载
-下载地址：https://jquery.com/download/
-点开不压缩版本，即可看到其具体实现，将 js
-文件保存到本地，然后在网页中引入即可
-1&lt;script src=&quot;pathtoyourjs/jquery-3.2.1.min.js&quot;&gt;&lt;/script&gt;
-2.1.2
-下载源码（可切换到历史版本）
-或者从 git 下载
-1$ git clone https://github.com/jquery/jquery.git
-2.2 AJAX
-AJAX 是 JQuery 工具集中的一个工具，用于远程请求，以实现局部刷新。
-3 示例
-3.1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3848/" title="03_JS">03_JS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">JavaScript
-#编程语言/前端 #编程语言/前端
-1 原理
-
-运行在客户端浏览器，不需要服务端资源
-
-2 用途
-
-网页中比较复杂的交互，比如提示用户输入错误，点展开列表、输入文字时自动联想……
-
-3 基本语法
-3.1 说明
-
-大小写敏感
-空格无意义（与 Python 不同）
-建议以分号结尾
-注释
-
-行注释：
-1// 我是行注释
-块注释:
-123/*我是注释*/
-
-
-3.2 变量
-不需要显示地声明类型，但需要用 var 定义变量。
-12345var foo = null;var foo = true;var foo = 5;var foo = &quot;five&quot;;var foo = [5, &quot;five&quot;, &quot;5&quot;];
-3.3 操作
-布尔操作
-
-== 等于
-!= 不等于
-=== 类型相同
-!== 类型不同
-
-, &gt;=, &lt;, &lt;= 大于、大于等于、小于、小于等于
-
-
-数值操作
-
-++ 加 1
--- 减 1
-+= 当前值加
-
-逻辑运算
-
-&amp;&amp; 逻辑与
-|| 逻辑或
-! 逻辑非
-
-3.4 条件
-12 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/63766/" title="05_CSS">05_CSS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2022-01-30T00:00:00.000Z" title="Created 2022-01-30 00:00:00">2022-01-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">#编程语言/前端
-1 简介
-1.1.1 什么是 CSS
-
-用途：设置显示风格
-英文：Cascading Style Sheets (CSS)
-语法：它有自身的语法
-
-1.1.2 优点
-
-准确：更准确地控制显示
-省事：一个设置多处使用
-适配：在不修改 HTML 的情况下适配不同显示设备
-
-同样内容，不同风格，看起来有多么不同：
-
-
-Pasted image
-20220111171119.png
-
-1.2 基本概念
-
-继承：子控件继承父控制属性
-冲突：当设置发生冲突时，优先使用权重更大的设置
-
-一般用中括号定义形如：
-
-
-1p &#123; line-height: 1.2em; &#125;  [0] [0] [1]
-1.2.1 基本语法
-CSS 每一条由两部分组成：
-
-第一部分是 selector
-
-定义需要被设置的元素。
-此处可设置多个元素，用逗号分隔
-selector 可支持三种类型：
-
-选择符（如 p），
-元素的类名（以点开头）
-元素的 id（以井号开头）
-用星号定义其它所有情况
-
-
-第二部分是 declaration
-
-定义设置的具体规则
-使用大括号定义
-每一部分由键值对成，各 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/47/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/#content-inner">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/#content-inner">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/87/#content-inner">87</a><a class="extend next" rel="next" href="/page/49/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">864</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">271</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">182</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock">AI在股票决策中的应用_开源项目XYStock</a><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/652178159/" title="250811_对谈_内向意义和外向意义">250811_对谈_内向意义和外向意义</a><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1404173137/" title="论文阅读_两阶段的股票价格预测">论文阅读_两阶段的股票价格预测</a><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/123182612/" title="论文阅读_大模型情绪分析预测趋势">论文阅读_大模型情绪分析预测趋势</a><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+Titan、JanusGraph 底层 采用 KV 存储非图模 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/47/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/#content-inner">47</a><span class="page-number current">48</span><a class="page-number" href="/page/49/#content-inner">49</a><span class="space">&hellip;</span><a class="page-number" href="/page/88/#content-inner">88</a><a class="extend next" rel="next" href="/page/49/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">871</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">281</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">187</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2713512099/" title="赣锋锂业公司分析">赣锋锂业公司分析</a><time datetime="2025-09-25T00:00:00.000Z" title="Created 2025-09-25 00:00:00">2025-09-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3794960982/" title="七日阿勒泰喀纳斯旅行指南">七日阿勒泰喀纳斯旅行指南</a><time datetime="2025-09-24T00:00:00.000Z" title="Created 2025-09-24 00:00:00">2025-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3079809770/" title="采棉产业的科技变革">采棉产业的科技变革</a><time datetime="2025-09-24T00:00:00.000Z" title="Created 2025-09-24 00:00:00">2025-09-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2229854819/" title="量化交易入门">量化交易入门</a><time datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -475,8 +427,8 @@ selector 可支持三种类型：
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/Obsidian/" style="font-size: 1.14em; color: #999b9d">Obsidian</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999b9d">反思</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.5em; color: #99a9bf">深度学习</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.26em; color: #999fa8">Python/少儿编程</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.22em; color: #999ea4">情绪表达</a> <a href="/tags/%E5%AF%B9%E8%B0%88/" style="font-size: 1.1em; color: #999">对谈</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E8%82%B2%E5%84%BF/" style="font-size: 1.1em; color: #999">阅读/育儿</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.26em; color: #999fa8">模型解释</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/" style="font-size: 1.14em; color: #999b9d">灵感创意</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.26em; color: #999fa8">工作思考</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%97%E6%B3%95/" style="font-size: 1.42em; color: #99a6b7">机器学习/算法</a> <a href="/tags/%E5%8F%99%E4%BA%8B%E6%B2%BB%E7%96%97/" style="font-size: 1.1em; color: #999">叙事治疗</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.38em; color: #99a4b4">机器学习/时序</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.3em; color: #99a1ac">生物医学</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.22em; color: #999ea4">美食</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.18em; color: #999ca1">日常记录</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.34em; color: #99a3b0">自然语言处理/大模型</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.26em; color: #999fa8">思维整理</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" style="font-size: 1.14em; color: #999b9d">数据安全</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.5em; color: #99a9bf">生活</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.46em; color: #99a7bb">编程语言</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.26em; color: #999fa8">哲学</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">代码生成</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.26em; color: #999fa8">数据存储/Hadoop</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E6%B2%9F%E9%80%9A/" style="font-size: 1.1em; color: #999">沟通</a> <a href="/tags/%E7%8E%B0%E5%AE%9E%E8%AE%A4%E7%9F%A5/" style="font-size: 1.1em; color: #999">现实认知</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">模型优化</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读哲学</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">39</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">864</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1211.1k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-24T17:00:12.965Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%A4%BE%E4%BC%9A/" style="font-size: 1.1em; color: #999">社会</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.39em; color: #99a5b5">大模型</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ae">生物医学</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.14em; color: #999a9c">Python/图形图像</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.43em; color: #99a6b8">技术</a> <a href="/tags/%E5%BF%83%E7%90%86%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">心理调节</a> <a href="/tags/%E4%BD%9B%E6%95%99/" style="font-size: 1.1em; color: #999">佛教</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">#Python</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a8bc">操作系统/Linux</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E5%BF%83%E6%83%85/" style="font-size: 1.17em; color: #999ca0">心情</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.17em; color: #999ca0">教育</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999a9c">宗教</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.35em; color: #99a3b1">数据分析</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E5%9F%BA%E9%87%91%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">基金交易</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 1.1em; color: #999">随笔</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/" style="font-size: 1.1em; color: #999">程序员</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999a9c">反思</a> <a href="/tags/%E6%96%87%E5%8C%96%E5%8F%8D%E6%80%9D/" style="font-size: 1.1em; color: #999">文化反思</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" style="font-size: 1.5em; color: #99a9bf">移动开发</a> <a href="/tags/%E4%B8%96%E7%95%8C%E8%A7%82/" style="font-size: 1.1em; color: #999">世界观</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.14em; color: #999a9c">#后端</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 1.1em; color: #999">成长</a> <a href="/tags/%E6%88%8F%E5%89%A7%E4%B8%AD%E7%9A%84%E5%BF%83%E7%90%86%E7%9C%9F%E5%AE%9E/" style="font-size: 1.1em; color: #999">戏剧中的心理真实</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.14em; color: #999a9c">社会现象</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.25em; color: #999fa7">语音合成</a> <a href="/tags/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/" style="font-size: 1.14em; color: #999a9c">人际关系</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a> <a href="/tags/%E8%81%8C%E5%9C%BA/" style="font-size: 1.1em; color: #999">职场</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.21em; color: #999da3">数据存储/MYSQL</a> <a href="/tags/%E4%BA%BA%E7%94%9F%E5%93%B2%E5%AD%A6/" style="font-size: 1.28em; color: #99a0aa">人生哲学</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 1.1em; color: #999">协议</a> <a href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" style="font-size: 1.1em; color: #999">云计算</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">19</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">39</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/03/"><span class="card-archive-list-date">March 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/02/"><span class="card-archive-list-date">February 2025</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">871</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1218.8k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-25T01:45:47.832Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
