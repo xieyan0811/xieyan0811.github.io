@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>强化学习工具及优化方法 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍如何在实际项目中使用stable baselines及gym进行股票策略训练，重点阐述stable baselines3的特点和基本用法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习工具及优化方法">
+<meta property="og:url" content="http://xyan666.com/posts/2421785702/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="介绍如何在实际项目中使用stable baselines及gym进行股票策略训练，重点阐述stable baselines3的特点和基本用法。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-10-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-10T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="强化学习">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2421785702/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '强化学习工具及优化方法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-10 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">878</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">282</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">强化学习工具及优化方法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-10-10T00:00:00.000Z" title="Updated 2025-10-10 00:00:00">2025-10-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>3min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="强化学习工具及优化方法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="说明">1 说明</h2>
+<p>在量化交易或金融强化学习项目中，很多人会好奇到底需要关注算法本身，还是环境建模和数据处理。实际上，绝大多数场景下，<strong>重点是如何设计环境和构造特征</strong>，而不是修改
+RL 算法。只有在算法研究、论文复现或特殊需求时，才需要动手改算法。</p>
+<p>本文将以 <strong>stable-baselines + gym</strong>
+为例，介绍强化学习在股票策略训练中的实践重点和流程。</p>
+<hr />
+<h2 id="stable-baselines">2 stable-baselines</h2>
+<p>stable-baselines3（简称 SB3）是一个基于 PyTorch
+的强化学习库，专注于实现和优化主流深度强化学习算法。它的目标是让用户能够方便地训练、评估和部署
+RL 智能体。</p>
+<h3 id="主要特点">2.1 主要特点</h3>
+<ul>
+<li><strong>易用性</strong>：API 设计简洁，类似
+scikit-learn，便于上手。</li>
+<li><strong>主流算法</strong>：内置 PPO、A2C、DQN、SAC、TD3
+等常用算法。</li>
+<li><strong>可扩展性</strong>：支持自定义环境（如 gym
+环境）、网络结构和回调。</li>
+<li><strong>社区活跃</strong>：文档完善，支持良好。</li>
+</ul>
+<h3 id="适用场景">2.2 适用场景</h3>
+<ul>
+<li>股票/量化交易</li>
+<li>游戏智能体</li>
+<li>机器人控制</li>
+<li>其他序列决策问题 ### 2.3 基本用法</li>
+</ul>
+<ol type="1">
+<li>定义环境（如 gym 或自定义环境）</li>
+<li>选择算法并初始化模型</li>
+<li>训练模型</li>
+<li>评估或保存模型</li>
+</ol>
+<hr />
+<h2 id="gym-环境">3 gym 环境</h2>
+<p>实现自定义的 gym.Env 环境，至少需要实现以下核心方法：</p>
+<ul>
+<li><code>__init__</code>：初始化环境状态、动作空间、观测空间等。</li>
+<li><code>step</code>：执行动作，返回观测、奖励、是否结束、截断标记及额外信息。</li>
+<li><code>reset</code>：重置环境，返回初始观测。</li>
+<li><code>render</code>（可选）：可视化环境状态，便于调试。</li>
+<li><code>close</code>（可选）：释放资源。</li>
+</ul>
+<p><code>step</code>
+是核心方法，它执行动作、推进环境状态、计算奖励，并返回下一步观测。智能体与环境的交互循环主要通过不断调用
+<code>step</code> 实现。</p>
+<p>当环境定义完成后，除了测试 RL
+算法，还可以用于回测和评价个人操作，只需将不同的 action 输入
+<code>step</code> 即可。</p>
+<hr />
+<h2 id="训练流程">4 训练流程</h2>
+<h3 id="基本流程">4.1 基本流程</h3>
+<ul>
+<li>定义 <strong>状态空间（state space）</strong> 和
+<strong>动作空间（action space）</strong></li>
+<li>每个 <strong>episode</strong>（回合）包含多个
+<strong>step</strong></li>
+<li>每个 step，智能体执行动作，环境返回即时
+<strong>reward</strong>；所有 step 的 reward 之和为
+<strong>累计奖励（cumulative reward）</strong></li>
+<li>训练目标：通过不断交互优化策略参数，使累计奖励最大化</li>
+</ul>
+<h3 id="优化-action-的过程">4.2 优化 action 的过程</h3>
+<ul>
+<li>训练初期，action 多为随机（策略未收敛）</li>
+<li>随着训练进行，算法（如
+PPO）根据奖励信号更新策略，逐步减少无效动作，使决策趋于最优</li>
+</ul>
+<hr />
+<h2 id="可优化项">5 可优化项</h2>
+<p>无论是机器学习、深度学习还是强化学习，核心都是构造出重要特征，让模型判断其重要性、适用场景和组合方式。例如，将
+MACD
+构造成特征，如果认为布林指标不重要，则可省略，或者将所有特征都提供给模型让其自行选择。甚至已有策略也可转化为特征供强化学习模型使用。</p>
+<p><strong>环境构造重点：</strong></p>
+<ul>
+<li><strong>状态空间（observation）</strong>
+<ul>
+<li>输入特征：当前市场数据（开盘价、收盘价、最高/最低价、成交量、技术指标）、用户账户情况（持仓、现金余额）、历史市场序列（滑动窗口）</li>
+<li>决定 window_size，是否包含多天数据</li>
+</ul></li>
+<li><strong>动作空间（action）</strong>
+<ul>
+<li>动作类型：买/卖/持有，或买卖比例</li>
+<li>离散或连续</li>
+</ul></li>
+<li><strong>奖励函数（reward）</strong>
+<ul>
+<li>通常为策略产生的收益（每日利润/损失或资产净值变化、风险惩罚、手续费）</li>
+<li>可为单步收益或回合总收益</li>
+</ul></li>
+<li><strong>回合</strong>
+<ul>
+<li>从固定起点到终点（如一年、一季度、一个月或整个回测期）</li>
+<li>每回合内智能体每日根据状态操作</li>
+</ul></li>
+<li><strong>数据集</strong>
+<ul>
+<li>选择训练用股票（单只/多只/不同市场）</li>
+<li>数据预处理、归一化</li>
+</ul></li>
+</ul>
+<h3 id="注意事项">5.1 注意事项</h3>
+<p>特征信息不足，导致不同市场状态映射到相同
+observation，会出现“同态不同果”——智能体在相同 observation
+下采取相同策略，但实际环境不同，强化学习难以收敛。</p>
+<h3 id="示例">5.2 示例</h3>
+<p><a href="/posts/1404173137/">论文阅读_两阶段的股票价格预测</a></p>
+<hr />
+<h2 id="回题与解答">6 回题与解答</h2>
+<h3 id="问题一">6.1 问题一</h3>
+<p><strong>问</strong>：reward 是优化整段时间收益还是每日收益？<br />
+<strong>答</strong>：通常优化整个周期的累计收益，而非每日收益。</p>
+<h3 id="问题二">6.2 问题二</h3>
+<p><strong>问</strong>：训练 100 回合时，参数是每回合调整一次还是每 step
+调整？</p>
+<p><strong>答</strong>：参数更新有两种主流方式： -
+<strong>按回合更新</strong>：策略梯度类算法（如 REINFORCE、部分 PPO） -
+<strong>按 step/batch 更新</strong>：Q-learning（如 DQN）、A2C、PPO
+等。Stable-baselines 默认先收集一批“经验”，组成
+batch，再进行一次或多次参数更新。可通过 <code>n_steps</code>
+设置收集步数。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2421785702/">http://xyan666.com/posts/2421785702/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2394099889/" title="围棋经典算法与股票市场预测"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">围棋经典算法与股票市场预测</div></div></a></div><div class="next-post pull-right"><a href="/posts/1068121403/" title="强化学习的核心概念与实践应用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">强化学习的核心概念与实践应用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/11166/" title="MinIO 对象存储服务搭建指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-08</div><div class="title">MinIO 对象存储服务搭建指南</div></div></a></div><div><a href="/posts/2345637894/" title="browser-use"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-30</div><div class="title">browser-use</div></div></a></div><div><a href="/posts/15735/" title="论文工具_easyliter"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-01</div><div class="title">论文工具_easyliter</div></div></a></div><div><a href="/posts/2628538857/" title="Langchain代理工具入门指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-22</div><div class="title">Langchain代理工具入门指南</div></div></a></div><div><a href="/posts/2763052486/" title="SWE-Agent开源实现"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-04</div><div class="title">SWE-Agent开源实现</div></div></a></div><div><a href="/posts/3152282740/" title="图形化 Agent 工具解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-04</div><div class="title">图形化 Agent 工具解析</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">878</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">282</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">1 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stable-baselines"><span class="toc-number">2.</span> <span class="toc-text">2 stable-baselines</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 主要特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 适用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gym-%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">3 gym 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">4 训练流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 基本流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96-action-%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 优化 action 的过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E4%BC%98%E5%8C%96%E9%A1%B9"><span class="toc-number">5.</span> <span class="toc-text">5 可优化项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E9%A2%98%E4%B8%8E%E8%A7%A3%E7%AD%94"><span class="toc-number">6.</span> <span class="toc-text">6 回题与解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%B8%80"><span class="toc-number">6.1.</span> <span class="toc-text">6.1 问题一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E4%BA%8C"><span class="toc-number">6.2.</span> <span class="toc-text">6.2 问题二</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1947414277/" title="什么情况下使用强化学习">什么情况下使用强化学习</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2394099889/" title="围棋经典算法与股票市场预测">围棋经典算法与股票市场预测</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2421785702/" title="强化学习工具及优化方法">强化学习工具及优化方法</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1068121403/" title="强化学习的核心概念与实践应用">强化学习的核心概念与实践应用</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

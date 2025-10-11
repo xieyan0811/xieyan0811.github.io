@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>XYStock 1.2.0新功能解析 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探索XYStock工具新版本的多种股票分析功能，包括市场情绪分析、股息分红分析及风险管理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XYStock 1.2.0新功能解析">
+<meta property="og:url" content="http://xyan666.com/posts/1823650063/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探索XYStock工具新版本的多种股票分析功能，包括市场情绪分析、股息分红分析及风险管理。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-10-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-10-05T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="投资">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/1823650063/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'XYStock 1.2.0新功能解析',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-05 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">878</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">282</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">XYStock 1.2.0新功能解析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-10-10T00:00:00.000Z" title="Created 2025-10-10 00:00:00">2025-10-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-10-05T00:00:00.000Z" title="Updated 2025-10-05 00:00:00">2025-10-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>9min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="XYStock 1.2.0新功能解析"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="引子">1 引子</h2>
+<p>行情好的时候更容易赚钱，有时候等待一波行情可能需要十年。我最近开始开发股票分析相关工具。现在是个不错的时间点，也有足够的动力，加上关注这方面的人越来越多。</p>
+<p>七月中参加一个股票相关的大数据比赛，在之后的学习会上，我想分享自己在建模比赛中的收获，又觉得所用的方法过于单一。然后开始系统地阅读相关论文，并试用
+GitHub
+上高星级的股票工具，最终决定自己动手做工具，一两周后，我完成了一个版本并开源，同时写了简要介绍。没想到，收到了很多老友的反馈，好像中年人都在玩这个。</p>
+<p>在开发过程中，我也在操作自己的账户，产生了很多疑问，关注了一些公众号和
+UP
+主，听他们的实盘分析，同时读一些经典书籍，涉及长线短线、背后逻辑和具体方法等。为了每次分享都能增添一些亮眼的内容，不断寻找更前沿的方向。在与朋友的讨论中，一次次的质疑，反驳，也激发出更多的思路和激情。</p>
+<p>于是继续更新，将更多的理解融入工具中。制作工具时添加的每个功能都旨在解决具体问题，不因他人有此功能而盲目跟风。接下来介绍的是我对这些数据的理解，也是当前版本的新增的功能。</p>
+<p>先对工具做个简要介绍：XYStock 开源工具支持对 A 股市场全部股票、ETF
+基金、港股通股票，以及上证指数、深证成指、创业板指等主要大盘指数进行行情预测和智能分析。用户可以一站式获取实时数据、AI
+分析报告和操作建议。具体描述和使用方法请参见：https://github.com/xieyan0811/xystock。</p>
+<h2 id="更新内容">2 更新内容</h2>
+<p>1.2.0 版本的升级包含 40 多次提交，超过 5000
+行的有效代码更新，更新时间2025.10.04，同步更新github主分支和docker
+image。</p>
+<p>重要的功能更新包括：</p>
+<ul>
+<li><strong>多指数支持</strong> - 支持分析上证、深成、创业板、科创 50
+等主要指数</li>
+<li><strong>市场情绪分析</strong> - 全新市场情绪数据获取与分析功能</li>
+<li><strong>股息分红分析</strong> - 深度分析股票分红历史与收益潜力</li>
+<li><strong>ETF 持仓分析</strong> - 获取 ETF
+详细持仓数据与投资策略分析</li>
+<li><strong>公司信息分析</strong> -
+加入了公司主营业务、核心优势、行业地位等</li>
+<li><strong>基本面增强</strong> -
+加入盈利、偿债、运营、成长等更多数据支持</li>
+<li><strong>风险偏好设置</strong> -- 在设置中新增风险偏好选项</li>
+<li><strong>风险指标计算</strong> - 新增个股与指数多维度风险评估</li>
+<li><strong>指数新闻集成</strong> - 实时获取指数新闻并结合数据分析</li>
+<li><strong>策略回测模块</strong> - 完整回测框架和可视化工具</li>
+</ul>
+<h2 id="具体功能介绍">3 具体功能介绍</h2>
+<h3 id="多指数支持">3.1 多指数支持</h3>
+<p>初始版本包含了对上证指数的分析和预测，其原因是我认为在预测个股时，需要考虑整体市场的行情涨跌。刚刚过去的九月，我们也看到了结构性的行情，创业板涨势很好，而大盘则停留在平台区，还有大量股票表现不如大盘。常常出现指数上涨，但超过一半的个股下跌的情况。</p>
+<p>因此，这次更新中，我加入了上证、深成、创业板、科创50等主要指数的分析和预测，以便在分析时更具体地考虑各个板块。例如，在分析创业板的某支股票时，参考创业板指的趋势，而不是上证指数。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005112612.png" /></p>
+<h3 id="市场情绪分析">3.2 市场情绪分析</h3>
+<p>市场情绪是短期预测中非常重要的因素。很多国外市场都有贪婪恐惧指数（之前国内市场也曾有过一段时间），它是一个重要的预测因素。在没有这一数据的情况下，我们也可以通过分析一些其他数据来获取市场情绪，比如市场的涨/跌/平盘家数和占比，以及资金的流入/流出等。</p>
+<p>在开发第一版时，我没找到合适的接口，每次需要拉取当前所有股票信息自行计算，既耗时又频繁，结果还常被封禁
+IP。而在这一版中，找到了一些更合适的接口，并实现了数据的抓取、分析和综合评分。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005112527.png" /></p>
+<h3 id="股息分红分析">3.3 股息分红分析</h3>
+<p>有时候买股票是为了追求暴涨，有时候则是为了获取分红。比如，购买一些红利或现金流类的股票和基金，即使股价不涨，只要在低位买入并长期持有，通过每年的分红也能稳赢银行利息。从这个角度出发，在各只股票的基本信息界面中加入了过去几年的分红和配送数据，供用户参考。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005113022.png" /></p>
+<p>(这支股票当前价是 38.50，可以看到它的分红数据相当好）</p>
+<h3 id="etf-持仓分析">3.4 ETF 持仓分析</h3>
+<p>之前关于ETF的分析比较单薄，因为一般来说，ETF无法像股票那样获取筹码分布，也没有财务指标和分红信息，所以只能参照K线数据和相关新闻。</p>
+<p>今年是ETF牛市，普通人常常发现买ETF比买个股更容易盈利。选择ETF时，主要是选择行业方向，比如投资机器人、科技、半导体的ETF。虽然同类ETF的涨跌趋势相似，但也存在差异，因此在选择时需要查看持仓的个股和比例。所以这一版展示了前十名持仓比例（并不是所有ETF都提供该数据），用于精挑细选ETF。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005114305.png" /></p>
+<h3 id="公司信息分析">3.5 公司信息分析</h3>
+<p>我以前只投资自己比较了解的公司和行业，对于不熟悉的领域，不能确定它的行业周期以及当前价格是否合理，也无法判断买卖的最佳时机。而问题是：我熟悉的行业可能一直不涨。现在，有了大模型的帮助，我们可以有针对性地提问，并迅速扩展到新的领域。在与模型交互的过程中，我也提取了一些关键提示词，并将其整合到当前工具中，以便快速了解一家公司。这样，即使是跟风购买某只股票，至少不会完全不懂。</p>
+<p>问题涵盖：公司是做什么的、核心产品/服务是什么、主要解决了什么痛点问题、它的核心技术/资源是什么、它在行业中的地位如何、竞争对手和替代方案有哪些、盈利模式是什么，以及潜在的风险和挑战。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005120010.png" /></p>
+<h3 id="基本面增强">3.6 基本面增强</h3>
+<p>在相对长线的投资场景中，基本面还是非常重要的。之前版本，在大模型分析基本面时，经常提示数据不足，无法准确分析。这一版本在股票的基本信息中加入了更多内容：盈利、偿债、运营、成长等数据支持，并且进行了分类显示。</p>
+<p>尽量很多数据我其实也不太会看，不过模型会看，并能提示一些单靠PE、ROE无法发现的潜在问题。这相当于让模型更细致地阅读数据报，并提取出有价值的要点。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005120919.png" /></p>
+<h3 id="风险偏好设置">3.7 风险偏好设置</h3>
+<p>假设我有一万的本金，年收益率为10%。这时，一千块钱的收益显得无足轻重，即使全亏了，也能很快赚回来。如果本金是一百万，年收益率10%意味着十万块，这对很多人来说足够支撑一年生活，但也无法接受大比例的损失。由于每个人的风险偏好和对损失的厌恶程度差异很大，因此对不同人的投资建议也不可能完全一样。盈利空间越大，风险也就越高，这可能也是为什么本金越少时，容易亏损的原因之一。</p>
+<p>在优化提示词的过程中，我尝试添加了以下内容：</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251002223648.png" /></p>
+<p>结果画风突变，什么都不让我买，看啥风险都大。这也可能是因为当前位置（2025年十一期间）相较之前处于一个相对高位。</p>
+<p>最终，在这次升级在设置中加入了风险偏好选项：中性、保守、激进，以及用户自定义。以便在生成投资建议时，考虑到用户的个体差异。</p>
+<p>以下是最新版本中使用“中性”风险偏好时，对某支股票的分析结果。经过提示词调整，我觉得目前效果还是比较直接有效的。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005135048.png" /></p>
+<p>（这是一位 B 站大 V 在九月份重点投资的股票，还好没有跟风买）</p>
+<h3 id="风险指标计算">3.8 风险指标计算</h3>
+<p>之前的股票预测中已经包含风险指标，在这一版中，风险分析也加入了指数预测，并且更详细地展示了多种内容。这些数据都是通过对
+K
+线的分析得出的。最大回测、波动率、夏普比率、VaR、CVaR等，用来描述风险和收益之间的关系。有研究表明，在股票模型中纳入风险因素后，可以有效避免亏损，保住盈利，并显著提升累计收益。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005131340.png" /></p>
+<h3 id="指数新闻集成">3.9 指数新闻集成</h3>
+<p>之前的版本在预测股票时，将股票相关的新闻作为其中一个判断条件，以提供消息面的特征。这次版本升级，在分析指数时也加入了指数相关的新闻数据。</p>
+<h3 id="策略回测模块">3.10 策略回测模块</h3>
+<p>策略回测的内容没有直接展示在界面上，相关代码和使用方法都位于
+backtesting
+目录中，其中实现了几种简单策略。如果你感兴趣，可以自己编写一些策略，并在
+A
+股的历史数据上进行测试。可以看到，那些曾被视为“铁律”的规则，其实只有在特定场景下才有效。可以说，回测是祛魅的有效方法。</p>
+<h2 id="原理">4 原理</h2>
+<p>我该如何证明我的工具是有效的呢？</p>
+<p>你可能会认为我收集的数据不一定是及时的、正确的或全面的，大模型也时常出现偏差，那么我该如何证明我的预测是准确的，或者如何保证正确率呢？</p>
+<p>当前的工具与那些只提供结论、隐藏过程的工具不同。我们支持导出报告，报告中包含所有收集到的数据，你可以通过查看数据直接判断其是否及时和正确。对于工具未能收集到的数据，用户还可以手动输入，将其纳入大模型的分析范围。</p>
+<p>报告中的数据可以复制给任何一个大模型，基于这些数据进行预测。我们常用的国内外大模型都是在海量数据基础上训练而成，金融分析能力明显高于绝大多数人。如果多个模型基于同样的数据得出类似的结论，我们普通人恐怕也很难取得更好的结果。</p>
+<p>至于预测的准确率，没人能够完美预测市场，关键在于概率的高低。如果能管理好情绪，持续进行高胜率的操作，累积下来的结果通常更于赌一两支股票。</p>
+<p>我老弟说股票分析报告后面的“参考数据”部分有点像体检报告。我也觉得，关注数据和分析过程，以及建议背后的原因，可能比只看预测结果更为有效。</p>
+<h2 id="如何证实证伪">5 如何证实/证伪</h2>
+<p>从 25.09.08 开始（计划延续到 2025 年底），我使用 XYStock
+工具预测第二天大盘的涨跌（工具可以预测所有 A
+股、ETF、港股通股票，由于篇幅有限，这里只展示对大盘指数的预测），并在公众号【得之有道】上展示。至于预测的准确性，我个人觉得还行，大家可以自己对照看看。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251005132516.png" /></p>
+<p>在9月的大部分时间里，预测结果主要显示市场震荡和下跌，月中有几天几乎结果完全一样，我都怀疑是不是数据没更新？不过在月底的几天里也有预测显示市场可能上涨。查看主要原因是市场处于高位平台区，而且没有出现有效突破，基本上也是合理的。</p>
+<h2 id="todo">6 TODO</h2>
+<p>在我目前的能力和认知范围内，也只能做到这个程度了。接下来，计划尝试一些强化学习方法，目前数据、环境和Demo都已准备就绪，也有了一些基本的思路。</p>
+<p>在这段时间的学习和开发过程中，似乎也看到了更多可能性：也许能给自己挣个长期饭票？再做做看吧。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/1823650063/">http://xyan666.com/posts/1823650063/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84/">投资</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/892391622/" title="金融相关的强化学习工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">金融相关的强化学习工具</div></div></a></div><div class="next-post pull-right"><a href="/posts/3086409850/" title="用游戏心态看待生活"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">用游戏心态看待生活</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/578618082/" title="大模型代理框架AutoGen_实战篇"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-22</div><div class="title">大模型代理框架AutoGen_实战篇</div></div></a></div><div><a href="/posts/3322575348/" title="Manus和OpenManus"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-28</div><div class="title">Manus和OpenManus</div></div></a></div><div><a href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="title">基金交易量预测比赛_1_我的方案</div></div></a></div><div><a href="/posts/2550878756/" title="基金交易量预测比赛_2_数据分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-16</div><div class="title">基金交易量预测比赛_2_数据分析</div></div></a></div><div><a href="/posts/123182612/" title="论文阅读_大模型情绪分析预测趋势"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-01</div><div class="title">论文阅读_大模型情绪分析预测趋势</div></div></a></div><div><a href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-06</div><div class="title">AI在股票决策中的应用_开源项目XYStock</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">878</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">282</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">1 引子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">2 更新内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">3 具体功能介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%8C%87%E6%95%B0%E6%94%AF%E6%8C%81"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 多指数支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%82%E5%9C%BA%E6%83%85%E7%BB%AA%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 市场情绪分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%82%A1%E6%81%AF%E5%88%86%E7%BA%A2%E5%88%86%E6%9E%90"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 股息分红分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etf-%E6%8C%81%E4%BB%93%E5%88%86%E6%9E%90"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 ETF 持仓分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%8F%B8%E4%BF%A1%E6%81%AF%E5%88%86%E6%9E%90"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 公司信息分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%A2%9E%E5%BC%BA"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 基本面增强</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A3%8E%E9%99%A9%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 风险偏好设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A3%8E%E9%99%A9%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97"><span class="toc-number">3.8.</span> <span class="toc-text">3.8 风险指标计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E6%96%B0%E9%97%BB%E9%9B%86%E6%88%90"><span class="toc-number">3.9.</span> <span class="toc-text">3.9 指数新闻集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%96%E7%95%A5%E5%9B%9E%E6%B5%8B%E6%A8%A1%E5%9D%97"><span class="toc-number">3.10.</span> <span class="toc-text">3.10 策略回测模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">4 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AF%81%E5%AE%9E%E8%AF%81%E4%BC%AA"><span class="toc-number">5.</span> <span class="toc-text">5 如何证实&#x2F;证伪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todo"><span class="toc-number">6.</span> <span class="toc-text">6 TODO</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1947414277/" title="什么情况下使用强化学习">什么情况下使用强化学习</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2394099889/" title="围棋经典算法与股票市场预测">围棋经典算法与股票市场预测</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2421785702/" title="强化学习工具及优化方法">强化学习工具及优化方法</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1068121403/" title="强化学习的核心概念与实践应用">强化学习的核心概念与实践应用</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
