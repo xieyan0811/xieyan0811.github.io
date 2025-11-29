@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-11-27 17:00:17'
+  postUpdate: '2025-11-29 12:55:43'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,218 +163,207 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">883</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">284</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/50000695/" title="图像处理之_霍夫（Hough）变换">图像处理之_霍夫（Hough）变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-28T00:00:00.000Z" title="Created 2017-04-28 00:00:00">2017-04-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 霍夫（Hough）变换
-#图形图像
-1. 用途
-Hough
-变换是一种在图像中寻找直线，圆及其它简单形状的方法．当我们对图像进行边缘检测之后，可用
-Hough
-变换识别图像中的简单形状．该转换也是对图像的一种抽象（由繁到简）．下面介绍最基本
-Hough 变换：寻找直线算法．
-2. 思路
-Hough
-变换通过从直角坐标系到极坐标系的转换，将直角坐标系中的一条＂直线＂，转换为极坐标系上的一个＂点＂，落在这条＂直线＂上的像素点越多，这个极坐标中＂点＂的权越重，最终通过分析各个＂点＂的权重（局部最大值），获取重要线段．为区别直角坐标系中的点和极坐标系中的点，下面我们将直角坐标系中的点称为像素点．
-3. 具体实现
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3806/" title="Python股票处理之四_股票筛选">Python股票处理之四_股票筛选</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-30T00:00:00.000Z" title="Created 2017-06-30 00:00:00">2017-06-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 股票处理之四 _
+股票筛选
+一、说明
+本例实现了股票筛选功能。
+前一半是过滤出市盈率在 0-30 倍之间，且今日换手率&gt;1%，涨幅超 2%
+的股票。
+后一半统计今日涨停和接近涨停的股票。
+二、程序
+1234567891011121314151617181920212223242526272829303132#! usr/bin/python #coding=utf-8import pandas as pdimport tushare as tse = ts.get_today_all()code = e[u&#x27;code&#x27;]name = e[u&#x27;name&#x27;]per = e[u&#x27;per&#x27;] # 市盈率tt = e[u&#x27;turnoverratio&#x27;]	# 换手率cc = e[u&#x27;changepercent&#x27;]	# 涨跌幅mm = e[u&#x27;mktcap&#x27;]	# 总市值idx = len(name)total = 0while idx &gt; 0:	idx  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/44664/" title="Python股票处理之一_获取国内股票数据">Python股票处理之一_获取国内股票数据</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-27T00:00:00.000Z" title="Created 2017-06-27 00:00:00">2017-06-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">Python 获取国内股票数据
+1 安装支持库
+12$ pip install panda$ pip install tushare
+2 说明
+Pandas 是数据分析工具包
+TuShare
+是国内股票数据抓取工具，除了股票的实时和历史数据，还有基本面数据，加上自然语言处理（比如情绪分析），或者机器学习，就比较有趣了。
+3 程序
+3.1 代码
+123456import tushare as tsd = ts.get_tick_data(&#x27;601318&#x27;,date=&#x27;2017-06-26&#x27;)print de = ts.get_hist_data(&#x27;601318&#x27;,start=&#x27;2017-06-23&#x27;,end=&#x27;2017-06-26&#x27;)print e
+3.2 执行结果
+1234567891011…4758  09:30:01  50.02  0.03    1044   5226339  买盘4759  09:28:45  49.99    --       0         0  卖盘4 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6517/" title="算法之_欧拉公式">算法之_欧拉公式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-01T00:00:00.000Z" title="Created 2017-06-01 00:00:00">2017-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/0-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">0_基础知识</a></span></div><div class="content">算法之 _ 欧拉公式
+#数学
+##１. 引子
+看傅立叶变换的时候，一直奇怪，幂指数是怎么映射成三角函数的？学习了一下欧拉公式，果然很神奇，用到了自然常数
+e，圆周率π，虚数 i，三角函数
+sin/cos，指数，还有泰勒展开．不是算法有多难，只是涉及基础太多，经常被卡住，总结如下．
+##２. 泰勒展开
+泰勒展开是用多项式逼近原函数，这么做是因为像 sin(x)
+这样的函数，如果代入 x=4 很难算出结果，但是将 x 的值代入形如
+f(x)=a0+a1x+a2x2+a3x3…的多项式就很容易计算。具体是用原函数的导数实现的，把函数展开成多项式，公式如下：
 
 
 图片.png
 
-如图所示，假设我们有一个桃心图形，由多个红色像素点组成（红色为其有意义的像素点，即轮廓值），想提取出其中的直线．如果将各个像素点连成直线，直线将会有很多条，有些有意义，有些没意义．一般认为像素点足够多的直线更具意义，比如图中的绿色和蓝色的直线．在直角坐标系中，可以用斜截式
-y=kx+b 来表示一条直线（k 是斜率，b 是 y 轴上的截距）．转换到极坐 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1608403112/" title="Android开发_精准排布控件位置">Android开发_精准排布控件位置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a></span></div><div class="content">1. 简述
-在Android系统上开发程序，很多时候需要精准的排布控件的位置和大小．并且适合各种比例的屏幕（4:3，16:9…），下面分别介绍在高版本和低版本的Android中的实现方法．
-## 2. Android Studio／高版本Android实现 1) 说明
-使用高版本android内置的android-support-percent-lib库，通过设置百分比的方法，实现了该功能，
-Demo一般都是android
-studio，Eclipse下需要下载支持库：http://download.csdn.net/detail/sbsujjbcy/8857747
-在Layout中设置百分比：PercentRelativeLayout/PercentFrameLayout/PercentLinearLayout
-2) Layout文件 1234567891011121314151617&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;android.support.percent.PercentFr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/54377/" title="Ubuntu上安装和使用Android-Studio">Ubuntu上安装和使用Android-Studio</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Ubuntu 上安装和使用 Android
-Studio
-1．对比 Eclipse 与 Android
-Studio 开发
+其中 Rn(x) 是余项
+##３. 自然常数 e
+e 是自然常数 (欧拉数)，它是一个约等于 2.718 的无理数，定义是
+
+
+图片.png
+
+它的含义可以通过复利来理解，假设你有 1 块钱，年利息是 1
+块钱（100%），一年后可拿到两块钱
+(1+1/1)^1=2；按利滚利计算，如果半年付一次利息
+(1+1/2)2=2.25；一个月付一次息，(1+1/12)12=2.61；每天付一次息，(1+1/365)^365=2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2464053752/" title="图像处理之_OpenCV入门">图像处理之_OpenCV入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-06-01T00:00:00.000Z" title="Created 2017-06-01 00:00:00">2017-06-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _OpenCV 入门
+1. 带着问题看 OpenCV
+1) 实现了哪些功能，如何调用？
+OpenCV 实现了图像处理（类似
+PhotoShop），校正，分割前景背景，视频监控，运动跟踪，人脸识别，手势识别等功能，并支持机器学习算法。和很多开源工具一样，它提供的是很基础的功能。程序开发者利用基本函数的组合，适配场景，实现具体功能。它本身只是一个工具集，不是具体问题的解决方案。
+只在应用层面调用的话，知道基本的数据结构，函数接口，就可以了。
+2) 如何应用数学知识？
+可以把学习 OpenCV
+看做应用“数学”的过程，空间，矩阵，微积分，统计等工具都在其中使用。图像处理是应用数学较多的领域，具体实现可以通过源码看到，更重要的是了解数学方法的具体用途，才能举一反三。
+了解其中的数学方法，是较深入的层面，如果大学数学都已经忘记了，就很容易卡住，或者似乎明白了，又似乎不明白。不妨把它作为一个切入点，带着这些问题去看数学书，然后会发现数学很有用。OpenCV
+还有一个好处是，它能很直观地看到操作之后的效果，用实例理解抽象的概念。
+3) 如何组织和处理视觉信息？
+OpenCV
+在数据存储， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1138690426/" title="图像处理之_卡尔曼滤波">图像处理之_卡尔曼滤波</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-19T00:00:00.000Z" title="Created 2017-05-19 00:00:00">2017-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 卡尔曼滤波
+1. 用途
+根据一些已知的量来预测未知的量。常用于运动预测。
+2. 定义
+卡尔曼滤波（Kalman
+filtering）一种利用线性系统状态方程，通过系统输入输出观测数据，对系统状态进行最优估计的算法。
+由于观测数据中包括系统中的噪声和干扰的影响，最优估计也可看作是滤波过程，因此叫作卡尔曼滤波。
+3. 原理分析
+1) 第一部分：预测值与误差
+
+假设你和我两个人每天给同一头猪测体重，但两个称都不准。你测 x1
+斤，正负误差在σ1
+斤左右（假设预测成高斯分布，标准差反映了测量值好坏程度的不确定性），我测
+x2 斤，正负误差在σ2 斤左右。结合两个人的预测，简单计算猪的体重是 x1 和
+x2 的平均值。
 
 
 
+图片.png
+
+
+假如我的称更准，即误差更小，σ2&lt;σ1，结合两个人的测量，应该以我为主，因此根据误差加权组合。
 
 
 
+图片.png
+
+（通过概率函数导数的最大值推出上述公式，不在此详述）
+由公式可知：如果你的不确定性σ1 越大，我的测量值 x2
+在新均值中占的比例越大（权值更大）。
+
+后来你走了，用上一次的加权平均（x1,σ1）替代你的测量，我的测量 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/40514/" title="Python函数绘图">Python函数绘图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-19T00:00:00.000Z" title="Created 2017-05-19 00:00:00">2017-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Python 函数绘图
+最近看数学，发现有时候画个图还真管用，对理解和展示效果都不错。尤其是三维空间和一些复杂函数，相当直观，也有助于解题。
+本来想用 mathlab，下载安装都太费事，杀鸡不用牛刀，Python
+基本就能实现，三维图还可以拖动图像来回旋转。
+下面分别在二维三维举例说明。
+1. 二维绘图
+
+   描述：
+
+绘制极坐标系中 r=1 和 r=2cosθ的相交部分（没画的时候，确实没看出
+r=2cosθ也是正圆）
+
+  程序
+
+123456789101112131415import numpy as npimport matplotlib.pyplot as pltplt.figure(1)ax = plt.subplot(111)x = np.linspace(0, np.pi * 2, 200)  # 在0到2pi之间，均匀产生200点的数组 # r = 2cosθr = 2 * np.cos(x)  # 半径ax.plot(r * np.cos(x), r * np.sin(x))# r = 1r = 1ax.plot(r * np.cos(x), r * np.sin ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2646931276/" title="图像处理之_傅立叶变换">图像处理之_傅立叶变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T00:00:00.000Z" title="Created 2017-05-09 00:00:00">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 傅立叶变换
+#图形图像
+1. 图像处理中的傅立叶变换
+将一幅图像从其空间域（spatial domain）转换为频域（frequency
+domain）。图像处理用到的主要是离散傅立叶变换（Discrete Fourier
+Transform），下文中简称 DFT。
 
 
+图片.png
 
-Eclipse 开发
-Android Studio 开发
-
-
-
-
-Java 开发工具
-JDK (可通用)
-JDK (可通用)
-
-
-Android 开发工具
-Android SDK
-Android SDK
+如上图所示，左边是原始图像（左白右黑），中间是 DFT
+变换，右侧为变换后生成的频谱图（幅度相位共同决定了图中点亮度）。
+上图展示了红色点 (x,y) 的变换，在纵轴方向，它所在的列颜色值都为
+0（黑色），因此组成它的波形也能量也都为
+0，在横轴方向，如中间图所示，左则为 255（白色），右则为
+0（黑色），将其拆分成正弦波的组合，再利用拆分后的各个波的幅度（亮度）相位（亮度）以及频率大小（位置）生成频谱图（上图中简化了相位）。
+原始图中的每个像素点，是由不同频率波投射在该点的能量叠加而成的，而频谱图中的每个点是原始图中每个像素点在该频率上的能量叠加而成的。它们之间都是一对多的关系，不存在一一对应。
+2. 如何理解公式
 
 
-集成开发环境
-Eclipse
-Android Studio
+图片.png
+
+以上公式分别是一维和二维 DFT 的定义（摘自《 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/106348493/" title="图像处理之_轮廓匹配">图像处理之_轮廓匹配</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-09T00:00:00.000Z" title="Created 2017-05-09 00:00:00">2017-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 轮廓匹配
+1. 引子
+图像识别可通过轮廓，直方图等方式实现，像人脸识别这种复杂应用，实现它的方法很多，通常是基础方法的改进版与机器学习组合。
+基于轮廓的识别，需要把图像拆分通道，寻找边缘，转换为轮廓（多边形逼近，特性概括等），然后进行轮廓匹配（图像与图像匹配，图像与模板匹配）。
+程序员根据不同情境，选择适合图像抽象方法和匹配方法。
+轮廓的匹配主要是解决大小，位置，旋转角度，精度不同图像间的匹配问题。方法包括轮廓矩，成对几何直方图，凸包和凸缺陷，等级匹配等等，下面以轮廓矩为例，看看它是如何实现的，同时也了解一下矩在图像处理中的应用（基于统计的方法）。
+2. 是什么矩（moment）
+数学定义：实函数相对于值 c 的 n 阶矩为
 
 
-命令行编译工具
-Ant
-Gradle
+图片.png
+
+从上述公式可以看到，它就是一个加了权重的积分，而权重是 (x-c)^n，其中
+n 是阶数（n 阶矩），如果把它想成一个平面直角系中，c 是 x
+轴上的一点，(x-c)^n 是各个 x 点相对于 c 点值的 n
+次方。以下是个积分的图示，只要想象一下，它的每个小方块再乘上权重：(xi-c)^n
+即可得到矩。
 
 
-结构
-Android Studio 的 Project 类于 Eclipse
-的 Workspace
-Android Studio 的 module 类似于 Eclipse
-的 Project
+图片.png
+
+轮 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/903074083/" title="图像处理之_仿射变换与透视变换">图像处理之_仿射变换与透视变换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T00:00:00.000Z" title="Created 2017-05-03 00:00:00">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _
+仿射变换与透视变换
+1. 仿射变换
+1) 用途
+旋转 (线性变换)，平移 (向量加)．缩放 (线性变换)，错切，反转
+2) 方法
+仿射变换是一种二维坐标到二维坐标之间的线性变换，它保持了二维图形的“平直性”（直线经过变换之后依然是直线）和“平行性”（二维图形之间的相对位置关系保持不变，平行线依然是平行线，且直线上点的位置顺序不变）。任意的仿射变换都能表示为乘以一个矩阵
+(线性变换)，再加上一个向量 (平移) 的形式．
 
 
-优点
-Eclipse 支持 C/C++/Java/Python
-起初大家都有它做 Android 开发，熟悉度高
-针对 Android 安装使用方便一些，5.0
-以后的有些功能只能在 Android Studio 上使用
+图片.png
+
+以上公式将点 (x,y) 映射到 (x’,y’)，在 OpenCV 中通过指定一个 2x3
+矩阵实现此功能（公式中的 m 矩阵，是线性变换和平移的组合，m11,m12,m21,m22
+为线性变化参数，m13,m23 为平移参数，其最后一行固定为 0,0,1，因此，将 3x3
+矩阵简化为 2x3）
+3) 举例
+
+以原点为中心旋转，2x3 矩阵为：
+
+12345[ cos(theta), -sin(theta), 0 ],[ sin(theta), cos(theta), 0 ]则x’ = x * cos(theta) - sin(thet ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/129941654/" title="图像处理之_聚焦效果LogPolar">图像处理之_聚焦效果LogPolar</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-05-03T00:00:00.000Z" title="Created 2017-05-03 00:00:00">2017-05-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 聚焦效果
+LogPolar
+#图形图像 #数学
+1. LogPolar
+LogPolar 是将笛卡尔坐标到对数极坐标的变换．即：将 (x,y) 映射到
+(log(ρ),θ)
+2. 笛卡尔空间＆笛卡尔坐标
+笛卡尔坐标系 (Cartesiancoordinates)
+就是直角坐标系和斜角坐标系的统称．本文中用到的是平面直角坐标系．
 
 
+图片.png
 
-2．说明
+3. 极坐标
+在平面上取一定点 o，称为极点，由 o 出发的一条射线
+ox，称为极轴。再取定一个长度单位，通常规定角度取逆时针方向为正。这样，平面上任一点
+P 的位置就可以用线段 OP 的长度ρ以及从 Ox 到 OP
+的角度θ来确定，有序数对（ρ，θ）就称为 P 点的极坐标，记为
+P（ρ，θ）；ρ称为 P 点的极径，θ称为 P 点的极角。
 
-        本文的安装环境是Ubuntu 16.10，其它Ubuntu版本也可以，强烈建议使用64位系 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/15497/" title="Android开发_精准排布控件位置">Android开发_精准排布控件位置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-04-24T00:00:00.000Z" title="Created 2017-04-24 00:00:00">2017-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 开发 _
-精准排布控件位置
-#移动开发 #Android
-1. 简述
-在 Android
-系统上开发程序，很多时候需要精准的排布控件的位置和大小．并且适合各种比例的屏幕（4:3，16:9…），下面分别介绍在高版本和低版本的
-Android 中的实现方法．
-2. Android Studio／高版本
-Android 实现
 
-说明
-使用高版本 android 内置的 android-support-percent-lib
-库，通过设置百分比的方法，实现了该功能，Demo 一般都是 android
+图片.png
 
-studio，Eclipse
-下需要下载支持库：[http://download.csdn.net/detail/sbsujjbcy/8857747
-](http://download.csdn.net/detail/sbsujjbcy/8857747)
-在 Layout
-中设置百分比：PercentRelativeLayout/PercentFrameLayout/PercentLinearLayout
+4. 笛卡尔坐标到极坐标变换
 
-Layout 文件
 
-&lt;android.support.perce ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/23723/" title="Python设置三方库路径">Python设置三方库路径</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-31T00:00:00.000Z" title="Created 2017-03-31 00:00:00">2017-03-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python 设置三方库路径
-一般安装 Python 的三方库，直接使用 Python 的包管理工具
-pip，或者下载源码包后，使用其中的 setup.py 安装，就可以直接安装在 Python
-的系统库目录中了．
-如果想使用一个三方库，又不想安装在 Python
-的默认库目录中，可以程序中使用”sys.path.append(" 具体路径 ")”
-将三方库路径暂时加入库路径．如果想操作一次，之后任何程序都可以直接使用，比如自己写的库，以
-Ubuntu 系统为例，示例如下：
-1. 建立自己的库
-1234$ mkdir /tmp/8888  # 建自己的库目录，此处只是试验，/tmp目录一重启就清除了$ vi /tmp/8888/x888.py   # 编写库文件，内容如下def testme():    print &#x27;hahahaha&#x27;
-2. 看一下 python 的默认库路径
-123$ python&gt;&gt;&gt; import sys&gt;&gt;&gt; sys.path # 此时会显示python的库路径，一般有很多个，在ubuntu下一般包括/u ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/858065074/" title="NLTK中文词性自动标注">NLTK中文词性自动标注</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-24T00:00:00.000Z" title="Created 2017-03-24 00:00:00">2017-03-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">NLTK 中文词性自动标注
-#自然语言处理
-1 说明
-学习自然语言处理，一定会参考 NLTK,主要是学习它的思路,
-从设计地角度看看能做什么.
-其本质就是把语言看成字符串，字符串组，字符串集，寻找其间规律．
-NLTK 是多语言支持的, 但目前网上的例程几乎没有用 NLTK
-处理中文的，其实可以做。比如标注功能, 它自身提供了带标注的中文语库
-(繁体语料库 sinica_treebank).
-下面来看看怎样通过数据训练来实现中文词性自动标注.
-可以利用它来标注中本，也可以寻找和验证一些隐性的规律.
-2 相关知识
-2.1.1 词性标注
-词汇按它们的词性 (parts-of-speech,POS) 分类以及相应的标注它们的过程,
-词性包括: 名词、动词、形容词, 副词等.
-2.1.2 中文字符的显示
-Python 内部编码是 unicode, 所以输出中文常常像这样＂ebade5＂, 用 print
-函数输出时, 将自动转换成本地字符集, 也可以使用 encode(‘utf-8’)
-函数转换．
-2.1.3 数据集,训练集,评估
-有监督的机器学习一般都是把数据分成两个部分, 一部分用于训练,
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2277242930/" title="用WordNet实现中文情感分析">用WordNet实现中文情感分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-14T00:00:00.000Z" title="Created 2017-03-14 00:00:00">2017-03-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">用 WordNet 实现中文情感分析
-#自然语言处理
-1. 分析
-中文的情感分析可以用词林做，词林有一大类（Ｇ类）对应心理活动，但是相对于
-wordnet 还是太简单了．因此使用 nltk+wordnet 的方案，如下：
+图片.png
 
-中文分词：结巴分词
-中英文翻译：wordnet 汉语开放词网，可从以下网址下载：
+在 OpenCV 中使用函数 CartToPolar() 实现．
+5. 自然常数 e（欧拉数）
+自然常数 e（约为 2.71828）其是公式为
 
-http://compling.hss.ntu.edu.sg/cow/
 
-情感分析：wordnet 的 sentiwordnet 组件
-停用词：参考以下网页，另外加入常用标点符号
-[http://blog.csdn.net/u010533386/article/details/51458591
+图片.png
 
-](http://blog.csdn.net/u010533386/article/details/51458591)
-2. 代码
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/30685/" title="中文自然语言处理工具介绍">中文自然语言处理工具介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-03-09T00:00:00.000Z" title="Created 2017-03-09 00:00:00">2017-03-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a></span></div><div class="content">中文自然语言处理工具介绍
-#自然语言处理
-自然语言处理是人工智能领域中的一个重要方向。它研究能人机之间通讯的方式，并涉及机器对人类知识体系的学习和应用．从分词，相似度计算，情感分析，文章摘要，到学习文献，知识推理，都涉及自然语言分析．下面介绍一些中文语言语义分析的资源．（以下只讨论能嵌入到我们程序里的资源）
-1 同义词词林
-《同义词词林》是 80
-年代出版的一本词典，这提供了词的归类，相关性信息，起始主要用于翻译，哈工大对它进行了细化和扩充，出了《词林扩展版》，其中含有
-7 万多词，17000 多种语义，五层编码．12 大类，94 中类，1428
-小类，形如：
-1Aa01A01= 人 士 人物 人士 人氏 人选
-每一个条目对应一种语义，根据分类编号：第一位大写表示大类，第二位小写表示中类…其中涉及了一词多义和一义多词．
-《词林扩展版》网上的下载很多，大小不到 1M，可以直接 load
-到程序中，用于简单的分词，文章分类，模糊查找，统计，情感分析（不同感情色彩对应不同类别号）等等．
-2 哈工大语言云 (LTP)
-中文的语义分析工具，大多数都像 LTP 这样，提供一个在线的分析器，一组
-A ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/21062/" title="Python入门">Python入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-28T00:00:00.000Z" title="Created 2017-02-28 00:00:00">2017-02-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a></span></div><div class="content">Python 入门
-Python 与 Java, C, C++ 并列为全球 4 大最流行语言. 从 C 到 C++,到 Java
-再到 Python, 细节越来越少,
-让开发者把更多的精力放在”做什么”, 而不是”怎么做”.
-早就听说 Python 容易, 但没想到这么容易, 机器学习的分类器,
-或是中文分词能在十行内搞定. 开始时几乎完全不用考虑具体的数据结构.
-在熟悉了 Python 之后, 用它看程序逻辑就很清晰, 有点像伪代码, 让 LISP
-爱好者们也如同找到了亲人.
-以下是 Python 在 ubuntu 系统下的简单实例.
-1. 第一个程序 Hello world
-
-写入文件/tmp/a.py
-
-1print(&#x27;hello world&#x27;)
-
-运行
-
-1$ python /tmp/a.py
-2. 集成开发环境: Eclipse 支持
-Python
-Eclipse 在 Help 菜单中，选择 Install New Software
-Add,输入 http://pydev.org/updates,按提示安装即可
-3. 实例一: 机器学习 SVM 分类器
-
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/59554/" title="01＿Arduino简单实例之一_人体传感器">01＿Arduino简单实例之一_人体传感器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-02-20T00:00:00.000Z" title="Created 2017-02-20 00:00:00">2017-02-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">Arduino 简单实例之一 _
-人体传感器
-#Arduino
-1) 说明
-人体红外感应模块是基于红外线技术的自动控制产品。附近有人时，对应引脚高电平，反之为低平台。
-5 米内有效。可用螺丝（下图中橙色部分）调节灵敏度和延时。
-2) 硬件
-HC-SR501 人体红外感应模块，Arduinouno，杜邦线
-3) 连接
-VCC 接 Arduino 3.3V
-GND 接 Arduino GND
-OUT 接 Digital 2
-[](https://img-
-blog.csdn.net/20170220124753890?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveGlleWFuMDgxMQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-4) 代码
-#define PIN_NUM 2
-
-void setup()  &#123;
-  Serial.begin(9600);
-  pinMode(PIN_NUM,INPUT);
-&#125;
-
-voi ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/73/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/#content-inner">73</a><span class="page-number current">74</span><a class="page-number" href="/page/75/#content-inner">75</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/#content-inner">89</a><a class="extend next" rel="next" href="/page/75/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">883</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">284</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3843517115/" title="自建 NAS 系统指南">自建 NAS 系统指南</a><time datetime="2025-11-07T00:00:00.000Z" title="Created 2025-11-07 00:00:00">2025-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/846911396/" title="为什么我们总是卖飞">为什么我们总是卖飞</a><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/766272234/" title="GitHub Copilot用量优化指南">GitHub Copilot用量优化指南</a><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/443239312/" title="选股中的财务指标运用">选股中的财务指标运用</a><time datetime="2025-11-05T00:00:00.000Z" title="Created 2025-11-05 00:00:00">2025-11-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3122825437/" title="指标学习与应用">指标学习与应用</a><time datetime="2025-10-28T00:00:00.000Z" title="Created 2025-10-28 00:00:00">2025-10-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+6. 对数定义
+若 a^n=b(a&gt;0 且 a≠1) ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/73/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/73/#content-inner">73</a><span class="page-number current">74</span><a class="page-number" href="/page/75/#content-inner">75</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/#content-inner">90</a><a class="extend next" rel="next" href="/page/75/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/661397035/" title="蛋奶烤吐司的制作方法">蛋奶烤吐司的制作方法</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3320254565/" title="手抓羊肉的制作步骤">手抓羊肉的制作步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/865966366/" title="迁移Docker数据步骤">迁移Docker数据步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/949626915/" title="Linux系统磁盘清理指南">Linux系统磁盘清理指南</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-11-28T00:00:00.000Z" title="Created 2025-11-28 00:00:00">2025-11-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -382,8 +371,8 @@ voi ...</div></div></div><nav id="pagination"><div class="pagination"><a class="
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">量化交易</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E5%8F%99%E4%BA%8B%E6%B2%BB%E7%96%97/" style="font-size: 1.1em; color: #999">叙事治疗</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.3em; color: #99a1ac">情绪管理</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 1.14em; color: #999b9d">基金</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.26em; color: #999fa8">哲学</a> <a href="/tags/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/" style="font-size: 1.14em; color: #999b9d">人际关系</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.22em; color: #999ea4">自然语言处理/工具</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.5em; color: #99a9bf">开源项目</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.46em; color: #99a7bb">自我反思</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.18em; color: #999ca1">编程语言/Java</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.38em; color: #99a4b4">深度学习/工具</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%A4%BE%E4%BA%A4/" style="font-size: 1.1em; color: #999">社交</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.26em; color: #999fa8">数据存储/Hadoop</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.18em; color: #999ca1">教育</a> <a href="/tags/Arduino/" style="font-size: 1.42em; color: #99a6b7">Arduino</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">模型转换</a> <a href="/tags/%E5%AF%B9%E8%B0%88/" style="font-size: 1.1em; color: #999">对谈</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999b9d">反思</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 1.1em; color: #999">成长</a> <a href="/tags/%E8%87%AA%E6%88%91%E6%9E%84%E5%BB%BA/" style="font-size: 1.1em; color: #999">自我构建</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.34em; color: #99a3b0">版本管理</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.34em; color: #99a3b0">个人成长</a> <a href="/tags/%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94/" style="font-size: 1.1em; color: #999">角色扮演</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">883</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1234.9k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-27T17:00:14.067Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.16em; color: #999b9f">目标管理</a> <a href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/" style="font-size: 1.22em; color: #999ea5">理财规划</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.13em; color: #999a9c">算法</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.25em; color: #999fa8">数学</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.16em; color: #999b9f">异常检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.47em; color: #99a8bc">论文阅读</a> <a href="/tags/%E6%B0%91%E6%97%8F/" style="font-size: 1.1em; color: #999">民族</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.13em; color: #999a9c">旅行</a> <a href="/tags/Obsidian/" style="font-size: 1.13em; color: #999a9c">Obsidian</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ad">阅读/心理学</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E9%87%91%E8%9E%8D%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">金融工具</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.28em; color: #99a0ab">编程</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.41em; color: #99a5b6">数据分析</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.35em; color: #99a3b0">自我反思</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96/" style="font-size: 1.32em; color: #99a2ad">社会文化</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.44em; color: #99a7b9">操作系统/Linux</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.38em; color: #99a4b3">大模型</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.22em; color: #999ea5">深度学习/知识蒸馏</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.19em; color: #999da2">主题笔记</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E7%AD%96%E7%95%A5/" style="font-size: 1.13em; color: #999a9c">策略</a> <a href="/tags/%E6%83%85%E7%BB%AA%E6%9C%BA%E5%88%B6/" style="font-size: 1.1em; color: #999">情绪机制</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">894</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1244k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-29T12:55:40.722Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>用布林线的变种计算支撑位 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨支撑位及布林线技术在分析价格趋势和波动区间中的应用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用布林线的变种计算支撑位">
+<meta property="og:url" content="http://xyan666.com/posts/3324960025/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨支撑位及布林线技术在分析价格趋势和波动区间中的应用。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2025-11-12T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-12T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="数据分析">
+<meta property="article:tag" content="投资">
+<meta property="article:tag" content="理财规划">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3324960025/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '用布林线的变种计算支撑位',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-12 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">用布林线的变种计算支撑位</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-11-12T00:00:00.000Z" title="Created 2025-11-12 00:00:00">2025-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-11-12T00:00:00.000Z" title="Updated 2025-11-12 00:00:00">2025-11-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="用布林线的变种计算支撑位"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="引子">1 引子</h2>
+<p>这是一个奇怪的脑洞：想到一种计算支撑位的量化方法。</p>
+<p>早上和 AI
+讨论如何识别阻力位和支撑位。它给我建议了几种方法，包括低点聚类、计算筹码密集区、斐波那契回调、均线以及最大回撤。这些方法与我对支撑的理解不太相符，而且都过于复杂，频繁处理多支股票数据比较耗费资源。</p>
+<p>于是，我想到一个关于“平台”的逻辑。其中最简单的一种情况是：如果在某个区间震荡了一段时间后向上/向下突破，那么这个区间就可以作为支撑或阻力位。它应该是价格相对集中、波动较小的一段区间，具体可以通过中值和标准差来判断。</p>
+<p>这是不是有点像布林带?
+只不过布林带用的是均值和标准差。那么，是否可以通过稍作修改布林带的计算方法，简单地计算阻力和支撑位呢？</p>
+<h2 id="支撑位">2 支撑位</h2>
+<p>在不同行情中，比如横盘震荡、上升趋势或下行趋势中，支撑位都是价格止跌反弹的位置。在上升趋势中，支撑位通常是向上通道的下轨或最近一轮上涨的低点；在下行趋势中，支撑位可能是历史低点或先前平台的下沿，尽管在下跌过程中较难判断底部。在横盘震荡时，支撑位出现在历史K线中多次试探并止跌反弹的位置。无论是哪种，都需要：多次回踩未破后反弹。</p>
+<p>它的本质是<code>买方意愿 + 成本密度 + 心理锚点</code>的叠加。</p>
+<table>
+<thead>
+<tr class="header">
+<th>市场类型</th>
+<th>支撑识别逻辑</th>
+<th>关键因子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>横盘</td>
+<td>波动率低 + 多次止跌区间</td>
+<td>中位数、标准差</td>
+</tr>
+<tr class="even">
+<td>上升</td>
+<td>趋势斜率&gt;0 + 局部回撤低点</td>
+<td>通道线、局部极小值</td>
+</tr>
+<tr class="odd">
+<td>下行</td>
+<td>趋势斜率&lt;0 + 历史平台下沿</td>
+<td>低点密集度、反弹验证</td>
+</tr>
+</tbody>
+</table>
+<h3 id="功能">2.1 功能</h3>
+<ul>
+<li>如果不破位，趋势可能延续，可以将其视为买入点。</li>
+<li>如果破位，趋势可能转弱或反转，可能是卖出的参考点。</li>
+</ul>
+<p>所以有时候我们发现大模型给出的止损点和加仓点很接近，恰恰说明那一段价格区是“市场的临界点”。</p>
+<h2 id="布林线">3 布林线</h2>
+<p>布林线（Bollinger
+Bands）用于描述价格的相对波动区间。它涵盖了趋势、波动率和均值回归这三种市场特征。</p>
+<h3 id="计算方法">3.1 计算方法</h3>
+<p>布林线由三条线组成：</p>
+<ul>
+<li>中轨线（MB）：通常是 N 日移动平均（MA）</li>
+<li>上轨线（UB）：MB + k × 标准差（σ）</li>
+<li>下轨线（LB）：MB − k × 标准差（σ）</li>
+</ul>
+<p>一般参数为：N=20，k=2。</p>
+<p>这三条线共同构成了一个随市场波动而自动调整的“通道”。</p>
+<h3 id="原理">3.2 原理</h3>
+<p>简单来说，<strong>布林线就是将“均值+波动”可视化</strong>。它的原理是假设价格近似服从正态分布，表示价格波动的
+95%
+概率区间。也就是说，大部分价格波动都会落在上下轨之间。当波动率（标准差）增大时，通道会张开；当市场平静时，通道会收窄。</p>
+<h3 id="功能-1">3.3 功能</h3>
+<ul>
+<li>波动率判断
+<ul>
+<li>通道收口 → 市场正在盘整，可能在酝酿趋势的爆发；</li>
+<li>通道张口 → 市场剧烈波动，趋势可能延续或接近尾声。</li>
+</ul></li>
+<li>趋势识别
+<ul>
+<li>价格沿上轨运行 → 强势趋势；</li>
+<li>价格沿下轨运行 → 弱势趋势；</li>
+<li>中轨（均线）常作为趋势中的支撑或阻力线。</li>
+</ul></li>
+<li>买卖信号（均值回归思路）
+<ul>
+<li>当价格触及下轨并出现反弹信号 → 可能短期超跌；</li>
+<li>当价格触及上轨并发生反转 → 可能短期超涨；</li>
+<li>但若是强趋势行情，价格“贴轨”反而是趋势延续的信号。</li>
+</ul></li>
+</ul>
+<h2 id="中位数支撑模型">4 中位数支撑模型</h2>
+<p>我早上想到的方法，暂时将它叫作“中位数支撑模型”。
+核心想法是：用中位数代替布林带中均值，更稳当地识别价格的中枢区域。</p>
+<h3 id="原理-1">4.1 原理</h3>
+<p>在设定的时间窗口（比如20天、60天）内： - 计算这段时间的中位数； -
+再计算价格相对于中位数的波动范围，可用： - 标准差（Std） -
+或更稳健的中位数绝对偏差（MAD）； - 通过中位数 ± k ×
+波动度构建一个通道： - 下轨：中位数 − k × 波动度 → 支撑位； -
+上轨：中位数 + k × 波动度 → 压力位或突破参考。</p>
+<p>如果波动太大，说明价格还没收敛，不容易找到支撑；<br />
+如果波动较小，价格区间收紧，就可能在“构筑支撑”。</p>
+<h3 id="用法">4.2 用法</h3>
+<ul>
+<li>当价格靠近下沿并止跌反弹 → 支撑有效；</li>
+<li>当价格突破上沿、波动放大 → 可能是趋势启动；</li>
+<li>如果下沿被明显跌破 → 支撑失效，趋势可能转弱。</li>
+</ul>
+<h3 id="示例">4.3 示例</h3>
+<p>下图分别绘出了第20/40/60天对应的阻力位和支撑位（时间窗口为20天），其中蓝点因MAD过大（一直在上涨过程中，MAD超过中值的5%）而无法识别出阻力和支撑。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020251112215220.png" /></p>
+<h3 id="注意事项">4.4 注意事项</h3>
+<ul>
+<li>时间窗口的选取很关键，不同周期信号差异会很大；</li>
+<li>在强趋势行情里，中位数的反应会偏慢一点；</li>
+<li><strong>不是每个时间段都能算出“有效支撑”，波动太大的区间要单独处理。</strong></li>
+</ul>
+<h2 id="布林线-vs-中位数支撑模型">5 布林线 vs 中位数支撑模型</h2>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>布林线（Bollinger Bands）</th>
+<th>中位数支撑模型</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>中心趋势</td>
+<td>均值（Mean）</td>
+<td>中位数（Median）</td>
+</tr>
+<tr class="even">
+<td>波动度指标</td>
+<td>标准差（Std）</td>
+<td>标准差或中位绝对偏差（MAD）</td>
+</tr>
+<tr class="odd">
+<td>统计特性</td>
+<td>对极值敏感</td>
+<td>对极值鲁棒（稳健）</td>
+</tr>
+<tr class="even">
+<td>市场假设</td>
+<td>价格近似正态分布</td>
+<td>价格分布未知但有集中性</td>
+</tr>
+<tr class="odd">
+<td>主要用途</td>
+<td>趋势识别 + 波动检测</td>
+<td>平台识别 + 支撑判断</td>
+</tr>
+<tr class="even">
+<td>对强趋势反应</td>
+<td>快速（容易“贴轨”）</td>
+<td>稳健但略有滞后</td>
+</tr>
+<tr class="odd">
+<td>对震荡市场反应</td>
+<td>易假突破</td>
+<td>更能识别真实区间</td>
+</tr>
+</tbody>
+</table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3324960025/">http://xyan666.com/posts/3324960025/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><a class="post-meta__tags" href="/tags/%E6%8A%95%E8%B5%84/">投资</a><a class="post-meta__tags" href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/">理财规划</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/379701662/" title="分清价值与技术仓"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">分清价值与技术仓</div></div></a></div><div class="next-post pull-right"><a href="/posts/3843517115/" title="自建 NAS 系统指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">自建 NAS 系统指南</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/3727216376/" title="选股不靠信仰，用数据说话"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-28</div><div class="title">选股不靠信仰，用数据说话</div></div></a></div><div><a href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="title">基金交易量预测比赛_1_我的方案</div></div></a></div><div><a href="/posts/2550878756/" title="基金交易量预测比赛_2_数据分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-16</div><div class="title">基金交易量预测比赛_2_数据分析</div></div></a></div><div><a href="/posts/123182612/" title="论文阅读_大模型情绪分析预测趋势"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-01</div><div class="title">论文阅读_大模型情绪分析预测趋势</div></div></a></div><div><a href="/posts/1823650063/" title="XYStock 1.2.0新功能解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-10</div><div class="title">XYStock 1.2.0新功能解析</div></div></a></div><div><a href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-06</div><div class="title">AI在股票决策中的应用_开源项目XYStock</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%AD%90"><span class="toc-number">1.</span> <span class="toc-text">1 引子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%AF%E6%92%91%E4%BD%8D"><span class="toc-number">2.</span> <span class="toc-text">2 支撑位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E6%9E%97%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">3 布林线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 计算方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E4%BD%8D%E6%95%B0%E6%94%AF%E6%92%91%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">4 中位数支撑模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E6%9E%97%E7%BA%BF-vs-%E4%B8%AD%E4%BD%8D%E6%95%B0%E6%94%AF%E6%92%91%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">5 布林线 vs 中位数支撑模型</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/661397035/" title="蛋奶烤吐司的制作方法">蛋奶烤吐司的制作方法</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3320254565/" title="手抓羊肉的制作步骤">手抓羊肉的制作步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/865966366/" title="迁移Docker数据步骤">迁移Docker数据步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/949626915/" title="Linux系统磁盘清理指南">Linux系统磁盘清理指南</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-11-28T00:00:00.000Z" title="Created 2025-11-28 00:00:00">2025-11-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

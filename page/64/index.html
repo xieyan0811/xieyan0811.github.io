@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-11-27 17:00:17'
+  postUpdate: '2025-11-29 12:55:43'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,168 +163,164 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">883</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">284</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/12017/" title="调度工具Airflow">调度工具Airflow</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-27T00:00:00.000Z" title="Created 2018-10-27 00:00:00">2018-10-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">调度工具 Airflow
-1. 什么是 Airflow
- Airflow 是 Airbnb 开源的 data pipeline
-调度和监控工作流的平台，用于用来创建、监控和调整 data
-pipeline(ETL)。
-2. 简单的定时任务 cron
-  假设我们想要定时调用一个程序，比如说：每天定时从 Web
-抓数据，我们可以使用 cron。cron 是一个 Linux
-下的后台服务，用来定期的执行一些任务，在/etc/crontab
-中设置后即可，基本写法如下：
-12# 分钟 小时 日 月 周 用户  命令 17 * * * * root date &gt;&gt; /tmp/time.log 
-  它的意思是每个小时的第 18 分钟，将当前时间写入 log
-文件，注意各值的取值范围（分钟 0 - 59，小时 0 - 23，天 1 - 31，月 1 -
-12，星期 0 - 6，0 表示星期天）修改/etc/crontab 后，还需要用 $ sudo
-service cron restart 命令重启 crontab 任务，才能生效。
-3. 为什么要用 Airflow
-  有了 cro ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4061270108/" title="机器学习之_逻辑回归">机器学习之_逻辑回归</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-13T00:00:00.000Z" title="Created 2018-10-13 00:00:00">2018-10-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/">经典算法</a></span></div><div class="content">机器学习之 _ 逻辑回归
-逻辑回归又称 logistic
-回归，逻辑斯谛回归，是一种广义的线性回归分析模型。
-1. Sigmod 函数
- Sigmoid 函数也是神经网络中常用的函数，用于把 x
-从负无穷到正无穷压缩到 y 从 0 到 1 之间。画出来就是一条 S
-型曲线，如下图中的蓝色曲线：
-
-  它以 0 点为中心对称，公式如下：
-
-  当 x 值接近负无穷时，分母很大，S(x) 接近 0，当 x
-接近正无穷时，分母接近 1，S(x) 接近 1，当 x 为 0 时，S(x) 为 1/2
-在正中间。S 曲线的弯曲程度由 e 决定。它的导数是上图中的橙色曲线：
-
-  导数的意义是变化率，当 x 很大时或很小时，S’(x) 接近 0，而在 x 接近
-0 时，S’(x) 值最大，即 S 曲线在 0 点处变化剧烈，它勾勒出了 y 在 0 与 1
-之间模棱两可的区域。
-2. 逻辑斯谛分布
-  必须满足逻辑斯谛分布，才能用逻辑回归。那么什么是逻辑斯谛分布？
-逻辑斯谛分布即增长分布，增长分布的分布函数是“增长函数”，公式如下：
-
-  可以看到，它把 (x-μ)/γ代入 Sigmoid
-函数。其中μ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/38671/" title="XGboost_增量学习">XGboost_增量学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-06T00:00:00.000Z" title="Created 2018-10-06 00:00:00">2018-10-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/XGBoost/">XGBoost</a></span></div><div class="content">Xgboost 之增量学习
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1425718093/" title="Linux下使用SQLServer">Linux下使用SQLServer</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-01-05T00:00:00.000Z" title="Created 2019-01-05 00:00:00">2019-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Linux 下使用 SQLServer
+#数据存储/SQLServer #操作系统/Linux
 1. 说明
-当我们的训练数据非常多，并且还在不断增加时，每次都用全量训练，数据过多，时间过长，此时就可以使用增量训练：用新增的数据微调校正模型。
-2. 全量与增量的差异
-在使用增量训练时，最关心的问题是：全量和增量的差别，从而确定增量训练的使用场景。
-假设有 200 条数据，第一次训练 150 条，第二次训练 50 条，和直接用 200
-条训练的差异在于：在第二次训练 50 条时，前 150
-条数据已经不存在了，模型更拟合于后面的数据。如果我们定期增量训练，那么离当前时间越近的数据对模型影响越大，这也是我们想要的结果。但如果最后一批数据质量非常差，就可能覆盖之前的正确实例的训练结果，把模型带偏。
-同理，如果我们按时间把数据分成几部分，然后按从早到晚的顺序多次训练模型，每个模型在上一个模型基础上训练，也间接地参加了后期实例的权重。
-Xgboost
-提供两种增量训练的方式，一种是在当前迭代树的基础上增加新树，原树不变；另一种是当前迭代树结构不变，重新计算叶节点权重，同时也可增加新树。
-对于已存在的决策树，早期训练的实例决定了模型的结构（选择哪些特征及分裂点），后 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/59677/" title="XGboost_调试方法">XGboost_调试方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-06T00:00:00.000Z" title="Created 2018-10-06 00:00:00">2018-10-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/XGBoost/">XGBoost</a></span></div><div class="content">Xgboost 调试方法
-1. 调试 test 目录下的测试用例
-  在测试程序后面加入以下代码，即可启动调试程序
-12if __name__ == &quot;__main__&quot;:    unittest.main()
-2. 显示树结构
-1234import matplotlib.pyplot as plt fig,ax = plt.subplots()xgb.plot_tree(gbdt_03a, ax = ax, num_trees=0) # 显示模型中的第一棵树plt.show()
-3. 打印详细调试信息
-  在 xgb 的 params 中设置：
-12&#x27;silent&#x27;: 0,&#x27;debug_verbose&#x27;: 5
-4. 修改源码
-  修改 c++ 源码后如果运行 c++ 程序，在 xgboost 目录下执行编译命令
-make，重新生成二进制程序 xgboost，运行即可。
-  修改 c++ 源码后如果运行 Python 程序，需要将
-xgboost/lib/libxgboost.so，复制到 python
-对应的库目录下（如：/ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/54067/" title="Python的Debug工具">Python的Debug工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-10-04T00:00:00.000Z" title="Created 2018-10-04 00:00:00">2018-10-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">Python 的 Debug 工具
-1. 命令行使用 pdb
-(1) 我们先写个简单的
-python 程序 a.py 如下：
-1234for i in range(0,3):    print(i)    print(&quot;@@@@&quot;)    print(&quot;###&quot;)
-(2) 用 pdb 调试
-1$ pdb a.py  # 此后看到 &gt; 提示符，即可以输入命令调试
-2. 常用 pdb 命令
-pdb 命令和 gdb 差不多，最常用的命令如下：
+ SQL Server 是由 Microsoft 开发和推广的关系数据库管理系统。本文介绍在
+Ubuntu 系统下，SQL Server 服务端及客户端的安装，基本命令及如何使用
+python 访问数据。
+2. 安装
+  由于 SQLServer 不在默认安装的软件源之中，在 Ubuntu 16.04
+上，需要先加入其软件源，安装后再进行一些配置
+(1) SQLServer 服务器端
+123456789$ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add - #导入公钥$ sudo add-apt-repository &quot;$(wget -qO- https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)&quot;$ sudo apt-get update$ sudo apt ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/49026/" title="做图工具pyecharts">做图工具pyecharts</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-30T00:00:00.000Z" title="Created 2018-12-30 00:00:00">2018-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">做图工具 pyecharts
+1. 说明
+  上次分享了 Flask+Dash 做图，WXXCX 师兄给我留言说：感觉 dash 不如
+pyecharts 好用，于是我学习了一下 pyecharts。
+ ECharts，缩写来自 Enterprise Charts，商业级数据图表，一个纯
+Javascript 的图表库，可以流畅的运行在 PC
+和移动设备上，兼容当前绝大部分浏览器（IE6/7/8/9/10/11，chrome，firefox，Safari
+等）。Pyecharts 是 python 版本的 echarts，与 Dash
+相比，我个人更喜欢它的图片配色；在使用上它相似于 matplotlib，不需要像
+Dash 一样再去熟悉新的 API 和 callback 的逻辑；最喜欢的地方在于 notebook
+可以调，flask
+也可以调，调试时和显示在网页上的图完全一样；它还支持地图显示，以及雷达图等等（Dash
+是否支持我没试过）。果然更加好用，整理如下。
+2. 准备数据
+12345import pyechartsattr = [&quot;Jan&quot;, &quot; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/34734/" title="从正态分布到T检验">从正态分布到T检验</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-22T00:00:00.000Z" title="Created 2018-12-22 00:00:00">2018-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E5%88%86%E5%B8%83/">分布</a></span></div><div class="content">从正态分布到 T 检验
+1．说明
+  接上次的 《几种常见的数学分布》。这次说说
+T 分布和 T 检验，用词不够严谨，大家就领会精神为主吧~
+2．什么是抽样
+ 
+如果整体样本可以一个一个判断叫普查，如果整体样本太多，没法一个一个判断，只能取一部分代表整体，叫抽样。
+  比如说，一个班有 20
+个人，我们可以把所有人的身高加一起，除以人数，计算均值，如果有 2000000
+人，就无法把所有人身高都统计一遍再除以总数，一般情况下，就是取其中一部分，计算其均值，认为他们能代表全部。
+3．正态分布
+  先复习一下正态分布，比如说女人的身高一般在 160 左右，150, 170
+的比较少，140,180
+的更少，把身高当做横轴，人数作为纵轴画图，就可看到一个中间高两边低的钟形曲线，也就是正态分布。
+  那什么不是正态分布呢？比如人的空腹血糖一般在 4-6 之间，而血糖高的
+7,8,9 的很多，而低到 3,2,1
+的就很少，不样一边多一边少的，就不是正态分布。
 
-单步调试（进入函数）：s(tep)
-单步调试（不进入函数）：n(ext)
-继续往后执行，直到下个断点：c(ont(inue))
-运行到函数结束：r(eturn)
-运行到当前循环结束：unt(il)
-设置断点：b(reak) 文件名: 行号（或行号，或函数名）
-显示当前调用关系：w(here)
-显示当前代码段：l(ist)
-显示变量：p(rint) 变量名
-显示当前函数的参数：a(rgs)
-显示帮助信息：h(elp)
-退出：q(uit)
+4．正态分布和 T 分布
+如果只有 20 个人画一下算一下，就是正态分布；如果有 2000000
+人，从中随机取出 20 个，画一图也就 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/53544/" title="一些零碎的mathplotlib小技巧">一些零碎的mathplotlib小技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-19T00:00:00.000Z" title="Created 2018-12-19 00:00:00">2018-12-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">一些零碎的 mathplotlib
+小技巧
 
-3. Notebook 使用 pdb
-(1) 单步调试
-  用 No ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14204/" title="XGBoost_原理">XGBoost_原理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-09-22T00:00:00.000Z" title="Created 2018-09-22 00:00:00">2018-09-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/XGBoost/">XGBoost</a></span></div><div class="content">XGBoost_ 原理
-1. 说明：
-难了不会，会了不难，你明白了，觉得这还用说？不明白，跳步之后，似懂非懂。本篇是我对论文《XGBoost:
-A Scalable Tree Boosting System》的阅读笔记，用大白话解释 xgboost
-原理，学霸请跳过，懒得看公式的也请跳过。
+说明
+一些零碎的 mathplotlib 小技巧
+怎么让图显得更高级 1.
+改字体大小：标题，子标题，标注分别不用同大小的字体，一遍文章中所有图都有相同的
+style。 2. 注意子图的间距 3. 注意对齐方向：居中，居左 4.
+注意配色：不使用红绿蓝等纯色 5. 柱图，线图，饼图使用至少两种以上 6.
+对一组图使用相同的 X,Y 轴范围 7. 注意线的粗细，点的大小
+线的粗细点的大小
+plt.plot(xx, linewidth=1.0)
+plt.plot(xx, 'o', markersize=1)
+横轴显示时间日期
+df['datetime'] = df['datestr'].apply(lambda x:
+datetime.datetime.strptime(x, "%Y-%m-%d"))
+字体大小
+figure.suptitle('xxxx', fontsize=15)
+plt.tick_params(labelsize=6)
+显示高分辨率
+figure = plt.figure(figsize=(8,6), dpi=300)
+其 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3190328272/" title="图像处理之_增强现实工具ARToolKit">图像处理之_增强现实工具ARToolKit</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-16T00:00:00.000Z" title="Created 2018-12-16 00:00:00">2018-12-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9F%BA%E7%A1%80%E6%96%B9%E6%B3%95/">基础方法</a></span></div><div class="content">图像处理之 _ 增强现实工具
+ARToolKit
+#图形图像
+1. 增强现实
+ 
+增强现实（AR）是将电脑虚拟的图像覆盖到真实世界画面中，这个技术在工业和理论研究方面都存在着极大的潜能。
+2. 相关概念
+(1) ARToolkit
+ ARToolkit，是一个开源的 AR(增强现实)SDK。它是用 C/C++
+语言编写的库，通过它可以很容易地编写增强现实应用程序。增强现实中最困难的部分在于实时的将虚拟图像覆盖到用户视口，并且和真实世界中的对象精确对齐。ARToolKit
+使用电脑图像技术计算摄像机和标记卡之间的相对位置，从而使程序员能够将他们的虚拟对象覆盖到标记卡上面。ARToolKit
+提供的快速和准确的标记跟踪，能够让你快速的开发出许多更新更有趣的 AR
+程序。
+(2) OpenGL
+ OpenGL 是 Open Graphics Library，用于渲染 2D、3D
+矢量图形的跨语言、跨平台的应用程序编程接口（API），可绘制从简单的图形到复杂的三维景象。
+(3) OpenCV
+ OpenCV 是 Open Source Computer Vision
+Library。它提供图像 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2442373888/" title="Ubuntu支持Thinkpad无线网卡">Ubuntu支持Thinkpad无线网卡</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-15T00:00:00.000Z" title="Created 2018-12-15 00:00:00">2018-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E9%A9%B1%E5%8A%A8/">驱动</a></span></div><div class="content">Ubuntu 支持 Thinkpad
+无线网卡
+#操作系统/Linux
+最近新入了一个 Thinkpad，安装 ubuntu16.04
+之后，不能识别无线网卡，解法如下：
+1.查看无线网卡型号
+1$ lspci
+
+我无线网卡的型号是 Realtek Semiconductor Co., Ltd. Device c821
+2.下载驱动程序，编译内核模块
+12345$ git clone https://github.com/tomaspinho/rtl8821ce$ cd rtl8821ce$ chmod +x dkms-install.sh$ chmod +x dkms-remove.sh$ sudo ./dkms-install.sh
+如果网卡型号和我的不同，可以试试 realtek 的其它驱动包: git clone
+https://github.com/lwfinger/rtlwifi_new
+3.加载网卡驱动
+查看驱动模块是否被加载
+1$ lspci -v
+这时看到 Device c821 设备下面有 Kernal modeles, 但是没有 Moder driver
+in u ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2891290823/" title="Ubuntu笔记本双屏的切换">Ubuntu笔记本双屏的切换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-15T00:00:00.000Z" title="Created 2018-12-15 00:00:00">2018-12-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">Ubuntu 笔记本双屏的切换
+#操作系统/Linux
+同屏
+xrandr --output eDP-1 --same-as DP-2 --auto
+分屏
+xrandr --output eDP-1 --right-of DP-2 --auto
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/39882/" title="实战_瑞金医院MMC知识图谱大赛初赛">实战_瑞金医院MMC知识图谱大赛初赛</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-12-01T00:00:00.000Z" title="Created 2018-12-01 00:00:00">2018-12-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E6%88%98/">实战</a></span></div><div class="content">实战 _ 瑞金医院 MMC
+知识图谱大赛初赛
+1. 说明
+ 《瑞金医院 MMC
+人工智能辅助构建知识图谱大赛》是一个天池的自然语言处理相关的比赛，初赛是命名实体识别（Named
+Entity Recognition，简称
+NER）。具体说，就是从医学文档里标注出药名，疾病，病因，临床表现，检查方法等十二种实体的类别和位置。这是一个有监督学习，它的训练集是标注好的医学文档。
+ 
+还是延续以往比赛的思路，找一个类似的简单项目，在其上修修改改，于是找到了
+" 参考 1"
+中的例程，它是一个在中文文本中标注地名，人名，组织名的程序，使用工具是
+tensorflow，算法是 BiLSTM-CRF。
+ 
+花了不到两天的时间，混进了复赛，虽说是在别人的代码上修修改改，但也不失为一个
+NLP 相关的深度学习入门，顺便熟悉一下如何使用
+tensorflow。我做的工作很简单：参考代码 2000 多行，修改了不到 200
+行，主要就是把那套代码对这个项目做一个适配，没啥可说的，本文主要梳理了深度学习如何应用于自然语言处理，算法原理，以及
+Tensorflow 的一些用法。
 2.
-第一步：整体误差（重点：整体视角）
-整体误差指的是 XGBoost
-模型训练完成之后，将训练集中所有实例代入模型，用以下函数（总误差
-L()）衡量模型的好坏：
-
-左边是训练集所有实例的误差之和，i 指每个实例，y^是预测值，y
-是实际值，而 l() 是衡量 y’与 y 差异的方法，比如
-RMSE。左边比较好理解，就是说训练一个模型，最好能对于所有的实例都做出与真实值相似的预测。
-右边是正则项，它的用途就是防止模型过拟合，比如说一个模型，一共 400
-个实例，模型做了 400
-个叶节点，与实例一一对应，它的泛化就很差，所以应该尽量简化模型，正则项在第四步详述。
-3.
-第二步：计算 t 棵树时的误差（重点：从第 t-1 棵到第 t 棵）
-梯度下降决策树是由多棵树组成的模型。假设它由 t 棵树组成， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32905/" title="XGBoost_源码初探">XGBoost_源码初探</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-09-09T00:00:00.000Z" title="Created 2018-09-09 00:00:00">2018-09-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">4_机器学习</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/4-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/XGBoost/">XGBoost</a></span></div><div class="content">XGBoost_ 源码初探
-##１. 说明
-  本篇来读读 Xgboost 源码。其核心代码基本在 src 目录下，由 C++
-实现，40 几个 cc 文件，代码 11000
-多行，虽然不算太多，但想把核心代码都读明白，也需要很长时间。我觉得阅读的目的主要是：了解基本原理，流程，核心代码的位置，修改从哪儿入手，而得以快速入门。因此，需要跟踪代码执行过程，同时查看在某一步骤其内部环境的取值情况。具体方法是：单步调试或在代码中加入一些打印信息，因此选择了安装编译源码的方式。
-##２. 下载编译
-  用参数 --recursive 可以下载它的支持包 rabit 和 cur，否则编不过
-123$ git clone --recursive https://github.com/dmlc/xgboost$ cd xgboost$ make -j4
-##３. 运行
-  测试程序 demo
-目录中有多分类，二分类，回归等各种示例，这里从二分类入手。
-1234$ cd demo #运行一个测试程序 $ cd binary_classification$ ./runexp.sh # 可以通过修改cfg ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2962967001/" title="知识图谱之WordNet">知识图谱之WordNet</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-09-02T00:00:00.000Z" title="Created 2018-09-02 00:00:00">2018-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="content">知识图谱之 WordNet
-#自然语言处理
+深度学习能解决自然语言处理 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/14607/" title="Dash入门">Dash入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-11-25T00:00:00.000Z" title="Created 2018-11-25 00:00:00">2018-11-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></span></div><div class="content">Dash 入门
 1. 说明
  
-今天讨论的是自然语言中的知识抽取和知识表示，换言之，就是如何从大量的书籍文献中剥离出我们关心的所谓“知识”，并将起组织保存成简单可用的描述。
-  不同的知识类型需要采用不同的知识表示方式，温有奎教授总结了 10
-种知识类型（具体见参考部分）。对于静态概念及概念之间关系用面向对象形式来表示，对命题型问题用一阶逻辑来表示，对于系统流程和实验流程等过程性知识用脚本表示法。
- 
-静态概念是思维最基本的组成单元（以下简称基元），无论是命题还是流程，都离不开基元。我们应该把基元看作一种语义，而非一个单词。因为很多单词不具唯一性，常有一词多义，和一义多词的问题。
- 
-再来看看基元之间的关系，比如：水果，苹果，红富士，它们可能指向同一物体，又可能不同；它们在一定程度上拥有共同属性，又拥有各自特征；基元相互之间又可能有类别的包含，近义，反义，整体与局部等各种关系……
- 
-中文中的单词至少有几万个，这还不包括简单词组成的短语，如果有一个命题是“苹果是圆的”，那么是否也需要同时加入“红富士是圆的”，如果这样描述属性，恐怕是举不胜举了。而人类一般可以 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/32780/" title="特征工程之_筛选">特征工程之_筛选</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-08-19T00:00:00.000Z" title="Created 2018-08-19 00:00:00">2018-08-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/">3_数据</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/3-%E6%95%B0%E6%8D%AE/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></span></div><div class="content">特征工程之 _ 筛选
-1. 说明
- 
-本文并非介绍某个成熟算法或者工具，只是个人的一点感悟，写得可能不正确，不全面，希望能给大家带来一些启发，也欢迎各位回复讨论。
-2. 特征工程
- 
-大数据相关的工作可简要地归纳为：模型部分和数据部分，在模型部分，目前大家的做法主要是拿现成的模型来用，对其做内部修改或重写的很少，主要工作在选型和调参。
- 
-相对来说，对数据部分做的工作更多，在比赛中数据都是固定的，且很多时候数据已脱敏，特征工程能做的不太多，而真实场景中，往往能从复杂数据中提取更多信息，因此如期何提取以及筛选信息就变得尤为重要。
-3. 筛选
- 
-筛选分为筛选实例和筛选特征，如果把整体数据看成一张表，就是删行或者删列。
- 
-在实际应用时，常遇到的一个难题是：怎么把人的经验和算法结合起来，特征工程是一个重要的入口，一方面我们可以用经验构造更多特征，另一方面，也可以通过经验选择合理的实例代入模型，以及分配权重。
-4. 特征筛选
-(1) 为什么筛选
- 
-对特征的筛选主要是去掉无关特征，无关特征一般有两种影响：在数据量大的情况下，影响训练速度，在数据量少的情况下，带来更多误差。像天池的汽车上牌赛和 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8785/" title="Swagger和Python配合使用">Swagger和Python配合使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-08-12T00:00:00.000Z" title="Created 2018-08-12 00:00:00">2018-08-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E7%BD%91%E7%BB%9C/">网络</a></span></div><div class="content">Swagger 和 Python 配合使用
-1 简介
-先来看一个应用场景：
-我写了一段功能性的程序（可能是 Java 的，也可能是 Python
-的），供他人调用（调我程序可能是其它编程语言，或者直接运行，如果调用者对我使用的工具不熟悉，直接调用可能很麻烦），这个程序需要传入多个参数，需要结构化的输出，我以什么方式提供给比较好呢？
-我们可能会选择 BS 的结构，建立一个 Web-Server，然后把功能性的程序放在
-Web-Server 上并向外暴露接口，其它程序用 Http 协议调用该接口，以 POST 或
-GET 的方式转入参数，然后得到返回结果。
-于是我们就需要定义一些交互协议，写接口描述文档，在调用出错时，联调是哪一端的问题，总之，沟通成本很高。
-Swagger
-可以很好地解这一问题，一方面，它能按规范自动生成接口文档（以网页形式提供），这样编写
-API
-和编写文档同时完成，几乎不用考虑文本和代码版本不同步的问题；另一方面，它能提供测试界面，我们只需要在网页上填写相应的参数，点击调用（网页由
-swagger
-生成），就可以轻松调用接口，使得服务端的开发者，不使用客户端，就可以完 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/63/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/#content-inner">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/89/#content-inner">89</a><a class="extend next" rel="next" href="/page/65/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">883</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">284</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3843517115/" title="自建 NAS 系统指南">自建 NAS 系统指南</a><time datetime="2025-11-07T00:00:00.000Z" title="Created 2025-11-07 00:00:00">2025-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/846911396/" title="为什么我们总是卖飞">为什么我们总是卖飞</a><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/766272234/" title="GitHub Copilot用量优化指南">GitHub Copilot用量优化指南</a><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/443239312/" title="选股中的财务指标运用">选股中的财务指标运用</a><time datetime="2025-11-05T00:00:00.000Z" title="Created 2025-11-05 00:00:00">2025-11-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3122825437/" title="指标学习与应用">指标学习与应用</a><time datetime="2025-10-28T00:00:00.000Z" title="Created 2025-10-28 00:00:00">2025-10-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+大数据开发过程中，我们常常需要向别人展示一些统计结果，有时候还是实时的统计结果。最好能以网页方式提供，让别人在他的机器上，使用浏览器也能访问。这时候统计工具往往使用
+Python，而把分析图表画出来使用 JavaScript，需要搭建 web
+服务，还涉及中间过程的数据衔接。而 Dash 能帮我们实现以上所有的工作。
+ Dash 是 Python 的一个库，使用 pip 即可安装。用它可以启动一个 http
+server，python 调用它做图，而它内部将这些图置换成 JavaScript
+显示，进行数据分析和展示。
+2. 安装
+1234$ pip install dash$ pip install dash-renderer$ pip install dash-html-components$ pip install dash-core-components
+  其中 html 与网页相关，比如用它实现 Title
+显示及一些与用户的交互操作，core
+是绘图部分，像我们常用的柱图，饼图，箱图，线图，都可以用它实现。
+3. 简单 demo
+(1) 代 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/61092/" title="数据迁移工具Kettle">数据迁移工具Kettle</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2018-11-10T00:00:00.000Z" title="Created 2018-11-10 00:00:00">2018-11-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E5%85%B6%E5%AE%83%E7%BC%96%E7%A8%8B/">其它编程</a></span></div><div class="content">数据迁移工具 Kettle
+1. 背景知识
+(1) 什么是 ETL
+ ETL 是 Extract-Transform-Load
+的缩写，用来描述将数据从来源端经过抽取（extract）、交互转换（transform）、加载（load）至目的端的过程。
+(2) Kettle 简介
+ Kettle 是一款国外开源的 ETL 工具，纯 java 编写，可以在
+Window、Linux、Unix 上运行，数据抽取高效稳定。Kettle
+中文名称叫水壶，该项目的主程序员 MATT
+希望把各种数据放到一个壶里，然后以一种指定的格式流出。我们常用它定时将一些库的数据稍做转换后存入其它库。
+(3) 工作机制
+ Kettle 中有两种脚本文件，transformation 和 job，transformation
+完成针对数据的基础转换，job 则完成整个工作流的控制。
+2. 安装和运行
+(1) 安装
+ kettle 的最新下载地址：http://community.pentaho.com/projects/data-integration/
+我在 linux 下安装，机器之前已装好 java
+环境，将 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/63/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/63/#content-inner">63</a><span class="page-number current">64</span><a class="page-number" href="/page/65/#content-inner">65</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/#content-inner">90</a><a class="extend next" rel="next" href="/page/65/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/661397035/" title="蛋奶烤吐司的制作方法">蛋奶烤吐司的制作方法</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3320254565/" title="手抓羊肉的制作步骤">手抓羊肉的制作步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/865966366/" title="迁移Docker数据步骤">迁移Docker数据步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/949626915/" title="Linux系统磁盘清理指南">Linux系统磁盘清理指南</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-11-28T00:00:00.000Z" title="Created 2025-11-28 00:00:00">2025-11-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -332,8 +328,8 @@ swagger
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E9%87%8F%E5%8C%96%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">量化交易</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E5%8F%99%E4%BA%8B%E6%B2%BB%E7%96%97/" style="font-size: 1.1em; color: #999">叙事治疗</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.3em; color: #99a1ac">情绪管理</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 1.14em; color: #999b9d">基金</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.26em; color: #999fa8">哲学</a> <a href="/tags/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/" style="font-size: 1.14em; color: #999b9d">人际关系</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.22em; color: #999ea4">自然语言处理/工具</a> <a href="/tags/%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">音频处理</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.5em; color: #99a9bf">开源项目</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.46em; color: #99a7bb">自我反思</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.18em; color: #999ca1">编程语言/Java</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.38em; color: #99a4b4">深度学习/工具</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%A4%BE%E4%BA%A4/" style="font-size: 1.1em; color: #999">社交</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E8%A1%8C%E4%B8%BA%E6%A8%A1%E5%BC%8F/" style="font-size: 1.1em; color: #999">行为模式</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-Hadoop/" style="font-size: 1.26em; color: #999fa8">数据存储/Hadoop</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">语言模型</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.18em; color: #999ca1">教育</a> <a href="/tags/Arduino/" style="font-size: 1.42em; color: #99a6b7">Arduino</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 1.1em; color: #999">模型转换</a> <a href="/tags/%E5%AF%B9%E8%B0%88/" style="font-size: 1.1em; color: #999">对谈</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999b9d">反思</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 1.1em; color: #999">成长</a> <a href="/tags/%E8%87%AA%E6%88%91%E6%9E%84%E5%BB%BA/" style="font-size: 1.1em; color: #999">自我构建</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.34em; color: #99a3b0">版本管理</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.34em; color: #99a3b0">个人成长</a> <a href="/tags/%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94/" style="font-size: 1.1em; color: #999">角色扮演</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">883</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1234.9k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-27T17:00:14.067Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.16em; color: #999b9f">目标管理</a> <a href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/" style="font-size: 1.22em; color: #999ea5">理财规划</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.13em; color: #999a9c">算法</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">社会关系</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E8%AF%84%E4%BB%B7/" style="font-size: 1.1em; color: #999">社会评价</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.25em; color: #999fa8">数学</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.16em; color: #999b9f">异常检测</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.47em; color: #99a8bc">论文阅读</a> <a href="/tags/%E6%B0%91%E6%97%8F/" style="font-size: 1.1em; color: #999">民族</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.13em; color: #999a9c">旅行</a> <a href="/tags/Obsidian/" style="font-size: 1.13em; color: #999a9c">Obsidian</a> <a href="/tags/%E5%8C%BB%E5%AD%A6/" style="font-size: 1.1em; color: #999">医学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.32em; color: #99a2ad">阅读/心理学</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E9%87%91%E8%9E%8D%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">金融工具</a> <a href="/tags/%E6%97%A0%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">无代码开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 1.28em; color: #99a0ab">编程</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.41em; color: #99a5b6">数据分析</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D/" style="font-size: 1.35em; color: #99a3b0">自我反思</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96/" style="font-size: 1.32em; color: #99a2ad">社会文化</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/%E5%86%B3%E7%AD%96%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">决策哲学</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.44em; color: #99a7b9">操作系统/Linux</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.38em; color: #99a4b3">大模型</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/android/" style="font-size: 1.1em; color: #999">android</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F/" style="font-size: 1.22em; color: #999ea5">深度学习/知识蒸馏</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.19em; color: #999da2">主题笔记</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E7%AD%96%E7%95%A5/" style="font-size: 1.13em; color: #999a9c">策略</a> <a href="/tags/%E6%83%85%E7%BB%AA%E6%9C%BA%E5%88%B6/" style="font-size: 1.1em; color: #999">情绪机制</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">894</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1244k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-11-29T12:55:40.722Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
