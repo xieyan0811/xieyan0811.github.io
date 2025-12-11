@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2025-12-10 17:00:17'
+  postUpdate: '2025-12-11 11:32:04'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,17 +163,51 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">188</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2977420593/" title="量化股票趋势的方法">量化股票趋势的方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-20T00:00:00.000Z" title="Created 2025-11-20 00:00:00">2025-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">1 引入
-如何用程序识别股票趋势：上涨/下跌/横盘？我面对的问题是：某些策略在上涨时有效，有些在下跌时有效，还有些更适用于横盘。那么，如何以量化方式准确判断当前趋势呢？
-趋势本身是一个相对的概念。上涨与下跌显然不同，而上涨与横盘有时难以区分，比如：究竟多长时间，多大涨幅能称为上涨？今天我们来探讨一下量化识别趋势的具体方法。
-2 实现
-在具体应用中，我们需考虑两个问题：
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">901</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3214728872/" title="止损策略与实战指南">止损策略与实战指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-05T00:00:00.000Z" title="Created 2025-12-05 00:00:00">2025-12-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 引入
+在所有投资技巧里，止损可能是最关键的一个——无论做长线、短线、左侧还是右侧，只要进场，就得考虑怎么退出。它让你在行情不顺的时候保住筹码、留得青山在。
+很多时候，我们不是“输得多”，而是“亏大钱”——明明赢的交易次数比亏的多，但只要有一两次没及时止损，亏损就会在下跌里一路放大，最后把前面赚来的利润全吞掉，甚至倒亏。
+我一开始做的止损很简单，跌到成本价的 5%/10%
+就卖掉，但往往执行不了。不同股票波动幅度不一样，有的一天波动 5%
+是家常便饭，有的一个月波动不到
+5%；有的我只想短线持有一个月，有的持有周期两年起；有的买在底部，有的难免追高，不可能全设成
+5% 止损，实在太不符合常识了。
+这次的新方法测出的最终效果跟自己的直觉非常相近，相当于终于把那“不可道”的直觉量化了，在这里分享给有缘人～
+2 原理
+要计算合理的止损位，至少需要考虑以下几点：
+
+股票本身的波动大小：波动越大，止损设置越宽。
+我的成本价：止损通常是成本乘以一个百分比。
+当前股票价格：如果当前价格高于成本很多，可将止损设置为成本价。
+目标时间周期：长期看好的股票一般能接受更大的浮亏。
+
+2.1 年化波动率
+先 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1823650063/" title="XYStock 1.2.0新功能解析">XYStock 1.2.0新功能解析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-02T00:00:00.000Z" title="Created 2025-12-02 00:00:00">2025-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 引子
+行情好的时候更容易赚钱，有时候等待一波行情可能需要十年。我最近开始开发股票分析相关工具。现在是个不错的时间点，也有足够的动力，加上关注这方面的人越来越多。
+七月中参加一个股票相关的大数据比赛，在之后的学习会上，我想分享自己在建模比赛中的收获，又觉得所用的方法过于单一。然后开始系统地阅读相关论文，并试用
+GitHub
+上高星级的股票工具，最终决定自己动手做工具，一两周后，我完成了一个版本并开源，同时写了简要介绍。没想到，收到了很多老友的反馈，好像中年人都在玩这个。
+在开发过程中，我也在操作自己的账户，产生了很多疑问，关注了一些公众号和
+UP
+主，听他们的实盘分析，同时读一些经典书籍，涉及长线短线、背后逻辑和具体方法等。为了每次分享都能增添一些亮眼的内容，不断寻找更前沿的方向。在与朋友的讨论中，一次次的质疑，反驳，也激发出更多的思路和激情。
+于是继续更新，将更多的理解融入工具中。制作工具时添加的每个功能都旨在解决具体问题，不因他人有此功能而盲目跟风。接下来介绍的是我对这些数据的理解，也是当前版本的新增的功能。
+先对工具做个简要介绍：XYStock 开源工具支持对 A 股市场全部股 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock">AI在股票决策中的应用_开源项目XYStock</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-02T00:00:00.000Z" title="Created 2025-12-02 00:00:00">2025-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 摘要
+用 AI
+辅助做股票相关决策，原理很简单：首先获取你关注的股票相关数据，然后提取一些特征，结合用户的需求交给
+AI。AI
+会充当投资经理的角色，进行分析和决策。用户说“我不懂资产负债表、利润表、蜡烛图、筹码分布，也不会看财报研报……”。而有一定能力的大模型，基本具备普通投资经理的素质，可以帮你解释和决策。
+这东西没什么门槛，谁都能做，关键在于工具是否好用，比如：抓取哪些信息、如何处理、怎样交给大模型，以及如何呈现出来，怎么做又省时又省钱。
+最近，我开发了一个股票辅助决策工具 XYStock，并已在 GitHub
+上开源。我和朋友们使用后都感觉不错，下面就来介绍一下。
+项目地址：https://github.com/xieyan0811/xystock
+2 引言
+最近股票市场非常活跃。前几周，我在分享会上分析了 TradingAgents
+的论文和源码，第二周小伙伴又分析了其他中文的开源股票辅助工具。我们把“星”数较高的都试了一遍。各有千秋，确实有很多让人眼前一亮的功能，但还没找到一个完全够用的工具。喜欢
+A 工具的某个功能，又喜欢 B
+工具的另一个功能，但不能对单支股票逐个使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-30T00:00:00.000Z" title="Created 2025-11-30 00:00:00">2025-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">在金融强化学习中，我们既可以自己实现环境，也可以利用现有工具快速搭建实验平台。本文重点介绍如何使用现成工具来简化金融
+RL 实践。
+1 选择金融的 RL 库
 
-当前趋势判断：结合当前数值与近期历史数据，确定当前所处的趋势。
-历史趋势判断：分析历史数据，将其划分为上涨、平稳和下跌的阶段。
 
-2.1 原理
-好的趋势判断方法，其核心在于明确多大尺度下允许多少波动来确认方向。这包含三个层面的框架：方向、坡度和噪音容忍度。
 
 
 
@@ -182,273 +216,148 @@
 
 
 
+
+方式
+代码量
+学习成本
+复用性
+回测功能
+适用场景
 
-指标类别
-用于判断什么
-常用指标
-参数示例
-
-
-
-
-方向性
-大方向是涨还是跌
-MA、MACD 方向
-20 日 vs 60 日
-
-
-坡度
-涨得快还是慢（可用百分比或斜率）
-MA 斜率、收益率
-20 日涨幅 &gt; +5%
-
-
-稳定性
-是趋势还是乱拉（噪音比）
-ATR/价格、布林带宽度
-ATR 占比 &lt; 2%
-
-
-
-利用大周期判断方向，用强度指 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/379701662/" title="分清价值与技术仓">分清价值与技术仓</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-20T00:00:00.000Z" title="Created 2025-11-20 00:00:00">2025-11-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">最近在做策略池，有一个小小的发现，觉得还挺有意思：在股票交易中，学习得越多，反而越难做决策。当使用多个策略来监测同一支股票，不同策略给出的行为建议常常不一致，甚至互相冲突——一个让买一个让卖。
-比如：
-
-上涨途中突然回调，KDJ
-提示超卖，但均线结构却给了卖出信号，这到底是买还是卖？
-刚买就跌了 5% 没破支撑，是不是要加仓？但纪律又告诉你要止损？
-技术面超卖、情绪冰点、动能向下，却又可能超跌反弹，这到底怎么判？
-
-多数书只讲单条规则，很少讲“规则互相打架时怎么办”。现实比书复杂得多。在本篇文章中，我们将分析造成这种现象的原因，并探讨解决这些冲突的方法。
-
-1 价值仓 vs
-技术仓：先分清你到底在做哪一种
-很多混乱，其实来源于——用价值逻辑做技术仓，用技术手段处理价值仓。
-这两个体系完全不同。
-价值仓（长期逻辑）：
-
-判断的是“公司未来值不值得拥有”
-趋势大方向不坏，就能拿
-下跌是机会，可以摊成本（前提是长期逻辑没坏）
-不需要 RSI/KDJ 这种短线指标
-
-技术仓（规则交易）：
-
-判断的是“信号对不对”
-入场、出场、止损、止盈都按规则执行
-不摊成本、不讲感情
-完全看价格行为，与公司本 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3324960025/" title="用布林线的变种计算支撑位">用布林线的变种计算支撑位</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-12T00:00:00.000Z" title="Created 2025-11-12 00:00:00">2025-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="content">1 引子
-这是一个奇怪的脑洞：想到一种计算支撑位的量化方法。
-早上和 AI
-讨论如何识别阻力位和支撑位。它给我建议了几种方法，包括低点聚类、计算筹码密集区、斐波那契回调、均线以及最大回撤。这些方法与我对支撑的理解不太相符，而且都过于复杂，频繁处理多支股票数据比较耗费资源。
-于是，我想到一个关于“平台”的逻辑。其中最简单的一种情况是：如果在某个区间震荡了一段时间后向上/向下突破，那么这个区间就可以作为支撑或阻力位。它应该是价格相对集中、波动较小的一段区间，具体可以通过中值和标准差来判断。
-这是不是有点像布林带?
-只不过布林带用的是均值和标准差。那么，是否可以通过稍作修改布林带的计算方法，简单地计算阻力和支撑位呢？
-2 支撑位
-在不同行情中，比如横盘震荡、上升趋势或下行趋势中，支撑位都是价格止跌反弹的位置。在上升趋势中，支撑位通常是向上通道的下轨或最近一轮上涨的低点；在下行趋势中，支撑位可能是历史低点或先前平台的下沿，尽管在下跌过程中较难判断底部。在横盘震荡时，支撑位出现在历史K线中多次试探并止跌反弹的位置。无论是哪种，都需要：多次回踩未破后反弹。
-它的本质是买方意愿 + 成本密度 + 心 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3843517115/" title="自建 NAS 系统指南">自建 NAS 系统指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-07T00:00:00.000Z" title="Created 2025-11-07 00:00:00">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a></span></div><div class="content">1 NAS
-NAS，全称为 Network Attached
-Storage，是一种连接至网络即可使用的专属存储服务器，特点包括：
-
-文件集中存储
-局域网和外网的访问
-多设备同步（手机、电脑、电视）
-数据备份和权限管理
-
-2 PVE
-Proxmox Virtual Environment
-这是一个基于 Linux
-的开源虚拟化系统，能同时管理虚拟机（KVM）和容器（LXC），并配备网页管理界面。
-有了一台服务器，安装 PVE 就可以运行多个系统（Windows、Linux、NAS
-等）。常用于搭建个人私有云数据中心。
-3 飞牛 fnOS
-fnOS，即飞牛操作系统（官方常称为 FlyNAS 或 FlyNAS
-OS），主要用于个人或家庭的 NAS 存储设备。
-飞牛是中国玩家常用的 NAS
-品牌之一，具备存储、观看、备份以及运行轻量级服务的功能。
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/846911396/" title="为什么我们总是卖飞">为什么我们总是卖飞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">1 引言
-最近回测策略时发现一些有意思的事。刷到个视频，说散户拿不住牛股，震荡几下就跑了，大肉都没吃着。其实数据也印证了这一点：股票一旦起飞，真能拿住的人非常少。无论基本面、技术面还是消息面，中间都有太多下车点。这篇就聊聊，为什么我们总是卖飞，以及能怎么改。
-## 2 实操复盘
-以下是这波大牛市里，我买过的最好的一支股票，问题是在它涨的过程中我一直卖，还没涨起来就卖掉了大部分。我的操作如图：
-
-红色是买入点，绿色是卖出点，蓝色是仓位。可以看到从 24
-年初我就开始买，在将近一年的横盘微跌中一直加仓；7
-月开始涨，我就开始卖，涨了还没三分之一，我已经卖掉大半了——典型卖飞。这种情况下收益是
-61%（不计本金）。
-3 最好的操作
-这种情况下最赚钱的策略是持有。假设我在第一次操作时就把用在这支股票上的所有资金买入，并在最后一次操作时全部卖出，相当于一直满仓，这种情况下的收益是
-258%。
-但实话说，谁也没有后眼。一支从来没买过的股票，也不会一开始就满仓。只是想说明：最大的损失并不是选错股，而是没拿住好股。
-
-4 回测规则交易
-你也可以说，可能就是我目光短浅，心理素质不行……于是我测了 MAC ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/766272234/" title="GitHub Copilot用量优化指南">GitHub Copilot用量优化指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 问题概述
-最近几个月，GitHub Copilot 对部分模型开始限量：10
-美金的套餐常常在月底前就耗尽了，被迫退回到“无限用但效率低”的模型。用量上其实差距不大——就是最后三五天总差那么一点儿，就很烦人。我也愿意为多出来的部分按量计费，但找不到在哪里设置。于是只好想一些节流的办法。
-
-### 2 原因分析
-使用大量Agent无疑是主要原因，不过仍有一些节省空间。
-
-VSCode 插件/Session
-常进入“死循环”式请求：模型在某个方向反复尝试和输出，导致 token
-的浪费。
-生成了过多的测试、示例和说明文件，同时还扩展了一些用不上的功能。
-目前的 VSCode 1.105
-版本在交互方面已经有很大提升，比如它边改我边确认，在思考过程中还可以叫停。但仍有人与模型协作时不够协调的问题。常见的问题包括：我没有把大目标拆分成小目标，没有及时清理上下文等等。
-
-3 实操建议（可直接复用）
-
-先搭框架：人工先写好项目/函数骨架，再让模型填充实现细节（可使用
-Ask 方式讨论确定框架）。
-小步提交：大目标拆成若干小目标，一次别改太多文件或太多逻辑。
-频繁“商量”再执行：多用 ask（询 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/443239312/" title="选股中的财务指标运用">选股中的财务指标运用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-05T00:00:00.000Z" title="Created 2025-11-05 00:00:00">2025-11-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/">技术指标</a></span></div><div class="content">12少点概念，多点逻辑，聚焦能落地的决策。学以致用，不能用的就不学。
-1 为什么要看这篇
-投资指标的解释，书上已经讲烂了：定义、公式、优点缺点……但看完往往还是不知道怎么用。在这里，不是为了“学会指标”，而是为了用指标赚钱。
-这篇（以及本系列文章）想做的事情更简单粗暴：
-
-不按教科书逻辑讲指标
-从投资者真实场景入手解决问题
-形成能用的选股与买卖套路
-
-结构以问答为主，每个问题都来自实操中的“盲点时刻”；边写边做，边做边改，策略会随着实践迭代——像更新代码一样升级自己的投资系统。
-2 相关概念简介
-先把后面会用到的几个核心指标，用一句话讲清楚：
-
-ROE（净资产收益率）：股东投入的资金一年能赚回多少利润
-
-PE（市盈率）：市场为当前盈利水平付出的价格（估值贵不贵）
-PB（市净率）：市场为公司净资产付出的价格（有没有低估）
-回撤（Max
-Drawdown）：从高点跌到低点的最大亏损幅度
-波动率：价格的上下波动程度，越大越不稳定
-成交量（Volume）：市场参与度，资金是否正在涌入
-换手率：股票在市场上流通的活跃程度
-MA 均线（Moving
-Average）：价格趋势的参考线，多头说明趋势 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3122825437/" title="指标学习与应用">指标学习与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-28T00:00:00.000Z" title="Created 2025-10-28 00:00:00">2025-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/">技术指标</a></span></div><div class="content">1 概念
-MA（均线）用来观察趋势的方向和结构，MACD
-用来判断趋势的动量变化和潜在拐点。简单理解：MA
-是位置，MACD 是速度变化。
-
-
-
-
-
-
-
-
-
-指标
-反应周期
-主要看什么
-特点
-
-
-
-
-MA5 / MA10 / MA20
-直接反映价格走势
-趋势方向与支撑阻力
-直观、简单、滞后
-
-
-MACD
-综合短中期均线差
-动能变化与节奏强弱
-能提前反映趋势变化
-
-
-
-1.1 MA
-MA（如
-MA5、MA10、MA20）是直接对价格做平均，看趋势的方向和强弱。
-1.2 EMA
-EMA（Exponential Moving Average，指数移动平均线）是
-MA
-的改良版。越“新”的价格，权重越大；越“旧”的价格，权重越小。
-1.3 MACD
-MACD（Moving Average Convergence
-Divergence，移动平均线收敛发散指标）是一种看趋势 +
-看节奏的指标。
-它由三部分组成：
-
-快线（DIF）：代表短期情绪变化，比如最近几天市场很兴奋或很冷淡。
-慢线（DEA）：代表相对长期的平均情绪，是一种“主流观点”。
-柱状图（MACD
-柱）：快线减去慢线的差距，表现出情绪的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-20T00:00:00.000Z" title="Created 2025-10-20 00:00:00">2025-10-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%B7%A5%E5%85%B7/">股票工具</a></span></div><div class="content">1 港股相关
-1.1 港币“强保 / 弱保”的含义
-这是 港币联系汇率制度（Linked Exchange Rate System,
-LERS）里的两个关键锚点：
-
-弱方保证（Weak-side Convertibility Undertaking，简称弱保）
-
-水平：1 美元 = 7.85 港元
-含义：如果港元 贬值到 7.85（即 1
-美元要换更多港币），香港金融管理局（HKMA）会无上限卖美元、买入港元，支撑汇率不再继续贬。
-
-强方保证（Strong-side Convertibility Undertaking，简称强保）
-
-水平：1 美元 = 7.75 港元
-含义：如果港元 升值到 7.75（即 1 美元只要换更少港币），HKMA
-会无上限买美元、卖出港元，避免港币过度升值。
-
-
-联系汇率制度的目标是保持港币与美元稳定挂钩。
-
-区间范围：7.75–7.85
-中点：7.80
-港元汇率可以在这个区间自由浮动，但一旦触及上下限，金管局就会入市干预。
-
-强保 / 弱保的功能
-
-弱保（7.85）：防止资本大规模外流 →
-港币贬值过快，会让资金恐慌性离开香港。金管局必须撑住。
-强保（7. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1947414277/" title="什么情况下使用强化学习">什么情况下使用强化学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">1.
-深度学习与深度强化学习的核心区别
-深度学习与深度强化学习的“核心”都是用神经网络，通过训练调整参数，让模型对输入数据
-X 有更好的输出
-Y。而它们本质上的区别主要在于：数据来源、训练目标、反馈方式。
-深度学习更像是在“背标准答案”，用现成的数据直接学；深度强化学习更像是在“玩游戏”，通过不断试错、和环境互动，自己摸索什么行为最优。
-
-2.
-从预测到决策：金融中的两种学习方式
-如果只预测股票涨跌幅度，那是深度学习或者机器学习；而学习通过择时选择不同动作，以获得收益最大化，则是强化学习。
-
-
-
-方面
-深度学习（DL）
-深度强化学习（DRL）
-
-
-
-
-数据来源
-预先准备的静态数据
-交互环境中动态产生的数据
-
-
-目标
-预测已知标签
-最大化长期累计奖励
-
-
-反馈
-明确的标签/损失
-间接的奖励/反馈
-
-
-训练过程
-直接优化损失
-需探索 - 收集 - 利用经验
-
-
-数据分布
-固定（i.i.d.）
-不断变化，依赖策略
-
-
-
-
-3. 连续决策：强化学习的真正难点
-与深度学习的“单次预测”不同，强化学习关注的是连续决策过程：一个动作会影响后续状态与奖励。模型不仅要考虑当前结果，更要权衡“现在做什么” ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/90/#content-inner">90</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">894</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">287</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">188</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/661397035/" title="蛋奶烤吐司的制作方法">蛋奶烤吐司的制作方法</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3320254565/" title="手抓羊肉的制作步骤">手抓羊肉的制作步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/865966366/" title="迁移Docker数据步骤">迁移Docker数据步骤</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/949626915/" title="Linux系统磁盘清理指南">Linux系统磁盘清理指南</a><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/892391622/" title="金融相关的强化学习工具">金融相关的强化学习工具</a><time datetime="2025-11-28T00:00:00.000Z" title="Created 2025-11-28 00:00:00">2025-11-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+
+
+FinRL / gym-anytrading
+低
+低
+高
+完善
+教学、快速实验、科研
+
+
+自写 gym.Env 极简环境
+中
+低
+低
+需自写
+简单实验
+
+
+完全自研环境和回测
+高
+高
+低
+需自写
+高度定制的金融研究
+
+
+
+现成工具推荐：
+
+gym-anytrading：适合快速上手和教学实验，带示例数据（如
+Open/High/Low/Close/Volume）。
+FinRL：适合多资产、真实市场数据回测、科研和产业应用。3_FinRL系列开源工具
+quantgym：适合专业衍生品市场建模，需要金融衍生品基础。
+
+新手建议使用 gym-anytrading，快速完成实验，降低开发成本。
+
+2 gym-anytrading 简介
+gym-anytrading (https://github.com/AminHP/gym-anytrading) 2.3k ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4082081414/" title="论文阅读_FinRL-DeepSeek：大语言模型赋能的风险敏感强化学习交易代理">论文阅读_FinRL-DeepSeek：大语言模型赋能的风险敏感强化学习交易代理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-30T00:00:00.000Z" title="Created 2025-11-30 00:00:00">2025-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1234567英文名称：FinRL-DeepSeek: LLM-Infused Risk-Sensitive Reinforcement Learning for Trading Agents中文名称：FinRL-DeepSeek：大语言模型赋能的风险敏感强化学习交易代理链接: https://arxiv.org/pdf/2502.07393v1 （5页短论文）作者: Mostapha Benhenda机构: LAGA — Laboratoire Analyse, Géométrie et Applications, Université Paris 8, CNRS开源项目：https://github.com/benstaf/FinRL_DeepSeek (287 Star)日期：2025-02-11
+1 读后感
+最近市场波动较大，不少人感到压力，如何降低资产波动性、实现平稳增长显得尤为重要。这篇论文介绍了一种将强化学习与大模型结合的方法，通过整合新闻等文本信息，优化交易推荐和风险评估。与传统强化学习方法相比，论文通过修改PPO公式，引入模型输出的微调动作和惩罚项，虽收益未显著提升， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/465972925/" title="AI 炒股到底靠不靠谱——从 Alpha Arena 看大模型的能力边界">AI 炒股到底靠不靠谱——从 Alpha Arena 看大模型的能力边界</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-30T00:00:00.000Z" title="Created 2025-11-30 00:00:00">2025-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="content">
+## Alpha Arena 简介
+Alpha Arena 是近来讨论度很高的 AI
+交易比赛。六大主流大模型（Qwen、DeepSeek、GPT、Gemini、Claude、Grok）各拿
+1
+万美元，在同一个交易所、同样的数据和提示词下自主做短线交易。近期官方又开启了
+1.5
+赛季，更贴近我们平时炒股的节奏：把战场从加密市场搬到了美股（纳斯达克科技股），规则更复杂，引入新闻和情绪，参赛选手也更多，关注度再次升高。
+这个比赛的有趣点在于：模型没有任何人为干预，全靠自己理解行情、解读数据、管理仓位、控制风险。换句话说，它更像是在测试“大模型能否用自己的理解，在真实市场里活下来”。
+随着比赛火起来，也出现了一些开源工具，把 Alpha Arena
+的流程简单复刻：喂给模型数据，让它自己给出买卖点。于是一个问题自然就冒出来了：我们是不是现在就能跟着大模型炒股了？
+本文想结合这个问题，看看：
+
+大模型现在到底能做到哪一步？
+哪些环节它很强？哪些地方暂时解决不了，为什么？
+在现阶段，我们能采用的相对“最优”的使用方式是什么？
+
+提示词
+和其它调用大模型的任务一样，在不做微调的前提下，提示词就 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2447498670/" title="基金交易量预测比赛_1_我的方案">基金交易量预测比赛_1_我的方案</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-30T00:00:00.000Z" title="Created 2025-11-30 00:00:00">2025-11-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 比赛介绍
+1.1 题目介绍
+
+比赛名称：AFAC2025 挑战组 -
+赛题一：基金产品的长周期申购和赎回预测
+具体赛题请参见：https://tianchi.aliyun.com/competition/entrance/532352
+参赛者需要：
+
+借助大模型，自主获取并构建其他有效特征。
+训练一个时序模型，有效建模产品收益和市场行情波动，预测每只基金在
+2025/7/25 至 2025/7/31 七天内每日的申购量和赎回量。
+
+比赛提供的数据：
+
+自 2024-04-08 以来的 20
+支基金申购和赎回数据，以及对应的几个界面的曝光量。（周期时间短、基金数据少、可获取数据的渠道有限）
+
+注意：
+
+预测的不是价格，而是交易量。
+
+
+1.2 Demo 程序
+主办方提供了一个 demo 程序：包含 400
+多行代码，涵盖了时间特征提取、调用大模型、生成 embedding、使用 lightgbm
+建模、生成提交文件等功能。该程序需要进行少量修改才能运行。其核心是：用大模型提取特征
++ 机器学习时序预测。
+距离我上次参加比赛已经有七八年了，机器学习和时序算法仍然是
+xgboost、li ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/661397035/" title="蛋奶烤吐司的制作方法">蛋奶烤吐司的制作方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Data/">1_Data</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E4%B8%BB%E9%A3%9F/">主食</a></span></div><div class="content">原料
+
+面包 3-4 片（看厚度）
+鸡蛋 2 个
+糖 5 克
+炼乳 10 克
+牛奶 150ml
+黄油少量
+细沙糖少量
+
+做法
+
+鸡蛋，糖，炼乳，牛奶混合
+加面包丁（最好去面包皮）
+刷黄油
+烤箱 180 度 25min
+撒细沙糖
+
+参考链接：戴安娜王妃最爱的吐司蛋奶布丁，烤完整个房间都是蛋奶香~
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3320254565/" title="手抓羊肉的制作步骤">手抓羊肉的制作步骤</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/1-Data/">1_Data</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E8%8F%9C/">菜</a></span></div><div class="content">
+羊肉用水泡半小时
+冷水下锅，煮沸后撇去血沫
+加花椒 白胡椒 香叶 盐 糖 葱 姜
+和羊肉中小火同煮一小时（快到时间再放盐）
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/865966366/" title="迁移Docker数据步骤">迁移Docker数据步骤</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-29T00:00:00.000Z" title="Created 2025-11-29 00:00:00">2025-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/">Docker</a></span></div><div class="content">相看 docker 存储位置
+看数据存哪了
+1docker info | grep &quot;Docker Root Dir&quot;
+不同类型的数据对应不同子目录：
+
+镜像层（image layers）：/var/lib/docker/overlay2/
+构建缓存（build cache）：/var/lib/docker/buildkit/
+容器文件系统：/var/lib/docker/containers/
+网络配置：/var/lib/docker/network/
+卷（volumes）：/var/lib/docker/volumes/
+
+迁移 docker 数据
+1. 停掉 Docker 服务
+12sudo systemctl stop dockersudo systemctl stop docker.socket
+确认已停：
+1systemctl status docker
+
+2. 创建新的目标目录
+1sudo mkdir -p /mnt/data/docker
+（确保 /mnt/data 是挂载到大分区的）
+
+3. 把原目录完整复制过去
+推荐用 rsync，避免软链接时出 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/91/#content-inner">91</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">901</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/67953906/" title="压力与行为分析">压力与行为分析</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3976493549/" title="量化书与工具杂谈">量化书与工具杂谈</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/163021640/" title="选股方法进阶_不靠信仰，用数据说话">选股方法进阶_不靠信仰，用数据说话</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1111133153/" title="Python金融库进阶指南">Python金融库进阶指南</a><time datetime="2025-12-09T00:00:00.000Z" title="Created 2025-12-09 00:00:00">2025-12-09</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -456,8 +365,8 @@ Y。而它们本质上的区别主要在于：数据来源、训练目标、反�
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%B5%8C%E5%85%A5%E6%8A%80%E6%9C%AF/" style="font-size: 1.1em; color: #999">嵌入技术</a> <a href="/tags/%E7%8E%B0%E5%AE%9E%E8%AE%A4%E7%9F%A5/" style="font-size: 1.1em; color: #999">现实认知</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.14em; color: #999b9d">宗教</a> <a href="/tags/%E4%B8%BB%E8%A7%82%E8%83%BD%E5%8A%A8%E6%80%A7/" style="font-size: 1.1em; color: #999">主观能动性</a> <a href="/tags/%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" style="font-size: 1.1em; color: #999">远程桌面</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/%E9%87%8F%E5%8C%96/" style="font-size: 1.1em; color: #999">量化</a> <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">神经网络</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.1em; color: #999">网络</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 1.38em; color: #99a4b4">数据分析</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.22em; color: #999ea4">笔记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">算法</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">Web服务</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%93%B2%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读哲学</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.34em; color: #99a3b0">阅读/心理学</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.18em; color: #999ca1">语音合成</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.3em; color: #99a1ac">效率</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E6%84%9F%E7%9F%A5/" style="font-size: 1.1em; color: #999">感知</a> <a href="/tags/%E8%A7%92%E8%89%B2%E6%89%AE%E6%BC%94/" style="font-size: 1.1em; color: #999">角色扮演</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.14em; color: #999b9d">#后端</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.42em; color: #99a6b7">论文阅读</a> <a href="/tags/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/" style="font-size: 1.14em; color: #999b9d">灵感创意</a> <a href="/tags/%E6%83%85%E7%BB%AA%E5%88%86%E6%9E%90/" style="font-size: 1.1em; color: #999">情绪分析</a> <a href="/tags/AI%E5%8A%9F%E8%83%BD/" style="font-size: 1.26em; color: #999fa8">AI功能</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/Python/" style="font-size: 1.46em; color: #99a7bb">Python</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">系统优化</a> <a href="/tags/Linux/" style="font-size: 1.14em; color: #999b9d">Linux</a> <a href="/tags/%E9%87%8F%E5%8C%96%E5%9B%9E%E6%B5%8B/" style="font-size: 1.1em; color: #999">量化回测</a> <a href="/tags/Obsidian/" style="font-size: 1.14em; color: #999b9d">Obsidian</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/04/"><span class="card-archive-list-date">April 2025</span><span class="card-archive-list-count">16</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">894</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1244k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-10T17:00:14.189Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.14em; color: #999b9d">价值观</a> <a href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" style="font-size: 1.38em; color: #99a4b4">开源项目</a> <a href="/tags/%E5%81%A5%E5%BA%B7/" style="font-size: 1.1em; color: #999">健康</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.18em; color: #999ca1">编程语言/Java</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.46em; color: #99a7bb">论文阅读</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.18em; color: #999ca1">方法论</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.42em; color: #99a6b7">自然语言处理</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.22em; color: #999ea4">情绪表达</a> <a href="/tags/%E5%BF%83%E7%90%86%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">心理调节</a> <a href="/tags/%E5%BF%83%E7%90%86/" style="font-size: 1.1em; color: #999">心理</a> <a href="/tags/%E9%87%91%E8%9E%8D/" style="font-size: 1.14em; color: #999b9d">金融</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">自然语言处理/统计方法</a> <a href="/tags/%E5%95%86%E4%B8%9A%E5%8C%96/" style="font-size: 1.1em; color: #999">商业化</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">代码生成</a> <a href="/tags/%E8%8F%9C%E8%B0%B1/" style="font-size: 1.1em; color: #999">菜谱</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF/" style="font-size: 1.1em; color: #999">个人信息</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">生活技巧</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.22em; color: #999ea4">数据存储/MYSQL</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.18em; color: #999ca1">教育</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.3em; color: #99a1ac">机器学习/XGBoost</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%B0%83%E8%8A%82/" style="font-size: 1.1em; color: #999">自我调节</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.26em; color: #999fa8">模型解释</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.22em; color: #999ea4">Python/数据</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%BC%BA/" style="font-size: 1.14em; color: #999b9d">模型增强</a> <a href="/tags/API/" style="font-size: 1.1em; color: #999">API</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.34em; color: #99a3b0">编程语言/前端</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E9%94%82/" style="font-size: 1.1em; color: #999">锂</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.18em; color: #999ca1">编程语言/C</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">901</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1250.9k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-12-11T11:32:01.967Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
