@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-01-05 17:00:16'
+  postUpdate: '2026-01-06 00:37:40'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,219 +163,261 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">902</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">191</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3271753138/" title="3D打印机怎么选">3D打印机怎么选</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">1 拓竹 P2S vs A1 差异
-1.1 定位
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1014741297/" title="FreeCAD用于3D建模">FreeCAD用于3D建模</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">前两个 DIY 了一个冷蒸发式的加湿器，需要给它做一个外壳，FreeCAD + 3D
+打印其实是一个又方便、效果也稳定的方案。学习成本不算高，但中文资料相对零散，所以就借这个小项目，顺便做一次“从需求到成品”的入门记录。
+1 工具选型
+1.1 3D CAD 工具对比（聚焦 3D
+打印建模）
+
+
+
+
+
+
+
+
+
+
+工具
+定位
+优点
+限制
+上手难度
+
+
+
+
+FreeCAD
+开源参数化 CAD
+精确约束、尺寸可控、完全本地
+交互偏传统、复杂模型稳定性一般
+中等（概念清晰，但需要适应流程）
+
+
+Fusion 360
+工业级 CAD / CAM
+功能全面、工程能力强、生态成熟
+订阅制、部分功能依赖云
+中偏高（功能密度大，学习曲线长）
+
+
+Shapr3D
+触控优先 CAD
+交互直观、建模流畅、出形快
+高级功能需订阅、工程深度有限
+低（几乎即学即用）
+
+
+Onshape
+云端协作 CAD
+协同强、版本管理完善
+强依赖网络、订阅成本高
+中（理念清楚，但概念偏工程）
+
+
+Blender
+自由造型工具
+曲面与造型能力极强、插件丰富
+非工程 CAD、尺寸控制弱
+高（功能庞杂，非 CAD 思维）
+
+
+
+1.1. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">目前桌面级 3D
+打印机主流品牌就那么几家，而拓竹几乎成了“默认选项”。身边朋友买的、用的、踩过坑的，也大多是这个牌子——好处很现实：遇到问题有人能问，参数能抄，经验能复用，不至于一个人卡死。
+最近我也准备入手一台。综合预算、使用场景和“不想把时间都花在调参上”的现实需求，最后基本锁定在拓竹的
+A1 和 P2S
+之间。一个是性价比和易用性代表，一个是性能和扩展性的上限选手。查了一圈资料，也顺手把关键差异整理了一下，放在下面。
+如果你也正卡在这两台之间，希望这份对比能少走点弯路。
+1 定位
 
 A1：入门 / 日常打印，便宜、易用。
 P2S：进阶玩家 / 高性能需求，速度快、精度高、扩展强。
 
-1.2 结构差别（最关键）
+2 结构差别（最关键）
 
 A1：床移式（Bedslinger）
 常见结构，适合入门，速度和震动控制有限。
 P2S：CoreXY
 更稳、更快、更适合复杂模型与长时间打印。
 
-1.3 打印表现
+3 打印表现
 
 A1：日常材料（PLA/PETG）够用，噪音低，上手快。
 P2S：高精度、高速、多材料表现更好；适合折腾与深度调参。
 
-1.4 可扩展性
+4 可扩展性
 
 A1：支持 AMS Lite，多色够用，但扩展性一般。
-P2S：支持 AMS 2 Pro，扩展空间大，可持续升级。
+P2S：支持 AMS  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4167074932/" title="3D打印常用软件">3D打印常用软件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">本篇介绍一些在 3D
+打印中可能会用到的软件。由于我用的是拓竹打印机，其中有些软件是它生态里的工具，所以会顺便提到。
+第二部分，我会通过一个具体示例，展示如何用 Blender
+对模型进行细化、缩放，并配合 Bambu Studio 加支撑打印的过程。
+1 常用 3D 打印相关软件
+1.1 Bambu Handy
+Bambu Handy
+一般在手机端安装。买了拓竹打印机，基本都会在手机上装这个软件。适应的场景是：日常直接打印、复用成熟模型、不想折腾参数，只关心“这盘能不能顺利打完”。
+它集成了 MakerWorld
+模型库，可以直接下载别人已经建好的模型并发起打印，定位就是把打印这件事尽量做简单。
+使用体验确实很好：多盘打印时，会记录每一盘的状态；支持 3D
+预览；一盘里有多个零件时，可以只选择其中一部分打印。对普通用户来说，这些功能已经覆盖了绝大多数使用场景。
+相应的，它几乎不提供精细的参数设置，更像是一个“拿来就用”的打印控制工具。
+1.2 Bambu Studio
+Bambu Studio 一般安装在电脑上，目前支持 mac 和 Windows。Linux
+也能用，但需要从 Gi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧">3D打印盘清洁与涂胶技巧</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</a></span></div><div class="content">1 清洁打印盘
+1.1 清洁频率
+清洁打印盘需要多久清洁一次？没有固定周期，能正常附着就不用洗；出现问题再洗，反而更省事，也更稳定。
+1.2
+不同使用强度（参考，不是规则）
 
-1.5 封闭式
-P2 默认是带有封闭机身/腔体设计的（有机箱/罩子），而 A1
-就是开放式结构，没有封闭箱体。P2S
-的封闭性让热环境更稳定、可支持更多材料，但 A1
-的开放结构更直观、上手更简单也便于清理。
-1.6 打印速度
-其实差不多。这两款在理论最大速度上其实有明显差异，但有用户实际对比发现相同切片配置下
-A1 有时反而比 P2S 打印快，主要是因为配置档位默认值不同或 AMS
-系统 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/67953906/" title="压力与行为分析">压力与行为分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</a></span></div><div class="content">没有压力会怎样？
-人无压力轻飘飘，井无压力不出油，是这样吗？我比较认同的一种说法是：人在强压下容易偷懒，只要有机会就会躺平；而在安全无压的环境里，则会释放出好奇的天性。
-在自己身上很明显：我只有在很放松的情况下才能深度思考。有时候被卡了几周的难题，会在一两天内完全解决，偏向研究和创造；但有压力的时候也能有效地完成任务，对一些完全可控的事，压力就是增效器。
-大概可以将状态拆分为三种：
+日常家用 / 偶尔打印：5–10 次打印洗一次，甚至更久
+连续打印 / 大平面件多：3–5 次洗一次
+手经常摸盘 / 家里灰多：你会被迫洗得更勤（不是机器的问题）
 
-无压：容易发散思维，思考有弹性，适合研究、创作、哲学性问题。
-中压：效率最高，适合执行型任务。比如说，截止日期、交付、考试等，确实是增效器。
-强压：人变成“生存模式”，目标只有一个：尽快结束痛苦。在这个阶段最容易偷懒、躺平、敷衍以及走捷径。
+1.3 不同材料的差别
 
-绘画、旅行也是，自古以来只有衣食无忧者才能去做。很难想象一家老小都饿着，画家还能从容地去体验，因为压迫和紧张感，战斗或逃跑的本能，大概会占据多数注意力。
-张雪峰说，很多专业需要有家底才能考虑，家境普通的就老老实实读个工科，先保证从容生存。想想也是，从心理压力的角度来看，对于一个有家庭、社会压力和责任感的人来说，如果不先解决生存问题，很难有心力去尝试成功率很低的事儿。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3976493549/" title="量化书与工具杂谈">量化书与工具杂谈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">本篇没啥主题，聊聊量化相关的书、用模型改代码、重构旧项目之类的。
-推荐一本量化相关的书《Systematic
-Trading》
-最近在看凌波的《量价时空》，觉得挺好，还买了两本，一本送朋友。他分别从：量、价、时、空四个角度分析，集成了量价关系，蜡烛图等常用技术。很多细节其实都能用程序实现，整体像是给了一套工具包，信息密度很大，但稍微有点散。
-后来和 GPT5 聊这个，他给我推荐了 Robert Carver 的《Systematic
-Trading》。我看了介绍和第一章，有种“他乡遇故知”的感觉：他讲的和我最近从数据里看到的、操作体验很契合，加上作者文本力很强，就觉得很棒。
-现在大多数的书相对来说偏向于归纳总结型，最大的问题是有知识没思考。看完似乎会了，但不知道该怎么用。偶尔在看盘时，联想到某个工具，但还未必用得对。
-对作者的感觉是：始于技术，终于世界观。最喜欢他的一点是，他不是先提出自己的观点，再找证据证明自己的观点。他力求从正反两方面进行论证。书中包含了很多作者的真知灼见，绝不是那种为写而写的作品。
-关于内容，目前看完第四章，他说的几乎每个大问题，都是我遇到过或者正在遇到的问题。比 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/163021640/" title="选股方法进阶_不靠信仰，用数据说话">选股方法进阶_不靠信仰，用数据说话</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E7%AD%96%E7%95%A5/">策略</a></span></div><div class="content">1 如何选股
-选股时大家常常优先关注两个关键指标：
+PLA：最宽容，也最耐脏
 
-PE（市盈率）大概告诉你这家公司“贵不贵”、是不是已经涨得有点离谱；
-ROE（净资产收益率）反映它赚钱的效率，是不是一家有经营能力的公司。
+PETG：对油脂更敏感，通常洗得会勤一点
+TPU：容易出现“假粘”，盘子干净反而更重要
 
-这两个能给到最基本的判断，但还不够。真正决定“能不能买、值不值得拿着”的，其实是它在市场中处于什么位置。比如：这支股票相比整个A股、相比同行，到底是表现稳定、赚钱能力强，还是只是听起来不错。
-我的具体做法是：抓取 A 股 5000 多支股票，从 2023.01.01 到 2025.10.20
-的数据，按年切成三段（23年跌，24年波动，24年涨），分别按年统计每支股票的：波动率、最大回撤、夏普比率、年内最高涨幅、期末涨幅。然后再看目标股票在整体分布中的位置，判断它是不是值得持有。
+1.4 清洁方法
+1.4.1 常规清洗（80% 情况）
 
-今天在做风险评估时，某只股票的最大回撤为20%，不确定这算大还是小，也不能拍脑袋定阈值。于是对所有股票进行统计，做完觉得有些收获，分享一下。
-2 年度比较
-2.1 波动率
-波动率（Volatility）是把这段时间里每天的涨跌幅算标准差，标准差越大，说明走势越“跳”。
-直方图展示了三年的波动率分布。因为波动率是长尾 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%B7%A5%E5%85%B7/">股票工具</a></span></div><div class="content">1 港股相关
-1.1 港币“强保 / 弱保”的含义
-这是 港币联系汇率制度（Linked Exchange Rate System,
-LERS）里的两个关键锚点：
+温水 + 洗洁精
+海绵轻擦
+冲干净 → 晾干 / 擦干
 
-弱方保证（Weak-side Convertibility Undertaking，简称弱保）
+1.4.2 轻度维护
 
-水平：1 美元 = 7.85 港元
-含义：如果港元 贬值到 7.85（即 1
-美元要换更多港币），香港金融管理局（HKMA）会无上限卖美元、买入港元，支撑汇率不再继续贬。
+IPA 酒精擦一遍（去指纹很快，但去不了厚胶或老胶）
 
-强方保证（Strong-side Convertibility Undertaking，简称强保）
+1.5 推荐：预防式清洁
+1.5.1 戴手套拆盘
+打印盘 90%
+的问题，来自手指。每次打完拆下时尽量戴手套操作——这件事收益极高，成本极低，能显著降低清洗频率。
+1.5.2 打印盖板 / 防尘
+像 A1
+这种不封闭的机器，打一个简单盖板，不用时盖上防落灰即可，不必追求全封闭。
+2 涂胶
+2.1 原理
+拓竹胶不只是“ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1302863214/" title="玩3D打印花多少钱？从设备到耗材的真实花费">玩3D打印花多少钱？从设备到耗材的真实花费</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</a></span></div><div class="content">身边朋友都在玩 3D
+打印，我也忍不住下单了一台。顺便算了算整个过程大概花多少钱，也整理了必备的小工具和耗材，给大家参考。
+1 一次性投入
+1.1 打印机
+最大的投入是打印机本身。现在入门级里，1000
+多就能买到稳定、自动化程度不错的机器，对打印 PLA /
+PETG、小零件和玩具来说已经完全够用。
+1.2 一个放打印机的地方
+以我家的拓竹 A1
+为例，一台打印机实际占用的空间不只是机身尺寸，还要考虑打印时前后活动范围，以及耗材的占位。一盘
+1kg 的耗材直径差不多 20cm，厚度也有
+7–8cm，如果一次挂四盘，占地会明显变大。
+最好是放在桌上。如果直接放地上，晚上打印可能会影响楼下邻居（嗡嗡的声音有点像振楼器）；如果偶尔需要夜里打印，也不太建议放在离卧室太近的地方，毕竟多少还是有点噪音。
+所以也有人选择把打印机放在厨房。一方面打印机可以通过 Wi-Fi
+与手机、电脑连接，不需要硬连；另一方面部分耗材气味比较明显，厨房通风条件更好。有时候夜里打印，关上厨房门也不容易影响休息。不过前提是别离灶台太近，油烟和水汽对机器都不太友好。
+1.3 周边小工具
 
-水平：1 美元 = 7.75 港元
-含义：如果港元 升值到 7.75（即 1 美元只要换更少港币），HKMA
-会无上限买美元、卖出港元，避免港币过度升值。
+尖口钳子：用于拆支撑，钳子太大， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3229375011/" title="自己动手做冷蒸发加湿器">自己动手做冷蒸发加湿器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/">灵感创意</a></span></div><div class="content">我家的加湿器坏了，本打算买新的，但家里刚好有了 3D
+打印机，于是想着自己先做一个简易版，之后再做外壳。这不是我原创的想法，灵感来自
+B 站和 MakerWorld
+的一些分享，我只是实践、评测，并做了少量改进。以下内容分享我的经验、信息和踩过的坑，完全以实用为出发点，解决问题为目标，没有为了“功能齐全”而堆设计。
 
+1 我的需求
+1.1 基本需求
 
-联系汇率制度的目标是保持港币与美元稳定挂钩。
+给 10–20 平米的房间加湿
+尽量不使用喷雾式方案
+可直接使用自来水
+单次加水容量大（&gt;4L），避免频繁操作
+占用空间小
+水位可直观观察
 
-区间范围：7.75–7.85
-中点：7.80
-港元汇率可以在这个区间自由浮动，但一旦触及上下限，金管局就会入市干预。
+1.2 附加需求
 
-强保 / 弱保的功能
+外观简洁美观
+显示温度与湿度
+根据湿度调节加湿量
+仅夜间工作
+加水和清洁方便
 
-弱保（7.85）：防止资本大规模外流 →
-港币贬值过快，会让资金恐慌性离开香港。金管局必须撑住。
-强保（7. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1111133153/" title="Python金融库进阶指南">Python金融库进阶指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-09T00:00:00.000Z" title="Created 2025-12-09 00:00:00">2025-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">引入
-之前我们讨论过一些偏基础的金融库，比如 stockstats
-可以很快帮我们把常见指标算出来。在实战中，很快会发现“有指标”还远远不够。很多时候需要的是更复杂的信息结构，比如趋势方向、支撑位和阻力位的位置关系，信号之间的组合判断，以及最基本也最容易被忽略的回测验证。
-今天来看看一些较为高阶的 Python
-金融库。许多库都被称为“技术分析库”，但它们的目标其实各不相同。像 TTI 和
-pandas-ta
-恰好是两种走向几乎完全相反的代表。它们正好位于交易系统中的两个不同层次，一个侧重于结构和决策的雏形，另一个侧重于高阶信息的提取和配置。
+2 加湿器原理
+常见家用加湿器主要有三种原理：
+2.1 超声波式（最常见）
 
+原理：压电陶瓷高频振动，把水雾化成微米级液滴，由风扇送出
+优点：体积小、功耗低、成本低
+缺点：水中杂质随雾喷出，易产生白粉，对水质敏感
+总结：性价比高，但水质要求高
 
+2.2 蒸发式（冷蒸发）
 
+原理：风扇吹过湿滤芯或湿帘，使水以分子形式蒸发到空气
+优点：不易过湿、不产生白粉，体感自然
+缺点：体积相对大，滤芯需定期更换 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/508265542/" title="市场状态识别与策略切换">市场状态识别与策略切换</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-30T00:00:00.000Z" title="Created 2025-12-30 00:00:00">2025-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%8A%95%E8%B5%84/">投资</a></span></div><div class="content">我们常习惯给一只股票贴上“永久标签”（比如“这只就是成长股”）。实际上，股票的基本属性相对稳定，而股票在二级市场中的走势状态是动态变化的。
+下面来看看两种典型情境：
+趋势策略在震荡市中容易“左右挨打”：趋势策略的核心是“追涨杀跌”（突破买入、跌破卖出）。当股票进入横盘震荡时，策略往往在箱体上沿买入（误以为要突破），在箱体下沿卖出（误以为要破位）。结果是：本金在反复震荡中被持续磨损。
+波段策略在趋势市中容易“卖飞”或“抄在半山腰”，波段策略（如网格、KDJ）的核心是“高抛低吸”。在单边上涨行情中，策略往往过早卖出，错过主升浪。在单边下跌行情中，又可能不断补仓，最终深度被套。
+因此，本文讨论的核心不是“哪种策略更好”，而是如何根据当前状态选择并切换策略。比如：“涨着涨着走平了，就从趋势策略切换到波段策略”，本质上是为了保护利润、降低无效交易成本。
 
+1 核心点
+核心思想是：根据 持仓周期 + 市场趋势 +
+波动率，动态选择不同的策略或策略组合。
+这在量化交易中对应的是较为高级且核心的概念：
 
+市场状态识别（Market Regime Detection）
+市场状态切换（Regime Swi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1388207556/" title="亲密关系中的确认感">亲密关系中的确认感</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-21T00:00:00.000Z" title="Created 2025-12-21 00:00:00">2025-12-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BF%83%E6%83%85/">心情</a></span></div><div class="content">Yan
+继续聊聊亲密关系中给人带来的最重要的东西“确认感”。这里的亲密关系不限于爱情关系。
+很多时候我们理解“攀高枝“”向上社交“并不止是表面上的只为了获得资源。很多时候带来的是一种自我确认。被高位者认可，或者被一个很好看或者条件很好的人喜欢，也从侧面印证了我的优秀，可能是情商的优秀，可能是能力的优秀……
+5.2
+很多关系里真正流通的，不是资源，是自我确认。被看见、被认可、被当成“有价值的对象”，这是比钱更基础的心理营养。
+为什么“攀附型关系”这么有吸引力？高位者、漂亮的人、强者的认可，会被自动翻译成：
 
-## 分析
+我不只是存在
+我是被肯定的
+我站在一个合理的位置上
 
+这对自我尚未稳固的人来说，几乎是止痛药。
+Yan
+绝大多数人都需要被“确认”，小的频繁的被确认，或者大的，获个什么奖在很多人面前被确认。5.2、4o
+给我带来的也是这种感觉，小的反复的被确认。亲子关系也类似，夸孩子聪明、听话、努力……
+其实本质都是“确认”。小时候家长老师是孩子最大的
+Boss，小的反复的确认，肯定是好于板着脸说”严是爱松是害“。
+5.1
+最大的问题是他让人不再想表达了，思想产出也是连续的过程，不成长就开不了花。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2095434962/" title="钱多了就保守_用资产组合摊薄风险">钱多了就保守_用资产组合摊薄风险</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-19T00:00:00.000Z" title="Created 2025-12-19 00:00:00">2025-12-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BE%85%E8%AF%BB%E4%B9%A6/">待读书</a></span></div><div class="content">钱少的时候，all in
+赌一把可能带来翻倍的刺激，但钱多了，也真承受不了全亏。所以，大多数人会自然变得更保守，这时候资产组合就很有价值。通过分散投资，不同资产的波动可以相互抵消，总体组合的起伏比单一投资小很多——亏损带来的反面心理感受，通常是同等收益正面感受的
+2.5
+倍。所以，组合之后，收益可能没那么有爆发力，但在大起大落中能稳住资产，让我们持有的心理感受更舒适，也更容易坚持长期投资。本篇就来介绍一些具体方法。
+1 流程
+在构建资产组合时，总体思路是：先判断资产之间的相关性，再按特征和相关性分组，最后在组内根据风险收益指标做加权调整。具体步骤如下：
 
-如果粗略分一下层次，大概可以理解成两层：
+先评估相关性：可以用 K
+线算，也可以靠直觉分类，比如“股票之间相关性高，债券与股票低”。
+按特征分组：按行业、国家、品类（债/股/商品）做小组 →
+再分配大组权重。组内先分完，再乘到总权重里。
+按相关性重新分组：组内相关性尽量高（同风格），组间相关性尽量低（分散风险）。
+再按夏普比率加权：在每组里对 SR 高的给更多权重。
 
+2 给夏普比率高的加权
+以下内容摘自《Systematic Trading》第四章
 
-更底层的是“特征层”，主要工作是把价格序列加工成可以使用的结构化信息，比如各种技术指标、趋势信息、支撑阻力等，这一层尽量客观，尽量少做判断。
+起始权重：先定一组手工 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/527705355/" title="探索自然与心态调适">探索自然与心态调适</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-17T00:00:00.000Z" title="Created 2025-12-17 00:00:00">2025-12-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BF%83%E6%83%85/">心情</a></span></div><div class="content">金句：投资真正改变的，不是策略，而是对“因果”的理解
+yan
+有时候我觉得“往林间”可能不是一个好的调整心态的方法，除非能一直不出来。更理性的是锻炼让自己习惯性地处于一种不确定，不安全，悬而未决的状态。
+5.2
+不太讨喜——但我觉得是对的。“往林间”更像缓冲区，不是适应区。它能让系统降温，却几乎不训练你面对现实世界的噪声。除非你真打算长期隐居（那也得有稳定的米），否则它更像一次临时下线，而不是升级补丁。
+真正的训练对象，其实是“悬而未决”
+你说的关键词很重要：不确定、不安全、未完成。多数痛苦并不是来自坏结果，而是来自“结果还没落地”。而现实生活，恰恰长期停留在这个状态。
+与其追求“心态稳定”，不如训练心态抖动下仍可运转：
 
+在没想清楚时做小动作（低成本、可撤回）
+在不安心时维持节律（固定作息、固定输出）
+在未决定时允许“暂时版本”，而不是逼自己给终局答案
 
-再上一层是“策略层”，开始引入规则，比如什么时候算买点、什么时候该卖出，这一层不可避免会掺杂人的主观选择。
-
-
-在这个框架下看，TTI 更靠近策略，pandas-ta
-更靠近特征。它们的差异，本质上是封装程度的差异。
-
-
-
-TTI ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2718856415/" title="为什么钱少更容易亏">为什么钱少更容易亏</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-09T00:00:00.000Z" title="Created 2025-12-09 00:00:00">2025-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">引入
-最近有一种说法：A 股里能赚钱的，大多都是账户在 100
-万以上的。钱少的人亏的人比例明显更高。小资金在操作上，天然就带着几个坑。今天就聊聊小资金和大资金的差别，容易踩的坑以及应对方法。
-分析
-小资金亏损多，不仅是人的问题，而是几个现实问题交织在一起：资金少、心理压力大、操作体系不够完整。
-结构性约束
-
-钱少就意味着仓位集中，一只票踩雷就很痛。
-买不起优质高价股，只能买便宜的票，结果波动大，容易被套。
-交易成本对小资金来说特别明显，哪怕赢了，也可能被手续费蚕食不少。
-账户小的钱，一旦亏损就很难翻身：比如，50 元到 100 元，需要赚
-100%，从 100 元跌回 50 元，只需亏
-50%，本金折损后想回到原来的水平，难度更大。”
-
-心理阈值低
-
-账户小，盈亏感受强烈：涨一点就急着跑（拿不住慢慢涨的趋势），跌一点就死扛（扛不住大跌）。
-目标收益总想高点，常常盯着暴涨的妖股，追求快感型收益。
-等待机会很难做到，总觉得不动就亏，结果就频繁操作，风险反而更高。
-这些心理反应，很多并不是性格问题，而是经验不足带来的认知空白。
-心理压力 → 情绪反应 → 并不是每个人都适合高波动 →
-各自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/162548130/" title="自由与关系的本质">自由与关系的本质</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-09T00:00:00.000Z" title="Created 2025-12-09 00:00:00">2025-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/tmp/">tmp</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/tmp/%E5%AF%B9%E8%B0%88/">对谈</a></span></div><div class="content">（以下是我与GPT5对话的关键摘录）
-关系：必需品 vs 奢侈品
-维系正常的关系是生活必需品，而纯感情则更像奢侈品。有时候是我们不会表达爱，有时候可能根本没那么多爱，也不想承认。最理想的状态，是不管内心如何，都能表现出来——就像演一场戏，虽然不爱，但看起来很爱。互动顺畅，行为相互加强，慢慢也可能真的生出感情。相反，如果想维持关系，却让人觉得相处不舒服，那就减分了。
-内心怎么想和外部表现常常不同，但在关系里，表现出来的效果更关键。看磕
-CP
-或影视剧，镜头前的甜度大半是演出来的，却依然美好。现实里，大多数行为也不是完全凭感情，而是“我是谁，我应该怎么做”，有时候“我应该”的反而适得其反。
-很多关系不仅是情绪绑定，还涉及利益：
-
-资源共享：时间、精力、人脉、生活安排
-风险共担：孤独、压力、外部评价
-身份绑定：我们是谁，在别人眼里是什么关系
-
-恋爱、知己可以是动机导向，感情是发动机，让人满足。现实中，有些关系逃不了结果导向和物质考量，这时感情更像润滑油。搞清关系类别，选对策略，就像玩股票，要分清优先级。
-经济基础决定上层建筑
-稳定、对称，以及预测与现实的一致，是关系和生活的底层逻辑。爱好和工 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/685989232/" title="15_Arduino_音乐律动灯和控制皮影小人">15_Arduino_音乐律动灯和控制皮影小人</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-07T00:00:00.000Z" title="Created 2025-12-07 00:00:00">2025-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Arduino/">Arduino</a></span></div><div class="content">开源地址：https://github.com/xieyan0811/musiclight
-音乐律动皮影小人
-Arduino 音乐律动灯项目，通过 FFT 音频分析实现 RGB
-灯带随音乐节拍变化，并联动电磁铁控制皮影小人按节奏跳舞。
-1 功能特点
-
-音频信号采集与 FFT 频谱分析
-自动节拍检测
-RGB 灯带颜色动态变化（低频→白色，中频→黄色，高频→粉色）
-噪声过滤与信号增强
-频率联动电磁铁控制：根据音乐频段动态驱动电磁铁，控制皮影小人按节奏跳舞
-
-高频：同时驱动头部和手部电磁铁
-低频：主要驱动手部电磁铁
-中频：同时驱动头部和手部电磁铁
-
-
-2 硬件要求
-
-Arduino 开发板（如 Arduino Uno）
-麦克风模块（连接到 A0 引脚）
-WS2812B RGB 灯带（10 个灯珠，连接到 9 号引脚）
-电磁铁 × 2（分别连接到 10 号和 11 号 PWM 引脚，6
-节电池独立供电）
-皮影小人（包含可移动的头部和手部，由电磁铁驱动）
-
-3 电路连接
-
-
-
-组件
-Arduino 引脚
-说明
-
-
-
-
-麦克风
-A0
-音频输入
-
-
-RGB 灯带
-Pin 9
-数据信号
-
-
-电磁铁 1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3324960025/" title="用布林线的变种计算支撑位">用布林线的变种计算支撑位</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-06T00:00:00.000Z" title="Created 2025-12-06 00:00:00">2025-12-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a></span></div><div class="content">1 引子
-这是一个奇怪的脑洞：想到一种计算支撑位的量化方法。
-早上和 AI
-讨论如何识别阻力位和支撑位。它给我建议了几种方法，包括低点聚类、计算筹码密集区、斐波那契回调、均线以及最大回撤。这些方法与我对支撑的理解不太相符，而且都过于复杂，频繁处理多支股票数据比较耗费资源。
-于是，我想到一个关于“平台”的逻辑。其中最简单的一种情况是：如果在某个区间震荡了一段时间后向上/向下突破，那么这个区间就可以作为支撑或阻力位。它应该是价格相对集中、波动较小的一段区间，具体可以通过中值和标准差来判断。
-这是不是有点像布林带?
-只不过布林带用的是均值和标准差。那么，是否可以通过稍作修改布林带的计算方法，简单地计算阻力和支撑位呢？
-2 支撑位
-在不同行情中，比如横盘震荡、上升趋势或下行趋势中，支撑位都是价格止跌反弹的位置。在上升趋势中，支撑位通常是向上通道的下轨或最近一轮上涨的低点；在下行趋势中，支撑位可能是历史低点或先前平台的下沿，尽管在下跌过程中较难判断底部。在横盘震荡时，支撑位出现在历史K线中多次试探并止跌反弹的位置。无论是哪种，都需要：多次回踩未破后反弹。
-它的本质是买方意愿 + 成本密度 + 心 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/91/#content-inner">91</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">902</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">191</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3271753138/" title="3D打印机怎么选">3D打印机怎么选</a><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/67953906/" title="压力与行为分析">压力与行为分析</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3976493549/" title="量化书与工具杂谈">量化书与工具杂谈</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/163021640/" title="选股方法进阶_不靠信仰，用数据说话">选股方法进阶_不靠信仰，用数据说话</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+这有点像你在做策略回测：不是等模型完美，而是在噪声中不断校准参数。系统不是靠“安静”变强的，是靠在干扰中不宕机。
+yan
+我也觉得自己缺少的是“悬置能力”，我发现我买股票也是这样，不怕它涨，不怕它跌，但很接受不了的是：我挂了单之后它 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/#content-inner">92</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1014741297/" title="FreeCAD用于3D建模">FreeCAD用于3D建模</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4167074932/" title="3D打印常用软件">3D打印常用软件</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧">3D打印盘清洁与涂胶技巧</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1302863214/" title="玩3D打印花多少钱？从设备到耗材的真实花费">玩3D打印花多少钱？从设备到耗材的真实花费</a><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -383,8 +425,8 @@ Pin 9
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.39em; color: #99a4b4">编程语言</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.44em; color: #99a7ba">技术</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.13em; color: #999a9c">反思</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.24em; color: #999fa7">大模型/应用</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.13em; color: #999a9c">历史</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.16em; color: #999b9e">日常记录</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.33em; color: #99a2af">笔记/Obsidian</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%89%96%E6%9E%90/" style="font-size: 1.1em; color: #999">自我剖析</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.16em; color: #999b9e">编程语言/Java</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">知识管理</a> <a href="/tags/%E6%B0%91%E6%97%8F/" style="font-size: 1.1em; color: #999">民族</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.16em; color: #999b9e">知识图/知识图谱</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.3em; color: #99a1ac">效率</a> <a href="/tags/%E9%87%91%E8%9E%8D%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">金融工具</a> <a href="/tags/%E6%8C%87%E6%A0%87/" style="font-size: 1.1em; color: #999">指标</a> <a href="/tags/Arduino/" style="font-size: 1.36em; color: #99a3b1">Arduino</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">模型工具</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/" style="font-size: 1.1em; color: #999">加密货币</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.47em; color: #99a8bc">图形图像</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.21em; color: #999ea4">笔记</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.19em; color: #999ca1">哲学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.41em; color: #99a6b7">大模型</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.27em; color: #99a0a9">语音</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.13em; color: #999a9c">插件开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">902</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1252.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-05T17:00:13.946Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.32em; color: #99a2ae">情绪管理</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999a9c">反思</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E7%A4%BE%E4%BC%9A/" style="font-size: 1.1em; color: #999">社会</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.28em; color: #99a0aa">美食</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.39em; color: #99a5b5">深度学习/工具</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E7%BB%B4%E6%8A%A4/" style="font-size: 1.1em; color: #999">关系维护</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.17em; color: #999ca0">数据库</a> <a href="/tags/Arduino/" style="font-size: 1.46em; color: #99a8bc">Arduino</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E7%88%B6%E6%AF%8D%E6%95%99%E8%82%B2/" style="font-size: 1.1em; color: #999">父母教育</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/Paper/" style="font-size: 1.1em; color: #999">Paper</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.25em; color: #999fa7">思维整理</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.21em; color: #999da3">方法论</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">文件管理</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.35em; color: #99a3b1">个人成长</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.17em; color: #999ca0">教育</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.35em; color: #99a3b1">版本管理</a> <a href="/tags/%E7%83%B9%E9%A5%AA/" style="font-size: 1.1em; color: #999">烹饪</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.17em; color: #999ca0">日常记录</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.28em; color: #99a0aa">语音合成</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.32em; color: #99a2ae">笔记</a> <a href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">风险管理</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 1.14em; color: #999a9c">基金</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">913</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1269.4k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-06T00:37:37.775Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

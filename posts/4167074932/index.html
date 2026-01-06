@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>3D打印常用软件 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="介绍几款常用3D打印软件及其功能，并通过实例展示如何使用Blender和Bambu Studio优化模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3D打印常用软件">
+<meta property="og:url" content="http://xyan666.com/posts/4167074932/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="介绍几款常用3D打印软件及其功能，并通过实例展示如何使用Blender和Bambu Studio优化模型。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2026-01-05T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-28T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="开源项目">
+<meta property="article:tag" content="3D打印">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/4167074932/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '3D打印常用软件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-12-28 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">3D打印常用软件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-28T00:00:00.000Z" title="Updated 2025-12-28 00:00:00">2025-12-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="3D打印常用软件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>本篇介绍一些在 3D
+打印中可能会用到的软件。由于我用的是拓竹打印机，其中有些软件是它生态里的工具，所以会顺便提到。</p>
+<p>第二部分，我会通过一个具体示例，展示如何用 Blender
+对模型进行细化、缩放，并配合 Bambu Studio 加支撑打印的过程。</p>
+<h2 id="常用-3d-打印相关软件">1 常用 3D 打印相关软件</h2>
+<h3 id="bambu-handy">1.1 Bambu Handy</h3>
+<p>Bambu Handy
+一般在手机端安装。买了拓竹打印机，基本都会在手机上装这个软件。适应的场景是：日常直接打印、复用成熟模型、不想折腾参数，只关心“这盘能不能顺利打完”。</p>
+<p>它集成了 MakerWorld
+模型库，可以直接下载别人已经建好的模型并发起打印，定位就是把打印这件事尽量做简单。</p>
+<p>使用体验确实很好：多盘打印时，会记录每一盘的状态；支持 3D
+预览；一盘里有多个零件时，可以只选择其中一部分打印。对普通用户来说，这些功能已经覆盖了绝大多数使用场景。</p>
+<p>相应的，它几乎不提供精细的参数设置，更像是一个“拿来就用”的打印控制工具。</p>
+<h3 id="bambu-studio">1.2 Bambu Studio</h3>
+<p>Bambu Studio 一般安装在电脑上，目前支持 mac 和 Windows。Linux
+也能用，但需要从 GitHub
+下载源码自行安装，对新手不太友好。适应的场景是：需要调支撑、调强度、调填充，对打印质量和成功率有要求，愿意为效果多花一点时间。</p>
+<p>和 Bambu Handy
+相比，它更偏向“调参工具”。主要用来细化打印相关的设置，比如加支撑、预览支撑、调整打印质量、强度、内部填充等。</p>
+<p>MakerWorld
+里的模型多是开发者或社区上传的，质量有高有低；再加上耗材、机器本身的差异，不是所有模型在默认设置下都能直接打出满意效果，通常还是需要自己动手调一下。</p>
+<p>它关注的是打印过程本身，对模型结构的修改，需要配合其它软件完成。</p>
+<p>注意：换完料后要在3D打印机耗材中编辑一下新耗材的名称，否则在Bambu
+Studio中切片时仍会按照之前的设置来。打印时可能会提示切片使用的材料与实际打印材料不一致。</p>
+<p><a href="x_3D打印/Bambu系列工具.md">Bambu系列工具</a> ### 1.3
+Blender</p>
+<p>在 Windows、macOS、Linux
+三个平台都有版本，安装也很方便。适应的场景是：修改不规则模型、做自由形态调整，或者当模型结构不太“工程化”时的万能工具。</p>
+<p>Blender 是一款免费开源的三维图形软件，3D 建模只是 Blender
+的一部分功能，它同时还包括材质、场景、打光、动画，以及骨架和动作系统，是一款功能覆盖面很广的工具。还可以通过插件和其它工具联合使用。</p>
+<p>在 3D 打印相关场景里，Blender
+更适合用来修改不规则模型，或者对现有模型做自由度比较高的调整。像 CAD
+那种强调精确尺寸、几何约束的建模方式，并不是它最擅长的方向，更推荐使用
+Fusion 360，Tinkercad。</p>
+<p>不过像几何体创建、布尔运算、尺寸调整、缩放这些操作它也都能做，如果用得熟，很多问题直接在
+Blender 里解决也完全可行。</p>
+<p><a href="x_3D打印/09_Blender工具.md">09_Blender工具</a> ### 1.4
+Rodin</p>
+<p>Rodin
+是一个基于浏览器的服务，通过网站即可使用，提供少量免费额度。适应的场景是：快速从照片生成角色或人物模型，用于展示、玩具、摆件等对真实还原要求不高的场景。</p>
+<p>主要用于对照片建模，通过 2D 图片生成 3D 模型，更偏向自动化、AI
+驱动的方式。</p>
+<p>不太建议直接用来给真人建模：一是相似度和细节有限，真人模型很容易看出哪里不像；二是把真实的人做成
+3D，本身就和画像不太一样，稍微偏一点就会显得别扭。</p>
+<p>更推荐的方式是，先用一些 AI
+工具把真人转成动画形象，再进行建模。这样意象成分更多，也更有趣，不容易有冒犯的感觉。</p>
+<h2 id="一个使用实例细化模型">2 一个使用实例：细化模型</h2>
+<p>起因是在打印一个小挂件时连续打了两次都炒面了。清洗打印板、打胶这些常规操作都试过了，问题还是没解决，于是开始怀疑是不是模型本身有问题。</p>
+<p>打开模型一看，底面接触面积非常小，是那种明显“上大下小”的结构；再用
+Bambu Studio 预览，发现也没加支撑。于是在Bambu Studio
+的支撑面板勾选了支撑后，重新打印，这一步解决了附着问题，但新的问题又出来了：模型本身比较小，表面不够平滑，弧面看起来有棱有角。</p>
+<p>接下来就用 Blender
+对模型做了一次简单处理，根据原有弧度做插值，让表面更顺一些。处理完导入
+Bambu Studio 后，又遇到提示：三角面数量超过 1M
+不支持。实际上这个模型也确实用不着这么多面，于是又对模型做了减面处理。最后顺手调整了一下整体尺寸。</p>
+<p>整体来看，并不是特别复杂的修改，更像是见招拆招，把不规则模型里几个常见问题依次解决掉。下面把用到的操作简单整理一下。</p>
+<h3 id="导入导出模型">2.1 导入导出模型</h3>
+<p>Bambu Studio
+主要负责打印设置，本身不太适合改模型，因此需要和其它建模软件配合使用。首先涉及的就是不同软件之间的文件格式。</p>
+<p>我一般使用 <strong>STL / OBJ</strong>，这是 3D
+打印里比较通用的格式。可以通过 <code>文件 → 导出</code>
+把单个物体或所有物体导出为 STL 文件，导入时流程也类似。</p>
+<p>在 Blender 里，同样通过文件菜单完成 STL 的导入和导出。</p>
+<p><a href="x_3D打印/09_Blender工具.md">09_Blender工具</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/4167074932/">http://xyan666.com/posts/4167074932/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a><a class="post-meta__tags" href="/tags/3D%E6%89%93%E5%8D%B0/">3D打印</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</div></div></a></div><div class="next-post pull-right"><a href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">3D打印盘清洁与涂胶技巧</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2531255041/" title="录视频有感_聊聊一种技不如人的羞愧感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-19</div><div class="title">录视频有感_聊聊一种技不如人的羞愧感</div></div></a></div><div><a href="/posts/2345637894/" title="browser-use"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-30</div><div class="title">browser-use</div></div></a></div><div><a href="/posts/3215716404/" title="CHANGELOG_写法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-10</div><div class="title">CHANGELOG_写法</div></div></a></div><div><a href="/posts/4124187326/" title="chatgpt-on-wechat聊天机器人不能用了怎么办"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-13</div><div class="title">chatgpt-on-wechat聊天机器人不能用了怎么办</div></div></a></div><div><a href="/posts/3101595484/" title="doocs-md"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-18</div><div class="title">doocs-md</div></div></a></div><div><a href="/posts/355355667/" title="JS图片编辑工具对比分析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-19</div><div class="title">JS图片编辑工具对比分析</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8-3d-%E6%89%93%E5%8D%B0%E7%9B%B8%E5%85%B3%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">1 常用 3D 打印相关软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bambu-handy"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 Bambu Handy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bambu-studio"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Bambu Studio</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B%E7%BB%86%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">2 一个使用实例：细化模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 导入导出模型</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1014741297/" title="FreeCAD用于3D建模">FreeCAD用于3D建模</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4167074932/" title="3D打印常用软件">3D打印常用软件</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧">3D打印盘清洁与涂胶技巧</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1302863214/" title="玩3D打印花多少钱？从设备到耗材的真实花费">玩3D打印花多少钱？从设备到耗材的真实花费</a><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

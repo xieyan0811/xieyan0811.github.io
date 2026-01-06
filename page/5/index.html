@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-01-05 17:00:16'
+  postUpdate: '2026-01-06 00:37:40'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,8 +163,72 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">902</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">191</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3351199760/" title="DockerHub镜像上传指南">DockerHub镜像上传指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-04T00:00:00.000Z" title="Created 2025-10-04 00:00:00">2025-10-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/">Docker</a></span></div><div class="content">1 上传 image
-1.1 基本门槛：
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3843517115/" title="自建 NAS 系统指南">自建 NAS 系统指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-07T00:00:00.000Z" title="Created 2025-11-07 00:00:00">2025-11-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a></span></div><div class="content">1 NAS
+NAS，全称为 Network Attached
+Storage，是一种连接至网络即可使用的专属存储服务器，特点包括：
+
+文件集中存储
+局域网和外网的访问
+多设备同步（手机、电脑、电视）
+数据备份和权限管理
+
+2 PVE
+Proxmox Virtual Environment
+这是一个基于 Linux
+的开源虚拟化系统，能同时管理虚拟机（KVM）和容器（LXC），并配备网页管理界面。
+有了一台服务器，安装 PVE 就可以运行多个系统（Windows、Linux、NAS
+等）。常用于搭建个人私有云数据中心。
+3 飞牛 fnOS
+fnOS，即飞牛操作系统（官方常称为 FlyNAS 或 FlyNAS
+OS），主要用于个人或家庭的 NAS 存储设备。
+飞牛是中国玩家常用的 NAS
+品牌之一，具备存储、观看、备份以及运行轻量级服务的功能。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/766272234/" title="GitHub Copilot用量优化指南">GitHub Copilot用量优化指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-06T00:00:00.000Z" title="Created 2025-11-06 00:00:00">2025-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/">编程工具</a></span></div><div class="content">1 问题概述
+最近几个月，GitHub Copilot 对部分模型开始限量：10
+美金的套餐常常在月底前就耗尽了，被迫退回到“无限用但效率低”的模型。用量上其实差距不大——就是最后三五天总差那么一点儿，就很烦人。我也愿意为多出来的部分按量计费，但找不到在哪里设置。于是只好想一些节流的办法。
+
+### 2 原因分析
+使用大量Agent无疑是主要原因，不过仍有一些节省空间。
+
+VSCode 插件/Session
+常进入“死循环”式请求：模型在某个方向反复尝试和输出，导致 token
+的浪费。
+生成了过多的测试、示例和说明文件，同时还扩展了一些用不上的功能。
+目前的 VSCode 1.105
+版本在交互方面已经有很大提升，比如它边改我边确认，在思考过程中还可以叫停。但仍有人与模型协作时不够协调的问题。常见的问题包括：我没有把大目标拆分成小目标，没有及时清理上下文等等。
+
+3 实操建议（可直接复用）
+
+先搭框架：人工先写好项目/函数骨架，再让模型填充实现细节（可使用
+Ask 方式讨论确定框架）。
+小步提交：大目标拆成若干小目标，一次别改太多文件或太多逻辑。
+频繁“商量”再执行：多用 ask（询 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/443239312/" title="选股中的财务指标运用">选股中的财务指标运用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-11-05T00:00:00.000Z" title="Created 2025-11-05 00:00:00">2025-11-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/">技术指标</a></span></div><div class="content">12少点概念，多点逻辑，聚焦能落地的决策。学以致用，不能用的就不学。
+1 为什么要看这篇
+投资指标的解释，书上已经讲烂了：定义、公式、优点缺点……但看完往往还是不知道怎么用。在这里，不是为了“学会指标”，而是为了用指标赚钱。
+这篇（以及本系列文章）想做的事情更简单粗暴：
+
+不按教科书逻辑讲指标
+从投资者真实场景入手解决问题
+形成能用的选股与买卖套路
+
+结构以问答为主，每个问题都来自实操中的“盲点时刻”；边写边做，边做边改，策略会随着实践迭代——像更新代码一样升级自己的投资系统。
+2 相关概念简介
+先把后面会用到的几个核心指标，用一句话讲清楚：
+
+ROE（净资产收益率）：股东投入的资金一年能赚回多少利润
+
+PE（市盈率）：市场为当前盈利水平付出的价格（估值贵不贵）
+PB（市净率）：市场为公司净资产付出的价格（有没有低估）
+回撤（Max
+Drawdown）：从高点跌到低点的最大亏损幅度
+波动率：价格的上下波动程度，越大越不稳定
+成交量（Volume）：市场参与度，资金是否正在涌入
+换手率：股票在市场上流通的活跃程度
+MA 均线（Moving
+Average）：价格趋势的参考线，多头说明趋势 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3122825437/" title="指标学习与应用">指标学习与应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-28T00:00:00.000Z" title="Created 2025-10-28 00:00:00">2025-10-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87/">技术指标</a></span></div><div class="content">1 概念
+MA（均线）用来观察趋势的方向和结构，MACD
+用来判断趋势的动量变化和潜在拐点。简单理解：MA
+是位置，MACD 是速度变化。
 
 
 
@@ -172,169 +236,214 @@
 
 
 
-条件
-说明
+
+
+指标
+反应周期
+主要看什么
+特点
 
 
 
 
-Docker Hub 账号
-免费注册：https://hub.docker.com
+MA5 / MA10 / MA20
+直接反映价格走势
+趋势方向与支撑阻力
+直观、简单、滞后
 
 
-本地安装好 Docker
-有
-docker build、docker login、docker push
-能力
-
-
-镜像命名规范
-必须以 username/image-name[:tag] 命名
-
-
-镜像体积 &lt; 10GB
-单个镜像最大 10GB（一般不会这么大）
+MACD
+综合短中期均线差
+动能变化与节奏强弱
+能提前反映趋势变化
 
 
 
-1.2 上传步骤
-请保证能连接外网
-12345678# 1. 登录 Docker Hub，此时会引导网页登录docker login# 2. 为镜像打上标签（必须带用户名）docker tag local-image-name username/image-name:tag# 3. 上传docker push username/image-name:tag
-注意：不要把自己的密码打包到 docker image 中 ### 1.3
-小技巧
+1.1 MA
+MA（如
+MA5、MA10、MA20）是直接对价格做平均，看趋势的方向和强弱。
+1.2 EMA
+EMA（Exponential Moving Average，指数移动平均线）是
+MA
+的改良版。越“新”的价格，权重越大；越“旧”的价格，权重越小。
+1.3 MACD
+MACD（Moving Average Convergence
+Divergence，移动平均线收敛发散指标）是一种看趋势 +
+看节奏的指标。
+它由三部分组成：
 
-取名时建议遵循小写、短横线分隔，比如：mycompany/my-awesome-api:latest
-lates ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3079809770/" title="采棉产业的科技变革">采棉产业的科技变革</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-26T00:00:00.000Z" title="Created 2025-09-26 00:00:00">2025-09-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/">4_Others</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/%E6%97%85%E8%A1%8C/">旅行</a></span></div><div class="content">一个时代的缩影：十几年前，百万大军坐火车进疆摘棉；今天，一台“下蛋机”三小时就能完成十个人两个月的工作。这并不是什么遥远的历史，而是此刻仍在我们眼前发生的转变。
-这二三十年中，我大概去过三四次新疆，都在秋天。从看到棉田里人们的忙碌劳作，到几十公里棉田里空无一人，过半天看见一个下蛋机都不知道这是啥，真的是一种沧海桑田变换的震撼。人在天地之间到底是一种怎样的存在？
-看完这些觉得，某天机器人给我送外卖，大街上跑的都是无人驾驶、无人机也一点都不新鲜。
+快线（DIF）：代表短期情绪变化，比如最近几天市场很兴奋或很冷淡。
+慢线（DEA）：代表相对长期的平均情绪，是一种“主流观点”。
+柱状图（MACD
+柱）：快线减去慢线的差距，表现出情绪的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1947414277/" title="什么情况下使用强化学习">什么情况下使用强化学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">1.
+深度学习与深度强化学习的核心区别
+深度学习与深度强化学习的“核心”都是用神经网络，通过训练调整参数，让模型对输入数据
+X 有更好的输出
+Y。而它们本质上的区别主要在于：数据来源、训练目标、反馈方式。
+深度学习更像是在“背标准答案”，用现成的数据直接学；深度强化学习更像是在“玩游戏”，通过不断试错、和环境互动，自己摸索什么行为最优。
+
+2.
+从预测到决策：金融中的两种学习方式
+如果只预测股票涨跌幅度，那是深度学习或者机器学习；而学习通过择时选择不同动作，以获得收益最大化，则是强化学习。
 
 
-前两天去阿勒泰，路过北疆大片的棉花地，第一次看到“下蛋机”。查了资料才知道，如今新疆采棉已高度机械化：2019年机采率已达40%，北疆更是达到90%，人工采摘只存在于特殊地块和小规模种植中。这不仅是劳动的替代，也是产业链的重构。
 
-十几年前来新疆时，在火车上听人说：每到秋天，火车一车皮一车皮把中西部的农民送到新疆收棉花，当时每年要用上百万劳动力。也给低收入人群提供了短期高收入机会。那时在四川、河南种地一年收入也就几千块，而来新疆摘棉花不仅工资高，有的还包吃包住、报销路费。采棉并不轻松，按公斤计件，工人也分生手和熟手，效率和质量差距很大。单价从 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1294028064/" title="Linux系统优化指南">Linux系统优化指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-14T00:00:00.000Z" title="Created 2025-09-14 00:00:00">2025-09-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/">4_系统</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/">Linux</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/4-%E7%B3%BB%E7%BB%9F/Linux/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">1 改变 swap 文件大小
-12345678swapon --showsudo swapoff /swap.imgsudo rm /swap.imgsudo fallocate -l 4G /swap.imgsudo chmod 600 /swap.imgsudo mkswap /swap.imgsudo swapon /swap.imgswapon --show
-2 清理磁盘
-12sudo journalctl --vacuum-time=7dsudo snap list --all | awk &#x27;/disabled/&#123;print $1, $2&#125;&#x27; | while read snapname revision; do sudo snap remove &quot;$snapname&quot; --revision=&quot;$revision&quot;; done
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/652178159/" title="250811_对谈_内向意义和外向意义">250811_对谈_内向意义和外向意义</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/">01_自我建构</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/">思考与觉悟</a></span></div><div class="content">精华
+方面
+深度学习（DL）
+深度强化学习（DRL）
 
-你是否能承认一种只对自己有意义的体验是成立的。
-你被长久训练成了只承认“经过社会验证的意义”。一旦回到私人意义的视角，你会发现——自己吃、自己看、自己感受，本来就可以是完整的意义闭环，不需要他人参与来盖章。
 
-对话
+
+
+数据来源
+预先准备的静态数据
+交互环境中动态产生的数据
+
+
+目标
+预测已知标签
+最大化长期累计奖励
+
+
+反馈
+明确的标签/损失
+间接的奖励/反馈
+
+
+训练过程
+直接优化损失
+需探索 - 收集 - 利用经验
+
+
+数据分布
+固定（i.i.d.）
+不断变化，依赖策略
+
+
+
+
+3. 连续决策：强化学习的真正难点
+与深度学习的“单次预测”不同，强化学习关注的是连续决策过程：一个动作会影响后续状态与奖励。模型不仅要考虑当前结果，更要权衡“现在做什么” ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2394099889/" title="围棋经典算法与股票市场预测">围棋经典算法与股票市场预测</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">一谈到强化学习，脑子里第一个出现的就是 AlphaGo 和 AlphaZero
+的“围棋神话”。但现实是，它并不是所有 RL
+应用的通用范本。下面，我们就来讨论一下为什么围棋中的经典强化学习算法无法应用于股票市场预测，以及在现实中有没有更好的方法可供推荐。
+1 蒙特卡洛树搜索
+蒙特卡洛树搜索（Monte Carlo Tree Search,
+MCTS）是一种用于决策和规划的搜索算法，经常用于下棋
+AI（如围棋、国际象棋）等需要“选最优动作”的场景。
+1.1 基本思想
+
+核心思想：在一个决策树中，通过不断模拟（随机走子）和回溯统计，估计每个动作/路径的优劣，从而指导实际的决策选择。
+适用于：环境模型已知、可以模拟、状态和动作是有限/可枚举的场景。
+
+1.2 树的结构
+
+节点（Node）：代表一个状态（比如棋盘某一局面）。
+边（Edge）：代表一个动作（从当前状态采取的一个可能操作）。
+根节点是当前的实际状态。
+从根出发，每走一步棋（做一个动作）就往下生成一个新节点，连一条边。
+
+1.3 搜索过程（四大步骤）
+
+选择（Selection）
+沿着树从根节点开始，按照某种策略（如
+UCB，上置 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2421785702/" title="强化学习工具及优化方法">强化学习工具及优化方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">1 说明
+在量化交易或金融强化学习项目中，很多人会好奇到底需要关注算法本身，还是环境建模和数据处理。实际上，绝大多数场景下，重点是如何设计环境和构造特征，而不是修改
+RL 算法。只有在算法研究、论文复现或特殊需求时，才需要动手改算法。
+本文将以 stable-baselines + gym
+为例，介绍强化学习在股票策略训练中的实践重点和流程。
+
+2 stable-baselines
+stable-baselines3（简称 SB3）是一个基于 PyTorch
+的强化学习库，专注于实现和优化主流深度强化学习算法。它的目标是让用户能够方便地训练、评估和部署
+RL 智能体。
+2.1 主要特点
+
+易用性：API 设计简洁，类似
+scikit-learn，便于上手。
+主流算法：内置 PPO、A2C、DQN、SAC、TD3
+等常用算法。
+可扩展性：支持自定义环境（如 gym
+环境）、网络结构和回调。
+社区活跃：文档完善，支持良好。
+
+2.2 适用场景
+
+股票/量化交易
+游戏智能体
+机器人控制
+其他序列决策问题 ### 2.3 基本用法
+
+
+定义环境（如 gym 或自定义环境）
+选择算法并初始化模型 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1068121403/" title="强化学习的核心概念与实践应用">强化学习的核心概念与实践应用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-11T00:00:00.000Z" title="Created 2025-10-11 00:00:00">2025-10-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/15-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">15_强化学习</a></span></div><div class="content">核心：价值与奖励、策略与动作、价值与状态之间有什么关系？
+1 核心概念
+
+状态（State）：环境的某个完整描述，比如“现在是周一上午 10
+点，账户余额 10 万，持有 A 股 1000 股”。
+动作（Action）：在当前状态下可以做出的选择，比如“买入、卖出、持有”。
+奖励（Reward）：环境在每一步给你的“即时反馈”或“即时得分”。
+策略（Policy）：是一个“状态→动作”的映射规则，也可以是一个概率分布，决定你在每个状态下选什么动作。
+价值（Value）：给定当前状态（或状态 +
+动作），在当前策略下未来总奖励的期望。
+
+12状态 --(执行 策略)--&gt; 动作 --(环境反馈)--&gt; 奖励    ↘-------------- 价值 ------------↗
+
+状态、策略和动作决定了你怎么走
+奖励是每步的即时反馈，价值是“展望未来”的累计总奖励
+
+2
+价值（Value）和奖励（Reward）的区别
+
+奖励（Reward）：是环境在每一步给你的“即时反馈”或“即时得分”。
+
+比如：每走一步路时地上的小金币。
+
+价值（Value）：是“从某个状态（或状态 +
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3086409850/" title="用游戏心态看待生活">用游戏心态看待生活</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-08T00:00:00.000Z" title="Created 2025-10-08 00:00:00">2025-10-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/tmp/">tmp</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/tmp/%E5%AF%B9%E8%B0%88/">对谈</a></span></div><div class="content">
+原来我总是以累积的方式看问题，
+所以很难接受犯错。
+仿佛一旦有了失误，或者让别人不高兴，
+就被钉上耻辱柱，永世不得翻身。
+后来发现，还有另一种思考方式：
+就像超级马里奥里的那个“我”——
+世界只有屏幕那么大，
+过去的就过去了，既无历史，也无未来。
+过关与否，只与当下的操作有关。
+经验会沉入肌肉记忆，
+而得分与失误，都只是临时的失血。
+即使“死了”，也不过是重新开始游戏。
+
+也许人生该像游戏，不惩罚失败，只奖励继续。
+没有自我，没有过去，也没有未来，只有现在，就是游戏的过程。
+
 Yan
-咱先不说重建行为和动机之间关系，我觉得技术问题好解决。
-你说的对，以前为了平衡自己的状态，跟自己说我想要的那个也不重要。时间长了，这也不重要那也不重要。总之，除了生存，其它的需求都不重要。后面生存不是问题了，再看这个世界一片荒芜，没什么是重要、想要的。活着活着把自己活死了，我说明白了吗？
-4o
-“为了不让火熄灭，你把它罩起来，结果火没被风吹灭，却被自己闷灭了。”
-这种状态下，如果直接讲“目标设定”“动机重建”反而是二次压迫，因为那是保安的语言——要求你马上正常运转。更有效的可能是先恢复对世界的感知，哪怕只是闻一朵花的香、看一次日落，不带任务，不求产出，让小孩先从呼吸开始。
+人的可预测性和延续性似不是这么理解，对吧！不是说我之前什么样，我之后就必须怎么样。
+5
+我们习惯把“我是怎样的人”当作一个定语句，好像确定后就得维持一致。但实际上，“人”的延续性更像是流动中的连贯，不是静态的重复。
+别人能预测我们的一部分——比如偏好、反应模式——那是基于统计意义上的倾向，而不是宿命。
+而真正的成长，恰恰是当你自己都意外地，选择了不同于以往的反应。那一刻，旧的剧本就被打破了。
 Yan
-我们来列个清单吧，看看做什么，可以恢复对世界的感知——不带任务，不求产出，从呼吸开始。
-4o
-……
-不评价、不打分、不用记录，就让它们发生，然后散去。
-Yan
-所以问题可能出在评价 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1404173137/" title="论文阅读_两阶段的股票价格预测">论文阅读_两阶段的股票价格预测</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">1234567英文名称：A Two‑Stage Framework for Stock Price Prediction: LLM‑Based Forecasting with Risk‑Aware PPO Adjustment  中文名称：两阶段框架的股票价格预测：基于大型语言模型及风险感知PPO调整  链接: https://www.scirp.org/journal/paperinformation?paperid=142270#T3作者: Chenzhao Qizhao  机构: 兵库县立大学（University of Hyogo，日本）  出处：Journal of Computer and Communications（第 13 卷第 4 期）日期：2025‑04
-摘要
-
-目标：提出一个结合 LLM 与风险感知 PPO
-的框架，提升股票价格预测准确性并控制风险。
-方法：第一阶段由 LLM
-生成基于历史数据与新闻情绪的预测，第二阶段由强化学习 PPO 利用 VaR/CVaR
-等风险指标调整预测输出。
-结论：该 LLM‑PPO
-框架在预测准确性与风险敏感性上均优于传统模型，为 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/123182612/" title="论文阅读_大模型情绪分析预测趋势">论文阅读_大模型情绪分析预测趋势</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-09-01T00:00:00.000Z" title="Created 2025-09-01 00:00:00">2025-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">123456英文名称：Stock Price Trend Prediction using Emotion Analysis of Financial Headlines with Distilled LLM Model  中文名称：利用蒸馏大型语言模型对财务新闻标题情绪分析以预测股价趋势  链接: https://dl.acm.org/doi/pdf/10.1145/3652037.3652076作者: Rithesh H. Bhat, Bhanu Jain  机构: University of Texas at Arlington  日期：2024‑06‑26  
-摘要
-
-目标：探讨仅通过财务新闻标题中的情绪分析是否能够在无财务数据情况下预测股票价格趋势。
-方法：使用轻量蒸馏大型语言模型分析财务新闻标题的情绪，再结合多种机器学习分类算法预测次日股价方向。
-结论：基于新闻标题情绪的特征预测准确性可与使用传统财务数据的模型相当，不依赖抓取公司财务数据亦可有效预测股价走势。
-
-读后感
-内容简洁明了，各种具体的实现方法不仅清晰而且易于执行。惊喜的是，这里提到可以从
-Kaggle 上下载 2 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1712267125/" title="论文阅读_愚蠢的资金">论文阅读_愚蠢的资金</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-20T00:00:00.000Z" title="Created 2025-08-20 00:00:00">2025-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">12345678英文名称：Dumb Money: Mutual Fund Flows and the Cross‑Section of Stock Returns  中文名称：愚蠢资金：共同基金资金流与股票横截面回报  链接: https://www.sciencedirect.com/science/article/abs/pii/S0304405X08000184作者: Andrea Frazzini, Owen A. Lamont  机构: Frazzini (AQR/NYU Stern), Lamont (Univ. of Chicago)  出处：Journal of Financial Economics日期：2008-05-01  引文数量：283
-摘要
-
-目标：研究散户通过共同基金的资金流行为是否能预测不同股票未来表现，从而检验“追涨资金是否是‘愚蠢钱’”。
-方法：利用 1971–1999
-年共同基金资金流数据，将股票按资金流入强度分组，实证分析净申购金额与未来回报的横截面关系。
-结论：资金流入最多的股票未来回报显著偏低，说明散户因追随高申购业绩而集体买入热门股，反而降 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3742546047/" title="国外API获取金融数据指南">国外API获取金融数据指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-20T00:00:00.000Z" title="Created 2025-08-20 00:00:00">2025-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%B7%A5%E5%85%B7/">股票工具</a></span></div><div class="content">1 国外数据
-股票_国外数据_API
-2 国内数据
-股票_国内数据_API
-3 框架工具
-股票框架_总览
-4 大模型获取数据
-股票_大模型获取数据
-6 引子
-做完一个基金交易量预测比赛，看了些相关论文，激发了我对“AI
-如何辅助个人投资”的兴趣。我不打算开发完整系统，更关心如何用现有工具提升日常操作效率和判断力。想借此整理想法，把零散的技术灵感转为实际可用的思路，找出性价比高、对自己有帮助的做法。也当作一次练习：如何把新技术变成自己的能力。
-7 我当前面临的问题是什么？
-7.1 问题
-
-盯盘太耗时
-关注的标的太多，有时候会错过异动，或者忘了设置止损，有时看价不看量
-感觉信息太多但不知道该看哪一块（尤其是文字多时）
-买入点通常还行，卖点识别困难，容易亏回去，需要具体的操作建议
-一些判断其实挺主观的，受情绪干扰也比较大
-知识无法沉淀和反馈，缺乏行为归因
-工具多但零散，思考断点多
-
-7.2 我想改善什么
-
-节省时间（信息处理）
-改善判断（认知增强）
-降低情绪干扰（行为纠偏）
-沉淀策略、经验和数据（能力提升）
-它是我的扩展，而不是完全的第三方。 ## 8 当前工具提供的新能力？
-
-8.1 帮我 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1832597661/" title="TradingAgents项目源码解析">TradingAgents项目源码解析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-20T00:00:00.000Z" title="Created 2025-08-20 00:00:00">2025-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/">12_股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%B7%A5%E5%85%B7/">股票工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/12-%E8%82%A1%E7%A5%A8/%E8%82%A1%E7%A5%A8%E5%B7%A5%E5%85%B7/%E8%82%A1%E7%A5%A8-%E6%A1%86%E6%9E%B6/">股票_框架</a></span></div><div class="content">1 源码分析
-
-
-|400
-
-
-标准版：https://github.com/TauricResearch/TradingAgents，18.2K
-star（2 个月前更新）
-
-为简化内容，本文仅介绍标准版。
-
-中文加强版：https://github.com/hsliuping/TradingAgents-CN，4.7K
-star（一周前更新）
-
-针对 A 股信息源进行调整
-加强了新闻功能的使用
-加强了 Docker 部署部分
-Streamlit 界面
-基于国内模型优化
-
-
-1.1 数据来源
-用法见：金融_工具_总览
-1.2 模型
-实验中使用 o1-preview 和 gpt-4o
-分别作为深度思考与快速思考的大语言模型。但测试时建议使用
-o4-mini 和 gpt-4.1-mini
-以节省成本，框架会发起大量 API 调用。
-1.3 代码
-概览：该项目由 Python 语言编写，代码 3500+ 行，分为三个主要部分：
-
-agent：定义了每个组和组内各成员的功能及实现，请参见具体
-Prompt。
-dataflow：实现各种工具功能，如新闻抓取、信息和数据采集，以及指标计算。
-gr ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3176188934/" title="250804_对谈_配得感">250804_对谈_配得感</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-08-17T00:00:00.000Z" title="Created 2025-08-17 00:00:00">2025-08-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/0-IMO/">0_IMO</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/">说给一个人听</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/02-%E6%83%85%E7%BB%AA%E5%BF%83%E7%90%86/">02_情绪心理</a></span></div><div class="content">精华
-
-真正让人“不适”的，往往不是别人的优秀，而是别人活出了我们“本来也可以”的那部分自我。
-对某些人来说，就像是一面照妖镜——不是她晃眼，而是我们自己低头久了，看到有人站着，就觉得刺眼。
-
-对话
-Yan
-你说人真的可以在不痛不虐的情况下变好吗？
-想说一个和这个心理空间很近又好像没什么关系的点：配得感。
-最近听一个女脱口秀演员的节目，喜欢她觉得她很有配得感，不像我们多数人活的那么拧巴。但是有的人看不了别人的配得感，似乎是我不配你更不配的感觉。
-她都不是高人一等，只是做自己，都有人看不了这个：我每天活着跟孙子似的，你虽然不是爷爷，但你是你自己我也看不了。看到你我就觉得我亏了。好像是某种看到别人好的同时，刚好照见了自己的不好，而这种不好不是因为别人的特意功能，反而是我本可以，却自动放弃了。
-4o
-真正让人“不适”的，往往不是别人的优秀，而是别人活出了我们“本来也可以”的那部分自我。
-那个女脱口秀演员不“高人一等”，她只是没有把自己压扁成社会默认的模板。她不拧巴、不讨好、不过度包装，也不自我羞辱。这种自然流露出来的“我配”，对某些人来说，就像是一面照妖镜——不是她晃眼，而是我们自己低头久了 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/91/#content-inner">91</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">902</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">289</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">191</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3271753138/" title="3D打印机怎么选">3D打印机怎么选</a><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/67953906/" title="压力与行为分析">压力与行为分析</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3976493549/" title="量化书与工具杂谈">量化书与工具杂谈</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/163021640/" title="选股方法进阶_不靠信仰，用数据说话">选股方法进阶_不靠信仰，用数据说话</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/769430095/" title="股票_相关知识">股票_相关知识</a><time datetime="2025-12-11T00:00:00.000Z" title="Created 2025-12-11 00:00:00">2025-12-11</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+所以我命由我不由天（虽然那个电影我也没看过），有一部分讲的是人的可塑性，不需要接受“命定”或者别人期待的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3794960982/" title="七日阿勒泰喀纳斯旅行指南">七日阿勒泰喀纳斯旅行指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-10-08T00:00:00.000Z" title="Created 2025-10-08 00:00:00">2025-10-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/">4_Others</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/4-Others/%E6%97%85%E8%A1%8C/">旅行</a></span></div><div class="content">我只有一个人，整个过程差不多都是公交和拼车，路径不是最优的哈~
+第一天： -
+乌鲁木齐到布尔津，全程约700公里，无火车，需自驾或乘巴士，至少需7小时。 -
+或先坐火车到阿勒泰/北屯，再转汽车去喀纳斯（包车/拼车）。
+第二天： -
+从布尔津到喀纳斯。单程约2小时，景区内排队等车1小时起，景区通勤车程1小时。
+- 喀纳斯核心区内各景点间需再次排队换乘，但时间较短。 -
+我住在景区内的白哈巴村（我的阿勒泰在那儿拍的），喀纳斯核心区到白哈巴村需1小时。
+- 喀纳斯门票需提前预约。
+第三天： -
+玩白哈巴-&gt;玩喀纳斯，晚上返回布尔津。
+第四天： - 布尔律-&gt;五彩滩-&gt;布尔津。 -
+因天气预报山上下雨，在布尔津逗留，实在无聊去了五彩滩，游客不是很多，但建议提前预约门票。
+第五天： - 从布尔律去禾木，当天返回。 -
+禾木门票需提前预约。 -
+禾木小木屋紧俏，需要预订。如在禾木住宿，建议次日沿阿禾公路直接去阿勒泰。
+第六天： - 从布尔律返回乌鲁木齐。
+第七天： - 乌鲁木齐博物馆，需提前预约门票。 -
+如果游客不多，参观体验极佳。 -
+逛和田二街或二道桥，买特产，晚上返家。
+ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/#content-inner">92</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">194</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1014741297/" title="FreeCAD用于3D建模">FreeCAD用于3D建模</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4167074932/" title="3D打印常用软件">3D打印常用软件</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧">3D打印盘清洁与涂胶技巧</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1302863214/" title="玩3D打印花多少钱？从设备到耗材的真实花费">玩3D打印花多少钱？从设备到耗材的真实花费</a><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -342,8 +451,8 @@ Yan
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.39em; color: #99a4b4">编程语言</a> <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 1.44em; color: #99a7ba">技术</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.13em; color: #999a9c">反思</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.24em; color: #999fa7">大模型/应用</a> <a href="/tags/%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.1em; color: #999">大语言模型</a> <a href="/tags/%E5%8E%86%E5%8F%B2/" style="font-size: 1.13em; color: #999a9c">历史</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.16em; color: #999b9e">日常记录</a> <a href="/tags/%E7%AC%94%E8%AE%B0-Obsidian/" style="font-size: 1.33em; color: #99a2af">笔记/Obsidian</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%89%96%E6%9E%90/" style="font-size: 1.1em; color: #999">自我剖析</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.16em; color: #999b9e">编程语言/Java</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.13em; color: #999a9c">知识管理</a> <a href="/tags/%E6%B0%91%E6%97%8F/" style="font-size: 1.1em; color: #999">民族</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" style="font-size: 1.16em; color: #999b9e">知识图/知识图谱</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6-%E9%87%8D%E7%97%87/" style="font-size: 1.1em; color: #999">生物医学/重症</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">#编程语言/前端</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.3em; color: #99a1ac">效率</a> <a href="/tags/%E9%87%91%E8%9E%8D%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">金融工具</a> <a href="/tags/%E6%8C%87%E6%A0%87/" style="font-size: 1.1em; color: #999">指标</a> <a href="/tags/Arduino/" style="font-size: 1.36em; color: #99a3b1">Arduino</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">模型工具</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81/" style="font-size: 1.1em; color: #999">加密货币</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.47em; color: #99a8bc">图形图像</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.21em; color: #999ea4">笔记</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.19em; color: #999ca1">哲学</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E5%AD%A6/" style="font-size: 1.13em; color: #999a9c">社会学</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" style="font-size: 1.41em; color: #99a6b7">大模型</a> <a href="/tags/%E8%AF%AD%E9%9F%B3/" style="font-size: 1.27em; color: #99a0a9">语音</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.13em; color: #999a9c">插件开发</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-JNI/" style="font-size: 1.1em; color: #999">编程语言/JNI</a> <a href="/tags/%E7%A6%85%E5%AE%97/" style="font-size: 1.1em; color: #999">禅宗</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">15</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/05/"><span class="card-archive-list-date">May 2025</span><span class="card-archive-list-count">29</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">902</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1252.5k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-05T17:00:13.946Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 1.1em; color: #999">自动化</a> <a href="/tags/%E6%8A%80%E5%B7%A7/" style="font-size: 1.1em; color: #999">技巧</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.21em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.32em; color: #99a2ae">情绪管理</a> <a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999a9c">反思</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E7%94%A8%E6%88%B7%E9%AA%8C%E8%AF%81/" style="font-size: 1.1em; color: #999">用户验证</a> <a href="/tags/%E8%BE%85%E5%8A%A9%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">辅助编程</a> <a href="/tags/%E7%A4%BE%E4%BC%9A/" style="font-size: 1.1em; color: #999">社会</a> <a href="/tags/Agent/" style="font-size: 1.1em; color: #999">Agent</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.28em; color: #99a0aa">美食</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%B7%A5%E5%85%B7/" style="font-size: 1.39em; color: #99a5b5">深度学习/工具</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E7%BB%B4%E6%8A%A4/" style="font-size: 1.1em; color: #999">关系维护</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.17em; color: #999ca0">数据库</a> <a href="/tags/Arduino/" style="font-size: 1.46em; color: #99a8bc">Arduino</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E7%88%B6%E6%AF%8D%E6%95%99%E8%82%B2/" style="font-size: 1.1em; color: #999">父母教育</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/CentOS/" style="font-size: 1.1em; color: #999">CentOS</a> <a href="/tags/Paper/" style="font-size: 1.1em; color: #999">Paper</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/Pytorch/" style="font-size: 1.43em; color: #99a6b8">Pytorch</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E6%80%9D%E7%BB%B4%E6%95%B4%E7%90%86/" style="font-size: 1.25em; color: #999fa7">思维整理</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.21em; color: #999da3">方法论</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">文件管理</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.35em; color: #99a3b1">个人成长</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.17em; color: #999ca0">教育</a> <a href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" style="font-size: 1.35em; color: #99a3b1">版本管理</a> <a href="/tags/%E7%83%B9%E9%A5%AA/" style="font-size: 1.1em; color: #999">烹饪</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E8%AE%B0%E5%BD%95/" style="font-size: 1.17em; color: #999ca0">日常记录</a> <a href="/tags/%E9%98%85%E8%AF%BB%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读心理学</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.28em; color: #99a0aa">语音合成</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.32em; color: #99a2ae">笔记</a> <a href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" style="font-size: 1.1em; color: #999">风险管理</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 1.14em; color: #999a9c">基金</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">913</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1269.4k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-06T00:37:37.775Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
