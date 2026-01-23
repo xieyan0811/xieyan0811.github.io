@@ -1,0 +1,342 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>FreeCAD + 3D 打印实战_DIY加湿器外壳 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨如何使用开源软件FreeCAD为加湿器设计并建模一个3D打印外壳的完整过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FreeCAD + 3D 打印实战_DIY加湿器外壳">
+<meta property="og:url" content="http://xyan666.com/posts/3269208669/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨如何使用开源软件FreeCAD为加湿器设计并建模一个3D打印外壳的完整过程。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2026-01-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-08T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="开源软件">
+<meta property="article:tag" content="3D建模">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/3269208669/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FreeCAD + 3D 打印实战_DIY加湿器外壳',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-01-08 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">202</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">FreeCAD + 3D 打印实战_DIY加湿器外壳</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-01-13T00:00:00.000Z" title="Created 2026-01-13 00:00:00">2026-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-01-08T00:00:00.000Z" title="Updated 2026-01-08 00:00:00">2026-01-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>4min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="FreeCAD + 3D 打印实战_DIY加湿器外壳"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>有了 3D
+打印机后，除了做玩具，也可以自己设计制作一些家用的小物件，非常实用。学习成本不算高，但中文资料相对零散，所以我借这个小项目顺便做一次“从需求到成品”的入门记录——制作一个冷蒸发式加湿器的外壳。FreeCAD
++ 3D 打印其实是一个<strong>方便、效果也稳定</strong>的方案。</p>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020260108000916.png" /></p>
+<h2 id="工具选型">1 工具选型</h2>
+<p><a href="x_3D打印/06_CAD%20工具选择与入门.md">06_CAD
+工具选择与入门</a></p>
+<h3 id="我的选型">1.1 我的选型</h3>
+<p>在工具上，我主要在 Blender 和 FreeCAD
+之间选择，原因很现实：它们都是开源软件，不用付费，Windows / Linux /
+macOS
+都能用。自己实际使用频率不高，也不想为了偶尔建个模而花太多时间和订阅费用。</p>
+<p>具体到这个项目，本质上只是做一个壳子，没有复杂曲面和装饰花纹，基础形状也无非是矩形、圆、椭圆。在这种前提下，FreeCAD
+更合适一些：它在<strong>对齐、具体尺寸的精确设置和约束</strong>、简单阵列以及布尔运算上都比较直接，偏工程思路，用起来心里有数，改尺寸也不容易失控。</p>
+<p>当然，FreeCAD
+的问题也很明显：整体视角、旋转和交互偏“朴素”，一旦图形复杂起来，同样的操作，Blender
+往往轻松应对，FreeCAD
+却可能卡顿甚至报错。这个项目对造型自由度要求不高，更看重尺寸和结构是否可控，所以这些限制可以接受。</p>
+<p>总而言之：需要自由、复杂形态时用
+Blender；需要尺寸、约束和工程感时，用 FreeCAD 就够了。</p>
+<p>FreeCAD 可直接在 GitHub 下载对应操作系统的安装包。</p>
+<h2 id="需求和设计">2 需求和设计</h2>
+<h3 id="使用需求">2.1 使用需求</h3>
+<p>给加湿器做一个外壳，至少需要满足以下功能性需求：</p>
+<ul>
+<li>包含一个可通气的圆筒，用于保护滤芯，同时保证湿气顺利吹出</li>
+<li>顶盒/顶盖可拆卸，方便查看内部及走线；顶盖可替换，便于后期加装单片机、温湿度计、显示屏或风力调节器</li>
+<li>整体结构需避让右侧水容器（两个圆柱在空间上有一定交集）</li>
+</ul>
+<h3 id="设计约束">2.2 设计约束</h3>
+<p>在满足上述需求的前提下，还需考虑材料和制造方式带来的现实约束：</p>
+<ul>
+<li>选择 PETG 作为打印材料：加湿器外壳长期处于潮湿和送风环境，相比
+PLA，PETG 在耐湿性、耐温和韧性上更适合<br />
+</li>
+<li>以 3mm 厚度作为基础壁厚，PETG 打印友好，强度和成功率稳定</li>
+<li>盒盖与盒体之间预留 0.2mm 公差（材料可能收缩），保证可拆装性</li>
+<li>不做复杂花纹：一方面 FreeCAD
+对复杂花纹计算慢，另一方面壳体本身没必要</li>
+<li>不使用导角，为后续叠加更高层结构预留平整接触面，保证稳定性和契合度</li>
+</ul>
+<h3 id="结构设计">2.3 结构设计</h3>
+<p>最终采用如下方案：</p>
+<ul>
+<li>主体与顶部分体设计，方便拆装，也便于替换不同功能模块</li>
+<li>圆筒上的通风孔保证出风同时，不直接暴露太多滤芯，并提供足够支撑</li>
+<li>出线口做成稍大的圆形，直接放在可拆顶盖上，插头无需反复穿孔，维护更省事</li>
+</ul>
+<h2 id="具体实现">3 具体实现</h2>
+<p>主体比较复杂，以下以顶盖为例展示建模过程：</p>
+<h3 id="顶盖可拆部分">3.1 顶盖（可拆部分）</h3>
+<p>顶盖结构分为“外盖 + 内卡边”。</p>
+<ul>
+<li>新建实体
+<ul>
+<li>Part Design → Create Body</li>
+</ul></li>
+<li>外盖
+<ul>
+<li>Create Sketch → XY 平面</li>
+<li>画圆 → 直径 150 mm</li>
+<li>Close Sketch</li>
+<li>Pad → 厚度 2 mm</li>
+</ul></li>
+<li>内卡边
+<ul>
+<li>Create Sketch → XY 平面</li>
+<li>画圆 → 直径 129.8 mm（预留装配间隙）</li>
+<li>Close Sketch</li>
+<li>Pad → 高度 5 mm</li>
+</ul></li>
+<li>出线孔
+<ul>
+<li>Create Sketch → XY 平面</li>
+<li>画椭圆 → 40 mm × 6 mm</li>
+<li>用重合约束（Coincident）对齐圆心</li>
+<li>用 Attachment → Position 调整 x,y,z</li>
+<li>Close Sketch</li>
+<li>Pocket → 深度 5 mm</li>
+</ul></li>
+<li>出气口
+<ul>
+<li>Create Sketch → XY 平面</li>
+<li>画椭圆 → 长 60 mm，半径 1.6 mm</li>
+<li>重合约束对齐圆心</li>
+<li>Attachment → Position 调整位置</li>
+<li>Close Sketch</li>
+<li>Pocket → 深度 5 mm</li>
+<li>Linear Pattern 线性阵列 → 7 个</li>
+</ul></li>
+</ul>
+<h3 id="打印设置">3.2 打印设置</h3>
+<ul>
+<li>使用 PETG Basic 默认参数</li>
+<li>打印注意顶面朝下，以减少支撑和悬空面</li>
+<li>设置成无支撑，这里悬空面比较小，打印机可自行处理</li>
+</ul>
+<h2 id="成品效果">4 成品效果</h2>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020260108095530.png" /></p>
+<h2 id="有待改进">5 有待改进</h2>
+<h3 id="打印细高件">5.1 打印细高件</h3>
+<p>打印高长件时，越往上越容易晃动，模型抖得厉害。这是因为越高越不稳，振动和重力容易让它歪或变形（下图为效果对比）。</p>
+<p>解决方法</p>
+<ul>
+<li>加支撑，不光是软件里的支撑，也可以自己设计横向连接或加强筋</li>
+<li>细高件别太细，适当加粗</li>
+<li>打印底座稳固或稍调慢打印速度，减少晃动</li>
+</ul>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020260108095632.png" /></p>
+<h3 id="外罩阻碍气流">5.2 外罩阻碍气流</h3>
+<p>加了外罩会阻碍气流，我尝试了一些措施：细柱、镂空比
+1:1、盖子上留几个椭圆孔、风扇上方留空。但效果仍明显影响加湿效率，水量消耗下降，说明空气流动受阻严重。</p>
+<p>原因分析：现在的盖子像一根“吸管”，孔窄 3.2mm，厚度
+4mm，空气穿过时会遇到摩擦和阻力。柱子挡在主风路上，还会造成乱流，风扇风量被浪费。</p>
+<p>后面会尝试一些改进方法：</p>
+<ul>
+<li>孔宽大于厚度，尽量短而宽，让空气顺畅通过</li>
+<li>柱子做成百叶窗式，风可以绕过去，不会直接撞产生乱流</li>
+<li>增加孔的总截面积，让风扇吹得更通畅</li>
+</ul>
+<p><img
+src="/support/attachments_2025/Pasted%20image%2020260108000752.png" /></p>
+<h3 id="总结">5.3 总结</h3>
+<p>建模和三维空间想象力关系很大，需要较强几何能力。如果构想有限，只能等做出来后发现问题，可能需要大量修改或重做。比较有意思的是，它把测量、物理、数学、空间、材料结合在一起，对小朋友也挺友好——在过程中能直观理解学习的实际用途。</p>
+<h2 id="参考资料">6 参考资料</h2>
+<p>FreeCAD1.1 建模教程｜螺纹和滚花的创建方法，-36 期 freecad VS
+fusion360 <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SFmzBkE7T/?share_source=copy_web&amp;vd_source=573b4e38139c4dc9d07806ec1e946f15">https://www.bilibili.com/video/BV1SFmzBkE7T/?share_source=copy_web&amp;vd_source=573b4e38139c4dc9d07806ec1e946f15</a></p>
+<p>（解决不知道先点哪儿后点哪儿的问题）</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/3269208669/">http://xyan666.com/posts/3269208669/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/">开源软件</a><a class="post-meta__tags" href="/tags/3D%E5%BB%BA%E6%A8%A1/">3D建模</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1326586124/" title="3D打印建模工具指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">3D打印建模工具指南</div></div></a></div><div class="next-post pull-right"><a href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">3D打印盘清洁与涂胶技巧</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/2305979607/" title="玉米面发糕"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-12</div><div class="title">玉米面发糕</div></div></a></div><div><a href="/posts/11166/" title="MinIO 对象存储服务搭建指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-08</div><div class="title">MinIO 对象存储服务搭建指南</div></div></a></div><div><a href="/posts/1117095582/" title="对谈_250411_生之坐标系"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-07</div><div class="title">对谈_250411_生之坐标系</div></div></a></div><div><a href="/posts/3392808973/" title="亚马逊域名购买与管理指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-06</div><div class="title">亚马逊域名购买与管理指南</div></div></a></div><div><a href="/posts/2531255041/" title="录视频有感_聊聊一种技不如人的羞愧感"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-03-19</div><div class="title">录视频有感_聊聊一种技不如人的羞愧感</div></div></a></div><div><a href="/posts/52664/" title="MSN博客搬家工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2010-10-21</div><div class="title">MSN博客搬家工具</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">202</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E9%80%89%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">1 工具选型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E9%80%89%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 我的选型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%92%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.</span> <span class="toc-text">2 需求和设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9C%80%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 使用需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%BA%A6%E6%9D%9F"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设计约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 结构设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">3 具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B6%E7%9B%96%E5%8F%AF%E6%8B%86%E9%83%A8%E5%88%86"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 顶盖（可拆部分）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 打印设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%93%81%E6%95%88%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">4 成品效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E5%BE%85%E6%94%B9%E8%BF%9B"><span class="toc-number">5.</span> <span class="toc-text">5 有待改进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8D%B0%E7%BB%86%E9%AB%98%E4%BB%B6"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 打印细高件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E7%BD%A9%E9%98%BB%E7%A2%8D%E6%B0%94%E6%B5%81"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 外罩阻碍气流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">6.</span> <span class="toc-text">6 参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3923457328/" title="DeepSeek V3.2技术解析">DeepSeek V3.2技术解析</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/237027024/" title="基金投顾跟车服务指南">基金投顾跟车服务指南</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2554708808/" title="DeepSeek条件记忆Engram">DeepSeek条件记忆Engram</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/338537409/" title="论文阅读_使用LLM对大脑的影响">论文阅读_使用LLM对大脑的影响</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/282576699/" title="3D 打印手办上色的材料与优化">3D 打印手办上色的材料与优化</a><time datetime="2026-01-20T00:00:00.000Z" title="Created 2026-01-20 00:00:00">2026-01-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

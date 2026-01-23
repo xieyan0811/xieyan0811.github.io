@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-01-22 17:00:17'
+  postUpdate: '2026-01-23 07:05:31'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,7 +163,187 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">199</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/19309/" title="android典型应用之语音合成">android典型应用之语音合成</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-06T00:00:00.000Z" title="Created 2010-08-06 00:00:00">2010-08-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 典型应用之语音合成
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">202</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/34945/" title="android系统自带的Service原理与使用">android系统自带的Service原理与使用</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-20T00:00:00.000Z" title="Created 2010-08-20 00:00:00">2010-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android 系统自带的
+Service 原理与使用
+#移动开发 #Android
+1. 说明
+android 的后台运行在很多 service，它们在系统启动时被 SystemServer
+开启，支持系统的正常工作，比如
+MountService 监听是否有 SD 卡安装及移除，ClipboardService
+提供剪切板功能，
+PackageManagerService
+提供软件包的安装移除及查看等等，应用程序可以通过系统提供的 Manager
+接口来访问这些
+Service 提供的数据，以下将说明他们的工具流程
+2. 举例说明基本流程
+以 android 系统支持 sensor（传感器）实例来说明框架层的 service 和
+manager 是如何配合工作的
+
+什么是 sensor
+sensor 是传感器, 比如控制横竖屏切换利用的就是重力传感器 (gsensor), 还有
+accelerator sensor 可取得
+
+x, y, z 三个轴上的加速度 (应用如平衡球, 小猴吃香蕉等)
+
+应用程序调用（以下为关键代码）
+sensorManager=(SensorManager ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5468/" title="Android的传感器">Android的传感器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-20T00:00:00.000Z" title="Created 2010-08-20 00:00:00">2010-08-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 的传感器
+#移动开发 #Android
+1. sensor
+sensor 译做感应器或传感器，android 架构支持多种
+sensor，手机硬件不一定支持每一种
+2. android 系统支持的 sensor，以 froyo 为例（详见 SensorManager.java
+中的定义）
+
+重力
+STANDARD_GRAVITY
+加速度：XYZ 三个方向上的加速度
+SENSOR_ACCELEROMETER
+温度：周围温度
+SENSOR_TEMPERATURE
+磁场：XYZ 三轴上的磁场
+SENSOR_MAGNETIC_FIELD
+光线：周围亮度，用于调节对应的屏幕亮度
+SENSOR_LIGHT
+接近：相应传感器与物体的距离，如在接电话时，判断耳朵与手机的距离，耳朵触屏被忽略，适里黑屏
+SENSOR_PROXIMITY
+角度：XYZ 轴的角度
+SENSOR_ORIENTATION
+SENSOR_ORIENTATION_RAW
+其它
+与具体应用相关，比如照相模块中实现的 CAMERA SENSOR
+
+3. 如何访问 sensor
+应用通过 SensorManager 访问各 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/51432/" title="Android的键盘事件处理">Android的键盘事件处理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-18T00:00:00.000Z" title="Created 2010-08-18 00:00:00">2010-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 的键盘事件处理
+#移动开发 #Android
+1. 基本流程
+
+内核处理按键，通过设备文件的方式提供给 framework 层
+framework 层的 KeyInputQueue.java
+启动线程从设备文件中读出键码，然后把读出的键码按 kl
+文件转成相应键值
+
+(JNI 调用 EventHub.cpp)，最后写入事件队列
+
+framework 层的 WindowManagerService.java
+启动线程从事件队列中读出键值，然后根据当前 focus
+
+分发给相应窗口
+
+UI 通过 KeyCharacterMap.java 处理 kcm 规则将用户基本按键与功能键
+(Shift, Alt 等)
+
+组合，得出最终按键
+2. 两个配置文件
+通常更换一种新的硬件，可能其键盘布局及键码与标准版本不同，不用更改代码，只要修改以下配置文件即可（如果增加新的未定义功能的按键，则需要修改代码）
+
+xxx.kl
+
+
+位置
+development/emulator/keymaps/.kl (1.6 版本模拟器使用)
+sdk/emulator/keymaps/.kl (2.2 版本 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8562/" title="android的图像识别">android的图像识别</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-18T00:00:00.000Z" title="Created 2010-08-18 00:00:00">2010-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 的图像识别
+#移动开发 #Android
+1. 什么是 opencv
+简单的说这是基于图像动态捕捉处理、人脸识别、机器人视觉处理、图像信息认知录入等多为一体计算机视觉库
+2. 安装
+
+下载 ndk
+[http://bbs.weiphone.com/read-htm-tid-521406.html
+
+](http://bbs.weiphone.com/read-htm-tid-521406.html)
+
+安装 ndk
+
+_ $ tar xvjf OpenCV-2.1.0.tar.bz2
+$ cd android-ndk-1.6_r1
+$ export NDKROOT=pwd
+$./build/host-setup.sh _
+
+下载 opencv
+[http://github.com/billmccord/OpenCV-Android/downloads
+
+](http://github.com/billmccord/OpenCV-Android/downloads)
+
+编译 opencv
+
+_ $ tar xvzf bill*
+$ cd app
+$ ln -s bill* ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/62261/" title="android的文字识别OCR">android的文字识别OCR</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-18T00:00:00.000Z" title="Created 2010-08-18 00:00:00">2010-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 的文字识别 OCR
+#移动开发 #Android
+1. 功能： 光学字符识别 (OCR,Optical Character Recognition)
+是指对文本资料进行扫描，然后对图像文件进行分析处理，获取文字及版面信息的过程
+2. 典型应用： 名片扫描
+3. android 源码实现： external/tesseract/*
+4. 编译： _ $ cd external/tesseract/
+$ mm _
+生成 libocr.so，push 系统 /system/lib/
+中，它也可以放在软件的安装包里
+5. 例程下载：
+
+在此下载
+[http://code.google.com/p/mezzofanti/
+
+](http://code.google.com/p/mezzofanti/)
+
+直接下载 apk 是能用的, 在源码中编译程序运行就退出，是由于可能
+libocr.so 未安装, 把它 push
+
+到系统中即可
+_ $ adb push libocr.so /data/data/com.itwizard.mezzofanti/lib/ _
+
+主要借鉴 OCR ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/57922/" title="android之安装使用NDK">android之安装使用NDK</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-16T00:00:00.000Z" title="Created 2010-08-16 00:00:00">2010-08-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">android 之安装使用 NDK
+#移动开发 #Android
+1. 为什么需要 NDK
+NDK 不能做界面，只能做功能支持的库。 NDK 与不使用 NDK，直接使用 JNI
+相比，它能把库打包，并且很方便的安装。 NDK 使得没有源码的 eclipse
+的环境编译 C/C++ 库变得非常方便。 NDK 通常是用来编译和安装 C/C++
+库的，常用做库的移植，很多软件会以此方式提供源码。
+2. 下载
+[http://bbs.weiphone.com/read-htm-tid-521406.html
+](http://bbs.weiphone.com/read-htm-tid-521406.html)
+3. 安装 NDK
+_ $ tar xvjf OpenCV-2.1.0.tar.bz2
+$ cd android-ndk-1.6_r1
+$ export NDKROOT=pwd
+$./build/host-setup.sh _
+4. 试用：编译其测试程序
+_ $ _ _ make APP=hello-jni _ __
+此时生成 out/apps/hello-jni/libhello-jn ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/35804/" title="android之JNI">android之JNI</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-16T00:00:00.000Z" title="Created 2010-08-16 00:00:00">2010-08-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E7%B3%BB%E7%BB%9F/">系统</a></span></div><div class="content">android 之 JNI
+#移动开发 #Android
+1. 为什么使用 JNI
+JNI（Java Native Interface）Java 程序中调用 C/C++
+开发的共享库，主要用于提高程序效率，或者
+Android 应用对 C/C++ 库的调用（多用于调用移植的库，如语音合成库
+pico，图像识别库 opencv 等）
+2. android 源码中自带的实例
+development/samples/SimpleJNI/*
+3. 实例
+
+编译环境
+Ubuntu 10.04, android 源码环境
+重要代码说明
+
+
+java 代码
+
+123456789101112131415161718192021222324252627_ package com.android.myjni;  __ __ import android.app.Activity;  __ import android.widget.TextView;  __ import android.os.Bundle;  __ __ public class MyJniActivity extends Activi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/16456/" title="Android自带的人脸识别">Android自带的人脸识别</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-16T00:00:00.000Z" title="Created 2010-08-16 00:00:00">2010-08-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">Android 自带的人脸识别
+1. Android 自带的人脸识别
+Android
+自带的人脸识别只能识别出人脸在画面中的位置，中点，眼间距，角度等基本特性，提供给拍照性质的应用使用。从基本功能中不能得出明显的特征数据
+2. 底层库支持
+external/neven/*
+3. 接口
+frameworks/base/media/java/android/media/FaceDetector.java
+4. Android 源码参考
+packages/apps/Gallery/src/com/android/camera/*
+5. 关键代码分析
+_ package com.android.mydetect; _
+_ _
+_ import android.app.Activity; _
+_ import android.widget.TextView; _
+_ import android.os.Bundle; _
+_ import android.media.FaceDetector; // _ _ 人脸识别接口 _ __
+_ import android.widget.ImageVie ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/19309/" title="android典型应用之语音合成">android典型应用之语音合成</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-06T00:00:00.000Z" title="Created 2010-08-06 00:00:00">2010-08-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 典型应用之语音合成
 #移动开发 #Android
 1. android 语音合成介绍
 
@@ -209,190 +389,7 @@ frameworks/base/media/java/android/media/MediaPlayer.java
 
 核心代码及说明
 
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/45750/" title="android典型应用之gps">android典型应用之gps</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-05T00:00:00.000Z" title="Created 2010-08-05 00:00:00">2010-08-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 典型应用之 gps
-#移动开发 #Android
-1. gps 说明
-
-原理
-每一卫星播发一个伪随机测距码信号，该信号大约每 1
-毫秒播发一次。接收仪同时复制出一个同样结构的信号并与接收到的卫星信号进行比较，由信号的延迟时间
-
-(dT) 推算出卫星至 接收仪的距离
-
-述语
-TTFF：首次定位时间
-PRN：伪随机码，用于辨别是哪颗卫星
-SNR：信噪比
-
-2. android 对 gps 的内部支持
-
-位置服务
-android
-对卫星定位的支持名字叫位置服务，可以通过设置来打开或关闭它
-android 实现
-frameworks/base/location/java/android/location/LocationManager.java
-接口
-frameworks/base/services/java/com/android/server/LocationManagerService.java
-
-服务
-frameworks/base/core/jni/android_location_GpsLocationProvider.cpp 等待
-gps 事件
-，发给 servi ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/294332251/" title="语音识别方法三：使用Service调用语音识别程序">语音识别方法三：使用Service调用语音识别程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-03T00:00:00.000Z" title="Created 2010-08-03 00:00:00">2010-08-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">语音识别方法三：使用
-Service 调用语音识别程序
-1. 说明
-以下例程功能为：在应用程序中使用通于访问 service
-调用语言识别功能，录音并识别后将识别的字串通过 Listener
-返回给应用程序。注意：使用前需要安装语音识别服务，如编译安装源码中的
-development/samples/VoiceRecogitionService
-。
-2. 本例参考自 android 源码
-
-后台服务
-参见 development/samples/VoiceRecognitionService/*
-此处实现了一个模拟的后台服务，它并未实现真的语音识别，而只是一个框架以示例，编译并安装它，即可在设置的语音输入与输出中看到它
-
-，它包含了一个设置界面，当连接这个 Service 时，如果设置了
-Letters，则直接返回 abc，
-如果设置了 Numbers，则直接返回 123
-你可以自己实现，用于连接 android 源码自带的识别引擎 srec.
-
-前台程序
-参见 frameworks/base/core/java/android/speech/Recognition*
-它 与后台 Se ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/27737/" title="android语音识别方法一：使用intent调用语音识别程序">android语音识别方法一：使用intent调用语音识别程序</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-03T00:00:00.000Z" title="Created 2010-08-03 00:00:00">2010-08-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android
-语音识别方法一：使用 intent 调用语音识别程序
-#移动开发 #Android
-1. 说明
-以下例程功能为：在应用程序中使用 intent
-来调出语言识别界面，录音并识别后将识别的字串返回给应用程序。注意：使用前需要安装语音识别程序如语音搜索。
-2. 本例参考自 android 例程：
-development/samples/ApiDemos/src/com/example/android/apis/app/VoiceRecognition.java
-3. 可从此处下载可独立运行的代码：
-[http://download.csdn.net/source/2591401
-](http://download.csdn.net/source/2591401)
-4. 核心代码及说明
-_ package com.android.mystt1; _
-_ _
-_ import android.app.Activity; _
-_ import android.content.Intent; _
-_ import android.content.pm.PackageManager;  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/8920/" title="android语音识别方法二：应用程序自己调用语音识别库">android语音识别方法二：应用程序自己调用语音识别库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-03T00:00:00.000Z" title="Created 2010-08-03 00:00:00">2010-08-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android
-语音识别方法二：应用程序自己调用语音识别库
-#移动开发 #Android
-1. 说明
-以下例程功能为：应用程序自身调用语言识别函数，程序以循环方式等待录音并识别后的字串。
-2. 本例参考自 android 代码：
-frameworks/base/core/java/android/speech/srec/Recognizer.java
-中注释部分
-3. 可从此处下载可独立运行的代码：
-[http://download.csdn.net/source/2591401
-](http://download.csdn.net/source/2591401)
-4. 核心代码及说明
-_ package com.android.mystt2; _
-_ _
-_ import android.app.Activity; _
-_ import android.content.Intent; _
-_ import android.os.Bundle; _
-_ import android.widget.Button; _
-_ import android.widget.TextView; _ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/24949/" title="android语音识别简介">android语音识别简介</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-08-03T00:00:00.000Z" title="Created 2010-08-03 00:00:00">2010-08-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 语音识别简介
-#移动开发 #Android
-1. 语音识别一般使用三种方式
-
-方式一：调用语音识别库的程序做成带界面的程序，供其它程序使用
-intent 调用
-方法二：应用程序自己调用语音识别库
-方式三：调用语音识别库的程序做成 service，供其它应用使用
-
-2. android2.2 对语音识别的内部支持
-
-frameworks/base/core/java/android/speech/*
-语音的 android 框架支持 (合语音合成和语音识别)
-
-
-RecognitionListener.java 用于支持对方式三的调用
-Recognizer*Intent 用于支持对方式一的调用
-RecognitionService.java 用于支持对方式三的调用
-SpeechRecognizer.java 用于支持对方式三的调用
-srec 目录
-语音识别，它用于方式一二三真正功能的实现
-
-
-MicrophoneInputStream.java 实现录音
-Recognizer.java 实现识别的接口
-
-
-tts 目录
-语音合成
-
-
-external/srec/*
-语音识 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/40583/" title="编译在G1上运行的android2">编译在G1上运行的android2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-12T00:00:00.000Z" title="Created 2010-07-12 00:00:00">2010-07-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">编译在 G1
-上运行的 android 2.2(froyo) 代码 _ 正规版
-一、 ** 说明 **
-1. 下载编译最基本的 android
-源码，只能在模拟器上使用，无法在真机上使用（不能生成 boot.img
-）。这是因为没有编译相关机型的内核和硬件驱动。以下介绍的是用 android
-源码编译出对应 HTC G1
-的版本，和烧写的过程。编译生成的版本除相机以外，其它功能均正常，稳定性不错，也很顺畅。
-2. 以下步骤都经过验证（只验证 G1 手机），实验系统
-ubuntu8.04，实验日期 2010 年 7 月 12 日
-3. 关键字: android 2.2 froyo g1 源码编译
-二、 ** 编译 **
-1. 建立 android 源码编译目录
-_ $ export ANDROID=/exports/android/android_2.2/
-$ mkdir -p $ANDROID
-$ cd $ANDROID _
-2. 源码下载
-_ $ repo init -u git://android.git.kernel.org/platform/manifest.git
--b
-an ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6670/" title="CTS的Signature规则">CTS的Signature规则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-06T00:00:00.000Z" title="Created 2010-07-06 00:00:00">2010-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">CTS 的 Signature 规则
-1. 说明
-主要是对公共控件的语法检查
-2. 测试方法
-_ $ make cts
-$ adb install -r
-out/target/product/qsd8250_surf/data/app/SignatureTest.apk
-$ adb shell am instrument -w
-android.tests.sigtest/.InstrumentationRunner _
-3. 原理
-系统生成了一些 xml，位置在：
-out/target/common/obj/APPS/SignatureTest_intermediates/genres/xml/*
-根据 xml 对类、方法、变量给出的规则对当前系统中的公共部分进行检测
-4. 举例
-
-用于检查的语法规则 xml 文件
-out/target/common/obj/APPS/SignatureTest_intermediates/genres/xml/app_widget.xml
-被检查的代码
-framework/base/core/java/android/widget/*
-检查步骤
-用循 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/43009/" title="android应用程序的签名(Signature)">android应用程序的签名(Signature)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2010-07-06T00:00:00.000Z" title="Created 2010-07-06 00:00:00">2010-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/">Android</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Android/%E5%BA%94%E7%94%A8/">应用</a></span></div><div class="content">android 应用程序的签名
-(Signature)
-1. 为什么要签名
-
-发送者的身份认证
-由于开发商可能通过使用相同的 Package Name
-来混淆替换已经安装的程序，以此保证签名不同的包不被替换
-保证信息传输的完整性
-签名对于包中的每个文件进行处理，以此确保包中内容不被替换
-防止交易中的抵赖发生，Market 对软件的要求
-
-2. 签名的说明
-
-所有的应用程序都必须有数字证书，Android
-系统不会安装一个没有数字证书的应用程序
-Android
-程序包使用的数字证书可以是自签名的，不需要一个权威的数字证书机构签名认证
-如果要正式发布一个 Android
-应用，必须使用一个合适的私钥生成的数字证书来给程序签名，而不能使用 adt
-插件或者 ant
-
-工具生成的调试证书来发布
-
-数字证书都是有有效期的，Android
-
-只是在应用程序安装的时候才会检查证书的有效期。如果程序已经安装在系统中，即使证书过期也不会影响程序的正常功能
-
-签名后需使用 zipalign 优化程序
-Android
-将数字证书用来标识应用程序的作者和在应用程序之间建立信任关系，而不是用来决定最终用户可以安 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/86/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/#content-inner">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/#content-inner">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/#content-inner">92</a><a class="extend next" rel="next" href="/page/88/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">913</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">294</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">199</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1014741297/" title="FreeCAD用于3D建模">FreeCAD用于3D建模</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1094125263/" title="第一次买拓竹 3D 打印机，该选 A1 还是 P2S">第一次买拓竹 3D 打印机，该选 A1 还是 P2S</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4167074932/" title="3D打印常用软件">3D打印常用软件</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/484103776/" title="3D打印盘清洁与涂胶技巧">3D打印盘清洁与涂胶技巧</a><time datetime="2026-01-05T00:00:00.000Z" title="Created 2026-01-05 00:00:00">2026-01-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1302863214/" title="玩3D打印花多少钱？从设备到耗材的真实花费">玩3D打印花多少钱？从设备到耗材的真实花费</a><time datetime="2026-01-04T00:00:00.000Z" title="Created 2026-01-04 00:00:00">2026-01-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/86/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/#content-inner">86</a><span class="page-number current">87</span><a class="page-number" href="/page/88/#content-inner">88</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/#content-inner">93</a><a class="extend next" rel="next" href="/page/88/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">202</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3923457328/" title="DeepSeek V3.2技术解析">DeepSeek V3.2技术解析</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/237027024/" title="基金投顾跟车服务指南">基金投顾跟车服务指南</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2554708808/" title="DeepSeek条件记忆Engram">DeepSeek条件记忆Engram</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/338537409/" title="论文阅读_使用LLM对大脑的影响">论文阅读_使用LLM对大脑的影响</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/282576699/" title="3D 打印手办上色的材料与优化">3D 打印手办上色的材料与优化</a><time datetime="2026-01-20T00:00:00.000Z" title="Created 2026-01-20 00:00:00">2026-01-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
@@ -400,8 +397,8 @@ Android
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.37em; color: #99a4b2">强化学习</a> <a href="/tags/%E9%AA%8C%E5%85%89/" style="font-size: 1.1em; color: #999">验光</a> <a href="/tags/VPN/" style="font-size: 1.1em; color: #999">VPN</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.2em; color: #999da3">自然语言处理/工具</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">操作系统</a> <a href="/tags/%E7%AD%96%E7%95%A5/" style="font-size: 1.2em; color: #999da3">策略</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.13em; color: #999a9c">插件开发</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.13em; color: #999a9c">关系抽取</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%97%B6%E5%BA%8F/" style="font-size: 1.3em; color: #99a1ac">机器学习/时序</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-PGSQL/" style="font-size: 1.1em; color: #999">数据存储/PGSQL</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%BB%BA%E8%AE%BE/" style="font-size: 1.1em; color: #999">心理建设</a> <a href="/tags/Python/" style="font-size: 1.47em; color: #99a8bc">Python</a> <a href="/tags/%E5%AF%B9%E8%B0%88/" style="font-size: 1.1em; color: #999">对谈</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.2em; color: #999da3">方法论</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/" style="font-size: 1.17em; color: #999c9f">语音识别</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E6%B5%8B%E8%AF%95/" style="font-size: 1.1em; color: #999">后端测试</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 1.43em; color: #99a6b9">投资</a> <a href="/tags/%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA/" style="font-size: 1.1em; color: #999">开源社区</a> <a href="/tags/%E8%AE%BD%E5%88%BA/" style="font-size: 1.1em; color: #999">讽刺</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">开源软件</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%BC%96%E8%BE%91/" style="font-size: 1.1em; color: #999">视频编辑</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.33em; color: #99a2af">阅读/心理学</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E4%B8%BB%E8%A7%82%E8%83%BD%E5%8A%A8%E6%80%A7/" style="font-size: 1.1em; color: #999">主观能动性</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.17em; color: #999c9f">数据库</a> <a href="/tags/%E8%87%AA%E6%88%91%E8%A1%A8%E8%BE%BE/" style="font-size: 1.1em; color: #999">自我表达</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-MYSQL/" style="font-size: 1.2em; color: #999da3">数据存储/MYSQL</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.23em; color: #999ea6">特征工程</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.13em; color: #999a9c">算法</a> <a href="/tags/Docker/" style="font-size: 1.4em; color: #99a5b6">Docker</a> <a href="/tags/%E5%B5%8C%E5%85%A5%E6%8A%80%E6%9C%AF/" style="font-size: 1.1em; color: #999">嵌入技术</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.23em; color: #999ea6">语音合成</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.27em; color: #99a0a9">个人成长</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.2em; color: #999da3">深度学习/扩散模型</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 1.1em; color: #999">阅读/经济学</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-C/" style="font-size: 1.17em; color: #999c9f">编程语言/C</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-BERT/" style="font-size: 1.27em; color: #99a0a9">自然语言处理/BERT</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">913</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1269.4k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-22T17:00:14.365Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.13em; color: #999a9c">情感</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E7%94%B5%E5%BD%B1/" style="font-size: 1.1em; color: #999">阅读/电影</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E6%A6%82%E7%8E%87/" style="font-size: 1.1em; color: #999">概率</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.22em; color: #999ea5">Python/少儿编程</a> <a href="/tags/%E6%83%85%E7%BB%AA%E5%88%86%E6%9E%90/" style="font-size: 1.1em; color: #999">情绪分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8-ES/" style="font-size: 1.1em; color: #999">数据存储/ES</a> <a href="/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">推荐系统</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.19em; color: #999da2">机器学习/自动建模</a> <a href="/tags/%E9%A2%84%E7%AE%97/" style="font-size: 1.1em; color: #999">预算</a> <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">系统</a> <a href="/tags/%E8%87%AA%E6%88%91%E5%89%96%E6%9E%90/" style="font-size: 1.1em; color: #999">自我剖析</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE-%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 1.38em; color: #99a4b3">知识图/图神经网络</a> <a href="/tags/%E8%87%AA%E4%BF%A1/" style="font-size: 1.1em; color: #999">自信</a> <a href="/tags/%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" style="font-size: 1.13em; color: #999a9c">情感分析</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 1.5em; color: #99a9bf">生活</a> <a href="/tags/%E6%97%A5%E5%B8%B8%E6%8A%80%E8%83%BD/" style="font-size: 1.1em; color: #999">日常技能</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E8%A7%A3%E9%87%8A/" style="font-size: 1.22em; color: #999ea5">模型解释</a> <a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.19em; color: #999da2">3D打印</a> <a href="/tags/%E5%93%B2%E5%AD%A6/" style="font-size: 1.22em; color: #999ea5">哲学</a> <a href="/tags/%E6%9D%83%E5%8A%9B%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">权力结构</a> <a href="/tags/%E7%90%86%E8%B4%A2%E8%A7%84%E5%88%92/" style="font-size: 1.28em; color: #99a0ab">理财规划</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">系统优化</a> <a href="/tags/%E8%87%AA%E7%84%B6/" style="font-size: 1.1em; color: #999">自然</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.47em; color: #99a8bc">操作系统/Linux</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.41em; color: #99a5b6">强化学习</a> <a href="/tags/%E7%94%9F%E7%89%A9%E5%8C%BB%E5%AD%A6/" style="font-size: 1.35em; color: #99a3b0">生物医学</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.13em; color: #999a9c">思考</a> <a href="/tags/%E6%A6%82%E7%8E%87%E5%88%86%E5%B8%83/" style="font-size: 1.1em; color: #999">概率分布</a> <a href="/tags/SSH/" style="font-size: 1.1em; color: #999">SSH</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/" style="font-size: 1.16em; color: #999b9f">自动驾驶</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.32em; color: #99a2ad">大模型/应用</a> <a href="/tags/%E5%A4%9A%E4%BB%A3%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">多代理系统</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E6%95%B0%E5%AD%A6/" style="font-size: 1.25em; color: #999fa8">数学</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.44em; color: #99a7b9">机器学习</a> <a href="/tags/%E4%BB%B7%E5%80%BC%E8%A7%82/" style="font-size: 1.13em; color: #999a9c">价值观</a> <a href="/tags/%E5%AE%97%E6%95%99/" style="font-size: 1.13em; color: #999a9c">宗教</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">921</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1283.2k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-01-23T07:05:27.927Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
