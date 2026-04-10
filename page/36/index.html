@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-04-10 15:06:34'
+  postUpdate: '2026-04-10 15:34:27'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,220 +163,169 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/15735/" title="论文工具_easyliter">论文工具_easyliter</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-01T00:00:00.000Z" title="Created 2024-01-01 00:00:00">2024-01-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content">1 项目地址
-https://github.com/Psycoy/EasyLiterature
-2 命令行
-2.1 写描述
-x.md 形如：
-1- &#123;&#123;BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.&#125;&#125;
-注意一层大括号是只提取信息不下载，两层大括号是提取信息并下载。
-括号里的可以设置：article title, published articles' doi, and
-pre-published articles' arvix_id, biorvix_id, and
-medrvix_id，这样就很好用。
-2.2 运行
-注意先设代理再运行：
-12pip install easylitereasyliter -i b.md -o /tmp/pdf -p 192.168.10.106:12346 -gp single
-下载后，md 文件的内容被填充了。
-3 程序
-如果不想调用命令行，也可以在程序中调用：
-(确实能用，也确实挺慢的)
-12 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/36029/" title="docker_compose">docker_compose</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-30T00:00:00.000Z" title="Created 2023-12-30 00:00:00">2023-12-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/Docker/">Docker</a></span></div><div class="content">1 引言
-Docker Compose 是一个简化 Docker 应用程序管理的工具，通过一个名为
-docker-compose.yml 的文件定义相关服务、网络和卷。使用 Docker
-Compose，你能方便地配置、启动和管理多个 Docker
-容器，构建完整的应用堆栈。
-2 使用方法
-在项目的根目录下创建一个 docker-compose.yml
-文件，定义你的服务、网络和卷。下面是一个简单的例子：
-2.1 配置 yml 文件
-123456789101112131415161718192021222324252627version: &#x27;3&#x27;services:  db:    image: postgres:14    container_name: postgres14    ports:      - &quot;5433:5432&quot;    environment:      POSTGRES_PASSWORD: 123456    volumes:      - /exports/project/knowjourney:/var/lib/post ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2096538113/" title="2023年_大模型相关的热门开源工具">2023年_大模型相关的热门开源工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-27T00:00:00.000Z" title="Created 2023-12-27 00:00:00">2023-12-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">1 引言
-在 OPENAI 发布 ChatGPT
-后的一年里，整个人工智能领域经历了迅猛的演变，对写作、编程等多个领域的工作方式产生了深刻的影响。2023
-年整个行业都将聚焦于自然语言处理大模型，进行了大量实验和尝试，积累了宝贵的经验，或许明年将是人工智能应用大规模落地，真正产生价值的时刻。
-开源项目可以被视为一个广阔的实验场，实验展示了许多可能性和成果，以及关注的热点。虽然并非全部应用场景，但从中我们可以窥见一二。
-本文以 GitHub
-上的开源项目为切入点，来看看大模型相关的高评分开源工具。旨在了解社区最关注的项目，这些工具实现了哪些功能，采用了什么样的技术，可能的盈利模式，以及它们当前仍然面临的挑战。
-2 高星和热榜
-梳理热门榜单和热门关键字搜索中的 topN
-开源项目，深入了解社区对各个领域的关注、不同思路的探索，以及实现方法的多样性。
-2.1 Python 中文新秀榜
-GitHub-Chinese-Top-Charts（231204）中文新秀榜 -&gt;软件类 -&gt;Python
-榜
-地址
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">849</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">236</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2662561169/" title="论文阅读_音频表示_w2v-BERT">论文阅读_音频表示_w2v-BERT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-02T00:00:00.000Z" title="Created 2023-05-02 00:00:00">2023-05-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/">6_自然语言</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/6-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80/BERT%E7%B1%BB/">BERT类</a></span></div><div class="content">name_ch: W2V-BERT：结合对比学习和 Mask
+语言建模进行自监督语音预训练
+name_en: w2v-BERT：Combining Contrastive Learning and Masked Language
+Modeling for
+Self-Supervised Speech Pre-Training
+paper_addr: https://ieeexplore.ieee.org/document/9688253/
+date_publish: 2021-12-13
+1 读后感
+w2v-BERT 是音频的表示学习。模型可用于优化语音识别。可以看作对 w2v 2.0
+的延展。
+2 摘要
+文中提出自监督的语音表示学习 w2v-BERT，它结合了对比学习和 Mask
+语言模型，前者使用模型将输入的连续语音信号离散化为一组有限的可辨别的语音标记；后面通过
+Mask 方法生成结合上下文的语音表示。
+相对于之前模型，w2v-BERT 结合了两个不同模型，实现了 end-to-end
+训练。w2v-BERT 优于 wav2vec 2.0 30% 以上。
+3 介绍
+主要贡献
 
-binary-husky/gpt_academic 48.3k Star 学术 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" target="_blank" rel="noopener" href="https://book.douban.com/subject/26747208/" title="优秀的绵羊">优秀的绵羊</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-17T00:00:00.000Z" title="Created 2023-12-17 00:00:00">2023-12-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/1-Readings/">1_Readings</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/1-Readings/%E4%BA%BA%E6%96%87%E7%A4%BE%E4%BC%9A/">人文社会</a></span></div><div class="content">
+提 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/11939/" title="论文阅读_音频压缩_SoundStream">论文阅读_音频压缩_SoundStream</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-05-01T00:00:00.000Z" title="Created 2023-05-01 00:00:00">2023-05-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: SoundStream：一种端到端的神经音频编解码器
+name_en: SoundStream：An End-to-End Neural Audio Codec
+paper_addr: http://arxiv.org/abs/2107.03312
+date_publish: 2021-07-07
+1 读后感
+高效压缩语音、音乐和一般音频。模型由编码器，量化器，解码器组成，主要使用了卷积技术。
+2 摘要
+基于神经网络的音频编码器，可高效生成文本，音乐。模型结构由全卷积编码器/解码器网络和残差矢量量化器组成。它结合了对抗和重建损失技术，可将量化的嵌入作为输入，生成高质量音频。
+单模型生成 3kbps~18kpbs
+的音频。该模型适用于低延迟实现，支持流式推理，并可在智能手机
+CPU 上实时运行。通过主观质量证明，SoundStream
+输出音频高于之前模型。
 
-优秀的绵羊|300
+3 介绍
+主要贡献：
 
-1 简介
-1.1 书籍简介
-2008 年，在常春藤盟校待了 24
-年之后，耶鲁大学教授威廉·德雷谢维奇决定辞去自己的终身教职，离开这所常春藤名校。之所以这么做，是因为他感觉当前的美国精英教育已经陷入了误区，这套系统下培养出来的学生大都聪明，有天分，斗志昂扬，但同时又充满焦虑、胆小怕事，对未来一片茫然，极度缺乏目标感：他们被包裹在一个巨大的特权泡泡里，所有人都在老实巴交地向着同一个方向前进。他们非常擅于解决手头的问题，却不知道为什么要解决这些问题。
-在即将辞去耶鲁教职之际，他发表了一篇文章《精英教育的劣势》来讨论这些问题。让他万万没想到的是，几周之内，它的阅读量就超过了
-10 万次（后来的累计阅读量超过了 100
-万次）。很明显，这篇文章触动了很多人的神经。
-从那之后，他开始应邀到美国各地的大学发表演讲，跟学生们交流，回答他们的问题，也向他们请教了许多问题，并倾听和了解了他们的答案。这本书就是他对这段经历的思考和总结。
-在本书当中，作者德雷谢维奇历数哈佛、耶鲁、普林斯顿等常春藤学校学生的“数宗罪”：过于自信却输不起；朋友圈同质化，固步自封；思维僵硬，与社会脱节， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2459036769/" title="GPT应用_PrivateGPT">GPT应用_PrivateGPT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">项目地址：https://github.com/imartinez/privateGPT
+提出音频编码器
+SoundStream，由编码、解码、量化器组成；通过重建和对抗损失训练模型，实现高品质音频生成。
+提出新的残差量化器，平衡速率/失真/复杂度；提出 quantizer
+d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/60055/" title="论文阅读_音频压缩_Encodec">论文阅读_音频压缩_Encodec</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-27T00:00:00.000Z" title="Created 2023-04-27 00:00:00">2023-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 高保真神经音频压缩
+name_en: High Fidelity Neural Audio Compression
+date_publish: 2022-10-24
+paper_addr: http://arxiv.org/abs/2210.13438
+code: github.com/facebookresearch/encodec
+1 读后感
+方法与 SoundStream 相似，模型主要使用了卷积，LSTM，还加入 Transformer
+优化量化单元，以减少带宽。
+2 摘要
+Encodec 也是一个音频编码器 audio codec，包括编码器 -
+解码器架构、量化方法和感知损失等要素。EnCodec
+在多个音频压缩比和采样率条件下，在语音和音乐的压缩中均达到了最先进的质量水平。
+文章还讨论了神经网络压缩模型的两个问题：如何表示噪音和如何高效地压缩，作者通过构建大而多元化的训练集和引入辨别器网络，解决了第一个问题，而通过引入熵编码和实时模式流的控制来解决第二个问题。
+检验了 EnCodec 的运算速度、实时和压缩效果，得到了较好的实验效果。
+3 方法
 
-1 功能
-1.1 整体功能，想解决什么问题
-搭建完整的 RAG 系统，与 FastGPT
-相比，界面比较简单。但是底层支持比较丰富，可用于知识库的完全本地部署，包含大模型和向量库。适用于保密级别比较高，或者完全不想使用收费模型和服务的情况。
-1.2
-当前解决了什么问题，哪些问题解决不了
-PrivateGPT
-提供了整体转换、入库、存储、匹配、合成答案，图形界面的解决方案，并提供图形界面用于检索操作。
-RAG
-所面对的问题，比如不够准确，多文档组合生成答案这些问题，需要进一步细化工具，似乎不能通过架构来解决。另外，由于多数本地部署的模型效果与
-ChatGPT
-差距比较大，这里只是看到了本地部署的架构和实现的可能性，部署后用户是否能接受其效果，还待验证。
-1.3
-提供哪些功能点，其中哪些是刚需
-核心功能是通过简单的操作，实现对本地文件的检索和问答，功能相对单一。
-1.4
-用户使用难度，操作逻辑是否过于复杂
-整体工具链使用了 poetry
-构建，安装相对方便。但由于包含了深度学习库，肯定比一般项目复杂 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/688527560/" title="开源项目_大模型应用_awesome-chatgpt-prompts-zh">开源项目_大模型应用_awesome-chatgpt-prompts-zh</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">https://github.com/PlexPt/awesome-chatgpt-prompts-zh
-1 功能
+模型由 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/64089/" title="论文阅读_音频表示_wav2vec_2">论文阅读_音频表示_wav2vec_2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-27T00:00:00.000Z" title="Created 2023-04-27 00:00:00">2023-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">12345中文名: wav2vec 2.0：语音表示自监督学习框架英文名: wav2vec 2.0：A Framework for Self-Supervised Learning of Speech Representations地址: http://arxiv.org/abs/2006.11477代码: https://github.com/pytorch/fairseq时间: 2020-10-22
+1 读后感
+模型用于语音识别，模型结构结合了 CNN 和
+Transformer。文章言简意赅，结构非常舒服。
+2 摘要
+先从未标注语音中学习音频的表示，然后通过少量标注数据精调，得到模型优于用大量标注数据训练的模型，且其原理非常简单。
+仅使用十分钟的标记数据和 53k
+小时的未标记数据的预训练，可达到 4.8/8.2
+WER。这证明了使用有限数量的标记数据进行语音识别的可行性。
+3 介绍
+语音识别系统一般需要成千上万小时的转录语音（语音 +
+对应文本）才能达到可接受的性能，而对于全球近 7,000
+种语言中的大多数来说，并没有这么多标注数据。
+神经网络受益于大量无标记训练数据。自监督 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/12779/" title="论文阅读_语音合成_Spear-TTS">论文阅读_语音合成_Spear-TTS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 说话、阅读和提示：少量监督实现高保真文本转语音
+name_en: Speak, Read and Prompt：High-Fidelity Text-to-Speech with
+Minimal Supervision
+paper_addr: http://arxiv.org/abs/2302.03540
+code: https://google-research.github.io/seanet/speartts/examples/
+date_publish: 2023-02-07
+1 读后感
+这是一个完整的 TTS 系统，可视为 AudioLM 的延展。
+2 摘要
+多语言的语音合成系统，使用大量无监督数据，少量有监督数据训练，结合了两种类型的离散语音表示，解耦了：从文本生成语义标记（读），由语义标记再生成声音标记（说）两部分，用大量纯音频数据训练“说模块”，减少“读模块”对并行数据（并行数据指：文本语音数据对）的需求。
+为控制说话人，使用提示方法，只需要 3
+秒音频即可合成在训练集中未见过的说话人的语音。
+实验表明，SPEAR-TTS 仅使用 15
+分钟的并行数据 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/53626/" title="论文阅读_语音合成_VALLE-X">论文阅读_语音合成_VALLE-X</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 用你自己的声音说外语：跨语言神经编解码器语言建模
+name_en: Speak Foreign Languages with Your Own Voice：Cross-Lingual
+Neural Codec Language Modeling
+paper_addr: http://arxiv.org/abs/2303.03926
+date_publish: 2023-03-07
+1 读后感
+对 VALL-E
+的扩展，以源语言语音和目标语言文本为提示，预测目标语言语音的声学标记序列，可用于从语音到语音的翻译任务。它可以生成目标语言的高质量语音，同时保留看不见的说话者的声音、情感和声学环境。有效缓解了外国口音问题，可以通过语言
+ID 来控制。
 
-整体功能，想解决什么问题
+以从源文本和目标文本中导出的音素序列，以及从音频编解码器模型中导出的源声学标记作为提示，生成目标语音。
 
-ChatGPT 中文调教指南：提供一些常用的使用场景及对应的 Prompt
-提示
+2 介绍
+主要贡献
+• 提出 VALL-E X
+条件跨语言语言模型，以源语言语音和目标语言文本为提示，预测目标语言声学标记。
+•
+多语言上下文学习框架，能保持看不见的说话者的声音、情感和语音背景，仅依赖源语言中的一个句子提示 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/38219/" title="论文阅读_语音合成_VALL-E">论文阅读_语音合成_VALL-E</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: 神经网络编解码器语言模型实现零样本 TTS
+name_en: Neural Codec Language Models are Zero-Shot Text to Speech
+Synthesizers
+date_publish: 2023-01-05
+paper_addr: http://arxiv.org/abs/2301.02111
+code: https://github.com/microsoft/unilm/tree/master/valle
 
-当前解决了什么问题，哪些问题解决不了
+1 读后感
+语音合成模型，输入是待合成的文本，3
+秒的录音，输出为与录音一致的合成后的语音内容。
+2 与传统 TTS 的差异
+之前的语音模型是：音素 -&gt;梅尔倒谱 -&gt;音频；VALL-E 是：音素
+-&gt;离散编码 -&gt;音频。
 
-针对想解决实际问题，但不知道如何描述，以及不知道 AIGC
-可以解决什么问题的用户，进行很好的使用引导。
-项目主要提供数据，无代码；程序员可以参考其中的一些提示，普通用户无法直接拿来使用。
-
-提供哪些功能点，其中哪些是刚需
-
-提供丰富的场景与提示的对应关系
-
-用户使用难度，操作逻辑是否过于复杂
-
-作者团队除了提供该应用的网页版，他还提供了 Windows, Mac, Linux,
-Android，小程序入口。可通过试用和购买其附费服务使用。
-
-
-2 技术栈
-
-技术栈是什么
-
-这里没有什么代码，主要是场景及相关的提示的数据
-
-现有底层工具消化了哪些常用功能
-
-源自项目：https://github.com/f/awesome-chatgpt-prompts (95.1K
-star)，可以看作是这个项目的中文版本，但比英 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2784054517/" title="GPT应用_chuanhu川虎">GPT应用_chuanhu川虎</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-14T00:00:00.000Z" title="Created 2023-12-14 00:00:00">2023-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">https://github.com/GaiZhenbiao/ChuanhuChatGPT
-
-1 功能
-1.1 整体功能，想解决什么问题
-
-官网说明：为 ChatGPT 等多种 LLM
-提供了一个轻快好用的 Web
-图形界面和众多附加功能
-
-1.2
-当前解决了什么问题，哪些问题解决不了
-
-支持多种大模型（也可接入本地模型），简单的本地文档提问，可以连网查询实时数据，提供常用提示词，支持多个对话，小而美的界面。
-个人感觉：通用的功能都有，精细度一般。
-
-1.3
-提供哪些功能点，其中哪些是刚需
-
-一般人可能主要使用 OPENAI
-聊天为主，附加的实时搜索和与文件对话可能偶尔使用。
-
-1.4
-用户使用难度，操作逻辑是否过于复杂
-
-基本属于简单配置一下，开箱即用，整体 Docker
-也比较轻量，容易部署。配置时有一些细节，还需要注意。
-
-2 技术栈
-2.1 技术栈是什么：
-
-代码主要由 Python 编写，前端由 Gradio 实现，中间层使用
-Langchain，词向量使用 faiss
-
-2.2
-现有底层工具消化了哪些常用功能
-
-使用 langchain 加强了对大模型的调用
-使用 grad ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/6792/" title="数据库_mongoDB">数据库_mongoDB</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-13T00:00:00.000Z" title="Created 2023-12-13 00:00:00">2023-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">1 介绍
-MongoDB 是一种 NoSQL
-数据库，它将每个数据存储为一个文档，这里的文档类似于 JSON/BSON
-对象，具体数据结构由键值（key/value）对组成。字段值可以包含其他文档，数组及文档数组。其数据结构非常松散，常用于存储比较复杂灵活的数据结构。
-MongoDB
-基于分布式文件存储，介于关系数据库和非关系数据库之间；是非关系数据库当中功能最丰富，最像关系数据库的。
-2 基本概念
-
-数据库：数据库用于保存一组相关数据，由集合组成；相当于关系数据库中的库。
-集合：集合用来表示一个实体，如学生集合；集合由文档组成，相当于关系数据库中的表。
-文档：文档表示一条记录，比如一位同学可以是一个文档，相当于关系数据库中的记录。
-
-3 用法
-123456$ docker pull mongo:5.0.18$ docker run --rm -d -p 27017:27017 -v /宿主机目录:/data/db \  -e MONGO_INITDB_ROOT_USERNAME=adminUser \  -e MONGO_INITDB_ROOT_PASSWORD=adminPassw ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/153060689/" title="GPT应用_FastGPT">GPT应用_FastGPT</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-13T00:00:00.000Z" title="Created 2023-12-13 00:00:00">2023-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/">0_工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/">GPT应用</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/0-%E5%B7%A5%E5%85%B7/GPT%E5%BA%94%E7%94%A8/%E5%A2%9E%E5%BC%BA%E5%B7%A5%E5%85%B7/">增强工具</a></span></div><div class="content">
-1 功能
-1.1 整体功能，想解决什么问题
-
-官方说明：FastGPT 是一个基于 LLM
-大语言模型的知识库问答系统，提供开箱即用的数据处理、模型调用等能力。同时可以通过
-Flow 可视化进行工作流编排，从而实现复杂的问答场景！
-个人体会：在不用编程的情况下，快速建立简单的本地知识库。
-
-1.2
-当前解决了什么问题，哪些问题解决不了
-
-作者团队可能是觉得大模型本身太单薄了，希望通过结合其它工具，做一个中间层的方案，用大模型解决更多问题。
-向下接入了多个大模型：GPT、Claude、Spark、ChatGLM 等；向上除了提供
-很好用的 Web 工具，还提供了类似 OpenAI 的 API
-供其它程序接入其功能，如：微信，飞书……；针对本地知识库，实现了数据的解析，存储，问答功能，并做了一些优化（评价本地知识库效果是一个非常复杂的问题，不在此讨论）。
-提供了工作流
-Flow，个人感觉对于想开箱即用的人来说有些复杂；对于深度使用者略显单薄。
-计算 Embedding 以及答案的合成都需要连网使用。
-
-1.3
-提供哪些功能点，其中哪些是刚需
-
-基本的与大模型聊天问答功能
-本地知识库支持， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/5038/" title="项目包管理工具_poetry">项目包管理工具_poetry</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-11T00:00:00.000Z" title="Created 2023-12-11 00:00:00">2023-12-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/">3_编程</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/">Python</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/3-%E7%BC%96%E7%A8%8B/Python/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 介绍
-Poetry 是一个用于 Python
-项目的包管理工具，它相对于传统的 pip 和 requirements.txt
-的优势在于：使得项目依赖管理更加方便，且结合了更多新工具，还提供命令行进一步配置。
-当在同一系统或在同一个 docker 中，使用多个 Python
-程序时，可能由于工具链冲突无法同时安装，poetry
-将每个项目所需要的资源都安装在它自己的虚拟环境中，很好地解决了冲突问题。
-使用此方法，可以把库挂在系统之外，也不需要总是重打 docker image
-了。
-2 用法
-2.1 配置文件
-设置文件是：pyproject.toml，其中包含包及对应版本，可配置选项等等。
-2.2 安装 python 包
-Poetry 默认会将 Python
-包安装在项目的虚拟环境中，而虚拟环境通常会创建在项目根目录的.venv
-文件夹内。
-
-查看安装信息：
-
-1$ poetry env info
-
-安装包
-
-1$ peotry install
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/35/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/#content-inner">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/#content-inner">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/#content-inner">92</a><a class="extend next" rel="next" href="/page/37/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1450256404/" title="LLM+知识库_总结篇">LLM+知识库_总结篇</a><time datetime="2026-04-10T00:00:00.000Z" title="Created 2026-04-10 00:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1330542445/" title="模仿欲望_读后感">模仿欲望_读后感</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1149488569/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+3 主要贡献
+• 我们提出了 VALL-E，有效使用上下文学习能力的 TTS
+框架，音频编解码器代码作为中间表示，以取代传统的梅尔声谱图。
+•
+通过利用大量的半监督数据在说话者维度构建了一个通用的
+TTS 系统。
+• VALL-E
+能够以相同的输入文本提供不同的输出，并 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/10468/" title="论文阅读_音频生成_AudioLM">论文阅读_音频生成_AudioLM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-25T00:00:00.000Z" title="Created 2023-04-25 00:00:00">2023-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/1-%E9%9F%B3%E9%A2%91/">1_音频</a></span></div><div class="content">name_ch: AudioLM：一种音频生成的语言建模方法
+name_en: AudioLM：a Language Modeling Approach to Audio
+Generation
+date_publish: 2022-09-07
+paper_addr: http://arxiv.org/abs/2209.03143
+1 读后感
+主要解决生成语音的两个问题：一致性和高质量。
+2 摘要
+这是一个利用长期一致性生成高质量音频的框架，它先将音频输入转成一系列离散的
+token，然后将生成音频作为表示空间的语言建模。提出了一种混合的分词方案来平衡重建质量和长依赖的结构。
+使用Mask
+方法捕获长距离的关系，最终使用离散编码生成高品质的合成效果。它可以通过简短的提示，来生成自然连贯延续语音。利用大量无监督数据训练，在没有任何文字标注或注释的情况下，AudioLM
+会生成句法和语义上合理的语音延续，同时还保持说话人身份和不可见的说话人的韵律。另外，还可以生成钢琴音乐。
+3 介绍
+在数据都是无监督的情况下，基于 Transformer
+架构。具体使用的技术包括：对抗性神经音频压缩，自监督 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3799564753/" title="论文阅读_MAE">论文阅读_MAE</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-18T00:00:00.000Z" title="Created 2023-04-18 00:00:00">2023-04-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/">2_算法</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/">8_图形图像</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/2-%E7%AE%97%E6%B3%95/8-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/%E5%9B%BE%E5%83%8F%E8%A1%A8%E7%A4%BA%E4%B8%8E%E6%A3%80%E7%B4%A2/">图像表示与检索</a></span></div><div class="content">123456name_ch: 带遮蔽的自编码器是大规模的视觉学习者name_en: Masked Autoencoders Are Scalable Vision Learnersothers: MAE 论文逐段精读 https://www.bilibili.com/video/BV1sq4y1q77t/?spm_id_from=333.337.search-card.all.click&amp;vd_source=eef058f284e51ad4598d556801a9fc84paper_addr: https://ieeexplore.ieee.org/document/9879206/journal: 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)date_publish: 2022-06-01
+1 读后感
+图像领域的无监督学习，延续 ViT 使用 Transformer 结构
+论文阅读_ViT，学习 BERT
+遮蔽图片块，然后预测被遮蔽的块实现自我学习 autoencoder。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/46387/" title="医学论文_ICU_强化学习_SEPSIS">医学论文_ICU_强化学习_SEPSIS</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-04-15T00:00:00.000Z" title="Created 2023-04-15 00:00:00">2023-04-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/2-Note/">2_Note</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/">0_Technic</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/">1_医学</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/2-Note/0-Technic/1-%E5%8C%BB%E5%AD%A6/%E5%85%B6%E5%AE%83/">其它</a></span></div><div class="content">读后感
+一般跨领域论文，方法优点在于在 RL 应用于 ICU，缺点在于 RL
+方法比较老，处理不了连续数据，所以试了很多离散方法，我觉得用深度学习可能就解决了，另外，奖励只使用了患者是否死亡，比较粗。
+目标
+其目的不是进行脓毒症诊断，而是利用分布式 RL 学习和评估治疗策略。
+算法为每个状态 - 动作对的奖励分布建模，而不仅仅是期望值。
+还设计了一种新的脓毒症模拟器 (见 2.4 节)，该模拟器可以近似模拟患者在
+ICU
+接受治疗时的脓毒症过程。分成两部分数据，分别跑，然后对比其一致性。
+数据
+使用 MIMIC 数据，用 SEPSIS-3.0 标注 SEPSIS。使用 kNN
+基于距离的方法进入数据插补（由于有些数据不测量可能是因为医学觉得不需要）。
+方法
+用聚类方式离散化数据，使用 Q-Learning 实现决策。
+拆分训练和测试集，好像是用训练数据训练模型，然后用测试数据测试医生操作和模型决策。
+定义行为：静脉输液量和血管升压药剂量表示。血管升压药包括血管加压素、多巴胺、肾上腺素、去甲肾上腺素和去氧肾上腺素，而静脉输液包括血液制品、晶体液、胶体液和团注液。
+定义状态：对用53 个特 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/35/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/35/#content-inner">35</a><span class="page-number current">36</span><a class="page-number" href="/page/37/#content-inner">37</a><span class="space">&hellip;</span><a class="page-number" href="/page/85/#content-inner">85</a><a class="extend next" rel="next" href="/page/37/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">849</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">236</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">189</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1450256404/" title="LLM+知识库_总结篇">LLM+知识库_总结篇</a><time datetime="2026-04-10T00:00:00.000Z" title="Created 2026-04-10 00:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1330542445/" title="模仿欲望_读后感">模仿欲望_读后感</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1149488569/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">10</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E4%B8%BB%E9%A3%9F/"><span class="card-category-list-name">主食</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E8%8F%9C/"><span class="card-category-list-name">菜</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/VS-Code/" style="font-size: 1.1em; color: #999">VS Code</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.39em; color: #99a5b5">强化学习</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E5%9F%BA%E9%87%91%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">基金交易</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 1.17em; color: #999ca0">阅读</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.21em; color: #999da3">3D打印</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">AI工具</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.32em; color: #99a2ae">大模型/应用</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.21em; color: #999da3">机器学习/自动建模</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.14em; color: #999a9c">Python/图形图像</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.43em; color: #99a6b8">编程语言</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.35em; color: #99a3b1">阅读/心理学</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.25em; color: #999fa7">Python/少儿编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a8bc">操作系统/Linux</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.14em; color: #999a9c">情感</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.14em; color: #999a9c">社会现象</a> <a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a> <a href="/tags/%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">关系</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.28em; color: #99a0aa">美食</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.28em; color: #99a0aa">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">网络环境</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/04/"><span class="card-archive-list-date">April 2026</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">March 2026</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/02/"><span class="card-archive-list-date">February 2026</span><span class="card-archive-list-count">108</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">920</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1264k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-10T15:06:31.427Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">11</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E4%B8%BB%E9%A3%9F/"><span class="card-category-list-name">主食</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E8%8F%9C/"><span class="card-category-list-name">菜</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E9%87%91%E8%9E%8D%E5%B8%82%E5%9C%BA/" style="font-size: 1.14em; color: #999b9d">金融市场</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 1.26em; color: #999fa8">特征工程</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">视频生成</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">网络服务</a> <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" style="font-size: 1.26em; color: #999fa8">区块链</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1/" style="font-size: 1.1em; color: #999">Web服务</a> <a href="/tags/Pytorch/" style="font-size: 1.34em; color: #99a3b0">Pytorch</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80-Java/" style="font-size: 1.18em; color: #999ca1">编程语言/Java</a> <a href="/tags/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6/" style="font-size: 1.1em; color: #999">开源软件</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">设计</a> <a href="/tags/%E6%B0%91%E6%97%8F/" style="font-size: 1.1em; color: #999">民族</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.3em; color: #99a1ac">美食</a> <a href="/tags/Ubuntu/" style="font-size: 1.1em; color: #999">Ubuntu</a> <a href="/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 1.14em; color: #999b9d">方法论</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.42em; color: #99a6b7">效率</a> <a href="/tags/%E9%A5%AE%E9%A3%9F/" style="font-size: 1.1em; color: #999">饮食</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 1.22em; color: #999ea4">股票</a> <a href="/tags/2023%E5%B9%B4/" style="font-size: 1.14em; color: #999b9d">2023年</a> <a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.46em; color: #99a7bb">编程语言</a> <a href="/tags/Skills/" style="font-size: 1.1em; color: #999">Skills</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/%E8%AF%AD%E9%9F%B3%E5%90%88%E6%88%90/" style="font-size: 1.26em; color: #999fa8">语音合成</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E6%8A%BD%E5%8F%96/" style="font-size: 1.14em; color: #999b9d">关系抽取</a> <a href="/tags/Obsidian/" style="font-size: 1.14em; color: #999b9d">Obsidian</a> <a href="/tags/%E9%87%91%E8%9E%8D%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">金融工具</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 1.26em; color: #999fa8">知识管理</a> <a href="/tags/%E7%BB%8F%E6%B5%8E/" style="font-size: 1.1em; color: #999">经济</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.18em; color: #999ca1">目标管理</a> <a href="/tags/%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.38em; color: #99a4b4">大型语言模型</a> <a href="/tags/%E5%8D%8F%E8%AE%AE/" style="font-size: 1.1em; color: #999">协议</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.18em; color: #999ca1">项目管理</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.22em; color: #999ea4">自然语言处理/工具</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 1.1em; color: #999">性能</a> <a href="/tags/%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">模型优化</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%80%9D%E8%80%83/" style="font-size: 1.14em; color: #999b9d">工作思考</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/04/"><span class="card-archive-list-date">April 2026</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">March 2026</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/02/"><span class="card-archive-list-date">February 2026</span><span class="card-archive-list-count">37</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">849</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1081.2k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-10T15:34:23.949Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>
