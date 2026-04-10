@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2026-04-09 17:00:18'
+  postUpdate: '2026-04-10 15:06:34'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -163,170 +163,201 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">201</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1823650063/" title="XYStock 1.2.0新功能解析">XYStock 1.2.0新功能解析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-14T00:00:00.000Z" title="Created 2025-12-14 00:00:00">2025-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/">工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/xystock/">xystock</a></span></div><div class="content">1 引子
-行情好的时候更容易赚钱，有时候等待一波行情可能需要十年。我最近开始开发股票分析相关工具。现在是个不错的时间点，也有足够的动力，加上关注这方面的人越来越多。
-七月中参加一个股票相关的大数据比赛，在之后的学习会上，我想分享自己在建模比赛中的收获，又觉得所用的方法过于单一。然后开始系统地阅读相关论文，并试用
-GitHub
-上高星级的股票工具，最终决定自己动手做工具，一两周后，我完成了一个版本并开源，同时写了简要介绍。没想到，收到了很多老友的反馈，好像中年人都在玩这个。
-在开发过程中，我也在操作自己的账户，产生了很多疑问，关注了一些公众号和
-UP
-主，听他们的实盘分析，同时读一些经典书籍，涉及长线短线、背后逻辑和具体方法等。为了每次分享都能增添一些亮眼的内容，不断寻找更前沿的方向。在与朋友的讨论中，一次次的质疑，反驳，也激发出更多的思路和激情。
-于是继续更新，将更多的理解融入工具中。制作工具时添加的每个功能都旨在解决具体问题，不因他人有此功能而盲目跟风。接下来介绍的是我对这些数据的理解，也是当前版本的新增的功能。
-先对工具做个简要介绍：XYStock 开源工具支持对 A 股市场全部股 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2539455493/" title="AI在股票决策中的应用_开源项目XYStock">AI在股票决策中的应用_开源项目XYStock</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-14T00:00:00.000Z" title="Created 2025-12-14 00:00:00">2025-12-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/">工具</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/xystock/">xystock</a></span></div><div class="content">1 摘要
-用 AI
-辅助做股票相关决策，原理很简单：首先获取你关注的股票相关数据，然后提取一些特征，结合用户的需求交给
-AI。AI
-会充当投资经理的角色，进行分析和决策。用户说“我不懂资产负债表、利润表、蜡烛图、筹码分布，也不会看财报研报……”。而有一定能力的大模型，基本具备普通投资经理的素质，可以帮你解释和决策。
-这东西没什么门槛，谁都能做，关键在于工具是否好用，比如：抓取哪些信息、如何处理、怎样交给大模型，以及如何呈现出来，怎么做又省时又省钱。
-最近，我开发了一个股票辅助决策工具 XYStock，并已在 GitHub
-上开源。我和朋友们使用后都感觉不错，下面就来介绍一下。
-项目地址：https://github.com/xieyan0811/xystock
-2 引言
-最近股票市场非常活跃。前几周，我在分享会上分析了 TradingAgents
-的论文和源码，第二周小伙伴又分析了其他中文的开源股票辅助工具。我们把“星”数较高的都试了一遍。各有千秋，确实有很多让人眼前一亮的功能，但还没找到一个完全够用的工具。喜欢
-A 工具的某个功能，又喜欢 B
-工具的另一个功能，但不能对单支股票逐个使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1111133153/" title="Python金融库进阶指南">Python金融库进阶指南</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-13T00:00:00.000Z" title="Created 2025-12-13 00:00:00">2025-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">引入
-之前我们讨论过一些偏基础的金融库，比如 stockstats
-可以很快帮我们把常见指标算出来。在实战中，很快会发现“有指标”还远远不够。很多时候需要的是更复杂的信息结构，比如趋势方向、支撑位和阻力位的位置关系，信号之间的组合判断，以及最基本也最容易被忽略的回测验证。
-今天来看看一些较为高阶的 Python
-金融库。许多库都被称为“技术分析库”，但它们的目标其实各不相同。像 TTI 和
-pandas-ta
-恰好是两种走向几乎完全相反的代表。它们正好位于交易系统中的两个不同层次，一个侧重于结构和决策的雏形，另一个侧重于高阶信息的提取和配置。
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3422531688/" title="对谈_260214_有风的地方除了风还有啥">对谈_260214_有风的地方除了风还有啥</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-25T00:00:00.000Z" title="Created 2026-02-25 00:00:00">2026-02-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="content">Yan
+读刘亮程、读李娟作品的时候，感觉很舒服，除了西北的辽阔以外，对我来说，更多地来自于无拘无束，不被审视，不被定义，活在自己的场域里：很舒展。没有过多的社会认同倾向。
+而我们中原地区，尤其是亲戚朋友多，交往密集的环境里，就是会有某种低气压。儒家的熟人社会……
+人很难只忠于自己的感受。
+5.2
+你想要的不是上位，是“松动”。读刘亮程和李娟时的舒服，不只是西北辽阔，而是：关系稀疏，评价延迟，生活节奏自定。社会压力不是消失了，而是稀释了。
+中原式熟人网络，本质是高频互动 + 长期记忆：
 
+你的行为会被记录
+你的选择会被议论
+你的角色会被期待
 
+这和儒家秩序有关——关系优先于个体。“忠于感受”在这种结构里容易被视为自我中心。所以你感到“低气压”，不是脆弱，是结构本身密度高。
+人为创造“稀疏区”：
 
+减少无效社交暴露
+保留少数高质量连接
+在精神上拥有“自己的场域”
 
-
-
-## 分析
-
-
-如果粗略分一下层次，大概可以理解成两层：
-
-
-更底层的是“特征层”，主要工作是把价格序列加工成可以使用的结构化信息，比如各种技术指标、趋势信息、支撑阻力等，这一层尽量客观，尽量少做判断。
-
-
-再上一层是“策略层”，开始引入规则，比如什么时候算买点、什么时候该卖出，这一层不可避免会掺杂人的主观选择。
-
-
-在这个框架下看，TTI 更靠近策略，pandas-ta
-更靠近特征。它们的差异，本质上是封装程度的差异。
-
-
-
-TTI ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/67953906/" title="压力与行为分析">压力与行为分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/tmp/">tmp</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/tmp/%E5%AF%B9%E8%B0%88/">对谈</a></span></div><div class="content">没有压力会怎样？
-人无压力轻飘飘，井无压力不出油，是这样吗？我比较认同的一种说法是：人在强压下容易偷懒，只要有机会就会躺平；而在安全无压的环境里，则会释放出好奇的天性。
-在自己身上很明显：我只有在很放松的情况下才能深度思考。有时候被卡了几周的难题，会在一两天内完全解决，偏向研究和创造；但有压力的时候也能有效地完成任务，对一些完全可控的事，压力就是增效器。
-大概可以将状态拆分为三种：
-
-无压：容易发散思维，思考有弹性，适合研究、创作、哲学性问题。
-中压：效率最高，适合执行型任务。比如说，截止日期、交付、考试等，确实是增效器。
-强压：人变成“生存模式”，目标只有一个：尽快结束痛苦。在这个阶段最容易偷懒、躺平、敷衍以及走捷径。
-
-绘画、旅行也是，自古以来只有衣食无忧者才能去做。很难想象一家老小都饿着，画家还能从容地去体验，因为压迫和紧张感，战斗或逃跑的本能，大概会占据多数注意力。
-张雪峰说，很多专业需要有家底才能考虑，家境普通的就老老实实读个工科，先保证从容生存。想想也是，从心理压力的角度来看，对于一个有家庭、社会压力和责任感的人来说，如果不先解决生存问题，很难有心力去尝试成功率很低的事儿。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/846911396/" title="为什么我们总是卖飞">为什么我们总是卖飞</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%8F%8D%E6%80%9D/">反思</a></span></div><div class="content">1 引言
-最近回测策略时发现一些有意思的事。刷到个视频，说散户拿不住牛股，震荡几下就跑了，大肉都没吃着。其实数据也印证了这一点：股票一旦起飞，真能拿住的人非常少。无论基本面、技术面还是消息面，中间都有太多下车点。这篇就聊聊，为什么我们总是卖飞，以及能怎么改。
-## 2 实操复盘
-以下是这波大牛市里，我买过的最好的一支股票，问题是在它涨的过程中我一直卖，还没涨起来就卖掉了大部分。我的操作如图：
-
-红色是买入点，绿色是卖出点，蓝色是仓位。可以看到从 24
-年初我就开始买，在将近一年的横盘微跌中一直加仓；7
-月开始涨，我就开始卖，涨了还没三分之一，我已经卖掉大半了——典型卖飞。这种情况下收益是
-61%（不计本金）。
-3 最好的操作
-这种情况下最赚钱的策略是持有。假设我在第一次操作时就把用在这支股票上的所有资金买入，并在最后一次操作时全部卖出，相当于一直满仓，这种情况下的收益是
-258%。
-但实话说，谁也没有后眼。一支从来没买过的股票，也不会一开始就满仓。只是想说明：最大的损失并不是选错股，而是没拿住好股。
-
-4 回测规则交易
-你也可以说，可能就是我目光短浅，心理素质不行……于是我测了 MAC ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2718856415/" title="为什么钱少更容易亏">为什么钱少更容易亏</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%8F%8D%E6%80%9D/">反思</a></span></div><div class="content">引入
-最近有一种说法：A 股里能赚钱的，大多都是账户在 100
-万以上的。钱少的人亏的人比例明显更高。小资金在操作上，天然就带着几个坑。今天就聊聊小资金和大资金的差别，容易踩的坑以及应对方法。
-分析
-小资金亏损多，不仅是人的问题，而是几个现实问题交织在一起：资金少、心理压力大、操作体系不够完整。
-结构性约束
-
-钱少就意味着仓位集中，一只票踩雷就很痛。
-买不起优质高价股，只能买便宜的票，结果波动大，容易被套。
-交易成本对小资金来说特别明显，哪怕赢了，也可能被手续费蚕食不少。
-账户小的钱，一旦亏损就很难翻身：比如，50 元到 100 元，需要赚
-100%，从 100 元跌回 50 元，只需亏
-50%，本金折损后想回到原来的水平，难度更大。”
-
-心理阈值低
-
-账户小，盈亏感受强烈：涨一点就急着跑（拿不住慢慢涨的趋势），跌一点就死扛（扛不住大跌）。
-目标收益总想高点，常常盯着暴涨的妖股，追求快感型收益。
-等待机会很难做到，总觉得不动就亏，结果就频繁操作，风险反而更高。
-这些心理反应，很多并不是性格问题，而是经验不足带来的认知空白。
-心理压力 → 情绪反应 → 并不是每个人都适合高波动 →
-各自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/379701662/" title="分清价值与技术仓">分清价值与技术仓</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%8F%8D%E6%80%9D/">反思</a></span></div><div class="content">最近在做策略池，有一个小小的发现，觉得还挺有意思：在股票交易中，学习得越多，反而越难做决策。当使用多个策略来监测同一支股票，不同策略给出的行为建议常常不一致，甚至互相冲突——一个让买一个让卖。
-比如：
-
-上涨途中突然回调，KDJ
-提示超卖，但均线结构却给了卖出信号，这到底是买还是卖？
-刚买就跌了 5% 没破支撑，是不是要加仓？但纪律又告诉你要止损？
-技术面超卖、情绪冰点、动能向下，却又可能超跌反弹，这到底怎么判？
-
-多数书只讲单条规则，很少讲“规则互相打架时怎么办”。现实比书复杂得多。在本篇文章中，我们将分析造成这种现象的原因，并探讨解决这些冲突的方法。
-
-1 价值仓 vs
-技术仓：先分清你到底在做哪一种
-很多混乱，其实来源于——用价值逻辑做技术仓，用技术手段处理价值仓。
-这两个体系完全不同。
-价值仓（长期逻辑）：
-
-判断的是“公司未来值不值得拥有”
-趋势大方向不坏，就能拿
-下跌是机会，可以摊成本（前提是长期逻辑没坏）
-不需要 RSI/KDJ 这种短线指标
-
-技术仓（规则交易）：
-
-判断的是“信号对不对”
-入场、出场、止损、止盈都按规则执行
-不摊成本、不讲感情
-完全看价格行为，与公司本 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2263036901/" title="借助大模型_快速了解陌生股票">借助大模型_快速了解陌生股票</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E5%B7%A5%E5%85%B7/">工具</a></span></div><div class="content">1 引子
-对于不太熟悉的股票和行业，可以通过与大型模型对话来获取进一步的信息。本文是一个示例，展示如何在短时间内，通过一系列问题初步了解股票的所属行业、行业周期、市场地位、优劣势及竞争对手等。这个套路可能对大多数股票都适用。
-在与模型交流后，我请一位朋友帮忙看了一下，他提供了额外的见解，比如公司的核心优势、解决的痛点问题，还推荐了官网的介绍。整体感觉是：来自人的建议更有针对性，能够直击重点。但不是所有感兴趣股票我都能找到熟悉的朋友，而我也有很多问题，人家也没空一一解答。
-综上，我觉得用大模型可以解决50-70%的问题，它可能是未来操作的重要环节，毕竟不能只买自己熟悉的领域，还是需要扩展一下能力范围。
-2 讨论
+哪怕物理环境不变，心理上也可以建立一个低干扰区。你说“不是不在意就不存在”。对。但可以做到：它存在，但不是时时刻刻压在我头顶。那种舒展感，其实是结构距离被拉开的感觉。
 Yan
-我想了解一下赣锋锂业这支股票以及公司，能简单帮我介绍行业的吗？
-5
-公司自称是“世界领先的锂生态企业”，业务贯穿锂产业链多个环节。赣锋锂业的业务可以从“上游
-→ 中游 → 下游 →
-回收”几个环节来看，构成其所谓的“锂生态”布局。产品线丰富—不仅单一锂盐，还做金属锂、锂化合物、锂电池等。
-根据英文维基资料，公司被认为是中国最大的锂盐生产商之一，在全球也排名靠前。
+是的，很多认知是被定义的，塑造的，就也有机会被改造。 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1430040385/" title="250720_对谈_感受力的平权宣言">250720_对谈_感受力的平权宣言</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E6%88%91%E8%AE%A4%E7%9F%A5/">自我认知</a></span></div><div class="content">
+[!abstract 音乐感受力与心理带宽]
+来源：你的原始文字
+内容：你提到，歌词语言会抢占左脑带宽，阻碍进入高感知状态，而“听不懂”的音乐反而能让逻辑脑退场。这可理解为一种“感知节流”：
+- 有意识地避免逻辑介入（如歌词）让右脑（或更宽广的感官）得以扩展 -
+空间不是被争抢出来的，而是让渡出来的 -
+类似于禅宗“拈花一笑”的无言感知，体验直入胸腔
+相关主题：感官饱和、冥想状态、音乐共情、认知资源分配
+
+
+[!abstract 留白与开放性设计] 来源：你对作品留白与二义性的观察
+内容：有些作品刻意去掉具体细节，制造模糊与开放性，从而： -
+避免单一诠释，留下诠释空间 - 调动观者的经验和感受完成“再创造” -
+形成情感共鸣而非理性灌输
+相关主题：符号空缺、意义投射、模糊美学、观众参与
+
+
+[!abstract 感受力的频段差异]
+来源：你关于感受差异的反思
+内容： - 每个人都有自己的感知频段，无需强求统一标准 -
+有人偏好浓烈直给，有人爱好细腻铺陈，都是平等的选择 -
+表达和接收没有高低，只看“是否共振”，而非“是否高级” -
+不装，是最好的状态；感受到快乐，就是作品最大的价值 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/2140472206/" title="对谈_250227_自我与他人谁更重要">对谈_250227_自我与他人谁更重要</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span></div><div class="content">总结：我们用太多的“应该”塑造自己，忽略了对世界的直接感受。时间一长就没有“自己”了，我该怎么做，我的价值都被他人界定评价，被人牵着鼻子走。
+我：昨天我看了个综艺，里面有一个价值排序环节，有孩子、父母、爱人、自己……几乎在场的所有人都把自己排最后了，把自己排第二还解释了半天。这个对吗？当然，每个人都有自己的选择，但当时这个比例，有点夸张了。隐隐觉得不考虑道德绑架的因素，如果他们真是这么想的，这？
+G：从文化角度来看，在许多社会（尤其是东亚文化背景下），“无私”被高度推崇，个体往往被教导要优先考虑他人，把自己放在最后似乎是一种“美德”，甚至可以说是社会期待的投射。如果不考虑外部的道德压力，而这些人真心实意地觉得自己应该排在最后，那可能意味着：
+
+自我价值感的贬低——他们可能潜意识里认为，自己的需求和幸福比不上他人重要。
+集体主义文化的深层影响——在某些文化里，把自己放在最后是一种“正确答案”，即使个人内心并不完全认同。
+角色期待的强化——很多人可能是父母、子女、伴侣，他们会觉得这些角色的责任要求他们牺牲自己，否则就是不合格的父母/子女/爱人。
+
+但从另一个角度来看，如果所有人都把自己放在 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/1398427745/" title="对谈_250304_礼物&amp;关系">对谈_250304_礼物&amp;关系</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span></div><div class="content">总结：“无论你怎么对我，我都义无反顾”，长期这样真的可以吗？这里讨论的可能不是礼物，而是关系。
+对谈中最喜欢的内容：关系是连接，而不是归属。关系的价值排序取决于它的质量。很少有人告诉我们：你的感受才是最重要的，你可以选择你的关系，而不是被关系定义。
+我：今天想聊礼物，有时候我觉得礼物应该送一些高于正常水平的，会觉得更有心意，更不同；但有时候又觉得不应该送给别人自己都不舍得买不舍得用的东西，这样会让我有低人一等的感觉。
+G：你希望礼物体现特别的心意，但又不希望自己在这个过程中感到低人一等。如果换个角度看，送礼物可以不只是“价格”或者“稀缺性”来衡量，而是更贴近你和对方的关系，比如：
+
+送对方会喜欢但平时不会自己买的东西，这样是“超出日常但不会让自己难受”。
+送有个人特色的，比如定制的、带有特殊意义的，这样的礼物不一定贵，但独特性很强。
+送“体验”而非物品，比如一次特别的活动、一本你精挑细选的书，这样不会让你有失衡感，也能体现心意。
+
+我：很喜欢你提出的送“体验”，送东西可能也不一定是别人需要的。你说“不对等感”，可能还真是，低人一等可能还真是个先验。可能在某种关系不舒服，在其中干啥都感觉 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3015950793/" title="对谈_250315_被动利他">对谈_250315_被动利他</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span></div><div class="content">
+[!zk 20250315105459089-0] 利他与个人节奏的权衡
+来源：来自对话讨论如何在利他与保持个人节奏之间取得平衡
+内容：个人长板虽然存在，但常因环境因素未能充分发挥。过度利他会导致自我透支，应在利他与个人节奏中找到平衡，通过调整回应方式和关系，避免被动迎合环境。
+- 对利他行为的反思，考虑其真实意图和范围 -
+在个人节奏中安排回应时间以避免干扰 - 对低价值交流学习拒绝和筛选策略
+相关主题：个人节奏 利他关系 调整策略
+
+1 总结
+探讨利他行为对个人资源的影响，建议在保持自身节奏和优先级的前提下调整回应方式，避免环境压力导致的长期消耗。
+2 精华
+对谈中最喜欢的内容：你不是“无私奉献型 AI
+助手”，你的时间也很重要。你可以主动选择以什么方式存在于这段关系里。
+3 事后
+后来又遇到了类似情况，我没有立即回复，还是有点不安，然后观察自己的状态，情绪变化，没有刻意避开这件事，也没有一直想这件事，也没有什么崩塌了。也对自己说，目前确实有太多待做，等我有空翻手机了再闲聊吧。
+4 对谈
+我：……
+我就是觉得有一些长板或者喜欢的东西，但没太好地发挥和生长，可能因为环境告诉我，干这 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/4054284220/" title="对谈_250402_白眼狼">对谈_250402_白眼狼</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/">人际关系</a></span></div><div class="content">
+[!zk 20250402105459089-0] 关系的流动性与个人选择
+来源：对话与熊逸《思辨的禅趣》启发
+内容：关于人与人之间关系的动态性，个体在关系中拥有更多选择权，而不仅仅是被动接受。
+- 人的不同时期处于不同的世界观和生活状态中，这会影响关系的自然流动。 -
+不必为了坚守过去关系的模样而压缩自己，应接受关系的自然变化。 -
+道德并不等于自我牺牲，成长不是无止尽的压榨自己，个人感受与文化期待之间需要找到平衡。
+-
+在社会规则中争取属于自己的位置，建立更能量流动的关系，减少被他人消耗。
+相关主题：关系，个体选择，自我成长，文化影响 类别：03_关系互动
+
+总结
+刚开始时，我们两小无猜，但当我们分别进入各自多变的世界后，看到人还可以这样，关系还可以这样，我也变成了不一样的自己，要不要“忠于过去”？
+现在的世界不像从前，环境可能几十年不变，环境稳定，人稳定，关系也稳定。我们之前更多在抵触关系变化，人内心深处向往的是：稳定、安全、可控。好像和人建立关系像游戏过关打怪：赢了，这“关系”就是你的财产了，然而“关系”本就不是一成不变的，但这又似乎与道德有些冲突。
+精华
+
+你不只是被推动的 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/874842566/" title="对谈_250427_舞台与社交的自我察觉">对谈_250427_舞台与社交的自我察觉</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/">人际关系</a></span></div><div class="content">
+
+[!zk 20250427115459089-0] 看到别人的舞台 来源：用户与 ChatGPT
+对话（2025-04-27） 内容：关于朋友圈、个人展示与社交感受的反思：
+
+每个人都需要一个“被看见、被理解”的舞台。
+朋友圈更多是个人意义的展示，不必强求对他人有价值。
+理解别人需要展示存在感，但自己不一定要迎合不喜欢的表达。
+社交中可选择性互动：真心喜欢就回应，无感就沉默，温和但有边界。
+
+相关主题：舞台感 社交边界 自我表达
+
+
+
+[!zk 20250427115459089-1] 社交引导与使用时机 来源：用户与 ChatGPT
+对话（2025-04-27） 内容：关于引导对话与掌控社交节奏的思考：
+
+引导朋友展开自我分享的小技巧包括：选择对方擅长又自己能参与的话题、挖掘细节、以兴趣驱动提问。
+练习掌握对话引导是一种社交技巧，但不必每次都使用。
+能力是用来选择的，不是用来无休止表演的。需要的时候出手，不需要时自然收起。
+保持自然松弛，避免陷入“运营感”或无意义的消耗。
+
+相关主题：社交技巧 节奏感 边界与自由
+
+
+精华
+
+理解他们的动机，不代表我们必须喜欢，或者必须迎合。
+真 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/84472842/" title="对谈_250514_苦大仇深&amp;求全">对谈_250514_苦大仇深&amp;求全</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/">人际关系</a></span></div><div class="content">
+[!zk 20250514115459089-0] 苦大仇深”状态分析与调节
+来源：对话 4o 与 Yan
+内容：探讨“苦大仇深”的状态，及其对生活的影响，提出了调整方法和反思关系建设的核心要素。
+- 人是需要回报感、被肯定感和温柔的自我认同，才能持续走下去。 -
+计划表里的词语改一改，使其不再是审判，而是邀请。 -
+直、谅、多闻三原则维系高质量关系，通过吸引力、稳固度和成长空间提高关系质感。
+- 从“社会关系”转向“人格关系”，理解和成长才是关键。
+相关主题：自我剖析、关系维护、心理调节 类别：03_ 关系互动
+
+
+[!zk 20250514115459089-1] “讨好”的本质 来源：自我确认与人际互动
+内容： -
+“讨好”并不只是为了让人喜欢自己，而是借由他人的正面反馈来确认自己的价值。
+- 本质上，是将“他人视角”过度内化为“自我评判标准”。 -
+讨好型人格往往出现在权力不对等或情感匮乏的成长环境中。
+相关主题：边界感、自我确认、价值感知敏感
+
+精华
+
+用“警觉 - 惩罚”系统维持秩序，忽略了人也需要“激励 -
+滋养”系统来成长。
+人是需要回报感、被肯定感和温柔的自我认同， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/31813038/" title="对谈_250520_最近发展区理论与实践">对谈_250520_最近发展区理论与实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/">人际关系</a></span></div><div class="content">
+[!zk 20250520105459089-0] 维果斯基的最近发展区理论及其应用
+来源：基于《叙事疗法实践地图》的阅读，以及 4o 的对话讨论
+内容：维果斯基的“最近发展区”理论强调个体在支持下能达到的潜能，而不是单纯自我完成。讨论中还涉及如何在教育孩子时应用这种理论，以培养孩子的自主意识和自我效能感。
+- 最近发展区：当前能力与潜能之间的空间，强调支持而非直接替代 -
+叙事心理学的桥梁式帮助：协助个体在关系中获得更多可能性和选择权 -
+应用于教育：帮孩子建立节奏感、选择权、及能动感，以促进自我发展
+相关主题：维果斯基、叙事心理学、儿童教育、自我效能感 类别：03_
+关系互动
+
 Yan
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3976493549/" title="量化书与工具杂谈">量化书与工具杂谈</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-Systematic-Trading/">读书笔记_Systematic_Trading</a></span></div><div class="content">本篇没啥主题，聊聊量化相关的书、用模型改代码、重构旧项目之类的。
-推荐一本量化相关的书《Systematic
-Trading》
-最近在看凌波的《量价时空》，觉得挺好，还买了两本，一本送朋友。他分别从：量、价、时、空四个角度分析，集成了量价关系，蜡烛图等常用技术。很多细节其实都能用程序实现，整体像是给了一套工具包，信息密度很大，但稍微有点散。
-后来和 GPT5 聊这个，他给我推荐了 Robert Carver 的《Systematic
-Trading》。我看了介绍和第一章，有种“他乡遇故知”的感觉：他讲的和我最近从数据里看到的、操作体验很契合，加上作者文本力很强，就觉得很棒。
-现在大多数的书相对来说偏向于归纳总结型，最大的问题是有知识没思考。看完似乎会了，但不知道该怎么用。偶尔在看盘时，联想到某个工具，但还未必用得对。
-对作者的感觉是：始于技术，终于世界观。最喜欢他的一点是，他不是先提出自己的观点，再找证据证明自己的观点。他力求从正反两方面进行论证。书中包含了很多作者的真知灼见，绝不是那种为写而写的作品。
-关于内容，目前看完第四章，他说的几乎每个大问题，都是我遇到过或者正在遇到的问题。比 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/3324960025/" title="用布林线的变种计算支撑位">用布林线的变种计算支撑位</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2025-12-12T00:00:00.000Z" title="Created 2025-12-12 00:00:00">2025-12-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/">股票</a><i class="fas fa-angle-right article-meta-link"></i><a class="article-meta__categories" href="/categories/%E8%82%A1%E7%A5%A8/%E9%87%8F%E5%8C%96/">量化</a></span></div><div class="content">1 引子
-这是一个奇怪的脑洞：想到一种计算支撑位的量化方法。
-早上和 AI
-讨论如何识别阻力位和支撑位。它给我建议了几种方法，包括低点聚类、计算筹码密集区、斐波那契回调、均线以及最大回撤。这些方法与我对支撑的理解不太相符，而且都过于复杂，频繁处理多支股票数据比较耗费资源。
-于是，我想到一个关于“平台”的逻辑。其中最简单的一种情况是：如果在某个区间震荡了一段时间后向上/向下突破，那么这个区间就可以作为支撑或阻力位。它应该是价格相对集中、波动较小的一段区间，具体可以通过中值和标准差来判断。
-这是不是有点像布林带?
-只不过布林带用的是均值和标准差。那么，是否可以通过稍作修改布林带的计算方法，简单地计算阻力和支撑位呢？
-2 支撑位
-在不同行情中，比如横盘震荡、上升趋势或下行趋势中，支撑位都是价格止跌反弹的位置。在上升趋势中，支撑位通常是向上通道的下轨或最近一轮上涨的低点；在下行趋势中，支撑位可能是历史低点或先前平台的下沿，尽管在下跌过程中较难判断底部。在横盘震荡时，支撑位出现在历史K线中多次试探并止跌反弹的位置。无论是哪种，都需要：多次回踩未破后反弹。
-它的本质是买方意愿 + 成本密度 + 心 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/#content-inner">93</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">921</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">297</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">201</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3923457328/" title="DeepSeek V3.2技术解析">DeepSeek V3.2技术解析</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/237027024/" title="基金投顾跟车服务指南">基金投顾跟车服务指南</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2554708808/" title="DeepSeek条件记忆Engram">DeepSeek条件记忆Engram</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/338537409/" title="论文阅读_使用LLM对大脑的影响">论文阅读_使用LLM对大脑的影响</a><time datetime="2026-01-23T00:00:00.000Z" title="Created 2026-01-23 00:00:00">2026-01-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/282576699/" title="3D 打印手办上色的材料与优化">3D 打印手办上色的材料与优化</a><time datetime="2026-01-20T00:00:00.000Z" title="Created 2026-01-20 00:00:00">2026-01-20</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+看《叙事疗法实践地图》又补了一块拼图，讲的是维果斯基的“最近发展区理论”。
+我试着描述一下现在的认知，也不一定对：
+之前主流心理学倡导“胶囊自我”理念——自我占有、自我控制、自给自足和自我实现；而叙事心理学这一大类更注意人与人，人与社会的关系。最近发展区理论的大概意思是：我们有时候会被卡住，需要有人提点一下，这个关系的建度、构造也很讲究：并不是带我飞、罩着我，不是定个高目标鼓励我，也不是鞭策我；他 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/posts/422807121/" title="2505xx_对谈_情感的定性与分析">2505xx_对谈_情感的定性与分析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BA%BA%E9%99%85%E5%85%B3%E7%B3%BB/">人际关系</a></span></div><div class="content">
+[!zk 20250512105459089-0] 情感是流动的，不是标签
+来源：关系分类的错觉
+内容：
+
+“亲情/友情/爱情”是社会分层，不是本质分化
+情感的底层是连接、共鸣、安全感、互动回馈
+每段关系的“角色定位”可以和“情感状态”错配，这不代表违背伦理，而是一种现实复杂性
+
+相关主题：亲密关系动力、关系与身份、情感生理机制
+
+
+[!zk 20250512105459089-1] 情感不是“关系的义务”，而是“回应的产物”
+来源：《姥姥的外孙》与佛学对照
+内容：
+
+真正动人的不是“名义上的情感”，而是共处中逐渐产生的回应与理解
+佛教式语言的“否定性描写”（它不是 xx，不是
+yy）与艺术中“侧面画像”有相似之处
+情感无法完全被语言捕捉，但可以被逼近——通过具象细节、互动轨迹、共通体验
+
+相关主题：佛学语言策略、共鸣机制、关系生成论
+
+
+[!zk 20250512105459089-2] 爱情观的更新：从“唯一神话”到“多维流动”
+来源：用户对爱情认知的演变与重新建模
+内容：
+
+曾相信会有一个“天选之人”，仿佛架着七彩祥云而来，爱情是一种命定的唯一峰值。
+现在的理解是：爱情不是单一 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/#content-inner">92</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1450256404/" title="LLM+知识库_总结篇">LLM+知识库_总结篇</a><time datetime="2026-04-10T00:00:00.000Z" title="Created 2026-04-10 00:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1330542445/" title="模仿欲望_读后感">模仿欲望_读后感</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1149488569/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="More">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">90</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/"><span class="card-category-list-name">说给一个人听</span><span class="card-category-list-count">88</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/"><span class="card-category-list-name">01_自我建构</span><span class="card-category-list-count">36</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E5%AE%9E%E4%BF%AE/"><span class="card-category-list-name">实修</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E8%AF%B4%E7%BB%99%E4%B8%80%E4%B8%AA%E4%BA%BA%E5%90%AC/01-%E8%87%AA%E6%88%91%E5%BB%BA%E6%9E%84/%E6%80%9D%E8%80%83%E4%B8%8E%E8%A7%89%E6%82%9F/"><span class="card-category-list-name">思考与觉悟</span><span class="card-category-list-count">17</span></a></li></ul></li></ul></li></ul></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E5%8F%8D%E6%80%9D/" style="font-size: 1.14em; color: #999b9d">反思</a> <a href="/tags/%E6%83%85%E7%BB%AA%E7%AE%A1%E7%90%86/" style="font-size: 1.28em; color: #99a0aa">情绪管理</a> <a href="/tags/%E7%A8%B3%E5%AE%9A%E5%B8%81/" style="font-size: 1.1em; color: #999">稳定币</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-XGBoost/" style="font-size: 1.32em; color: #99a2ae">机器学习/XGBoost</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.41em; color: #99a5b7">操作系统/Linux</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" style="font-size: 1.23em; color: #999ea6">深度学习/扩散模型</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-%E5%B7%A5%E5%85%B7/" style="font-size: 1.23em; color: #999ea6">自然语言处理/工具</a> <a href="/tags/%E6%95%99%E8%82%B2/" style="font-size: 1.19em; color: #999da1">教育</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 1.1em; color: #999">插件推荐</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6/" style="font-size: 1.14em; color: #999b9d">浏览器插件</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E7%8E%B0%E5%AE%9E%E8%AE%A4%E7%9F%A5/" style="font-size: 1.1em; color: #999">现实认知</a> <a href="/tags/%E6%83%85%E7%BB%AA%E8%A1%A8%E8%BE%BE/" style="font-size: 1.23em; color: #999ea6">情绪表达</a> <a href="/tags/%E6%83%85%E7%BB%AA%E5%88%86%E6%9E%90/" style="font-size: 1.1em; color: #999">情绪分析</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.46em; color: #99a7bb">人工智能</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.1em; color: #999">后端</a> <a href="/tags/%E4%B8%BB%E8%A7%82%E8%83%BD%E5%8A%A8%E6%80%A7/" style="font-size: 1.1em; color: #999">主观能动性</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" style="font-size: 1.14em; color: #999b9d">插件开发</a> <a href="/tags/%E4%B8%BB%E9%A2%98%E7%AC%94%E8%AE%B0/" style="font-size: 1.23em; color: #999ea6">主题笔记</a> <a href="/tags/%E6%8A%91%E9%83%81/" style="font-size: 1.1em; color: #999">抑郁</a> <a href="/tags/%E7%A4%BE%E4%BA%A4/" style="font-size: 1.1em; color: #999">社交</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.37em; color: #99a4b2">编程语言</a> <a href="/tags/%E8%81%8A%E5%A4%A9/" style="font-size: 1.1em; color: #999">聊天</a> <a href="/tags/%E8%AE%A4%E7%9F%A5%E5%BB%BA%E6%9E%84/" style="font-size: 1.1em; color: #999">认知建构</a> <a href="/tags/%E6%84%9F%E7%9F%A5/" style="font-size: 1.1em; color: #999">感知</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" style="font-size: 1.32em; color: #99a2ae">个人成长</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 1.1em; color: #999">开发</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/" style="font-size: 1.1em; color: #999">知识库</a> <a href="/tags/%E6%83%85%E7%BB%AA%E6%9C%BA%E5%88%B6/" style="font-size: 1.1em; color: #999">情绪机制</a> <a href="/tags/%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" style="font-size: 1.1em; color: #999">跨境支付</a> <a href="/tags/%E7%81%B5%E6%84%9F%E5%88%9B%E6%84%8F/" style="font-size: 1.14em; color: #999b9d">灵感创意</a> <a href="/tags/%E9%A9%B1%E5%8A%A8/" style="font-size: 1.1em; color: #999">驱动</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 1.1em; color: #999">运动</a> <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.5em; color: #99a9bf">心理学</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">代码生成</a> <a href="/tags/%E8%87%AA%E4%BF%A1/" style="font-size: 1.1em; color: #999">自信</a> <a href="/tags/%E5%A5%96%E5%8A%B1%E6%9C%BA%E5%88%B6/" style="font-size: 1.1em; color: #999">奖励机制</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 1.14em; color: #999b9d">思考</a> <a href="/tags/%E7%9B%AE%E6%A0%87%E7%AE%A1%E7%90%86/" style="font-size: 1.19em; color: #999da1">目标管理</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">9</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/08/"><span class="card-archive-list-date">August 2025</span><span class="card-archive-list-count">17</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/07/"><span class="card-archive-list-date">July 2025</span><span class="card-archive-list-count">38</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/06/"><span class="card-archive-list-date">June 2025</span><span class="card-archive-list-count">37</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">921</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1283.2k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-09T17:00:15.137Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/"><span class="card-category-list-name">0_IMO</span><span class="card-category-list-count">2</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">方法</span><span class="card-category-list-count">1</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/0-IMO/%E6%96%B9%E6%B3%95/%E5%B7%A5%E4%BD%9C/"><span class="card-category-list-name">工作</span><span class="card-category-list-count">1</span></a></li></ul></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/"><span class="card-category-list-name">1_Data</span><span class="card-category-list-count">10</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E4%B8%BB%E9%A3%9F/"><span class="card-category-list-name">主食</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data/%E7%94%9F%E6%B4%BB/%E8%8F%9C/"><span class="card-category-list-name">菜</span><span class="card-category-list-count">3</span></a></li></ul></li></ul></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%B3%95%E5%BE%8B/" style="font-size: 1.1em; color: #999">法律</a> <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">云服务器</a> <a href="/tags/VS-Code/" style="font-size: 1.1em; color: #999">VS Code</a> <a href="/tags/%E8%88%9E%E5%8F%B0%E6%84%9F/" style="font-size: 1.1em; color: #999">舞台感</a> <a href="/tags/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" style="font-size: 1.1em; color: #999">智能家居</a> <a href="/tags/%E7%BF%BB%E8%AF%91/" style="font-size: 1.1em; color: #999">翻译</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">工具</a> <a href="/tags/Transformer/" style="font-size: 1.1em; color: #999">Transformer</a> <a href="/tags/%E6%96%87%E5%8C%96/" style="font-size: 1.1em; color: #999">文化</a> <a href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="font-size: 1.39em; color: #99a5b5">强化学习</a> <a href="/tags/%E5%8D%A1%E7%89%87/" style="font-size: 1.1em; color: #999">卡片</a> <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6/" style="font-size: 1.1em; color: #999">语言学</a> <a href="/tags/%E5%9F%BA%E9%87%91%E4%BA%A4%E6%98%93/" style="font-size: 1.1em; color: #999">基金交易</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 1.1em; color: #999">旅游</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 1.17em; color: #999ca0">阅读</a> <a href="/tags/%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86/" style="font-size: 1.1em; color: #999">视频处理</a> <a href="/tags/3D%E6%89%93%E5%8D%B0/" style="font-size: 1.21em; color: #999da3">3D打印</a> <a href="/tags/AI%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">AI工具</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9D%83/" style="font-size: 1.1em; color: #999">软件版权</a> <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E5%BA%94%E7%94%A8/" style="font-size: 1.32em; color: #99a2ae">大模型/应用</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%87%AA%E5%8A%A8%E5%BB%BA%E6%A8%A1/" style="font-size: 1.21em; color: #999da3">机器学习/自动建模</a> <a href="/tags/Python-%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F/" style="font-size: 1.14em; color: #999a9c">Python/图形图像</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 1.43em; color: #99a6b8">编程语言</a> <a href="/tags/Python-%E6%95%B0%E6%8D%AE/" style="font-size: 1.21em; color: #999da3">Python/数据</a> <a href="/tags/%E5%92%96%E5%95%A1%E6%8B%89%E8%8A%B1/" style="font-size: 1.1em; color: #999">咖啡拉花</a> <a href="/tags/%E9%98%85%E8%AF%BB-%E5%BF%83%E7%90%86%E5%AD%A6/" style="font-size: 1.35em; color: #99a3b1">阅读/心理学</a> <a href="/tags/Python-%E5%B0%91%E5%84%BF%E7%BC%96%E7%A8%8B/" style="font-size: 1.25em; color: #999fa7">Python/少儿编程</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 1.1em; color: #999">读书</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-Linux/" style="font-size: 1.46em; color: #99a8bc">操作系统/Linux</a> <a href="/tags/reading/" style="font-size: 1.1em; color: #999">reading</a> <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" style="font-size: 1.1em; color: #999">#论文阅读</a> <a href="/tags/%E6%83%85%E6%84%9F/" style="font-size: 1.14em; color: #999a9c">情感</a> <a href="/tags/%E7%84%A6%E8%99%91/" style="font-size: 1.1em; color: #999">焦虑</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%8E%B0%E8%B1%A1/" style="font-size: 1.14em; color: #999a9c">社会现象</a> <a href="/tags/AI/" style="font-size: 1.1em; color: #999">AI</a> <a href="/tags/%E5%85%B3%E7%B3%BB/" style="font-size: 1.1em; color: #999">关系</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 1.28em; color: #99a0aa">美食</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 1.28em; color: #99a0aa">笔记</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">网络环境</a> <a href="/tags/%E6%88%90%E7%98%BE/" style="font-size: 1.1em; color: #999">成瘾</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/04/"><span class="card-archive-list-date">April 2026</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/03/"><span class="card-archive-list-date">March 2026</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/02/"><span class="card-archive-list-date">February 2026</span><span class="card-archive-list-count">108</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2026/01/"><span class="card-archive-list-date">January 2026</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/12/"><span class="card-archive-list-date">December 2025</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/11/"><span class="card-archive-list-date">November 2025</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/10/"><span class="card-archive-list-date">October 2025</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/09/"><span class="card-archive-list-date">September 2025</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">920</div></div><div class="webinfo-item"><div class="item-name">Total Count :</div><div class="item-count">1264k</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-04-10T15:06:31.427Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
 <img class="img-circle profile-img" src="/img/beian.png" alt="">
 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
 </br>

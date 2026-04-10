@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>飞书机器人配置与实现 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="配置和实现飞书机器人的单向消息推送与双向交互通讯功能，以及相关的核心原理和操作步骤。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="飞书机器人配置与实现">
+<meta property="og:url" content="http://xyan666.com/posts/2261158782/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="配置和实现飞书机器人的单向消息推送与双向交互通讯功能，以及相关的核心原理和操作步骤。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2026-02-11T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-04T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/2261158782/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '飞书机器人配置与实现',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-02-04 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">飞书机器人配置与实现</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-02-11T00:00:00.000Z" title="Created 2026-02-11 00:00:00">2026-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-02-04T00:00:00.000Z" title="Updated 2026-02-04 00:00:00">2026-02-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>5min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="飞书机器人配置与实现"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="引入">1 引入</h2>
+<p>我经常需要让程序与通讯工具联动。例如：单向提醒：利用程序盯盘，并通过飞书将买卖信号或涨跌提醒发送到手机，实现程序的单向通知。双向交互：AI
+机器人流行之后，这种需求明显多了——我在本地跑一个服务，通过飞书和它对话，下指令、拿结果。</p>
+<p>一两年前不少人用微信做过类似的事，但由于并非官方接口，封号风险极高；而飞书、钉钉提供了完整、合规的开放平台，适合长期使用。本文记录一次完整的原理和配置流程。</p>
+<h2 id="原理">2 原理</h2>
+<p>飞书机器人的两种通讯模式，其核心原理与配置复杂度有明显差异：</p>
+<ul>
+<li>单向通讯：类似于“广播”。只需在飞书群中创建一个自定义机器人，获取其专属的Webhook
+URL。任何程序只需向该URL发送一个HTTP
+POST请求，即可将消息推送到群聊。身份验证已内置于URL中，实现极为简单。</li>
+<li>双向通讯：则类似于“客服对话”。它要求开发者自己部署一个具有公网访问能力的后端服务。该服务启动后，需在飞书开放平台进行配置，完成“双向绑定”。当用户在飞书客户端中与机器人对话时，消息会经由飞书服务器转发到你的后端服务，服务处理后再将回复传回飞书。整个过程涉及服务部署、公网暴露、权限配置与事件订阅，更为复杂。
+<img
+src="support/attachments_2025/Pasted%20image%2020260204113421.png" /></li>
+</ul>
+<h2 id="单向通讯快速实现消息推送">3 单向通讯：快速实现消息推送</h2>
+<h3 id="配置步骤">3.1 配置步骤</h3>
+<p>在电脑端飞书中操作：</p>
+<ul>
+<li>创建群组：新建一个用于接收消息的群组。</li>
+<li>添加机器人：进入群设置 -&gt; 群机器人 -&gt; 添加机器人 -&gt;
+自定义机器人。</li>
+<li>获取密钥：为机器人命名后，系统将提供一个 Webhook
+URL，用于发消息。</li>
+</ul>
+<h3 id="调用方式">3.2 调用方式</h3>
+<p>获取URL后，几乎可以用任何能发送HTTP请求的工具或编程语言来发送消息。以下是一个 <code>curl</code> 命令示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -H &quot;Content-Type: application/json&quot; \</span><br><span class="line">-d &#x27;&#123;&quot;msg_type&quot;:&quot;text&quot;,&quot;content&quot;:&#123;&quot;text&quot;:&quot;您的程序提醒：监测到关键信号&quot;&#125;&#125;&#x27; \</span><br><span class="line">https://open.feishu.cn/open-apis/bot/v2/hook/your-webhook-token</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="双向通讯搭建可交互的机器人">4 双向通讯：搭建可交互的机器人</h2>
+<p>双向通讯的搭建是一个系统工程，至少需要按顺序完成以下四个核心环节：</p>
+<h3 id="第一步在飞书开放平台创建应用">4.1
+第一步：在飞书开放平台创建应用</h3>
+<p>在飞书官方注册你的机器人身份并获取密钥。</p>
+<ul>
+<li>访问 <a
+target="_blank" rel="noopener" href="https://open.feishu.cn/app">飞书开放平台</a>，扫码登录。<br />
+</li>
+<li>点击创建“企业自建应用”，填写名称和描述。</li>
+<li>添加应用能力 -&gt;机器人 -&gt;添加。</li>
+<li>获取凭证：在应用配置中，务必记录好以下三个核心凭证，后续配置本地服务时需要填入：
+<ul>
+<li><code>App ID</code> 与 <code>App Secret</code>：应用的身份标识。（发新版本时
+appid/app secret 可能变化，需要在配置文件.env 中更新）</li>
+<li><code>Verification Token</code>：用于验证事件请求的合法性（在“事件与回调”页面获取）。</li>
+</ul></li>
+<li>配置权限：在“权限管理”中，为机器人开通至少以下权限：
+<ul>
+<li><code>im:message</code> （获取用户发给机器人的单聊消息）</li>
+<li><code>im:message.p2p_msg</code> （发送单聊消息）</li>
+</ul></li>
+<li>创建测试环境：在“测试企业和人员”中创建一个测试企业，并将你的应用关联进去，后续测试均在此环境中进行。</li>
+</ul>
+<h3 id="第二步创建并启动本地服务">4.2 第二步：创建并启动本地服务</h3>
+<p>需要一个后端服务来处理飞书转发的消息。飞书官方提供了Python的示例代码（200多行代码，基于Flask实现），可以快速启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 克隆示例代码</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/larksuite/lark-samples.git</span><br><span class="line"><span class="built_in">cd</span> lark-samples/robot_quick_start/python </span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 安装依赖</span></span><br><span class="line">pip install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 配置凭证</span></span><br><span class="line">vi .<span class="built_in">env</span></span><br><span class="line"><span class="comment"># 在.env文件中填入第一步获取的凭证</span></span><br><span class="line">APP_ID=cli_9fxxxx00b</span><br><span class="line">APP_SECRET=EX6xxxxOF</span><br><span class="line">APP_VERIFICATION_TOKEN=cq3xxxxxxkUS</span><br><span class="line">ENCRYPT_KEY= <span class="comment"># 如未启用加密，此项留空</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 启动服务 (默认运行在3000端口)</span></span><br><span class="line">python3 server.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="第三步将本地服务暴露至公网">4.3
+第三步：将本地服务暴露至公网</h3>
+<p>飞书的服务器需要能访问到你刚启动的本地服务，因此必须为其提供一个公网可访问的地址。开发调试阶段，推荐使用 <code>ngrok</code> 工具进行内网穿透。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 安装 ngrok (以Debian/Ubuntu为例)</span></span><br><span class="line">curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo <span class="built_in">tee</span> /etc/apt/trusted.gpg.d/ngrok.asc &gt;/dev/null</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb https://ngrok-agent.s3.amazonaws.com bookworm main&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/ngrok.list</span><br><span class="line">sudo apt update &amp;&amp; sudo apt install ngrok</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 登录 ngrok 官网获取并配置 Authtoken</span></span><br><span class="line">ngrok config add-authtoken <span class="variable">$YOUR_NGROK_AUTH_TOKEN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 将本地3000端口映射到公网</span></span><br><span class="line">ngrok http 3000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>命令执行成功后，<code>ngrok</code> 会生成一个临时的公网URL（如 <code>https://xxxx.ngrok-free.dev</code>），请复制此URL。</p>
+<h3 id="第四步在飞书平台完成最终配置">4.4
+第四步：在飞书平台完成最终配置</h3>
+<p>这是将前几步串联起来的关键环节，目的是告诉飞书“将消息发送到哪里”。</p>
+<ul>
+<li>回到飞书开放平台，进入应用配置页面。</li>
+<li>找到 “事件与回调” 设置项，配置请求地址：在“事件配置”中，将 “请求地址” 填写为上一步 <code>ngrok</code> 生成的公网URL（注意：配置时你的本地服务 <code>server.py</code> 必须正在运行）。**</li>
+<li>添加订阅事件：在“已添加事件”区域，点击“添加事件”，搜索并添加 “接收消息” 事件。</li>
+<li>保存所有配置。如果配置成功，飞书服务器会向你的服务地址发送一个验证请求，示例代码会自动处理此验证。</li>
+</ul>
+<h3 id="测试与使用">4.5 测试与使用</h3>
+<p>完成以上所有步骤后，在飞书客户端中搜索你的机器人名称，即可开始对话。你发送的消息会经过：<code>飞书客户端 -&gt; 飞书服务器 -&gt; ngrok公网URL -&gt; 你的本地服务</code>，然后你的服务处理完再原路返回回复。</p>
+<h2 id="参考与资源">5 参考与资源</h2>
+<h3 id="飞书官方文档">5.1 飞书官方文档</h3>
+<p><a
+target="_blank" rel="noopener" href="https://open.feishu.cn/document/historical-version/develop-a-bot-in-5-minutes/step-1-create-app-and-enable-robot-capabilities">https://open.feishu.cn/document/historical-version/develop-a-bot-in-5-minutes/step-1-create-app-and-enable-robot-capabilities</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/2261158782/">http://xyan666.com/posts/2261158782/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B7%A5%E5%85%B7/">工具</a><a class="post-meta__tags" href="/tags/%E6%95%88%E7%8E%87/">效率</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/2977420593/" title="量化股票趋势的方法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">量化股票趋势的方法</div></div></a></div><div class="next-post pull-right"><a href="/posts/1823650063/" title="XYStock 1.2.0新功能解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">XYStock 1.2.0新功能解析</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/766272234/" title="GitHub Copilot用量优化指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-11-06</div><div class="title">GitHub Copilot用量优化指南</div></div></a></div><div><a href="/posts/3392808973/" title="亚马逊域名购买与管理指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-06</div><div class="title">亚马逊域名购买与管理指南</div></div></a></div><div><a href="/posts/463779484/" title="Git保护主分支指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-05</div><div class="title">Git保护主分支指南</div></div></a></div><div><a href="/posts/50944/" title="FFmpeg常用命令指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-13</div><div class="title">FFmpeg常用命令指南</div></div></a></div><div><a href="/posts/48331/" title="DBeaver使用指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">DBeaver使用指南</div></div></a></div><div><a href="/posts/24602/" title="推荐一个Obsidian皮肤"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-10</div><div class="title">推荐一个Obsidian皮肤</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">1 引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">2 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%90%91%E9%80%9A%E8%AE%AF%E5%BF%AB%E9%80%9F%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81"><span class="toc-number">3.</span> <span class="toc-text">3 单向通讯：快速实现消息推送</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 配置步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 调用方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E5%90%91%E9%80%9A%E8%AE%AF%E6%90%AD%E5%BB%BA%E5%8F%AF%E4%BA%A4%E4%BA%92%E7%9A%84%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="toc-number">4.</span> <span class="toc-text">4 双向通讯：搭建可交互的机器人</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%9C%A8%E9%A3%9E%E4%B9%A6%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8"><span class="toc-number">4.1.</span> <span class="toc-text">4.1
+第一步：在飞书开放平台创建应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 第二步：创建并启动本地服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%B0%86%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E8%87%B3%E5%85%AC%E7%BD%91"><span class="toc-number">4.3.</span> <span class="toc-text">4.3
+第三步：将本地服务暴露至公网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E5%9C%A8%E9%A3%9E%E4%B9%A6%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%88%90%E6%9C%80%E7%BB%88%E9%85%8D%E7%BD%AE"><span class="toc-number">4.4.</span> <span class="toc-text">4.4
+第四步：在飞书平台完成最终配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 测试与使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E4%B8%8E%E8%B5%84%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">5 参考与资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A3%9E%E4%B9%A6%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 飞书官方文档</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1450256404/" title="LLM+知识库_总结篇">LLM+知识库_总结篇</a><time datetime="2026-04-10T00:00:00.000Z" title="Created 2026-04-10 00:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1330542445/" title="模仿欲望_读后感">模仿欲望_读后感</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1149488569/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

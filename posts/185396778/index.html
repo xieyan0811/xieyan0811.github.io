@@ -1,0 +1,345 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>openclaw_把记忆变成配置文件 | Yan 的杂物志_个人主页分享</title><meta name="author" content="Yan.xie"><meta name="copyright" content="Yan.xie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="探讨OpenClaw 在记忆存储与长期知识蒸馏方面的技术背景与用户记忆管理方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openclaw_把记忆变成配置文件">
+<meta property="og:url" content="http://xyan666.com/posts/185396778/index.html">
+<meta property="og:site_name" content="Yan 的杂物志_个人主页分享">
+<meta property="og:description" content="探讨OpenClaw 在记忆存储与长期知识蒸馏方面的技术背景与用户记忆管理方法。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://xyan666.com/img/blog_logo.png">
+<meta property="article:published_time" content="2026-04-07T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-13T00:00:00.000Z">
+<meta property="article:author" content="Yan.xie">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="记忆">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xyan666.com/img/blog_logo.png"><link rel="shortcut icon" href="/img/blog_logo.png"><link rel="canonical" href="http://xyan666.com/posts/185396778/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'openclaw_把记忆变成配置文件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-02-13 00:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="referrer" content="no-referrer"/><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/blog_logo.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Yan 的杂物志_个人主页分享"><span class="site-name">Yan 的杂物志_个人主页分享</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">openclaw_把记忆变成配置文件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-02-13T00:00:00.000Z" title="Updated 2026-02-13 00:00:00">2026-02-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%91%E6%8A%80/">知识科技</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word count:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading time:</span><span>6min</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="openclaw_把记忆变成配置文件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="技术背景">1 技术背景</h2>
+<p>当下多数 AI Agent
+的能力已经趋同：接入模型、调用工具、操作本地环境、支持 skill / mcp
+扩展。这些能力本身并不是全新发明。可能在某个时间点上，大模型成熟了，工具生态完善了，成本降低了，于是一个产品突然爆发。</p>
+<p>Openclaw
+做的事情，更像是把这些能力系统性地整合到一起，并且打磨到可日常使用的程度。从创新角度看，它与很多
+agent
+的差异，不一定在“会不会用工具”，而更可能在记忆的设计方式：<strong>分层抽象、可回溯、可编辑，并且以
+markdown 明文形式存储在本地。</strong></p>
+<p>不少 agent 的长期记忆依赖向量库存储或隐式
+embedding，对用户来说相对黑箱；而 openclaw
+将部分长期特征外置为结构化文本，这是一个方向性的差异。</p>
+<h3 id="人格建模从权重到配置">1.1 人格建模：从权重到配置</h3>
+<p>我原来以为，如果要训练一个“数字人”，必须训练一个模型、调参、微调权重。现在看，至少有一部分稳定特征，是可以抽取为文字的。更准确地说，并不是“非参数化建模取代了参数模型”，而是：一部分人格特征被显式化为可编辑的结构化文本。</p>
+<p>原来是：不可解释、难控制、成本高。现在是：可解释、可编辑、可更新、可组合。</p>
+<p>人格不再完全藏在“黑箱权重”里，而是部分迁移到“配置文件层”。虽然可以抽取你的“骨架”，但未必能完整复现你的“活性”。但在对外互动上，这种抽取往往已经足够。</p>
+<p>如果每隔一段时间重新蒸馏、修订、进化，就不是一次性建模，而更像一个持续自我认知的工具。</p>
+<h3 id="记忆是否必要">1.2 记忆是否必要</h3>
+<p>多数日常信息，并不需要长期结构化保存：查完就走，是大脑的正常工作方式；日常聊天，本来也不是为了被检索；很多阅读，本质上是体验消费。openclaw
+的存在，某种程度上是在提醒我们：<strong>把真正有价值的行为模式与认知轨迹提炼出来，并没有想象中那么难。</strong></p>
+<h2 id="用户记忆">2 用户记忆</h2>
+<p>核心机制：长期记忆蒸馏与维护。</p>
+<h3 id="原理">2.1 原理</h3>
+<p>与不少 agent 不同，openclaw
+强调“对单一用户的持续理解”。像雇了一个固定小时工。以前家政公司每次派不同的人，每次都要重新解释一遍。现在固定一个人，他熟悉你的环境与偏好。但一个靠谱的小时工，不会因为熟悉就把你家翻个底朝天。他只会在工作过程中记录遇到的重要事项。</p>
+<p>因此它更像是<strong>事件驱动的更新机制</strong>，而不是无差别扫描。记忆大致可分为三层：</p>
+<ul>
+<li>当前对话上下文（活跃工作区）</li>
+<li>每日短期记忆（抽取重要事件）</li>
+<li>长期记忆（偏好与行为模式的蒸馏）</li>
+</ul>
+<p>这是一个从原始记录到可复用心智模型的过程。</p>
+<h3 id="如何操作记忆">2.2 如何操作记忆</h3>
+<ul>
+<li>不手动操作，系统会定期触发蒸馏（例如 runMemoryFlushIfNeeded）</li>
+<li>显式指定：“请记住，我在北京，做后端开发，技术栈 Go 和 Python”</li>
+<li>批量抽取：让它分析历史对话，生成或更新 MEMORY.md</li>
+</ul>
+<h2 id="数据存储">3 数据存储</h2>
+<h3 id="配置文件">3.1 配置文件</h3>
+<p>项目配置主要涉及两个文件：</p>
+<ul>
+<li>源码目录中的 <code>.env</code>
+文件，用于设置系统运行的环境变量。</li>
+<li>根据用户配置生成的 <code>/home/node/.openclaw/openclaw.json</code>
+文件。</li>
+</ul>
+<hr />
+<h3 id="用户相关数据">3.2 用户相关数据</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$HOME/.openclaw</span><br><span class="line">├── agents/</span><br><span class="line">│   ├── main # 主 agent</span><br><span class="line">│   │   └── sessions/*.jsonl # 原始对话</span><br><span class="line">└── workspace/</span><br><span class="line">    ├── memory/           # 每日日志（Memory）</span><br><span class="line">    │   ├── 2026-02-10.md</span><br><span class="line">    │   ├── 2026-02-11.md</span><br><span class="line">    │   └── 2026-02-12.md</span><br><span class="line">    └── MEMORY.md         # 长期核心记忆（介于 Memory 与 Learning 之间）</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<p>以上内容均为明文的 json 与 markdown 文件。</p>
+<p>通过这些文件，可以看到系统生成的结构化记录、执行过程，以及它如何从对话中抽取并形成用户画像。*</p>
+<hr />
+<h3 id="日常对话数据">3.3 日常对话数据</h3>
+<p>之前版本似乎保存在 sqlite 数据库中，用户不可直接访问，只能通过 WebUI
+的 sessions 查看（仅能看到对话内容，无法看到完整过程）。</p>
+<p>当前版本观察到，对话保存在：</p>
+<p><code>$HOME/.openclaw/agents/main/sessions/*.jsonl</code></p>
+<p>通过 id 与数据库内容关联。我的理解是：每个 session 对应一个 jsonl
+文件（新 session
+可通过右下角按钮创建）。这种方式使对话记录更透明，用户可以直接查看完整的会话数据。</p>
+<hr />
+<h3 id="抽出的数据">3.4 抽出的数据</h3>
+<p>workspace 目录下保存的是用户相关的分层抽象数据，以 markdown
+明文形式存在。</p>
+<p>源码中的 <code>/docs/zh-CN/reference/templates/</code>
+目录提供了数据模板，用户可以通过编辑这些模板，定义使用者与机器人的结构信息。</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 26%" />
+<col style="width: 36%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>层级</th>
+<th>核心文件</th>
+<th>内容与作用</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>静态档案层</td>
+<td><code>USER.md</code></td>
+<td>你的基础身份信息：位置、时区、职业等。</td>
+<td>结构固定，需主动告知或首次触发更新。</td>
+</tr>
+<tr class="even">
+<td>动态记忆层</td>
+<td><code>MEMORY*.md</code></td>
+<td>偏好、决策与重要事实。AI 自动判断并记录。</td>
+<td>格式固定，内容动态生成与覆盖。</td>
+</tr>
+<tr class="odd">
+<td>会话日志层</td>
+<td><code>memory/[日期].md</code></td>
+<td>每日具体的对话与任务记录。</td>
+<td>按日期记录，用于追溯历史。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="相关资料">4 相关资料</h2>
+<p>注意：openclaw 迭代较快，目前仅基于 26 年 2
+月初的版本进行分析，后续可能发生变化。</p>
+<p><strong>官方文档</strong>（记忆部分）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">### 🔄 Memory Maintenance (During Heartbeats)</span><br><span class="line"></span><br><span class="line">Periodically (every few days), use a heartbeat to:</span><br><span class="line"></span><br><span class="line">1. Read through recent `memory/YYYY-MM-DD.md` files</span><br><span class="line">2. Identify significant events, lessons, or insights worth keeping long-term</span><br><span class="line">3. Update `MEMORY.md` with distilled learnings</span><br><span class="line">4. Remove outdated info from MEMORY.md that&#x27;s no longer relevant</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+<p><strong>关键字</strong></p>
+<p>summarize，update，memory，MEMORY.md</p>
+<p><strong>相关代码</strong></p>
+<ul>
+<li>src/memory/manager.ts</li>
+<li>src/auto-reply/reply/memory-flush.ts</li>
+</ul>
+<p><strong>重点接口</strong></p>
+<ul>
+<li>runMemoryFlushIfNeeded()</li>
+</ul>
+<p><strong>技术文档</strong></p>
+<ul>
+<li>docs/concepts/memory.md</li>
+</ul>
+<h2 id="使用体验">5 使用体验</h2>
+<p>我其实并没有使用 Openclaw
+很长时间，让它慢慢总结我的喜好。而是把之前和其它模型的对话喂给了它。过去和其它大模型有不少我很喜欢的对话，我都保存了下来。于是我把这些记录交给
+openclaw，让它基于这些内容为我生成一份
+MEMORY.md。那些对话不仅有工具性的，比如改代码、分析股票；也包括我对很多事情的判断和态度。大概二十多个
+session，几万字。生成结果让我有点意外——它好像比我还了解我自己。</p>
+<p>在界面回复里，它只提到了一些关键点；但当我打开系统里的 MEMORY.md
+时，看到的是更完整的抽象层。某些偏好、某些倾向，它识别到了，却没有在对话中直接说出来，而是写进了长期记忆里——看破不说破。</p>
+<p>更重要的是，这一切都是明文的。我能看到它如何抽取、如何组织、如何归纳。反思，之前我们和大模型聊天，它大概也会形成某种“印象”，只是存在云端。那种感觉有点失衡——它们早已经了解你，但你看不到它如何理解，也不知道画像到底是什么样。</p>
+<p>而在 openclaw
+里，这个“画像”变成了可以审视、可以修改、可以迁移的东西。如果换模型，只要把
+MEMORY.md 提供给新的模型，它就能在一定程度上继承这种理解。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://xyan666.com">Yan.xie</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://xyan666.com/posts/185396778/">http://xyan666.com/posts/185396778/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF/">技术</a><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><a class="post-meta__tags" href="/tags/%E8%AE%B0%E5%BF%86/">记忆</a></div><div class="post_share"><div class="social-share" data-image="/img/blog_logo.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/3295776305/" title="让 OpenClaw 自己去网上查资料"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">让 OpenClaw 自己去网上查资料</div></div></a></div><div class="next-post pull-right"><a href="/posts/2997885921/" title="OpenClaw 钱花哪儿了？使用成本拆解"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">OpenClaw 钱花哪儿了？使用成本拆解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/posts/8442/" title="OPENAI的语音识别"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-13</div><div class="title">OPENAI的语音识别</div></div></a></div><div><a href="/posts/8197/" title="语音合成工具_bark"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-07</div><div class="title">语音合成工具_bark</div></div></a></div><div><a href="/posts/31085/" title="如何选择：编写程序、调用大模型还是训练模型？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-15</div><div class="title">如何选择：编写程序、调用大模型还是训练模型？</div></div></a></div><div><a href="/posts/471566193/" title="Sora技术报告"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-16</div><div class="title">Sora技术报告</div></div></a></div><div><a href="/posts/3923457328/" title="DeepSeek V3.2技术解析"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-11</div><div class="title">DeepSeek V3.2技术解析</div></div></a></div><div><a href="/posts/3392808973/" title="亚马逊域名购买与管理指南"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-06</div><div class="title">亚马逊域名购买与管理指南</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/blog_logo.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yan.xie</div><div class="author-info__description">顺流而下还是逆流而上？</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">920</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">279</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">186</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E8%83%8C%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">1 技术背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%BA%E6%A0%BC%E5%BB%BA%E6%A8%A1%E4%BB%8E%E6%9D%83%E9%87%8D%E5%88%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 人格建模：从权重到配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E6%98%AF%E5%90%A6%E5%BF%85%E8%A6%81"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 记忆是否必要</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E8%AE%B0%E5%BF%86"><span class="toc-number">2.</span> <span class="toc-text">2 用户记忆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BF%86"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 如何操作记忆</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8"><span class="toc-number">3.</span> <span class="toc-text">3 数据存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 用户相关数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%B8%B8%E5%AF%B9%E8%AF%9D%E6%95%B0%E6%8D%AE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 日常对话数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E5%87%BA%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 抽出的数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">4 相关资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-number">5.</span> <span class="toc-text">5 使用体验</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1450256404/" title="LLM+知识库_总结篇">LLM+知识库_总结篇</a><time datetime="2026-04-10T00:00:00.000Z" title="Created 2026-04-10 00:00:00">2026-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1330542445/" title="模仿欲望_读后感">模仿欲望_读后感</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3810755/" title="OpenAI的CUA_ComputerUseAgent">OpenAI的CUA_ComputerUseAgent</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1149488569/" title="MCP_实用场景讨论">MCP_实用场景讨论</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/3322575348/" title="Manus和OpenManus">Manus和OpenManus</a><time datetime="2026-04-07T00:00:00.000Z" title="Created 2026-04-07 00:00:00">2026-04-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2026 By Yan.xie</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></br>
+<img class="img-circle profile-img" src="/img/beian.png" alt="">
+<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802043346">京公网安备11010802043346号</a>
+</br>
+<a href="https://beian.miit.gov.cn/" rel="nofollow" target="_blank">京ICP备2023029600号-1</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
